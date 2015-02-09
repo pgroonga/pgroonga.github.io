@@ -9,10 +9,6 @@ layout: en
   </p>
 </div>
 
-<h2>Links</h2>
-<dl>
-  <dt>Groonga</dt>
-  <dd>
-    <a href="http://groonga.org/">http://groonga.org/</a>
-  </dd>
-</dl>
+## Links
+
+* [Groonga](http://groonga.org/) introduces related projects.

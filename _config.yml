@@ -1,2 +1,3 @@
 title: PGroonga
+markdown: kramdown
 description: A PostgreSQL plugin to use Groonga as index

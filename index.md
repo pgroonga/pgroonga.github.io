@@ -408,7 +408,3 @@ DELETE FROM pg_catalog.pg_am WHERE amname = 'pgroonga';
 
   * 板垣さん
     * PGroongaは板垣さんが開発した[textsearch_groonga](http://textsearch-ja.projects.pgfoundry.org/textsearch_groonga.html)をベースにしています。
-
-## Links
-
-* [Groonga](http://groonga.org/)

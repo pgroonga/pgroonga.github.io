@@ -1,1 +1,6 @@
+*.edit.po
+*.edit.po~
+*.pot
+*.time_stamp
 /_site/
+/_po/*.po

@@ -11,4 +11,4 @@ layout: en
 
 ## Links
 
-* [Groonga](http://groonga.org/) introduces related projects.
+* [Groonga](http://groonga.org/)

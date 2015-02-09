@@ -392,7 +392,7 @@ DELETE FROM pg_catalog.pg_am WHERE amname = 'pgroonga';
 ライセンスはBSDライセンスやMITライセンスと類似の
 [PostgreSQLライセンス](http://opensource.org/licenses/postgresql)です。
 
-著作権保持者などの詳細は[COPYING](COPYING)ファイルを参照してください。
+著作権保持者などの詳細は[COPYING](https://github.com/pgroonga/pgroonga/blob/master/COPYING)ファイルを参照してください。
 
 ## TODO
 

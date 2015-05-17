@@ -1,31 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ site.title }}</title>
-    <link href="/css/bootstrap.min.css" rel="stylesheet" medis="screen">
-    <meta name="description" content="{{ site.description }}">
-  </head>
-
-  <body>
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">{{ site.title }}</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container">
-      {{ content }}
-    </div>
-
-    <footer>
-      <hr>
-    </footer>
-
-    <script src="/js/bootstrap.min.js"></script>
-  </body>
-</html>
+---
+layout: base
+language: en
+path_prefix: /
+---
+{{ content }}

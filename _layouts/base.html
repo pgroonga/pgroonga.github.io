@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ page.language }}">
+  <head>
+    {% capture title %}{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
+    {% capture relative_path %}{{ page.url | remove_first: page.path_prefix | remove: "index.html" }}{% endcapture %}
+
+    {% if page.description %}
+      {% assign description = page.description %}
+    {% else %}
+      {% assign description = site.description %}
+    {% endif %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet" medis="screen">
+    <link href="/css/font-awesome.min.css" rel="stylesheet" media="screen">
+    <link href="/css/pgroonga.css" rel="stylesheet" medis="screen">
+    <meta name="description" content="{{ site.description }}">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        {% include navbar-content.html %}
+      </div>
+    </nav>
+
+    <div class="container">
+      {{ content }}
+    </div>
+
+    <footer>
+      <hr>
+    </footer>
+
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

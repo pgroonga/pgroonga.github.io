@@ -5,7 +5,7 @@ layout: en
   <h1>{{ site.title }}</h1>
   <p>{{ site.description }}</p>
   <p>
-    <a href="https://github.com/pgroonga/pgroonga" class="btn btn-primary btn-lg" role="button">GitHub</a>
+    <a href="/install/" class="btn btn-primary btn-lg" role="button">Use the latest version ({{ site.pgroonga_version }})</a>
   </p>
 </div>
 

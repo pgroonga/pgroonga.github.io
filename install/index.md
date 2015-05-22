@@ -3,6 +3,11 @@ title: Install
 layout: en
 ---
 
+## サポートしているPostgreSQLのバージョン
+
+  * PostgreSQL 9.3
+  * PostgreSQL 9.4
+
 ## インストール
 
 次の環境用のパッケージを用意しています。

@@ -7,3 +7,4 @@ description: A PostgreSQL plugin to use Groonga as index
 kramdown:
   enable_coderay: true
   coderay_line_numbers: table
+  input: GFM

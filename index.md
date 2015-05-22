@@ -40,7 +40,6 @@ PostgreSQLは標準では日本語で全文検索できませんが、PGroonga�
 
   * 実装
     * WAL対応
-    * スコアー対応
     * COLLATE対応（今は必ずGroongaのNormalizerAutoを使っている）
   * ドキュメント
     * 英語で書く

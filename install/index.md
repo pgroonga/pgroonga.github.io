@@ -248,3 +248,15 @@ PostgreSQLをインストールした場合は`C:\Program Files\PostgreSQL\9.4`�
     pgroonga_test=# CREATE EXTENSION pgroonga;
 
 これでインストールは完了です。
+
+## アンインストール
+
+次のSQLでアンインストールできます。
+
+```sql
+DROP EXTENSION pgroonga CASCADE;
+DELETE FROM pg_catalog.pg_am WHERE amname = 'pgroonga';
+```
+
+`pg_catalog.pg_am`から手動でレコードを消さないといけないのはおかしい気
+がするので、何がおかしいか知っている人は教えてくれるとうれしいです。

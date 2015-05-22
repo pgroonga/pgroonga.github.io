@@ -28,6 +28,7 @@ PostgreSQLは標準では日本語で全文検索できませんが、PGroonga�
  * [Overview](overview/) : PGroongaの概要です。
  * [Install](install/) : PGroongaのインストール手順の説明です。
  * [Tutorial](tutorial/) : PGroongaの使い方を実例を通して解説します。
+ * [Community](community/) : PGroongaのコミュニティーの説明です。
 
 ## ライセンス
 

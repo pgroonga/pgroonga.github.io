@@ -1,6 +1,6 @@
 title: PGroonga
 markdown: kramdown
-pgroonga_version: 0.3.0
+pgroonga_version: 0.5.0
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
 description: A PostgreSQL plugin to use Groonga as index
 

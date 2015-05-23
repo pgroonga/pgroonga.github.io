@@ -1,12 +1,9 @@
 title: PGroonga
 markdown: kramdown
-highlighter: coderay
+highlighter: rouge
 pgroonga_version: 0.5.0
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
 description: A PostgreSQL plugin to use Groonga as index
 
 kramdown:
-  use_coderay: true
-  enable_coderay: true
-  coderay_line_numbers: table
   input: GFM

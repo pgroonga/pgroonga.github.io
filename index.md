@@ -3,11 +3,15 @@ layout: en
 ---
 <div class="jumbotron">
   <h1>
-    <img alt="{{ site.title }}" title="{{ site.title }}" src="/images/pgroonga-logo.png">
+    <img alt="{{ site.title }}"
+         title="{{ site.title }}"
+         src="/images/pgroonga-logo.png">
   </h1>
   <p>{{ site.description }}</p>
   <p>
-    <a href="/install/" class="btn btn-primary btn-lg" role="button">Use the latest version ({{ site.pgroonga_version }})</a>
+    <a href="/install/"
+       class="btn btn-primary btn-lg"
+       role="button">Use the latest version ({{ site.pgroonga_version }})</a>
   </p>
 </div>
 

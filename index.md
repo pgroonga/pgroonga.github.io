@@ -16,15 +16,13 @@ layout: en
   </p>
 </div>
 
-## PGroongaとは
+## About PGroonga
 
-PGroonga（ぴーじーるんが）はPostgreSQLからインデックスとして
-[Groonga](http://groonga.org/ja/)を使うための拡張機能です。
+PGroonga (p-g-runga) is an extension for PostgreSQL to use [Groonga](http://groonga.org/) as an index.
 
-PostgreSQLは標準では日本語で全文検索できませんが、PGroongaを使うと日本
-語で高速に全文検索できるようになります。
+PostgreSQL isn't CJK full text search ready by default. You can use super fast CJK ready full text search feature by installing PGroonga into your PostgreSQL!
 
-## ドキュメント
+## Documents
 
   * [News](news/): Release information.
   * [Overview](overview/): PGroongaの概要です。

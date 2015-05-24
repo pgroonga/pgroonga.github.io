@@ -11,7 +11,8 @@ layout: en
   <p>
     <a href="/install/"
        class="btn btn-primary btn-lg"
-       role="button">Use the latest version ({{ site.pgroonga_version }})</a>
+       role="button">Use the latest version ({{ site.pgroonga_version }})
+                     released at {{ site.pgroonga_release_date }}</a>
   </p>
 </div>
 

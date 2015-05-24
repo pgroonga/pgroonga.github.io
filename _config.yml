@@ -2,6 +2,7 @@ title: PGroonga
 markdown: kramdown
 highlighter: pygments
 pgroonga_version: 0.5.0
+pgroonga_release_date: 2015-04-29
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
 description: A PostgreSQL plugin to use Groonga as index
 

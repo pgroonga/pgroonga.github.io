@@ -33,6 +33,16 @@
 
     <footer>
       <hr>
+      <div class="container">
+        {% unless page.categories contains "news" %}
+          <ul class="other-languages">
+            <li><a href="/{{ relative_path }}">English</a></li>
+            <li><a href="/ja/{{ relative_path }}">日本語</a></li>
+          </ul>
+        {% endunless %}
+        {% include contribute.html %}
+        <p class="copyright">&copy; {{ site.copyright_year }} <a href="https://github.com/pgroonga">PGroonga Project</a></p>
+      </div>
     </footer>
 
     <script src="//code.jquery.com/jquery.js"></script>

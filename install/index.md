@@ -3,21 +3,32 @@ title: Install
 layout: en
 ---
 
-## サポートしているPostgreSQLのバージョン
+# Install
 
-  * PostgreSQL 9.3
-  * PostgreSQL 9.4
+There are packages for major platforms. You can install PGroonga easily.
+
+Here are supported PostgreSQL versions:
+
+  * 9.3
+  * 9.4
+
+See a document for your platform in the followings for details:
+
+  * [Ubuntu](ubuntu.html)
+    * 14.10
+  * CentOS
+    * [5](centos.html#centos-5)
+    * [6](centos.html#centos-6)
+    * [7](centos.html#centos-7)
+  * Windows
+    * [32bit + PostgreSQL 9.4.1](windows.html#windows-32-postgresql-9-4-1)
+    * [64bit + PostgreSQL 9.4.1](windows.html#windows-64-postgresql-9-4-1)
+
+If you can't find your platform in the above list, [build and install from source](source.html).
 
 ## インストール
 
 次の環境用のパッケージを用意しています。
-
-  * Ubuntu 14.10
-  * CentOS 5
-  * CentOS 6
-  * CentOS 7
-  * Windows 32bit + PostgreSQL 9.4.1
-  * Windows 64bit + PostgreSQL 9.4.1
 
 その他の環境ではソースからインストールしてください。
 

@@ -3,47 +3,40 @@ title: Overview
 layout: en
 ---
 
-## 概要
+# Overview
 
-PGroongaはPostgreSQLからインデックスとして
-[Groonga](http://groonga.org/ja/)を使うための拡張機能です。
+PGroonga is an extension for PostgreSQL. PGroonga provides a new index that uses  [Groonga](http://groonga.org/).
 
-PostgreSQLは標準では日本語で全文検索できませんが、PGroongaを使うと日本
-語で高速に全文検索できるようになります。日本語で全文検索機能を実現する
-ための類似の拡張機能は次のものがあります。
+Groonga is an embeddable super fast full text search engine. It can be embedded into MySQL. [Mroonga](http://mroonga.org/) is a storage engine that is based on Groonga. Groonga can also work as standalone search engine. 
 
-  * [pg_trgm](https://www.postgresql.jp/document/9.3/html/pgtrgm.html)
-    * PostgreSQLに付属しているがデフォルトではインストールされない。
-    * 日本語に対応させるにはソースコードを変更する必要がある。
-  * [pg_bigm](http://pgbigm.sourceforge.jp/)
-    * ソースコードを変更しなくても日本語に対応している。
-    * 正確な全文検索機能を使うには
-      [Recheck機能](http://pgbigm.sourceforge.jp/pg_bigm-1-1.html#enable_recheck)
-      を有効にする必要がある。
-    * Recheck機能を有効にするとインデックスを使った検索をしてから、イ
-      ンデックスを使って見つかったレコードに対してシーケンシャルに検索
-      をするのでインデックスを使った検索でのヒット件数が多くなると遅く
-      なりやすい。
-    * Recheck機能を無効にするとキーワードが含まれていないレコードもヒッ
-      トする可能性がある。
+PostgreSQL doesn't support CJK full text search by default. But you can use super fast CJK full text search by installing PGroonga.
 
-PGroongaはpg\_trgmのようにソースコードを変更しなくても日本語に対応して
-います。
+## Related extensions
 
-PGroongaはpg\_bigmのようにRecheck機能を使わなくてもインデックスを使っ
-た検索だけで正確な検索結果を返せます。そのため、インデックスを使った検
-索でヒット件数が多くてもpg\_bigmほど遅くなりません。（仕組みの上は。要
-ベンチマーク。協力者募集。）
+There are some extensions that implements CJK ready full text search:
 
-ただし、PGroongaは現時点ではWALに対応していない(*)ためクラッシュリカバ
-リー機能やレプリケーションに対応していません。（pg\_trgmとpg\_bigmは対
-応しています。正確に言うとpg\_trgmとpg\_bigmが対応しているわけではなく、
-pg\_trgmとpg\_bigmが使っているGINやGiSTが対応しています。）
+  * [pg_trgm](http://www.postgresql.org/docs/9.4/static/pgtrgm.html)
+    * It's bundled in PostgreSQL but it's not installed by default.
+    * You need to change pg_trgm source code to support CJK.
 
-(*) PostgreSQLは拡張機能として実装したインデックスがWALに対応するため
-のAPIを提供していません。PostgreSQL本体がそんなAPIを提供したらWALに対
-応する予定です。
+  * [pg_bigm](http://pgbigm.osdn.jp/)
+    * It supports CJK without changing source code.
+    * It requires [Recheck](http://pgbigm.osdn.jp/pg_bigm_en-1-1.html) to remove false positives.
+    * Recheck is slow for many hits case. Because Recheck does sequential search against records found by by index search.
+    * If you disables Recheck, you may get false positives.
 
-## 次のステップ
+PGroonga supports CJK without changing source code.
 
-[チュートリアル](../tutorial/) を試してみてください。PGroongaのことをもっとよく知ることができます。
+PGroonga works without Recheck. PGroonga can find exact records only by index search. PGroonga is fast for many hits case.
+
+PGroonga doesn't support crash recovery and streaming replication because PGroonga doesn't support WAL. Because PostgreSQL doesn't provide API for supporting WAL to extensions. PGroonga will support WAL when PostgreSQL provides the API.
+
+FYI: pg\_trgm and pg\_bigm support WAL. To be precise, GIN and GiST that are used by pg\_trgm and pg\_bigm support WAL.
+
+## History
+
+PGroonga is based on [textsearch_groonga](http://textsearch-ja.projects.pgfoundry.org/textsearch_groonga.html) that was developed by Itagaki Takahiro. Thanks for the works!
+
+## The next step
+
+Try [tutorial](../tutorial/). You can know more about PGroonga.

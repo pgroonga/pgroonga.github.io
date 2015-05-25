@@ -22,31 +22,17 @@ PGroonga (p-g-runga) is an extension for PostgreSQL to use [Groonga](http://groo
 
 PostgreSQL isn't CJK full text search ready by default. You can use super fast CJK ready full text search feature by installing PGroonga into your PostgreSQL!
 
-## Documents
+## Documentations
 
-  * [News](news/): Release information.
-  * [Overview](overview/): PGroongaの概要です。
-  * [Install](install/): PGroongaのインストール手順の説明です。
-  * [Tutorial](tutorial/): PGroongaの使い方を実例を通して解説します。
-  * [Community](community/): PGroongaのコミュニティーの説明です。
+  * [News](news/): It lists release information.
+  * [Overview](overview/): It describes about PGroonga.
+  * [Install](install/): It describes how to install PGroonga.
+  * [Tutorial](tutorial/): It describes how to use PGroonga step by step.
+  * [Reference](reference/): It describes options and operators.
+  * [Community](community/): It introduces about PGroonga community.
 
-## ライセンス
+## License
 
-ライセンスはBSDライセンスやMITライセンスと類似の
-[PostgreSQLライセンス](http://opensource.org/licenses/postgresql)です。
+PGroonga is released under [PostgreSQL license](http://opensource.org/licenses/postgresql) that is similar to BSD license and MIT license.
 
-著作権保持者などの詳細は[COPYING](https://github.com/pgroonga/pgroonga/blob/master/COPYING)ファイルを参照してください。
-
-## TODO
-
-  * 実装
-    * WAL対応
-    * COLLATE対応（今は必ずGroongaのNormalizerAutoを使っている）
-  * ドキュメント
-    * 英語で書く
-    * サイトを用意する
-
-## 感謝
-
-  * 板垣さん
-    * PGroongaは板垣さんが開発した[textsearch_groonga](http://textsearch-ja.projects.pgfoundry.org/textsearch_groonga.html)をベースにしています。
+See [COPYING](https://github.com/pgroonga/pgroonga/blob/master/COPYING) file for details such as copyright holders.

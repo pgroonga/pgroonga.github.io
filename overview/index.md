@@ -39,4 +39,4 @@ PGroonga is based on [textsearch_groonga](http://textsearch-ja.projects.pgfoundr
 
 ## The next step
 
-Try [tutorial](../tutorial/). You can know more about PGroonga.
+Try [tutorial](../tutorial/). You can understand more about PGroonga.

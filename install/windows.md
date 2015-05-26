@@ -13,7 +13,7 @@ You can use both 32bit version Windows and 64bit version Windows. You can use an
 
 ## How to install
 
-Install PostgreSQL {{ site.windows_postgresql_version }}. You can use both [installer version](http://www.enterprisedb.com/products-services-training/pgdownload) and [zip version](http://www.enterprisedb.com/products-services-training/pgbindownload).
+Install PostgreSQL {{ site.windows_postgresql_version }}. You can choose [installer version](http://www.enterprisedb.com/products-services-training/pgdownload) or [zip version](http://www.enterprisedb.com/products-services-training/pgbindownload).
 
 Download PGroonga package:
 

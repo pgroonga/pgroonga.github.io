@@ -7,6 +7,35 @@ layout: en
 
 There are packages for major platforms. You can install PGroonga easily.
 
+There are separated documents for these platforms. And there is a document for building PGroonga from source.
+
+Here are supported PostgreSQL versions:
+
+  * 9.3
+  * 9.4
+
+If your PostgreSQL is older than them, you need to upgrade your PostgreSQL before you install PGroonga.
+
+See a document for your platform in the followings:
+
+  * [Ubuntu](ubuntu.html)
+    * 14.10
+    * 15.04
+  * [CentOS](centos.html)
+    * 5
+    * 6
+    * 7
+  * [Windows](windows.html)
+    * 32bit + PostgreSQL 9.4.1
+    * 64bit + PostgreSQL 9.4.1
+
+If you can't find your platform in the above list, [build and install from source](source.html).
+
+
+# Install
+
+There are packages for major platforms. You can install PGroonga easily.
+
 Here are supported PostgreSQL versions:
 
   * 9.3
@@ -71,8 +100,7 @@ If you can't find your platform in the above list, [build and install from sourc
     % sudo yum makecache
     % sudo yum install -y postgresql94-pgroonga
 
-[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いた
-い場合は`groonga-tokenizer-mecab`パッケージもインストールします。
+If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
     % sudo yum install -y groonga-tokenizer-mecab
 

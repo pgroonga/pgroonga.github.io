@@ -26,8 +26,8 @@ See a document for your platform in the followings:
     * 6
     * 7
   * [Windows](windows.html)
-    * 32bit + PostgreSQL 9.4.1
-    * 64bit + PostgreSQL 9.4.1
+    * 32bit + PostgreSQL {{ site.windows_postgresql_version }}
+    * 64bit + PostgreSQL {{ site.windows_postgresql_version }}
 
 If you can't find your platform in the above list, [build and install from source](source.html).
 

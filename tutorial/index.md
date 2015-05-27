@@ -3,17 +3,19 @@ title: Tutorial
 layout: en
 ---
 
-## 使い方
+# Tutorial
 
-PGroongaは全文検索はもちろん、数値や文字列の等価条件（`=`）や比較条件
-（`<`や`>=`など）にも使えます。
+This document describes how to use PGroonga step by step. If you don't install PGroonga yet, [install](../install/) PGroonga before you read this document.
 
-まずは全文検索の使い方について説明し、次に等価条件や比較条件で使う方法
-を説明します。
+You can use PGroonga as fast full text search index. You can also use PGroonga as more general index for equality condition (`=`) and comparison conditions ('<', '>=' and so on).
 
-### 全文検索
+PostgreSQL provides GiST and GIN as bundled indexes. You can use PGroonga as alternative of GiST and GIN. See [PGroonga versus GiST and GIN](../reference/pgroonga-versus-gist-and-gin.html) for differences of them.
 
-#### 基本的な使い方
+This document describes about how to use PGroonga as full text search index then describes about how to use PGroonga as index for equality condition and comparison conditions.
+
+## Full text search
+
+### Basic usage
 
 `text`型のカラムを作って`pgroonga`インデックスを作成します。
 （`varchar`型に対して全文検索をする場合は追加で

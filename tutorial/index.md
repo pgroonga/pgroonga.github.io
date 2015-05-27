@@ -11,27 +11,44 @@ You can use PGroonga as fast full text search index. You can also use PGroonga a
 
 PostgreSQL provides GiST and GIN as bundled indexes. You can use PGroonga as alternative of GiST and GIN. See [PGroonga versus GiST and GIN](../reference/pgroonga-versus-gist-and-gin.html) for differences of them.
 
-This document describes about how to use PGroonga as full text search index then describes about how to use PGroonga as index for equality condition and comparison conditions.
+This document describes about the followings:
+
+  * How to use PGroonga as full text search index
+  * How to use PGroonga as index for equality condition and comparison conditions
+  * How to use Groonga throw PGroonga (advanced topic)
 
 ## Full text search
 
-### Basic usage
+This section describes about the followings:
 
-`text`型のカラムを作って`pgroonga`インデックスを作成します。
-（`varchar`型に対して全文検索をする場合は追加で
-`pgroonga.varchar_fulltext_search_ops`演算子クラスを指定する必要があり
-ます。）
+  * How to prepare PGroonga based CJK ready full text search system
+  * Operators for full text search
+  * Score
+
+### How to prepare PGroonga based CJK ready full text search system
+
+This section describes about how to prepare PGroonga based CJK ready full text search full text search system.
+
+Create a column that you want to enable full text search as `text` type:
 
 ```sql
 CREATE TABLE memos (
   id integer,
   content text
 );
+```
 
+`memos.content` column is a full text search target column.
+
+Create a `pgroonga` index against the column:
+
+```
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 
-データを投入します。
+See [CREATE INDEX USING pgroonga](../reference/create-index-using-pgroonga.html) for more details.
+
+Insert test data:
 
 ```sql
 INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
@@ -40,17 +57,25 @@ INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを�
 INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 ```
 
-検索します。ここではシーケンシャルスキャンではなくインデックスを使った
-全文検索を使いたいので、シーケンシャルスキャン機能を無効にします。（あ
-るいはもっとたくさんのデータを投入します。）
+Disable sequential scan to ensure using `pgroonga` index:
 
 ```sql
 SET enable_seqscan = off;
 ```
 
-##### `%%`演算子
+NOTE: You should not disable sequential scan on production environment. This is only for test.
 
-全文検索をするときは`%%`演算子を使います。
+### Operators for full text search
+
+There are the following operators to perform full text search:
+
+  * `%%`
+  * `@@`
+  * `LIKE`
+
+#### `%%` operator
+
+You can use `%%` operator to perform full text search by one word:
 
 ```sql
 SELECT * FROM memos WHERE content %% '全文検索';
@@ -58,13 +83,14 @@ SELECT * FROM memos WHERE content %% '全文検索';
 --  id |                      content
 -- ----+---------------------------------------------------
 --   2 | Groongaは日本語対応の高速な全文検索エンジンです。
--- (1 行)
+-- (1 row)
 ```
 
-##### `@@`演算子
+See [%% operator](../reference/match-operator.html) for more details.
 
-`キーワード1 OR キーワード2`のようにクエリー構文を使って全文検索をする
-ときは`@@`演算子を使います。
+#### `@@` operator
+
+You can use `@@` operator to perform full text search by query syntax such as `keyword1 OR keyword2`:
 
 ```sql
 SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
@@ -72,118 +98,39 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 -- ----+---------------------------------------------------------------------------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
 --   1 | PostgreSQLはリレーショナル・データベース管理システムです。
--- (2 行)
+-- (2 rows)
 ```
 
-クエリー構文の詳細は
-[Groognaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)
-を参照してください。
+Query syntax is similar to syntax of Web search engine. For example, you can use `OR` to merge result sets of performing full text search by two or more words. In the above example, you get a merged result set. The merged result set has records that includes `PGroonga` or `PostgreSQL`.
 
-ただし、`カラム名:@キーワード`というように「`カラム名:`」から始まる構
-文は無効にしてあります。そのため、前方一致検索をしたい場合は「`カラム
-名:^値`」という構文は使えず、「`値*`」という構文だけが使えます。
+See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for full query syntax.
 
-注意してください。
+See [@@ operator](../reference/query-operator.html) for more details.
 
-##### `LIKE`演算子
+#### `LIKE` operator
 
-既存のSQLを変更しなくても使えるように`column LIKE '%キーワード%'`と書
-くと`column @@ 'キーワード'`と同等の処理になるようになっています。
+PGroonga supports `LIKE` operator. You can perform fast full text search by PGroonga without changing existing SQL.
 
-なお、`'キーワード%'`や`'%キーワード'`のように最初と最後に`%`がついて
-いない場合は必ず検索結果が空になります。このようなパターンはインデック
-スを使って検索できないからです。気をつけてください。
-
-本来の`LIKE`演算子は元の文字列そのものに対して検索しますが、`@@`演算子
-は正規化後の文字列に対して全文検索検索を実行します。そのため、インデッ
-クスを使わない場合の`LIKE`演算子の結果（本来の`LIKE`演算子の結果）とイ
-ンデックスを使った場合の`LIKE`演算子の結果は異なります。
-
-たとえば、本来の`LIKE`演算子ではアルファベットの大文字小文字を区別した
-りいわゆる全角・半角を区別しますが、インデックスを使った場合は区別なく
-検索します。
-
-本来の`LIKE`演算子の結果:
+`column LIKE '%keyword%'` equals to `column %% 'keyword'`:
 
 ```sql
-SET enable_seqscan = on;
-SET enable_indexscan = off;
-SET enable_bitmapscan = off;
-SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |           content           
--- ----+-----------------------------
---   4 | groongaコマンドがあります。
--- (1 行)
-```
+SELECT * FROM memos WHERE content %% '全文検索';
 
-インデックスを使った`LIKE`演算子の結果:
-
-```sql
-SET enable_seqscan = off;
-SET enable_indexscan = on;
-SET enable_bitmapscan = on;
-SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |                                  content                                  
--- ----+---------------------------------------------------------------------------
+--  id |                      content
+-- ----+---------------------------------------------------
 --   2 | Groongaは日本語対応の高速な全文検索エンジンです。
---   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
---   4 | groongaコマンドがあります。
--- (3 行)
+-- (1 row)
 ```
 
-インデックスを使った場合でも本来の`LIKE`演算子と同様の結果にしたい場合
-は次のようにトークナイザー（後述）とノーマライザー（後述）を設定してイ
-ンデックスを作成してください。
+See [LIKE operator](../reference/like-operator.html) for more details.
 
-  * トークナイザー: `TokenBigramSplitSymbolAlphaDigit`
-  * ノーマライザー: なし
+### Score
 
-具体的には次のようにインデックスを作成します。
+You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
 
-```sql
-CREATE INDEX pgroonga_content_index
-          ON memos
-       USING pgroonga (content)
-        WITH (tokenizer='TokenBigramSplitSymbolAlphaDigit',
-              normalizer='');
-```
+You need to add primary key column into `pgroonga` index to use `pgroonga.score` function. If you don't add primary key column into `pgroonga` index, `pgroonga.score` function always returns `0`.
 
-このようなインデックスを作っているときはインデックスを使った`LIKE`演算
-子でも本来の`LIKE`演算子と同様の挙動になります。
-
-```sql
-SET enable_seqscan = off;
-SET enable_indexscan = on;
-SET enable_bitmapscan = on;
-SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |           content           
--- ----+-----------------------------
---   4 | groongaコマンドがあります。
--- (1 行)
-```
-
-多くの場合、デフォルトの設定の全文検索結果の方が本来の`LIKE`演算子の方
-の検索結果よりもユーザーが求めている結果に近くなります。本当に本来の
-`LIKE`演算子の挙動の方が適切か検討した上で使ってください。
-
-##### `pgroonga.score`関数
-
-`pgroonga.score`関数を使うと該当レコードがどの程度クエリーに適合してい
-るかを数値で取得することができます。
-
-`pgroonga.score`関数を使うためにはインデックス対象にプライマリーキーの
-カラムも含めなければいけません。プライマリーキーのカラムが含まれていな
-い場合は常に`0`を返します。
-
-また、全文検索をシーケンシャルスキャンで実行しているときも`0`になりま
-す。
-
-スコアーが返るはずなのに`0`が返るときは次の2点を確認してください。
-
-  * プライマリーキーのカラムがインデックス対象に含まれているか
-  * インデックスを使って全文検索を実行しているか
-
-以下はインデックス対象にプライマリーキーを含めているスキーマの例です。
+Here is a sample schema that includes primary key into indexed columns:
 
 ```sql
 CREATE TABLE score_memos (
@@ -196,7 +143,7 @@ CREATE INDEX pgroonga_score_memos_content_index
        USING pgroonga (id, content);
 ```
 
-データを投入します。
+Insert test data:
 
 ```sql
 INSERT INTO score_memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
@@ -205,14 +152,13 @@ INSERT INTO score_memos VALUES (3, 'PGroongaはインデックスとしてGroong
 INSERT INTO score_memos VALUES (4, 'groongaコマンドがあります。');
 ```
 
-必ずインデックスを使って全文検索をするためにシーケンシャルスキャン機能
-を無効にします。（あるいはもっとたくさんのデータを投入します。）
+Disable sequential scan to ensure using `pgroonga` index:
 
 ```sql
 SET enable_seqscan = off;
 ```
 
-全文検索し、スコアーも表示します。
+Perform full text search and get score.
 
 ```sql
 SELECT *, pgroonga.score(score_memos)
@@ -222,11 +168,10 @@ SELECT *, pgroonga.score(score_memos)
 -- ----+---------------------------------------------------------------------------+-------
 --   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
--- (2 行)
+-- (2 rows)
 ```
 
-`ORDER BY`句で`pgroonga.score`関数を使うことにより、適合度が高い順に並
-び替えることができます。
+You can sort matched records by precision ascending by using `pgroonga.score` function in `ORDER BY` clause:
 
 ```sql
 SELECT *, pgroonga.score(score_memos)
@@ -237,92 +182,25 @@ SELECT *, pgroonga.score(score_memos)
 -- ----+---------------------------------------------------------------------------+-------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
 --   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1
--- (2 行)
+-- (2 rows)
 ```
 
-現時点では適合度は「キーワードを含んでいる数」になります。Groongaには
-キーワードや検索対象カラム毎に重みをつける機能や適合度の計算方法をカス
-タマイズする機能があります。しかし、PostgreSQLらしく指定するAPIを思い
-ついていないためPGroongaから使うことはできません。
+See [pgroonga.score function](../reference/pgroonga-score-function.html) for more details such as how to compute precision.
 
-#### カスタマイズ
+## Equality condition and comparison conditions
 
-`CREATE INDEX`の`WITH`でトークナイザーとノーマライザーをカスタマイズす
-ることができます。デフォルトで適切なトークナイザーとノーマライザーが設
-定されているので、通常はカスタマイズする必要はありません。上級者向けの
-機能です。
+You can use PGroonga for equality condition and comparison conditions. There are some differences between how to create index for string types and other types. There is no difference between how to write condition for string types and other types.
 
-なお、デフォルトのトークナイザーとノーマライザーは次の通りです。
+This section describes about the following:
 
-  * トークナイザー: `TokenBigram`: Bigramベースのトークナイザーです。
-  * ノーマライザー: [NormalizerAuto](http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto): エンコーディングに合わせて適切な正規化を行います。たとえば、UTF-8の場合はUnicodeのNFKCベースの正規化を行います。
+  * How to use PGroonga for not string types
+  * How to use PGroonga for string types
 
-トークナイザーをカスタマイズするときは`tokenizer='トークナイザー名'`を
-指定します。例えば、[MeCab](http://taku910.github.io/mecab/)ベースのトー
-クナイザーを指定する場合は次のように`tokenizer='TokenMecab'`を指定しま
-す。（`TokenMecab`を使う場合は`groonga-tokenizer-mecab`パッケージをイ
-ンストールしておく必要があります。）
+### How to use PGroonga for not string types
 
-```sql
-CREATE TABLE memos (
-  id integer,
-  content text
-);
+You can use PGroonga for not string types such as number.
 
-CREATE INDEX pgroonga_content_index
-          ON memos
-       USING pgroonga (content)
-        WITH (tokenizer='TokenMecab');
-```
-
-次のように`tokenizer=''`を指定することでトークナイザーを無効にできます。
-トークナイザーを無効にするとカラムの値そのもの、あるいは値の前方一致検
-索でのみヒットするようになります。これは、タグ検索や名前検索などに有用
-です。（タグ検索には`tokenizer='TokenDelimit'`も有用です。）
-
-```sql
-CREATE TABLE memos (
-  id integer,
-  tag text
-);
-
-CREATE INDEX pgroonga_tag_index
-          ON memos
-       USING pgroonga (tag)
-        WITH (tokenizer='');
-```
-
-ノーマライザーをカスタマイズするときは`normalizer='ノーマライザー名'`を
-指定します。通常は指定する必要はありません。
-
-次のように`normalizer=''`を指定することでノーマライザーを無効にできま
-す。ノーマライザーを無効にするとカラムの値そのものでのみヒットするよう
-になります。正規化によりノイズが増える場合は有用な機能です。
-
-```sql
-CREATE TABLE memos (
-  id integer,
-  tag text
-);
-
-CREATE INDEX pgroonga_tag_index
-          ON memos
-       USING pgroonga (tag)
-        WITH (normalizer='');
-```
-
-### 等価・比較
-
-等価・比較条件のためにPGroongaを使う方法は文字列型とそれ以外の型でイン
-デックスの作成方法が少し違います。なお、検索条件（`WHERE`）の書き方は
-B-treeを使ったインデックスなどのときと同じです。
-
-文字列型以外での方の使い方が簡単なのでそちらから説明します。その後、文
-字列型での使い方を説明します。
-
-#### 数値など文字列型以外の型
-
-文字列型以外の型を使うときは`USING`に`pgroonga`を指定してください。
+Create index with `USING pgroonga`:
 
 ```sql
 CREATE TABLE ids (
@@ -332,9 +210,9 @@ CREATE TABLE ids (
 CREATE INDEX pgroonga_id_index ON ids USING pgroonga (id);
 ```
 
-あとはB-treeを使ったインデックスなどのときと同じです。
+The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-tree index to use PGroonga.
 
-データを投入します。
+Insert test data:
 
 ```sql
 INSERT INTO ids VALUES (1);
@@ -342,13 +220,13 @@ INSERT INTO ids VALUES (2);
 INSERT INTO ids VALUES (3);
 ```
 
-シーケンシャルスキャンを無効にします。
+Disable sequential scan:
 
 ```sql
 SET enable_seqscan = off;
 ```
 
-検索します。
+Search:
 
 ```sql
 SELECT * FROM ids WHERE id <= 2;
@@ -356,10 +234,12 @@ SELECT * FROM ids WHERE id <= 2;
 -- ----
 --   1
 --   2
--- (2 行)
+-- (2 rows)
 ```
 
-#### 文字列型
+### How to use PGroonga for not string types
+
+TODO
 
 文字列型に対して等価・比較条件を使う場合は`varchar`型に対してインデッ
 クスを作成してください。最大バイト数が4096バイト以下になるように

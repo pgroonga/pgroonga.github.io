@@ -15,6 +15,7 @@ This document describes about the followings:
 
   * How to use PGroonga as full text search index
   * How to use PGroonga as index for equality condition and comparison conditions
+  * How to use PGroonga as index for array
   * How to use Groonga throw PGroonga (advanced topic)
 
 ## Full text search
@@ -86,7 +87,7 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 row)
 ```
 
-See [%% operator](../reference/match-operator.html) for more details.
+See [%% operator](../reference/operators/match.html) for more details.
 
 #### `@@` operator
 
@@ -105,7 +106,7 @@ Query syntax is similar to syntax of Web search engine. For example, you can use
 
 See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for full query syntax.
 
-See [@@ operator](../reference/query-operator.html) for more details.
+See [@@ operator](../reference/operators/query.html) for more details.
 
 #### `LIKE` operator
 
@@ -122,7 +123,7 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 row)
 ```
 
-See [LIKE operator](../reference/like-operator.html) for more details.
+See [LIKE operator](../reference/operators/like.html) for more details.
 
 ### Score
 
@@ -185,20 +186,20 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-See [pgroonga.score function](../reference/pgroonga-score-function.html) for more details such as how to compute precision.
+See [pgroonga.score function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
 
 ## Equality condition and comparison conditions
 
 You can use PGroonga for equality condition and comparison conditions. There are some differences between how to create index for string types and other types. There is no difference between how to write condition for string types and other types.
 
-This section describes about the following:
+This section describes about the followings:
 
   * How to use PGroonga for not string types
   * How to use PGroonga for string types
 
 ### How to use PGroonga for not string types
 
-You can use PGroonga for not string types such as number.
+You can use PGroonga for not string types such as number. You can use equality condition and comparison conditions against these types.
 
 Create index with `USING pgroonga`:
 
@@ -237,15 +238,13 @@ SELECT * FROM ids WHERE id <= 2;
 -- (2 rows)
 ```
 
-### How to use PGroonga for not string types
+### How to use PGroonga for string types
 
-TODO
+You need to use `varchar` type to use PGroonga as an index for equality condition and comparison conditions against string.
 
-文字列型に対して等価・比較条件を使う場合は`varchar`型に対してインデッ
-クスを作成してください。最大バイト数が4096バイト以下になるように
-`varchar`に最大文字数を指定してください。エンコーディングによって文字
-数とバイト数の関係が変わることに注意してください。UTF-8を使っている場
-合は最大文字数は1023になります。
+You must to specify the maximum number of characters of `varchar` to satisfy that the maximum byte size of the column is equal to 4096 byte or smaller. Relation between the maximum number of characters and the maximum byte size is related to encoding. For example, you must to specify 1023 or smaller as the maximum number of characters for UTF-8 encoding. Because UTF-8 encoding `varchar` keeps 4 byte for one character.
+
+Create index with `USING pgroonga`:
 
 ```sql
 CREATE TABLE tags (
@@ -256,9 +255,9 @@ CREATE TABLE tags (
 CREATE INDEX pgroonga_tag_index ON tags USING pgroonga (tag);
 ```
 
-あとはB-treeを使ったインデックスなどのときと同じです。
+The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-tree index to use PGroonga.
 
-データを投入します。
+Insert test data:
 
 ```sql
 INSERT INTO tags VALUES (1, 'PostgreSQL');
@@ -266,13 +265,13 @@ INSERT INTO tags VALUES (2, 'Groonga');
 INSERT INTO tags VALUES (3, 'Groonga');
 ```
 
-シーケンシャルスキャンを無効にします。
+Disable sequential scan:
 
 ```sql
 SET enable_seqscan = off;
 ```
 
-検索します。
+Search:
 
 ```sql
 SELECT * FROM tags WHERE tag = 'Groonga';
@@ -280,23 +279,24 @@ SELECT * FROM tags WHERE tag = 'Groonga';
 -- ----+---------
 --   2 | Groonga
 --   3 | Groonga
--- (2 行)
+-- (2 rows)
 --
 ```
 
-### 配列を使う
+## How to use PGroonga for array
 
-PGroongaでは`text`型または`varchar`型の配列に対するインデックスを作成
-することもできます。
+You can use PGroonga as an index for array of `text` type or array of `varchar`.
 
-`text`型の配列の場合はそれぞれの要素に対して全文検索できます。
+You can perform full text search against array of `text` type. If one or more elements in an array are matched, the record is matched.
 
-`varchar`型の配列の場合はそれぞれの要素に対して完全一致検索できます。
-タグ検索などで有用です。
+You can perform equality condition against array of `varchar` type. If one or more elements in an array are matched, the record is matched. It's useful for tag search.
 
-#### `text`型の配列
+  * How to use PGroonga for `text` type of array
+  * How to use PGroonga for `varchar` type of array
 
-インデックスを作成するときに`USING pgroonga`を指定します。
+### How to use PGroonga for `text` type of array
+
+Create index with `USING pgroonga`:
 
 ```sql
 CREATE TABLE docs (
@@ -307,7 +307,7 @@ CREATE TABLE docs (
 CREATE INDEX pgroonga_sections_index ON docs USING pgroonga (sections);
 ```
 
-データを投入します。
+Insert test data:
 
 ```sql
 INSERT INTO docs
@@ -324,8 +324,7 @@ INSERT INTO docs
                    'PostgreSQLに高機能な全文検索機能を追加します。']);
 ```
 
-`%%`演算子または`@@`演算子を使って全文検索できます。キーワードが何番目
-の要素にあっても全文検索できます。
+You can use `%%` operator or `@@` operator for full text search. The full text search doesn't care about the position of element.
 
 ```sql
 SELECT * FROM docs WHERE sections %% '全文検索';
@@ -334,12 +333,12 @@ SELECT * FROM docs WHERE sections %% '全文検索';
 --   1 | {PostgreSQLはリレーショナル・データベース管理システムです。,PostgreSQLは部分的に全文検索をサポートしています。}
 --   2 | {Groongaは日本語対応の高速な全文検索エンジンです。,Groongaは他のシステムに組み込むことができます。}
 --   3 | {PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。,PostgreSQLに高機能な全文検索機能を追加します。}
--- (3 行)
+-- (3 rows)
 ```
 
-#### `varchar`型の配列
+### How to use PGroonga for `varchar` type of array
 
-インデックスを作成するときに`USING pgroonga`を指定します。
+Create index with `USING pgroonga`:
 
 ```sql
 CREATE TABLE products (
@@ -351,7 +350,7 @@ CREATE TABLE products (
 CREATE INDEX pgroonga_tags_index ON products USING pgroonga (tags);
 ```
 
-データを投入します。
+Insert test data:
 
 ```sql
 INSERT INTO products
@@ -368,7 +367,7 @@ INSERT INTO products
              ARRAY['PostgreSQL', 'Groonga', 'full-text search']);
 ```
 
-`%%`演算子を使うと、配列の中に完全一致した要素があるかを検索できます。
+You can use `%%` operator to find records that have one or more matched elements. If element's value equals to queried value, the element is treated as matched.
 
 ```sql
 SELECT * FROM products WHERE tags %% 'PostgreSQL';
@@ -379,42 +378,35 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 -- (2 行)
 ```
 
-### Groongaの機能を使う
+## How to use Groonga throw PGroonga
 
-多くの場合、PostgreSQLよりGroongaの方が高速に処理できます。たとえば、
-ドリルダウン機能を使うことにより検索結果の取得と複数の`GROUP BY`結果の
-取得を1つのクエリーで実行することができるため、複数の`SELECT`文を実行
-するよりも高速です。他にも、Groongaは列指向のデータストアを使っている
-ため、一部のカラムだけを検索・取得する場合は行指向のデータストアの
-PostgreSQLよりも高速です。
+This is an advanced topic.
 
-しかし、直接Groongaで検索するとSQLとは違うAPIになり、使い勝手がよくあ
-りません。それでもGroongaを使いたい場合のためにSQL経由でGroongaを使う
-機能を用意しています。
+In most cases, Groonga is faster than PostgreSQL.
 
-#### `pgroonga.command`関数
+For example, [drilldown feature](http://groonga.org/docs/reference/commands/select.html#drilldown) in Groonga is faster than one `SELECT` and multiple `GROUP BY`s (or one `GROUP BY GROUPING SET`) by PostgreSQL. Because all needed results can be done by one query in Groonga.
 
-`pgroonga.command`関数を使うと
-[Groongaのコマンド](http://groonga.org/ja/docs/reference/command.html)
-を実行してその結果を文字列で取得できます。
+In another instance, Groonga can perform query that doesn't use all columns in record faster than PostgreSQL. Because Groonga has column oriented data store. Column oriented data store (Groonga) is faster than row oriented data store (PostgreSQL) for accessing some columns. Row oriented data store needs to read all columns in record to access only partial columns. Column oriented data store just need to read only target columns in record.
 
-次は
-[statusコマンド](http://groonga.org/ja/docs/reference/commands/status.html)
-を実行する例です。
+You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. But PGroonga provides a feature to use Groonga directly throw SQL.
+
+### `pgroonga.command` function
+
+You can execute [Groonga commands](http://groonga.org/docs/reference/command.html) and get the result of the execution as string by `pgroonga.command` function.
+
+Here is an example that executes [status command](http://groonga.org/docs/reference/commands/status.html):
 
 ```sql
 SELECT pgroonga.command('status');
 --                                   command                                                                                                                  
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --  [[0,1423911561.69344,6.15119934082031e-05],{"alloc_count":164,"starttime":1423911561,"uptime":0,"version":"5.0.0-6-g17847c9","n_queries":0,"cache_hit_rate":0.0,"command_version":1,"default_command_version":1,"max_command_version":2}]
--- (1 行)
+-- (1 row)
 ```
 
-Groongaのコマンドの実行結果はJSONなのでPostgreSQLのJSON関数を使って扱
-いやすくすることができます。
+Result from Groonga is JSON. You can use JSON related functions provided by PostgreSQL to access result from Groonga.
 
-たとえば、`status`コマンドの結果は次のようにするとそれぞれの値を1行と
-して扱うことができます。
+Here is an example to map one key value pair in the result of `status` command to one row:
 
 ```sql
 SELECT * FROM json_each(pgroonga.command('status')::json->1);
@@ -429,22 +421,18 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 --  command_version         | 1
 --  default_command_version | 1
 --  max_command_version     | 2
--- (9 行)
+-- (9 rows)
 ```
 
-#### `pgroonga.table_name`関数
+See [pgroonga.command function](../reference/functions/pgroonga-command.html) for more details.
 
-PGroongaのインデックス対象のカラムの値はGroongaのデータベースにも保存
-されています。そのため、Groongaの
-[selectコマンド](http://groonga.org/ja/docs/reference/commands/select.html)
-を使って検索し、値を出力することができます。
+### `pgroonga.table_name` function
 
-`select`コマンドを使うにはGroongaでのテーブル名が必要です。インデック
-ス名をGroongaでのテーブル名に変換するには`pgroonga.table_name`関数を使
-います。
+PGroonga stores values of index target columns. You can use these values to search and output by Groonga's [select command](http://groonga.org/docs/reference/commands/select.html).
 
-`pgroonga.table_name`関数を使うと次のように`select`コマンドを使うこと
-ができます。
+`select` command table name in Groonga. You can use `pgroonga.table_name` function to convert index name in PostgreSQL to table name in Groonga.
+
+Here is an example to use `select` command with `pgroonga.table_name` function:
 
 ```sql
 SELECT *
@@ -457,160 +445,6 @@ SELECT *
 --  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。"]
 --  [3,3,"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。"]
 --  [4,4,"groongaコマンドがあります。"]
--- (6 行)
+-- (6 rows)
 ```
-
-`select`コマンドを使うとカラムに重みをつけることもできます。
-
-例として次のようなスキーマとデータを使います。検索したいデータと出力し
-たいデータを両方インデックス対象にしています。
-
-```sql
-CREATE TABLE terms (
-  id integer,
-  title text,
-  content text,
-  tag varchar(256)
-);
-
-CREATE INDEX pgroonga_terms_index
-          ON terms
-       USING pgroonga (title, content, tag);
-
-INSERT INTO terms
-     VALUES (1,
-             'PostgreSQL',
-             'PostgreSQLはリレーショナル・データベース管理システムです。',
-             'PostgreSQL');
-INSERT INTO terms
-     VALUES (2,
-             'Groonga',
-             'Groongaは日本語対応の高速な全文検索エンジンです。',
-             'Groonga');
-INSERT INTO terms
-     VALUES (3,
-             'PGroonga',
-             'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。',
-             'PostgreSQL');
-```
-
-[match_columnsオプション](http://groonga.org/ja/docs/reference/commands/select.html#select-match-columns)で重みを指定できます。
-
-```sql
-SELECT *
-  FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index') || ' ' ||
-                          '--match_columns "title * 10 || content" ' ||
-                          '--query "Groonga OR PostgreSQL OR 全文検索" ' ||
-                          '--output_columns "_score, title, content" ' ||
-                          '--sortby "-_score"'
-                         )::json->1->0);
---                                            value                                            
--- --------------------------------------------------------------------------------------------
---  [3]
---  [["_score","Int32"],["title","LongText"],["content","LongText"]]
---  [12,"Groonga","Groongaは日本語対応の高速な全文検索エンジンです。"]
---  [11,"PostgreSQL","PostgreSQLはリレーショナル・データベース管理システムです。"]
---  [2,"PGroonga","PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。"]
--- (5 行)
-```
-
-[drilldownオプション](http://groonga.org/ja/docs/reference/commands/select.html#select-drilldown)
-を加えるとドリルダウン結果も取得できます。
-
-```sql
-SELECT *
-  FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index') || ' ' ||
-                          '--match_columns "title * 10 || content" ' ||
-                          '--query "Groonga OR PostgreSQL OR 全文検索" ' ||
-                          '--output_columns "_score, title" ' ||
-                          '--sortby "-_score" ' ||
-                          '--drilldown "tag"'
-                         )::json->1);
---                                               value                                              
--- -------------------------------------------------------------------------------------------------
---  [[3],[["_score","Int32"],["title","LongText"]],[12,"Groonga"],[11,"PostgreSQL"],[2,"PGroonga"]]
---  [[2],[["_key","ShortText"],["_nsubrecs","Int32"]],["Groonga",1],["PostgreSQL",2]]
--- (2 行)
-```
-
-SQLの`SELECT`文でどうにもならなくなったときに、もしかしたらGroongaの
-`select`コマンドを使えるかもしれません。
-
-#### 注意
-
-レコードを削除・更新している場合は、Groongaのデータベースには削除済み・
-更新前のデータが残っています。
-
-まず、更新前の状態を確認します。レコードは3つです。
-
-```sql
-SELECT *
-  FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index')
-                         )::json->1->0);
---                                                    value                                                   
--- -----------------------------------------------------------------------------------------------------------
---  [3]
---  [["_id","UInt32"],["_key","UInt64"],["content","LongText"],["tag","ShortText"],["title","LongText"]]
---  [1,1,"PostgreSQLはリレーショナル・データベース管理システムです。","PostgreSQL","PostgreSQL"]
---  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。","Groonga","Groonga"]
---  [3,3,"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","PostgreSQL","PGroonga"]
--- (5 行)
-```
-
-更新します。
-
-```sql
-UPDATE terms
-   SET title = 'Mroonga',
-       content = 'MroongaはGroongaをバックエンドにしたMySQLのストレージエンジンです。',
-       tag = 'MySQL'
- WHERE id = 3;
-```
-
-再度`select`コマンドを実行するとレコードが1つ増えて4つになっています。
-これは更新前のレコードも残っているからです。
-
-```sql
-SELECT *
-  FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index')
-                         )::json->1->0);
---                                                    value                                                   
--- -----------------------------------------------------------------------------------------------------------
---  [4]
---  [["_id","UInt32"],["_key","UInt64"],["content","LongText"],["tag","ShortText"],["title","LongText"]]
---  [1,1,"PostgreSQLはリレーショナル・データベース管理システムです。","PostgreSQL","PostgreSQL"]
---  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。","Groonga","Groonga"]
---  [3,3,"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","PostgreSQL","PGroonga"]
---  [4,4,"MroongaはGroongaをバックエンドにしたMySQLのストレージエンジンです。","MySQL","Mroonga"]
--- (6 行)
-```
-
-削除されたレコードは`VACUUM`時に削除されます。明示的に`VACUUM`を実行す
-ると更新前のレコードがなくなって、レコード数は3つになります。
-
-```sql
-VACUUM
-SELECT *
-  FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index')
-                         )::json->1->0);
---                                                 value                                                 
--- ------------------------------------------------------------------------------------------------------
---  [3]
---  [["_id","UInt32"],["_key","UInt64"],["content","LongText"],["tag","ShortText"],["title","LongText"]]
---  [1,1,"PostgreSQLはリレーショナル・データベース管理システムです。","PostgreSQL","PostgreSQL"]
---  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。","Groonga","Groonga"]
---  [4,4,"MroongaはGroongaをバックエンドにしたMySQLのストレージエンジンです。","MySQL","Mroonga"]
--- (5 行)
-```
-
-Groongaのデータを直接使うときは気をつけてください。
+See [pgroonga.table_name function](../reference/functions/pgroonga-table-name.html) for more details.

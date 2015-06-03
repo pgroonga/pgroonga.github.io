@@ -1,5 +1,5 @@
 ---
-title: @@ operator
+title: "@@ operator"
 layout: en
 ---
 

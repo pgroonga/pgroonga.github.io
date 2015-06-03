@@ -9,9 +9,9 @@ You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index 
 
 ## Syntax
 
-This section describes only `pgroonga` index method related `CREATE INDEX` syntaxes. See [CREATE INDEX document by PostgreSQL](http://www.postgresql.org/docs/{{ postgresql_short_version }}/static/sql-createindex.html) for full `CREATE INDEX` syntax.
+This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [CREATE INDEX document by PostgreSQL](http://www.postgresql.org/docs/{{ postgresql_short_version }}/static/sql-createindex.html) for full `CREATE INDEX` syntax.
 
-Here is a syntax for creating single column index:
+Here is syntax for creating single column index:
 
 ```sql
 CREATE INDEX ${INDEX_NAME} ON ${TABLE_NAME} USING pgroonga (${COLUMN});

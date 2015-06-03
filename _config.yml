@@ -7,7 +7,7 @@ copyright_year: 2015
 postgresql_short_version: 9.4
 windows_postgresql_version: 9.4.1-3
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
-description: A PostgreSQL plugin to use Groonga as index
+description: A PostgreSQL extension to use Groonga as index
 
 kramdown:
   input: GFM

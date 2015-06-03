@@ -5,6 +5,25 @@ layout: en
 
 # `CREATE INDEX USING pgroonga`
 
+You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index method. This section describes about `pgroonga` index method.
+
+## Syntax
+
+This section describes only `pgroonga` index method related `CREATE INDEX` syntaxes. See [CREATE INDEX document by PostgreSQL](http://www.postgresql.org/docs/{{ postgresql_short_version }}/static/sql-createindex.html) for full `CREATE INDEX` syntax.
+
+Here is a syntax for creating single column index:
+
+```sql
+CREATE INDEX ${INDEX_NAME} ON ${TABLE_NAME} USING pgroonga (${COLUMN});
+```
+
+This syntax can be used for the following cases:
+
+  * Creating a full text search index for a `text` type column
+  * Creating a full text search index for an array of `text` type column
+  * Creating a equality condition and comparison conditions search for a non `text` type columns
+  * Creating a equality condition and comparison conditions search for an array of non `text` type columns
+
 TODO
 
 （`varchar`型に対して全文検索をする場合は追加で

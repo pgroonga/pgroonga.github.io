@@ -18,9 +18,9 @@ layout: en
 
 ## About PGroonga
 
-PGroonga (p-g-runga) is an extension for PostgreSQL to use [Groonga](http://groonga.org/) as an index.
+PGroonga (píːzí:lúnɡά) is a PostgreSQL extension to use [Groonga](http://groonga.org/) as the index.
 
-PostgreSQL isn't CJK full text search ready by default. You can use super fast CJK ready full text search feature by installing PGroonga into your PostgreSQL!
+As default, PostgreSQL isn't capable for CJK full text search. You can use super fast CJK full text search feature by installing PGroonga into your PostgreSQL!
 
 ## Documentations
 

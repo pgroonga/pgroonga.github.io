@@ -29,7 +29,7 @@ See a document for your platform in the followings:
     * 32bit + PostgreSQL {{ site.windows_postgresql_version }}
     * 64bit + PostgreSQL {{ site.windows_postgresql_version }}
 
-If you can't find your platform in the above list, [build and install from source](source.html).
+If you can't find your platform in the above list, [build and install from source](source.html) or send a request as an [issue](https://github.com/pgroonga/pgroonga/issues/new).
 
 ## Uninstall
 
@@ -40,4 +40,4 @@ DROP EXTENSION pgroonga CASCADE;
 DELETE FROM pg_catalog.pg_am WHERE amname = 'pgroonga';
 ```
 
-It may be strange that we need to remove the record for PGroonga from `pg_catalog.pg_am` by hand. If you know the correct SQL, please tell us.
+It may be strange that we need to remove the record for PGroonga from `pg_catalog.pg_am` by hand. If you know the correct SQL, [please tell us](https://github.com/pgroonga/pgroonga/issues/new).

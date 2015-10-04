@@ -11,6 +11,7 @@ description: A PostgreSQL extension to use Groonga as index
 
 kramdown:
   input: GFM
+  coderay_line_numbers: nil
 
 sass:
   sass_dir: assets/stylesheets

@@ -5,8 +5,7 @@ layout: en
 
 # `@@` operator
 
-`キーワード1 OR キーワード2`のようにクエリー構文を使って全文検索をする
-ときは`@@`演算子を使います。
+You can do full text search with multiple keywords by `@@` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
 
 ```sql
 SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
@@ -17,13 +16,9 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 -- (2 行)
 ```
 
-クエリー構文の詳細は
-[Groognaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)
-を参照してください。
+See [Groogna document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for query syntax details.
 
-ただし、`カラム名:@キーワード`というように「`カラム名:`」から始まる構
-文は無効にしてあります。そのため、前方一致検索をしたい場合は「`カラム
-名:^値`」という構文は使えず、「`値*`」という構文だけが使えます。
+Note that you can't use syntax that starts with `COLUMN_NAME:` like `COLUMN_NAME:@KEYWORD`. It's disabled in PGroonga.
 
-注意してください。
+You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` for prefix search.
 

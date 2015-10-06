@@ -5,24 +5,15 @@ layout: en
 
 # `LIKE` operator
 
-TODO
+PGroonga converts `column LIKE '%KEYWORD%'` condition to `column @@ 'KEYWORD'` internally. [`@@` operator](match.html) does full text search with index. It's fast rather than `LIKE` operator without index.
 
-なお、`'キーワード%'`や`'%キーワード'`のように最初と最後に`%`がついて
-いない場合は必ず検索結果が空になります。このようなパターンはインデック
-スを使って検索できないからです。気をつけてください。
+Both beginning `%` and ending `%` are important. `'KEYWORD%'`, `'%KEYWORD'` and so on aren't converted to `column @@ 'KEYWORD'`. PGroonga returns no records for these patterns. Because PGroonga can't search these patterns with index.
 
-本来の`LIKE`演算子は元の文字列そのものに対して検索しますが、`@@`演算子
-は正規化後の文字列に対して全文検索検索を実行します。そのため、インデッ
-クスを使わない場合の`LIKE`演算子の結果（本来の`LIKE`演算子の結果）とイ
-ンデックスを使った場合の`LIKE`演算子の結果は異なります。
+The original `LIKE` operator searches against text as is. But `@@` operator does full text search against normalized text. It means that search result of `LIKE` operator with index and search result of the original `LIKE` operator may be different.
 
-たとえば、本来の`LIKE`演算子ではアルファベットの大文字小文字を区別した
-りいわゆる全角・半角を区別しますが、インデックスを使った場合は区別なく
-検索します。
+For example, the original `LIKE` operator searches with case sensitive. But `LIKE` operator with index searches with case insensitive.
 
-
-
-本来の`LIKE`演算子の結果:
+A search result of the original `LIKE` operator:
 
 ```sql
 SET enable_seqscan = on;
@@ -35,7 +26,7 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 -- (1 行)
 ```
 
-インデックスを使った`LIKE`演算子の結果:
+A search result of `LIKE` operator with index:
 
 ```sql
 SET enable_seqscan = off;
@@ -50,14 +41,12 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 -- (3 行)
 ```
 
-インデックスを使った場合でも本来の`LIKE`演算子と同様の結果にしたい場合
-は次のようにトークナイザー（後述）とノーマライザー（後述）を設定してイ
-ンデックスを作成してください。
+If you want to get the same result by both `LIKE` operator with index and the original `LIKE` operator, use the following tokenizer and normalizer:
 
-  * トークナイザー: `TokenBigramSplitSymbolAlphaDigit`
-  * ノーマライザー: なし
+  * Tokenizer: `TokenBigramSplitSymbolAlphaDigit`
+  * Normalizer: None
 
-具体的には次のようにインデックスを作成します。
+Here is a concrete example:
 
 ```sql
 CREATE INDEX pgroonga_content_index
@@ -67,8 +56,7 @@ CREATE INDEX pgroonga_content_index
               normalizer='');
 ```
 
-このようなインデックスを作っているときはインデックスを使った`LIKE`演算
-子でも本来の`LIKE`演算子と同様の挙動になります。
+You can get the same result as the original `LIKE` operator with `LIKE` operator with index:
 
 ```sql
 SET enable_seqscan = off;
@@ -81,7 +69,6 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 -- (1 行)
 ```
 
-多くの場合、デフォルトの設定の全文検索結果の方が本来の`LIKE`演算子の方
-の検索結果よりもユーザーが求めている結果に近くなります。本当に本来の
-`LIKE`演算子の挙動の方が適切か検討した上で使ってください。
+Normally, the default configuration returns better result for full text search rather than the original `LIKE` operator. Think about which result is better for users before you change the default configuration.
 
+See [Customization in `CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html#customization) for tokenizer and normalizer.

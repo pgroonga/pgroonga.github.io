@@ -5,11 +5,11 @@ layout: en
 
 # `LIKE` operator
 
-PGroonga converts `column LIKE '%KEYWORD%'` condition to `column @@ 'KEYWORD'` internally. [`@@` operator](match.html) does full text search with index. It's fast rather than `LIKE` operator without index.
+PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) does full text search with index. It's fast rather than `LIKE` operator without index.
 
-Both beginning `%` and ending `%` are important. `'KEYWORD%'`, `'%KEYWORD'` and so on aren't converted to `column @@ 'KEYWORD'`. PGroonga returns no records for these patterns. Because PGroonga can't search these patterns with index.
+Both beginning `%` and ending `%` are important. `'KEYWORD%'`, `'%KEYWORD'` and so on aren't converted to `column %% 'KEYWORD'`. PGroonga returns no records for these patterns. Because PGroonga can't search these patterns with index.
 
-The original `LIKE` operator searches against text as is. But `@@` operator does full text search against normalized text. It means that search result of `LIKE` operator with index and search result of the original `LIKE` operator may be different.
+The original `LIKE` operator searches against text as is. But `%%` operator does full text search against normalized text. It means that search result of `LIKE` operator with index and search result of the original `LIKE` operator may be different.
 
 For example, the original `LIKE` operator searches with case sensitive. But `LIKE` operator with index searches with case insensitive.
 

@@ -188,7 +188,54 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-See [pgroonga.score function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
+See [`pgroonga.score` function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
+
+{: #snippet}
+
+### Snippet (KWIC, keyword in context)
+
+You can use `pgroonga.snippet_html` function to get texts around keywords from search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
+
+Here is a sample text for description. It's a description about Groonga.
+
+> Groonga is a fast and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Groonga allows updates without read locks. These characteristics result in superior performance on real-time applications.
+
+
+There are some `fast` keywords. `pgroonga.snippet_html` extracts texts around `fast`. Keywords in extracted texts are surround with `<span class="keyword">` and `</span>`.
+
+`html` in `pgroonga.snippet_html` means that this function returns result for HTML output.
+
+Here is the result of `pgroonga.snippet_html` against the above text:
+
+> Groonga is a <span class="keyword">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro
+
+This function can be used for all texts. It's not only for search result by PGroonga.
+
+Here is a sample SQL that describe about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](http://www.postgresql.org/docs/current/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
+
+```sql
+SELECT unnest(pgroonga.snippet_html(
+  'Groonga is a fast and accurate full text search engine based on ' ||
+  'inverted index. One of the characteristics of Groonga is that a ' ||
+  'newly registered document instantly appears in search results. ' ||
+  'Also, Groonga allows updates without read locks. These characteristics ' ||
+  'result in superior performance on real-time applications.' ||
+  '\n' ||
+  '\n' ||
+  'Groonga is also a column-oriented database management system (DBMS). ' ||
+  'Compared with well-known row-oriented systems, such as MySQL and ' ||
+  'PostgreSQL, column-oriented systems are more suited for aggregate ' ||
+  'queries. Due to this advantage, Groonga can cover weakness of ' ||
+  'row-oriented systems.',
+  ARRAY['fast', 'PostgreSQL']));
+                                                                                 --                                unnest                                                                                                                 
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--  Groonga is a <span class="keyword">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro
+--  ase management system (DBMS). Compared with well-known row-oriented systems, such as MySQL and <span class="keyword">PostgreSQL</span>, column-oriented systems are more suited for aggregate queries. Due to this advantage, Groonga
+-- (2 rows)
+```
+
+See [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-html.html) for more details.
 
 ## Equality condition and comparison conditions
 

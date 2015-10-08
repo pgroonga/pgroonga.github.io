@@ -5,9 +5,9 @@ layout: en
 
 # `pgroonga.score` function
 
-You can use `pgroonga.score` function to retrieve score as number. Score is how the record is precise.
+You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
 
-You need to add the column that is specified as primary key to index targets to use `pgroonga.score` function. If your PGroonga index doesn't have the column that is specified as primary key, `pgroonga.score` function always returns `0`.
+You need to add primary key column into `pgroonga` index to use `pgroonga.score` function. If you don't add primary key column into `pgroonga` index, `pgroonga.score` function always returns `0`.
 
 `pgroonga.score` function always returns `0` when full text search isn't performed by index. In other words, `pgroonga.score` function always returns `0` when full text search is performed by sequential scan.
 

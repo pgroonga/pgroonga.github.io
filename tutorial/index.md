@@ -125,6 +125,8 @@ SELECT * FROM memos WHERE content %% '全文検索';
 
 See [LIKE operator](../reference/operators/like.html) for more details.
 
+{: #score}
+
 ### Score
 
 You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.

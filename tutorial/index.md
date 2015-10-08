@@ -427,6 +427,8 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 -- (2 行)
 ```
 
+{: #groonga}
+
 ## How to use Groonga throw PGroonga
 
 This is an advanced topic.
@@ -473,7 +475,7 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 -- (9 rows)
 ```
 
-See [pgroonga.command function](../reference/functions/pgroonga-command.html) for more details.
+See [`pgroonga.command` function](../reference/functions/pgroonga-command.html) for more details.
 
 ### `pgroonga.table_name` function
 

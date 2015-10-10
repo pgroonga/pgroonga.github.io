@@ -781,11 +781,13 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 
 See [`pgroonga.command` function](../reference/functions/pgroonga-command.html) for more details.
 
+{: #pgroonga-table-name}
+
 ### `pgroonga.table_name` function
 
-PGroonga stores values of index target columns. You can use these values to search and output by Groonga's [select command](http://groonga.org/docs/reference/commands/select.html).
+PGroonga stores values of index target columns. You can use these values to search and output by [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html).
 
-`select` command table name in Groonga. You can use `pgroonga.table_name` function to convert index name in PostgreSQL to table name in Groonga.
+`select` Groonga command needs table name. You can use `pgroonga.table_name` function to convert index name in PostgreSQL to table name in Groonga.
 
 Here is an example to use `select` command with `pgroonga.table_name` function:
 

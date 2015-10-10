@@ -105,4 +105,4 @@ SELECT *
 
 ## See also
 
-  * [Examples in tutorial](../../tutorial/#groonga).
+  * [Examples in tutorial](../../tutorial/#groonga)

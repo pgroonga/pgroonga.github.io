@@ -102,5 +102,5 @@ SELECT *
 
 ## See also
 
-  * [`pgroonga.table_name` function description in tutorial](../../tutorial/#pgroonga-table-name).
-  * [Attention when you use `select` Groonga command](pgroonga-command.html#attention).
+  * [`pgroonga.table_name` function description in tutorial](../../tutorial/#pgroonga-table-name)
+  * [Attention when you use `select` Groonga command](pgroonga-command.html#attention)

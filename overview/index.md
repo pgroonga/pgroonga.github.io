@@ -11,6 +11,8 @@ Groonga is an embeddable super fast full text search engine. It can be embedded 
 
 As default, PostgreSQL isn't capable for CJK full text search. But you can use super fast CJK full text search by installing PGroonga.
 
+And more, PGroonga supports full text search against all texts in JSON. It's an unique feature. Built-in PostgreSQL features and [JsQuery](https://github.com/postgrespro/jsquery) don't support it.
+
 ## Related extensions
 
 There are some extensions that implements CJK ready full text search:

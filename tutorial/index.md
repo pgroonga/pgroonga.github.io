@@ -804,4 +804,5 @@ SELECT *
 --  [4,4,"groongaコマンドがあります。"]
 -- (6 rows)
 ```
-See [pgroonga.table_name function](../reference/functions/pgroonga-table-name.html) for more details.
+
+See [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html) for more details.

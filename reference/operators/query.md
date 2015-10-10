@@ -1,9 +1,9 @@
 ---
-title: "@@ operator"
+title: "@@ operator for non jsonb types"
 layout: en
 ---
 
-# `@@` operator
+# `@@` operator for non `jsonb` types
 
 You can do full text search with multiple keywords by `@@` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
 

@@ -5,10 +5,16 @@ layout: en
 
 # `pgroonga.snippet` function
 
-Here is `pgroonga.snippet_html` signature:
+## Summary
+
+`pgroonga.snippet_html` function returns texts around keywords from target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
+
+## Syntax
+
+Here is the syntax of this function:
 
 ```text
-pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])
+text[] pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])
 ```
 
 `target` is a `text` type value. `pgroonga.snippet_html` extracts keywords with around texts from `target`.
@@ -21,4 +27,10 @@ Element in the returned array is a text around keyword. The keyword is surround 
 
 The maximum size of part of `target` in each element is 200 bytes. It's unit is byte not the number of characters. Each element may be lager than 200 bytes because each element includes `<span class="keyword">` and `</span>` and may have HTML escaped values. If '<' is HTML escaped to `&lt;`, the byte size is increased to 4 from 1.
 
-See also [examples in tutorial](../../tutorial/#snippet).
+## Usage
+
+See [examples in tutorial](../../tutorial/#snippet).
+
+## See also
+
+  * [Examples in tutorial](../../tutorial/#snippet)

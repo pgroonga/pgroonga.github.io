@@ -16,17 +16,28 @@
   <ul class="nav navbar-nav navbar-left">
     <li><a href="/news/">おしらせ</a></li>
     <li><a href="/overview/">概要</a></li>
-    <li><a href="/install/">インストール</a></li>
-    <li><a href="/tutorial/">チュートリアル</a></li>
-    <li><a href="/how-to/">ハウツー</a></li>
-    <li><a href="/reference/">リファレンスマニュアル</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle"
+         data-toggle="dropdown"
+         role="button"
+         aria-haspopup="true"
+         aria-expanded="false">
+        ドキュメント <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="/install/">インストール</a></li>
+        <li><a href="/tutorial/">チュートリアル</a></li>
+        <li><a href="/how-to/">ハウツー</a></li>
+        <li><a href="/reference/">リファレンスマニュアル</a></li>
+      </ul>
+    </li>
     <li><a href="/community/">コミュニティー</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
     {% if page.upper_level != null %}
       <li><a href="{{ page.upper_level }}"><i class="fa fa-arrow-circle-up"></i> Up one level</a></li>
     {% elsif relative_path != "" %}
-      <li><a href="../"><i class="fa fa-arrow-circle-up"></i>1階層上へ</a></li>
+      <li><a href="../"><i class="fa fa-arrow-circle-up"></i> 1階層上へ</a></li>
     {% endif %}
     <li>
       <a href="https://github.com/pgroonga/pgroonga"><i class="fa fa-github"></i> GitHub</a>

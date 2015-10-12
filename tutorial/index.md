@@ -454,11 +454,11 @@ PGroonga provides the following two operators for searching against `jsonb`:
   * `@>` operator
   * `@@` operator
 
-[`@>` operator is a built-in PostgreSQL operator](http://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a sub set of left hand side `jsonb`.
+[`@>` operator is a built-in PostgreSQL operator](http://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
 
 You can execute `@>` faster by PGroonga.
 
-`@@` operator is a PGroonga original operator. You can use complex condition that can't be written by `@>` operator such as range search. If you know [JsQuery](https://github.com/postgrespro/jsquery), you can understand like "PGroonga provides `jsonb` related search features that are similar to JsQuery with different syntax".
+`@@` operator is a PGroonga original operator. You can use complex condition that can't be written by `@>` operator such as range search.
 
 ### Sample schema and data
 
@@ -511,9 +511,11 @@ SET enable_seqscan = off;
 
 ### `@>` operator
 
-`@>` operator specify search condition by `jsonb` value. If search target `jsonb` value contains the condition `jsonb` value, record that have the search target `jsonb` is matched.
+`@>` operator specify search condition by `jsonb` value. If condition `jsonb` value is a subset of the search target `jsonb` value, `@>` operator returns `true`.
 
-Here is an example for match case. (It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+Here is an example:
+
+(It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
@@ -539,120 +541,18 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com
 -- (2 rows)
 ```
 
-Here is an example for not match case.
-
-If you use an array in the condition `jsonb` value, all elements must be included in the search target `jsonb` value. Position of element isn't cared. If there are one or more elements that are included in the condition `jsonb` value but aren't included in the search target `jsonb` value, record that have the search target `jsonb` value isn't matched.
-
-In the following example, there are records that have only `"mail"` or `"web"` but there are no records that have both `"mail"` and `"web"`. So the following `SELECT` returns no record:
-
-```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"tags": ["mail", "web"]}'::jsonb;
---  jsonb_pretty 
--- --------------
--- (0 rows)
-```
-
 See [`@>` operator](../reference/operators/jsonb-contain.html) for more details.
 
 ### `@@` operator
 
-`@@` operator uses [Groonga's script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html) for specifying search condition. You need to understand how PGroonga creates index against `jsonb` data to create search condition.
+`@@` operator is a PGroonga original operator. You can write complex condition that can't be written by `@>` operator such as range search.
 
-PGroonga splits a `jsonb` value into values and then creates indexes against these values. In SQL, think about the following schema:
+Here is an example for range search. The `SELECT` returns records that is matched with the following conditions:
 
-```sql
-CREATE TABLE values (
-  key text PRIMARY KEY,
-  path text,
-  paths text[],
-  type text,
-  boolean boolean,
-  number double precision,
-  string text,
-  size numeric
-);
-```
+  * `code` key exists at the top-level object
+  * Value of the `code` is greater than or equal to `200` and less than `300`
 
-Here are descriptions of column:
-
-  * `key`: The ID of the value. If value has the same path and content, `key` is the same value. Key format is "`${PATH}|${TYPE}|${VALUE}`". It's not used in search condition.
-  * `path`: The path of the value from root. It uses [jq](https://stedolan.github.io/jq/) compatible format. Object is `["${ELEMENT_NAME}"]`, array is `[]`. For example, the path of `"web"` in `{"tags": ["web"]}` is `.["tags"][]`. If you know absolute path of the value, you can use this value in search condition.
-  * `paths`: The paths of the value. It includes absolute path, sub paths, `.${ELEMENT_NAME1}.${ELEMENT_NAME2}` format paths, paths without array. This column is convenient for search condition because you can use one of them for search condition. Here are paths for `"x"` in `{"a": {"b": "c": ["x"]}}`:
-     * `.a.b.c`
-     * `.["a"]["b"]["c"]`
-     * `.["a"]["b"]["c"][]`
-     * `a.b.c`
-     * `["a"]["b"]["c"]`
-     * `["a"]["b"]["c"][]`
-     * `b.c`
-     * `["b"]["c"]`
-     * `["b"]["c"][]`
-     * `c`
-     * `["c"]`
-     * `["c"][]`
-     * `[]`
-  * `type`: The type of the value. This column value is one of them:
-    * `"object"`: Object. No value.
-    * `"array"`: Array. The number of elements is stored in `size` column.
-    * `"boolean"`: Boolean. The value is stored in `boolean` column.
-    * `"number"`: Number. The value is stored in `number` column.
-    * `"string"`: String. The value is stored in `string` column.
-  * `boolean`: The value if `type` column value is `"boolean"`, `false` otherwise.
-  * `number`: The value if `type` column value is `"number"`, `0` otherwise.
-  * `string`: The value if `type` column value is `"string"`, `""` otherwise.
-  * `size`: The number of elements if `type` column value is `"array"`, `0` otherwise.
-
-Here is a sample JSON:
-
-```json
-{
-  "message": "GET /",
-  "host":    "www.example.com",
-  "code":    200,
-  "tags": [
-    "web",
-    "example.com"
-  ]
-}
-```
-
-The JSON is split to the following values. (They are part of all split values.)
-
-| key | path | paths | type | boolean | number | string | size |
-| --- | ---- | ----- | ---- | ------- | ------ | ------ | ---- |
-| `.|object` | `.` | `[.]` | `object` | | | | |
-| `.["message"]|string|GET /` | `.["message"]` | `[.message, .["message"], message, ["message"]]` | `string` | | | `GET /` | |
-| `.["tags"][]|string|web` | `.["tags"]` | `[.tags, .["tags"], .["tags"][], tags, ["tags"], ["tags"][], []]` | `string` | | | `web` | |
-
-You specify condition that matches split value to `@@` operator. If there is one or more values that match specified condition in `jsonb`, the `jsonb` is matched.
-
-Here is a condition that searches `jsonb` that has `www.example.com` string:
-
-```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.com"';
---             jsonb_pretty             
--- -------------------------------------
---  {                                  +
---      "host": "www.example.com",     +
---      "tags": [                      +
---          "web",                     +
---          "example.com"              +
---      ],                             +
---      "message": "Server is started."+
---  }
---  {                                  +
---      "code": 200,                   +
---      "host": "www.example.com",     +
---      "tags": [                      +
---          "web",                     +
---          "example.com"              +
---      ],                             +
---      "message": "GET /"             +
---  }
--- (2 rows)
-```
-
-Here is a condition that searches `jsonb` that has number between `200` to `299` as `code` column value. The condition uses `paths @ "..."` syntax to use simple path format (`.code`) to specify path.
+(It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number >= 200 && number < 300';
@@ -668,48 +568,6 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number
 --      "message": "GET /"        +
 --  }
 -- (1 row)
-```
-
-Here is a condition for full text search from all text values in `jsonb`:
-
-```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string @ "started"';
---             jsonb_pretty             
--- -------------------------------------
---  {                                  +
---      "host": "www.example.com",     +
---      "tags": [                      +
---          "web",                     +
---          "example.com"              +
---      ],                             +
---      "message": "Server is started."+
---  }
--- (1 row)
-```
-
-You can use [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html) (`a OR b` can be used) for full text search by `query("string", "...")` syntax:
-
-```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query("string", "send OR server")';
---                  jsonb_pretty                 
--- ----------------------------------------------
---  {                                           +
---      "host": "www.example.com",              +
---      "tags": [                               +
---          "web",                              +
---          "example.com"                       +
---      ],                                      +
---      "message": "Server is started."         +
---  }
---  {                                           +
---      "host": "mail.example.net",             +
---      "tags": [                               +
---          "mail",                             +
---          "example.net"                       +
---      ],                                      +
---      "message": "Send to <info@example.com>."+
---  }
--- (2 rows)
 ```
 
 See [`@@` operator for `jsonb`](../reference/operators/jsonb-query.html) for more details.
@@ -789,3 +647,9 @@ SELECT *
 ```
 
 See [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html) for more details.
+
+## Next step
+
+Now, you knew all PGroonga features! If you want to understand each feature, see [reference](../reference/) manual for each feature.
+
+If you get a problem or want to share your useful information, please contact [PGroonga community](../community/).

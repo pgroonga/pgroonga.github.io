@@ -8,7 +8,7 @@ layout: en
          title="{{ site.title }}"
          src="/images/pgroonga-logo.png">
   </h1>
-  <p>{{ site.description }}</p>
+  <p>{% include site-description.html %}</p>
   <p>
     <a href="/install/"
        class="btn btn-primary btn-lg"

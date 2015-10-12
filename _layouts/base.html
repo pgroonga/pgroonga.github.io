@@ -7,7 +7,7 @@
     {% if page.description %}
       {% assign description = page.description %}
     {% else %}
-      {% assign description = site.description %}
+      {% capture description %}{% include site-description.html %}{% endcapture %}
     {% endif %}
 
     <meta charset="utf-8">
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
     <link href="/assets/stylesheets/pgroonga.css" rel="stylesheet" medis="screen">
-    <meta name="description" content="{{ site.description }}">
+    <meta name="description" content="{{ description | strip_newlines }}">
   </head>
 
   <body>

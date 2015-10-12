@@ -5,6 +5,70 @@ layout: en
 
 # News
 
+## 0.9.0: 2015-09-29
+
+You can update to 0.9.0 from 0.8.0 by override install and executing the following SQL:
+
+```sql
+ALTER EXTENSION pgroonga UPDATE;
+```
+
+You don't need to re-create `pgroonga` indexes.
+
+### Improvements
+
+  * Supported `jsonb`. You can use `@>` operator like GIN index for `jsonb`. `@>` operator works like GIN index for `jsonb`. It's compatible. You can also use `@@` operator. It's PGroonga original operator. It's more flexible.
+
+## 0.8.0: 2015-09-01
+
+You can update to 0.8.0 from 0.7.0 by override install. You don't need to re-create `pgroonga` indexes.
+
+### Improvements
+
+  * Reduced needless loop on `VACUUM`.
+  * Reduced temporary memory usage.
+  * `pgroonga.log_path`: Added a variable that changes path for Groonga log.
+  * incompatible: Changed the path for Groonga log to the database directory by default. You can change it by `pgroonga.log_path`.
+  * `pgroonga.log_type`: Added a variable that changes how to log.
+  * Supported `TRUNCATE`-ed table. [GitHub:#1] [Reported by Hiroki Nakamura]
+  * `pgroonga.snippet_html()`: Added a function that generates snippet HTML. [groonga-dev,03398] [Reported by Hiroki Nakamura]
+  * Supported Ubuntu 14.04 LTS (Trusty Tahr). [Suggested by Yokoda Toshiaki]
+  * `pgroonga.lock_timeout`: Added a variable that changes the number of lock retries. [groonga-dev,03419] [Suggested by Naoki Takami]
+
+### Thanks
+
+  * Hiroki Nakamura
+  * Yokoda Toshiaki
+  * Naoki Takami
+
+## 0.7.0: 2015-07-10
+
+You can update to 0.6.0 from 0.5.0 by override install. You don't need to re-create `pgroonga` indexes.
+
+### Improvements
+
+  * incompatible: Changed to use Groonga's default logger. Messages for PGroonga is logged to `pgroonga.log` in database directory instead of PostgreSQL's log path.
+  * `pgroonga.log_level`: Added a variable that changes log level.
+
+### Fixes
+
+  * Fixed a bug that lexicon tables for dropped indexes aren't removed on `VACUUM`.
+
+## 0.6.0: 2015-05-29
+
+You can update to 0.6.0 from 0.5.0 by override install. You don't need to re-create `pgroonga` indexes.
+
+### Improvements
+
+  * `pgroonga.score()`: Supported HOT update on PostgreSQL 9.3.
+  * Supported log messages from Groonga.
+  * Stopped to try opening Groonga database when Groonga database path doesn't exist.
+  * Supported Debian GNU/Linux Jessie.
+
+### Fixes
+
+  * Fixed a bug that large block number in ctid is overflowed.
+
 ## 0.5.0: 2015-04-29
 
 You can't upgrade to 0.5.0 from 0.4.0 without re-creating `pgroonga` index. You need to re-install PGroonga:

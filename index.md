@@ -1,6 +1,7 @@
 ---
 layout: en
 ---
+
 <div class="jumbotron">
   <h1>
     <img alt="{{ site.title }}"

@@ -9,7 +9,7 @@ windows_postgresql_version: 9.4.2-1
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
 description:
   en: A PostgreSQL extension to use Groonga as index
-  ja: Groongaをインデックスとして使うためのPostgreSQL拡張機能
+  ja: Groongaをインデックスとして使うPostgreSQL拡張
 
 kramdown:
   input: GFM

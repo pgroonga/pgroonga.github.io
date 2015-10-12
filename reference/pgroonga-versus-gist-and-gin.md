@@ -5,7 +5,9 @@ layout: en
 
 # PGroonga versus GiST and GIN
 
-PostgreSQL provides GiST and GIN as bundled indexes. PGroonga's main feature is CJK ready fast full text search. But PGroonga also provides general propose index features for equality condition and comparison conditions. You can use PGroonga as alternative of GiST and GIN.
+PostgreSQL provides GiST and GIN as bundled indexes. You can use them for full text search against languages that use only alphabet and digit such as English. You can't use them for full text search against Japanese, Chinese and so on.
+
+PGroonga's main feature is fast full text search against all languages. But PGroonga also provides general propose index features for equality condition and comparison conditions. You can use PGroonga as alternative of GiST and GIN.
 
 This documents describes about different between PGroonga, GiST and GIN.
 

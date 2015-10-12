@@ -20,7 +20,7 @@ layout: ja
 
 PGroonga（ぴーじーるんが）はインデックスとして[Groonga](http://groonga.org/ja/)を使うPostgreSQLの拡張機能です。
 
-デフォルトでは、PostgreSQLは日本語を全文検索できません。PGroongaをPostgreSQLにインストールすると日本語対応の超高速全文検索機能を使えるようになります！
+PostgreSQLはアルファベットと数値だけを使った言語の全文検索だけをサポートしています。これは、日本語や中国語などはサポートしていないということです。PGroongaをPostgreSQLにインストールすると全言語対応の超高速全文検索機能を使えるようになります！
 
 ## ドキュメント
 

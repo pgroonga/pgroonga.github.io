@@ -21,7 +21,7 @@ layout: en
 
 PGroonga (píːzí:lúnɡά) is a PostgreSQL extension to use [Groonga](http://groonga.org/) as the index.
 
-As default, PostgreSQL isn't capable for CJK full text search. You can use super fast CJK full text search feature by installing PGroonga into your PostgreSQL!
+PostgreSQL supports full text search against languages that use only alphabet and digit. It means that PostgreSQL doesn't support full text search against Japanese, Chinese and so on. You can use super fast full text search feature against all languages by installing PGroonga into your PostgreSQL!
 
 ## Documentations
 

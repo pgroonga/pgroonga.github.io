@@ -8,14 +8,14 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="/ja/">
     <img alt="{{ site.title }}" src="/images/pgroonga-icon.png">
   </a>
 </div>
 <div class="collapse navbar-collapse">
   <ul class="nav navbar-nav navbar-left">
-    <li><a href="/news/">おしらせ</a></li>
-    <li><a href="/overview/">概要</a></li>
+    <li><a href="/ja/news/">おしらせ</a></li>
+    <li><a href="/ja/overview/">概要</a></li>
     <li class="dropdown">
       <a class="dropdown-toggle"
          data-toggle="dropdown"
@@ -25,17 +25,17 @@
         ドキュメント <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-        <li><a href="/install/">インストール</a></li>
-        <li><a href="/tutorial/">チュートリアル</a></li>
-        <li><a href="/how-to/">ハウツー</a></li>
-        <li><a href="/reference/">リファレンスマニュアル</a></li>
+        <li><a href="/ja/install/">インストール</a></li>
+        <li><a href="/ja/tutorial/">チュートリアル</a></li>
+        <li><a href="/ja/how-to/">ハウツー</a></li>
+        <li><a href="/ja/reference/">リファレンスマニュアル</a></li>
       </ul>
     </li>
-    <li><a href="/community/">コミュニティー</a></li>
+    <li><a href="/ja/community/">コミュニティー</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
     {% if page.upper_level != null %}
-      <li><a href="{{ page.upper_level }}"><i class="fa fa-arrow-circle-up"></i> Up one level</a></li>
+      <li><a href="{{ page.upper_level }}"><i class="fa fa-arrow-circle-up"></i> 1階層上へ</a></li>
     {% elsif relative_path != "" %}
       <li><a href="../"><i class="fa fa-arrow-circle-up"></i> 1階層上へ</a></li>
     {% endif %}

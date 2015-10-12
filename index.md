@@ -28,7 +28,8 @@ As default, PostgreSQL isn't capable for CJK full text search. You can use super
   * [Overview](overview/): It describes about PGroonga.
   * [Install](install/): It describes how to install PGroonga.
   * [Tutorial](tutorial/): It describes how to use PGroonga step by step.
-  * [Reference](reference/): It describes options and operators.
+  * [How to](how-to/): It describes about useful information for specific situations.
+  * [Reference](reference/): It describes details for each features such as options, functions and operators.
   * [Community](community/): It introduces about PGroonga community.
 
 ## License

@@ -652,4 +652,6 @@ See [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.
 
 Now, you knew all PGroonga features! If you want to understand each feature, see [reference](../reference/) manual for each feature.
 
+[How to](../how-to/) may help you to use PGroonga for specific situation.
+
 If you get a problem or want to share your useful information, please contact [PGroonga community](../community/).

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ page.language }}">
   <head>
-    {% capture title %}{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}{% endcapture %}
-    {% capture relative_path %}{{ page.url | remove_first: page.path_prefix | remove: "index.html" }}{% endcapture %}
-
     {% if page.description %}
       {% assign description = page.description %}
     {% else %}
       {% capture description %}{% include site-description.html %}{% endcapture %}
     {% endif %}
+
+    {% capture title %}{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ description }}{% endif %}{% endcapture %}
+    {% capture relative_path %}{{ page.url | remove_first: page.path_prefix | remove: "index.html" }}{% endcapture %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

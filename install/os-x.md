@@ -1,9 +1,9 @@
 ---
-title: install on OS X
+title: Install on OS X
 layout: en
 ---
 
-# install on OS X
+# Install on OS X
 
 This document describes how to install PGroonga on OS X.
 

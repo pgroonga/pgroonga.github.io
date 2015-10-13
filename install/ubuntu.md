@@ -1,9 +1,9 @@
 ---
-title: install on Ubuntu
+title: Install on Ubuntu
 layout: en
 ---
 
-# install on Ubuntu
+# Install on Ubuntu
 
 This document describes how to install PGroonga on Ubuntu.
 

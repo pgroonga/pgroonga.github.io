@@ -1,9 +1,9 @@
 ---
-title: install on Windows
+title: Install on Windows
 layout: en
 ---
 
-# install on Windows
+# Install on Windows
 
 This document describes how to install PGroonga on Windows.
 

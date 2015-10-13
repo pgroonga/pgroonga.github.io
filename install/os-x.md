@@ -1,11 +1,11 @@
 ---
-title: Install to OS X
+title: install on OS X
 layout: en
 ---
 
-# Install to OS X
+# install on OS X
 
-This document describes how to install PGroonga to OS X.
+This document describes how to install PGroonga on OS X.
 
 ## How to install by Homebrew {#homebrew}
 

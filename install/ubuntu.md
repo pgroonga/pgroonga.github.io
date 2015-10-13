@@ -1,11 +1,11 @@
 ---
-title: Install to Ubuntu
+title: install on Ubuntu
 layout: en
 ---
 
-# Install to Ubuntu
+# install on Ubuntu
 
-This document describes how to install PGroonga to Ubuntu.
+This document describes how to install PGroonga on Ubuntu.
 
 ## Supported versions
 
@@ -16,7 +16,7 @@ Here are supported Ubuntu versions:
 
 ## How to install
 
-You can use the following instruction to install PGroonga to all supported Ubuntu versions.
+You can use the following instruction to install PGroonga on all supported Ubuntu versions.
 
 Install `postgresql-server-9.4-pgroonga` package:
 

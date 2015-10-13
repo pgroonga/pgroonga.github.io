@@ -1,23 +1,23 @@
 ---
-title: Install to CentOS
+title: install on CentOS
 layout: en
 ---
 
-# Install to CnetOS
+# install on CnetOS
 
-This document describes how to install PGroonga to CentOS.
+This document describes how to install PGroonga on CentOS.
 
 ## Supported versions
 
 Here are supported CentOS versions:
 
-  * [CentOS 5](#install-to-5-or-6)
-  * [CentOS 6](#install-to-5-or-6)
-  * [CentOS 7](#install-to-7)
+  * [CentOS 5](#install-on-5-or-6)
+  * [CentOS 6](#install-on-5-or-6)
+  * [CentOS 7](#install-on-7)
 
-## How to install to CentOS 5 or CentOS 6 {#install-to-5-or-6}
+## How to install on CentOS 5 or CentOS 6 {#install-on-5-or-6}
 
-You can use the following instruction to install PGroonga to CentOS 5 or CentOS 6.
+You can use the following instruction to install PGroonga on CentOS 5 or CentOS 6.
 
 Install `postgresql-pgroonga` package:
 
@@ -60,9 +60,9 @@ That's all!
 
 Try [tutorial](../tutorial/). You can understand more about PGroonga.
 
-## How to install to CentOS 7 {#install-to-7}
+## How to install on CentOS 7 {#install-on-7}
 
-You can use the following instruction to install PGroonga to CentOS 7.
+You can use the following instruction to install PGroonga on CentOS 7.
 
 Install `postgresql-pgroonga` package:
 

@@ -1,11 +1,11 @@
 ---
-title: Install to Windows
+title: install on Windows
 layout: en
 ---
 
-# Install to Windows
+# install on Windows
 
-This document describes how to install PGroonga to Windows.
+This document describes how to install PGroonga on Windows.
 
 ## Supported versions
 

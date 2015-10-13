@@ -25,6 +25,8 @@ See a document for your platform in the followings:
     * 5
     * 6
     * 7
+  * [OS X](os-x.html)
+    * Homebrew
   * [Windows](windows.html)
     * 32bit + PostgreSQL {{ site.windows_postgresql_version }}
     * 64bit + PostgreSQL {{ site.windows_postgresql_version }}

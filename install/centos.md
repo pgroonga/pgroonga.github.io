@@ -15,7 +15,9 @@ Here are supported CentOS versions:
   * [CentOS 6](#install-on-5-or-6)
   * [CentOS 7](#install-on-7)
 
-## How to install on CentOS 5 or CentOS 6 {#install-on-5-or-6}
+{: #install-on-5-or-6}
+
+## How to install on CentOS 5 or CentOS 6
 
 You can use the following instruction to install PGroonga on CentOS 5 or CentOS 6.
 
@@ -60,7 +62,9 @@ That's all!
 
 Try [tutorial](../tutorial/). You can understand more about PGroonga.
 
-## How to install on CentOS 7 {#install-on-7}
+{: #install-on-7}
+
+## How to install on CentOS 7
 
 You can use the following instruction to install PGroonga on CentOS 7.
 

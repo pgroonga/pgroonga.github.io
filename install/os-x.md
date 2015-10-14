@@ -7,7 +7,9 @@ layout: en
 
 This document describes how to install PGroonga on OS X.
 
-## How to install by Homebrew {#homebrew}
+{: #homebrew}
+
+## How to install by Homebrew
 
 You can install PGroonga by Homebrew:
 

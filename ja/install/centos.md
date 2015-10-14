@@ -15,7 +15,9 @@ layout: ja
   * [CentOS 6](#install-on-5-or-6)
   * [CentOS 7](#install-on-7)
 
-## CentOS 5またはCentOS 6にインストールする方法 {#install-on-5-or-6}
+{: #install-on-5-or-6}
+
+## CentOS 5またはCentOS 6にインストールする方法
 
 次の方法でPGroongaをCentOS 5またはCentOS 6にインストールできます。
 
@@ -60,7 +62,9 @@ PostgreSQLを実行します。
 
 [チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
 
-## CentOS 7にインストールする方法 {#install-on-7}
+{: #install-on-7}
+
+## CentOS 7にインストールする方法
 
 CentOS 7にPGroongaをインストールする方法は次の通りです。
 

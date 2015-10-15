@@ -1,37 +1,37 @@
 ---
-title: Tutorial
-layout: en
+title: チュートリアル
+layout: ja
 ---
 
-# Tutorial
+# チュートリアル
 
-This document describes how to use PGroonga step by step. If you don't install PGroonga yet, [install](../install/) PGroonga before you read this document.
+このドキュメントはPGroongaの使い方を段階を追って説明します。まだPGroongaをインストールしていない場合は、このドキュメントを読む前にPGroongaを[インストール](../install/)してください。
 
-You can use PGroonga as fast full text search index. You can also use PGroonga as more general index for equality condition (`=`) and comparison conditions (`<`, `>=` and so on).
+PGroongaは高速な全文検索インデックスを提供します。さらに、等価条件（`=`）・比較条件（`<`や`>=`など）用の一般的なインデックスも提供します。
 
-PostgreSQL provides GiST and GIN as bundled indexes. You can use PGroonga as alternative of GiST and GIN. See [PGroonga versus GiST and GIN](../reference/pgroonga-versus-gist-and-gin.html) for differences of them.
+PostgreSQLは組み込みのインデックスとしてGiSTとGINを提供しています。PGroongaはGiST・GINの代わりに使うことができます。PGroongaとGiST・GINの違いは[PGroonga対GiST・GIN](../reference/pgroonga-versus-gist-and-gin.html)を参照してください。
 
-This document describes about the followings:
+このドキュメントは次のことを説明します。
 
-  * How to use PGroonga as index for full text search
-  * How to use PGroonga as index for equality condition and comparison conditions
-  * How to use PGroonga as index for array
-  * How to use PGroonga as index for JSON
-  * How to use Groonga throw PGroonga (advanced topic)
+  * PGroongaを全文検索用インデックスとして使う方法
+  * PGroongaを等価条件・比較条件用インデックスとして使う方法
+  * PGroongaを配列用インデックスとして使う方法
+  * PGroongaをJSON用インデックスとして使う方法
+  * PGroonga経由でGroongaを使う方法（高度な話題）
 
-## Full text search
+## 全文検索
 
-This section describes about the followings:
+このセクションでは次のことを説明します。
 
-  * How to prepare PGroonga based full text search system
-  * Operators for full text search
-  * Score
+  * PGroongaベースの全文検索システムの準備方法
+  * 全文検索用の演算子
+  * スコアー
 
-### How to prepare PGroonga based full text search system
+### PGroongaベースの全文検索システムの準備方法
 
-This section describes about how to prepare PGroonga based full text search system.
+このセクションはPGroongaベースの全文検索システムの準備方法を説明します。
 
-Create a column that you want to enable full text search as `text` type:
+全文検索をしたいカラムを`text`型のカラムとして作ります。
 
 ```sql
 CREATE TABLE memos (
@@ -40,17 +40,17 @@ CREATE TABLE memos (
 );
 ```
 
-`memos.content` column is a full text search target column.
+`memos.content`カラムが全文検索対象のカラムです。
 
-Create a `pgroonga` index against the column:
+このカラムに対して`pgroonga`インデックスを作ります。
 
 ```
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 
-See [CREATE INDEX USING pgroonga](../reference/create-index-using-pgroonga.html) for more details.
+詳細は[CREATE INDEX USING pgroonga](../reference/create-index-using-pgroonga.html)を参照してください。
 
-Insert test data:
+テストデータを挿入します。
 
 ```sql
 INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
@@ -59,25 +59,25 @@ INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを�
 INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 ```
 
-Disable sequential scan to ensure using `pgroonga` index:
+確実に`pgroonga`インデックスを使うためにシーケンシャルスキャンを無効にします。
 
 ```sql
 SET enable_seqscan = off;
 ```
 
-NOTE: You should not disable sequential scan on production environment. This is only for test.
+注意：本番環境ではシーケンシャルスキャンを無効にするべきではありません。これはテスト用の設定です。
 
-### Operators for full text search
+### 全文検索用演算子
 
-There are the following operators to perform full text search:
+全文検索をする場合は次の演算子を使います。
 
   * `%%`
   * `@@`
   * `LIKE`
 
-#### `%%` operator
+#### `%%`演算子
 
-You can use `%%` operator to perform full text search by one word:
+1語で全文検索を実行する場合は`%%`演算子を使います。
 
 ```sql
 SELECT * FROM memos WHERE content %% '全文検索';
@@ -88,11 +88,11 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 row)
 ```
 
-See [%% operator](../reference/operators/match.html) for more details.
+詳細は[%% operator](../reference/operators/match.html)を参照してください。
 
-#### `@@` operator
+#### `@@`演算子
 
-You can use `@@` operator to perform full text search by query syntax such as `keyword1 OR keyword2`:
+`キーワード1 OR キーワード2`というようなクエリー構文を使って全文検索を実行する場合は`@@`演算子を使います。
 
 ```sql
 SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
@@ -103,17 +103,17 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 -- (2 rows)
 ```
 
-Query syntax is similar to syntax of Web search engine. For example, you can use `OR` to merge result sets of performing full text search by two or more words. In the above example, you get a merged result set. The merged result set has records that includes `PGroonga` or `PostgreSQL`.
+クエリー構文はWeb検索エンジンの構文と似ています。たとえば、`OR`を使うと複数のキーワードでの全文検索結果をマージできます。上の例ではマージされた結果が返ってきています。`PGroonga`または`PostgreSQL`を含むレコードがマージされた結果になります。
 
-See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for full query syntax.
+クエリー構文の詳細は[Groongaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を参照してください。
 
-See [`@@` operator](../reference/operators/query.html) for more details.
+詳細は[`@@`演算子](../reference/operators/query.html)を参照してください。
 
-#### `LIKE` operator
+#### `LIKE`演算子
 
-PGroonga supports `LIKE` operator. You can perform fast full text search by PGroonga without changing existing SQL.
+PGroongaは`LIKE`演算子をサポートしています。既存のSQLを変更しなくてもPGroongaを使った高速な全文検索を実現できます。
 
-`column LIKE '%keyword%'` equals to `column %% 'keyword'`:
+`column LIKE '%キーワードd%'`は`column %% 'キーワード'`と等価です。
 
 ```sql
 SELECT * FROM memos WHERE content %% '全文検索';
@@ -124,11 +124,11 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 row)
 ```
 
-See [`LIKE` operator](../reference/operators/like.html) for more details.
+詳細は[`LIKE`演算子](../reference/operators/like.html)を参照してください。
 
 {: #score}
 
-### Score
+### スコアー
 
 You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
 
@@ -147,7 +147,7 @@ CREATE INDEX pgroonga_score_memos_content_index
        USING pgroonga (id, content);
 ```
 
-Insert test data:
+テストデータを挿入します。
 
 ```sql
 INSERT INTO score_memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
@@ -156,7 +156,7 @@ INSERT INTO score_memos VALUES (3, 'PGroongaはインデックスとしてGroong
 INSERT INTO score_memos VALUES (4, 'groongaコマンドがあります。');
 ```
 
-Disable sequential scan to ensure using `pgroonga` index:
+確実に`pgroonga`インデックスを使うためにシーケンシャルスキャンを無効にします。
 
 ```sql
 SET enable_seqscan = off;
@@ -242,7 +242,7 @@ See [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-h
 
 You can use PGroonga for equality condition and comparison conditions. There are some differences between how to create index for string types and other types. There is no difference between how to write condition for string types and other types.
 
-This section describes about the followings:
+このセクションでは次のことを説明します。
 
   * How to use PGroonga for not string types
   * How to use PGroonga for string types
@@ -263,7 +263,7 @@ CREATE INDEX pgroonga_id_index ON ids USING pgroonga (id);
 
 The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-tree index to use PGroonga.
 
-Insert test data:
+テストデータを挿入します。
 
 ```sql
 INSERT INTO ids VALUES (1);
@@ -307,7 +307,7 @@ CREATE INDEX pgroonga_tag_index ON tags USING pgroonga (tag);
 
 The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-tree index to use PGroonga.
 
-Insert test data:
+テストデータを挿入します。
 
 ```sql
 INSERT INTO tags VALUES (1, 'PostgreSQL');
@@ -357,7 +357,7 @@ CREATE TABLE docs (
 CREATE INDEX pgroonga_sections_index ON docs USING pgroonga (sections);
 ```
 
-Insert test data:
+テストデータを挿入します。
 
 ```sql
 INSERT INTO docs
@@ -400,7 +400,7 @@ CREATE TABLE products (
 CREATE INDEX pgroonga_tags_index ON products USING pgroonga (tags);
 ```
 
-Insert test data:
+テストデータを挿入します。
 
 ```sql
 INSERT INTO products

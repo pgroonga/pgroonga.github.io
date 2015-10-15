@@ -5,7 +5,7 @@ layout: en
 
 # Overview
 
-PGroonga is a PostgreSQL extension. PGroonga provides a new index that uses [Groonga](http://groonga.org/).
+PGroonga is a PostgreSQL extension. PGroonga provides a new index access method that uses [Groonga](http://groonga.org/).
 
 Groonga is an embeddable super fast full text search engine. It can be embedded into MySQL. [Mroonga](http://mroonga.org/) is a storage engine that is based on Groonga. Groonga can also work as standalone search engine. 
 
@@ -17,7 +17,7 @@ And more, PGroonga supports full text search against all text values in JSON. It
 
 There are some extensions that implements full text search against all languages:
 
-  * [pg_trgm](http://www.postgresql.org/docs/9.4/static/pgtrgm.html)
+  * [pg_trgm](http://www.postgresql.org/docs/current/static/pgtrgm.html)
     * It's bundled with PostgreSQL but it's not installed as default.
     * You need to change pg\_trgm source code to support all languages.
 

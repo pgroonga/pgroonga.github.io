@@ -5,40 +5,40 @@ layout: ja
 
 # 概要
 
-PGroongaはPostgreSQLの拡張機能です。PGroongaは[Groonga](http://groonga.org/)を使った新しいインデックスを提供します。
+PGroongaはPostgreSQLの拡張機能です。PGroongaは[Groonga](http://groonga.org/ja/)を使った新しいインデックスアクセスメソッドを提供します。
 
-Groonga is an embeddable super fast full text search engine. It can be embedded into MySQL. [Mroonga](http://mroonga.org/) is a storage engine that is based on Groonga. Groonga can also work as standalone search engine. 
+Groongaは組み込み可能な超高速全文検索エンジンです。GroongaはMySQLにも組み込めます。[Mroonga](http://mroonga.org/ja/)はGroongaベースのストレージエンジンです。Groongaはスタンドアローンの検索エンジンとしても使えます。 
 
 PostgreSQLはアルファベットと数値だけを使った言語の全文検索だけをサポートしています。これは、日本語や中国語などはサポートしていないということです。PGroongaをPostgreSQLにインストールすると全言語対応の超高速全文検索機能を使えるようになります！
 
-And more, PGroonga supports full text search against all text values in JSON. It's an unique feature. Built-in PostgreSQL features and [JsQuery](https://github.com/postgrespro/jsquery) don't support it.
+さらに、PGroongaはJSON内のすべてのテキスト値に対する全文検索もサポートしています。これは他にはない機能です。組み込みのPostgreSQLの機能でも[JsQuery](https://github.com/postgrespro/jsquery)でもサポートしていません。
 
-## Related extensions
+## 関連する拡張機能
 
-There are some extensions that implements full text search against all languages:
+あらゆる言語をサポートした全文検索を実現するための拡張機能がいくつかあります。
 
-  * [pg_trgm](http://www.postgresql.org/docs/9.4/static/pgtrgm.html)
-    * It's bundled with PostgreSQL but it's not installed as default.
-    * You need to change pg\_trgm source code to support all languages.
+  * [pg_trgm](http://www.postgresql.org/docs/current/static/pgtrgm.html)
+    * PostgreSQLにバンドルされていますが、デフォルトではインストールされていません。
+    * あらゆる言語に対応するためにはpg\_trgmのソースコードを変更する必要があります。
 
   * [pg_bigm](http://pgbigm.osdn.jp/)
-    * It supports full text search against all languages without changing source code.
-    * It requires [Recheck](http://pgbigm.osdn.jp/pg_bigm_en-1-1.html#enable_recheck) to remove false positives.
-    * Recheck is slow for many hits case. Because Recheck does sequential search against records found by index search.
-    * If you disables Recheck, you may get false positives.
+    * ソースコードを変更しなくてもあらゆる言語をサポートした全文検索を実現できます。
+    * 誤検出を防ぐために[Recheck](http://pgbigm.osdn.jp/pg_bigm-1-1.html#enable_recheck)をする必要があります。
+    * Recheckはヒット数が多くなるほど遅くなります。なぜならRecheckはインデックスを使った検索でマッチしたレコードに対してシーケンシャルサーチをするからです。
+    * Recheckを無効にすると誤検出したレコードも返ってくる可能性があります。
 
-PGroonga supports full text search against all languages without changing source code.
+PGroongaはソースコードを変更しなくてもあらゆる言語をサポートした全文検索を実現できます。
 
-PGroonga works without Recheck. PGroonga can find exact records only by index search. PGroonga is fast for many hits case.
+PGroongaはRecheckなしで動きます。インデックスを使った検索で誤検出をしないからです。そのため、PGroongaはヒット数が多くなる場合でも高速です。
 
-PGroonga doesn't support crash recovery and streaming replication because PGroonga doesn't support WAL. Because PostgreSQL doesn't provide API for supporting WAL to extensions. PGroonga will support WAL when PostgreSQL provides the API.
+PGroongaはクラッシュリカバリーとストリーミングレプリケーションをサポートしてません。なぜならPGroongaはWALをサポートしていないからです。どうしてWALをサポートしていないのかというと、PostgreSQLには拡張機能がWALをサポートするAPIがないからです。PostgreSQLがそのようなAPIを提供するようになったらPGroongaもWALをサポートする予定です。
 
-FYI: pg\_trgm and pg\_bigm support WAL. To be precise, GIN and GiST that are used by pg\_trgm and pg\_bigm support WAL.
+参考：pg\_trgmとpg\_bigmはWALをサポートしています。正確に言うと、pg\_trgmとpg\_bigmが使っているGINとGiSTがWALをサポートしています。
 
-## History
+## 歴史
 
-PGroonga is based on [textsearch_groonga](http://textsearch-ja.projects.pgfoundry.org/textsearch_groonga.html) that was developed by Itagaki Takahiro. Thanks for the works!
+PGroongaは[textsearch_groonga](http://textsearch-ja.projects.pgfoundry.org/textsearch_groonga.html)をベースにしています。textsearch\_groongaは板垣貴裕さんが開発しました。感謝します。
 
-## The next step
+## 次のステップ
 
-Interested? [Install](../install/) PGroonga and try [tutorial](../tutorial/). You can understand more about PGroonga.
+使ってみたくなりましたか？PGroongaを[インストール](../install/)して[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。

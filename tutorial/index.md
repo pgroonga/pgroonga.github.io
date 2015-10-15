@@ -88,7 +88,7 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 row)
 ```
 
-See [%% operator](../reference/operators/match.html) for more details.
+See [`%%` operator](../reference/operators/match.html) for more details.
 
 #### `@@` operator
 

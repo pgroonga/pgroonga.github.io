@@ -88,7 +88,7 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 row)
 ```
 
-詳細は[%% operator](../reference/operators/match.html)を参照してください。
+詳細は[`%%` operator](../reference/operators/match.html)を参照してください。
 
 #### `@@`演算子
 

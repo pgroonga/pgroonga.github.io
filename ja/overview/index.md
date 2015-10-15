@@ -5,7 +5,7 @@ layout: ja
 
 # 概要
 
-PGroonga is a PostgreSQL extension. PGroonga provides a new index that uses [Groonga](http://groonga.org/).
+PGroongaはPostgreSQLの拡張機能です。PGroongaは[Groonga](http://groonga.org/)を使った新しいインデックスを提供します。
 
 Groonga is an embeddable super fast full text search engine. It can be embedded into MySQL. [Mroonga](http://mroonga.org/) is a storage engine that is based on Groonga. Groonga can also work as standalone search engine. 
 

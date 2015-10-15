@@ -5,6 +5,8 @@ layout: en
 
 # News
 
+{: #version-0-9-0}
+
 ## 0.9.0: 2015-09-29
 
 You can update to 0.9.0 from 0.8.0 by override install and executing the following SQL:

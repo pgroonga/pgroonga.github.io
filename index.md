@@ -9,11 +9,14 @@ layout: en
          src="/images/pgroonga-logo.png">
   </h1>
   <p>{{ site.description.en }}</p>
+  <p>The latest version
+     (<a href="news/#version-{{ site.pgroonga_version | replace:".", "-" }}">{{ site.pgroonga_version }}</a>)
+     has been released at {{ site.pgroonga_release_date }}.
+  </p>
   <p>
-    <a href="/install/"
+    <a href="/tutorial/"
        class="btn btn-primary btn-lg"
-       role="button">Use the latest version ({{ site.pgroonga_version }})
-                     released at {{ site.pgroonga_release_date }}</a>
+       role="button">Try tutorial</a>
   </p>
 </div>
 

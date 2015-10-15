@@ -9,10 +9,12 @@ layout: ja
          src="/images/pgroonga-logo.png">
   </h1>
   <p>{{ site.description.ja }}</p>
+  <p>最新版（<a href="news/#version-{{ site.pgroonga_version | replace:".", "-" }}">{{ site.pgroonga_version }}</a>）は{{ site.pgroonga_release_date }}にリリースされました。
+  </p>
   <p>
-    <a href="/install/"
+    <a href="/tutorial/"
        class="btn btn-primary btn-lg"
-       role="button">{{ site.pgroonga_release_date }}にリリースされた最新版({{ site.pgroonga_version }})を使う</a>
+       role="button">チュートリアルをやってみる</a>
   </p>
 </div>
 

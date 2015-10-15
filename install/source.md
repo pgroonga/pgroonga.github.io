@@ -44,7 +44,7 @@ Build PGroonga:
 
 If you get any error, confirm the followings:
 
-  * `pg_config` command exists in `PATH` environment variable.
+  * `pg_config` command exists at any path in `PATH` environment variable.
   * `pkg-config --list-all` includes `groonga`.
 
 If `pg_config` command doesn't exist, you may forget to install the development package of PostgreSQL.
@@ -53,7 +53,7 @@ If `pkg-config --list-all` doesn't include `groonga`, you may forget to install 
 
 Install PGroonga:
 
-```
+```text
 % sudo make install
 ```
 
@@ -101,7 +101,7 @@ Specify build option by `cmake`. The following command line is for building PGro
 pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER%
 ```
 
-If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\Program Files\PostgreSQL\9.4`.
+If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\Program Files\PostgreSQL\{{ site.windows_postgresql_short_version }}`.
 
 If you installed PostgreSQL by zip, `%POSTGRESQL_INSTALL_FOLDER%` is `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\pgsql`.
 

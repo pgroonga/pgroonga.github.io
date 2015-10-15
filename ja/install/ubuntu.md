@@ -18,20 +18,20 @@ layout: ja
 
 PGroongaをインストールする方法は次の通りです。サポートしているすべてのバージョンのUbuntuで共通です。
 
-`postgresql-server-9.4-pgroonga`パッケージをインストールします。
+`postgresql-9.4-pgroonga`パッケージをインストールします。
 
 ```text
 % sudo apt-get install -y software-properties-common
 % sudo add-apt-repository -y universe
 % sudo add-apt-repository -y ppa:groonga/ppa
 % sudo apt-get update
-% sudo apt-get install -y postgresql-server-9.4-pgroonga
+% sudo apt-get install -y -V postgresql-9.4-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
 ```text
-% sudo apt-get install -y groonga-tokenizer-mecab
+% sudo apt-get install -y -V groonga-tokenizer-mecab
 ```
 
 データベースを作成します。

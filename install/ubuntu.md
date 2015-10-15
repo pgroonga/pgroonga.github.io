@@ -18,20 +18,20 @@ Here are supported Ubuntu versions:
 
 You can use the following instruction to install PGroonga on all supported Ubuntu versions.
 
-Install `postgresql-server-9.4-pgroonga` package:
+Install `postgresql-9.4-pgroonga` package:
 
 ```text
 % sudo apt-get install -y software-properties-common
 % sudo add-apt-repository -y universe
 % sudo add-apt-repository -y ppa:groonga/ppa
 % sudo apt-get update
-% sudo apt-get install -y postgresql-server-9.4-pgroonga
+% sudo apt-get install -y -V postgresql-9.4-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
 ```text
-% sudo apt-get install -y groonga-tokenizer-mecab
+% sudo apt-get install -y -V groonga-tokenizer-mecab
 ```
 
 Create a database:

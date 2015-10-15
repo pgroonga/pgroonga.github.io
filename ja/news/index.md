@@ -15,7 +15,7 @@ ALTER EXTENSION pgroonga UPDATE;
 
 You don't need to re-create `pgroonga` indexes.
 
-### Improvements
+### 改良
 
   * Supported `jsonb`. You can use `@>` operator like GIN index for `jsonb`. `@>` operator works like GIN index for `jsonb`. It's compatible. You can also use `@@` operator. It's PGroonga original operator. It's more flexible.
 
@@ -23,7 +23,7 @@ You don't need to re-create `pgroonga` indexes.
 
 You can update to 0.8.0 from 0.7.0 by override install. You don't need to re-create `pgroonga` indexes.
 
-### Improvements
+### 改良
 
   * Reduced needless loop on `VACUUM`.
   * Reduced temporary memory usage.
@@ -45,12 +45,12 @@ You can update to 0.8.0 from 0.7.0 by override install. You don't need to re-cre
 
 You can update to 0.6.0 from 0.5.0 by override install. You don't need to re-create `pgroonga` indexes.
 
-### Improvements
+### 改良
 
   * incompatible: Changed to use Groonga's default logger. Messages for PGroonga is logged to `pgroonga.log` in database directory instead of PostgreSQL's log path.
   * `pgroonga.log_level`: Added a variable that changes log level.
 
-### Fixes
+### 修正
 
   * Fixed a bug that lexicon tables for dropped indexes aren't removed on `VACUUM`.
 
@@ -58,14 +58,14 @@ You can update to 0.6.0 from 0.5.0 by override install. You don't need to re-cre
 
 You can update to 0.6.0 from 0.5.0 by override install. You don't need to re-create `pgroonga` indexes.
 
-### Improvements
+### 改良
 
   * `pgroonga.score()`: Supported HOT update on PostgreSQL 9.3.
   * Supported log messages from Groonga.
   * Stopped to try opening Groonga database when Groonga database path doesn't exist.
   * Supported Debian GNU/Linux Jessie.
 
-### Fixes
+### 修正
 
   * Fixed a bug that large block number in ctid is overflowed.
 
@@ -79,7 +79,7 @@ CREATE EXTENSION pgroonga;
 -- Create your pgroonga indexes again.
 ```
 
-### Improvements
+### 改良
 
   * `pgroonga.score()`: Supported HOT update.
   * Supported Ubuntu 15.04 Vivid Vervet.
@@ -99,7 +99,7 @@ CREATE EXTENSION pgroonga;
 -- Create your pgroonga indexes again.
 ```
 
-### Improvements
+### 改良
 
   * Supported `column LIKE '%keyword'` as a short cut of `column @@ 'keyword'`.
   * Supported range search with multi-column index.
@@ -132,7 +132,7 @@ CREATE EXTENSION pgroonga;
 -- Create your pgroonga indexes again.
 ```
 
-### Improvements
+### 改良
 
   * Supported encoding
   * Supported customizing tokenizer and normalizer by `WITH` such as:

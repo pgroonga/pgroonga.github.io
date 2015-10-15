@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-12 22:59+0900\n"
+"PO-Revision-Date: 2015-10-15 09:56+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +22,101 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 0.9.0: 2015-09-29"
+msgstr ""
+
+msgid ""
+"You can update to 0.9.0 from 0.8.0 by override install and executing the follo"
+"wing SQL:"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"ALTER EXTENSION pgroonga UPDATE;\n"
+"```"
+msgstr ""
+
+msgid "You don't need to re-create `pgroonga` indexes."
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid ""
+"  * Supported `jsonb`. You can use `@>` operator like GIN index for `jsonb`. `"
+"@>` operator works like GIN index for `jsonb`. It's compatible. You can also u"
+"se `@@` operator. It's PGroonga original operator. It's more flexible."
+msgstr ""
+
+msgid "## 0.8.0: 2015-09-01"
+msgstr ""
+
+msgid ""
+"You can update to 0.8.0 from 0.7.0 by override install. You don't need to re-c"
+"reate `pgroonga` indexes."
+msgstr ""
+
+msgid ""
+"  * Reduced needless loop on `VACUUM`.\n"
+"  * Reduced temporary memory usage.\n"
+"  * `pgroonga.log_path`: Added a variable that changes path for Groonga log.\n"
+"  * incompatible: Changed the path for Groonga log to the database directory b"
+"y default. You can change it by `pgroonga.log_path`.\n"
+"  * `pgroonga.log_type`: Added a variable that changes how to log.\n"
+"  * Supported `TRUNCATE`-ed table. [GitHub:#1] [Reported by Hiroki Nakamura]\n"
+"  * `pgroonga.snippet_html()`: Added a function that generates snippet HTML. ["
+"groonga-dev,03398] [Reported by Hiroki Nakamura]\n"
+"  * Supported Ubuntu 14.04 LTS (Trusty Tahr). [Suggested by Yokoda Toshiaki]\n"
+"  * `pgroonga.lock_timeout`: Added a variable that changes the number of lock "
+"retries. [groonga-dev,03419] [Suggested by Naoki Takami]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr ""
+
+msgid ""
+"  * Hiroki Nakamura\n"
+"  * Yokoda Toshiaki\n"
+"  * Naoki Takami"
+msgstr ""
+
+msgid "## 0.7.0: 2015-07-10"
+msgstr ""
+
+msgid ""
+"You can update to 0.6.0 from 0.5.0 by override install. You don't need to re-c"
+"reate `pgroonga` indexes."
+msgstr ""
+
+msgid ""
+"  * incompatible: Changed to use Groonga's default logger. Messages for PGroon"
+"ga is logged to `pgroonga.log` in database directory instead of PostgreSQL's l"
+"og path.\n"
+"  * `pgroonga.log_level`: Added a variable that changes log level."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that lexicon tables for dropped indexes aren't removed on `VAC"
+"UUM`."
+msgstr ""
+
+msgid "## 0.6.0: 2015-05-29"
+msgstr ""
+
+msgid ""
+"  * `pgroonga.score()`: Supported HOT update on PostgreSQL 9.3.\n"
+"  * Supported log messages from Groonga.\n"
+"  * Stopped to try opening Groonga database when Groonga database path doesn't"
+" exist.\n"
+"  * Supported Debian GNU/Linux Jessie."
+msgstr ""
+
+msgid "  * Fixed a bug that large block number in ctid is overflowed."
+msgstr ""
+
 msgid "## 0.5.0: 2015-04-29"
 msgstr ""
 
@@ -36,9 +131,6 @@ msgid ""
 "CREATE EXTENSION pgroonga;\n"
 "-- Create your pgroonga indexes again.\n"
 "```"
-msgstr ""
-
-msgid "### Improvements"
 msgstr ""
 
 msgid ""

@@ -9,7 +9,7 @@ This documentation describes how to communicate with the PGroonga developers and
 
 ## How to ask about PGroonga related things
 
-You can ask about PGroonga related things on mailing list, GitHub issues and chat room. You can communicate with both the developers and other users on mailing list chat room. You can communicate with only developers on GitHub issues and.
+You can ask about PGroonga related things on mailing list, GitHub issues and chat room. You can communicate with both the developers and other users on mailing list and chat room. You can communicate with only developers on GitHub issues.
 
 If you have a question about how to use PGroonga, mailing list or chat room is better. Because other users may have knowledge and provide it to you. Otherwise, the developers will help you.
 

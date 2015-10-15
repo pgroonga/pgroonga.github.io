@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2015-10-15 11:51+0900\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: Community\n"
+"layout: en\n"
+"---"
+msgstr ""
+"---\n"
+"title: コミュニティー\n"
+"layout: ja\n"
+"---"
+
+msgid "# Community"
+msgstr "# コミュニティー"
+
+msgid ""
+"This documentation describes how to communicate with the PGroonga developers a"
+"nd other users."
+msgstr "このドキュメントはPGroongaの開発者・ユーザーと連絡をとる方法を説明します。"
+
+msgid "## How to ask about PGroonga related things"
+msgstr "## PGroonga関連のことを聞く方法"
+
+msgid ""
+"You can ask about PGroonga related things on mailing list, GitHub issues and c"
+"hat room. You can communicate with both the developers and other users on mail"
+"ing list and chat room. You can communicate with only developers on GitHub iss"
+"ues."
+msgstr ""
+"メーリングリスト、GitHubのissue、チャットでPGroongaに関連することを聞くことができます。メーリングリストとチャットでは開発者ともユーザーと"
+"も連絡をとることができます。GitHubのissueでは開発者だけに連絡をとることができます。"
+
+msgid ""
+"If you have a question about how to use PGroonga, mailing list or chat room is"
+" better. Because other users may have knowledge and provide it to you. Otherwi"
+"se, the developers will help you."
+msgstr ""
+"PGroongaの使い方に関する質問がある場合は、メーリングリストかチャットが適切です。なぜならそこにはノウハウを持っている他のユーザーがいる可能性があるか"
+"らです。そのような他のユーザーがいない場合は開発者が回答します。"
+
+msgid ""
+"If you get a PGroonga problem, GitHub issues is better. The developers will so"
+"lve your problem."
+msgstr "PGroongaの問題を見つけた場合は、GitHubのissueが適切です。開発者がその問題を解決します。"
+
+msgid "{: #mailing-list}"
+msgstr ""
+
+msgid "### Mailing list"
+msgstr "### メーリングリスト"
+
+msgid "Here is the mailing list for PGroonga:"
+msgstr "PGroongaのメーリングリストは次の通りです。"
+
+msgid ""
+" * [groonga-talk (English)](https://lists.sourceforge.net/lists/listinfo/groon"
+"ga-talk)\n"
+" * [groonga-dev (Japanese)](http://lists.osdn.me/mailman/listinfo/groonga-dev)"
+msgstr ""
+" * [groonga-talk（英語）](https://lists.sourceforge.net/lists/listinfo/groonga-tal"
+"k)\n"
+" * [groonga-dev（日本語）](http://lists.osdn.me/mailman/listinfo/groonga-dev)"
+
+msgid "{: #github-issues}"
+msgstr ""
+
+msgid "### GitHub issues"
+msgstr "### GitHubのissue"
+
+msgid "Here is a list of PGroonga related the GitHub issues:"
+msgstr "PGroonga関連のGitHubのissueは次の通りです。"
+
+msgid ""
+" * [Issues - pgroonga/pgroonga](https://github.com/pgroonga/pgroonga/issues) f"
+"or PGroonga.\n"
+" * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga"
+".github.io/issues) for this Web site."
+msgstr ""
+" * [Issues - pgroonga/pgroonga](https://github.com/pgroonga/pgroonga/issues)：P"
+"Groonga用。\n"
+" * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga"
+".github.io/issues)：このWebサイト用。"
+
+msgid "{: #chat}"
+msgstr ""
+
+msgid "### Chat room"
+msgstr "### チャット"
+
+msgid ""
+"You can join [groonga/public chat room on Gitter](https://gitter.im/groonga/pu"
+"blic>)."
+msgstr ""
+"だれでも[Gitterにあるgroonga/publicチャットルーム](https://gitter.im/groonga/public>)に参加できます"
+"。"
+
+msgid "## How to get the latest information"
+msgstr "## 最新情報を入手する方法"
+
+msgid ""
+"You can get the latest information on mailing list, Twitter and Facebook. For "
+"example, you can get release announce."
+msgstr "メーリングリスト、Twitter、Facebookで最新情報を入手できます。最新情報とは、たとえばリリースアナウンスのことです。"
+
+msgid "See [the above section](#mailing-list)."
+msgstr "[前述のセクション](#mailing-list)を参照してください。"
+
+msgid "{: #twitter}"
+msgstr ""
+
+msgid "### Twitter"
+msgstr ""
+
+msgid "[@groonga](https://twitter.com/groonga/) tweets PGroonga related information."
+msgstr "[@groonga](https://twitter.com/groonga/)がPGroonga関連の情報をツイートしています。"
+
+msgid "Please follow the account to get the latest PGroonga related information!"
+msgstr "PGroonga関連の最新情報を入手するためにこのアカウントをフォローしてください！"
+
+msgid "{: #facebook}"
+msgstr ""
+
+msgid "### Facebook"
+msgstr ""
+
+msgid ""
+"[Groonga page on Facebook](http://www.facebook.com/groonga) shares PGroonga re"
+"lated information."
+msgstr "[FacebookのGroongaページ](http://www.facebook.com/groonga)はPGroonga関連の情報を共有しています。"
+
+msgid "Please like the page to get the latest PGroonga related information!"
+msgstr "このページをいいね！してPGroongaの最新情報を入手してください！"

@@ -18,6 +18,8 @@ layout: ja
 
 次の中から自分のプラットフォーム用のドキュメントを選んで参照してください。
 
+  * [Debian GNU/Linux](debian.html)
+    * Jessie
   * [Ubuntu](ubuntu.html)
     * 14.10
     * 15.04

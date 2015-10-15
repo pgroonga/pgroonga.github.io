@@ -18,6 +18,8 @@ If your PostgreSQL is older than them, you need to upgrade your PostgreSQL befor
 
 See a document for your platform in the followings:
 
+  * [Debian GNU/Linux](debian.html)
+    * Jessie
   * [Ubuntu](ubuntu.html)
     * 14.10
     * 15.04

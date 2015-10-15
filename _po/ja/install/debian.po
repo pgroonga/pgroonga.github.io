@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2015-10-15 10:56+0900\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: Install on Debian GNU/Linux\n"
+"layout: en\n"
+"---"
+msgstr ""
+"---\n"
+"title: Debian GNU/Linuxにインストール\n"
+"layout: ja\n"
+"---"
+
+msgid "# Install on Debian GNU/Linux"
+msgstr "# Debian GNU/Linuxにインストール"
+
+msgid "This document describes how to install PGroonga on Debian GNU/Linux."
+msgstr "このドキュメントはDebian GNU/LinuxにPGroongaをインストールする方法を説明します。"
+
+msgid "## Supported versions"
+msgstr "## サポートしているバージョン"
+
+msgid "Here are supported Debian GNU/Linux versions:"
+msgstr "サポートしているDebian GNU/Linuxのバージョンは次の通りです。"
+
+msgid "  * Jessie"
+msgstr ""
+
+msgid "## How to install on Debian GNU/Linux Jessie"
+msgstr "## Debian GNU/Linux Jessieにインストールする方法"
+
+msgid ""
+"You can use the following instruction to install PGroonga on Debian GNU/Linux "
+"Jessie."
+msgstr "Debian GNU/Linux JessieにPGroongaをインストールする方法は次の通りです。"
+
+msgid "Add APT repository for Groonga:"
+msgstr "GroongaのAPTリポジトリーを追加します。"
+
+msgid "`/etc/apt/sources.list.d/groonga.list`:"
+msgstr ""
+
+msgid ""
+"```text\n"
+"deb http://packages.groonga.org/debian/ jessie main\n"
+"deb-src http://packages.groonga.org/debian/ jessie main\n"
+"```"
+msgstr ""
+
+msgid "Install `postgresql-9.4-pgroonga` package:"
+msgstr "`postgresql-9.4-pgroonga`パッケージをインストールします。"
+
+msgid ""
+"```text\n"
+"% sudo apt-get update\n"
+"% sudo apt-get install -y -V --allow-unauthenticated groonga-keyring\n"
+"% sudo apt-get update\n"
+"% sudo apt-get install -y -V postgresql-9.4-pgroonga\n"
+"```"
+msgstr ""
+
+msgid ""
+"If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, y"
+"ou also need to install `groonga-tokenizer-mecab` package:"
+msgstr ""
+"[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer"
+"-mecab`パッケージもインストールする必要があります。"
+
+msgid ""
+"```text\n"
+"% sudo apt-get install -y -V groonga-tokenizer-mecab\n"
+"```"
+msgstr ""
+
+msgid "Create a database:"
+msgstr "データベースを作成します。"
+
+msgid ""
+"```text\n"
+"% sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'\n"
+"```"
+msgstr ""
+
+msgid ""
+"(Normally, you should create a user for `pgroonga_test` database and use the u"
+"ser.)"
+msgstr "（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。）"
+
+msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+msgstr "作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。"
+
+msgid ""
+"```text\n"
+"% sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroon"
+"ga'\n"
+"```"
+msgstr ""
+
+msgid "That's all!"
+msgstr "これで終わりです！"
+
+msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"

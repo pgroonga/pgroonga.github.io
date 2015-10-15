@@ -22,7 +22,7 @@ Download PGroonga package:
 
 Extract the downloaded PGroonga package. You need to specify PostgreSQL folder as extract target folder.
 
-If you installed installer version PostgreSQL, `C:\Program Files\PostgreSQL\9.4` is the extract target folder.
+If you installed installer version PostgreSQL, `C:\Program Files\PostgreSQL\{{ site.windows_postgresql_short_version }}` is the extract target folder.
 
 If you installed zip version PostgreSQL, `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\pgsql` is the extract target folder.
 

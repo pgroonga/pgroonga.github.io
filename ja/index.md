@@ -30,7 +30,7 @@ PostgreSQLはアルファベットと数値だけを使った言語の全文検�
   * [概要](overview/): PGroongaについての説明
   * [インストール](install/): PGroongaのインストール方法
   * [チュートリアル](tutorial/): PGroongaの使い方を順に説明
-  * [ハウツー](how-to/): 特定状況向けの有用な情報
+  * [ハウツー](how-to/): 特定用途向けの有用な情報
   * [リファレンス](reference/): オプションや関数・演算子などの個々の機能の詳細な説明
   * [コミュニティー](community/): PGroongaのコミュニティーの紹介
 

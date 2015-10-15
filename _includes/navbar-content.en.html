@@ -37,7 +37,13 @@
     {% if page.upper_level != null %}
       <li><a href="{{ page.upper_level }}"><i class="fa fa-arrow-circle-up"></i> Up one level</a></li>
     {% elsif relative_path != "" %}
-      <li><a href="../"><i class="fa fa-arrow-circle-up"></i> Up one level</a></li>
+      {% capture last_component %}{{ page.url | split:"/" | last }}{% endcapture %}
+      {% if last_component == "index.html" %}
+        {% assign upper_level = "../" %}
+      {% else %}
+        {% assign upper_level = "./" %}
+      {% endif %}
+      <li><a href="{{ upper_level }}"><i class="fa fa-arrow-circle-up"></i> Up one level</a></li>
     {% endif %}
     <li>
       <a href="https://github.com/pgroonga/pgroonga"><i class="fa fa-github"></i> GitHub</a>

@@ -14,7 +14,7 @@ layout: en
      has been released at {{ site.pgroonga_release_date }}.
   </p>
   <p>
-    <a href="/tutorial/"
+    <a href="tutorial/"
        class="btn btn-primary btn-lg"
        role="button">Try tutorial</a>
   </p>

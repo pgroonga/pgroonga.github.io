@@ -12,7 +12,7 @@ layout: ja
   <p>最新版（<a href="news/#version-{{ site.pgroonga_version | replace:".", "-" }}">{{ site.pgroonga_version }}</a>）は{{ site.pgroonga_release_date }}にリリースされました。
   </p>
   <p>
-    <a href="/tutorial/"
+    <a href="tutorial/"
        class="btn btn-primary btn-lg"
        role="button">チュートリアルをやってみる</a>
   </p>

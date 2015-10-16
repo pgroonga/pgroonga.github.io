@@ -130,11 +130,11 @@ SELECT * FROM memos WHERE content %% '全文検索';
 
 ### スコアー
 
-You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
+`pgroonga.score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。
 
-You need to add primary key column into `pgroonga` index to use `pgroonga.score` function. If you don't add primary key column into `pgroonga` index, `pgroonga.score` function always returns `0`.
+`pgroonga.score`関数を使うためにはプライマリーキーカラムを`pgroonga`インデックスに入れる必要があります。もし、プライマリーキーカラムが`pgroonga`インデックスに入っていない場合は、`pgroonga.score`関数は常に`0`を返します。
 
-Here is a sample schema that includes primary key into indexed columns:
+以下はインデックス対象のカラムにプライマリーキーが入っているスキーマの例です。
 
 ```sql
 CREATE TABLE score_memos (
@@ -162,7 +162,7 @@ INSERT INTO score_memos VALUES (4, 'groongaコマンドがあります。');
 SET enable_seqscan = off;
 ```
 
-Perform full text search and get score.
+全文検索を実行してスコアーを取得します。
 
 ```sql
 SELECT *, pgroonga.score(score_memos)

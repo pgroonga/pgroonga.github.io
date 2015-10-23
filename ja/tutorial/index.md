@@ -175,7 +175,7 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-You can sort matched records by precision ascending by using `pgroonga.score` function in `ORDER BY` clause:
+`ORDER BY`節で`pgroonga.score`関数を使うことでスコアー順にマッチしたレコードをソートできます。
 
 ```sql
 SELECT *, pgroonga.score(score_memos)
@@ -189,30 +189,30 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-See [`pgroonga.score` function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
+マッチした度合いの計算方法など詳細は[`pgroonga.score`関数](../reference/functions/pgroonga-score.html)を参照してください。
 
 {: #snippet}
 
-### Snippet (KWIC, keyword in context)
+### スニペット（KWIC、keyword in context）
 
-You can use `pgroonga.snippet_html` function to get texts around keywords from search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
+`pgroonga.snippet_html`関数を使うと検索対象のテキストからキーワード周辺のテキストを抽出できます。この処理を[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword in context）とも言います。Webの検索エンジンの検索結果でみたことがある人も多いでしょう。
 
-Here is a sample text for description. It's a description about Groonga.
+説明用のサンプルテキストは次の通りです。なお、これはGroongaの説明文です。
 
 > Groonga is a fast and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Groonga allows updates without read locks. These characteristics result in superior performance on real-time applications.
 
 
-There are some `fast` keywords. `pgroonga.snippet_html` extracts texts around `fast`. Keywords in extracted texts are surround with `<span class="keyword">` and `</span>`.
+この中には`fast`というキーワードがいくつか出現しています。`pgroonga.snippet_html`は`fast`周辺のテキストを抽出します。抽出されたテキスト内のキーワードは`<span class="keyword">`と`</span>`で囲まれています。
 
-`html` in `pgroonga.snippet_html` means that this function returns result for HTML output.
+`pgroonga.snippet_html`という関数名の中の`html`は、この関数はHTML出力用の結果を返す、という意味です。
 
-Here is the result of `pgroonga.snippet_html` against the above text:
+上述のテキストに対して`pgroonga.snippet_html`を実行した結果は次の通りです。
 
 > Groonga is a <span class="keyword">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro
 
-This function can be used for all texts. It's not only for search result by PGroonga.
+この関数はすべてのテキストに対して使うことができます。PGroongaでの検索結果以外にも使えるということです。
 
-Here is a sample SQL that describe about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](http://www.postgresql.org/docs/current/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
+この挙動を説明するサンプルSQLは次の通りです。`FROM`がない次の`SELECT`でもこの関数を使えます。[`unnest`](http://www.postgresql.jp/document/current/html/functions-array.html)は配列を列に変換するPostgreSQLの関数であることに注意してください。
 
 ```sql
 SELECT unnest(pgroonga.snippet_html(
@@ -236,11 +236,11 @@ SELECT unnest(pgroonga.snippet_html(
 -- (2 rows)
 ```
 
-See [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-html.html) for more details.
+詳細は[`pgroonga.snippet_html`関数](../reference/functions/pgroonga-snippet-html.html)を参照してください。
 
-## Equality condition and comparison conditions
+## 等価条件と比較条件
 
-You can use PGroonga for equality condition and comparison conditions. There are some differences between how to create index for string types and other types. There is no difference between how to write condition for string types and other types.
+等価条件と比較条件にもPGroongaを使うことができます。この使い方をする場合、文字列型と他の型でインデックスの作り方が異なります。条件の書き方は文字列型でも他の型でも違いはありません。
 
 このセクションでは次のことを説明します。
 

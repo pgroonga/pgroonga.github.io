@@ -212,7 +212,7 @@ Here is the result of `pgroonga.snippet_html` against the above text:
 
 This function can be used for all texts. It's not only for search result by PGroonga.
 
-Here is a sample SQL that describe about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](http://www.postgresql.org/docs/current/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
+Here is a sample SQL that describes about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](http://www.postgresql.org/docs/current/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
 
 ```sql
 SELECT unnest(pgroonga.snippet_html(

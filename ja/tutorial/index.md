@@ -244,14 +244,15 @@ SELECT unnest(pgroonga.snippet_html(
 
 このセクションでは次のことを説明します。
 
-  * How to use PGroonga for not string types
-  * How to use PGroonga for string types
+  * 文字列型以外の型に対してPGroongaを使う方法
+  * 文字列型に対してPGroongaを使う方法
 
-### How to use PGroonga for not string types
 
-You can use PGroonga for not string types such as number. You can use equality condition and comparison conditions against these types.
+### 文字列型以外にの型に対してPGroongaを使う方法
 
-Create index with `USING pgroonga`:
+数値型のように文字列型以外の型にPGroongaを使うことができます。対象の型に対して等価条件と比較条件を使うことができます。
+
+`USING pgroonga`付きでインデックスを作成します。
 
 ```sql
 CREATE TABLE ids (
@@ -261,7 +262,7 @@ CREATE TABLE ids (
 CREATE INDEX pgroonga_id_index ON ids USING pgroonga (id);
 ```
 
-The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-tree index to use PGroonga.
+PGroongaを使うために必要になる特別なSQLの書き方は`CREATE INDEX`の書き方だけです。PGroongaを使うときはBツリーのインデックスを使うときのSQLと同じSQLを使えます。
 
 テストデータを挿入します。
 
@@ -271,13 +272,13 @@ INSERT INTO ids VALUES (2);
 INSERT INTO ids VALUES (3);
 ```
 
-Disable sequential scan:
+シーケンシャルスキャンを無効にします。
 
 ```sql
 SET enable_seqscan = off;
 ```
 
-Search:
+検索します。
 
 ```sql
 SELECT * FROM ids WHERE id <= 2;
@@ -288,13 +289,13 @@ SELECT * FROM ids WHERE id <= 2;
 -- (2 rows)
 ```
 
-### How to use PGroonga for string types
+### 文字列型に対してPGroongaを使う方法
 
-You need to use `varchar` type to use PGroonga as an index for equality condition and comparison conditions against string.
+文字列に対する等価条件・比較条件用のインデックスとしてPGroongaを使うためには`varchar`型を使う必要があります。
 
-You must to specify the maximum number of characters of `varchar` to satisfy that the maximum byte size of the column is equal to 4096 byte or smaller. Relation between the maximum number of characters and the maximum byte size is related to encoding. For example, you must to specify 1023 or smaller as the maximum number of characters for UTF-8 encoding. Because UTF-8 encoding `varchar` keeps 4 byte for one character.
+`varchar`型の最大文字数は最大バイト数が4096バイト以下になるように指定する必要があります。たとえば、UTF-8エンコーディングを使う場合は最大文字数は1023文字以下にする必要があります。なぜなら、UTF-8エンコーディングの`varchar`は1文字あたり4バイト確保するからです。
 
-Create index with `USING pgroonga`:
+`USING pgroonga`付きでインデックスを作成します。
 
 ```sql
 CREATE TABLE tags (
@@ -305,7 +306,7 @@ CREATE TABLE tags (
 CREATE INDEX pgroonga_tag_index ON tags USING pgroonga (tag);
 ```
 
-The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-tree index to use PGroonga.
+PGroongaを使うために必要になる特別なSQLの書き方は`CREATE INDEX`の書き方だけです。PGroongaを使うときはBツリーのインデックスを使うときのSQLと同じSQLを使えます。
 
 テストデータを挿入します。
 
@@ -315,13 +316,13 @@ INSERT INTO tags VALUES (2, 'Groonga');
 INSERT INTO tags VALUES (3, 'Groonga');
 ```
 
-Disable sequential scan:
+シーケンシャルスキャンを無効にします。
 
 ```sql
 SET enable_seqscan = off;
 ```
 
-Search:
+検索します。
 
 ```sql
 SELECT * FROM tags WHERE tag = 'Groonga';
@@ -346,7 +347,7 @@ You can perform equality condition against array of `varchar` type. If one or mo
 
 ### How to use PGroonga for `text` type of array
 
-Create index with `USING pgroonga`:
+`USING pgroonga`付きでインデックスを作成します。
 
 ```sql
 CREATE TABLE docs (
@@ -388,7 +389,7 @@ SELECT * FROM docs WHERE sections %% '全文検索';
 
 ### How to use PGroonga for `varchar` type of array
 
-Create index with `USING pgroonga`:
+`USING pgroonga`付きでインデックスを作成します。
 
 ```sql
 CREATE TABLE products (
@@ -502,7 +503,7 @@ INSERT INTO logs
               }');
 ```
 
-Disable sequential scan:
+シーケンシャルスキャンを無効にします。
 
 ```sql
 SET enable_seqscan = off;

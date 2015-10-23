@@ -334,18 +334,18 @@ SELECT * FROM tags WHERE tag = 'Groonga';
 --
 ```
 
-## How to use PGroonga for array
+## 配列に対してPGroongaを使う方法
 
-You can use PGroonga as an index for array of `text` type or array of `varchar`.
+`text`型の配列または`varchar`型の配列のインデックスとしてPGroongaを使うことができます。
 
-You can perform full text search against array of `text` type. If one or more elements in an array are matched, the record is matched.
+`text`型の配列に対して全文検索することができます。配列の中の1つ以上の要素がマッチしたらそのレコードはマッチしたことになります。
 
-You can perform equality condition against array of `varchar` type. If one or more elements in an array are matched, the record is matched. It's useful for tag search.
+`varchar`型の配列に対して等価条件で検索することができます。配列の中の1つ以上の要素がマッチしたらそのレコードはマッチしたことになります。これはタグ検索で有用です。
 
-  * How to use PGroonga for `text` type of array
-  * How to use PGroonga for `varchar` type of array
+  * `text`型の配列に対してPGroongaを使う方法
+  * `varchar`型の配列に対してPGroongaを使う方法
 
-### How to use PGroonga for `text` type of array
+### `text`型の配列に対してPGroongaを使う方法
 
 `USING pgroonga`付きでインデックスを作成します。
 
@@ -375,7 +375,7 @@ INSERT INTO docs
                    'PostgreSQLに高機能な全文検索機能を追加します。']);
 ```
 
-You can use `%%` operator or `@@` operator for full text search. The full text search doesn't care about the position of element.
+全文検索には`%%`演算子または`@@`演算子を使えます。全文検索では何番目の要素かは考慮しません。
 
 ```sql
 SELECT * FROM docs WHERE sections %% '全文検索';
@@ -387,7 +387,7 @@ SELECT * FROM docs WHERE sections %% '全文検索';
 -- (3 rows)
 ```
 
-### How to use PGroonga for `varchar` type of array
+### `varchar`型の配列に対してPGroongaを使う方法
 
 `USING pgroonga`付きでインデックスを作成します。
 
@@ -418,7 +418,7 @@ INSERT INTO products
              ARRAY['PostgreSQL', 'Groonga', 'full-text search']);
 ```
 
-You can use `%%` operator to find records that have one or more matched elements. If element's value equals to queried value, the element is treated as matched.
+指定した要素を含んだレコードを見つけるには`%%`演算子を使います。もし、要素の値が指定した値と等しければその要素はマッチしたことになります。
 
 ```sql
 SELECT * FROM products WHERE tags %% 'PostgreSQL';

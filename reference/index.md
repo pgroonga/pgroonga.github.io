@@ -9,7 +9,7 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
 ## `pgroonga` index
 
-  * [CREATE INDEX USING pgroonga](create-index-using-pgroonga.html)
+  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)
   * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)
   * [`jsonb` support](jsonb.html)
 

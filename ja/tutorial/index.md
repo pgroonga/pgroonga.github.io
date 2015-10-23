@@ -431,13 +431,13 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 
 {: #json}
 
-## How to use PGroonga for JSON
+## JSONに対してPGroongaを使う方法
 
-PGroonga also supports `jsonb` type. You can search JSON data by one or more keys and/or one or more values with PGroonga.
+PGroongaは`jsonb`型にも対応しています。PGroongaを使うとJSON中のキー・値に対して検索することができます。
 
-You can also search JSON data by full text search against all text values in JSON. It's an unique feature of PGroonga. Built-in PostgreSQL features and [JsQuery](https://github.com/postgrespro/jsquery) don't support it.
+JSON中のすべてのテキスト値に対して全文検索することもできます。これはPGroonga独自の機能です。PostgreSQL組み込みの機能でも[JsQuery](https://github.com/postgrespro/jsquery)でもこの機能はサポートしていません。
 
-Think about the following JSON:
+次のJSONを考えてください。
 
 ```json
 {
@@ -449,22 +449,22 @@ Think about the following JSON:
 }
 ```
 
-You can find the JSON by full text search with `search`, `example` or `web` because all text values are full text search target.
+`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だからです。
 
-PGroonga provides the following two operators for searching against `jsonb`:
+PGroongaは`jsonb`に対して検索するために次の2つの演算子を提供しています。
 
-  * `@>` operator
-  * `@@` operator
+  * `@>`演算子
+  * `@@`演算子
 
-[`@>` operator is a built-in PostgreSQL operator](http://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
+[`@>`演算子はPostgreSQL組み込みの演算子](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSONB-OP-TABLE)です。`@>`は右辺の`jsonb`が左辺の`jsonb`のサブセットなら真を返します。
 
-You can execute `@>` faster by PGroonga.
+PGroongaを使うことで高速に`@>`を実行出来ます。
 
-`@@` operator is a PGroonga original operator. You can use complex condition that can't be written by `@>` operator such as range search.
+`@@`演算子はPGroonga独自の演算子です。`@>`演算子では記述することができない範囲検索のような複雑な条件も使えます。
 
-### Sample schema and data
+### サンプルスキーマとデータ
 
-Here are sample schema and data for examples:
+例に使うサンプルスキーマとデータは次の通りです。
 
 ```sql
 CREATE TABLE logs (
@@ -511,13 +511,13 @@ SET enable_seqscan = off;
 
 {: #jsonb-contain}
 
-### `@>` operator
+### `@>`演算子
 
-`@>` operator specify search condition by `jsonb` value. If condition `jsonb` value is a subset of the search target `jsonb` value, `@>` operator returns `true`.
+`@>`演算子は`jsonb`の値で検索条件を指定します。もし、条件に指定した`jsonb`の値が検索対象の`jsonb`の値のサブセットなら`@>`演算子は`true`を返します。
 
-Here is an example:
+例です。
 
-(It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE)を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
@@ -543,18 +543,18 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com
 -- (2 rows)
 ```
 
-See [`@>` operator](../reference/operators/jsonb-contain.html) for more details.
+詳細は[`@>`演算子](../reference/operators/jsonb-contain.html)を参照してください。
 
-### `@@` operator
+### `@@`演算子
 
-`@@` operator is a PGroonga original operator. You can write complex condition that can't be written by `@>` operator such as range search.
+`@@`演算子はPGroonga独自の演算子です。`@>`演算子では記述することができない範囲検索のような複雑な条件も使えます。
 
-Here is an example for range search. The `SELECT` returns records that is matched with the following conditions:
+範囲検索をする例です。この`SELECT`は次の条件にマッチするレコードを返します。
 
-  * `code` key exists at the top-level object
-  * Value of the `code` is greater than or equal to `200` and less than `300`
+  * トップレベルのオブジェクトに`code`というキーが存在する
+  * その`code`の値が`200`以上`300`未満である
 
-(It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE)を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number >= 200 && number < 300';
@@ -572,23 +572,23 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number
 -- (1 row)
 ```
 
-See [`@@` operator for `jsonb`](../reference/operators/jsonb-query.html) for more details.
+詳細は[`jsonb`用の`@@`演算子](../reference/operators/jsonb-query.html)を参照してください。
 
 {: #groonga}
 
-## How to use Groonga throw PGroonga
+## PGroonga経由でGroongaを使う方法
 
-This is an advanced topic.
+これは上級者向けの内容です。
 
-In most cases, Groonga is faster than PostgreSQL.
+多くの場合、GroongaはPostgreSQLより高速です。
 
-For example, [drilldown feature](http://groonga.org/docs/reference/commands/select.html#drilldown) in Groonga is faster than one `SELECT` and multiple `GROUP BY`s (or one `GROUP BY GROUPING SET`) by PostgreSQL. Because all needed results can be done by one query in Groonga.
+たとえば、Groongaの[ドリルダウン機能](http://groonga.org/ja/docs/reference/commands/select.html#drilldown)はPostgreSQLで`SELECT`1回と複数の`GROUP BY`（または1回の`GROUP BY GROUPING SET`）を実行するよりも速いです。なぜならGroongaでは1回のクエリーで必要な結果をすべて返すからです。
 
-In another instance, Groonga can perform query that doesn't use all columns in record faster than PostgreSQL. Because Groonga has column oriented data store. Column oriented data store (Groonga) is faster than row oriented data store (PostgreSQL) for accessing some columns. Row oriented data store needs to read all columns in record to access only partial columns. Column oriented data store just need to read only target columns in record.
+別の例も紹介します。レコード中の一部のカラムしか使わないクエリーの実行はPostgreSQLよりGroongaの方が速いです。なぜなら、Groongaはカラム指向（列指向）のデータストアを実装しているからです。カラム指向のデータストア（Groonga）は行指向のデータストア（PostgreSQL）よりも一部のカラムにアクセスするのが速いのです。行指向のデータストアは一部のカラムにアクセスするだけでよい場合でもすべてのカラムを読み込む必要があります。一方、絡む指向のデータストアは必要なカラムだけを読み込むことができます。
 
-You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. But PGroonga provides a feature to use Groonga directly throw SQL.
+GroongaそのものはSQLのインターフェイスを提供していません。これはPostgreSQLユーザーには使いづらいです。しかし、PGroongaはSQL経由でGroongaを使う機能を提供しています。
 
-### `pgroonga.command` function
+### `pgroonga.command`関数
 
 You can execute [Groonga commands](http://groonga.org/docs/reference/command.html) and get the result of the execution as string by `pgroonga.command` function.
 

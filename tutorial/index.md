@@ -591,7 +591,7 @@ You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. Bu
 
 You can execute [Groonga commands](http://groonga.org/docs/reference/command.html) and get the result of the execution as string by `pgroonga.command` function.
 
-Here is an example that executes [status command](http://groonga.org/docs/reference/commands/status.html):
+Here is an example that executes [`status` command](http://groonga.org/docs/reference/commands/status.html):
 
 ```sql
 SELECT pgroonga.command('status');
@@ -651,7 +651,7 @@ See [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.
 
 ## Next step
 
-Now, you knew all PGroonga features! If you want to understand each feature, see [reference](../reference/) manual for each feature.
+Now, you knew all PGroonga features! If you want to understand each feature, see [reference manual](../reference/) for each feature.
 
 [How to](../how-to/) may help you to use PGroonga for specific situation.
 

@@ -590,9 +590,9 @@ GroongaそのものはSQLのインターフェイスを提供していません�
 
 ### `pgroonga.command`関数
 
-You can execute [Groonga commands](http://groonga.org/docs/reference/command.html) and get the result of the execution as string by `pgroonga.command` function.
+`pgroonga.command`関数を使うと[Groongaのコマンド](http://groonga.org/ja/docs/reference/command.html)を実行し、その結果を文字列で取得できます。
 
-Here is an example that executes [status command](http://groonga.org/docs/reference/commands/status.html):
+以下は[`status`コマンド](http://groonga.org/ja/docs/reference/commands/status.html)を実行する例です。
 
 ```sql
 SELECT pgroonga.command('status');
@@ -602,9 +602,9 @@ SELECT pgroonga.command('status');
 -- (1 row)
 ```
 
-Result from Groonga is JSON. You can use JSON related functions provided by PostgreSQL to access result from Groonga.
+Groongaから返ってくる結果はJSONです。Groongaから返ってくる結果にアクセスするためにPostgreSQLが提供するJSON関連の関数を使うことができます。
 
-Here is an example to map one key value pair in the result of `status` command to one row:
+以下は`status`コマンドの結果のキーと値のペアそれぞれを列に変換する例です。
 
 ```sql
 SELECT * FROM json_each(pgroonga.command('status')::json->1);
@@ -622,17 +622,17 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 -- (9 rows)
 ```
 
-See [`pgroonga.command` function](../reference/functions/pgroonga-command.html) for more details.
+詳細は[`pgroonga.command`関数](../reference/functions/pgroonga-command.html)を参照してください。
 
 {: #pgroonga-table-name}
 
-### `pgroonga.table_name` function
+### `pgroonga.table_name`関数
 
-PGroonga stores values of index target columns. You can use these values to search and output by [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html).
+PGroongaはインデックス対象のカラムの値を保存しています。これらの値を[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)で検索・出力するために使うことができます。
 
-`select` Groonga command needs table name. You can use `pgroonga.table_name` function to convert index name in PostgreSQL to table name in Groonga.
+Groongaの`select`コマンドを使うにはテーブル名が必要です。`pgroonga.table_name`関数を使うとPostgreSQLでのインデックス名をGroongaでのテーブル名に変換できます。
 
-Here is an example to use `select` command with `pgroonga.table_name` function:
+以下は`pgroonga.table_name`関数を使って`select`コマンドを実行する例です。
 
 ```sql
 SELECT *
@@ -648,12 +648,12 @@ SELECT *
 -- (6 rows)
 ```
 
-See [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html) for more details.
+詳細は[`pgroonga.table_name`関数](../reference/functions/pgroonga-table-name.html)を参照してください。
 
-## Next step
+## 次のステップ
 
-Now, you knew all PGroonga features! If you want to understand each feature, see [reference](../reference/) manual for each feature.
+Now, you knew all PGroonga features! If you want to understand each feature, see [reference manual](../reference/) for each feature.
 
-[How to](../how-to/) may help you to use PGroonga for specific situation.
+[ハウツー](../how-to/)は特定用途向けのPGroongaの使い方を紹介しています。
 
-If you get a problem or want to share your useful information, please contact [PGroonga community](../community/).
+なにか問題にぶつかった、有用な情報を持っている、そんな方は[PGroongaのコミュニティー](../community/)に参加してください。

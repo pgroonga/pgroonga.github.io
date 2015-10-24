@@ -652,7 +652,7 @@ SELECT *
 
 ## 次のステップ
 
-Now, you knew all PGroonga features! If you want to understand each feature, see [reference manual](../reference/) for each feature.
+これでPGroongaのすべての機能を知ったことになります！各機能を理解したい場合は各機能の[リファレンスマニュアル](../reference/)を参照しくてください。
 
 [ハウツー](../how-to/)は特定用途向けのPGroongaの使い方を紹介しています。
 

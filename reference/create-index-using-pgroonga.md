@@ -9,7 +9,7 @@ You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index 
 
 ## Syntax
 
-This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [CREATE INDEX document by PostgreSQL](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-createindex.html) for full `CREATE INDEX` syntax.
+This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [`CREATE INDEX` document by PostgreSQL](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-createindex.html) for full `CREATE INDEX` syntax.
 
 Here is a basic syntax for creating a single column index:
 
@@ -43,7 +43,7 @@ You need to specify `pgroonga.varchar_fulltext_search_ops` operator class for th
 
 You can custom the followings by `WITH` option of `CREATE INDEX`:
 
-  * Tokenizer: It's a module for full text search.
+  * Tokenizer: It's a module for customizing how to extract keywords.
   * Normalizer: It's a module for customizing equality of `text` and `varchar` types.
 
 Normally, you don't need to custom them because default values of them are suitable for most cases. Features to custom them are for advanced users.

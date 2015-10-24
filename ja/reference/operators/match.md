@@ -1,11 +1,11 @@
 ---
-title: "%% operator"
-layout: en
+title: "%%演算子"
+layout: ja
 ---
 
-# `%%` operator
+# `%%`演算子
 
-You can do full text search with one keyword by `%%` operator:
+`%%`演算子を使うと1つキーワードで全文検索できます。
 
 ```sql
 SELECT * FROM memos WHERE content %% '全文検索';
@@ -15,4 +15,4 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 行)
 ```
 
-If you want to do full text search with multiple keywords or AND/OR search, use [`@@` operator](query.html).
+複数のキーワードで検索したいときやAND/ORを使った検索をしたいときは[`@@`演算子](query.html)を使います。

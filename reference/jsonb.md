@@ -42,3 +42,4 @@ Here are differences between PGroonga and GIN:
 
   * Index creation time: No difference
   * Search time: PGroonga is a bit faster
+  * Features: PGroonga provides more search features

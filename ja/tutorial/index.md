@@ -433,11 +433,11 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 
 ## JSONに対してPGroongaを使う方法
 
-PGroongaは`jsonb`型にも対応しています。PGroongaを使うとJSON中のキー・値に対して検索することができます。
+PGroongaは`jsonb`型もサポートしています。PGroongaを使うと複数のキー・値に対して条件を指定してJSONデータを検索できます。
 
-JSON中のすべてのテキスト値に対して全文検索することもできます。これはPGroonga独自の機能です。PostgreSQL組み込みの機能でも[JsQuery](https://github.com/postgrespro/jsquery)でもこの機能はサポートしていません。
+JSON内のすべてのテキスト値に対して全文検索をしてJSONデータを検索することもできます。これはPostgreSQL組み込みの機能でも[JsQuery](https://github.com/postgrespro/jsquery)でもサポートしていない機能です。
 
-次のJSONを考えてください。
+次のようなJSONを考えてください。
 
 ```json
 {
@@ -449,9 +449,9 @@ JSON中のすべてのテキスト値に対して全文検索することもで�
 }
 ```
 
-`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だからです。
+`search`でも`example`でも`web`でもどの単語で全文検索してもこのJSONを検索することができます。なぜなら、すべてのテキスト値が全文検索対象だからです。
 
-PGroongaは`jsonb`に対して検索するために次の2つの演算子を提供しています。
+PGroongaは`jsonb`型の値で検索するために次の2つの演算子を提供しています。
 
   * `@>`演算子
   * `@@`演算子

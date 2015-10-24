@@ -16,7 +16,7 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 -- (2 行)
 ```
 
-See [Groogna document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for query syntax details.
+See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for query syntax details.
 
 Note that you can't use syntax that starts with `COLUMN_NAME:` like `COLUMN_NAME:@KEYWORD`. It's disabled in PGroonga.
 

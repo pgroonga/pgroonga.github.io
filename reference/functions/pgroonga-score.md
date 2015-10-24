@@ -46,7 +46,7 @@ SELECT *, pgroonga.score(score_memos)
 
 You need to add primary key column into `pgroonga` index to use `pgroonga.score` function. If you don't add primary key column into `pgroonga` index, `pgroonga.score` function always returns `0.0`.
 
-`pgroonga.score` function always returns `0.0` when full text search isn't performed by index. In other words, `pgroonga.score` function always returns `0` when full text search is performed by sequential scan.
+`pgroonga.score` function always returns `0.0` when full text search isn't performed by index. In other words, `pgroonga.score` function always returns `0.0` when full text search is performed by sequential scan.
 
 If `pgroonga.score` function returns `0.0` unexpectedly, confirm the followings:
 

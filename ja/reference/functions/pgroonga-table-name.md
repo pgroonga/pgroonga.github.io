@@ -1,31 +1,31 @@
 ---
-title: pgroonga.table_name function
-layout: en
+title: pgroonga.table_name関数
+layout: ja
 ---
 
-# `pgroonga.table_name` function
+# `pgroonga.table_name`関数
 
-## Summary
+## 概要
 
-`pgroonga.table_name` function converts PGroonga index name to Groonga table name. Groonga table name is useful [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) by [`pgroonga.command` function](pgroonga-command.html).
+`pgroonga.table_name`関数はPGroongaのインデックス名をGroongaのテーブル名に変換します。Groongaのテーブル名は[`pgroonga.command`関数](pgroonga-command.html)で[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)を使うときに便利です。
 
-You can use weight feature by `select` Groonga command.
+Groongaの`select`コマンドを使うと重み機能を使えます。
 
-## Syntax
+## 構文
 
-Here is the syntax of this function:
+この関数の構文は次の通りです。
 
 ```text
 text pgroonga.table_name(pgroonga_index_name)
 ```
 
-`pgroonga_index_name` is a `text` type value. It's an index name to be converted to Groonga table name. The index should be created with `USING pgroonga`.
+`pgroonga_index_name`は`text`型の値です。このインデックス名をGroongaのテーブル名に指定します。このインデックスは`USING pgroonga`で作ったインデックスでなければいけません。
 
-`pgroonga.table_name` returns Groonga table name for `pgroonga_index_name` as `text` type value. If `pgroonga_index_name` doesn't exist or isn't a PGroonga index, `pgroonga.table_name` raises an error.
+`pgroonga.table_name`は`pgroonga_index_name`に対応するGroongaのテーブル名を`text`型の値として返します。もし、`pgroonga_index_name`が存在していない、または、PGroongaのインデックスでない場合は、`pgroonga.table_name`はエラーにします。
 
-## Usage
+## 使い方
 
-Here are sample schema and data. In the schema, both search target data and output data are index target columns:
+以下はサンプルのスキーマとデータです。このスキーマでは、検索対象のデータと出力対象のデータはどちらもインデックス対象のカラムです。
 
 ```sql
 CREATE TABLE terms (
@@ -56,7 +56,7 @@ INSERT INTO terms
              'PostgreSQL');
 ```
 
-You can use [`match_columns` option](http://groonga.org/docs/reference/commands/select.html#select-match-columns) to use weight:
+[`match_columns`オプション](http://groonga.org/ja/docs/reference/commands/select.html#select-match-columns)を使うと重みを使えます。
 
 ```sql
 SELECT *
@@ -78,7 +78,7 @@ SELECT *
 -- (5 rows)
 ```
 
-You can use drilldown feature by [`drilldown` option](http://groonga.org/docs/reference/commands/select.html#select-drilldown):
+[`drilldown`オプション](http://groonga.org/ja/docs/reference/commands/select.html#select-drilldown)を使うとドリルダウン機能を使えます。
 
 ```sql
 SELECT *
@@ -98,9 +98,9 @@ SELECT *
 -- (2 rows)
 ```
 
-`select` Groonga command may help you when `SELECT` statement in SQL is slow.
+Groongaの`select`コマンドはSQLの`SELECT`分が遅いときの手段として使えます。
 
-## See also
+## 参考
 
-  * [`pgroonga.table_name` function description in tutorial](../../tutorial/#pgroonga-table-name)
-  * [Attention when you use `select` Groonga command](pgroonga-command.html#attention)
+  * [チュートリアルの`pgroonga.table_name`関数の説明](../../tutorial/#pgroonga-table-name)
+  * [Groongaの`select`コマンドを使う時の注意](pgroonga-command.html#attention)

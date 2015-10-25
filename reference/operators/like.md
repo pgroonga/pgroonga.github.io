@@ -7,7 +7,7 @@ layout: en
 
 ## Summary
 
-PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) does full text search with index. It's fast rather than `LIKE` operator without index.
+PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) does full text search with index. It's faster than `LIKE` operator without index.
 
 ## Syntax
 

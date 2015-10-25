@@ -29,11 +29,21 @@ PostgreSQL supports full text search against languages that use only alphabet an
 ## Documentations
 
   * [News](news/): It lists release information.
+
   * [Overview](overview/): It describes about PGroonga.
+
   * [Install](install/): It describes how to install PGroonga.
+
+  * [Upgrade](upgrade/): It describes how to upgrade PGroonga.
+
+  * [Uninstall](uninstall/): It describes how to uninstall PGroonga.
+
   * [Tutorial](tutorial/): It describes how to use PGroonga step by step.
+
   * [How to](how-to/): It describes about useful information for specific situations.
+
   * [Reference](reference/): It describes details for each features such as options, functions and operators.
+
   * [Community](community/): It introduces about PGroonga community.
 
 ## License

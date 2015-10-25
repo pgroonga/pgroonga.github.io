@@ -9,7 +9,7 @@ layout: en
 
 `@@` operator is a PGroonga original operator. You can use complex condition that can't be written by [`@>` operator](jsonb-contain.html) such as range search.
 
-If you know [JsQuery](https://github.com/postgrespro/jsquery), you can understand like "PGroonga provides `jsonb` related search features that are similar to JsQuery with different syntax".
+If you know [JsQuery](https://github.com/postgrespro/jsquery), you can understand like "PGroonga provides `jsonb` type related search features that are similar to JsQuery with different syntax".
 
 ## Syntax
 
@@ -23,7 +23,7 @@ jsonb_column @@ condition
 
 `condition` is a `text` value used as query. It uses [Groonga's script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html).
 
-The operator returns `true` when `condition` matches  `jsonb_column` value, `false` otherwise.
+The operator returns `true` when `condition` matches `jsonb_column` value, `false` otherwise.
 
 ## Usage
 
@@ -72,9 +72,9 @@ Disable sequential scan:
 SET enable_seqscan = off;
 ```
 
-You need to understand how PGroonga creates index against `jsonb` data to create search condition.
+You need to understand how PGroonga creates index against `jsonb` type value to create search condition.
 
-PGroonga splits a `jsonb` value into values and then creates indexes against these values. In SQL, think about the following schema:
+PGroonga splits a `jsonb` type value into values and then creates indexes against these values. In SQL, think about the following schema:
 
 ```sql
 CREATE TABLE values (
@@ -91,9 +91,12 @@ CREATE TABLE values (
 
 Here are descriptions of column:
 
-  * `key`: The ID of the value. If value has the same path and content, `key` is the same value. Key format is "`${PATH}|${TYPE}|${VALUE}`". It's not used in search condition.
+  * `key`: The ID of the value. If value has the same path and content, `key` is the same value. Key format is `'${PATH}|${TYPE}|${VALUE}'`. It's not used in search condition.
+
   * `path`: The path of the value from root. It uses [jq](https://stedolan.github.io/jq/) compatible format. Object is `["${ELEMENT_NAME}"]`, array is `[]`. For example, the path of `"web"` in `{"tags": ["web"]}` is `.["tags"][]`. If you know absolute path of the value, you can use this value in search condition.
-  * `paths`: The paths of the value. It includes absolute path, sub paths, `.${ELEMENT_NAME1}.${ELEMENT_NAME2}` format paths, paths without array. This column is convenient for search condition because you can use one of them for search condition. Here are paths for `"x"` in `{"a": {"b": "c": ["x"]}}`:
+
+  * `paths`: The paths of the value. It includes absolute path, sub paths, `.${ELEMENT_NAME1}.${ELEMENT_NAME2}` format paths and paths without array. This column is convenient for search condition because you can use one of them for search condition. Here are paths for `"x"` in `{"a": {"b": "c": ["x"]}}`:
+
      * `.a.b.c`
      * `.["a"]["b"]["c"]`
      * `.["a"]["b"]["c"][]`
@@ -107,15 +110,25 @@ Here are descriptions of column:
      * `["c"]`
      * `["c"][]`
      * `[]`
+
   * `type`: The type of the value. This column value is one of them:
+
     * `"object"`: Object. No value.
+
     * `"array"`: Array. The number of elements is stored in `size` column.
+
     * `"boolean"`: Boolean. The value is stored in `boolean` column.
+
     * `"number"`: Number. The value is stored in `number` column.
+
     * `"string"`: String. The value is stored in `string` column.
+
   * `boolean`: The value if `type` column value is `"boolean"`, `false` otherwise.
+
   * `number`: The value if `type` column value is `"number"`, `0` otherwise.
+
   * `string`: The value if `type` column value is `"string"`, `""` otherwise.
+
   * `size`: The number of elements if `type` column value is `"array"`, `0` otherwise.
 
 Here is a sample JSON:
@@ -140,9 +153,9 @@ The JSON is split to the following values. (They are part of all split values.)
 | `.["message"]|string|GET /` | `.["message"]` | `[.message, .["message"], message, ["message"]]` | `string` | | | `GET /` | |
 | `.["tags"][]|string|web` | `.["tags"]` | `[.tags, .["tags"], .["tags"][], tags, ["tags"], ["tags"][], []]` | `string` | | | `web` | |
 
-You specify condition that matches split value to `@@` operator. If there is one or more values that match specified condition in `jsonb`, the `jsonb` is matched.
+You specify condition that matches split value to `@@` operator. If there is one or more split values that match specified condition in `jsonb` type value, the `jsonb` type value is matched.
 
-Here is a condition that searches `jsonb` that has `www.example.com` string:
+Here is a condition that searches `jsonb` type value that has `www.example.com` string:
 
 (It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
@@ -170,7 +183,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.co
 -- (2 rows)
 ```
 
-Here is a condition that searches `jsonb` that has number between `200` to `299` as `code` column value. The condition uses `paths @ "..."` syntax to use simple path format (`.code`) to specify path.
+Here is a condition that searches `jsonb` type value that has number between `200` to `299` as `code` column value. The condition uses `paths @ "..."` syntax to use simple path format (`.code`) to specify path.
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number >= 200 && number < 300';
@@ -188,7 +201,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number
 -- (1 row)
 ```
 
-Here is a condition for full text search from all text values in `jsonb`:
+Here is a condition for full text search from all text values in `jsonb` value type:
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string @ "started"';

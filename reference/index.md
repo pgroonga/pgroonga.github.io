@@ -10,20 +10,32 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 ## `pgroonga` index
 
   * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)
+
   * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)
+
   * [`jsonb` support](jsonb.html)
 
 ## Operators
 
-  * [`LIKE` operator](operators/like.html)
+  * [`LIKE` operator](operators/like.html) for full text search
+
+  * `LIKE` operator for regular expression
+
   * [`%%` operator](operators/match.html)
+
   * [`@@` operator](operators/query.html) for non `jsonb` types
+
   * [`@@` operator](operators/jsonb-query.html) for `jsonb` type
+
   * [`@>` operator](operators/jsonb-contain.html)
+
+  * `@~` operator
 
 ## Functions
 
   * [`pgroonga.score` function](functions/pgroonga-score.html)
+
   * [`pgroonga.command` function](functions/pgroonga-command.html)
+
   * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
 

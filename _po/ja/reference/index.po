@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-23 19:02+0900\n"
+"PO-Revision-Date: 2015-10-25 22:36+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,39 +35,47 @@ msgstr ""
 msgid "## `pgroonga` index"
 msgstr "## `pgroonga`インデックス"
 
-msgid ""
-"  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)\n"
-"  * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)\n"
-"  * [`jsonb` support](jsonb.html)"
+msgid "  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)"
 msgstr ""
-"  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)\n"
-"  * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)\n"
-"  * [`jsonb`サポート](jsonb.html)"
+
+msgid "  * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)"
+msgstr "  * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)"
+
+msgid "  * [`jsonb` support](jsonb.html)"
+msgstr "  * [`jsonb`サポート](jsonb.html)"
 
 msgid "## Operators"
 msgstr "## 演算子"
 
-msgid ""
-"  * [`LIKE` operator](operators/like.html)\n"
-"  * [`%%` operator](operators/match.html)\n"
-"  * [`@@` operator](operators/query.html) for non `jsonb` types\n"
-"  * [`@@` operator](operators/jsonb-query.html) for `jsonb` type\n"
-"  * [`@>` operator](operators/jsonb-contain.html)"
-msgstr ""
-"  * [`LIKE`演算子](operators/like.html)\n"
-"  * [`%%`演算子](operators/match.html)\n"
-"  * `jsonb`型以外の型用の[`@@`演算子](operators/query.html)\n"
-"  * `jsonb`型用の[`@@`演算子](operators/jsonb-query.html)\n"
-"  * [`@>`演算子](operators/jsonb-contain.html)"
+msgid "  * [`LIKE` operator](operators/like.html) for full text search"
+msgstr "  * 全文検索用の[`LIKE`演算子](operators/like.html)"
+
+msgid "  * `LIKE` operator for regular expression"
+msgstr "  * 正規表現用の`LIKE`演算子"
+
+msgid "  * [`%%` operator](operators/match.html)"
+msgstr "  * [`%%`演算子](operators/match.html)"
+
+msgid "  * [`@@` operator](operators/query.html) for non `jsonb` types"
+msgstr "  * `jsonb`型以外の型用の[`@@`演算子](operators/query.html)"
+
+msgid "  * [`@@` operator](operators/jsonb-query.html) for `jsonb` type"
+msgstr "  * `jsonb`型用の[`@@`演算子](operators/jsonb-query.html)"
+
+msgid "  * [`@>` operator](operators/jsonb-contain.html)"
+msgstr "  * [`@>`演算子](operators/jsonb-contain.html)"
+
+msgid "  * `@~` operator"
+msgstr "  * `@~`演算子"
 
 msgid "## Functions"
 msgstr "## 関数"
 
-msgid ""
-"  * [`pgroonga.score` function](functions/pgroonga-score.html)\n"
-"  * [`pgroonga.command` function](functions/pgroonga-command.html)\n"
-"  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)"
-msgstr ""
-"  * [`pgroonga.score`関数](functions/pgroonga-score.html)\n"
-"  * [`pgroonga.command`関数](functions/pgroonga-command.html)\n"
-"  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)"
+msgid "  * [`pgroonga.score` function](functions/pgroonga-score.html)"
+msgstr "  * [`pgroonga.score`関数](functions/pgroonga-score.html)"
+
+msgid "  * [`pgroonga.command` function](functions/pgroonga-command.html)"
+msgstr "  * [`pgroonga.command`関数](functions/pgroonga-command.html)"
+
+msgid "  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)"
+msgstr "  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)"

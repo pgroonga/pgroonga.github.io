@@ -14,10 +14,17 @@ PostgreSQL provides GiST and GIN as bundled indexes. You can use PGroonga as alt
 This document describes about the followings:
 
   * How to use PGroonga as index for full text search
+
+  * How to use PGroonga as index for regular expression
+
   * How to use PGroonga as index for equality condition and comparison conditions
+
   * How to use PGroonga as index for array
+
   * How to use PGroonga as index for JSON
+
   * How to use Groonga throw PGroonga (advanced topic)
+
 
 ## Full text search
 
@@ -235,6 +242,10 @@ SELECT unnest(pgroonga.snippet_html(
 ```
 
 See [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-html.html) for more details.
+
+## Regular expression
+
+TODO
 
 ## Equality condition and comparison conditions
 

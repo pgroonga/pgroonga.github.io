@@ -14,10 +14,17 @@ PostgreSQLは組み込みのインデックスとしてGiSTとGINを提供して
 このドキュメントは次のことを説明します。
 
   * PGroongaを全文検索用インデックスとして使う方法
+
+  * PGroongaを正規表現用インデックスとして使う方法
+
   * PGroongaを等価条件・比較条件用インデックスとして使う方法
+
   * PGroongaを配列用インデックスとして使う方法
+
   * PGroongaをJSON用インデックスとして使う方法
+
   * PGroonga経由でGroongaを使う方法（高度な話題）
+
 
 ## 全文検索
 
@@ -237,6 +244,10 @@ SELECT unnest(pgroonga.snippet_html(
 ```
 
 詳細は[`pgroonga.snippet_html`関数](../reference/functions/pgroonga-snippet-html.html)を参照してください。
+
+## 正規表現
+
+TODO
 
 ## 等価条件と比較条件
 

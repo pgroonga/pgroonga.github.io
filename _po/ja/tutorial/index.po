@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-25 21:33+0900\n"
+"PO-Revision-Date: 2015-10-25 22:33+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,19 +47,25 @@ msgstr ""
 msgid "This document describes about the followings:"
 msgstr "このドキュメントは次のことを説明します。"
 
+msgid "  * How to use PGroonga as index for full text search"
+msgstr "  * PGroongaを全文検索用インデックスとして使う方法"
+
+msgid "  * How to use PGroonga as index for regular expression"
+msgstr "  * PGroongaを正規表現用インデックスとして使う方法"
+
 msgid ""
-"  * How to use PGroonga as index for full text search\n"
 "  * How to use PGroonga as index for equality condition and comparison conditi"
-"ons\n"
-"  * How to use PGroonga as index for array\n"
-"  * How to use PGroonga as index for JSON\n"
-"  * How to use Groonga throw PGroonga (advanced topic)"
-msgstr ""
-"  * PGroongaを全文検索用インデックスとして使う方法\n"
-"  * PGroongaを等価条件・比較条件用インデックスとして使う方法\n"
-"  * PGroongaを配列用インデックスとして使う方法\n"
-"  * PGroongaをJSON用インデックスとして使う方法\n"
-"  * PGroonga経由でGroongaを使う方法（高度な話題）"
+"ons"
+msgstr "  * PGroongaを等価条件・比較条件用インデックスとして使う方法"
+
+msgid "  * How to use PGroonga as index for array"
+msgstr "  * PGroongaを配列用インデックスとして使う方法"
+
+msgid "  * How to use PGroonga as index for JSON"
+msgstr "  * PGroongaをJSON用インデックスとして使う方法"
+
+msgid "  * How to use Groonga throw PGroonga (advanced topic)"
+msgstr "  * PGroonga経由でGroongaを使う方法（高度な話題）"
 
 msgid "## Full text search"
 msgstr "## 全文検索"
@@ -494,6 +500,12 @@ msgid ""
 msgstr ""
 "詳細は[`pgroonga.snippet_html`関数](../reference/functions/pgroonga-snippet-html.ht"
 "ml)を参照してください。"
+
+msgid "## Regular expression"
+msgstr "## 正規表現"
+
+msgid "TODO"
+msgstr ""
 
 msgid "## Equality condition and comparison conditions"
 msgstr "## 等価条件と比較条件"

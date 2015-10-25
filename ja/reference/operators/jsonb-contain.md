@@ -9,21 +9,21 @@ layout: ja
 
 PGroongaは`@>`演算子の検索をインデックスを使って高速に実現できます。
 
-[`@>` is a built-in PostgreSQL operator](http://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
+[`@>`演算子はPostgreSQL組み込みの演算子](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/functions-json.html#FUNCTIONS-JSONB-OP-TABLE)です。`@>`演算子は右辺の`jsonb`型の値が左辺の`jsonb`型の値のサブセットなら真を返します。
 
 ## 構文
 
-Here is the syntax of this operator:
+この演算子の構文は次の通りです。
 
 ```sql
 jsonb_column @> jsonb_query
 ```
 
-`jsonb_column` is a column that its type is `jsonb`.
+`jsonb_column`は`jsonb`型のカラムです。
 
-`jsonb_query` is a `jsonb` value used as query.
+`jsonb_query`はクエリーとして使う`jsonb`型の値です。
 
-The operator returns `true` when `jsonb_query` is a sub set of `jsonb_column` value, `false` otherwise.
+この演算子は`jsonb_query`が`jsonb_column`の値のサブセットなら`true`を返し、そうでない場合は`false`を返します。
 
 ## 使い方
 
@@ -72,7 +72,7 @@ INSERT INTO logs
 SET enable_seqscan = off;
 ```
 
-Here is an example for match case:
+マッチする例は次の通りです。
 
 （読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE)を使っています。）
 
@@ -100,11 +100,11 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com
 -- (2 rows)
 ```
 
-Here is an example for not match case.
+マッチしない例は次の通りです。
 
-If you use an array in the condition `jsonb` value, all elements must be included in the search target `jsonb` value. Position of element isn't cared. If there are one or more elements that are included in the condition `jsonb` value but aren't included in the search target `jsonb` value, record that have the search target `jsonb` value isn't matched.
+検索条件の`jsonb`型の値で配列を使った場合、検索対象の`jsonb`型の値にすべての要素が含まれていなければいけません。要素の順番は問いません。もし、検索条件の`jsonb`型の値の要素のうち、1つでも検索対象の`jsonb`型の値に含まれていない要素があればそのレコードはマッチしません。
 
-In the following example, there are records that have only `"mail"` or `"web"` but there are no records that have both `"mail"` and `"web"`. So the following `SELECT` returns no record:
+以下の例では、`"mail"`または`"web"`を含むレコードはありますが、`"mail"`と`"web"`両方を含むレコードはありません。そのため、次の`SELECT`は1つもレコードを返しません。
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"tags": ["mail", "web"]}'::jsonb;
@@ -115,5 +115,5 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"tags": ["mail", "web"]}
 
 ## 参考
 
-  * [`jsonb` support](../jsonb.html)
-  * [`@@` operator](jsonb-query.html)
+  * [`jsonb`サポート](../jsonb.html)
+  * [`@@`演算子](jsonb-query.html)

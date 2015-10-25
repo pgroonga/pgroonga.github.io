@@ -9,7 +9,7 @@ layout: en
 
 PGroonga supports fast index search by `@>` operator.
 
-[`@>` is a built-in PostgreSQL operator](http://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
+[`@>` operator is a built-in PostgreSQL operator](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` operator returns true when the right hand side `jsonb` type value is a subset of left hand side `jsonb` type value.
 
 ## Syntax
 
@@ -21,9 +21,9 @@ jsonb_column @> jsonb_query
 
 `jsonb_column` is a column that its type is `jsonb`.
 
-`jsonb_query` is a `jsonb` value used as query.
+`jsonb_query` is a `jsonb` type value used as query.
 
-The operator returns `true` when `jsonb_query` is a sub set of `jsonb_column` value, `false` otherwise.
+The operator returns `true` when `jsonb_query` is a subset of `jsonb_column` value, `false` otherwise.
 
 ## Usage
 
@@ -102,7 +102,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com
 
 Here is an example for not match case.
 
-If you use an array in the condition `jsonb` value, all elements must be included in the search target `jsonb` value. Position of element isn't cared. If there are one or more elements that are included in the condition `jsonb` value but aren't included in the search target `jsonb` value, record that have the search target `jsonb` value isn't matched.
+If you use an array in the search condition `jsonb` type value, all elements must be included in the search target `jsonb` type value. Position of element isn't cared. If there are one or more elements that are included in the search condition `jsonb` type value but aren't included in the search target `jsonb` type value, record that have the search target `jsonb` type value isn't matched.
 
 In the following example, there are records that have only `"mail"` or `"web"` but there are no records that have both `"mail"` and `"web"`. So the following `SELECT` returns no record:
 

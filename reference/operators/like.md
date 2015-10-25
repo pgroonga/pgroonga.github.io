@@ -5,15 +5,27 @@ layout: en
 
 # `LIKE` operator
 
+## Summary
+
 PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) does full text search with index. It's fast rather than `LIKE` operator without index.
+
+## Syntax
+
+Here is the syntax of this operator:
+
+```sql
+column LIKE pattern
+```
+
+`column` is a column to be searched.
+
+`pattern` is a search pattern. It's `text` type. It must be `'%KEYWORD%'` format.
 
 Both beginning `%` and ending `%` are important. `'KEYWORD%'`, `'%KEYWORD'` and so on aren't converted to `column %% 'KEYWORD'`. PGroonga returns no records for these patterns. Because PGroonga can't search these patterns with index.
 
-The original `LIKE` operator searches against text as is. But `%%` operator does full text search against normalized text. It means that search result of `LIKE` operator with index and search result of the original `LIKE` operator may be different.
+## Usage
 
-For example, the original `LIKE` operator searches with case sensitive. But `LIKE` operator with index searches with case insensitive.
-
-Here are sample schema and data:
+Here are sample schema and data for examples:
 
 ```sql
 CREATE TABLE memos (
@@ -30,6 +42,10 @@ INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that sup
 INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
+
+The original `LIKE` operator searches against text as is. But `%%` operator does full text search against normalized text. It means that search result of `LIKE` operator with index and search result of the original `LIKE` operator may be different.
+
+For example, the original `LIKE` operator searches with case sensitive. But `LIKE` operator with index searches with case insensitive.
 
 A search result of the original `LIKE` operator:
 

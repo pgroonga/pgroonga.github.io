@@ -19,7 +19,7 @@ text pgroonga.command(command)
 
 `command`は`text`型の値です。`pgroonga.command`は`command`をGroongaのコマンドとして実行します。
 
-Groongaのコマンドは結果をJSONとして返します。`pgroonga.command`はJSONを`text`型の値として返します。結果を`json`型か`jsonb`型にキャストすると[PostgreSQLが提供するJSON関数・演算](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/static/functions-json.html)を使うことができます。
+Groongaのコマンドは結果をJSONとして返します。`pgroonga.command`はJSONを`text`型の値として返します。結果を`json`型か`jsonb`型にキャストすると[PostgreSQLが提供するJSON関数・演算](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/functions-json.html)を使うことができます。
 
 ## 使い方
 

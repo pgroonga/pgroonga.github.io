@@ -42,17 +42,17 @@ CREATE INDEX pgroonga_terms_index
 INSERT INTO terms
      VALUES (1,
              'PostgreSQL',
-             'PostgreSQLはリレーショナル・データベース管理システムです。',
+             'PostgreSQL is a relational database management system.',
              'PostgreSQL');
 INSERT INTO terms
      VALUES (2,
              'Groonga',
-             'Groongaは日本語対応の高速な全文検索エンジンです。',
+             'Groonga is a fast full text search engine that supports all languages.',
              'Groonga');
 INSERT INTO terms
      VALUES (3,
              'PGroonga',
-             'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。',
+             'PGroonga is a PostgreSQL extension that uses Groonga as index.',
              'PostgreSQL');
 ```
 
@@ -64,17 +64,17 @@ SELECT *
          pgroonga.command('select ' ||
                           pgroonga.table_name('pgroonga_terms_index') || ' ' ||
                           '--match_columns "title * 10 || content" ' ||
-                          '--query "Groonga OR PostgreSQL OR 全文検索" ' ||
+                          '--query "Groonga OR PostgreSQL OR engine" ' ||
                           '--output_columns "_score, title, content" ' ||
                           '--sortby "-_score"'
                          )::json->1->0);
---                                            value                                            
--- --------------------------------------------------------------------------------------------
+--                                           value                                          
+-- -----------------------------------------------------------------------------------------
 --  [3]
 --  [["_score","Int32"],["title","LongText"],["content","LongText"]]
---  [12,"Groonga","Groongaは日本語対応の高速な全文検索エンジンです。"]
---  [11,"PostgreSQL","PostgreSQLはリレーショナル・データベース管理システムです。"]
---  [2,"PGroonga","PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。"]
+--  [12,"Groonga","Groonga is a fast full text search engine that supports all languages."]
+--  [11,"PostgreSQL","PostgreSQL is a relational database management system."]
+--  [2,"PGroonga","PGroonga is a PostgreSQL extension that uses Groonga as index."]
 -- (5 rows)
 ```
 
@@ -86,7 +86,7 @@ SELECT *
          pgroonga.command('select ' ||
                           pgroonga.table_name('pgroonga_terms_index') || ' ' ||
                           '--match_columns "title * 10 || content" ' ||
-                          '--query "Groonga OR PostgreSQL OR 全文検索" ' ||
+                          '--query "Groonga OR PostgreSQL OR engine" ' ||
                           '--output_columns "_score, title" ' ||
                           '--sortby "-_score" ' ||
                           '--drilldown "tag"'

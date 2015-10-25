@@ -426,7 +426,7 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 -- ----+------------+-----------------------------------------
 --   1 | PostgreSQL | {PostgreSQL,RDBMS}
 --   3 | PGroonga   | {PostgreSQL,Groonga,"full-text search"}
--- (2 行)
+-- (2 rows)
 ```
 
 {: #json}

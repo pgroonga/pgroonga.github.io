@@ -53,10 +53,10 @@ See [CREATE INDEX USING pgroonga](../reference/create-index-using-pgroonga.html)
 Insert test data:
 
 ```sql
-INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
-INSERT INTO memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。');
-INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
-INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
+INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');
+INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
+INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
 Disable sequential scan to ensure using `pgroonga` index:
@@ -80,11 +80,10 @@ There are the following operators to perform full text search:
 You can use `%%` operator to perform full text search by one word:
 
 ```sql
-SELECT * FROM memos WHERE content %% '全文検索';
-
---  id |                      content
--- ----+---------------------------------------------------
---   2 | Groongaは日本語対応の高速な全文検索エンジンです。
+SELECT * FROM memos WHERE content %% 'engine';
+--  id |                                content                                 
+-- ----+------------------------------------------------------------------------
+--   2 | Groonga is a fast full text search engine that supports all languages.
 -- (1 row)
 ```
 
@@ -96,10 +95,10 @@ You can use `@@` operator to perform full text search by query syntax such as `k
 
 ```sql
 SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
---  id |                                  content
--- ----+---------------------------------------------------------------------------
---   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
---   1 | PostgreSQLはリレーショナル・データベース管理システムです。
+--  id |                            content                             
+-- ----+----------------------------------------------------------------
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
+--   1 | PostgreSQL is a relational database management system.
 -- (2 rows)
 ```
 
@@ -116,11 +115,10 @@ PGroonga supports `LIKE` operator. You can perform fast full text search by PGro
 `column LIKE '%keyword%'` equals to `column %% 'keyword'`:
 
 ```sql
-SELECT * FROM memos WHERE content %% '全文検索';
-
---  id |                      content
--- ----+---------------------------------------------------
---   2 | Groongaは日本語対応の高速な全文検索エンジンです。
+SELECT * FROM memos WHERE content %% 'engine';
+--  id |                                content                                 
+-- ----+------------------------------------------------------------------------
+--   2 | Groonga is a fast full text search engine that supports all languages.
 -- (1 row)
 ```
 
@@ -150,10 +148,10 @@ CREATE INDEX pgroonga_score_memos_content_index
 Insert test data:
 
 ```sql
-INSERT INTO score_memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
-INSERT INTO score_memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。');
-INSERT INTO score_memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
-INSERT INTO score_memos VALUES (4, 'groongaコマンドがあります。');
+INSERT INTO score_memos VALUES (1, 'PostgreSQL is a relational database management system.');
+INSERT INTO score_memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');
+INSERT INTO score_memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
+INSERT INTO score_memos VALUES (4, 'There is groonga command.');
 ```
 
 Disable sequential scan to ensure using `pgroonga` index:
@@ -168,10 +166,10 @@ Perform full text search and get score.
 SELECT *, pgroonga.score(score_memos)
   FROM score_memos
  WHERE content %% 'PGroonga' OR content %% 'PostgreSQL';
---  id |                                  content                                  | score 
--- ----+---------------------------------------------------------------------------+-------
---   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1
---   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
+--  id |                            content                             | score 
+-- ----+----------------------------------------------------------------+-------
+--   1 | PostgreSQL is a relational database management system.         |     1
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2
 -- (2 rows)
 ```
 
@@ -182,10 +180,10 @@ SELECT *, pgroonga.score(score_memos)
   FROM score_memos
  WHERE content %% 'PGroonga' OR content %% 'PostgreSQL'
  ORDER BY pgroonga.score(score_memos) DESC;
---  id |                                  content                                  | score 
--- ----+---------------------------------------------------------------------------+-------
---   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
---   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1
+--  id |                            content                             | score 
+-- ----+----------------------------------------------------------------+-------
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2
+--   1 | PostgreSQL is a relational database management system.         |     1
 -- (2 rows)
 ```
 
@@ -362,27 +360,27 @@ Insert test data:
 ```sql
 INSERT INTO docs
      VALUES (1,
-             ARRAY['PostgreSQLはリレーショナル・データベース管理システムです。',
-                   'PostgreSQLは部分的に全文検索をサポートしています。']);
+             ARRAY['PostgreSQL is a relational database management system.',
+                   'PostgreSQL supports full text search partially.']);
 INSERT INTO docs
      VALUES (2,
-             ARRAY['Groongaは日本語対応の高速な全文検索エンジンです。',
-                   'Groongaは他のシステムに組み込むことができます。']);
+             ARRAY['Groonga is a fast full text search engine that supports all languages.',
+                   'Groonga can be embedded into other systems.']);
 INSERT INTO docs
      VALUES (3,
-             ARRAY['PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。',
-                   'PostgreSQLに高機能な全文検索機能を追加します。']);
+             ARRAY['PGroonga is a PostgreSQL extension that uses Groonga as index.',
+                   'It adds powerful full text search feature to PostgreSQL.']);
 ```
 
 You can use `%%` operator or `@@` operator for full text search. The full text search doesn't care about the position of element.
 
 ```sql
-SELECT * FROM docs WHERE sections %% '全文検索';
---  id |                                                          sections                                                          
--- ----+----------------------------------------------------------------------------------------------------------------------------
---   1 | {PostgreSQLはリレーショナル・データベース管理システムです。,PostgreSQLは部分的に全文検索をサポートしています。}
---   2 | {Groongaは日本語対応の高速な全文検索エンジンです。,Groongaは他のシステムに組み込むことができます。}
---   3 | {PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。,PostgreSQLに高機能な全文検索機能を追加します。}
+SELECT * FROM docs WHERE sections %% 'text';
+--  id |                                                           sections                                                            
+-- ----+-------------------------------------------------------------------------------------------------------------------------------
+--   1 | {"PostgreSQL is a relational database management system.","PostgreSQL supports full text search partially."}
+--   2 | {"Groonga is a fast full text search engine that supports all languages.","Groonga can be embedded into other systems."}
+--   3 | {"PGroonga is a PostgreSQL extension that uses Groonga as index.","It adds powerful full text search feature to PostgreSQL."}
 -- (3 rows)
 ```
 
@@ -425,7 +423,7 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 -- ----+------------+-----------------------------------------
 --   1 | PostgreSQL | {PostgreSQL,RDBMS}
 --   3 | PGroonga   | {PostgreSQL,Groonga,"full-text search"}
--- (2 行)
+-- (2 rows)
 ```
 
 {: #json}
@@ -636,14 +634,14 @@ Here is an example to use `select` command with `pgroonga.table_name` function:
 ```sql
 SELECT *
   FROM json_array_elements(pgroonga.command('select ' || pgroonga.table_name('pgroonga_content_index'))::json->1->0);
---                                        value                                       
--- -----------------------------------------------------------------------------------
+--                                      value                                      
+-- --------------------------------------------------------------------------------
 --  [4]
---  [["_id","UInt32"],["_key","UInt64"],["content","LongText"]]
---  [1,1,"PostgreSQLはリレーショナル・データベース管理システムです。"]
---  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。"]
---  [3,3,"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。"]
---  [4,4,"groongaコマンドがあります。"]
+--  [["_id","UInt32"],["content","LongText"],["ctid","UInt64"]]
+--  [1,"PostgreSQL is a relational database management system.",1]
+--  [2,"Groonga is a fast full text search engine that supports all languages.",2]
+--  [3,"PGroonga is a PostgreSQL extension that uses Groonga as index.",3]
+--  [4,"There is groonga command.",4]
 -- (6 rows)
 ```
 

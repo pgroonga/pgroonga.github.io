@@ -35,31 +35,48 @@ Groongaのコマンドは結果をJSONとして返します。`pgroonga.command`
 
 このケースを例で説明します。
 
+例に使うサンプルスキーマとデータは次の通りです。
+
+```sql
+CREATE TABLE posts (
+  id integer PRIMARY KEY,
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_posts_index
+          ON posts
+       USING pgroonga (id, title, content);
+
+INSERT INTO posts VALUES (1, 'PostgreSQL', 'PostgreSQL is a relational database management system.');
+INSERT INTO posts VALUES (2, 'Groonga', 'Groonga is a fast full text search engine that supports all languages.');
+INSERT INTO posts VALUES (3, 'PGroonga', 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
+```
+
 以下は更新前の結果です。3レコードあります。
 
 ```sql
 SELECT *
   FROM json_array_elements(
          pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index')
+                          pgroonga.table_name('pgroonga_posts_index')
                          )::json->1->0);
---                                                    value                                                   
--- -----------------------------------------------------------------------------------------------------------
+--                                               value                                              
+-- -------------------------------------------------------------------------------------------------
 --  [3]
---  [["_id","UInt32"],["_key","UInt64"],["content","LongText"],["tag","ShortText"],["title","LongText"]]
---  [1,1,"PostgreSQLはリレーショナル・データベース管理システムです。","PostgreSQL","PostgreSQL"]
---  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。","Groonga","Groonga"]
---  [3,3,"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","PostgreSQL","PGroonga"]
--- (5 行)
+--  [["_id","UInt32"],["content","LongText"],["ctid","UInt64"],["id","Int32"],["title","LongText"]]
+--  [1,"PostgreSQL is a relational database management system.",1,1,"PostgreSQL"]
+--  [2,"Groonga is a fast full text search engine that supports all languages.",2,2,"Groonga"]
+--  [3,"PGroonga is a PostgreSQL extension that uses Groonga as index.",3,3,"PGroonga"]
+-- (5 rows)
 ```
 
 1つのレコードを更新します。
 
 ```sql
-UPDATE terms
+UPDATE posts
    SET title = 'Mroonga',
-       content = 'MroongaはGroongaをバックエンドにしたMySQLのストレージエンジンです。',
-       tag = 'MySQL'
+       content = 'Mroonga is a MySQL storage engine that uses Groonga as backend.'
  WHERE id = 3;
 ```
 
@@ -69,38 +86,38 @@ Groongaの`select`コマンドを再度実行します。4レコード返りま�
 SELECT *
   FROM json_array_elements(
          pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index')
+                          pgroonga.table_name('pgroonga_posts_index')
                          )::json->1->0);
---                                                    value                                                   
--- -----------------------------------------------------------------------------------------------------------
+--                                               value                                              
+-- -------------------------------------------------------------------------------------------------
 --  [4]
---  [["_id","UInt32"],["_key","UInt64"],["content","LongText"],["tag","ShortText"],["title","LongText"]]
---  [1,1,"PostgreSQLはリレーショナル・データベース管理システムです。","PostgreSQL","PostgreSQL"]
---  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。","Groonga","Groonga"]
---  [3,3,"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","PostgreSQL","PGroonga"]
---  [4,4,"MroongaはGroongaをバックエンドにしたMySQLのストレージエンジンです。","MySQL","Mroonga"]
--- (6 行)
+--  [["_id","UInt32"],["content","LongText"],["ctid","UInt64"],["id","Int32"],["title","LongText"]]
+--  [1,"PostgreSQL is a relational database management system.",1,1,"PostgreSQL"]
+--  [2,"Groonga is a fast full text search engine that supports all languages.",2,2,"Groonga"]
+--  [3,"PGroonga is a PostgreSQL extension that uses Groonga as index.",3,3,"PGroonga"]
+--  [4,"Mroonga is a MySQL storage engine that uses Groonga as backend.",4,3,"Mroonga"]
+-- (6 rows)
 ```
 
 古いレコードは`VACUUM`実行時に削除されます。
 
-明示的に`VACUUM`を実行します。その後、Groongaの`select`コマンドを再度実行します。3レコード返ってきます。ここには古いレコードはありません。
+明示的に`VACUUM FULL`を実行します。その後、Groongaの`select`コマンドを再度実行します。3レコード返ってきます。ここには古いレコードはありません。
 
 ```sql
-VACUUM;
+VACUUM FULL;
 SELECT *
   FROM json_array_elements(
          pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index')
+                          pgroonga.table_name('pgroonga_posts_index')
                          )::json->1->0);
---                                                 value                                                 
--- ------------------------------------------------------------------------------------------------------
+--                                               value                                              
+-- -------------------------------------------------------------------------------------------------
 --  [3]
---  [["_id","UInt32"],["_key","UInt64"],["content","LongText"],["tag","ShortText"],["title","LongText"]]
---  [1,1,"PostgreSQLはリレーショナル・データベース管理システムです。","PostgreSQL","PostgreSQL"]
---  [2,2,"Groongaは日本語対応の高速な全文検索エンジンです。","Groonga","Groonga"]
---  [4,4,"MroongaはGroongaをバックエンドにしたMySQLのストレージエンジンです。","MySQL","Mroonga"]
--- (5 行)
+--  [["_id","UInt32"],["content","LongText"],["ctid","UInt64"],["id","Int32"],["title","LongText"]]
+--  [1,"PostgreSQL is a relational database management system.",1,1,"PostgreSQL"]
+--  [2,"Groonga is a fast full text search engine that supports all languages.",2,2,"Groonga"]
+--  [3,"Mroonga is a MySQL storage engine that uses Groonga as backend.",3,3,"Mroonga"]
+-- (5 rows)
 ```
 
 ## 参考

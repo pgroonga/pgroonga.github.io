@@ -13,17 +13,36 @@ PGroongaは内部的に`column LIKE '%キーワード%'`条件を`column %% 'キ
 
 たとえば、元の`LIKE`演算子は大文字小文字を区別して検索します。しかし、インデックスを使った`LIKE`演算子は大文字小文字を区別しません。
 
+Here are sample schema and data:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
+```
+
+```sql
+INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
+INSERT INTO memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。');
+INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
+INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
+```
+
 元の`LIKE`演算子の結果です。
 
 ```sql
 SET enable_seqscan = on;
 SET enable_indexscan = off;
 SET enable_bitmapscan = off;
+
 SELECT * FROM memos WHERE content LIKE '%groonga%';
 --  id |           content           
 -- ----+-----------------------------
 --   4 | groongaコマンドがあります。
--- (1 行)
+-- (1 row)
 ```
 
 インデックスを使った`LIKE`演算子の結果です。
@@ -32,13 +51,14 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
+
 SELECT * FROM memos WHERE content LIKE '%groonga%';
 --  id |                                  content                                  
 -- ----+---------------------------------------------------------------------------
 --   2 | Groongaは日本語対応の高速な全文検索エンジンです。
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
 --   4 | groongaコマンドがあります。
--- (3 行)
+-- (3 rows)
 ```
 
 インデックスを使った`LIKE`演算子の結果と元の`LIKE`演算子の結果を同じにしたい場合は次のトークナイザーとノーマライザーを使います。
@@ -49,6 +69,8 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 具体例は次の通りです。
 
 ```sql
+DROP INDEX IF EXISTS pgroonga_content_index;
+
 CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
@@ -62,11 +84,12 @@ CREATE INDEX pgroonga_content_index
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
+
 SELECT * FROM memos WHERE content LIKE '%groonga%';
 --  id |           content           
 -- ----+-----------------------------
 --   4 | groongaコマンドがあります。
--- (1 行)
+-- (1 row)
 ```
 
 通常、デフォルトの設定は元の`LIKE`演算子よりも適切な全文検索結果を返す設定です。もし、デフォルトの設定をするときは、変更する前にユーザーにとてどのような結果が適切かを考えてください。

@@ -13,17 +13,36 @@ The original `LIKE` operator searches against text as is. But `%%` operator does
 
 For example, the original `LIKE` operator searches with case sensitive. But `LIKE` operator with index searches with case insensitive.
 
+Here are sample schema and data:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
+```
+
+```sql
+INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');
+INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
+INSERT INTO memos VALUES (4, 'There is groonga command.');
+```
+
 A search result of the original `LIKE` operator:
 
 ```sql
 SET enable_seqscan = on;
 SET enable_indexscan = off;
 SET enable_bitmapscan = off;
+
 SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |           content           
--- ----+-----------------------------
---   4 | groongaコマンドがあります。
--- (1 行)
+--  id |          content          
+-- ----+---------------------------
+--   4 | There is groonga command.
+-- (1 row)
 ```
 
 A search result of `LIKE` operator with index:
@@ -32,13 +51,14 @@ A search result of `LIKE` operator with index:
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
+
 SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |                                  content                                  
--- ----+---------------------------------------------------------------------------
---   2 | Groongaは日本語対応の高速な全文検索エンジンです。
---   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
---   4 | groongaコマンドがあります。
--- (3 行)
+--  id |                                content                                 
+-- ----+------------------------------------------------------------------------
+--   2 | Groonga is a fast full text search engine that supports all languages.
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
+--   4 | There is groonga command.
+-- (3 rows)
 ```
 
 If you want to get the same result by both `LIKE` operator with index and the original `LIKE` operator, use the following tokenizer and normalizer:
@@ -49,6 +69,8 @@ If you want to get the same result by both `LIKE` operator with index and the or
 Here is a concrete example:
 
 ```sql
+DROP INDEX IF EXISTS pgroonga_content_index;
+
 CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
@@ -62,11 +84,12 @@ You can get the same result as the original `LIKE` operator with `LIKE` operator
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
+
 SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |           content           
--- ----+-----------------------------
---   4 | groongaコマンドがあります。
--- (1 行)
+--  id |          content          
+-- ----+---------------------------
+--   4 | There is groonga command.
+-- (1 row)
 ```
 
 Normally, the default configuration returns better result for full text search rather than the original `LIKE` operator. Think about which result is better for users before you change the default configuration.

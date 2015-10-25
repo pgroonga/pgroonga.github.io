@@ -37,7 +37,7 @@ You can update to 0.8.0 from 0.7.0 by override install. You don't need to re-cre
   * Supported Ubuntu 14.04 LTS (Trusty Tahr). [Suggested by Yokoda Toshiaki]
   * `pgroonga.lock_timeout`: Added a variable that changes the number of lock retries. [groonga-dev,03419] [Suggested by Naoki Takami]
 
-### Thanks
+### 感謝
 
   * Hiroki Nakamura
   * Yokoda Toshiaki
@@ -87,7 +87,7 @@ CREATE EXTENSION pgroonga;
   * Supported Ubuntu 15.04 Vivid Vervet.
   * Supported Windows.
 
-### Changes
+### 変更
 
   * `pgroonga.score()`: Required primary key.
 
@@ -119,7 +119,7 @@ CREATE EXTENSION pgroonga;
   * Supported full-text search by index and other search by index in one `SELECT`.
   * Added Yum repositories for CentOS 5 and 6.
 
-### Changes
+### 変更
 
   * Dropped `text == text` search by index. Use 4096 bytes or smaller `varchar` instead.
   * Dropped PostgreSQL 9.2 support.
@@ -151,7 +151,7 @@ CREATE EXTENSION pgroonga;
   * Supported column compression by LZ4.
   * Supported non full-text search index such as text, numbers and timestamp.
 
-### Changes
+### 変更
 
   * Changed database file base name to `pgrn` from `grn`.
 

@@ -14,6 +14,10 @@ layout: ja
   * Ruby on Railsと一緒に使う方法：TODO
   * ...
 
+## 継続的インテグレーション（CI）
+
+  * [Travis CI上でPGroongaを使う方法](travis-ci.html)
+
 ## ...
 
   * ...

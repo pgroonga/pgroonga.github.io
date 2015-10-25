@@ -212,7 +212,7 @@ SELECT *, pgroonga.score(score_memos)
 
 この関数はすべてのテキストに対して使うことができます。PGroongaでの検索結果以外にも使えるということです。
 
-この挙動を説明するサンプルSQLは次の通りです。`FROM`がない次の`SELECT`でもこの関数を使えます。[`unnest`](http://www.postgresql.jp/document/current/html/functions-array.html)は配列を列に変換するPostgreSQLの関数であることに注意してください。
+この挙動を説明するサンプルSQLは次の通りです。`FROM`がない次の`SELECT`でもこの関数を使えます。[`unnest`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/functions-array.html)は配列を列に変換するPostgreSQLの関数であることに注意してください。
 
 ```sql
 SELECT unnest(pgroonga.snippet_html(
@@ -456,7 +456,7 @@ PGroongaは`jsonb`に対して検索するために次の2つの演算子を提�
   * `@>`演算子
   * `@@`演算子
 
-[`@>`演算子はPostgreSQL組み込みの演算子](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSONB-OP-TABLE)です。`@>`は右辺の`jsonb`が左辺の`jsonb`のサブセットなら真を返します。
+[`@>`演算子はPostgreSQL組み込みの演算子](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/functions-json.html#FUNCTIONS-JSONB-OP-TABLE)です。`@>`は右辺の`jsonb`が左辺の`jsonb`のサブセットなら真を返します。
 
 PGroongaを使うことで高速に`@>`を実行出来ます。
 

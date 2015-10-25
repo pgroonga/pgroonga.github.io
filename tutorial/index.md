@@ -212,7 +212,7 @@ Here is the result of `pgroonga.snippet_html` against the above text:
 
 This function can be used for all texts. It's not only for search result by PGroonga.
 
-Here is a sample SQL that describes about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](http://www.postgresql.org/docs/current/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
+Here is a sample SQL that describes about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
 
 ```sql
 SELECT unnest(pgroonga.snippet_html(
@@ -455,7 +455,7 @@ PGroonga provides the following two operators for searching against `jsonb`:
   * `@>` operator
   * `@@` operator
 
-[`@>` operator is a built-in PostgreSQL operator](http://www.postgresql.org/docs/current/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
+[`@>` operator is a built-in PostgreSQL operator](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
 
 You can execute `@>` faster by PGroonga.
 

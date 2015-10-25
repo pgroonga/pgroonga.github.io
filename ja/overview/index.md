@@ -17,7 +17,7 @@ PostgreSQLはアルファベットと数値だけを使った言語の全文検�
 
 あらゆる言語をサポートした全文検索を実現するための拡張機能がいくつかあります。
 
-  * [pg_trgm](http://www.postgresql.org/docs/current/static/pgtrgm.html)
+  * [pg_trgm](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/pgtrgm.html)
     * PostgreSQLにバンドルされていますが、デフォルトではインストールされていません。
     * あらゆる言語に対応するためにはpg\_trgmのソースコードを変更する必要があります。
 

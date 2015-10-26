@@ -5,6 +5,36 @@ layout: en
 
 # News
 
+{: #version-1-0-0}
+
+## 1.0.0: 2015-10-29
+
+It's the first major release!!!
+
+You can update to 1.0.0 from 0.9.0 by override install and executing the following SQL:
+
+```sql
+ALTER EXTENSION pgroonga UPDATE;
+```
+
+You don't need to re-create `pgroonga` indexes.
+
+### Improvements
+
+  * Propagated double initialization on failing to open database. [groonga-dev,03528] [Reported by Naoki Takami]
+
+  * Supported index only scan.
+
+  * Supported regular expression search by `@~`. [groonga-dev,03563] [Reported by Hiroaki Tachikawa]
+
+  * [Windows] Bundled MeCab.
+
+### Thanks
+
+  * Naoki Takami
+
+  * Hiroaki Tachikawa
+
 {: #version-0-9-0}
 
 ## 0.9.0: 2015-09-29

@@ -58,6 +58,10 @@ Note that you can't use syntax that starts with `COLUMN_NAME:` like `COLUMN_NAME
 
 You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` for prefix search.
 
+## Sequential scan
+
+TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
+
 ## See also
 
   * [`%%` operator](match.html)

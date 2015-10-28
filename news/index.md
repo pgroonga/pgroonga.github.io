@@ -11,13 +11,7 @@ layout: en
 
 It's the first major release!!!
 
-You can update to 1.0.0 from 0.9.0 by override install and executing the following SQL:
-
-```sql
-ALTER EXTENSION pgroonga UPDATE;
-```
-
-You don't need to re-create `pgroonga` indexes.
+You need to run `DROP EXTENSION pgroonga CASCADE`, upgrade PGroonga binary, run `CREATE EXTENSION pgroonga` and create indexes again to upgrade to 1.0.0 from older vreions.
 
 ### Improvements
 
@@ -28,6 +22,10 @@ You don't need to re-create `pgroonga` indexes.
   * Supported regular expression search by `@~`. [groonga-dev,03563] [Reported by Hiroaki Tachikawa]
 
   * [Windows] Bundled MeCab.
+
+  * Made `LIKE` with index outputs `LIKE` with sequential scan compatible outputs. It's implemented by using recheck feature provided by PostgreSQL. It means that `LIKE` is slower than `%%` operator and `@@` operator.
+
+  * Supported `ILIKE` with index.
 
 ### Thanks
 

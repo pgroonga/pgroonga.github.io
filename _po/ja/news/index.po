@@ -22,6 +22,58 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "{: #version-1-0-0}"
+msgstr ""
+
+msgid "## 1.0.0: 2015-10-29"
+msgstr ""
+
+msgid "It's the first major release!!!"
+msgstr ""
+
+msgid ""
+"You need to run `DROP EXTENSION pgroonga CASCADE`, upgrade PGroonga binary, ru"
+"n `CREATE EXTENSION pgroonga` and create indexes again to upgrade to 1.0.0 fro"
+"m older vreions."
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid ""
+"  * Propagated double initialization on failing to open database. [groonga-dev"
+",03528] [Reported by Naoki Takami]"
+msgstr ""
+
+msgid "  * Supported index only scan."
+msgstr ""
+
+msgid ""
+"  * Supported regular expression search by `@~`. [groonga-dev,03563] [Reported"
+" by Hiroaki Tachikawa]"
+msgstr ""
+
+msgid "  * [Windows] Bundled MeCab."
+msgstr ""
+
+msgid ""
+"  * Made `LIKE` with index outputs `LIKE` with sequential scan compatible outp"
+"uts. It's implemented by using recheck feature provided by PostgreSQL. It mean"
+"s that `LIKE` is slower than `%%` operator and `@@` operator."
+msgstr ""
+
+msgid "  * Supported `ILIKE` with index."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Naoki Takami"
+msgstr ""
+
+msgid "  * Hiroaki Tachikawa"
+msgstr ""
+
 msgid "{: #version-0-9-0}"
 msgstr ""
 
@@ -41,9 +93,6 @@ msgstr ""
 
 msgid "You don't need to re-create `pgroonga` indexes."
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid ""
 "  * Supported `jsonb`. You can use `@>` operator like GIN index for `jsonb`. `"
@@ -73,9 +122,6 @@ msgid ""
 "  * `pgroonga.lock_timeout`: Added a variable that changes the number of lock "
 "retries. [groonga-dev,03419] [Suggested by Naoki Takami]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid ""
 "  * Hiroki Nakamura\n"

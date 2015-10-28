@@ -7,7 +7,12 @@ layout: en
 
 ## Summary
 
-PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) does full text search with index. It's faster than `LIKE` operator without index.
+PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) performs full text search with index. It's faster than `LIKE` operator without index.
+
+`column LIKE '%KEYWORD%'` with index is slower than `column %% 'KEYWORD'` with index because `column LIKE '%KEYWORD%'` with index needs "[Recheck]"(http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/index-scanning.html). `column %% 'KEYWORD'` doesn't need "Recheck".
+
+The original `LIKE` operator searches against text as is. But `%%` operator performs full text search against normalized text. It means that search result of `LIKE` operator with index needs "Recheck".
+
 
 ## Syntax
 
@@ -19,9 +24,7 @@ column LIKE pattern
 
 `column` is a column to be searched.
 
-`pattern` is a search pattern. It's `text` type. It must be `'%KEYWORD%'` format.
-
-Both beginning `%` and ending `%` are important. `'KEYWORD%'`, `'%KEYWORD'` and so on aren't converted to `column %% 'KEYWORD'`. PGroonga returns no records for these patterns. Because PGroonga can't search these patterns with index.
+`pattern` is a search pattern. It's `text` type.
 
 ## Usage
 
@@ -43,16 +46,12 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
-The original `LIKE` operator searches against text as is. But `%%` operator does full text search against normalized text. It means that search result of `LIKE` operator with index and search result of the original `LIKE` operator may be different.
-
-For example, the original `LIKE` operator searches with case sensitive. But `LIKE` operator with index searches with case insensitive.
-
-A search result of the original `LIKE` operator:
+You can perform `LIKE` operator with index:
 
 ```sql
-SET enable_seqscan = on;
-SET enable_indexscan = off;
-SET enable_bitmapscan = off;
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = on;
 
 SELECT * FROM memos WHERE content LIKE '%groonga%';
 --  id |          content          
@@ -61,14 +60,27 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 -- (1 row)
 ```
 
-A search result of `LIKE` operator with index:
+The default operator class of PGroonga index for `text` type can't find any records with partial alphabet keyword. For example, you can't find record with `roonga` keyword:
 
 ```sql
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
 
-SELECT * FROM memos WHERE content LIKE '%groonga%';
+SELECT * FROM memos WHERE content LIKE '%roonga%';
+--  id | content 
+-- ----+---------
+-- (0 rows)
+```
+
+But you can find some records with `roonga` keyword without index:
+
+```sql
+SET enable_seqscan = on;
+SET enable_indexscan = off;
+SET enable_bitmapscan = off;
+
+SELECT * FROM memos WHERE content LIKE '%roonga%';
 --  id |                                content                                 
 -- ----+------------------------------------------------------------------------
 --   2 | Groonga is a fast full text search engine that supports all languages.
@@ -77,12 +89,24 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 -- (3 rows)
 ```
 
-If you want to get the same result by both `LIKE` operator with index and the original `LIKE` operator, use the following tokenizer and normalizer:
+You can find records by prefix alphabet keyword such as `Gro`:
 
-  * Tokenizer: `TokenBigramSplitSymbolAlphaDigit`
-  * Normalizer: None
+```sql
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = on;
 
-Here is a concrete example:
+SELECT * FROM memos WHERE content LIKE '%Gro%';
+--  id |                                content                                 
+-- ----+------------------------------------------------------------------------
+--   2 | Groonga is a fast full text search engine that supports all languages.
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
+-- (2 rows)
+```
+
+If you want to search by partial alphabet keyword, there are two approaches.
+
+The first approach is using the `TokenBigramSplitSymbolAlphaDigit` tokenizer:
 
 ```sql
 DROP INDEX IF EXISTS pgroonga_content_index;
@@ -90,24 +114,54 @@ DROP INDEX IF EXISTS pgroonga_content_index;
 CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
-        WITH (tokenizer='TokenBigramSplitSymbolAlphaDigit',
-              normalizer='');
+        WITH (tokenizer='TokenBigramSplitSymbolAlphaDigit');
 ```
 
-You can get the same result as the original `LIKE` operator with `LIKE` operator with index:
+You can find records by `roonga`:
 
 ```sql
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
 
-SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |          content          
--- ----+---------------------------
+SELECT * FROM memos WHERE content LIKE '%roonga%';
+--  id |                                content                                 
+-- ----+------------------------------------------------------------------------
+--   2 | Groonga is a fast full text search engine that supports all languages.
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
 --   4 | There is groonga command.
--- (1 row)
+-- (3 rows)
 ```
 
-Normally, the default configuration returns better result for full text search rather than the original `LIKE` operator. Think about which result is better for users before you change the default configuration.
+See [Customization in `CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html#customization) for tokenizer.
 
-See [Customization in `CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html#customization) for tokenizer and normalizer.
+The second approach is using `pgroonga.text_regexp_ops` operator class:
+
+```sql
+DROP INDEX IF EXISTS pgroonga_content_index;
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content pgroonga.text_regexp_ops);
+```
+
+You can find records by `rooonga`:
+
+```sql
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = on;
+
+SELECT * FROM memos WHERE content LIKE '%roonga%';
+--  id |                                content                                 
+-- ----+------------------------------------------------------------------------
+--   2 | Groonga is a fast full text search engine that supports all languages.
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
+--   4 | There is groonga command.
+-- (3 rows)
+```
+
+## See also
+
+  * [`CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html)
+

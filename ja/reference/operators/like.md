@@ -9,6 +9,11 @@ layout: ja
 
 PGroongaは内部的に`column LIKE '%キーワード%'`条件を`column %% 'キーワード'`条件に変換します。[`%%`演算子](match.html)はインデックスを使って全文検索をします。これはインデックスを使わない`LIKE`演算子より速いです。
 
+インデックスを使った`column LIKE '%キーワード%'`は`column %% 'キーワード'`よりも遅いです。これは、インデックスを使った`column LIKE '%キーワード%'`は「[再検査](https://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/index-scanning.html)」する必要があるからです。`column %% 'キーワード'`は「再検査」する必要がありません。
+
+元の`LIKE`演算子は対象テキストに対して検索します。しかし、`%%`演算子は正規化したテキストに対して検索します。そのため、インデックスを使って`LIKE`演算子の検索を実行した場合は「再検査」が必要になります。
+
+
 ## 構文
 
 この演算子の構文は次の通りです。
@@ -19,9 +24,7 @@ column LIKE pattern
 
 `column`は検索対象のカラムです。
 
-`pattern`は検索パターンです。`text`型です。`'%キーワード%'`というフォーマットではなければいけません。
-
-最初の`%`と最後の`%`はどちらも重要です。`'キーワード%'`、`'%キーワード'`などは`column %% 'キーワード'`に変換されます。このようなパターンを指定するとPGroongaは1件もレコードを返しません。なぜならPGroongaはインデックスなしではこれらのパターンを検索できないからです。
+`pattern`は検索パターンです。`text`型です。
 
 ## 使い方
 
@@ -43,16 +46,12 @@ INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを�
 INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 ```
 
-元の`LIKE`演算子は対象テキストに対して検索します。しかし、`%%`演算子は正規化したテキストに対して検索します。これは、インデックスを使った`LIKE`演算子の検索結果と、元の`LIKE`演算子の検索結果は異なるということです。
-
-たとえば、元の`LIKE`演算子は大文字小文字を区別して検索します。しかし、インデックスを使った`LIKE`演算子は大文字小文字を区別しません。
-
-元の`LIKE`演算子の結果です。
+インデックスを使って`LIKE`演算子を実行できます。
 
 ```sql
-SET enable_seqscan = on;
-SET enable_indexscan = off;
-SET enable_bitmapscan = off;
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = on;
 
 SELECT * FROM memos WHERE content LIKE '%groonga%';
 --  id |           content           
@@ -61,14 +60,27 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 -- (1 row)
 ```
 
-インデックスを使った`LIKE`演算子の結果です。
+PGroongaのインデックスが適用している`text`型用のデフォルトのオペレータークラスは、キーワードがアルファベットのみだった場合、キーワードの一部だけで検索してもヒットしません。たとえば、`roonga`というキーワードではヒットしません。
 
 ```sql
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
 
-SELECT * FROM memos WHERE content LIKE '%groonga%';
+SELECT * FROM memos WHERE content LIKE '%roonga%';
+--  id | content 
+-- ----+---------
+-- (0 rows)
+```
+
+インデックスを使わない場合は`roonga`というキーワードでもヒットします。
+
+```sql
+SET enable_seqscan = on;
+SET enable_indexscan = off;
+SET enable_bitmapscan = off;
+
+SELECT * FROM memos WHERE content LIKE '%roonga%';
 --  id |                                  content                                  
 -- ----+---------------------------------------------------------------------------
 --   2 | Groongaは日本語対応の高速な全文検索エンジンです。
@@ -77,12 +89,24 @@ SELECT * FROM memos WHERE content LIKE '%groonga%';
 -- (3 rows)
 ```
 
-インデックスを使った`LIKE`演算子の結果と元の`LIKE`演算子の結果を同じにしたい場合は次のトークナイザーとノーマライザーを使います。
+キーワードがアルファベットだけだった場合でも、`Gro`のようにキーワードの先頭部分を指定した場合はヒットします。
 
-  * トークナイザー: `TokenBigramSplitSymbolAlphaDigit`
-  * ノーマライザー: なし
+```sql
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = on;
 
-具体例は次の通りです。
+SELECT * FROM memos WHERE content LIKE '%Gro%';
+--  id |                                  content                                  
+-- ----+---------------------------------------------------------------------------
+--   2 | Groongaは日本語対応の高速な全文検索エンジンです。
+--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
+-- (2 rows)
+```
+
+キーワードがアルファベットの場合でも、キーワードの一部で検索できるようにする方法は2つあります。
+
+最初の方法は`TokenBigramSplitSymbolAlphaDigit`トークナイザーを使う方法です。
 
 ```sql
 DROP INDEX IF EXISTS pgroonga_content_index;
@@ -90,24 +114,54 @@ DROP INDEX IF EXISTS pgroonga_content_index;
 CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
-        WITH (tokenizer='TokenBigramSplitSymbolAlphaDigit',
-              normalizer='');
+        WITH (tokenizer='TokenBigramSplitSymbolAlphaDigit');
 ```
 
-元の`LIKE`演算子とインデックスを使った`LIKE`演算子で同じ結果が返ります。
+これで`roonga`でもヒットするようになります。
 
 ```sql
 SET enable_seqscan = off;
 SET enable_indexscan = on;
 SET enable_bitmapscan = on;
 
-SELECT * FROM memos WHERE content LIKE '%groonga%';
---  id |           content           
--- ----+-----------------------------
+SELECT * FROM memos WHERE content LIKE '%roonga%';
+--  id |                                  content                                  
+-- ----+---------------------------------------------------------------------------
+--   2 | Groongaは日本語対応の高速な全文検索エンジンです。
+--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
 --   4 | groongaコマンドがあります。
--- (1 row)
+-- (3 rows)
 ```
 
-通常、デフォルトの設定は元の`LIKE`演算子よりも適切な全文検索結果を返す設定です。もし、デフォルトの設定をするときは、変更する前にユーザーにとてどのような結果が適切かを考えてください。
+トークナイザーをカスタマイズする方法については[`CREATE INDEX USING pgroonga`のカスタマイズ](../create-index-using-pgroonga.html#customization)を参照してください。
 
-トークナイザーとノーマライザーをカスタマイズする方法については[`CREATE INDEX USING pgroonga`のカスタマイズ](../create-index-using-pgroonga.html#customization)を参照してください。
+2つめの方法は`pgroonga.text_regexp_ops`オペレータークラスを使う方法です。
+
+```sql
+DROP INDEX IF EXISTS pgroonga_content_index;
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content pgroonga.text_regexp_ops);
+```
+
+You can find records by `rooonga`:
+
+```sql
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = on;
+
+SELECT * FROM memos WHERE content LIKE '%roonga%';
+--  id |                                  content                                  
+-- ----+---------------------------------------------------------------------------
+--   2 | Groongaは日本語対応の高速な全文検索エンジンです。
+--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
+--   4 | groongaコマンドがあります。
+-- (3 rows)
+```
+
+## 参考
+
+  * [`CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html)
+

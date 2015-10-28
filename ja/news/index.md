@@ -5,6 +5,34 @@ layout: ja
 
 # おしらせ
 
+{: #version-1-0-0}
+
+## 1.0.0: 2015-10-29
+
+It's the first major release!!!
+
+You need to run `DROP EXTENSION pgroonga CASCADE`, upgrade PGroonga binary, run `CREATE EXTENSION pgroonga` and create indexes again to upgrade to 1.0.0 from older vreions.
+
+### 改良
+
+  * Propagated double initialization on failing to open database. [groonga-dev,03528] [Reported by Naoki Takami]
+
+  * Supported index only scan.
+
+  * Supported regular expression search by `@~`. [groonga-dev,03563] [Reported by Hiroaki Tachikawa]
+
+  * [Windows] Bundled MeCab.
+
+  * Made `LIKE` with index outputs `LIKE` with sequential scan compatible outputs. It's implemented by using recheck feature provided by PostgreSQL. It means that `LIKE` is slower than `%%` operator and `@@` operator.
+
+  * Supported `ILIKE` with index.
+
+### 感謝
+
+  * Naoki Takami
+
+  * Hiroaki Tachikawa
+
 {: #version-0-9-0}
 
 ## 0.9.0: 2015-09-29

@@ -17,9 +17,9 @@ layout: ja
 
 ## 演算子
 
-  * 全文検索用の[`LIKE`演算子](operators/like.html)
+  * [`LIKE`演算子](operators/like.html)
 
-  * 正規表現用の`LIKE`演算子
+  * `ILIKE`演算子
 
   * [`%%`演算子](operators/match.html)
 

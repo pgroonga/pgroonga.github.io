@@ -17,9 +17,9 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
 ## Operators
 
-  * [`LIKE` operator](operators/like.html) for full text search
+  * [`LIKE` operator](operators/like.html)
 
-  * `LIKE` operator for regular expression
+  * `ILIKE` operator
 
   * [`%%` operator](operators/match.html)
 

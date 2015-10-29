@@ -58,6 +58,10 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 
 前方一致検索のために`カラム名:^値`という構文を使うことができません。前方一致検索には`値*`を使ってください。
 
+## Sequential scan
+
+TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
+
 ## 参考
 
   * [`%%`演算子](match.html)

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-25 22:25+0900\n"
+"PO-Revision-Date: 2015-10-28 23:36+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,6 +136,12 @@ msgid ""
 "You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*`"
 " for prefix search."
 msgstr "前方一致検索のために`カラム名:^値`という構文を使うことができません。前方一致検索には`値*`を使ってください。"
+
+msgid "## Sequential scan"
+msgstr ""
+
+msgid "TODO: Describe about `SET search_path = \"$user\",public,pgroonga,pg_catalog;`."
+msgstr ""
 
 msgid "## See also"
 msgstr "## 参考"

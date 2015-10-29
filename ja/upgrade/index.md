@@ -5,18 +5,68 @@ layout: ja
 
 # アップグレード
 
-パッケージでPGroongaをインストールした場合は、パッケージマネージャーを使って新しいPGroongaをインストールしてください。
+新しいバージョンのPGroongaが非互換の変更を含んでいない場合はPGroongaのインデックスを再作成せずにアップグレードできます。新しいバージョンが1つでも非互換の変更を含んでいればPGroongaをアップグレードする際にすべてのPGroongaのインデックスを再作成する必要があります。
 
-自分でPGroongaをビルドしてインストールした場合は、新しいPGroongaをビルドして古いPGroongaを上書きしてください。
+以下は互換性のリストです。
 
-古いPGroongaのバイナリーを新しいPGroongaのバイナリーで置き換えた後、PGroongaを使っているデータベースで次のSQLを実行してください。
+  * 0.9 -> 1.0: 非互換
+
+  * 0.8 -> 0.9: 互換
+
+  * 0.7 -> 0.8: 非互換
+
+### 非互換の場合
+
+アップグレード手順は次の通りです。
+
+  1. すべてのPGroongaを使ったインデックスを削除します。
+
+  1. PGroonga拡張を削除します。
+
+  1. PGroongaのバイナリーをアップグレードします。
+
+  1. PGroonga拡張をインストールします。
+
+  1. すべてのPGroongaのインデックスを作り直します。
+
+すべてのPGroongaのインデックスを削除して、PGroonga拡張も削除するSQLは次の通りです。
+
+```sql
+DROP EXTENSION pgroonga CASCADE;
+```
+
+PGroongaのバイナリーはパッケージでアップグレードできます。あるいは、新しいPGroongaをビルドして古いPGroongaに上書きすることでもアップグレードできます。
+
+PGroonga拡張をインストールするSQLは次の通りです。
+
+```sql
+CREATE EXTENSION pgroonga;
+```
+
+PGroongaを使ってインデックスを作るには[`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)を使ってください。
+
+### 互換性がある場合
+
+アップグレード手順は次の通りです。
+
+  1. PGroongaのバイナリーをアップグレードします。
+
+  1. PGroonga拡張をアップグレードします。
+
+PGroongaのバイナリーはパッケージでアップグレードできます。あるいは、新しいPGroongaをビルドして古いPGroongaに上書きすることでもアップグレードできます。
+
+PGroongaをアップグレードするSQLは次の通りです。
 
 ```sql
 ALTER EXTENSION pgroonga UPDATE;
 ```
 
-これはPGroongaの設定をアップグレードします。
-
 ## 参考
 
+  * [`CREATE EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-createextension.html)
+
+  * [`DROP EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-dropextension.html)
+
   * [`ALTER EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-alterextension.html)
+
+  * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)

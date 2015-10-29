@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-25 23:08+0900\n"
+"PO-Revision-Date: 2015-10-29 17:07+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,19 +23,87 @@ msgid "# Upgrade"
 msgstr "# アップグレード"
 
 msgid ""
-"If you installed your PGroonga by package, install new PGroonga by package man"
-"ager."
-msgstr "パッケージでPGroongaをインストールした場合は、パッケージマネージャーを使って新しいPGroongaをインストールしてください。"
+"You can upgrade PGroonga without recreating PGroonga indexes when new version "
+"doesn't have any backward incompatible change. If new version has any backward"
+" incompatible change, you need to recreate all PGroonga indexes to upgrade PGr"
+"oonga."
+msgstr ""
+"新しいバージョンのPGroongaが非互換の変更を含んでいない場合はPGroongaのインデックスを再作成せずにアップグレードできます。新しいバージョンが1"
+"つでも非互換の変更を含んでいればPGroongaをアップグレードする際にすべてのPGroongaのインデックスを再作成する必要があります。"
+
+msgid "Here is a list of compatibility:"
+msgstr "以下は互換性のリストです。"
+
+msgid "  * 0.9 -> 1.0: Incompatible"
+msgstr "  * 0.9 -> 1.0: 非互換"
+
+msgid "  * 0.8 -> 0.9: Compatible"
+msgstr "  * 0.8 -> 0.9: 互換"
+
+msgid "  * 0.7 -> 0.8: Incompatible"
+msgstr "  * 0.7 -> 0.8: 非互換"
+
+msgid "### Incompatible case"
+msgstr "### 非互換の場合"
+
+msgid "Here are steps to upgrade:"
+msgstr "アップグレード手順は次の通りです。"
+
+msgid "  1. Drop all PGroonga indexes."
+msgstr "  1. すべてのPGroongaを使ったインデックスを削除します。"
+
+msgid "  1. Drop PGroonga extension."
+msgstr "  1. PGroonga拡張を削除します。"
+
+msgid "  1. Upgrade PGroonga binary."
+msgstr "  1. PGroongaのバイナリーをアップグレードします。"
+
+msgid "  1. Install PGroonga extension."
+msgstr "  1. PGroonga拡張をインストールします。"
+
+msgid "  1. Create all PGroonga indexes again."
+msgstr "  1. すべてのPGroongaのインデックスを作り直します。"
+
+msgid "Here is a SQL that drops all PGroonga indexes and PGroonga extension:"
+msgstr "すべてのPGroongaのインデックスを削除して、PGroonga拡張も削除するSQLは次の通りです。"
 
 msgid ""
-"If you installed your PGroonga by building PGroonga by yourself, build new PGr"
-"oonga and override old PGroonga."
-msgstr "自分でPGroongaをビルドしてインストールした場合は、新しいPGroongaをビルドして古いPGroongaを上書きしてください。"
+"```sql\n"
+"DROP EXTENSION pgroonga CASCADE;\n"
+"```"
+msgstr ""
 
 msgid ""
-"Run the following SQL in your database that uses PGroonga after you replace ol"
-"d PGroonga binary with new PGroonga binary:"
-msgstr "古いPGroongaのバイナリーを新しいPGroongaのバイナリーで置き換えた後、PGroongaを使っているデータベースで次のSQLを実行してください。"
+"You can upgrade PGroonga binary by package. Or you can upgrade by building new"
+" PGroonga and override old PGroonga."
+msgstr ""
+"PGroongaのバイナリーはパッケージでアップグレードできます。あるいは、新しいPGroongaをビルドして古いPGroongaに上書きすることでもアップ"
+"グレードできます。"
+
+msgid "Here is a SQL that install PGroonga extension:"
+msgstr "PGroonga拡張をインストールするSQLは次の通りです。"
+
+msgid ""
+"```sql\n"
+"CREATE EXTENSION pgroonga;\n"
+"```"
+msgstr ""
+
+msgid ""
+"Use [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.h"
+"tml) to create PGroonga indexes."
+msgstr ""
+"PGroongaを使ってインデックスを作るには[`CREATE INDEX USING pgroonga`](../reference/create-ind"
+"ex-using-pgroonga.html)を使ってください。"
+
+msgid "### Compatible case"
+msgstr "### 互換性がある場合"
+
+msgid "  1. Upgrade PGroonga extension."
+msgstr "  1. PGroonga拡張をアップグレードします。"
+
+msgid "Here is a SQL that upgrades PGroonga:"
+msgstr "PGroongaをアップグレードするSQLは次の通りです。"
 
 msgid ""
 "```sql\n"
@@ -43,11 +111,22 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "It upgrades PGroonga configurations."
-msgstr "これはPGroongaの設定をアップグレードします。"
-
 msgid "## See also"
 msgstr "## 参考"
+
+msgid ""
+"  * [`CREATE EXTENSION`](http://www.postgresql.org/docs/{{ site.postgresql_sho"
+"rt_version }}/static/sql-createextension.html)"
+msgstr ""
+"  * [`CREATE EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_"
+"short_version }}/html/sql-createextension.html)"
+
+msgid ""
+"  * [`DROP EXTENSION`](http://www.postgresql.org/docs/{{ site.postgresql_short"
+"_version }}/static/sql-dropextension.html)"
+msgstr ""
+"  * [`DROP EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_sh"
+"ort_version }}/html/sql-dropextension.html)"
 
 msgid ""
 "  * [`ALTER EXTENSION`](http://www.postgresql.org/docs/{{ site.postgresql_shor"
@@ -55,3 +134,8 @@ msgid ""
 msgstr ""
 "  * [`ALTER EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_s"
 "hort_version }}/html/sql-alterextension.html)"
+
+msgid ""
+"  * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.h"
+"tml)"
+msgstr ""

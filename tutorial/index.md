@@ -81,6 +81,7 @@ There are the following operators to perform full text search:
   * `%%`
   * `@@`
   * `LIKE`
+  * `ILIKE`
 
 #### `%%` operator
 
@@ -115,6 +116,8 @@ See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.h
 
 See [`@@` operator](../reference/operators/query.html) for more details.
 
+{: #like}
+
 #### `LIKE` operator
 
 PGroonga supports `LIKE` operator. You can perform fast full text search by PGroonga without changing existing SQL.
@@ -130,6 +133,8 @@ SELECT * FROM memos WHERE content %% 'engine';
 ```
 
 See [`LIKE` operator](../reference/operators/like.html) for more details.
+
+You can also use `ILIKE` operator like `LIKE` operator.
 
 {: #score}
 

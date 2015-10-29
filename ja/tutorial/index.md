@@ -81,6 +81,7 @@ SET enable_seqscan = off;
   * `%%`
   * `@@`
   * `LIKE`
+  * `ILIKE`
 
 #### `%%`演算子
 
@@ -116,6 +117,8 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 
 詳細は[`@@`演算子](../reference/operators/query.html)を参照してください。
 
+{: #like}
+
 #### `LIKE`演算子
 
 PGroongaは`LIKE`演算子をサポートしています。既存のSQLを変更しなくてもPGroongaを使った高速な全文検索を実現できます。
@@ -132,6 +135,8 @@ SELECT * FROM memos WHERE content %% '全文検索';
 ```
 
 詳細は[`LIKE`演算子](../reference/operators/like.html)を参照してください。
+
+`LIKE`演算子のように`ILIKE`演算子を使うこともできます。
 
 {: #score}
 

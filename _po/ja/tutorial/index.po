@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-25 22:33+0900\n"
+"PO-Revision-Date: 2015-10-29 17:11+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,7 +166,8 @@ msgstr "全文検索をする場合は次の演算子を使います。"
 msgid ""
 "  * `%%`\n"
 "  * `@@`\n"
-"  * `LIKE`"
+"  * `LIKE`\n"
+"  * `ILIKE`"
 msgstr ""
 
 msgid "#### `%%` operator"
@@ -246,6 +247,9 @@ msgstr ""
 msgid "See [`@@` operator](../reference/operators/query.html) for more details."
 msgstr "詳細は[`@@`演算子](../reference/operators/query.html)を参照してください。"
 
+msgid "{: #like}"
+msgstr ""
+
 msgid "#### `LIKE` operator"
 msgstr "#### `LIKE`演算子"
 
@@ -259,6 +263,9 @@ msgstr "`column LIKE '%キーワードd%'`は`column %% 'キーワード'`と等
 
 msgid "See [`LIKE` operator](../reference/operators/like.html) for more details."
 msgstr "詳細は[`LIKE`演算子](../reference/operators/like.html)を参照してください。"
+
+msgid "You can also use `ILIKE` operator like `LIKE` operator."
+msgstr "`LIKE`演算子のように`ILIKE`演算子を使うこともできます。"
 
 msgid "{: #score}"
 msgstr ""

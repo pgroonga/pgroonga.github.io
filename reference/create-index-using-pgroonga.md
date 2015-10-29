@@ -35,7 +35,7 @@ CREATE INDEX ${INDEX_NAME}
        USING pgroonga (${COLUMN} pgroonga.varchar_full_text_search_ops);
 ```
 
-You need to specify `pgroonga.varchar_fulltext_search_ops` operator class for the case.
+You need to specify `pgroonga.varchar_full_text_search_ops` operator class for the case.
 
 {: #customization}
 

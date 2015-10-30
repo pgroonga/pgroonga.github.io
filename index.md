@@ -64,3 +64,13 @@ Bundled software is released under different license. Here are bundled software 
     * Copyright: `Copyright(C) 2009-2015 Brazil`
     * Detail: [`vendor/groonga/COPYING`](https://github.com/groonga/groonga/blob/master/COPYING)
 
+  * [MeCab](http://taku910.github.io/mecab/) (bundled only for Windows package)
+    * GPL, LGPL or BSD license
+    * Copyright: `Taku Kudo <taku@chasen.org> and Nippon Telegraph and Telephone Corporation`
+    * Detail: [`vendor/groonga/vendor/mecab-0.996/COPYING`](https://github.com/taku910/mecab/blob/master/mecab/COPYING)
+
+  * [NAIST Japanese Dictionary](https://osdn.jp/projects/naist-jdic/) (bundled only for Windows package)
+    * 3-clause BSD license
+    * Copyright: `Copyright (c) 2009, Nara Institute of Science and Technology, Japan`
+    * Detail: `vendor/groonga/vendor/mecab-naist-jdic-0.6.3b-20111013/COPYING`
+

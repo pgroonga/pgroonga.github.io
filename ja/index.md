@@ -62,3 +62,13 @@ PGroongaのライセンスは[PostgreSQLライセンス](http://opensource.org/l
     * 著作権者: `Copyright(C) 2009-2015 Brazil`
     * 詳細: [`vendor/groonga/COPYING`](https://github.com/groonga/groonga/blob/master/COPYING)
 
+  * [MeCab](http://taku910.github.io/mecab/)（Windows用のパッケージにだけバンドルされている）
+    * GPL、LGPLまたはBSDライセンス
+    * 著作権者: `Taku Kudo <taku@chasen.org> and Nippon Telegraph and Telephone Corporation`
+    * 詳細: [`vendor/groonga/vendor/mecab-0.996/COPYING`](https://github.com/taku910/mecab/blob/master/mecab/COPYING)
+
+  * [NAIST Japanese Dictionary](https://osdn.jp/projects/naist-jdic/)（Windows用のパッケージにだけバンドルされている）
+    * 三条項BSDライセンス
+    * 著作権者: `Copyright (c) 2009, Nara Institute of Science and Technology, Japan`
+    * 詳細: `vendor/groonga/vendor/mecab-naist-jdic-0.6.3b-20111013/COPYING`
+

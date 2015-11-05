@@ -17,8 +17,8 @@ Install PostgreSQL {{ site.windows_postgresql_version }}. You can choose [instal
 
 Download PGroonga package:
 
-  * [32bit version](http://packages.groonga.org/windows/pgroonga/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x86.zip)
-  * [64bit version](http://packages.groonga.org/windows/pgroonga/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x64.zip)
+  * [32bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x86.zip)
+  * [64bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x64.zip)
 
 Extract the downloaded PGroonga package. You need to specify PostgreSQL folder as extract target folder.
 

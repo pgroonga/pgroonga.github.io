@@ -17,8 +17,8 @@ PostgreSQL {{ site.windows_postgresql_version }}をインストールします�
 
 PGroongaのパッケージをダウンロードします。
 
-  * [32bitバージョン](http://packages.groonga.org/windows/pgroonga/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x86.zip)
-  * [64bitバージョン](http://packages.groonga.org/windows/pgroonga/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x64.zip)
+  * [32bitバージョン](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x86.zip)
+  * [64bitバージョン](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x64.zip)
 
 ダウンロードしたPGroongaを展開します。展開先のフォルダーにはPostgreSQLのフォルダーを指定してください。
 

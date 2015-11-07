@@ -14,7 +14,7 @@ This document describes how to install PGroonga on OS X.
 You can install PGroonga by Homebrew:
 
 ```text
-% brew install postgresql --with-pgroonga
+% brew install pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you need to reinstall `groonga` package with `--with-mecab` option:

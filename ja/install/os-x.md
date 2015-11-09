@@ -14,7 +14,7 @@ layout: ja
 Homebrewを使ってPGroongaをインストールできます。
 
 ```text
-% brew install postgresql --with-pgroonga
+% brew install pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga`パッケージを`--with-mecab`オプション付きでインストールし直す必要があります。

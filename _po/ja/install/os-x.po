@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-15 09:47+0900\n"
+"PO-Revision-Date: 2015-11-05 16:50+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgstr "Homebrewを使ってPGroongaをインストールできます。"
 
 msgid ""
 "```text\n"
-"% brew install postgresql --with-pgroonga\n"
+"% brew install pgroonga\n"
 "```"
 msgstr ""
 

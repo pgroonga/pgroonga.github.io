@@ -22,10 +22,7 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "{: #version-1-0-0}"
-msgstr ""
-
-msgid "## 1.0.0: 2015-10-29"
+msgid "## 1.0.0: 2015-10-29 {#version-1-0-0}"
 msgstr ""
 
 msgid "It's the first major release!!!"
@@ -74,10 +71,7 @@ msgstr ""
 msgid "  * Hiroaki Tachikawa"
 msgstr ""
 
-msgid "{: #version-0-9-0}"
-msgstr ""
-
-msgid "## 0.9.0: 2015-09-29"
+msgid "## 0.9.0: 2015-09-29 {#version-0-9-0}"
 msgstr ""
 
 msgid ""

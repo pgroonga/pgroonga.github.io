@@ -37,9 +37,7 @@ CREATE INDEX ${INDEX_NAME}
 
 この場合は`pgroonga.varchar_full_text_search_ops`オペレータークラスを指定する必要があります。
 
-{: #customization}
-
-### カスタマイズ
+### カスタマイズ {#customization}
 
 `CREATE INDEX`の`WITH`オプションを使って次の項目をカスタマイズできます。
 

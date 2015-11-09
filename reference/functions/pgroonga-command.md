@@ -25,9 +25,7 @@ Groonga command returns result as JSON. `pgroonga.command` returns the JSON as `
 
 See [examples in tutorial](../../tutorial/#groonga).
 
-{: #attention}
-
-## Attention for `select` Groonga command
+## Attention for `select` Groonga command {#attention}
 
 You need to take care about invalid records when you use [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html).
 

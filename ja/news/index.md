@@ -5,9 +5,7 @@ layout: ja
 
 # おしらせ
 
-{: #version-1-0-0}
-
-## 1.0.0: 2015-10-29
+## 1.0.0: 2015-10-29 {#version-1-0-0}
 
 It's the first major release!!!
 
@@ -33,9 +31,7 @@ You need to run `DROP EXTENSION pgroonga CASCADE`, upgrade PGroonga binary, run 
 
   * Hiroaki Tachikawa
 
-{: #version-0-9-0}
-
-## 0.9.0: 2015-09-29
+## 0.9.0: 2015-09-29 {#version-0-9-0}
 
 You can update to 0.9.0 from 0.8.0 by override install and executing the following SQL:
 

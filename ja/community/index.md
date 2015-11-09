@@ -15,27 +15,21 @@ PGroongaの使い方に関する質問がある場合は、メーリングリス
 
 PGroongaの問題を見つけた場合は、GitHubのissueが適切です。開発者がその問題を解決します。
 
-{: #mailing-list}
-
-### メーリングリスト
+### メーリングリスト {#mailing-list}
 
 PGroongaのメーリングリストは次の通りです。
 
  * [groonga-talk（英語）](https://lists.sourceforge.net/lists/listinfo/groonga-talk)
  * [groonga-dev（日本語）](http://lists.osdn.me/mailman/listinfo/groonga-dev)
 
-{: #github-issues}
-
-### GitHubのissue
+### GitHubのissue {#github-issues}
 
 PGroonga関連のGitHubのissueは次の通りです。
 
  * [Issues - pgroonga/pgroonga](https://github.com/pgroonga/pgroonga/issues)：PGroonga用。
  * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io/issues)：このWebサイト用。
 
-{: #chat}
-
-### チャット
+### チャット {#chat}
 
 だれでも[Gitterにあるgroonga/publicチャットルーム](https://gitter.im/groonga/public>)に参加できます。
 
@@ -47,17 +41,13 @@ PGroonga関連のGitHubのissueは次の通りです。
 
 [前述のセクション](#mailing-list)を参照してください。
 
-{: #twitter}
-
-### Twitter
+### Twitter {#twitter}
 
 [@groonga](https://twitter.com/groonga/)がPGroonga関連の情報をツイートしています。
 
 PGroonga関連の最新情報を入手するためにこのアカウントをフォローしてください！
 
-{: #facebook}
-
-### Facebook
+### Facebook {#facebook}
 
 [FacebookのGroongaページ](http://www.facebook.com/groonga)はPGroonga関連の情報を共有しています。
 

@@ -7,9 +7,7 @@ layout: ja
 
 このドキュメントはPGroongaをOS Xにインストールする方法を説明します。
 
-{: #homebrew}
-
-## Homebrewを使ったインストール方法
+## Homebrewを使ったインストール方法 {#homebrew}
 
 Homebrewを使ってPGroongaをインストールできます。
 

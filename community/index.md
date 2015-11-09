@@ -15,27 +15,21 @@ If you have a question about how to use PGroonga, mailing list or chat room is b
 
 If you get a PGroonga problem, GitHub issues is better. The developers will solve your problem.
 
-{: #mailing-list}
-
-### Mailing list
+### Mailing list {#mailing-list}
 
 Here is the mailing list for PGroonga:
 
  * [groonga-talk (English)](https://lists.sourceforge.net/lists/listinfo/groonga-talk)
  * [groonga-dev (Japanese)](http://lists.osdn.me/mailman/listinfo/groonga-dev)
 
-{: #github-issues}
-
-### GitHub issues
+### GitHub issues {#github-issues}
 
 Here is a list of PGroonga related the GitHub issues:
 
  * [Issues - pgroonga/pgroonga](https://github.com/pgroonga/pgroonga/issues) for PGroonga.
  * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io/issues) for this Web site.
 
-{: #chat}
-
-### Chat room
+### Chat room {#chat}
 
 You can join [groonga/public chat room on Gitter](https://gitter.im/groonga/public>).
 
@@ -47,17 +41,13 @@ You can get the latest information on mailing list, Twitter and Facebook. For ex
 
 See [the above section](#mailing-list).
 
-{: #twitter}
-
-### Twitter
+### Twitter {#twitter}
 
 [@groonga](https://twitter.com/groonga/) tweets PGroonga related information.
 
 Please follow the account to get the latest PGroonga related information!
 
-{: #facebook}
-
-### Facebook
+### Facebook {#facebook}
 
 [Groonga page on Facebook](http://www.facebook.com/groonga) shares PGroonga related information.
 

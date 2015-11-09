@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-29 11:25+0900\n"
+"PO-Revision-Date: 2015-11-09 11:17+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -89,11 +89,8 @@ msgid ""
 " the case."
 msgstr "この場合は`pgroonga.varchar_full_text_search_ops`オペレータークラスを指定する必要があります。"
 
-msgid "{: #customization}"
-msgstr ""
-
-msgid "### Customization"
-msgstr "### カスタマイズ"
+msgid "### Customization {#customization}"
+msgstr "### カスタマイズ {#customization}"
 
 msgid "You can custom the followings by `WITH` option of `CREATE INDEX`:"
 msgstr "`CREATE INDEX`の`WITH`オプションを使って次の項目をカスタマイズできます。"

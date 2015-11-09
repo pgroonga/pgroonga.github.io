@@ -116,9 +116,7 @@ See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.h
 
 See [`@@` operator](../reference/operators/query.html) for more details.
 
-{: #like}
-
-#### `LIKE` operator
+#### `LIKE` operator {#like}
 
 PGroonga supports `LIKE` operator. You can perform fast full text search by PGroonga without changing existing SQL.
 
@@ -136,9 +134,7 @@ See [`LIKE` operator](../reference/operators/like.html) for more details.
 
 You can also use `ILIKE` operator like `LIKE` operator.
 
-{: #score}
-
-### Score
+### Score {#score}
 
 You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
 
@@ -201,9 +197,7 @@ SELECT *, pgroonga.score(score_memos)
 
 See [`pgroonga.score` function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
 
-{: #snippet}
-
-### Snippet (KWIC, keyword in context)
+### Snippet (KWIC, keyword in context) {#snippet}
 
 You can use `pgroonga.snippet_html` function to get texts around keywords from search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
 
@@ -442,9 +436,7 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 -- (2 rows)
 ```
 
-{: #json}
-
-## How to use PGroonga for JSON
+## How to use PGroonga for JSON {#json}
 
 PGroonga also supports `jsonb` type. You can search JSON data by one or more keys and/or one or more values with PGroonga.
 
@@ -522,9 +514,7 @@ Disable sequential scan:
 SET enable_seqscan = off;
 ```
 
-{: #jsonb-contain}
-
-### `@>` operator
+### `@>` operator {#jsonb-contain}
 
 `@>` operator specify search condition by `jsonb` value. If condition `jsonb` value is a subset of the search target `jsonb` value, `@>` operator returns `true`.
 
@@ -587,9 +577,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number
 
 See [`@@` operator for `jsonb`](../reference/operators/jsonb-query.html) for more details.
 
-{: #groonga}
-
-## How to use Groonga throw PGroonga
+## How to use Groonga throw PGroonga {#groonga}
 
 This is an advanced topic.
 
@@ -637,9 +625,7 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 
 See [`pgroonga.command` function](../reference/functions/pgroonga-command.html) for more details.
 
-{: #pgroonga-table-name}
-
-### `pgroonga.table_name` function
+### `pgroonga.table_name` function {#pgroonga-table-name}
 
 PGroonga stores values of index target columns. You can use these values to search and output by [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html).
 

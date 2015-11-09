@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-15 11:51+0900\n"
+"PO-Revision-Date: 2015-11-09 11:16+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,11 +52,8 @@ msgid ""
 "lve your problem."
 msgstr "PGroongaの問題を見つけた場合は、GitHubのissueが適切です。開発者がその問題を解決します。"
 
-msgid "{: #mailing-list}"
-msgstr ""
-
-msgid "### Mailing list"
-msgstr "### メーリングリスト"
+msgid "### Mailing list {#mailing-list}"
+msgstr "### メーリングリスト {#mailing-list}"
 
 msgid "Here is the mailing list for PGroonga:"
 msgstr "PGroongaのメーリングリストは次の通りです。"
@@ -70,11 +67,8 @@ msgstr ""
 "k)\n"
 " * [groonga-dev（日本語）](http://lists.osdn.me/mailman/listinfo/groonga-dev)"
 
-msgid "{: #github-issues}"
-msgstr ""
-
-msgid "### GitHub issues"
-msgstr "### GitHubのissue"
+msgid "### GitHub issues {#github-issues}"
+msgstr "### GitHubのissue {#github-issues}"
 
 msgid "Here is a list of PGroonga related the GitHub issues:"
 msgstr "PGroonga関連のGitHubのissueは次の通りです。"
@@ -90,11 +84,8 @@ msgstr ""
 " * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga"
 ".github.io/issues)：このWebサイト用。"
 
-msgid "{: #chat}"
-msgstr ""
-
-msgid "### Chat room"
-msgstr "### チャット"
+msgid "### Chat room {#chat}"
+msgstr "### チャット {#chat}"
 
 msgid ""
 "You can join [groonga/public chat room on Gitter](https://gitter.im/groonga/pu"
@@ -111,13 +102,13 @@ msgid ""
 "example, you can get release announce."
 msgstr "メーリングリスト、Twitter、Facebookで最新情報を入手できます。最新情報とは、たとえばリリースアナウンスのことです。"
 
+msgid "### Mailing list"
+msgstr "### メーリングリスト"
+
 msgid "See [the above section](#mailing-list)."
 msgstr "[前述のセクション](#mailing-list)を参照してください。"
 
-msgid "{: #twitter}"
-msgstr ""
-
-msgid "### Twitter"
+msgid "### Twitter {#twitter}"
 msgstr ""
 
 msgid "[@groonga](https://twitter.com/groonga/) tweets PGroonga related information."
@@ -126,10 +117,7 @@ msgstr "[@groonga](https://twitter.com/groonga/)がPGroonga関連の情報をツ
 msgid "Please follow the account to get the latest PGroonga related information!"
 msgstr "PGroonga関連の最新情報を入手するためにこのアカウントをフォローしてください！"
 
-msgid "{: #facebook}"
-msgstr ""
-
-msgid "### Facebook"
+msgid "### Facebook {#facebook}"
 msgstr ""
 
 msgid ""

@@ -117,9 +117,7 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 
 詳細は[`@@`演算子](../reference/operators/query.html)を参照してください。
 
-{: #like}
-
-#### `LIKE`演算子
+#### `LIKE`演算子 {#like}
 
 PGroongaは`LIKE`演算子をサポートしています。既存のSQLを変更しなくてもPGroongaを使った高速な全文検索を実現できます。
 
@@ -138,9 +136,7 @@ SELECT * FROM memos WHERE content %% '全文検索';
 
 `LIKE`演算子のように`ILIKE`演算子を使うこともできます。
 
-{: #score}
-
-### スコアー
+### スコアー {#score}
 
 `pgroonga.score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。
 
@@ -203,9 +199,7 @@ SELECT *, pgroonga.score(score_memos)
 
 マッチした度合いの計算方法など詳細は[`pgroonga.score`関数](../reference/functions/pgroonga-score.html)を参照してください。
 
-{: #snippet}
-
-### スニペット（KWIC、keyword in context）
+### スニペット（KWIC、keyword in context） {#snippet}
 
 `pgroonga.snippet_html`関数を使うと検索対象のテキストからキーワード周辺のテキストを抽出できます。この処理を[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword in context）とも言います。Webの検索エンジンの検索結果でみたことがある人も多いでしょう。
 
@@ -445,9 +439,7 @@ SELECT * FROM products WHERE tags %% 'PostgreSQL';
 -- (2 rows)
 ```
 
-{: #json}
-
-## JSONに対してPGroongaを使う方法
+## JSONに対してPGroongaを使う方法 {#json}
 
 PGroongaは`jsonb`型にも対応しています。PGroongaを使うとJSON中のキー・値に対して検索することができます。
 
@@ -525,9 +517,7 @@ INSERT INTO logs
 SET enable_seqscan = off;
 ```
 
-{: #jsonb-contain}
-
-### `@>`演算子
+### `@>`演算子 {#jsonb-contain}
 
 `@>`演算子は`jsonb`の値で検索条件を指定します。もし、条件に指定した`jsonb`の値が検索対象の`jsonb`の値のサブセットなら`@>`演算子は`true`を返します。
 
@@ -590,9 +580,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number
 
 詳細は[`jsonb`用の`@@`演算子](../reference/operators/jsonb-query.html)を参照してください。
 
-{: #groonga}
-
-## PGroonga経由でGroongaを使う方法
+## PGroonga経由でGroongaを使う方法 {#groonga}
 
 これは上級者向けの内容です。
 
@@ -640,9 +628,7 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 
 詳細は[`pgroonga.command`関数](../reference/functions/pgroonga-command.html)を参照してください。
 
-{: #pgroonga-table-name}
-
-### `pgroonga.table_name`関数
+### `pgroonga.table_name`関数 {#pgroonga-table-name}
 
 PGroongaはインデックス対象のカラムの値を保存しています。これらの値を[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)で検索・出力するために使うことができます。
 

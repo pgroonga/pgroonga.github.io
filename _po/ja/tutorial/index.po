@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-29 17:11+0900\n"
+"PO-Revision-Date: 2015-11-09 11:20+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -247,11 +247,8 @@ msgstr ""
 msgid "See [`@@` operator](../reference/operators/query.html) for more details."
 msgstr "詳細は[`@@`演算子](../reference/operators/query.html)を参照してください。"
 
-msgid "{: #like}"
-msgstr ""
-
-msgid "#### `LIKE` operator"
-msgstr "#### `LIKE`演算子"
+msgid "#### `LIKE` operator {#like}"
+msgstr "#### `LIKE`演算子 {#like}"
 
 msgid ""
 "PGroonga supports `LIKE` operator. You can perform fast full text search by PG"
@@ -267,11 +264,8 @@ msgstr "詳細は[`LIKE`演算子](../reference/operators/like.html)を参照し
 msgid "You can also use `ILIKE` operator like `LIKE` operator."
 msgstr "`LIKE`演算子のように`ILIKE`演算子を使うこともできます。"
 
-msgid "{: #score}"
-msgstr ""
-
-msgid "### Score"
-msgstr "### スコアー"
+msgid "### Score {#score}"
+msgstr "### スコアー {#score}"
 
 msgid ""
 "You can use `pgroonga.score` function to get precision as a number. If a recor"
@@ -400,11 +394,8 @@ msgstr ""
 "マッチした度合いの計算方法など詳細は[`pgroonga.score`関数](../reference/functions/pgroonga-score.h"
 "tml)を参照してください。"
 
-msgid "{: #snippet}"
-msgstr ""
-
-msgid "### Snippet (KWIC, keyword in context)"
-msgstr "### スニペット（KWIC、keyword in context）"
+msgid "### Snippet (KWIC, keyword in context) {#snippet}"
+msgstr "### スニペット（KWIC、keyword in context） {#snippet}"
 
 msgid ""
 "You can use `pgroonga.snippet_html` function to get texts around keywords from"
@@ -803,11 +794,8 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "{: #json}"
-msgstr ""
-
-msgid "## How to use PGroonga for JSON"
-msgstr "## JSONに対してPGroongaを使う方法"
+msgid "## How to use PGroonga for JSON {#json}"
+msgstr "## JSONに対してPGroongaを使う方法 {#json}"
 
 msgid ""
 "PGroonga also supports `jsonb` type. You can search JSON data by one or more k"
@@ -920,11 +908,8 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "{: #jsonb-contain}"
-msgstr ""
-
-msgid "### `@>` operator"
-msgstr "### `@>`演算子"
+msgid "### `@>` operator {#jsonb-contain}"
+msgstr "### `@>`演算子 {#jsonb-contain}"
 
 msgid ""
 "`@>` operator specify search condition by `jsonb` value. If condition `jsonb` "
@@ -1017,11 +1002,8 @@ msgid ""
 "ore details."
 msgstr "詳細は[`jsonb`用の`@@`演算子](../reference/operators/jsonb-query.html)を参照してください。"
 
-msgid "{: #groonga}"
-msgstr ""
-
-msgid "## How to use Groonga throw PGroonga"
-msgstr "## PGroonga経由でGroongaを使う方法"
+msgid "## How to use Groonga throw PGroonga {#groonga}"
+msgstr "## PGroonga経由でGroongaを使う方法 {#groonga}"
 
 msgid "This is an advanced topic."
 msgstr "これは上級者向けの内容です。"
@@ -1132,11 +1114,8 @@ msgstr ""
 "詳細は[`pgroonga.command`関数](../reference/functions/pgroonga-command.html)を参照してくだ"
 "さい。"
 
-msgid "{: #pgroonga-table-name}"
-msgstr ""
-
-msgid "### `pgroonga.table_name` function"
-msgstr "### `pgroonga.table_name`関数"
+msgid "### `pgroonga.table_name` function {#pgroonga-table-name}"
+msgstr "### `pgroonga.table_name`関数 {#pgroonga-table-name}"
 
 msgid ""
 "PGroonga stores values of index target columns. You can use these values to se"

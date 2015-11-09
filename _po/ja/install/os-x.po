@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-11-05 16:50+0900\n"
+"PO-Revision-Date: 2015-11-09 11:17+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,11 +25,8 @@ msgstr "# OS Xにインストール"
 msgid "This document describes how to install PGroonga on OS X."
 msgstr "このドキュメントはPGroongaをOS Xにインストールする方法を説明します。"
 
-msgid "{: #homebrew}"
-msgstr ""
-
-msgid "## How to install by Homebrew"
-msgstr "## Homebrewを使ったインストール方法"
+msgid "## How to install by Homebrew {#homebrew}"
+msgstr "## Homebrewを使ったインストール方法 {#homebrew}"
 
 msgid "You can install PGroonga by Homebrew:"
 msgstr "Homebrewを使ってPGroongaをインストールできます。"

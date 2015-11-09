@@ -25,9 +25,7 @@ Groongaのコマンドは結果をJSONとして返します。`pgroonga.command`
 
 [チュートリアルの例](../../tutorial/#groonga)も参照してください。
 
-{: #attention}
-
-## Groongaの`select`コマンドに関する注意事項
+## Groongaの`select`コマンドに関する注意事項 {#attention}
 
 [Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)を使うとき、不正なレコードについて注意する必要があります。
 

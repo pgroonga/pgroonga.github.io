@@ -17,21 +17,27 @@ If you get a PGroonga problem, GitHub issues is better. The developers will solv
 
 ### Mailing list {#mailing-list}
 
-Here is the mailing list for PGroonga:
+Here are mailing lists for PGroonga:
 
- * [groonga-talk (English)](https://lists.sourceforge.net/lists/listinfo/groonga-talk)
- * [groonga-dev (Japanese)](http://lists.osdn.me/mailman/listinfo/groonga-dev)
+  * For English speaker: [groonga-talk](https://lists.sourceforge.net/lists/listinfo/groonga-talk)
+
+  * For Japanese speaker: [groonga-dev](http://lists.osdn.me/mailman/listinfo/groonga-dev)
 
 ### GitHub issues {#github-issues}
 
-Here is a list of PGroonga related the GitHub issues:
+Here is a list of PGroonga related GitHub issues:
 
- * [Issues - pgroonga/pgroonga](https://github.com/pgroonga/pgroonga/issues) for PGroonga.
- * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io/issues) for this Web site.
+  * [Issues - pgroonga/pgroonga](https://github.com/pgroonga/pgroonga/issues) for PGroonga.
+
+  * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io/issues) for this Web site.
 
 ### Chat room {#chat}
 
-You can join [groonga/public chat room on Gitter](https://gitter.im/groonga/public>).
+Here are chat rooms for PGroonga:
+
+  * For English speaker: [groonga/en chat room on Gitter](https://gitter.im/groonga/en>)
+
+  * For Japanese speaker: [groonga/ja chat room on Gitter](https://gitter.im/groonga/ja>)
 
 ## How to get the latest information
 

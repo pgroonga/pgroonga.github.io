@@ -35,12 +35,7 @@
     <li><a href="/ja/community/">コミュニティー</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
-    {% case page.language %}
-    {% when "ja" %}
-      <li><a href="/{{ relative_path }}">English</a></li>
-    {% else %}
-      <li><a href="/ja/{{ relative_path }}">日本語</a></li>
-    {% endcase %}
+    <li><a href="/{{ relative_path }}">English</a></li>
     {% if page.upper_level != null %}
       <li><a href="{{ page.upper_level }}"><i class="fa fa-arrow-circle-up"></i> 1階層上へ</a></li>
     {% elsif relative_path != "" %}

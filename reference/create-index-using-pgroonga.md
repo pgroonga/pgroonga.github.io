@@ -51,7 +51,7 @@ Here are default tokenizer and normalizer:
   * Tokenizer: [`TokenBigram`](http://groonga.org/docs/reference/tokenizers.html#token-bigram): It's a bigram based tokenizer. It combines bigram tokenization and white space based tokenization. It uses bigram tokenization for non ASCII characters and white space based tokenization for ASCII characters. It reduces noise for ASCII characters only query.
   * Normalizer: [`NormalizerAuto`](http://groonga.org/docs/reference/normalizers.html#normalizer-auto): It chooses suitable normalization based on target encoding. For example, it uses [Unicode NFKC](http://unicode.org/reports/tr15/) based normalization for UTF-8.
 
-#### How to custom tokenizer
+#### How to custom tokenizer {#custom-tokenizer}
 
 Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to custom tokenizer.
 
@@ -89,7 +89,7 @@ CREATE INDEX pgroonga_tag_index
 
 See [Tokenizers](http://groonga.org/docs/reference/tokenizers.html) for other tokenizers.
 
-#### How to custom normalizer
+#### How to custom normalizer {#custom-normalizer}
 
 Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. Normally, you don't need to custom normalizer.
 

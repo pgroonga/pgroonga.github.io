@@ -51,7 +51,7 @@ CREATE INDEX ${INDEX_NAME}
   * トークナイザー：[`TokenBigram`](http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram)：bigramベースのトークナイザーです。このトークナイザーはbigramベースのトークナイズ方法とスペース区切りベースのトークナイズ方法を組み合わせています。非ASCII文字にはbigramベースのトークナイズ方法を使い、ASCII文字にはスペース区切りベースのトークナイズ方法を使います。これはASCII文字だけのクエリーで検索したときのノイズを減らすためです。
   * ノーマライザー：[`NormalizerAuto`](http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto)：対象のエンコーディングに合わせて適切なノーマライズ方法を選びます。たとえば、UTF-8の場合は[Unicode NFKC](http://unicode.org/reports/tr15/)ベースのノーマライズ方法を使います。
 
-#### トークナイザーのカスタマイズ方法
+#### トークナイザーのカスタマイズ方法 {#custom-tokenizer}
 
 トークナイザーをカスタマイズするには`tokenizer='${トークナイザー名}'`を指定します。通常、トークナイザーをカスタマイズする必要はありません。
 
@@ -89,7 +89,7 @@ CREATE INDEX pgroonga_tag_index
 
 他のトークナイザーについては[トークナイザー](http://groonga.org/ja/docs/reference/tokenizers.html)を参照してください。
 
-#### ノーマライザーのカスタマイズ方法
+#### ノーマライザーのカスタマイズ方法 {#custom-normalizer}
 
 ノーマライザーをカスタマイズするには`normalizer='${ノーマライザー名}'`を指定してください。通常はノーマライザーをカスタマイズする必要はありません。
 

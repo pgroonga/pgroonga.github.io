@@ -247,6 +247,9 @@ msgid ""
 "```"
 msgstr ""
 
+msgid "You can find records by `rooonga`:"
+msgstr "これで`roonga`でもヒットするようになります。"
+
 msgid "## See also"
 msgstr "## 参考"
 

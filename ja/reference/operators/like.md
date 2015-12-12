@@ -145,7 +145,7 @@ CREATE INDEX pgroonga_content_index
        USING pgroonga (content pgroonga.text_regexp_ops);
 ```
 
-You can find records by `rooonga`:
+これで`roonga`でもヒットするようになります。
 
 ```sql
 SET enable_seqscan = off;

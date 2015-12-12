@@ -300,7 +300,7 @@ SELECT * FROM ids WHERE id <= 2;
 
 You need to use `varchar` type to use PGroonga as an index for equality condition and comparison conditions against string.
 
-You must to specify the maximum number of characters of `varchar` to satisfy that the maximum byte size of the column is equal to 4096 byte or smaller. Relation between the maximum number of characters and the maximum byte size is related to encoding. For example, you must to specify 1023 or smaller as the maximum number of characters for UTF-8 encoding. Because UTF-8 encoding `varchar` keeps 4 byte for one character.
+You must to specify the maximum number of characters of `varchar` to satisfy that the maximum byte size of the column is equal to 4096 byte or smaller. Relation between the maximum number of characters and the maximum byte size is related to encoding. For example, you must to specify 1023 or smaller as the maximum number of characters for UTF-8 encoding. Because UTF-8 encoding `varchar` keeps 4 byte for one character and PostgreSQL uses 4 byte for metadata.
 
 Create index with `USING pgroonga`:
 

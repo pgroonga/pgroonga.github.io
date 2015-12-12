@@ -246,7 +246,7 @@ See [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-h
 
 TODO
 
-## Equality condition and comparison conditions
+## Equality condition and comparison conditions {#equal}
 
 You can use PGroonga for equality condition and comparison conditions. There are some differences between how to create index for string types and other types. There is no difference between how to write condition for string types and other types.
 
@@ -255,7 +255,7 @@ This section describes about the followings:
   * How to use PGroonga for not string types
   * How to use PGroonga for string types
 
-### How to use PGroonga for not string types
+### How to use PGroonga for not string types {#equal-not-string}
 
 You can use PGroonga for not string types such as number. You can use equality condition and comparison conditions against these types.
 
@@ -296,7 +296,7 @@ SELECT * FROM ids WHERE id <= 2;
 -- (2 rows)
 ```
 
-### How to use PGroonga for string types
+### How to use PGroonga for string types {#equal-string}
 
 You need to use `varchar` type to use PGroonga as an index for equality condition and comparison conditions against string.
 

@@ -588,7 +588,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number
 
 たとえば、Groongaの[ドリルダウン機能](http://groonga.org/ja/docs/reference/commands/select.html#drilldown)はPostgreSQLで`SELECT`1回と複数の`GROUP BY`（または1回の`GROUP BY GROUPING SET`）を実行するよりも速いです。なぜならGroongaでは1回のクエリーで必要な結果をすべて返すからです。
 
-別の例も紹介します。レコード中の一部のカラムしか使わないクエリーの実行はPostgreSQLよりGroongaの方が速いです。なぜなら、Groongaはカラム指向（列指向）のデータストアを実装しているからです。カラム指向のデータストア（Groonga）は行指向のデータストア（PostgreSQL）よりも一部のカラムにアクセスするのが速いのです。行指向のデータストアは一部のカラムにアクセスするだけでよい場合でもすべてのカラムを読み込む必要があります。一方、絡む指向のデータストアは必要なカラムだけを読み込むことができます。
+別の例も紹介します。レコード中の一部のカラムしか使わないクエリーの実行はPostgreSQLよりGroongaの方が速いです。なぜなら、Groongaはカラム指向（列指向）のデータストアを実装しているからです。カラム指向のデータストア（Groonga）は行指向のデータストア（PostgreSQL）よりも一部のカラムにアクセスするのが速いのです。行指向のデータストアは一部のカラムにアクセスするだけでよい場合でもすべてのカラムを読み込む必要があります。一方、カラム指向のデータストアは必要なカラムだけを読み込むことができます。
 
 GroongaそのものはSQLのインターフェイスを提供していません。これはPostgreSQLユーザーには使いづらいです。しかし、PGroongaはSQL経由でGroongaを使う機能を提供しています。
 

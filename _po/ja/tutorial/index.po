@@ -596,7 +596,7 @@ msgid ""
 "keeps 4 byte for one character and PostgreSQL uses 4 byte for metadata."
 msgstr ""
 "`varchar`型の最大文字数は最大バイト数が4096バイト以下になるように指定する必要があります。たとえば、UTF-8エンコーディングを使う場合は最大文"
-"字数は1024文字以下にする必要があります。なぜなら、UTF-8エンコーディングの`varchar`は1文字あたり4バイト確保し、PostgreSQLはメタ"
+"字数は1023文字以下にする必要があります。なぜなら、UTF-8エンコーディングの`varchar`は1文字あたり4バイト確保し、PostgreSQLはメタ"
 "データ用に4バイトを確保するからです。"
 
 msgid ""

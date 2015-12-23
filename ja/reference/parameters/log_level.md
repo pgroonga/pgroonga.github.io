@@ -1,29 +1,68 @@
 ---
-title: "pgroonga.log_level"
+title: "pgroonga.log_levelパラメーター"
 layout: ja
 ---
 
-# `pgroonga.log_level`パラメータ
+# `pgroonga.log_level`パラメーター
 
 ## 概要
 
-ログレベルを変更します。
+`pgroonga.log_level`パラメーターはどのログを記録するかを制御します。
+
+次のログレベルの中からどれかを選びます。
+
+  * `none`
+  * `emergency`
+  * `alert`
+  * `critical`
+  * `error`
+  * `warning`
+  * `notice`
+  * `info`
+  * `debug`
+  * `dump`
+
+このログレベルのリストはログが少ない順から多い順に並んでいます。
+
+デフォルトのログレベルは`notice`です。
 
 ## 構文
 
+SQLの場合：
+
 ```sql
-set pgroonga.log_level = level
+SET pgroonga.log_level = level;
 ```
 
-`level`はログのレベルです。次の種類を設定できます。上から下にログの情報が多くなります。未指定時の値は`notice`です。
+`postgresql.conf`の場合：
 
-* none
-* emergency
-* alert
-* critical
-* error
-* warning
-* notice
-* info
-* debug
-* dump
+```text
+pgroonga.log_level = level
+```
+
+`level`は列挙型の値です。これは次のどれかの値を選ばないといけないということです。
+
+  * `none`
+  * `emergency`
+  * `alert`
+  * `critical`
+  * `error`
+  * `warning`
+  * `notice`
+  * `info`
+  * `debug`
+  * `dump`
+
+## 使い方
+
+ログを無効にする例です。
+
+```sql
+SET pgroonga.log_level = none;
+```
+
+ほとんどのログメッセージを有効にする例です。
+
+```sql
+SET pgroonga.log_level = debug;
+```

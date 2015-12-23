@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2015-12-23 23:46+0900\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga.log_level parameter\"\n"
+"layout: en\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga.log_levelパラメーター\"\n"
+"layout: ja\n"
+"---"
+
+msgid "# `pgroonga.log_level` parameter"
+msgstr "# `pgroonga.log_level`パラメーター"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid "`pgroonga.log_level` parameter controls which logs are recorded."
+msgstr "`pgroonga.log_level`パラメーターはどのログを記録するかを制御します。"
+
+msgid "You can choose one the following log levels:"
+msgstr "次のログレベルの中からどれかを選びます。"
+
+msgid ""
+"  * `none`\n"
+"  * `emergency`\n"
+"  * `alert`\n"
+"  * `critical`\n"
+"  * `error`\n"
+"  * `warning`\n"
+"  * `notice`\n"
+"  * `info`\n"
+"  * `debug`\n"
+"  * `dump`"
+msgstr ""
+
+msgid "The log level list is sorted by less logs to more logs."
+msgstr "このログレベルのリストはログが少ない順から多い順に並んでいます。"
+
+msgid "The default log level is `notice`."
+msgstr "デフォルトのログレベルは`notice`です。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In SQL:"
+msgstr "SQLの場合："
+
+msgid ""
+"```sql\n"
+"SET pgroonga.log_level = level;\n"
+"```"
+msgstr ""
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga.log_level = level\n"
+"```"
+msgstr ""
+
+msgid "`level` is an enum value. It means that you must choose one of them:"
+msgstr "`level`は列挙型の値です。これは次のどれかの値を選ばないといけないということです。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to disable log:"
+msgstr "ログを無効にする例です。"
+
+msgid ""
+"```sql\n"
+"SET pgroonga.log_level = none;\n"
+"```"
+msgstr ""
+
+msgid "Here is an example to enable almost log messages:"
+msgstr "ほとんどのログメッセージを有効にする例です。"
+
+msgid ""
+"```sql\n"
+"SET pgroonga.log_level = debug;\n"
+"```"
+msgstr ""

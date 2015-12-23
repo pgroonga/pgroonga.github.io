@@ -1,51 +1,70 @@
 ---
-title: "pgroonga.log_type"
+title: "pgroonga.log_type parameter"
 layout: en
 ---
 
 # `pgroonga.log_type` parameter
 
-## Description
+## Summary
 
-Change log output type. Effective type are File, Windows event log and  PostgreSQL log.
+`pgroonga.log_type` parameter controls how to log.
+
+You can choose one log type from the followings:
+
+  * Log to a file
+
+  * Log by Windows event log
+
+  * Log by log system in PostgreSQL
+
+PGroonga logs to a file by default. File path is specified by [`pgroonga.log_path` parameter](log_path.html).
 
 ## Syntax
 
+In SQL:
+
 ```sql
-set pgroonga.log_type = type
+SET pgroonga.log_type = type;
 ```
 
-`type` is logging type. Following parameters are available. Default value is `file`.
+In `postgresql.conf`:
 
-* file: File ouput
-* windows_event_log: Windows event log
-* postgresql: PostgreSQL logging. 
-
-### About `windows_event_log`
-
-Following command change log output to Windows event log. 
-
-```
-SET pgroonga.log_type = 'windows_event_log';
+```text
+pgroonga.log_type = type
 ```
 
-You can change log_type to windows event with only this command, But it record many warnings, 
-so It is hard to check with Event viewer. 
+`type` is an enum value. It means that you must choose one of them:
 
-If you create ``PGroonga`` event via command prompt, You can filter warning message. This is recommendation setting when you use Windows event logging. 
+  * `file`: PGroonga logs to a file
 
+  * `windows_event_log`: PGroonga logs by Windows event log
+
+  * `postgresql`: PGroonga logs by log system in PostgreSQL
+
+## Usage
+
+Here is an example to use log system in PostgreSQL:
+
+```sql
+SET pgroonga.log_type = postgresql;
 ```
+
+Here is an example to use Windows event log:
+
+```sql
+SET pgroonga.log_type = windows_event_log;
+```
+
+You can confirm logs from PGroonga by [Event Viewer](http://windows.microsoft.com/en-us/windows/open-event-viewer). But it may not be easy to read because Event Viewer shows PGroonga logs with warnings.
+
+You can suppress the warnings from Event Viewer by registering `PGroonga` event source to Windows:
+
+```text
 > regsvr32 /n /i:PGroonga ${PostgreSQL install folder}\lib\pgevent.dll
 ```
 
-This is same step when you regsiter PostgreSQL event log on Windows. Note: [Registering Event Log on Windows](http://www.postgresql.org/docs/9.3/static/event-log-registration.html)
+See also [Registering Event Log on Windows](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/event-log-registration.html).
 
-### postgresql.conf syntax
+## See also
 
-If you set this value log_type permanently, you can write postgresql.conf as follows.
-
-```
-pgroonga.log_type = 'windows_event_log';
-```
-
-You need reload PostgreSQL. 
+  * [`pgroonga.log_path` parameter](log_path.html)

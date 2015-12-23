@@ -1,50 +1,70 @@
 ---
-title: "pgroonga.log_type"
+title: "pgroonga.log_typeパラメーター"
 layout: ja
 ---
 
-# `pgroonga.log_type`パラメータ
+# `pgroonga.log_type`パラメーター
 
 ## 概要
 
-ログの出力方法を変更する変数を追加しました。ファイル、Windowsイベントログ、PostgreSQLのログ出力機構、のどれかを選べます。
+`pgroonga.log_type`パラメーターをどのようにログを出力するかを制御します。
+
+以下のどれかのログタイプを選びます。
+
+  * ファイルにログを出力する
+
+  * Windowsイベントログでログを出力する
+
+  * PostgreSQLのログシステムでログを出力する
+
+デフォルトではPGroongaはファイルにログを出力します。ファイルのパスは[`pgroonga.log_path`パラメーター](log_path.html)で指定します。
 
 ## 構文
 
+SQLの場合：
+
 ```sql
-set pgroonga.log_type = type
+SET pgroonga.log_type = type;
 ```
 
-`type`はログの種類です。次の種類を設定できます。未指定時の値は`file`です。
+`postgresql.conf`の場合：
 
-* file: ファイル
-* windows_event_log: Windowsイベントログ
-* postgresql: PostgreSQLのログ出力機構
-
-### `pgroonga.log_type`のWindowsイベントログ出力
-
-次のように設定するとWindowsイベントログとしてログを出力できます。
-
-```
-SET pgroonga.log_type = 'windows_event_log';
+```text
+pgroonga.log_type = type
 ```
 
-これだけでWindowsイベントログに記録されるのですが、この状態でイベントビューアーで表示すると警告メッセージがでてログを確認しづらいです。
+`type`は列挙型の値です。つまり、以下のどれか1つを選ばないといけないということです。
 
-次のようにコマンドプロンプトから「PGroonga」というイベントを登録することで、警告メッセージが消えて確認しやすくなります。Windowsイベントログを使うときは設定することをオススメします。
+  * `file`：ファイルにログ出力
 
-```
-> regsvr32 /n /i:PGroonga ${PostgreSQLをインストールしたフォルダ}\lib\pgevent.dll
-```
+  * `windows_event_log`：Windowsイベントログでログ出力
 
-なお、この手順はPostgreSQLでWindowsイベントログを利用する場合の手順と同様です。参考: [WindowsにおけるEvent Logの登録](https://www.postgresql.jp/document/9.4/html/event-log-registration.html)
+  * `postgresql`：PostgreSQLのログシステムでログ出力
 
-### postgresql.confに記述する例
+## 使い方
 
-通常は上記のように設定をおこなわずに次のようにpostgresql.confに記述をします。
+以下はPostgreSQLのログシステムを使う例です。
 
-```
-pgroonga.log_type = 'windows_event_log';
+```sql
+SET pgroonga.log_type = postgresql;
 ```
 
-設定をおこなったあとは、リロードが必要です。
+以下はWindowsのイベントログを使う例です。
+
+```sql
+SET pgroonga.log_type = windows_event_log;
+```
+
+PGroongaのログは[イベントビューアー](http://windows.microsoft.com/ja-jp/windows/open-event-viewer)で確認できます。しかし、イベントビューアーではPGroongaのログは警告付きで表示されるので読みにくいかもしれません。
+
+Windowsに`PGroonga`イベントソースを登録することでイベントビューアーからの警告を消すことができます。
+
+```text
+> regsvr32 /n /i:PGroonga ${PostgreSQL install folder}\lib\pgevent.dll
+```
+
+[WindowsにおけるEvent Logの登録](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/event-log-registration.html)も参照してください。
+
+## 参考
+
+  * [`pgroonga.log_path`パラメーター](log_path.html)

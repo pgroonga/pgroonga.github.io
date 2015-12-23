@@ -39,3 +39,12 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
   * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
 
+## Setting Parameters
+
+  * [`pgroonga.log_type`](parameters/log_type.html)
+
+  * [`pgroonga.log_path`](parameters/log_path.html)
+
+  * [`pgroonga.log_level`](parameters/log_level.html)
+
+  * [`pgroonga.lock_timeout`](parameters/lock_timeout.html)

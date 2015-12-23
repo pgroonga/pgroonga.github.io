@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-28 23:22+0900\n"
+"PO-Revision-Date: 2015-12-23 21:25+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,3 +79,18 @@ msgstr "  * [`pgroonga.command`関数](functions/pgroonga-command.html)"
 
 msgid "  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)"
 msgstr "  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)"
+
+msgid "## Parameters"
+msgstr "## パラメーター"
+
+msgid "  * [`pgroonga.log_type`](parameters/log_type.html)"
+msgstr ""
+
+msgid "  * [`pgroonga.log_path`](parameters/log_path.html)"
+msgstr ""
+
+msgid "  * [`pgroonga.log_level`](parameters/log_level.html)"
+msgstr ""
+
+msgid "  * [`pgroonga.lock_timeout`](parameters/lock_timeout.html)"
+msgstr ""

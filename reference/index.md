@@ -39,7 +39,7 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
   * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
 
-## Setting Parameters
+## Parameters
 
   * [`pgroonga.log_type`](parameters/log_type.html)
 

@@ -9,7 +9,7 @@ layout: en
 
 `pgroonga.log_path` parameter controls log path.
 
-This parameter is only effective when [`pgroonga.log_type`](log_type.html) is `file`.
+This parameter is only effective when [`pgroonga.log_type` parameter](log_type.html) is `file`.
 
 The default value is `$PGDATA/pgroonga.log`.
 
@@ -49,4 +49,4 @@ SET pgroonga.log_path = 'none';
 
 ## See also
 
-  * [`pgroonga.log_type`](log_type.html)
+  * [`pgroonga.log_type` parameter](log_type.html)

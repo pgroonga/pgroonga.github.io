@@ -41,10 +41,10 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
 ## Parameters
 
-  * [`pgroonga.log_type`](parameters/log_type.html)
+  * [`pgroonga.log_type` parameter](parameters/log_type.html)
 
-  * [`pgroonga.log_path`](parameters/log_path.html)
+  * [`pgroonga.log_path` parameter](parameters/log_path.html)
 
-  * [`pgroonga.log_level`](parameters/log_level.html)
+  * [`pgroonga.log_level` parameter](parameters/log_level.html)
 
-  * [`pgroonga.lock_timeout`](parameters/lock_timeout.html)
+  * [`pgroonga.lock_timeout` parameter](parameters/lock_timeout.html)

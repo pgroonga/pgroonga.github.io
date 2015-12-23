@@ -41,10 +41,10 @@ layout: ja
 
 ## パラメーター
 
-  * [`pgroonga.log_type`](parameters/log_type.html)
+  * [`pgroonga.log_type`パラメーター](parameters/log_type.html)
 
-  * [`pgroonga.log_path`](parameters/log_path.html)
+  * [`pgroonga.log_path`パラメーター](parameters/log_path.html)
 
-  * [`pgroonga.log_level`](parameters/log_level.html)
+  * [`pgroonga.log_level`パラメーター](parameters/log_level.html)
 
-  * [`pgroonga.lock_timeout`](parameters/lock_timeout.html)
+  * [`pgroonga.lock_timeout`パラメーター](parameters/lock_timeout.html)

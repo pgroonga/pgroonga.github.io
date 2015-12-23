@@ -3,16 +3,50 @@ title: "pgroonga.log_path"
 layout: ja
 ---
 
-# `pgroonga.log_path`パラメータ
+# `pgroonga.log_path`パラメーター
 
 ## 概要
 
-ファイルにログを出力するときの出力先のファイル名を変更する変数です。`log_type`が`file`の場合のみ有効なパラメータです。
+`pgroonga.log_path`パラメーターはログのパスを制御します。
+
+このパラメーターは[`pgroonga.log_type`](log_type.html)の値が`file`の時だけ有効です。
+
+デフォルト値は`$PGDATA/pgroonga.log`です。
+
+パスに`none`を指定するとログ出力を無効にできます。
 
 ## 構文
 
+SQLの場合：
+
 ```sql
-set pgroonga.log_path = path
+SET pgroonga.log_path = path;
 ```
 
-`path`はログファイルのパスです。未指定時は`$PGDATA/pgroonga.log`です。
+`postgresql.conf`の場合：
+
+```text
+pgroonga.log_path = path
+```
+
+`path`は文字列の値です。つまり、`'/var/log/pgroonga.log'`のように`path`の値をクォートする必要があるということです。
+
+PGroongaはログを`path`に出力します。
+
+## 使い方
+
+ログを`/var/log/pgroonga.log`に出力する例です。
+
+```sql
+SET pgroonga.log_path = '/var/log/pgroonga.log';
+```
+
+ログを無効にする例です。
+
+```sql
+SET pgroonga.log_path = 'none';
+```
+
+## 参考
+
+  * [`pgroonga.log_type`](log_type.html)

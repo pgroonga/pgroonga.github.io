@@ -32,7 +32,7 @@ PGroongaのソースを展開します。
 参考：未リリースの最新版を使いたい場合は次のようにしてください。
 
 ```text
-% git clone https://github.com/pgroonga/pgroonga.git
+% git clone --recursive https://github.com/pgroonga/pgroonga.git
 % cd pgroonga
 ```
 

@@ -32,7 +32,7 @@ Extract PGroonga source:
 FYI: If you want to use the unreleased latest version, use the followings:
 
 ```text
-% git clone https://github.com/pgroonga/pgroonga.git
+% git clone --recursive https://github.com/pgroonga/pgroonga.git
 % cd pgroonga
 ```
 

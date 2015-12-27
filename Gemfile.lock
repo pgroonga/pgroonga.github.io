@@ -109,7 +109,7 @@ GEM
     minitest (5.8.3)
     multipart-post (2.0.0)
     net-dns (0.8.0)
-    nokogiri (1.6.7)
+    nokogiri (1.6.7.1)
     octokit (4.2.0)
       sawyer (~> 0.6.0, >= 0.5.3)
     parslet (1.5.0)

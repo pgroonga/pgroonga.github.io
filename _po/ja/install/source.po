@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-10-15 10:19+0900\n"
+"PO-Revision-Date: 2015-12-23 23:46+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,7 @@ msgstr "参考：未リリースの最新版を使いたい場合は次のよう
 
 msgid ""
 "```text\n"
-"% git clone https://github.com/pgroonga/pgroonga.git\n"
+"% git clone --recursive https://github.com/pgroonga/pgroonga.git\n"
 "% cd pgroonga\n"
 "```"
 msgstr ""

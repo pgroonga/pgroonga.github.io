@@ -51,6 +51,8 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
 ## Tuning
 
-PGroonga use Groonga. There are some tuning parameters for handling a large database. Please read tunig document for Groonga.
+Normally, you don't need to tune PGroonga because PGroonga works well by default.
+
+But you need to tune PGroonga in some cases such as a case that you need to handle a very large database. PGroonga uses Groonga as backend. It means that you can apply tuning knowledge for Groonga to PGroonga. See the following Groonga document to tune PGroonga:
 
   * [Tuning](http://groonga.org/docs/reference/tuning.html)

@@ -48,3 +48,11 @@ layout: ja
   * [`pgroonga.log_level`パラメーター](parameters/log_level.html)
 
   * [`pgroonga.lock_timeout`パラメーター](parameters/lock_timeout.html)
+
+## チューニング
+
+通常、PGroongaはデフォルトで高速に動くため、特別にPGroongaをチューニングする必要はありません。
+
+しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroongaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のGroongaのドキュメントを参照してください。
+
+  * [チューニング](http://groonga.org/ja/docs/reference/tuning.html)

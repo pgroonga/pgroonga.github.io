@@ -48,3 +48,9 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
   * [`pgroonga.log_level` parameter](parameters/log_level.html)
 
   * [`pgroonga.lock_timeout` parameter](parameters/lock_timeout.html)
+
+## Tuning
+
+PGroonga use Groonga. There are some tuning parameters for handling a large database. Please read tunig document for Groonga.
+
+  * [Tuning](http://groonga.org/docs/reference/tuning.html)

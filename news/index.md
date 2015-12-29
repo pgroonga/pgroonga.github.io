@@ -20,6 +20,7 @@ layout: en
 ### Thanks
 
   * Naoki Takami
+
   * Hiroyuki Sato
 
 ## 1.0.0: 2015-10-29 {#version-1-0-0}

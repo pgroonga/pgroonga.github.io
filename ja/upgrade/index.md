@@ -15,7 +15,7 @@ layout: ja
 
   * 0.7 -> 0.8: 非互換
 
-### 非互換の場合
+## 非互換の場合 {#incompatible-case}
 
 アップグレード手順は次の通りです。
 
@@ -45,7 +45,7 @@ CREATE EXTENSION pgroonga;
 
 PGroongaを使ってインデックスを作るには[`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)を使ってください。
 
-### 互換性がある場合
+## 互換性がある場合 {#compatible-case}
 
 アップグレード手順は次の通りです。
 

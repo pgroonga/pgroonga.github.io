@@ -15,7 +15,7 @@ Here is a list of compatibility:
 
   * 0.7 -> 0.8: Incompatible
 
-### Incompatible case
+## Incompatible case {#incompatible-case}
 
 Here are steps to upgrade:
 
@@ -45,7 +45,7 @@ CREATE EXTENSION pgroonga;
 
 Use [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html) to create PGroonga indexes.
 
-### Compatible case
+## Compatible case {#compatible-case}
 
 Here are steps to upgrade:
 

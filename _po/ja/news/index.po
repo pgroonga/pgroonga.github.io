@@ -47,9 +47,10 @@ msgstr ""
 msgid "### Thanks"
 msgstr "### 感謝"
 
-msgid ""
-"  * Naoki Takami\n"
-"  * Hiroyuki Sato"
+msgid "  * Naoki Takami"
+msgstr ""
+
+msgid "  * Hiroyuki Sato"
 msgstr ""
 
 msgid "## 1.0.0: 2015-10-29 {#version-1-0-0}"
@@ -87,9 +88,6 @@ msgid ""
 msgstr ""
 
 msgid "  * Supported `ILIKE` with index."
-msgstr ""
-
-msgid "  * Naoki Takami"
 msgstr ""
 
 msgid "  * Hiroaki Tachikawa"

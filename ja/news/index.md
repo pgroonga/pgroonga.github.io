@@ -5,6 +5,23 @@ layout: ja
 
 # おしらせ
 
+## 1.0.1: 2015-12-29 {#version-1-0-1}
+
+### 改良
+
+  * Accepted `none` as none value for tokenizer and normalizer. [groonga-dev,03664] [Reported by Naoki Takami]
+
+  * Supported `CREATE DATABASE TABLESPACE`. [Suggested by Hiroyuki Sato]
+
+### 修正
+
+  * Fixed a bug that sequential scan doesn't work for regular expression search.  [Reported by Hiroyuki Sato]
+
+### 感謝
+
+  * Naoki Takami
+  * Hiroyuki Sato
+
 ## 1.0.0: 2015-10-29 {#version-1-0-0}
 
 It's the first major release!!!

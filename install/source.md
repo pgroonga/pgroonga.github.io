@@ -9,10 +9,11 @@ This document describes how to build and install PGroonga from source.
 
 Build and install instruction is different between on Windows and on non Windows. This document describes it separately.
 
-  * [On non Windows](#build-and-install-on-non-windows)
-  * [On Windows](#build-and-install-on-windows)
+  * [On non Windows](#non-windows)
 
-## On non Windows
+  * [On Windows](#windows)
+
+## On non Windows {#non-windows}
 
 Install PostgreSQL.
 
@@ -75,7 +76,7 @@ That's all!
 
 Try [tutorial](../tutorial/). You can understand more about PGroonga.
 
-## On Windows
+## On Windows {#windows}
 
 Here is a list of required software to build and install PGroonga from source. Install them:
 

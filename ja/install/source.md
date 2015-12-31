@@ -9,10 +9,11 @@ layout: ja
 
 ビルド・インストール方法はWindowsとWindows以外のプラットフォームで違います。このドキュメントではそれぞれ別々に説明します。
 
-  * [Windows以外のプラットフォーム](#build-and-install-on-non-windows)
-  * [Windows](#build-and-install-on-windows)
+  * [Windows以外のプラットフォーム](#non-windows)
 
-## Windows以外のプラットフォーム
+  * [Windows](#windows)
+
+## Windows以外のプラットフォーム {#non-windows}
 
 PostgreSQLをインストールします。
 
@@ -75,7 +76,7 @@ PGroongaをインストールします。
 
 [チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
 
-## Windows
+## Windows {#windows}
 
 ソースからPGroongaをビルド・インストールするために必要なソフトウェアは次の通りです。これらをインストールしてください。
 

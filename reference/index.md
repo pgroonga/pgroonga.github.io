@@ -29,7 +29,7 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
   * [`@>` operator](operators/jsonb-contain.html)
 
-  * `@~` operator
+  * [`@~` operator](operators/regular-expression.html)
 
 ## Functions
 

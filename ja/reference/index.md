@@ -29,7 +29,7 @@ layout: ja
 
   * [`@>`演算子](operators/jsonb-contain.html)
 
-  * `@~`演算子
+  * [`@~`演算子](operators/regular-expression.html)
 
 ## 関数
 

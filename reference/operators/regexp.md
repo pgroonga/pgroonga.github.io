@@ -23,13 +23,13 @@ PGroonga's `@~` operator normalizes target text before matching. It's similar to
 
 Normalization is different from case insensitive. Normally, normalization is more powerful.
 
-Example1: All of "A", "a", "Ａ" (U+FF21 FULLWIDTH LATIN CAPITAL LETTER A), "ａ" (U+FF41 FULLWIDTH LATIN SMALL LETTER A) are normalized to "a".
+Example1: All of "`A`", "`a`", "`Ａ`" (U+FF21 FULLWIDTH LATIN CAPITAL LETTER A), "`ａ`" (U+FF41 FULLWIDTH LATIN SMALL LETTER A) are normalized to "`a`".
 
-Example2: Both of full-width Hiragana and half-width Katakana are normalized to full-width Katakana. For example, both of "ア" (U+30A2 KATAKANA LETTER A) and "ｱ" (U+FF71 HALFWIDTH KATAKANA LETTER A) are normalized to "ア" (U+30A2 KATAKANA LETTER A.
+Example2: Both of full-width Katakana and half-width Katakana are normalized to full-width Katakana. For example, both of "`ア`" (U+30A2 KATAKANA LETTER A) and "`ｱ`" (U+FF71 HALFWIDTH KATAKANA LETTER A) are normalized to "`ア`" (U+30A2 KATAKANA LETTER A).
 
 Note that `@~` operator doesn't normalize regular expression pattern. It only normalizes target text. It means that you must use normalized characters in regular expression pattern.
 
-For example, you must not use `Groonga` as pattern. You must use `groonga` as pattern. Because "G" is normalized to "g".
+For example, you must not use "`Groonga`" as pattern. You must use "`groonga`" as pattern. Because "`G`" is normalized to "`g`".
 
 ## Syntax
 
@@ -46,6 +46,8 @@ Types of `column` and `regular_expression` must be the same. Here are available 
   * `text`
 
   * `varchar`
+
+If `column` value is matched against `regular_expression` pattern, the expression returns `true`.
 
 ## Usage
 
@@ -67,7 +69,7 @@ You must specify operator class to perform regular expression search by index. H
 
   * `pgroonga.varchar_regexp_ops`: It's the operator class for `varchar` type column.
 
-In this example, we use `pgroonga.text_regexp_ops`. Because `content` column is a `text` type column.
+In this example, `pgroonga.text_regexp_ops` is used. Because `content` column is a `text` type column.
 
 Here are data for examples:
 
@@ -81,13 +83,21 @@ INSERT INTO memos VALUES (4, 'There is groonga command.');
 You can perform regular expression search by `@~` operator:
 
 ```sql
-SELECT * FROM memos WHERE content @~ '\Agroonga';
---  id |                                content                                 
--- ----+------------------------------------------------------------------------
---   2 | Groonga is a fast full text search engine that supports all languages.
+SELECT * FROM memos WHERE content @~ '\Apostgresql';
+--  id |                        content                         
+-- ----+--------------------------------------------------------
+--   1 | PostgreSQL is a relational database management system.
 -- (1 row)
 ```
 
-"`\A`" in "`\Agroonga`" is a special notation in Ruby regular expression syntax. It means that the beginning of text. The pattern means that "`groonga`" must be appeared in the beginning of text.
+"`\A`" in "`\Apostgresql`" is a special notation in Ruby regular expression syntax. It means that the beginning of text. The pattern means that "`postgresql`" must be appeared in the beginning of text.
 
-TODO
+Why is "`PostgreSQL is a ...`" record matched? Remember that `@~` operator normalizes target text before matching. It means that "`PostgreSQL is a ...`" text is normalized to "`postgresql is a ...`" text before matching. The normalized text is started with "`postgresql`". So "`\Apostgresql`" regular expression matches to the record.
+
+"`PGroonga is a PostgreSQL ...`" record isn't matched. It includes "`postgresql`" in normalized text but "`postgresql`" isn't appeared at the beginning of text. So it's not matched.
+
+## See also
+
+  * [Onigmo's regular expression syntax document](https://github.com/k-takata/Onigmo/blob/master/doc/RE)
+
+  * [Groonga's regular expression support document](http://groonga.org/docs/reference/regular_expression.html)

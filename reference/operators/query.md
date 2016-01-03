@@ -65,4 +65,5 @@ TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
 ## See also
 
   * [`%%` operator](match.html)
+
   * [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)

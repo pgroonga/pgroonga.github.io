@@ -31,6 +31,12 @@ Note that `@~` operator doesn't normalize regular expression pattern. It only no
 
 For example, you must not use "`Groonga`" as pattern. You must use "`groonga`" as pattern. Because "`G`" in target text is normalized to "`g`". "`Groonga`" is never appeared in target text.
 
+Some simple regular expression patterns can be searched by index in Groonga. If index is used, the search is very fast. See [Groonga's regular expression document](http://groonga.org/docs/reference/regular_expression.html#regular-expression-index) for index searchable patterns.
+
+If a regular expression pattern can't be searchable by index, it's searched by sequential scan in Groonga.
+
+Note that Groonga may search with regular expression pattern by sequential scan even when `EXPLAIN` reports PostgreSQL uses PGroonga index.
+
 ## Syntax
 
 ```sql

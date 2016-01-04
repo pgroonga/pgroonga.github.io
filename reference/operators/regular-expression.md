@@ -29,7 +29,7 @@ Example2: Both of full-width Katakana and half-width Katakana are normalized to 
 
 Note that `@~` operator doesn't normalize regular expression pattern. It only normalizes target text. It means that you must use normalized characters in regular expression pattern.
 
-For example, you must not use "`Groonga`" as pattern. You must use "`groonga`" as pattern. Because "`G`" is normalized to "`g`".
+For example, you must not use "`Groonga`" as pattern. You must use "`groonga`" as pattern. Because "`G`" in target text is normalized to "`g`". "`Groonga`" is never appeared in target text.
 
 ## Syntax
 

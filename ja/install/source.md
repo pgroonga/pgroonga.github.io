@@ -52,6 +52,12 @@ PGroongaをビルドします。
 
 もし、`pkg-config --list-all`に`groonga`が含まれていない場合、Groongaの開発用パッケージをインストールし忘れているかもしれません。あるいは、`groonga.pc`が標準的なディレクトリーではないディレクトリーにインストールされているのかもしれません。その場合は`PKG_CONFIG_PATH`環境変数を使ってください。
 
+以下は`--prefix=/usr/local`オプション付きでGroongaをインストールした場合の例です。
+
+```text
+% PKG_CONFIG_PATH=/usr/local/lib/pkg-config make
+```
+
 PGroongaをインストールします。
 
 ```text
@@ -88,7 +94,7 @@ PGroongaをインストールします。
 
 packages.groonga.orgからWindows用のPGroongaソースアーカイブをダウンロードしてください。Windows用のソースアーカイブはzipファイルです。Windows用のソースアーカイブにはGroongaがバンドルされています。
 
-  * http://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip
+  * [pgroonga-{{ site.pgroonga_version }}](http://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)
 
 ダウンロードしたソースアーカイブを展開し、ソースフォルダーに移動してください。
 

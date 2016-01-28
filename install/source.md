@@ -52,6 +52,12 @@ If `pg_config` command doesn't exist, you may forget to install the development 
 
 If `pkg-config --list-all` doesn't include `groonga`, you may forget to install the development package of Groonga. Or `groonga.pc` is installed into non-standard directory. You can use `PKG_CONFIG_PATH` environment variable for the case.
 
+Here is an example when you install Groonga with `--prefix=/usr/local`:
+
+```text
+% PKG_CONFIG_PATH=/usr/local/lib/pkg-config make
+```
+
 Install PGroonga:
 
 ```text
@@ -88,7 +94,7 @@ Here is a list of required software to build and install PGroonga from source. I
 
 Download PGroonga source archive for Windows from packages.groonga.org. Source archive for Windows is zip file. Source archive for Windows bundles Groonga.
 
-  * http://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip
+  * [pgroonga-{{ site.pgroonga_version }}](http://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)
 
 Extract the downloaded source archive and move to source folder:
 

@@ -124,7 +124,7 @@ PGroongaは`LIKE`演算子をサポートしています。既存のSQLを変更
 `column LIKE '%キーワード%'`は`column %% 'キーワード'`と等価です。
 
 ```sql
-SELECT * FROM memos WHERE content %% '全文検索';
+SELECT * FROM memos WHERE content LIKE '%全文検索%';
 
 --  id |                      content
 -- ----+---------------------------------------------------

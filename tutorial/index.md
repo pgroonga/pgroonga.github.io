@@ -123,7 +123,7 @@ PGroonga supports `LIKE` operator. You can perform fast full text search by PGro
 `column LIKE '%keyword%'` equals to `column %% 'keyword'`:
 
 ```sql
-SELECT * FROM memos WHERE content like '%engine%';
+SELECT * FROM memos WHERE content LIKE '%engine%';
 --  id |                                content                                 
 -- ----+------------------------------------------------------------------------
 --   2 | Groonga is a fast full text search engine that supports all languages.

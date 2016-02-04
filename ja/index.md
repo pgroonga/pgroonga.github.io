@@ -15,6 +15,9 @@ layout: ja
     <a href="tutorial/"
        class="btn btn-primary btn-lg"
        role="button">チュートリアルをやってみる</a>
+    <a href="install/"
+       class="btn btn-primary btn-lg"
+       role="button">インストール</a>
   </p>
 </div>
 

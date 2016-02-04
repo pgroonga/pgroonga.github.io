@@ -17,6 +17,9 @@ layout: en
     <a href="tutorial/"
        class="btn btn-primary btn-lg"
        role="button">Try tutorial</a>
+    <a href="install/"
+       class="btn btn-primary btn-lg"
+       role="button">Install</a>
   </p>
 </div>
 

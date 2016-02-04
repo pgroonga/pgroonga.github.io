@@ -13,6 +13,7 @@ layout: ja
 
   * Ubuntu 14.10
   * Ubuntu 15.04
+  * Ubuntu 15.10
 
 ## インストール方法
 

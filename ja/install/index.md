@@ -23,6 +23,7 @@ layout: ja
   * [Ubuntu](ubuntu.html)
     * 14.10
     * 15.04
+    * 15.10
   * [CentOS](centos.html)
     * 5
     * 6

@@ -5,6 +5,46 @@ layout: en
 
 # News
 
+## 1.0.2: 2016-02-09 {#version-1-0-2}
+
+### Improvements
+
+  * Required Groonga 5.1.2 or later.
+
+  * [Windows] Upgraded base PostgreSQL to 9.5.0 from 9.4.5.
+
+  * [Windows] Enabled mruby.
+
+  * [RPM] Supported PostgreSQL 9.5.
+
+  * [`jsonb`] Supported sequential scan.
+
+  * Added `pgroonga.text_full_text_search_ops_v2` operator class. It's an experimental operator class. It may break backward compatibility but includes new features.
+
+    Here are supported operators:
+
+    * `LIKE`
+
+    * `ILIKE`
+
+    * `&@`: It's equal to `%%` in `pgroonga.text_full_text_search`.
+
+    * `&?`: It's equal to `@@` in `pgroonga.text_full_text_search`.
+
+    * `&@>`: It returns true when one of the right hand side texts returns true by `&@`.
+
+    * `&?>`: It returns true when one of the right hand side texts returns true by `&?`.
+
+  * Support composite primary key.
+
+### Fixes
+
+  * Fixed a bug that valid tables and columns are removed by `VACUUM` or `ANALYZE`. It's caused after you use `REINDEX`. [groonga-dev,03850] [Reported by Naoki Takami]
+
+### Thanks
+
+  * Naoki Takami
+
 ## 1.0.1: 2015-12-29 {#version-1-0-1}
 
 ### Improvements

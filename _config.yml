@@ -1,12 +1,12 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 1.0.1
-pgroonga_release_date: 2015-12-29
+pgroonga_version: 1.0.2
+pgroonga_release_date: 2016-02-09
 copyright_year: 2015-2016
-postgresql_short_version: 9.4
-windows_postgresql_version: 9.4.5-1
-windows_postgresql_short_version: 9.4
+postgresql_short_version: 9.5
+windows_postgresql_version: 9.5.0-1
+windows_postgresql_short_version: 9.5
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
 description:
   en: Make PostgreSQL fast full text search platform for all languages!

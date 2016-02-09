@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2015-12-27 13:25+0900\n"
+"PO-Revision-Date: 2016-02-04 23:22+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,11 +22,78 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.0.1: 2015-12-29 {#version-1-0-1}"
+msgid "## 1.0.2: 2016-02-09 {#version-1-0-2}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Required Groonga 5.1.2 or later."
+msgstr ""
+
+msgid "  * [Windows] Upgraded base PostgreSQL to 9.5.0 from 9.4.5."
+msgstr ""
+
+msgid "  * [Windows] Enabled mruby."
+msgstr ""
+
+msgid "  * [RPM] Supported PostgreSQL 9.5."
+msgstr ""
+
+msgid "  * [`jsonb`] Supported sequential scan."
+msgstr ""
+
+msgid ""
+"  * Added `pgroonga.text_full_text_search_ops_v2` operator class. It's an expe"
+"rimental operator class. It may break backward compatibility but includes new "
+"features."
+msgstr ""
+
+msgid "    Here are supported operators:"
+msgstr ""
+
+msgid "    * `LIKE`"
+msgstr ""
+
+msgid "    * `ILIKE`"
+msgstr ""
+
+msgid "    * `&@`: It's equal to `%%` in `pgroonga.text_full_text_search`."
+msgstr ""
+
+msgid "    * `&?`: It's equal to `@@` in `pgroonga.text_full_text_search`."
+msgstr ""
+
+msgid ""
+"    * `&@>`: It returns true when one of the right hand side texts returns tru"
+"e by `&@`."
+msgstr ""
+
+msgid ""
+"    * `&?>`: It returns true when one of the right hand side texts returns tru"
+"e by `&?`."
+msgstr ""
+
+msgid "  * Support composite primary key."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that valid tables and columns are removed by `VACUUM` or `ANAL"
+"YZE`. It's caused after you use `REINDEX`. [groonga-dev,03850] [Reported by Na"
+"oki Takami]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Naoki Takami"
+msgstr ""
+
+msgid "## 1.0.1: 2015-12-29 {#version-1-0-1}"
+msgstr ""
 
 msgid ""
 "  * Accepted `none` as none value for tokenizer and normalizer. [groonga-dev,0"
@@ -36,18 +103,9 @@ msgstr ""
 msgid "  * Supported `CREATE DATABASE TABLESPACE`. [Suggested by Hiroyuki Sato]"
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * Fixed a bug that sequential scan doesn't work for regular expression searc"
 "h.  [Reported by Hiroyuki Sato]"
-msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
-
-msgid "  * Naoki Takami"
 msgstr ""
 
 msgid "  * Hiroyuki Sato"

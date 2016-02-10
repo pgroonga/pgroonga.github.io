@@ -17,15 +17,18 @@ layout: ja
 
 ## インストール方法
 
-PGroongaをインストールする方法は次の通りです。サポートしているすべてのバージョンのUbuntuで共通です。
+PGroongaをインストールする方法は次の通りです。Ubuntu 14.04をのぞき、サポートしているすべてのバージョンのUbuntuで共通です。
 
-`postgresql-9.4-pgroonga`パッケージをインストールします。
+Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージをインストールしてください。それ以外の場合は`postgresql-9.4-pgroonga`パッケージをインストールしてください。
 
 ```text
 % sudo apt-get install -y software-properties-common
 % sudo add-apt-repository -y universe
 % sudo add-apt-repository -y ppa:groonga/ppa
 % sudo apt-get update
+Ubuntu 14.04:
+% sudo apt-get install -y -V postgresql-9.3-pgroonga
+Others:
 % sudo apt-get install -y -V postgresql-9.4-pgroonga
 ```
 

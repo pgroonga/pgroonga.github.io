@@ -34,6 +34,9 @@ msgstr ""
 msgid "  * [Windows] Upgraded base PostgreSQL to 9.5.0 from 9.4.5."
 msgstr ""
 
+msgid "  * [Windows] Upgraded bundled Groonga to 5.1.2."
+msgstr ""
+
 msgid "  * [Windows] Enabled mruby."
 msgstr ""
 

@@ -32,7 +32,7 @@ msgid "Here are supported Ubuntu versions:"
 msgstr "サポートしているUbuntuのバージョンは次の通りです。"
 
 msgid ""
-"  * Ubuntu 14.10\n"
+"  * Ubuntu 14.04\n"
 "  * Ubuntu 15.04\n"
 "  * Ubuntu 15.10"
 msgstr ""

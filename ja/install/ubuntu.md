@@ -11,7 +11,7 @@ layout: ja
 
 サポートしているUbuntuのバージョンは次の通りです。
 
-  * Ubuntu 14.10
+  * Ubuntu 14.04
   * Ubuntu 15.04
   * Ubuntu 15.10
 

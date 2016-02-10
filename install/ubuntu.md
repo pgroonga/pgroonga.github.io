@@ -11,7 +11,7 @@ This document describes how to install PGroonga on Ubuntu.
 
 Here are supported Ubuntu versions:
 
-  * Ubuntu 14.10
+  * Ubuntu 14.04
   * Ubuntu 15.04
   * Ubuntu 15.10
 

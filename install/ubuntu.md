@@ -17,15 +17,18 @@ Here are supported Ubuntu versions:
 
 ## How to install
 
-You can use the following instruction to install PGroonga on all supported Ubuntu versions.
+You can use the following instruction to install PGroonga on all supported Ubuntu versions except Ubuntu 14.04.
 
-Install `postgresql-9.4-pgroonga` package:
+If you're using Ubuntu 14.04, install `postgresql-9.3-pgroonga` package. Otherwise, install `postgresql-9.4-pgroonga` package:
 
 ```text
 % sudo apt-get install -y software-properties-common
 % sudo add-apt-repository -y universe
 % sudo add-apt-repository -y ppa:groonga/ppa
 % sudo apt-get update
+Ubuntu 14.04:
+% sudo apt-get install -y -V postgresql-9.3-pgroonga
+Others:
 % sudo apt-get install -y -V postgresql-9.4-pgroonga
 ```
 

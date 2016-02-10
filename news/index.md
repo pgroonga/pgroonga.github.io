@@ -13,6 +13,8 @@ layout: en
 
   * [Windows] Upgraded base PostgreSQL to 9.5.0 from 9.4.5.
 
+  * [Windows] Upgraded bundled Groonga to 5.1.2.
+
   * [Windows] Enabled mruby.
 
   * [RPM] Supported PostgreSQL 9.5.

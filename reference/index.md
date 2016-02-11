@@ -45,6 +45,8 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
 
+  * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)
+
 ## Parameters
 
   * [`pgroonga.log_type` parameter](parameters/log_type.html)

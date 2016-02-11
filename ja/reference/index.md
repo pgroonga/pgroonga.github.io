@@ -45,6 +45,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)
 
+  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html)
+
 ## パラメーター
 
   * [`pgroonga.log_type`パラメーター](parameters/log_type.html)

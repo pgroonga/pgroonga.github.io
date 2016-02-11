@@ -22,7 +22,7 @@ layout: ja
   * [Debian GNU/Linux](debian.html)
     * Jessie
   * [Ubuntu](ubuntu.html)
-    * 14.10
+    * 14.04
     * 15.04
     * 15.10
   * [CentOS](centos.html)

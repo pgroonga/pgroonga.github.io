@@ -7,6 +7,12 @@ layout: en
 
 This document describes about all features. [Tutorial](../tutorial/) focuses on easy to understand only about important features. This document focuses on completeness. If you don't read [tutorial](../tutorial/) yet, read tutorial before read this document.
 
+## `pgroonga` schema
+
+PGroonga defines functions, operators, operator classes and so on into `pgroonga` schema. Only superuser can use features in `pgroonga` schema by default. Superuser needs to grant `USAGE` privilege on `pgroonga` schema to normal users who want to use PGroonga.
+
+  * [`GRANT USAGE ON SCHEMA pgroonga`](grant-usage-on-schema-pgroonga.html)
+
 ## `pgroonga` index
 
   * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)

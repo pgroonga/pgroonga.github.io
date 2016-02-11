@@ -13,6 +13,7 @@ layout: ja
 
   * 9.3
   * 9.4
+  * 9.5
 
 もし、これより古いPostgreSQLを使っているなら、PGroongaをインストールする前にPostgreSQLをアップグレードしてください。
 

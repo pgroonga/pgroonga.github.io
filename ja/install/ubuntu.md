@@ -44,7 +44,7 @@ Others:
 % sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
-（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。）
+（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）
 
 作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。
 

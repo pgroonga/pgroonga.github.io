@@ -70,7 +70,7 @@ Create a database:
 % psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
-(Normally, you should create a user for `pgroonga_test` database and use the user.)
+(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)
 
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
@@ -130,7 +130,7 @@ Create a database:
 postgres=# CREATE DATABASE pgroonga_test;
 ```
 
-(Normally, you should create a user for `pgroonga_test` database and use the user.)
+(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)
 
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 

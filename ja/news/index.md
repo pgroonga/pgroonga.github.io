@@ -5,6 +5,28 @@ layout: ja
 
 # おしらせ
 
+## 1.0.3: 2016-02-29 {#version-1-0-3}
+
+### 改良
+
+  * Supported multibyte column name in UTF-8.
+
+  * [`pgroonga.text_full_text_search_ops_v2`] Added `&\`` operator that accepts [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html) as condition.
+
+  * [Windows] Enabled LZ4.
+
+  * [Windows] Upgraded base PostgreSQL to 9.5.1 from 9.5.0.
+
+  * [Windows] Upgraded bundled Groonga to 6.0.0 from 5.1.2.
+
+### 修正
+
+  * Added missing update SQL. [groonga-dev,03950] [Reported by Naoki Takami]
+
+### 感謝
+
+  * Naoki Takami
+
 ## 1.0.2: 2016-02-09 {#version-1-0-2}
 
 ### 改良

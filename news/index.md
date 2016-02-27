@@ -15,6 +15,10 @@ layout: en
 
   * [Windows] Enabled LZ4.
 
+  * [Windows] Upgraded base PostgreSQL to 9.5.1 from 9.5.0.
+
+  * [Windows] Upgraded bundled Groonga to 6.0.0 from 5.1.2.
+
 ### Fixes
 
   * Added missing update SQL. [groonga-dev,03950] [Reported by Naoki Takami]

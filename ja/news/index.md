@@ -5,6 +5,18 @@ layout: ja
 
 # おしらせ
 
+## 1.0.5: 2016-03-01 {#version-1-0-5}
+
+### 修正
+
+  * Add missing sql files.
+
+## 1.0.4: 2016-03-01 {#version-1-0-4}
+
+### 修正
+
+  * [Windows] Add a missing symbol export.
+
 ## 1.0.3: 2016-02-29 {#version-1-0-3}
 
 ### 改良

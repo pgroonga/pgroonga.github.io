@@ -28,7 +28,7 @@ msgstr ""
 msgid "### Fixes"
 msgstr "### 修正"
 
-msgid "  * Add missing sql files."
+msgid "  * Add missing update SQL files."
 msgstr ""
 
 msgid "## 1.0.4: 2016-03-01 {#version-1-0-4}"

@@ -9,7 +9,7 @@ layout: en
 
 ### Fixes
 
-  * Add missing sql files.
+  * Add missing update SQL files.
 
 ## 1.0.4: 2016-03-01 {#version-1-0-4}
 

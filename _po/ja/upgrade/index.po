@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-03-02 14:31+0900\n"
+"PO-Revision-Date: 2016-03-09 09:44+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgid "Here is a list of compatibility:"
 msgstr "以下は互換性のリストです。"
 
 msgid "  * 1.0.4 -> 1.0.5: Compatible"
-msgstr "  * 1.0.5 -> 1.0.5: 互換"
+msgstr "  * 1.0.4 -> 1.0.5: 互換"
 
 msgid "  * 1.0.3 -> 1.0.4: Compatible"
 msgstr "  * 1.0.3 -> 1.0.4: 互換"

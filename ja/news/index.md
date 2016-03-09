@@ -11,7 +11,7 @@ layout: ja
 
   * Supported multibyte column name in UTF-8.
 
-  * [`pgroonga.text_full_text_search_ops_v2`] Added `&\`` operator that accepts [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html) as condition.
+  * [`pgroonga.text_full_text_search_ops_v2`] Added `` &` `` operator that accepts [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html) as condition.
 
   * [Windows] Enabled LZ4.
 

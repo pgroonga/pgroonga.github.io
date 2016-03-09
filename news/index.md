@@ -5,6 +5,18 @@ layout: en
 
 # News
 
+## 1.0.5: 2016-03-01 {#version-1-0-5}
+
+### Fixes
+
+  * Add missing sql files.
+
+## 1.0.4: 2016-03-01 {#version-1-0-4}
+
+### Fixes
+
+  * [Windows] Add a missing symbol export.
+
 ## 1.0.3: 2016-02-29 {#version-1-0-3}
 
 ### Improvements

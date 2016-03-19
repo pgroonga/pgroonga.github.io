@@ -22,10 +22,10 @@ layout: ja
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```text
-% sudo rpm -ivh http://yum.postgresql.org/9.4/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos94-9.4-1.noarch.rpm
+% sudo rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
 % sudo rpm -ivh http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
 % sudo yum makecache
-% sudo yum install -y postgresql94-pgroonga
+% sudo yum install -y postgresql95-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -37,9 +37,9 @@ layout: ja
 PostgreSQLを実行します。
 
 ```text
-% sudo -H /sbin/service postgresql-9.4 initdb
-% sudo -H /sbin/chkconfig postgresql-9.4 on
-% sudo -H /sbin/service postgresql-9.4 start
+% sudo -H /sbin/service postgresql-9.5 initdb
+% sudo -H /sbin/chkconfig postgresql-9.5 on
+% sudo -H /sbin/service postgresql-9.5 start
 ```
 
 データベースを作成します。
@@ -67,10 +67,10 @@ CentOS 7にPGroongaをインストールする方法は次の通りです。
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```text
-% sudo rpm -ivh http://yum.postgresql.org/9.4/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos94-9.4-1.noarch.rpm
+% sudo rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
 % sudo rpm -ivh http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
 % sudo yum makecache
-% sudo yum install -y postgresql94-pgroonga
+% sudo yum install -y postgresql95-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -82,9 +82,9 @@ CentOS 7にPGroongaをインストールする方法は次の通りです。
 PostgreSQLを実行します。
 
 ```text
-% sudo -H /usr/pgsql-9.4/bin/postgresql94-setup initdb
-% sudo -H systemctl enable postgresql-9.4
-% sudo -H systemctl start postgresql-9.4
+% sudo -H /usr/pgsql-9.5/bin/postgresql95-setup initdb
+% sudo -H systemctl enable postgresql-9.5
+% sudo -H systemctl start postgresql-9.5
 ```
 
 データベースを作成します。

@@ -22,16 +22,16 @@ You can use the following instruction to install PGroonga on CentOS 5 or CentOS 
 Install `postgresql-pgroonga` package:
 
 ```text
-% sudo rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
-% sudo rpm -ivh http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
-% sudo yum makecache
-% sudo yum install -y postgresql95-pgroonga
+% sudo -H yum install -y http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
+% sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
+% sudo -H yum makecache
+% sudo -H yum install -y postgresql95-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
 ```text
-% sudo yum install -y groonga-tokenizer-mecab
+% sudo -H yum install -y groonga-tokenizer-mecab
 ```
 
 Run PostgreSQL:
@@ -67,16 +67,16 @@ You can use the following instruction to install PGroonga on CentOS 7.
 Install `postgresql-pgroonga` package:
 
 ```text
-% sudo rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
-% sudo rpm -ivh http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
-% sudo yum makecache
-% sudo yum install -y postgresql95-pgroonga
+% sudo -H yum install -y http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
+% sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
+% sudo -H yum makecache
+% sudo -H yum install -y postgresql95-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
 ```text
-% sudo yum install -y groonga-tokenizer-mecab
+% sudo -H yum install -y groonga-tokenizer-mecab
 ```
 
 Run PostgreSQL:

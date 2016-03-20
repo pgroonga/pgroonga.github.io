@@ -22,16 +22,16 @@ layout: ja
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```text
-% sudo rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
-% sudo rpm -ivh http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
-% sudo yum makecache
-% sudo yum install -y postgresql95-pgroonga
+% sudo -H yum install -y http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
+% sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
+% sudo -H yum makecache
+% sudo -H yum install -y postgresql95-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
 ```text
-% sudo yum install -y groonga-tokenizer-mecab
+% sudo -H yum install -y groonga-tokenizer-mecab
 ```
 
 PostgreSQLを実行します。
@@ -67,16 +67,16 @@ CentOS 7にPGroongaをインストールする方法は次の通りです。
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```text
-% sudo rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
-% sudo rpm -ivh http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
-% sudo yum makecache
-% sudo yum install -y postgresql95-pgroonga
+% sudo -H yum install -y http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-2.noarch.rpm
+% sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
+% sudo -H yum makecache
+% sudo -H yum install -y postgresql95-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
 ```text
-% sudo yum install -y groonga-tokenizer-mecab
+% sudo -H yum install -y groonga-tokenizer-mecab
 ```
 
 PostgreSQLを実行します。

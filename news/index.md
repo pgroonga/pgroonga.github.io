@@ -25,6 +25,10 @@ layout: en
   * [Windows] Changed Visual Studio version to 2013 from 2015.
     Because PostgreSQL binary uses 2013.
 
+  * [Windows] Upgraded base PostgreSQL to 9.5.2 from 9.5.1
+
+  * [Windows] Upgraded bundled Groonga to 6.0.1.
+
 ### Thanks
 
   * Naoki Takami

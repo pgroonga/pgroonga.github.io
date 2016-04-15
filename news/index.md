@@ -9,13 +9,13 @@ layout: en
 
 ### Fixes
 
-  * Add missing update SQL files.
+  * Added missing update SQL files.
 
 ## 1.0.4: 2016-03-01 {#version-1-0-4}
 
 ### Fixes
 
-  * [Windows] Add a missing symbol export.
+  * [Windows] Added a missing symbol export.
 
 ## 1.0.3: 2016-02-29 {#version-1-0-3}
 

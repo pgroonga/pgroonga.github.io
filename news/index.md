@@ -9,21 +9,15 @@ layout: en
 
 ### Improvements
 
-  * [Windows] Added version information to DLL.
-    [groonga-dev,03962] [Suggested by Naoki Takami]
+  * [Windows] Added version information to DLL. [groonga-dev,03962] [Suggested by Naoki Takami]
 
-  * [`pgroonga.text_full_text_search_ops_v2`]
-    Supported similar search by [`&~?`](../reference/operators/similar-search-v2.html).
+  * [`pgroonga.text_full_text_search_ops_v2`] Supported similar search by [`&~?`](../reference/operators/similar-search-v2.html).
 
-  * [`pgroonga.text_term_search_ops_v2`]
-    Supported prefix search by [`&^`]((../reference/operators/prefix-search-v2.html)).
+  * [`pgroonga.text_term_search_ops_v2`] Supported prefix search by [`&^`]((../reference/operators/prefix-search-v2.html)).
 
-  * [`pgroonga.text_term_search_ops_v2`]
-    Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html)
-    by [`&^~`]((../reference/operators/prefix-rk-search-v2.html)).
+  * [`pgroonga.text_term_search_ops_v2`] Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html) by [`&^~`]((../reference/operators/prefix-rk-search-v2.html)).
 
-  * [Windows] Changed Visual Studio version to 2013 from 2015.
-    Because PostgreSQL binary uses 2013.
+  * [Windows] Changed Visual Studio version to 2013 from 2015. Because PostgreSQL binary uses 2013.
 
   * [Windows] Upgraded base PostgreSQL to 9.5.2 from 9.5.1
 

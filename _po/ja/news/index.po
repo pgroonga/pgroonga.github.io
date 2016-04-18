@@ -22,26 +22,68 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 1.0.6: 2016-04-15 {#version-1-0-6}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid ""
+"  * [Windows] Added version information to DLL.\n"
+"    [groonga-dev,03962] [Suggested by Naoki Takami]"
+msgstr ""
+
+msgid ""
+"  * [`pgroonga.text_full_text_search_ops_v2`]\n"
+"    Supported similar search by `&~?`."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga.text_term_search_ops_v2`]\n"
+"    Supported prefix search by `&^`."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga.text_term_search_ops_v2`]\n"
+"    Supported [prefix RK search](http://groonga.org/docs/reference/operations/"
+"prefix_rk_search.html)\n"
+"    by `&^~`."
+msgstr ""
+
+msgid ""
+"  * [Windows] Changed Visual Studio version to 2013 from 2015.\n"
+"    Because PostgreSQL binary uses 2013."
+msgstr ""
+
+msgid "  * [Windows] Upgraded base PostgreSQL to 9.5.2 from 9.5.1"
+msgstr ""
+
+msgid "  * [Windows] Upgraded bundled Groonga to 6.0.1."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Naoki Takami"
+msgstr ""
+
 msgid "## 1.0.5: 2016-03-01 {#version-1-0-5}"
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
 
-msgid "  * Add missing update SQL files."
+msgid "  * Added missing update SQL files."
 msgstr ""
 
 msgid "## 1.0.4: 2016-03-01 {#version-1-0-4}"
 msgstr ""
 
-msgid "  * [Windows] Add a missing symbol export."
+msgid "  * [Windows] Added a missing symbol export."
 msgstr ""
 
 msgid "## 1.0.3: 2016-02-29 {#version-1-0-3}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * Supported multibyte column name in UTF-8."
 msgstr ""
@@ -62,12 +104,6 @@ msgid "  * [Windows] Upgraded bundled Groonga to 6.0.0 from 5.1.2."
 msgstr ""
 
 msgid "  * Added missing update SQL. [groonga-dev,03950] [Reported by Naoki Takami]"
-msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
-
-msgid "  * Naoki Takami"
 msgstr ""
 
 msgid "## 1.0.2: 2016-02-09 {#version-1-0-2}"

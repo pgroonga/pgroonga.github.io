@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-02-11 12:07+0900\n"
+"PO-Revision-Date: 2016-04-18 16:07+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,6 +83,60 @@ msgstr "  * [`@>`演算子](operators/jsonb-contain.html)"
 
 msgid "  * [`@~` operator](operators/regular-expression.html)"
 msgstr "  * [`@~`演算子](operators/regular-expression.html)"
+
+msgid "### v2 operators"
+msgstr "### v2演算子"
+
+msgid ""
+"PGroonga 1.Y.Z provides `pgroonga.XXX_v2` operator classes. They don't provide"
+" backward compatibility until PGroonga 2.0.0. But they include many improvemen"
+"ts aggressively when new versions are released."
+msgstr ""
+"PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します。これらはPGroonga 2.0.0になるまで後方互換性を提"
+"供しません。しかし、これらの演算子クラスには新しいバージョンがリリースされるごとに積極的に多くの改良が入ります。"
+
+msgid ""
+"If you use them, you need to use [incompatible case steps](../upgrade/#incompa"
+"tible-case) to upgrade PGroonga."
+msgstr ""
+"これらを使った場合、PGroongaをアップグレードする場合は[非互換の場合の手順](../upgrade/#incompatible-case)を使う必要"
+"があります。"
+
+msgid "  * `pgroonga.text_full_text_search_ops_v2` operator class"
+msgstr "  * `pgroonga.text_full_text_search_ops_v2`演算子クラス"
+
+msgid "    * `LIKE` operator"
+msgstr "    * `LIKE`演算子"
+
+msgid "    * `ILIKE` operator"
+msgstr "    * `ILIKE`演算子"
+
+msgid "    * [`&@` operator](operators/match-v2.html)"
+msgstr "    * [`&@`演算子](operators/match-v2.html)"
+
+msgid "    * [`&?` operator](operators/query-v2.html) for non `jsonb` types"
+msgstr "    * `jsonb`型以外の型用の[`&?`演算子](operators/query-v2.html)"
+
+msgid "    * [`&~?` operator](operators/similar-search-v2.html)"
+msgstr "    * [`&~?`演算子](operators/similar-search-v2.html)"
+
+msgid "    * [`` &` `` operator](operators/script-v2.html)"
+msgstr "    * [`` &` ``演算子](operators/script-v2.html)"
+
+msgid "    * [`&@>` operator](operators/match-contain-v2.html)"
+msgstr "    * [`&@>`演算子](operators/match-contain-v2.html)"
+
+msgid "    * [`&?>` operator](operators/query-contain-v2.html) for non `jsonb` types"
+msgstr "    * `jsonb`型以外の型用の[`&?>`演算子](operators/query-contain-v2.html)"
+
+msgid "  * `pgroonga.text_term_search_ops_v2` operator class"
+msgstr "  * `pgroonga.text_term_search_ops_v2`演算子クラス"
+
+msgid "    * [`&^` operator](operators/prefix-search-v2.html)"
+msgstr "    * [`&^`演算子](operators/prefix-search-v2.html)"
+
+msgid "    * [`&^~` operator](operators/prefix-rk-search-v2.html)"
+msgstr "    * [`&^~`演算子](operators/prefix-rk-search-v2.html)"
 
 msgid "## Functions"
 msgstr "## 関数"

@@ -57,6 +57,7 @@ SELECT * FROM memos WHERE content &` 'id >= 2 && (content @ "engine" || content 
 The specified script `'id >= 2 && (content @ "engine" || content @ "rdbms")'` means:
 
   * `id` must be 2 or more larger (range search)
+
   * `content` must contain `"engine"` or `"rdbms"` (full text search)
 
 You can also use [functions](http://groonga.org/docs/reference/function.html) in the script.

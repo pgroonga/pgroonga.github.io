@@ -19,7 +19,7 @@ column &@> keywords
 
 `column` is a column to be searched.
 
-`keywords` is an array of keyword for full text search. It's `text[]` type.
+`keywords` is an array of keywords for full text search. It's `text[]` type.
 
 The operator returns `true` when one or more keyword in `keywords` are included in `column`.
 

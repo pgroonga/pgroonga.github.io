@@ -44,7 +44,7 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
-You can search records that is similar with the specified document by `&~?` operator:
+You can search records that are similar with the specified document by `&~?` operator:
 
 ```sql
 SELECT * FROM memos WHERE content &~? 'Mroonga is a MySQL extension taht uses Groonga';

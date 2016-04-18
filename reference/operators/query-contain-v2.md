@@ -21,7 +21,7 @@ column &?> queries
 
 `column` is a column to be searched.
 
-`queries` is an array of query for full text search. It's `text[]` type.
+`queries` is an array of queries for full text search. It's `text[]` type.
 
 The operator returns `true` when one or more query in `queries` are matched against `column`.
 

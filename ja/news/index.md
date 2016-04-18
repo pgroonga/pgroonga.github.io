@@ -5,17 +5,45 @@ layout: ja
 
 # おしらせ
 
+## 1.0.6: 2016-04-15 {#version-1-0-6}
+
+### 改良
+
+  * [Windows] Added version information to DLL.
+    [groonga-dev,03962] [Suggested by Naoki Takami]
+
+  * [`pgroonga.text_full_text_search_ops_v2`]
+    Supported similar search by `&~?`.
+
+  * [`pgroonga.text_term_search_ops_v2`]
+    Supported prefix search by `&^`.
+
+  * [`pgroonga.text_term_search_ops_v2`]
+    Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html)
+    by `&^~`.
+
+  * [Windows] Changed Visual Studio version to 2013 from 2015.
+    Because PostgreSQL binary uses 2013.
+
+  * [Windows] Upgraded base PostgreSQL to 9.5.2 from 9.5.1
+
+  * [Windows] Upgraded bundled Groonga to 6.0.1.
+
+### 感謝
+
+  * Naoki Takami
+
 ## 1.0.5: 2016-03-01 {#version-1-0-5}
 
 ### 修正
 
-  * Add missing update SQL files.
+  * Added missing update SQL files.
 
 ## 1.0.4: 2016-03-01 {#version-1-0-4}
 
 ### 修正
 
-  * [Windows] Add a missing symbol export.
+  * [Windows] Added a missing symbol export.
 
 ## 1.0.3: 2016-02-29 {#version-1-0-3}
 

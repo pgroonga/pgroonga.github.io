@@ -37,6 +37,36 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`@~`演算子](operators/regular-expression.html)
 
+### v2演算子
+
+PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します。これらはPGroonga 2.0.0になるまで後方互換性を提供しません。しかし、これらの演算子クラスには新しいバージョンがリリースされるごとに積極的に多くの改良が入ります。
+
+これらを使った場合、PGroongaをアップグレードする場合は[非互換の場合の手順](../upgrade/#incompatible-case)を使う必要があります。
+
+  * `pgroonga.text_full_text_search_ops_v2`演算子クラス
+
+    * `LIKE`演算子
+
+    * `ILIKE`演算子
+
+    * [`&@`演算子](operators/match-v2.html)
+
+    * `jsonb`型以外の型用の[`&?`演算子](operators/query-v2.html)
+
+    * [`&~?`演算子](operators/similar-search-v2.html)
+
+    * [`` &` ``演算子](operators/script-v2.html)
+
+    * [`&@>`演算子](operators/match-contain-v2.html)
+
+    * `jsonb`型以外の型用の[`&?>`演算子](operators/query-contain-v2.html)
+
+  * `pgroonga.text_term_search_ops_v2`演算子クラス
+
+    * [`&^`演算子](operators/prefix-search-v2.html)
+
+    * [`&^~`演算子](operators/prefix-rk-search-v2.html)
+
 ## 関数
 
   * [`pgroonga.score`関数](functions/pgroonga-score.html)

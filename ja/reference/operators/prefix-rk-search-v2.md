@@ -1,37 +1,37 @@
 ---
-title: "&^~ operator"
-layout: en
+title: "&^~演算子"
+layout: ja
 ---
 
-# `&^~` operator
+# `&^~`演算子
 
-## Summary
+## 概要
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
+この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。
 
-`&^~` operator performs [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html). R is for [Romaji](https://en.wikipedia.org/wiki/Romanization_of_Japanese). K is for [Kana](https://en.wikipedia.org/wiki/Kana).
+`&^~`演算子は[前方一致RK検索](http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html)を実行します。Rはローマ字でKは仮名（ひらがなとカタカナ）という意味です。
 
-Prefix RK search is useful for Japanese.
+前方一致RK検索は日本語を検索するときに便利です。
 
-Prefix RK search is useful for implementing input completion.
+前方一致RK検索は入力補完機能を実装するときに便利です。
 
-## Syntax
+## 構文
 
 ```sql
 column &^~ prefix
 ```
 
-`column` is a column to be searched.
+`column`は検索対象のカラムです。
 
-`prefix` is a prefix to be found. It's `text` type.
+`prefix`は含まれているべきプレフィックスです。`text`型です。
 
-`column` values must be in Katakana. `prefix` must be in Romaji, Hiragana or Katakana.
+`column`の値はカタカナにします。`prefix`はローマ字かひらがなかカタカナにします。
 
-The operator returns `true` when the `column` value starts with `prefix`.
+`column`の値が`prefix`から始まっていれば`true`を返します。
 
-## Usage
+## 使い方
 
-Here are sample schema and data for examples:
+例に使うサンプルスキーマとデータは次の通りです。
 
 ```sql
 CREATE TABLE tag_readings (
@@ -52,7 +52,7 @@ INSERT INTO tag_readings VALUES ('PGroonga',   'ピージールンガ');
 INSERT INTO tag_readings VALUES ('pglogical',  'ピージーロジカル');
 ```
 
-You can perform prefix RK search with prefix in Romaji by `&^~` operator:
+`&^~`演算子を使うとローマ字でプレフィックスを指定して前方一致RK検索を実行できます。
 
 ```sql
 SELECT * FROM tag_readings WHERE katakana &^~ 'pi-ji-';
@@ -63,7 +63,7 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'pi-ji-';
 -- (2 rows)
 ```
 
-You can also use Hiragana for prefix:
+プレフィックスにひらがなを使うこともできます。
 
 ```sql
 SELECT * FROM tag_readings WHERE katakana &^~ 'ぴーじー';
@@ -74,7 +74,7 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'ぴーじー';
 -- (2 rows)
 ```
 
-You can also use Katakana for prefix:
+プレフィックスにカタカナを使うこともできます。
 
 ```sql
 SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
@@ -85,6 +85,6 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
 -- (2 rows)
 ```
 
-## See also
+## 参考
 
-  * [`&^` operator](prefix-search-v2.html)
+  * [`&^`演算子](prefix-search-v2.html)

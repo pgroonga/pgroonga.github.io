@@ -23,7 +23,7 @@ column &^ prefix
 
 `prefix` is a prefix to be found. It's `text` type.
 
-The operator returns `true` when the `column` value has `prefix`.
+The operator returns `true` when the `column` value starts with `prefix`.
 
 ## Usage
 

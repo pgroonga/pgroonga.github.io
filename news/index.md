@@ -13,14 +13,14 @@ layout: en
     [groonga-dev,03962] [Suggested by Naoki Takami]
 
   * [`pgroonga.text_full_text_search_ops_v2`]
-    Supported similar search by `&~?`.
+    Supported similar search by [`&~?`](../reference/operators/similar-search-v2.html).
 
   * [`pgroonga.text_term_search_ops_v2`]
-    Supported prefix search by `&^`.
+    Supported prefix search by [`&^`]((../reference/operators/prefix-search-v2.html)).
 
   * [`pgroonga.text_term_search_ops_v2`]
     Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html)
-    by `&^~`.
+    by [`&^~`]((../reference/operators/prefix-rk-search-v2.html)).
 
   * [Windows] Changed Visual Studio version to 2013 from 2015.
     Because PostgreSQL binary uses 2013.

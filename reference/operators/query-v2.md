@@ -1,22 +1,22 @@
 ---
-title: "@@ operator for non jsonb types"
+title: "&? operator for non jsonb types"
 layout: en
 ---
 
-# `@@` operator for non `jsonb` types
+# `&?` operator for non `jsonb` types
 
 ## Summary
 
 This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
 
-`@@` operator performs full text search with query.
+`&?` operator performs full text search with query.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query.
 
 ## Syntax
 
 ```sql
-column @@ query
+column &? query
 ```
 
 `column` is a column to be searched.
@@ -35,7 +35,8 @@ CREATE TABLE memos (
   content text
 );
 
-CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
+CREATE INDEX pgroonga_content_index ON memos
+  USING pgroonga (content pgroonga.text_full_text_search_ops_v2);
 ```
 
 ```sql
@@ -45,10 +46,10 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
-You can perform full text search with multiple keywords by `@@` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
+You can perform full text search with multiple keywords by `&?` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
 
 ```sql
-SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
+SELECT * FROM memos WHERE content &? 'PGroonga OR PostgreSQL';
 --  id |                            content                             
 -- ----+----------------------------------------------------------------
 --   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
@@ -62,12 +63,8 @@ Note that you can't use syntax that starts with `COLUMN_NAME:` like `COLUMN_NAME
 
 You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` for prefix search.
 
-## Sequential scan
-
-TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
-
 ## See also
 
-  * [`%%` operator](match.html)
+  * [`&@` operator](match-v2.html)
 
   * [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)

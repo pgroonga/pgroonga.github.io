@@ -37,6 +37,36 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * [`@~` operator](operators/regular-expression.html)
 
+### v2 operators
+
+PGroonga 1.Y.Z provides `pgroonga.XXX_v2` operator classes. They don't provide backward compatibility until PGroonga 2.0.0. But they include many improvements aggressively when new versions are released.
+
+If you use them, you need to use [incompatible case steps](../upgrade/#incompatible-case) to upgrade PGroonga.
+
+  * `pgroonga.text_full_text_search_ops_v2` operator class
+
+    * `LIKE` operator
+
+    * `ILIKE` operator
+
+    * [`&@` operator](operators/match-v2.html)
+
+    * [`&?` operator](operators/query-v2.html) for non `jsonb` types
+
+    * [`&~?` operator](operators/similar-search-v2.html)
+
+    * [`` &` `` operator](operators/script-v2.html)
+
+    * [`&@>` operator](operators/match-contain-v2.html)
+
+    * [`&?>` operator](operators/query-contain-v2.html) for non `jsonb` types
+
+  * `pgroonga.text_term_search_ops_v2` operator class
+
+    * [`&^` operator](operators/prefix-search-v2.html)
+
+    * [`&^~` operator](operators/prefix-rk-search-v2.html)
+
 ## Functions
 
   * [`pgroonga.score` function](functions/pgroonga-score.html)

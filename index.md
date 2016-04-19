@@ -77,3 +77,9 @@ Bundled software is released under different license. Here are bundled software 
     * Copyright: `Copyright (c) 2009, Nara Institute of Science and Technology, Japan`
     * Detail: `vendor/groonga/vendor/mecab-naist-jdic-0.6.3b-20111013/COPYING`
 
+  * [LZ4](http://www.lz4.org/) (bundled only for Windows package)
+    * 2-clause BSD license for libraries
+    * GPLv2+ for programs
+    * Copyright: `Copyright (c) 2011-2015, Yann Collet`
+    * Detail for libraries: `vendor/groonga/vendor/lz4-r131/lib/LICENSE`
+    * Detail for programs: `vendor/groonga/vendor/lz4-r131/programs/COPYING`

@@ -75,3 +75,9 @@ PGroongaのライセンスは[PostgreSQLライセンス](http://opensource.org/l
     * 著作権者: `Copyright (c) 2009, Nara Institute of Science and Technology, Japan`
     * 詳細: `vendor/groonga/vendor/mecab-naist-jdic-0.6.3b-20111013/COPYING`
 
+  * [LZ4](http://www.lz4.org/)（Windows用のパッケージにだけバンドルされている）
+    * ライブラリーは二条項BSDライセンス
+    * プログラムはGPLv2+
+    * 著作権者: `Copyright (c) 2011-2015, Yann Collet`
+    * ライブラリーのライセンス詳細: `vendor/groonga/vendor/lz4-r131/lib/LICENSE`
+    * プログラムのライセンス詳細: `vendor/groonga/vendor/lz4-r131/programs/COPYING`

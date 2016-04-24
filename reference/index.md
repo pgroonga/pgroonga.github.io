@@ -77,6 +77,12 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)
 
+  * [`pgroonga.highlight_html` function](functions/pgroonga-highlight-html.html)
+
+  * [`pgroonga.match_positions_byte` function](functions/pgroonga-match-positions-byte.html)
+
+  * [`pgroonga.query_extract_keywords` function](functions/pgroonga-query-extract-keywords.html)
+
 ## Parameters
 
   * [`pgroonga.log_type` parameter](parameters/log_type.html)

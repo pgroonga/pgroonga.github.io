@@ -23,7 +23,9 @@ text[] pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])
 
 `pgroonga.snippet_html`は`text`型の配列を返します。
 
-返ってくる配列の各要素はキーワード周辺のテキストです。キーワードは`<span class="keyword">`と`</span>`で囲まれています。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+返ってくる配列の各要素はキーワード周辺のテキストです。
+
+キーワードは`<span class="keyword">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
 
 各要素の`target`由来の部分の最大サイズは200バイトです。単位は文字数ではなくバイトです。各要素は200バイトより大きくなることがありまう。なぜなら、各要素には`<span class="keyword">`と`</span>`が含まれますし、HTMLエスケープした値が含まれることもあるからです。もし、`<`がHTMLエスケープされると`&lt;`になり、バイトサイズは1から4に増えます。
 

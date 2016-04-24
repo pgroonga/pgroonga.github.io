@@ -14,12 +14,17 @@ layout: ja
   * Ubuntu 14.04
   * Ubuntu 15.04
   * Ubuntu 15.10
+  * Ubuntu 16.04
 
 ## インストール方法
 
-PGroongaをインストールする方法は次の通りです。Ubuntu 14.04をのぞき、サポートしているすべてのバージョンのUbuntuで共通です。
+UbuntuでPGroongaをインストールする手順は次の通りです。
 
-Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージをインストールしてください。それ以外の場合は`postgresql-9.4-pgroonga`パッケージをインストールしてください。
+Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージをインストールしてください。
+
+Ubuntu 15.04または15.10を使っている場合は`postgresql-9.4-pgroonga`パッケージをインストールしてください。<
+
+それ以外の場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。
 
 ```text
 % sudo apt-get install -y software-properties-common
@@ -28,8 +33,10 @@ Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージ�
 % sudo apt-get update
 Ubuntu 14.04:
 % sudo apt-get install -y -V postgresql-9.3-pgroonga
-Others:
+Ubuntu 15.04 or 15.10:
 % sudo apt-get install -y -V postgresql-9.4-pgroonga
+Others:
+% sudo apt-get install -y -V postgresql-9.5-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

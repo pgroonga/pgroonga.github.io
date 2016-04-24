@@ -1,9 +1,9 @@
 ---
-title: pgroonga.snippet function
+title: pgroonga.snippet_html function
 layout: en
 ---
 
-# `pgroonga.snippet` function
+# `pgroonga.snippet_html` function
 
 ## Summary
 

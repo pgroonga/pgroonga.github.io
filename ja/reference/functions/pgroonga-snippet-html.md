@@ -1,9 +1,9 @@
 ---
-title: pgroonga.snippet関数
+title: pgroonga.snippet_html関数
 layout: ja
 ---
 
-# `pgroonga.snippet`関数
+# `pgroonga.snippet_html`関数
 
 ## 概要
 

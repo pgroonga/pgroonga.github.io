@@ -21,7 +21,7 @@ column @@ query
 
 `query`は全文検索で使うクエリーです。`text`型です。
 
-`query`では[Groongaのクエリー構文](http://groonga.org/docs/reference/grn_expr/query_syntax.html)を使います。
+`query`では[Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使います。
 
 ## 使い方
 

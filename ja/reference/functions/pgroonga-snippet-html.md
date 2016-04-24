@@ -36,3 +36,5 @@ text[] pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])
 ## 参考
 
   * [チュートリアルの中の例](../../tutorial/#snippet)
+
+  * [`pgroonga.query_extract_keywords`関数](pgroonga-query-extract-keywords.html)

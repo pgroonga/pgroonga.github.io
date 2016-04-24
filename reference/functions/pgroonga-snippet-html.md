@@ -36,3 +36,5 @@ See [examples in tutorial](../../tutorial/#snippet).
 ## See also
 
   * [Examples in tutorial](../../tutorial/#snippet)
+
+  * [`pgroonga.query_extract_keywords` function](pgroonga-query-extract-keywords.html)

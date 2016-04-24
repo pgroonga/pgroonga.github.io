@@ -5,6 +5,18 @@ layout: en
 
 # News
 
+## 1.0.7: 2016-04-24 {#version-1-0-7}
+
+### Improvements
+
+  * [Ubuntu] Supported Xenial Xerus (16.04 LTS).
+
+  * Added [`pgroonga.highlight_html`](../reference/functions/pgroonga-highlight-html.html) function that highlight the specified keywords in the specified text.
+
+  * Added [`pgroonga.match_positions_byte`](../reference/functions/pgroonga-match-positions-byte.html) function that returns match positions of the specified keywords in the specified text. The unit of position is byte.
+
+  * Added [`pgroonga.query_extract_keywords`](../reference/functions/pgroonga-query-extract-keywords.html) function that returns keywords from the specified query.
+
 ## 1.0.6: 2016-04-15 {#version-1-0-6}
 
 ### Improvements

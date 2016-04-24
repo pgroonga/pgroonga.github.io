@@ -31,6 +31,7 @@ Position consists of offset and length. Offset is the start byte from the beginn
 
 You need to specify at least one keyword:
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
                                      ARRAY['PostgreSQL']);
@@ -39,9 +40,11 @@ SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
 --  {{14,10}}
 -- (1 row)
 ```
+{% endraw %}
 
 You can specify multiple keywords:
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
                                      ARRAY['Groonga', 'PostgreSQL']);
@@ -50,9 +53,11 @@ SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
 --  {{1,7},{14,10}}
 -- (1 row)
 ```
+{% endraw %}
 
 You can extract keywords from query by [`pgroonga.query_extract_keywords` function](pgroonga-query-extract-keywords.html):
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
                                      pgroonga.query_extract_keywords('Groonga PostgreSQL -extension'));
@@ -61,9 +66,11 @@ SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
 --  {{1,7},{14,10}}
 -- (1 row)
 ```
+{% endraw %}
 
 Characters are normalized:
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga + pglogical = replicatable!',
                                      ARRAY['Pg']);
@@ -72,9 +79,11 @@ SELECT pgroonga.match_positions_byte('PGroonga + pglogical = replicatable!',
 --  {{0,2},{11,2}}
 -- (1 row)
 ```
+{% endraw %}
 
 Multibyte characters are also supported:
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('10㌖先にある100ｷﾛグラムの米',
                                      ARRAY['キロ']);
@@ -83,6 +92,7 @@ SELECT pgroonga.match_positions_byte('10㌖先にある100ｷﾛグラムの米'
 --  {{2,3},{20,6}}
 -- (1 row)
 ```
+{% endraw %}
 
 ## See also
 

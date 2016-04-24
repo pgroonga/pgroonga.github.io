@@ -31,6 +31,7 @@ integer[2][] pgroonga.match_positions_byte(target, ARRAY[keyword1, keyword2, ...
 
 少なくとも1つキーワードを指定しなければいけません。
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
                                      ARRAY['PostgreSQL']);
@@ -39,9 +40,11 @@ SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
 --  {{14,10}}
 -- (1 row)
 ```
+{% endraw %}
 
 複数のキーワードを指定できます。
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
                                      ARRAY['Groonga', 'PostgreSQL']);
@@ -50,9 +53,11 @@ SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
 --  {{1,7},{14,10}}
 -- (1 row)
 ```
+{% endraw %}
 
 [`pgroonga.query_extract_keywords`関数](pgroonga-query-extract-keywords.html)を使うとクエリーからキーワードを抽出できます。
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
                                      pgroonga.query_extract_keywords('Groonga PostgreSQL -extension'));
@@ -61,9 +66,11 @@ SELECT pgroonga.match_positions_byte('PGroonga is a PostgreSQL extension.',
 --  {{1,7},{14,10}}
 -- (1 row)
 ```
+{% endraw %}
 
 文字は正規化されます。
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('PGroonga + pglogical = replicatable!',
                                      ARRAY['Pg']);
@@ -72,9 +79,11 @@ SELECT pgroonga.match_positions_byte('PGroonga + pglogical = replicatable!',
 --  {{0,2},{11,2}}
 -- (1 row)
 ```
+{% endraw %}
 
 マルチバイト文字にも対応しています。
 
+{% raw %}
 ```sql
 SELECT pgroonga.match_positions_byte('10㌖先にある100ｷﾛグラムの米',
                                      ARRAY['キロ']);
@@ -83,6 +92,7 @@ SELECT pgroonga.match_positions_byte('10㌖先にある100ｷﾛグラムの米'
 --  {{2,3},{20,6}}
 -- (1 row)
 ```
+{% endraw %}
 
 ## 参考
 

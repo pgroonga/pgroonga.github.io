@@ -5,6 +5,22 @@ layout: ja
 
 # おしらせ
 
+## 1.0.8: 2016-05-21 {#version-1-0-8}
+
+### 改良
+
+  * [Windows] Upgraded base PostgreSQL to 9.5.3 from 9.5.2
+
+  * [Windows] Upgraded bundled Groonga to 6.0.2.
+
+### 修正
+
+  * Fixed a bug that [`pgroonga.match_positions_byte`](../reference/functions/pgroonga-match-positions-byte.html) function returns wrong positions when text has 17 or more keywords. [Reported by 张建春]
+
+### 感謝
+
+  * 张建春
+
 ## 1.0.7: 2016-04-24 {#version-1-0-7}
 
 ### 改良

@@ -1,6 +1,5 @@
 ---
 title: "pgroonga.log_type parameter"
-layout: en
 ---
 
 # `pgroonga.log_type` parameter

@@ -1,6 +1,5 @@
 ---
 title: Install on CentOS
-layout: en
 ---
 
 # Install on CnetOS

@@ -1,6 +1,5 @@
 ---
 title: Ubuntuにインストール
-layout: ja
 ---
 
 # Ubuntuにインストール

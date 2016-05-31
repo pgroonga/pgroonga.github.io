@@ -1,6 +1,5 @@
 ---
 title: Tutorial
-layout: en
 ---
 
 # Tutorial

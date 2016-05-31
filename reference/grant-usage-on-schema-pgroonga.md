@@ -1,6 +1,5 @@
 ---
 title: GRANT USAGE ON SCHEME pgroonga
-layout: en
 ---
 
 # `GRANT USAGE ON SCHEME pgroonga`

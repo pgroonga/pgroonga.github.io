@@ -1,6 +1,5 @@
 ---
 title: pgroonga.highlight_html function
-layout: en
 ---
 
 # `pgroonga.highlight_html` function

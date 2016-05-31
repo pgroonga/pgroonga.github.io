@@ -1,6 +1,5 @@
 ---
 title: Windowsにインストール
-layout: ja
 ---
 
 # Windowsにインストール

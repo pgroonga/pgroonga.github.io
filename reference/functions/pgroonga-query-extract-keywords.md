@@ -1,6 +1,5 @@
 ---
 title: pgroonga.query_extract_keywords function
-layout: en
 ---
 
 # `pgroonga.query_extract_keywords` function

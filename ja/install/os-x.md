@@ -1,6 +1,5 @@
 ---
 title: OS Xにインストール
-layout: ja
 ---
 
 # OS Xにインストール

@@ -1,6 +1,5 @@
 ---
 title: pgroonga.command関数
-layout: ja
 ---
 
 # `pgroonga.command`関数

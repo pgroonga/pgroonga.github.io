@@ -18,3 +18,19 @@ kramdown:
 
 sass:
   sass_dir: assets/stylesheets
+
+defaults:
+  - scope:
+      path: "ja"
+    values:
+      path_prefix: /ja/
+      layout: "base"
+      language: ja
+      country: JP
+  - scope:
+      path: ""
+    values:
+      path_prefix: /
+      layout: "base"
+      language: en
+      country: US

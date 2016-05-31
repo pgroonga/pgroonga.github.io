@@ -1,6 +1,5 @@
 ---
 title: News
-layout: en
 ---
 
 # News

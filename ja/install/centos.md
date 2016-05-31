@@ -1,6 +1,5 @@
 ---
 title: CentOSにインストール
-layout: ja
 ---
 
 # CnetOSにインストール

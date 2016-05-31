@@ -1,6 +1,5 @@
 ---
 title: "pgroonga.log_levelパラメーター"
-layout: ja
 ---
 
 # `pgroonga.log_level`パラメーター

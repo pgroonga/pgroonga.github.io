@@ -1,6 +1,5 @@
 ---
 title: PGroonga versus GiST and GIN
-layout: en
 ---
 
 # PGroonga versus GiST and GIN

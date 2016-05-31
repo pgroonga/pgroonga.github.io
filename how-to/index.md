@@ -1,6 +1,5 @@
 ---
 title: How to
-layout: en
 ---
 
 # How to

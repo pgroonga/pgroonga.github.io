@@ -1,6 +1,5 @@
 ---
 title: pgroonga.query_extract_keywords関数
-layout: ja
 ---
 
 # `pgroonga.query_extract_keywords`関数

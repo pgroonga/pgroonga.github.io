@@ -1,6 +1,5 @@
 ---
 title: pgroonga.score function
-layout: en
 ---
 
 # `pgroonga.score` function

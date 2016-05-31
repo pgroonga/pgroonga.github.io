@@ -1,6 +1,5 @@
 ---
 title: 概要
-layout: ja
 ---
 
 # 概要

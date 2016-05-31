@@ -1,6 +1,5 @@
 ---
 title: "&?> operator for non jsonb types"
-layout: en
 ---
 
 # `&?>` operator for non jsonb types

@@ -1,6 +1,5 @@
 ---
 title: Install on Debian GNU/Linux
-layout: en
 ---
 
 # Install on Debian GNU/Linux

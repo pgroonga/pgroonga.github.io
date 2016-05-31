@@ -1,6 +1,5 @@
 ---
 title: "pgroonga.log_pathパラメーター"
-layout: ja
 ---
 
 # `pgroonga.log_path`パラメーター

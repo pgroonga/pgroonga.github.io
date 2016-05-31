@@ -1,6 +1,5 @@
 ---
 title: Uninstall
-layout: en
 ---
 
 # Uninstall

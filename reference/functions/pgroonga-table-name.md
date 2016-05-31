@@ -1,6 +1,5 @@
 ---
 title: pgroonga.table_name function
-layout: en
 ---
 
 # `pgroonga.table_name` function

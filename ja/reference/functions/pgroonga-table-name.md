@@ -1,6 +1,5 @@
 ---
 title: pgroonga.table_name関数
-layout: ja
 ---
 
 # `pgroonga.table_name`関数

@@ -1,6 +1,5 @@
 ---
 title: Reference manual
-layout: en
 ---
 
 # Reference manual

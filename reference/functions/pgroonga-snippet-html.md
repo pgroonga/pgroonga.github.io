@@ -1,6 +1,5 @@
 ---
 title: pgroonga.snippet_html function
-layout: en
 ---
 
 # `pgroonga.snippet_html` function

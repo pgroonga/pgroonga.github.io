@@ -1,6 +1,5 @@
 ---
 title: pgroonga.match_positions_byte function
-layout: en
 ---
 
 # `pgroonga.match_positions_byte` function

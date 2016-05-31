@@ -1,6 +1,5 @@
 ---
 title: "jsonb型以外の型用の&?演算子"
-layout: ja
 ---
 
 # `jsonb`型以外の型用の`&?`演算子

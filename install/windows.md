@@ -1,6 +1,5 @@
 ---
 title: Install on Windows
-layout: en
 ---
 
 # Install on Windows

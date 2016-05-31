@@ -1,6 +1,5 @@
 ---
 title: Install on OS X
-layout: en
 ---
 
 # Install on OS X

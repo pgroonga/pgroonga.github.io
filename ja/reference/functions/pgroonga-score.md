@@ -1,6 +1,5 @@
 ---
 title: pgroonga.score関数
-layout: ja
 ---
 
 # `pgroonga.score`関数

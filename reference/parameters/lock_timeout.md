@@ -1,6 +1,5 @@
 ---
 title: "pgroonga.lock_timeout parameter"
-layout: en
 ---
 
 # `pgroonga.lock_timeout` parameter

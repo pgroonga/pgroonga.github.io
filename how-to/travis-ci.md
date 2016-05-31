@@ -1,6 +1,5 @@
 ---
 title: How to use PGroonga on Travis CI
-layout: en
 ---
 
 # How to use PGroonga on Travis CI

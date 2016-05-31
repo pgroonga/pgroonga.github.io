@@ -1,5 +1,4 @@
 ---
-layout: ja
 ---
 
 <div class="jumbotron">

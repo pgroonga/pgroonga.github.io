@@ -1,6 +1,5 @@
 ---
 title: Install
-layout: en
 ---
 
 # Install

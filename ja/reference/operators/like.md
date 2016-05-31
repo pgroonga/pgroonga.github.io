@@ -1,6 +1,5 @@
 ---
 title: LIKE演算子
-layout: ja
 ---
 
 # `LIKE`演算子

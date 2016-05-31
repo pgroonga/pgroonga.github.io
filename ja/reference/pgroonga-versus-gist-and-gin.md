@@ -1,6 +1,5 @@
 ---
 title: PGroonga対GiST・GIN
-layout: ja
 ---
 
 # PGroonga対GiST・GIN

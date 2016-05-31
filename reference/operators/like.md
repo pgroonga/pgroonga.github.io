@@ -1,6 +1,5 @@
 ---
 title: LIKE operator
-layout: en
 ---
 
 # `LIKE` operator

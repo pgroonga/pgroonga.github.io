@@ -1,6 +1,5 @@
 ---
 title: pgroonga.highlight_html関数
-layout: ja
 ---
 
 # `pgroonga.highlight_html`関数

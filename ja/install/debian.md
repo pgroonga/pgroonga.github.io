@@ -1,6 +1,5 @@
 ---
 title: Debian GNU/Linuxにインストール
-layout: ja
 ---
 
 # Debian GNU/Linuxにインストール

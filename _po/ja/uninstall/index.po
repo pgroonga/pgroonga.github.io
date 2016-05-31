@@ -11,7 +11,6 @@ msgstr ""
 msgid ""
 "---\n"
 "title: Uninstall\n"
-"layout: en\n"
 "---"
 msgstr ""
 

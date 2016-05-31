@@ -1,6 +1,5 @@
 ---
 title: pgroonga.snippet_html関数
-layout: ja
 ---
 
 # `pgroonga.snippet_html`関数

@@ -1,6 +1,5 @@
 ---
 title: pgroonga.match_positions_byte関数
-layout: ja
 ---
 
 # `pgroonga.match_positions_byte`関数

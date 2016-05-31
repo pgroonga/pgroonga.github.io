@@ -1,6 +1,5 @@
 ---
 title: Install from source
-layout: en
 ---
 
 # Install from source

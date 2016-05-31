@@ -1,6 +1,5 @@
 ---
 title: "@@ operator for jsonb type"
-layout: en
 ---
 
 # `@@` operator for `jsonb` type

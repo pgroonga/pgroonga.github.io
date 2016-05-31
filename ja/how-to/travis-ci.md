@@ -1,6 +1,5 @@
 ---
 title: Travis CI上でPGroongaを使う方法
-layout: ja
 ---
 
 # Travis CI上でPGroongaを使う方法

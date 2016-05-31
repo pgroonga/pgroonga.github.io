@@ -1,6 +1,5 @@
 ---
 title: Overview
-layout: en
 ---
 
 # Overview

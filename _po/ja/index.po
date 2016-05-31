@@ -10,11 +10,9 @@ msgstr ""
 
 msgid ""
 "---\n"
-"layout: en\n"
 "---"
 msgstr ""
 "---\n"
-"layout: ja\n"
 "---"
 
 msgid ""

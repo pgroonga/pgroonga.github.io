@@ -1,6 +1,5 @@
 ---
 title: jsonbサポート
-layout: ja
 ---
 
 # `jsonb`サポート

@@ -1,6 +1,5 @@
 ---
 title: "pgroonga.log_level parameter"
-layout: en
 ---
 
 # `pgroonga.log_level` parameter

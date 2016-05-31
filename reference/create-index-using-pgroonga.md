@@ -1,6 +1,5 @@
 ---
 title: CREATE INDEX USING pgroonga
-layout: en
 ---
 
 # `CREATE INDEX USING pgroonga`

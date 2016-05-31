@@ -1,6 +1,5 @@
 ---
 title: Install on Ubuntu
-layout: en
 ---
 
 # Install on Ubuntu

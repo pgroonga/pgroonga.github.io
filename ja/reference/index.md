@@ -66,6 +66,12 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
     * [`&^~`演算子](operators/prefix-rk-search-v2.html)
 
+  * `pgroonga.text_array_term_search_ops_v2`演算子クラス
+
+    * [`&^`演算子](operators/prefix-search-v2.html)
+
+    * [`&^~`演算子](operators/prefix-rk-search-v2.html)
+
 ## 関数
 
   * [`pgroonga.score`関数](functions/pgroonga-score.html)

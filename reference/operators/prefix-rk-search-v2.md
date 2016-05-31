@@ -20,7 +20,7 @@ Prefix RK search is useful for implementing input completion.
 column &^~ prefix
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type or `text[]` type.
 
 `prefix` is a prefix to be found. It's `text` type.
 
@@ -33,55 +33,59 @@ The operator returns `true` when the `column` value starts with `prefix`.
 Here are sample schema and data for examples:
 
 ```sql
-CREATE TABLE tag_readings (
-  name text,
-  katakana text,
-  PRIMARY KEY (name, katakana)
+CREATE TABLE tags (
+  name text PRIMARY KEY,
+  readings text[]
 );
 
-CREATE INDEX pgroonga_tag_reading_katakana_index ON tag_readings
-  USING pgroonga (katakana pgroonga.text_term_search_ops_v2);
+CREATE INDEX pgroonga_tags_index ON tags
+  USING pgroonga (readings pgroonga.text_array_term_search_ops_v2);
 ```
 
+Note: If you want to use prefix RK search against `text` type, use `pgroonga.text_term_search_ops_v2` operator class instead of `pgroonga.text_array_term_search_ops_v2` operator class.
+
 ```sql
-INSERT INTO tag_readings VALUES ('PostgreSQL', 'ポストグレスキューエル');
-INSERT INTO tag_readings VALUES ('PostgreSQL', 'ポスグレ');
-INSERT INTO tag_readings VALUES ('Groonga',    'グルンガ');
-INSERT INTO tag_readings VALUES ('PGroonga',   'ピージールンガ');
-INSERT INTO tag_readings VALUES ('pglogical',  'ピージーロジカル');
+INSERT INTO tags VALUES ('PostgreSQL',
+                         ARRAY['ポストグレスキューエル', 'ポスグレ', 'ピージー']);
+INSERT INTO tags VALUES ('Groonga',    ARRAY['グルンガ']);
+INSERT INTO tags VALUES ('PGroonga',   ARRAY['ピージールンガ']);
+INSERT INTO tags VALUES ('pglogical',  ARRAY['ピージーロジカル']);
 ```
 
 You can perform prefix RK search with prefix in Romaji by `&^~` operator:
 
 ```sql
-SELECT * FROM tag_readings WHERE katakana &^~ 'pi-ji-';
---    name    |     katakana     
--- -----------+------------------
---  PGroonga  | ピージールンガ
---  pglogical | ピージーロジカル
--- (2 rows)
+SELECT * FROM tags WHERE readings &^~ 'pi-ji-';
+--     name    |                  readings                  
+-- ------------+--------------------------------------------
+--  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
+--  PGroonga   | {ピージールンガ}
+--  pglogical  | {ピージーロジカル}
+-- (3 rows)
 ```
 
 You can also use Hiragana for prefix:
 
 ```sql
-SELECT * FROM tag_readings WHERE katakana &^~ 'ぴーじー';
---    name    |     katakana     
--- -----------+------------------
---  PGroonga  | ピージールンガ
---  pglogical | ピージーロジカル
--- (2 rows)
+SELECT * FROM tags WHERE readings &^~ 'ぴーじー';
+--     name    |                  readings                  
+-- ------------+--------------------------------------------
+--  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
+--  PGroonga   | {ピージールンガ}
+--  pglogical  | {ピージーロジカル}
+-- (3 rows)
 ```
 
 You can also use Katakana for prefix:
 
 ```sql
-SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
---    name    |     katakana     
--- -----------+------------------
---  PGroonga  | ピージールンガ
---  pglogical | ピージーロジカル
--- (2 rows)
+SELECT * FROM tags WHERE readings &^~ 'ピージー';
+--     name    |                  readings                  
+-- ------------+--------------------------------------------
+--  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
+--  PGroonga   | {ピージールンガ}
+--  pglogical  | {ピージーロジカル}
+-- (3 rows)
 ```
 
 ## See also

@@ -1,11 +1,11 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 1.0.8
-pgroonga_release_date: 2016-05-21
+pgroonga_version: 1.0.9
+pgroonga_release_date: 2016-06-02
 copyright_year: 2015-2016
 postgresql_short_version: 9.5
-windows_postgresql_version: 9.5.2-1
+windows_postgresql_version: 9.5.3-1
 windows_postgresql_short_version: 9.5
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
 description:

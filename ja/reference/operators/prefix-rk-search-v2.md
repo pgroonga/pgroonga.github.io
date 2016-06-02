@@ -20,7 +20,7 @@ title: "&^~演算子"
 column &^~ prefix
 ```
 
-`column`は検索対象のカラムです。`text`型か`text[]`型です。
+`column`は検索対象のカラムです。`text`型です。
 
 `prefix`は含まれているべきプレフィックスです。`text`型です。
 
@@ -33,61 +33,61 @@ column &^~ prefix
 例に使うサンプルスキーマとデータは次の通りです。
 
 ```sql
-CREATE TABLE tags (
-  name text PRIMARY KEY,
-  readings text[]
+CREATE TABLE tag_readings (
+  name text,
+  katakana text,
+  PRIMARY KEY (name, katakana)
 );
 
-CREATE INDEX pgroonga_tags_index ON tags
-  USING pgroonga (readings pgroonga.text_array_term_search_ops_v2);
+CREATE INDEX pgroonga_tag_reading_katakana_index ON tag_readings
+  USING pgroonga (katakana pgroonga.text_term_search_ops_v2);
 ```
 
-注意：もし`text`型に対して前方一致RK検索を使いたい場合は、`pgroonga.text_array_term_search_ops_v2`演算子クラスではなく、`pgroonga.text_term_search_ops_v2`演算子クラスを使ってください。
-
 ```sql
-INSERT INTO tags VALUES ('PostgreSQL',
-                         ARRAY['ポストグレスキューエル', 'ポスグレ', 'ピージー']);
-INSERT INTO tags VALUES ('Groonga',    ARRAY['グルンガ']);
-INSERT INTO tags VALUES ('PGroonga',   ARRAY['ピージールンガ']);
-INSERT INTO tags VALUES ('pglogical',  ARRAY['ピージーロジカル']);
+INSERT INTO tag_readings VALUES ('PostgreSQL', 'ポストグレスキューエル');
+INSERT INTO tag_readings VALUES ('PostgreSQL', 'ポスグレ');
+INSERT INTO tag_readings VALUES ('Groonga',    'グルンガ');
+INSERT INTO tag_readings VALUES ('PGroonga',   'ピージールンガ');
+INSERT INTO tag_readings VALUES ('pglogical',  'ピージーロジカル');
 ```
 
 `&^~`演算子を使うとローマ字でプレフィックスを指定して前方一致RK検索を実行できます。
 
 ```sql
-SELECT * FROM tags WHERE readings &^~ 'pi-ji-';
---     name    |                  readings                  
--- ------------+--------------------------------------------
---  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
---  PGroonga   | {ピージールンガ}
---  pglogical  | {ピージーロジカル}
--- (3 rows)
+SELECT * FROM tag_readings WHERE katakana &^~ 'pi-ji-';
+--    name    |     katakana     
+-- -----------+------------------
+--  PGroonga  | ピージールンガ
+--  pglogical | ピージーロジカル
+-- (2 rows)
 ```
 
 プレフィックスにひらがなを使うこともできます。
 
 ```sql
-SELECT * FROM tags WHERE readings &^~ 'ぴーじー';
---     name    |                  readings                  
--- ------------+--------------------------------------------
---  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
---  PGroonga   | {ピージールンガ}
---  pglogical  | {ピージーロジカル}
--- (3 rows)
+SELECT * FROM tag_readings WHERE katakana &^~ 'ぴーじー';
+--    name    |     katakana     
+-- -----------+------------------
+--  PGroonga  | ピージールンガ
+--  pglogical | ピージーロジカル
+-- (2 rows)
 ```
 
 プレフィックスにカタカナを使うこともできます。
 
 ```sql
-SELECT * FROM tags WHERE readings &^~ 'ピージー';
---     name    |                  readings                  
--- ------------+--------------------------------------------
---  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
---  PGroonga   | {ピージールンガ}
---  pglogical  | {ピージーロジカル}
--- (3 rows)
+SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
+--    name    |     katakana     
+-- -----------+------------------
+--  PGroonga  | ピージールンガ
+--  pglogical | ピージーロジカル
+-- (2 rows)
 ```
 
 ## 参考
 
   * [`&^`演算子](prefix-search-v2.html)
+
+  * [`&^>`演算子](prefix-search-contain-v2.html)
+
+  * [`&^~>`演算子](prefix-rk-search-contain-v2.html)

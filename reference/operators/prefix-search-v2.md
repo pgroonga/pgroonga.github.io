@@ -18,7 +18,7 @@ Prefix search is useful for implementing input completion.
 column &^ prefix
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type.
 
 `prefix` is a prefix to be found. It's `text` type.
 

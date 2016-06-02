@@ -68,9 +68,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * `pgroonga.text_array_term_search_ops_v2` operator class
 
-    * [`&^` operator](operators/prefix-search-v2.html)
+    * [`&^>` operator](operators/prefix-search-contain-v2.html)
 
-    * [`&^~` operator](operators/prefix-rk-search-v2.html)
+    * [`&^~>` operator](operators/prefix-rk-search-contain-v2.html)
 
 ## Functions
 

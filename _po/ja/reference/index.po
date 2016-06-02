@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-05-31 23:57+0900\n"
+"PO-Revision-Date: 2016-06-02 10:02+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -138,6 +138,12 @@ msgstr "    * [`&^~`演算子](operators/prefix-rk-search-v2.html)"
 
 msgid "  * `pgroonga.text_array_term_search_ops_v2` operator class"
 msgstr "  * `pgroonga.text_array_term_search_ops_v2`演算子クラス"
+
+msgid "    * [`&^>` operator](operators/prefix-search-contain-v2.html)"
+msgstr "    * [`&^>`演算子](operators/prefix-search-contain-v2.html)"
+
+msgid "    * [`&^~>` operator](operators/prefix-rk-search-contain-v2.html)"
+msgstr "    * [`&^~>`演算子](operators/prefix-rk-search-contain-v2.html)"
 
 msgid "## Functions"
 msgstr "## 関数"

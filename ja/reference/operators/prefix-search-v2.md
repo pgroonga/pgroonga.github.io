@@ -18,7 +18,7 @@ title: "&^演算子"
 column &^ prefix
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。`text`型です。
 
 `prefix`は含まれているべきプレフィックスです。`text`型です。
 

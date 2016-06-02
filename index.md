@@ -82,3 +82,8 @@ Bundled software is released under different license. Here are bundled software 
     * Copyright: `Copyright (c) 2011-2015, Yann Collet`
     * Detail for libraries: `vendor/groonga/vendor/lz4-r131/lib/LICENSE`
     * Detail for programs: `vendor/groonga/vendor/lz4-r131/programs/COPYING`
+
+  * [msgpack-c](https://github.com/msgpack/msgpack-c) (bundled only for Windows package)
+    * Boost Software License Version 1.0
+    * Copyright: `Copyright (C) 2008-2015 FURUHASHI Sadayuki`
+    * Detail: [`vendor/groonga/vendor/msgpack-1.4.1/LICENSE_1_0.txt`](https://github.com/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt)

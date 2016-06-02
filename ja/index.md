@@ -80,3 +80,8 @@ PGroongaのライセンスは[PostgreSQLライセンス](http://opensource.org/l
     * 著作権者: `Copyright (c) 2011-2015, Yann Collet`
     * ライブラリーのライセンス詳細: `vendor/groonga/vendor/lz4-r131/lib/LICENSE`
     * プログラムのライセンス詳細: `vendor/groonga/vendor/lz4-r131/programs/COPYING`
+
+  * [msgpack-c](https://github.com/msgpack/msgpack-c)（Windows用のパッケージにだけバンドルされている）
+    * Boost Software License Version 1.0
+    * 著作権者: `Copyright (C) 2008-2015 FURUHASHI Sadayuki`
+    * 詳細: [`vendor/groonga/vendor/msgpack-1.4.1/LICENSE_1_0.txt`](https://github.com/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt)

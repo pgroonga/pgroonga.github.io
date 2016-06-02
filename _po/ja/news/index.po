@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-04-25 00:05+0900\n"
+"PO-Revision-Date: 2016-06-02 10:02+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,31 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.0.8: 2016-05-21 {#version-1-0-8}"
+msgid "## 1.0.9: 2016-06-02 {#version-1-0-9}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Supported PostgreSQL 9.6beta1."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga.text_array_term_search_ops_v2`] Supported prefix search against"
+" `text[]` by [`&^>`](../reference/operators/prefix-search-contain-v2.html)."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga.text_array_term_search_ops_v2`] Supported prefix RK search agai"
+"nst `text[]` by [`&^~>`](../reference/operators/prefix-rk-search-contain-v2.ht"
+"ml)."
+msgstr ""
+
+msgid "  * [Windows] Upgraded bundled Groonga to 6.0.3."
+msgstr ""
+
+msgid "## 1.0.8: 2016-05-21 {#version-1-0-8}"
+msgstr ""
 
 msgid "  * [Windows] Upgraded base PostgreSQL to 9.5.3 from 9.5.2"
 msgstr ""

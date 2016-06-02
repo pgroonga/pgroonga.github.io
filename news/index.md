@@ -4,6 +4,18 @@ title: News
 
 # News
 
+## 1.0.9: 2016-06-02 {#version-1-0-9}
+
+### Improvements
+
+  * Supported PostgreSQL 9.6beta1.
+
+  * [`pgroonga.text_array_term_search_ops_v2`] Supported prefix search against `text[]` by [`&^>`](../reference/operators/prefix-search-contain-v2.html).
+
+  * [`pgroonga.text_array_term_search_ops_v2`] Supported prefix RK search against `text[]` by [`&^~>`](../reference/operators/prefix-rk-search-contain-v2.html).
+
+  * [Windows] Upgraded bundled Groonga to 6.0.3.
+
 ## 1.0.8: 2016-05-21 {#version-1-0-8}
 
 ### Improvements

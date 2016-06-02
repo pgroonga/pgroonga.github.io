@@ -4,11 +4,13 @@ title: "&^~>演算子"
 
 # `&^~>`演算子
 
+1.0.9で追加。
+
 ## 概要
 
 この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。
 
-`&^~>`演算子は[前方一致RK検索](http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html)を実行します。Rはローマ字でKは仮名（ひらがなとカタカナ）という意味です。<
+`&^~>`演算子は[前方一致RK検索](http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html)を実行します。Rはローマ字でKは仮名（ひらがなとカタカナ）という意味です。
 
 前方一致RK検索は日本語を検索するときに便利です。
 

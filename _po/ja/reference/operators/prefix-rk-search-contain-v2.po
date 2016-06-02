@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-06-02 09:57+0900\n"
+"PO-Revision-Date: 2016-06-02 11:18+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,6 +20,9 @@ msgstr ""
 msgid "# `&^~>` operator"
 msgstr "# `&^~>`演算子"
 
+msgid "Since 1.0.9."
+msgstr "1.0.9で追加。"
+
 msgid "## Summary"
 msgstr "## 概要"
 
@@ -35,7 +38,7 @@ msgid ""
 "Kana)."
 msgstr ""
 "`&^~>`演算子は[前方一致RK検索](http://groonga.org/ja/docs/reference/operations/prefix_rk"
-"_search.html)を実行します。Rはローマ字でKは仮名（ひらがなとカタカナ）という意味です。<"
+"_search.html)を実行します。Rはローマ字でKは仮名（ひらがなとカタカナ）という意味です。"
 
 msgid "Prefix RK search is useful for Japanese."
 msgstr "前方一致RK検索は日本語を検索するときに便利です。"
@@ -53,7 +56,7 @@ msgid ""
 msgstr ""
 
 msgid "`column` is a column to be searched. It's `text[]` type."
-msgstr "`column`は検索対象のカラムです。`text[]`型です。<"
+msgstr "`column`は検索対象のカラムです。`text[]`型です。"
 
 msgid "`prefix` is a prefix to be found. It's `text` type."
 msgstr "`prefix`は含まれているべきプレフィックスです。`text`型です。"

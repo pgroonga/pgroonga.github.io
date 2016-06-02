@@ -4,6 +4,8 @@ title: "&^> operator"
 
 # `&^>` operator
 
+Since 1.0.9.
+
 ## Summary
 
 This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.

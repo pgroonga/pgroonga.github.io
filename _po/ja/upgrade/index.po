@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-06-02 11:40+0900\n"
+"PO-Revision-Date: 2016-06-06 11:11+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,6 +123,12 @@ msgstr ""
 
 msgid "## Compatible case {#compatible-case}"
 msgstr "## 互換性がある場合 {#compatible-case}"
+
+msgid "  1. Disconnect from all databases that use PGroonga."
+msgstr "  1. PGroongaを使っているすべてのデータベースへの接続を切断します。"
+
+msgid "  1. Connect to a database that uses PGroonga."
+msgstr "  1. PGroongaを使っているデータベースに接続します。"
 
 msgid "  1. Upgrade PGroonga extension."
 msgstr "  1. PGroonga拡張をアップグレードします。"

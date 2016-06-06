@@ -66,7 +66,11 @@ PGroongaを使ってインデックスを作るには[`CREATE INDEX USING pgroon
 
 アップグレード手順は次の通りです。
 
+  1. PGroongaを使っているすべてのデータベースへの接続を切断します。
+
   1. PGroongaのバイナリーをアップグレードします。
+
+  1. PGroongaを使っているデータベースに接続します。
 
   1. PGroonga拡張をアップグレードします。
 

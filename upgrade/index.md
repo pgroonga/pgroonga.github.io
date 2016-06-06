@@ -66,7 +66,11 @@ Use [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.htm
 
 Here are steps to upgrade:
 
+  1. Disconnect from all databases that use PGroonga.
+
   1. Upgrade PGroonga binary.
+
+  1. Connect to a database that uses PGroonga.
 
   1. Upgrade PGroonga extension.
 

@@ -4,6 +4,12 @@ title: News
 
 # News
 
+## 1.1.0: 2016-06-06 {#version-1-1-0}
+
+### Improvements
+
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.4.
+
 ## 1.0.9: 2016-06-02 {#version-1-0-9}
 
 ### Improvements

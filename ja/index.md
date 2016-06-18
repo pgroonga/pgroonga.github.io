@@ -46,6 +46,8 @@ PostgreSQLはアルファベットと数値だけを使った言語の全文検�
 
   * [コミュニティー](community/): PGroongaのコミュニティーの紹介。
 
+  * [ユーザー](users/): PGroongaユーザー。
+
 ## ライセンス
 
 PGroongaのライセンスは[PostgreSQLライセンス](http://opensource.org/licenses/postgresql)です。PostgreSQLはBSDライセンス、MITライセンスと似たライセンスです

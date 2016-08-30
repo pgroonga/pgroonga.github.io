@@ -4,6 +4,27 @@ title: News
 
 # News
 
+## 1.1.1: 2016-08-30 {#version-1-1-1}
+
+### Improvements
+
+  * Supported estimation. It improves performance.
+
+  * Updated bundled xxHash to 0.6.2.
+
+  * Added [`pgroonga.match_positions_character`] function that returns match positions in character.
+
+  * Added [`pgroonga.flush`] function that flushes buffered changes in memory.
+
+### Fixes
+
+  * Fixed a crash bug when background worker is used.
+    [GitHub#17][Reported by svsool]
+
+### Thanks
+
+  * svsool
+
 ## 1.1.0: 2016-06-06 {#version-1-1-0}
 
 ### Improvements

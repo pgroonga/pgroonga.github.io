@@ -18,8 +18,7 @@ title: News
 
 ### Fixes
 
-  * Fixed a crash bug when background worker is used.
-    [GitHub#17][Reported by svsool]
+  * Fixed a crash bug when background worker is used. [GitHub#17][Reported by svsool]
 
   * Fixed a bug that needless recheck is ran on bitmap heap scan.
 

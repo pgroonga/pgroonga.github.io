@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-06-06 15:48+0900\n"
+"PO-Revision-Date: 2016-08-30 23:46+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,45 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.1.0: 2016-06-06 {#version-1-1-0}"
+msgid "## 1.1.1: 2016-08-30 {#version-1-1-1}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Supported estimation. It improves performance."
+msgstr "  * ヒット件数の見積に対応しました。これにより性能が向上します。"
+
+msgid "  * Updated bundled xxHash to 0.6.2."
+msgstr "  * バンドルしているxxHashを0.6.2にアップデートしました。"
+
+msgid ""
+"  * Added [`pgroonga.match_positions_character`] function that returns match p"
+"ositions in character."
+msgstr "  * 文字単位でのマッチした位置を返す[`pgroonga.match_positions_character`]関数を追加しました。"
+
+msgid "  * Added [`pgroonga.flush`] function that flushes buffered changes in memory."
+msgstr "  * メモリー上にバッファーされている変更を書き出す[`pgroonga.flush`]関数を追加しました。"
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a crash bug when background worker is used. [GitHub#17][Reported by "
+"svsool]"
+msgstr "  * バックグラウンドワーカーが使われているときにクラッシュする問題を修正しました。[GitHub#17][svsoolさんが報告]"
+
+msgid "  * Fixed a bug that needless recheck is ran on bitmap heap scan."
+msgstr "  * ビットマップヒープスキャン実行時に不必要なrecheckが走ることがある問題を修正しました。"
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * svsool"
+msgstr "  * svsoolさん"
+
+msgid "## 1.1.0: 2016-06-06 {#version-1-1-0}"
+msgstr ""
 
 msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.4."
 msgstr ""
@@ -58,17 +92,11 @@ msgstr ""
 msgid "  * [Windows] Upgraded bundled Groonga to 6.0.2."
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * Fixed a bug that [`pgroonga.match_positions_byte`](../reference/functions/"
 "pgroonga-match-positions-byte.html) function returns wrong positions when text"
 " has 17 or more keywords. [Reported by 张建春]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * 张建春"
 msgstr ""

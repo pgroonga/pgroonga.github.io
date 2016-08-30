@@ -86,6 +86,8 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.match_positions_byte` function](functions/pgroonga-match-positions-byte.html)
 
+  * [`pgroonga.match_positions_character` function](functions/pgroonga-match-positions-character.html)
+
   * [`pgroonga.query_extract_keywords` function](functions/pgroonga-query-extract-keywords.html)
 
 ## Parameters

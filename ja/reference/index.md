@@ -86,6 +86,8 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`pgroonga.match_positions_byte`関数](functions/pgroonga-match-positions-byte.html)
 
+  * [`pgroonga.match_positions_character`関数](functions/pgroonga-match-positions-character.html)
+
   * [`pgroonga.query_extract_keywords`関数](functions/pgroonga-query-extract-keywords.html)
 
 ## パラメーター

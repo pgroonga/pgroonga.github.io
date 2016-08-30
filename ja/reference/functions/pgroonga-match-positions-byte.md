@@ -8,7 +8,9 @@ title: pgroonga.match_positions_byte関数
 
 ## 概要
 
-`pgroonga.match_positions_byte`関数は指定したテキスト中にある指定したキーワードの位置を返します。HTML出力用にキーワードをハイライトしたいなら[`pgroonga.snippet_html`関数](pgroonga-snippet-html.html)または[`pgroonga.highlight_html`関数](pgroonga-highlight-html.html)の方が適しているでしょう。`pgroonga.match_positions_byte`関数は高度な用途向けです。
+`pgroonga.match_positions_byte`関数は指定したテキスト中にある指定したキーワードの位置を返します。単位はバイトです。HTML出力用にキーワードをハイライトしたいなら[`pgroonga.snippet_html`関数](pgroonga-snippet-html.html)または[`pgroonga.highlight_html`関数](pgroonga-highlight-html.html)の方が適しているでしょう。`pgroonga.match_positions_byte`関数は高度な用途向けです。
+
+文字単位バージョンが欲しい場合は代わりに[`pgroonga.match_positions_character`](pgroonga-match-positions-character.html)を参照してください。
 
 ## 構文
 
@@ -94,6 +96,8 @@ SELECT pgroonga.match_positions_byte('10㌖先にある100ｷﾛグラムの米'
 {% endraw %}
 
 ## 参考
+
+  * [`pgroonga.match_positions_character`関数](pgroonga-match-positions-character.html)
 
   * [`pgroonga.snippet_html`関数](pgroonga-query-snippet-html.html)
 

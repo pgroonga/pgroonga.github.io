@@ -10,6 +10,8 @@ Since 1.0.7.
 
 `pgroonga.match_positions_byte` function returns positions of the specified keywords in the specified text. The unit of position is byte. If you want to highlight keywords for HTML output, [`pgroonga.snippet_html` function](pgroonga-snippet-html.html) or [`pgroonga.highlight_html` function](pgroonga-highlight-html.html) will be suitable. `pgroonga.match_positions_byte` function is for advanced use.
 
+If you want in character version, see [`pgroonga.match_positions_character`](pgroonga-match-positions-character.html) instead.
+
 ## Syntax
 
 Here is the syntax of this function:
@@ -94,6 +96,8 @@ SELECT pgroonga.match_positions_byte('10㌖先にある100ｷﾛグラムの米'
 {% endraw %}
 
 ## See also
+
+  * [`pgroonga.match_positions_character` function](pgroonga-match-positions-character.html)
 
   * [`pgroonga.snippet_html` function](pgroonga-query-snippet-html.html)
 

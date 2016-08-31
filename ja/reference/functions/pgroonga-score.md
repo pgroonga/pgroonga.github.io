@@ -54,8 +54,6 @@ SELECT *, pgroonga.score(score_memos)
 
 現在のところ、スコアーの値は「何個キーワードが含まれていたか」（TF、Term Frequency）です。Groongaはどのようにスコアーを計算するかをカスタマイズすることができます。しかし、PGroongaはまだその機能をサポートしていません。
 
-## 使い方
-
 [チュートリアルの中の例](../../tutorial/#score)を参考にしてください。
 
 ## 参考

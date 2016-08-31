@@ -54,8 +54,6 @@ If `pgroonga.score` function returns `0.0` unexpectedly, confirm the followings:
 
 Score is "how many keywords are included" (TF, Term Frequency) for now. Groonga supports customizing how to score. But PGroonga doesn't support yet it for now.
 
-## Usage
-
 See [examples in tutorial](../../tutorial/#score).
 
 ## See also

@@ -4,7 +4,7 @@ title: News
 
 # News
 
-## 1.1.1: 2016-08-30 {#version-1-1-1}
+## 1.1.1: 2016-08-31 {#version-1-1-1}
 
 ### Improvements
 

@@ -4,7 +4,7 @@ title: おしらせ
 
 # おしらせ
 
-## 1.1.1: 2016-08-30 {#version-1-1-1}
+## 1.1.1: 2016-08-31 {#version-1-1-1}
 
 ### 改良
 
@@ -12,9 +12,9 @@ title: おしらせ
 
   * バンドルしているxxHashを0.6.2にアップデートしました。
 
-  * 文字単位でのマッチした位置を返す[`pgroonga.match_positions_character`]関数を追加しました。
+  * 文字単位でのマッチした位置を返す[`pgroonga.match_positions_character`](../reference/functions/pgroonga-match-positions-character.html)関数を追加しました。
 
-  * メモリー上にバッファーされている変更を書き出す[`pgroonga.flush`]関数を追加しました。
+  * メモリー上にバッファーされている変更を書き出す[`pgroonga.flush`](../reference/functions/pgroonga-flush.html)関数を追加しました。
 
 ### 修正
 

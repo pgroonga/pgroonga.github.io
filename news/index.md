@@ -12,9 +12,9 @@ title: News
 
   * Updated bundled xxHash to 0.6.2.
 
-  * Added [`pgroonga.match_positions_character`] function that returns match positions in character.
+  * Added [`pgroonga.match_positions_character`](../reference/functions/pgroonga-match-positions-character.html) function that returns match positions in character.
 
-  * Added [`pgroonga.flush`] function that flushes buffered changes in memory.
+  * Added [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) function that flushes buffered changes in memory.
 
 ### Fixes
 

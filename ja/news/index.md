@@ -8,6 +8,8 @@ title: おしらせ
 
 ### 改良
 
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.8.
+
   * ヒット件数の見積に対応しました。これにより性能が向上します。
 
   * バンドルしているxxHashを0.6.2にアップデートしました。

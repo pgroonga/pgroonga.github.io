@@ -8,6 +8,8 @@ title: News
 
 ### Improvements
 
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.8.
+
   * Supported estimation. It improves performance.
 
   * Updated bundled xxHash to 0.6.2.

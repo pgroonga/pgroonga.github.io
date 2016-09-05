@@ -26,6 +26,9 @@ msgstr ""
 msgid "### Improvements"
 msgstr "### 改良"
 
+msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.8."
+msgstr ""
+
 msgid "  * Supported estimation. It improves performance."
 msgstr "  * ヒット件数の見積に対応しました。これにより性能が向上します。"
 

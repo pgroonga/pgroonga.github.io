@@ -256,7 +256,7 @@ TODO
   * 文字列型に対してPGroongaを使う方法
 
 
-### 文字列型以外にの型に対してPGroongaを使う方法 {#equal-not-string}
+### 文字列型以外の型に対してPGroongaを使う方法 {#equal-not-string}
 
 数値型のように文字列型以外の型にPGroongaを使うことができます。対象の型に対して等価条件と比較条件を使うことができます。
 

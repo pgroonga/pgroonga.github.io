@@ -4,7 +4,7 @@ title: News
 
 # News
 
-## 1.1.2: 2016-09-29 {#version-1-1-2}
+## 1.1.3: 2016-09-29 {#version-1-1-2}
 
 ### Improvements
 
@@ -20,7 +20,25 @@ title: News
 
   * [[Windows](../install/windows.html)] Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pgroonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Dinh Anh Duy]
 
-## 1.1.1: 2016-08-31 {#version-1-1-1}
+### Thanks
+
+  * Truong Dinh Anh Duy
+
+## 1.1.2: 2016-09-29 {#version-1-1-2}
+
+### Improvements
+
+  * Supported `IN` by integer. [GitHub#21][Reported by yongxianggao-chanjet]
+
+### Fixes
+
+  * Fixed a bug that PGroonga doesn't work with PostgreSQL 9.3. [GitHub#22][Reported by Tim Abbott]
+
+### Thanks
+
+  * yongxianggao-chanjet
+
+  * Tim Abbott
 
 ### Improvements
 

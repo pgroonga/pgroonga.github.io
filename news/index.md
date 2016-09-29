@@ -24,7 +24,7 @@ title: News
 
   * Truong Dinh Anh Duy
 
-## 1.1.2: 2016-09-29 {#version-1-1-2}
+## 1.1.2: 2016-09-07 {#version-1-1-2}
 
 ### Improvements
 

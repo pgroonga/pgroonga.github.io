@@ -20,6 +20,8 @@ title: News
 
   * [[Windows](../install/windows.html)] Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pgroonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Dinh Anh Duy]
 
+  * [[Windows](../install/windows.html)] Fixed a but that `SELECT` may be crashed.
+
 ### Thanks
 
   * Truong Dinh Anh Duy

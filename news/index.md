@@ -4,7 +4,7 @@ title: News
 
 # News
 
-## 1.1.3: 2016-09-29 {#version-1-1-2}
+## 1.1.3: 2016-09-29 {#version-1-1-3}
 
 ### Improvements
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-09-05 11:13+0900\n"
+"PO-Revision-Date: 2016-09-05 17:39+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,63 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.1.1: 2016-08-31 {#version-1-1-1}"
+msgid "## 1.1.3: 2016-09-29 {#version-1-1-2}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.9."
+msgstr ""
+
+msgid "  * Supported `Windows-1252` encoding."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush."
+"html) function doesn't work against JSONB."
+msgstr ""
+
+msgid "  * Fixed a bug that searching against JSONB may return wrong result."
+msgstr ""
+
+msgid ""
+"  * [[Windows](../install/windows.html)] Fixed a bug that [`pgroonga.flush`](."
+"./reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pg"
+"roonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Di"
+"nh Anh Duy]"
+msgstr ""
+
+msgid ""
+"  * [[Windows](../install/windows.html)] Fixed a but that `SELECT` may be cras"
+"hed."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Truong Dinh Anh Duy"
+msgstr ""
+
+msgid "## 1.1.2: 2016-09-07 {#version-1-1-2}"
+msgstr ""
+
+msgid "  * Supported `IN` by integer. [GitHub#21][Reported by yongxianggao-chanjet]"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that PGroonga doesn't work with PostgreSQL 9.3. [GitHub#22][Re"
+"ported by Tim Abbott]"
+msgstr ""
+
+msgid "  * yongxianggao-chanjet"
+msgstr ""
+
+msgid "  * Tim Abbott"
+msgstr ""
 
 msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.8."
 msgstr ""
@@ -50,9 +102,6 @@ msgstr ""
 "  * メモリー上にバッファーされている変更を書き出す[`pgroonga.flush`](../reference/functions/pgroonga-"
 "flush.html)関数を追加しました。"
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * Fixed a crash bug when background worker is used. [GitHub#17][Reported by "
 "svsool]"
@@ -60,9 +109,6 @@ msgstr "  * バックグラウンドワーカーが使われているときに�
 
 msgid "  * Fixed a bug that needless recheck is ran on bitmap heap scan."
 msgstr "  * ビットマップヒープスキャン実行時に不必要なrecheckが走ることがある問題を修正しました。"
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * svsool"
 msgstr "  * svsoolさん"

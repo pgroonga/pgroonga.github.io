@@ -4,7 +4,43 @@ title: おしらせ
 
 # おしらせ
 
-## 1.1.1: 2016-08-31 {#version-1-1-1}
+## 1.1.3: 2016-09-29 {#version-1-1-2}
+
+### 改良
+
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.9.
+
+  * Supported `Windows-1252` encoding.
+
+### 修正
+
+  * Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) function doesn't work against JSONB.
+
+  * Fixed a bug that searching against JSONB may return wrong result.
+
+  * [[Windows](../install/windows.html)] Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pgroonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Dinh Anh Duy]
+
+  * [[Windows](../install/windows.html)] Fixed a but that `SELECT` may be crashed.
+
+### 感謝
+
+  * Truong Dinh Anh Duy
+
+## 1.1.2: 2016-09-07 {#version-1-1-2}
+
+### 改良
+
+  * Supported `IN` by integer. [GitHub#21][Reported by yongxianggao-chanjet]
+
+### 修正
+
+  * Fixed a bug that PGroonga doesn't work with PostgreSQL 9.3. [GitHub#22][Reported by Tim Abbott]
+
+### 感謝
+
+  * yongxianggao-chanjet
+
+  * Tim Abbott
 
 ### 改良
 

@@ -4,6 +4,22 @@ title: News
 
 # News
 
+## 1.1.2: 2016-09-29 {#version-1-1-2}
+
+### Improvements
+
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.9.
+
+  * Supported `Windows-1252` encoding.
+
+### Fixes
+
+  * Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) function doesn't work against JSONB.
+
+  * Fixed a bug that searching against JSONB may return wrong result.
+
+  * [[Windows](../install/windows.html)] Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pgroonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Dinh Anh Duy]
+
 ## 1.1.1: 2016-08-31 {#version-1-1-1}
 
 ### Improvements

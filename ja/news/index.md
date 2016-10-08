@@ -4,6 +4,22 @@ title: おしらせ
 
 # おしらせ
 
+## 1.1.4: 2016-10-08 {#version-1-1-4}
+
+### 改良
+
+  * [[Windows](../install/windows.html)] Upgraded target PostgreSQL to 9.6.0.
+
+  * [[CentOS](../install/centos.html)] Supported PostgreSQL 9.6.0.
+
+### 修正
+
+  * Fixed a bug that living records may be removed from index unexpectedly when you `UPDATE` or `DELETE` one or more records. [GitHub#23][Reported by yongxianggao-chanjet]
+
+### 感謝
+
+  * yongxianggao-chanjet
+
 ## 1.1.3: 2016-09-29 {#version-1-1-3}
 
 ### 改良

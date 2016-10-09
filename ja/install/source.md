@@ -85,10 +85,14 @@ PGroongaをインストールします。
 
 ソースからPGroongaをビルド・インストールするために必要なソフトウェアは次の通りです。これらをインストールしてください。
 
-  * PostgreSQL（インストーラーバージョンでもzipバージョンでもどちらでも構いません。）
+PostgreSQL（インストーラーバージョンでもzipバージョンでもどちらでも構いません。）
+
     * [インストーラーバージョン](http://www.enterprisedb.com/products-services-training/pgdownload)
+
     * [zipバージョン](http://www.enterprisedb.com/products-services-training/pgbindownload)
+
   * [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/downloads/#d-2013-express)
+
   * [CMake](http://www.cmake.org/)
 
 packages.groonga.orgからWindows用のPGroongaソースアーカイブをダウンロードしてください。Windows用のソースアーカイブはzipファイルです。Windows用のソースアーカイブにはGroongaがバンドルされています。
@@ -107,7 +111,7 @@ packages.groonga.orgからWindows用のPGroongaソースアーカイブをダウ
 pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER%
 ```
 
-インストーラーを使ってPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`C:\Program Files\PostgreSQL\{{ site.windows_postgresql_short_version }}`になります。
+インストーラーを使ってPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`C:\Program Files\PostgreSQL\%POSTGRESQL_VERSION%`になります。
 
 zipバージョンのPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`%PostgreSQLのzipを展開したフォルダー%\pgsql`になります。
 

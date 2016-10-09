@@ -20,21 +20,40 @@ title: インストール
 次の中から自分のプラットフォーム用のドキュメントを選んで参照してください。
 
   * [Debian GNU/Linux](debian.html)
+
     * Jessie
+
   * [Ubuntu](ubuntu.html)
+
     * 14.04
+
     * 15.04
+
     * 15.10
+
     * 16.04
+
   * [CentOS](centos.html)
+
     * 5
+
     * 6
+
     * 7
+
   * [OS X](os-x.html)
+
     * Homebrew
+
   * [Windows](windows.html)
-    * 32bit + PostgreSQL {{ site.windows_postgresql_version }}
-    * 64bit + PostgreSQL {{ site.windows_postgresql_version }}
+
+{% for windows_postgresql_version in site.windows_postgresql_versions %}
+
+    * 32bit + PostgreSQL {{ windows_postgresql_version }}
+
+    * 64bit + PostgreSQL {{ windows_postgresql_version }}
+
+{% endfor %}
 
 もし、このリストの中に自分のプラットフォームがない場合は、[ソースからビルドしてインストールする](source.html)か[issue](https://github.com/pgroonga/pgroonga/issues/new)にリクエストを送ってください。
 

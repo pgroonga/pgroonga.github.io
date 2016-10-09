@@ -86,9 +86,13 @@ Try [tutorial](../tutorial/). You can understand more about PGroonga.
 Here is a list of required software to build and install PGroonga from source. Install them:
 
   * PostgreSQL (You can choose installer version or zip version.)
+
     * [Installer version](http://www.enterprisedb.com/products-services-training/pgdownload)
+
     * [Zip version](http://www.enterprisedb.com/products-services-training/pgbindownload)
+
   * [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/downloads/#d-2013-express)
+
   * [CMake](http://www.cmake.org/)
 
 Download PGroonga source archive for Windows from packages.groonga.org. Source archive for Windows is zip file. Source archive for Windows bundles Groonga.
@@ -107,7 +111,7 @@ Specify build option by `cmake`. The following command line is for building PGro
 pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER%
 ```
 
-If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\Program Files\PostgreSQL\{{ site.windows_postgresql_short_version }}`.
+If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\Program Files\PostgreSQL\%POSTGRESQL_VERSION%`.
 
 If you installed PostgreSQL by zip, `%POSTGRESQL_INSTALL_FOLDER%` is `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\pgsql`.
 

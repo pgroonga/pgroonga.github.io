@@ -12,16 +12,21 @@ You can use both 32bit version Windows and 64bit version Windows. You can use an
 
 ## How to install
 
-Install PostgreSQL {{ site.windows_postgresql_version }}. You can choose [installer version](http://www.enterprisedb.com/products-services-training/pgdownload) or [zip version](http://www.enterprisedb.com/products-services-training/pgbindownload).
+Install PostgreSQL (supported versions: {{ site.windows_postgresql_versions | join: ", " }}). You can choose [installer version](http://www.enterprisedb.com/products-services-training/pgdownload) or [zip version](http://www.enterprisedb.com/products-services-training/pgbindownload).
 
 Download PGroonga package:
 
-  * [32bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x86.zip)
-  * [64bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ site.windows_postgresql_version }}-x64.zip)
+{% for windows_postgresql_version in site.windows_postgresql_versions %}
+
+  * [For PostgreSQL {{ windows_postgresql_version }} 32bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x86.zip)
+
+  * [For PostgreSQL {{ windows_postgresql_version }} 64bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x64.zip)
+
+{% endfor %}
 
 Extract the downloaded PGroonga package. You need to specify PostgreSQL folder as extract target folder.
 
-If you installed installer version PostgreSQL, `C:\Program Files\PostgreSQL\{{ site.windows_postgresql_short_version }}` is the extract target folder.
+If you installed installer version PostgreSQL, `C:\Program Files\PostgreSQL\%POSTGRESQL_VERSION%` is the extract target folder.
 
 If you installed zip version PostgreSQL, `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\pgsql` is the extract target folder.
 

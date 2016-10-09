@@ -46,23 +46,58 @@ msgstr "もし、これより古いPostgreSQLを使っているなら、PGroonga
 msgid "See a document for your platform in the followings:"
 msgstr "次の中から自分のプラットフォーム用のドキュメントを選んで参照してください。"
 
-msgid ""
-"  * [Debian GNU/Linux](debian.html)\n"
-"    * Jessie\n"
-"  * [Ubuntu](ubuntu.html)\n"
-"    * 14.04\n"
-"    * 15.04\n"
-"    * 15.10\n"
-"    * 16.04\n"
-"  * [CentOS](centos.html)\n"
-"    * 5\n"
-"    * 6\n"
-"    * 7\n"
-"  * [OS X](os-x.html)\n"
-"    * Homebrew\n"
-"  * [Windows](windows.html)\n"
-"    * 32bit + PostgreSQL {{ site.windows_postgresql_version }}\n"
-"    * 64bit + PostgreSQL {{ site.windows_postgresql_version }}"
+msgid "  * [Debian GNU/Linux](debian.html)"
+msgstr ""
+
+msgid "    * Jessie"
+msgstr ""
+
+msgid "  * [Ubuntu](ubuntu.html)"
+msgstr ""
+
+msgid "    * 14.04"
+msgstr ""
+
+msgid "    * 15.04"
+msgstr ""
+
+msgid "    * 15.10"
+msgstr ""
+
+msgid "    * 16.04"
+msgstr ""
+
+msgid "  * [CentOS](centos.html)"
+msgstr ""
+
+msgid "    * 5"
+msgstr ""
+
+msgid "    * 6"
+msgstr ""
+
+msgid "    * 7"
+msgstr ""
+
+msgid "  * [OS X](os-x.html)"
+msgstr ""
+
+msgid "    * Homebrew"
+msgstr ""
+
+msgid "  * [Windows](windows.html)"
+msgstr ""
+
+msgid "{% for windows_postgresql_version in site.windows_postgresql_versions %}"
+msgstr ""
+
+msgid "    * 32bit + PostgreSQL {{ windows_postgresql_version }}"
+msgstr ""
+
+msgid "    * 64bit + PostgreSQL {{ windows_postgresql_version }}"
+msgstr ""
+
+msgid "{% endfor %}"
 msgstr ""
 
 msgid ""

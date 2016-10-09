@@ -5,8 +5,9 @@ pgroonga_version: 1.1.4
 pgroonga_release_date: 2016-09-29
 copyright_year: 2015-2016
 postgresql_short_version: 9.6
-windows_postgresql_version: 9.6.0-1
-windows_postgresql_short_version: 9.6
+windows_postgresql_versions:
+  - 9.5.4-1
+  - 9.6.0-1
 exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
 description:
   en: Make PostgreSQL fast full text search platform for all languages!

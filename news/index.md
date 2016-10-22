@@ -4,6 +4,24 @@ title: News
 
 # News
 
+## 1.1.5: 2016-10-22 {#version-1-1-5}
+
+### Improvements
+
+  * [[Windows](../install/windows.html)] Provided PostgreSQL 9.5 package again.
+
+### Fixes
+
+  * [`&?>` operator](../reference/operators/query-contain-v2.html) Fixed a bug that it may return `true` even if it's not matched.
+
+  * [`&@>` operator](../reference/operators/query-contain-v2.html) Fixed a bug that it may return `true` even if it's not matched.
+
+  * [`pgroonga.score` function](../reference/functions/pgroonga-score.html) Fixed a memory leak. [groonga-dev,04154][Reported by Takahashi]
+
+### Thanks
+
+  * Takahashi
+
 ## 1.1.4: 2016-10-08 {#version-1-1-4}
 
 ### Improvements

@@ -14,7 +14,7 @@ It's still an experimental feature. If you find a problem, please [report it](ht
 
 PGroonga supports WAL with PostgreSQL 9.6 or later. `pgroonga.enable_wal` parameter is meaningless with PostgreSQL 9.5 or earlier.
 
-If you enable WAL support, you can use PostgreSQL's streaming replication feature. See [replication](../replication.html) for details.
+If you enable WAL support, you can use PostgreSQL's streaming replication feature. See [Replication](../replication.html) for details.
 
 If you enable WAL support, update performance will be decreased because some extra disk writes are needed.
 
@@ -34,7 +34,7 @@ In `postgresql.conf`:
 pgroonga.enable_wal = boolean
 ```
 
-`boolean` is a boolean value. There are some literals for boolean such as `on`, `off`, `true`, `false`, `yes` and `no`.
+`boolean` is a boolean value. There are some literals for boolean value such as `on`, `off`, `true`, `false`, `yes` and `no`.
 
 ## Usage
 
@@ -43,3 +43,7 @@ Here is an example to enable WAL support:
 ```sql
 SET pgroonga.enable_wal = on;
 ```
+
+## See also
+
+  * [Replication](../replication.html)

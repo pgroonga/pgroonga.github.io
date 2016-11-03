@@ -4,6 +4,12 @@ title: News
 
 # News
 
+## 1.1.7: 2016-11-03 {#version-1-1-7}
+
+### Fixes
+
+  * Fixed build error with PostgreSQL 9.4 or earlier.
+
 ## 1.1.6: 2016-11-03 {#version-1-1-6}
 
 ### Improvements

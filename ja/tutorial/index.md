@@ -521,8 +521,6 @@ SET enable_seqscan = off;
 
 例です。
 
-（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE)を使っています。）
-
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
 --             jsonb_pretty             
@@ -557,8 +555,6 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com
 
   * トップレベルのオブジェクトに`code`というキーが存在する
   * その`code`の値が`200`以上`300`未満である
-
-（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE)を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number >= 200 && number < 300';

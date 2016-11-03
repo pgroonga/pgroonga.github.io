@@ -519,8 +519,6 @@ SET enable_seqscan = off;
 
 Here is an example:
 
-(It uses [`jsonb_pretty()` function](https://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
-
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
 --             jsonb_pretty             
@@ -555,8 +553,6 @@ Here is an example for range search. The `SELECT` returns records that is matche
 
   * `code` key exists at the top-level object
   * Value of the `code` is greater than or equal to `200` and less than `300`
-
-(It uses [`jsonb_pretty()` function](https://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number >= 200 && number < 300';

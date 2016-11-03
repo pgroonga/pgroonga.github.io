@@ -62,7 +62,7 @@ You can suppress the warnings from Event Viewer by registering `PGroonga` event 
 > regsvr32 /n /i:PGroonga ${PostgreSQL install folder}\lib\pgevent.dll
 ```
 
-See also [Registering Event Log on Windows](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/event-log-registration.html).
+See also [Registering Event Log on Windows](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/event-log-registration.html).
 
 ## See also
 

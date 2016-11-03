@@ -10,7 +10,7 @@ This document describes how to grant `USAGE` privilege on `pgroonga` schema to a
 
 ## Create a normal user {#create-user}
 
-First, create a normal user `alice` by [`CREATE USER`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-createuser.html):
+First, create a normal user `alice` by [`CREATE USER`](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-createuser.html):
 
 ```sql
 CREATE USER alice;
@@ -29,7 +29,7 @@ You need to grant `USAGE` privilege on `pgroonga` schema to `alice`.
 
 ## Grant `USAGE` privilege on `pgroonga` schema {#grant}
 
-You can grant `USAGE` privilege on `pgroonga` schema to normal user `alice` by [`GRANT`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-grant.html):
+You can grant `USAGE` privilege on `pgroonga` schema to normal user `alice` by [`GRANT`](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-grant.html):
 
 ```sql
 GRANT USAGE ON SCHEMA pgroonga TO alice;

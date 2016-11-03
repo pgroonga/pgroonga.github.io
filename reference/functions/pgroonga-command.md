@@ -18,7 +18,7 @@ text pgroonga.command(command)
 
 `command` is a `text` type value. `pgroonga.command` executes `command` as a Groonga command.
 
-Groonga command returns result as JSON. `pgroonga.command` returns the JSON as `text` type value. You can use [JSON functions and operations provided by PostgreSQL](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-json.html) by casting the result to `json` or `jsonb` type.
+Groonga command returns result as JSON. `pgroonga.command` returns the JSON as `text` type value. You can use [JSON functions and operations provided by PostgreSQL](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-json.html) by casting the result to `json` or `jsonb` type.
 
 ## Usage
 

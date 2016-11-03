@@ -156,7 +156,7 @@ You specify condition that matches split value to `@@` operator. If there is one
 
 Here is a condition that searches `jsonb` type value that has `www.example.com` string:
 
-(It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function](https://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.com"';

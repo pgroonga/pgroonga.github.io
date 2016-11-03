@@ -20,19 +20,67 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.1.5: 2016-10-22 {#version-1-1-5}"
+msgid "## 1.1.7: 2016-11-03 {#version-1-1-7}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * Fixed build error with PostgreSQL 9.4 or earlier."
+msgstr ""
+
+msgid "## 1.1.6: 2016-11-03 {#version-1-1-6}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
 
+msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.0."
+msgstr ""
+
+msgid ""
+"  * [experimental][WAL] Supported WAL. WAL support requires PostgreSQL 9.6 or "
+"later and [MessagePack](http://msgpack.org/). WAL support means that you can u"
+"se PostgreSQL's [stream replication feature](https://www.postgresql.org/docs/{"
+"{ site.postgresql_short_version }}/static/warm-standby.html) but doesn't mean "
+"that PGroonga is crash safe. If PostgreSQL crashes while updating PGroonga dat"
+"a, PGroonga data may be broken. See also [replication](../reference/replicatio"
+"n.html) and [`pgroonga.enable_wal` parameter][../reference/parameters/enable_w"
+"al.html]."
+msgstr ""
+
+msgid "  * Upgraded required Groonga version to 6.0.7 or later."
+msgstr ""
+
+msgid ""
+"  * Supported [tablespace](https://www.postgresql.org/docs/{{ site.postgresql_"
+"short_version }}/static/manage-ag-tablespaces.html)."
+msgstr ""
+
+msgid ""
+"  * Disabled index only scan automatically when there is one or more long reco"
+"rds."
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that living PGroonga indexes are removed on VACUUM when PGroon"
+"ga index is created at non default tablespace. [GitHub#27][Reported by pavelpo"
+"povgmail]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * pavelpopovgmail"
+msgstr ""
+
+msgid "## 1.1.5: 2016-10-22 {#version-1-1-5}"
+msgstr ""
+
 msgid ""
 "  * [[Windows](../install/windows.html)] Provided PostgreSQL 9.5 package again"
 "."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [`&?>` operator](../reference/operators/query-contain-v2.html) Fixed a bug"
@@ -48,9 +96,6 @@ msgid ""
 "  * [`pgroonga.score` function](../reference/functions/pgroonga-score.html) Fi"
 "xed a memory leak. [groonga-dev,04154][Reported by Takahashi]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Takahashi"
 msgstr ""

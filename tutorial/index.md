@@ -215,7 +215,7 @@ Here is the result of `pgroonga.snippet_html` against the above text:
 
 This function can be used for all texts. It's not only for search result by PGroonga.
 
-Here is a sample SQL that describes about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
+Here is a sample SQL that describes about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-array.html) is a PostgreSQL function that converts an array to rows.
 
 ```sql
 SELECT unnest(pgroonga.snippet_html(
@@ -460,7 +460,7 @@ PGroonga provides the following two operators for searching against `jsonb`:
   * `@>` operator
   * `@@` operator
 
-[`@>` operator is a built-in PostgreSQL operator](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
+[`@>` operator is a built-in PostgreSQL operator](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
 
 You can execute `@>` faster by PGroonga.
 
@@ -519,7 +519,7 @@ SET enable_seqscan = off;
 
 Here is an example:
 
-(It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function](https://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
@@ -556,7 +556,7 @@ Here is an example for range search. The `SELECT` returns records that is matche
   * `code` key exists at the top-level object
   * Value of the `code` is greater than or equal to `200` and less than `300`
 
-(It uses [`jsonb_pretty()` function](http://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function](https://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number >= 200 && number < 300';

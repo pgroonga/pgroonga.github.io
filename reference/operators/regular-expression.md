@@ -10,9 +10,9 @@ title: "@~ operator"
 
 PostgreSQL provides the following built-in regular expression operators:
 
-  * [`SIMILAR TO`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP)
+  * [`SIMILAR TO`](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP)
 
-  * [POSIX Regular Expression](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP)
+  * [POSIX Regular Expression](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP)
 
 `SIMILAR TO` is based on SQL standard. "POSIX Regular Expression" is based on POSIX. They use different regular expression syntax.
 

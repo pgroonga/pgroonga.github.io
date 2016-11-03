@@ -12,7 +12,7 @@ This document describes about different between PGroonga, GiST and GIN.
 
 ## Characteristics
 
-[PostgreSQL document describes about characteristics of GiST and GIN](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/textsearch-indexes.html). In short, searching by GiST is slower than searching by GIN but updating GiST is faster than updating GIN. GIN uses more disk space than GiST.
+[PostgreSQL document describes about characteristics of GiST and GIN](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/textsearch-indexes.html). In short, searching by GiST is slower than searching by GIN but updating GiST is faster than updating GIN. GIN uses more disk space than GiST.
 
 Searching by PGroonga is faster than GIN and updating PGroonga is faster than GiST. But PGroonga uses more disk space than GIN and GiST.
 

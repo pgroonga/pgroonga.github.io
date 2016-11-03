@@ -16,7 +16,7 @@ And more, PGroonga supports full text search against all text values in JSON. It
 
 There are some extensions that implements full text search against all languages:
 
-  * [pg_trgm](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/pgtrgm.html)
+  * [pg_trgm](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/pgtrgm.html)
     * It's bundled with PostgreSQL but it's not installed as default.
     * You need to change pg\_trgm source code to support all languages.
 

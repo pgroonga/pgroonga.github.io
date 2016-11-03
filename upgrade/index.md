@@ -96,10 +96,10 @@ ALTER EXTENSION pgroonga UPDATE;
 
 ## See also
 
-  * [`CREATE EXTENSION`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-createextension.html)
+  * [`CREATE EXTENSION`](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-createextension.html)
 
-  * [`DROP EXTENSION`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-dropextension.html)
+  * [`DROP EXTENSION`](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-dropextension.html)
 
-  * [`ALTER EXTENSION`](http://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-alterextension.html)
+  * [`ALTER EXTENSION`](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-alterextension.html)
 
   * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)

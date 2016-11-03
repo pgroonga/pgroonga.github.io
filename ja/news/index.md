@@ -10,6 +10,8 @@ title: おしらせ
 
   * Fixed build error with PostgreSQL 9.4 or earlier.
 
+  * [[Ubuntu](../install.ubuntu.htmp)] Supported Yakkety Yak (16.10).
+
 ## 1.1.6: 2016-11-03 {#version-1-1-6}
 
 ### 改良
@@ -23,6 +25,8 @@ title: おしらせ
   * Supported [tablespace](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/manage-ag-tablespaces.html).
 
   * Disabled index only scan automatically when there is one or more long records.
+
+  * [[Ubuntu](../install.ubuntu.htmp)] Dropped Wily Werewolf (15.10) support.
 
 ### 修正
 

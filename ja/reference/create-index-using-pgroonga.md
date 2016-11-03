@@ -110,13 +110,13 @@ CREATE INDEX pgroonga_tag_index
 
 他のノーマライザーについては[ノーマライザー](http://groonga.org/ja/docs/reference/normalizers.html)を参照してください。
 
-#### How to change tablespace {#custom-tablespace}
+#### テーブルスペースの変更方法 {#custom-tablespace}
 
-Since 1.1.6.
+1.1.6で追加。
 
-Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/manage-ag-tablespaces.html). If you have fast storage, you may want to change tablespace for PGroonga indexes.
+[テーブルスペース](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/manage-ag-tablespaces.html)をカスタマイズするには`TABLESPACE ${TABLESPACE_NAME}`を指定してください。もし高速なストレージがある場合は、テーブルスペースを変更してそのストレージにPGroongaのインデックスを置きたくなるかもしれません。
 
-Here is an example to change tablespace:
+以下はテーブルスペースを変更する例です。
 
 ```sql
 CREATE TABLESPACE fast LOCATION '/data/fast_disk';

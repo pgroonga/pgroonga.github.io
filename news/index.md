@@ -4,6 +4,28 @@ title: News
 
 # News
 
+## 1.1.6: 2016-11-03 {#version-1-1-6}
+
+### Improvements
+
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.0.
+
+  * [experimental][WAL] Supported WAL. WAL support requires PostgreSQL 9.6 or later and [MessagePack](http://msgpack.org/). WAL support means that you can use PostgreSQL's [stream replication feature](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/warm-standby.html) but doesn't mean that PGroonga is crash safe. If PostgreSQL crashes while updating PGroonga data, PGroonga data may be broken. See also [replication](../reference/replication.html) and [`pgroonga.enable_wal` parameter][../reference/parameters/enable_wal.html].
+
+  * Upgraded required Groonga version to 6.0.7 or later.
+
+  * Supported [tablespace](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/manage-ag-tablespaces.html).
+
+  * Disabled index only scan automatically when there is one or more long records.
+
+### Fixes
+
+  * Fixed a bug that living PGroonga indexes are removed on VACUUM when PGroonga index is created at non default tablespace. [GitHub#27][Reported by pavelpopovgmail]
+
+### Thanks
+
+  * pavelpopovgmail
+
 ## 1.1.5: 2016-10-22 {#version-1-1-5}
 
 ### Improvements

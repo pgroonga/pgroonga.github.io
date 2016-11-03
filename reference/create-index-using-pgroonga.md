@@ -109,3 +109,25 @@ CREATE INDEX pgroonga_tag_index
 ```
 
 See [Normalizers](http://groonga.org/docs/reference/normalizers.html) for other normalizers.
+
+#### How to change tablespace {#custom-tablespace}
+
+Since 1.1.6.
+
+Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/manage-ag-tablespaces.html). If you have fast storage, you may want to change tablespace for PGroonga indexes.
+
+Here is an example to change tablespace:
+
+```sql
+CREATE TABLESPACE fast LOCATION '/data/fast_disk';
+
+CREATE TABLE memos (
+  id integer,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (tag)
+  TABLESPACE fast;
+```

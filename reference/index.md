@@ -100,6 +100,8 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.lock_timeout` parameter](parameters/lock_timeout.html)
 
+  * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)
+
 ## Tuning
 
 Normally, you don't need to tune PGroonga because PGroonga works well by default.

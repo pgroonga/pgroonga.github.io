@@ -21,10 +21,10 @@ You can use the following instruction to install PGroonga on CentOS 5.
 Install `postgresql-pgroonga` package:
 
 ```text
-% sudo -H yum install -y http://yum.postgresql.org/9.5/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos95-9.5-3.noarch.rpm
+% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
 % sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
 % sudo -H yum makecache
-% sudo -H yum install -y postgresql95-pgroonga
+% sudo -H yum install -y postgresql96-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -36,9 +36,9 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 Run PostgreSQL:
 
 ```text
-% sudo -H /sbin/service postgresql-9.5 initdb
-% sudo -H /sbin/chkconfig postgresql-9.5 on
-% sudo -H /sbin/service postgresql-9.5 start
+% sudo -H /sbin/service postgresql-9.6 initdb
+% sudo -H /sbin/chkconfig postgresql-9.6 on
+% sudo -H /sbin/service postgresql-9.6 start
 ```
 
 Create a database:

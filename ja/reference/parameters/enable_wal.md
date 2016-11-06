@@ -38,10 +38,16 @@ pgroonga.enable_wal = boolean
 
 ## 使い方
 
-以下はWALサポートを有効にする例です。
+以下はWALサポートを有効にするSQLの例です。
 
 ```sql
 SET pgroonga.enable_wal = on;
+```
+
+以下はWALサポートを有効にする設定の例です。
+
+```sql
+pgroonga.enable_wal = on
 ```
 
 ## 参考

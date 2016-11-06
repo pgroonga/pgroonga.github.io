@@ -27,11 +27,9 @@ See a document for your platform in the followings:
 
     * 14.04
 
-    * 15.04
-
-    * 15.10
-
     * 16.04
+
+    * 16.10
 
   * [CentOS](centos.html)
 

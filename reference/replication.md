@@ -80,7 +80,7 @@ Master:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
-% sudo -H yum install -y postgresql96
+% sudo -H yum install -y postgresql96-server
 % sudo -H systemctl enable postgresql-9.6
 ```
 
@@ -88,7 +88,7 @@ Slave:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
-% sudo -H yum install -y postgresql96
+% sudo -H yum install -y postgresql96-server
 % sudo -H systemctl enable postgresql-9.6
 ```
 
@@ -104,6 +104,7 @@ Master:
 
 ```text
 % sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
+% sudo -H yum install -y epel-release
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 
@@ -111,6 +112,7 @@ Slaves:
 
 ```text
 % sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.1.0-1.noarch.rpm
+% sudo -H yum install -y epel-release
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 
@@ -393,6 +395,10 @@ SELECT title FROM entries WHERE title %% 'replication';
 ```
 
 Slave2:
+
+```text
+% psql blog
+```
 
 ```sql
 SELECT title FROM entries WHERE title %% 'replication';

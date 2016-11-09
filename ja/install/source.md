@@ -36,7 +36,17 @@ PGroongaのソースを展開します。
 % cd pgroonga
 ```
 
-PGroongaをビルドします。
+PGroongaをビルドします。いくつかオプションがあります。
+
+  * `HAVE_MSGPACK=1`：WALサポート付きでビルドするときは必須です。[msgpack-c](https://github.com/msgpack/msgpack-c) 1.4.1以降が必要です。Debianベースのプラットフォームでは`libmsgpack-dev`パッケージを使えます。CentOS 7では[EPEL](https://fedoraproject.org/wiki/EPEL/ja)にある`msgpack-devel`パッケージを使えます。
+
+WALサポート付きでビルドしたい場合は次のコマンドラインを使います。
+
+```text
+% make HAVE_MSGPACK=1
+```
+
+WALサポートが必要ない場合は次のコマンドラインを使います。
 
 ```text
 % make
@@ -108,7 +118,7 @@ packages.groonga.orgからWindows用のPGroongaソースアーカイブをダウ
 `cmake`のビルドオプションを指定します。64bitバージョンのPostgreSQL用にPGroongaをビルドするためのコマンドラインは次の通りです。もし、32bitバージョンのPostgreSQL用にビルドしたい場合は、代わりに`-G "Visual Studio 12 2013"`パラメーターを使ってください。
 
 ```text
-pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER%
+pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER% -DGRN_WITH_BUNDLED_LZ4=yes -DGRN_WITH_BUNDLED_MECAB=yes -DGRN_WITH_BUNDLED_MESSAGE_PACK=yes -DGRN_WITH_MRUBY=yes
 ```
 
 インストーラーを使ってPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`C:\Program Files\PostgreSQL\%POSTGRESQL_VERSION%`になります。

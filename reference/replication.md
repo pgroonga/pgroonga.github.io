@@ -70,6 +70,8 @@ This document uses the following environment:
 
 This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself.
 
+For now (2016-11-09), the official PGroonga packages for CentOS 7 and Windows are only packages that support WAL. Because WAL support requires MessagePack and PostgreSQL 9.6 or later. Packages for other platforms don't satisfy one of them. If you build PGroonga from source, see [Install from source](../install/source.html) how to build with MessagePack.
+
 ## [normal] Install PostgreSQL on master and slaves
 
 This is a normal step.
@@ -408,7 +410,3 @@ SELECT title FROM entries WHERE title %% 'replication';
 --  PostgreSQL 9.6 and replication
 -- (2 rows)
 ```
-
-## TODO
-
-Write about MessagePack is required on PGroonga build.

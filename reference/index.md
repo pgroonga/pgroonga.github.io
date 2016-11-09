@@ -102,6 +102,12 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)
 
+## Groonga functions
+
+You can use them with [`pgroonga.command` function](functions/pgroonga-command.html). You can't use them in `WHERE` clause.
+
+  * [`pgroonga_tuple_is_alive` Groonga function](groonga-functions/pgroonga-tuple-is-alive.html)
+
 ## Tuning
 
 Normally, you don't need to tune PGroonga because PGroonga works well by default.

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-11-04 01:05+0900\n"
+"PO-Revision-Date: 2016-11-09 18:58+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,6 +203,23 @@ msgstr "  * [`pgroonga.lock_timeout`パラメーター](parameters/lock_timeout.
 
 msgid "  * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)"
 msgstr "  * [`pgroonga.enable_wal`パラメーター](parameters/enable_wal.html)"
+
+msgid "## Groonga functions"
+msgstr "## Groongaの関数"
+
+msgid ""
+"You can use them with [`pgroonga.command` function](functions/pgroonga-command"
+".html). You can't use them in `WHERE` clause."
+msgstr ""
+"[`pgroonga.command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`W"
+"HERE`節では使えません。"
+
+msgid ""
+"  * [`pgroonga_tuple_is_alive` Groonga function](groonga-functions/pgroonga-tu"
+"ple-is-alive.html)"
+msgstr ""
+"  * [`pgroonga_tuple_is_alive` Groonga関数](groonga-functions/pgroonga-tuple-is-"
+"alive.html)"
 
 msgid "## Tuning"
 msgstr "## チューニング"

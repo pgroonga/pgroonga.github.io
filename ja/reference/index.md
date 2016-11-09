@@ -102,6 +102,12 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`pgroonga.enable_wal`パラメーター](parameters/enable_wal.html)
 
+## Groongaの関数
+
+[`pgroonga.command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`WHERE`節では使えません。
+
+  * [`pgroonga_tuple_is_alive` Groonga関数](groonga-functions/pgroonga-tuple-is-alive.html)
+
 ## チューニング
 
 通常、PGroongaはデフォルトで高速に動くため、特別にPGroongaをチューニングする必要はありません。

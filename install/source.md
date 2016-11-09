@@ -36,7 +36,17 @@ FYI: If you want to use the unreleased latest version, use the followings:
 % cd pgroonga
 ```
 
-Build PGroonga:
+Build PGroonga. There are some options:
+
+  * `HAVE_MSGPACK=1`: It's required for WAL support. You need [msgpack-c](https://github.com/msgpack/msgpack-c) 1.4.1 or later. You can use `libmsgpack-dev` package on Debian based platform and `msgpack-devel` package in [EPEL](https://fedoraproject.org/wiki/EPEL) on CentOS 7.
+
+Use the following command line when you want to build with WAL support:
+
+```text
+% make HAVE_MSGPACK=1
+```
+
+Use the following command line when you don't need WAL support:
 
 ```text
 % make
@@ -108,7 +118,7 @@ Extract the downloaded source archive and move to source folder:
 Specify build option by `cmake`. The following command line is for building PGroonga for 64bit version PostgreSQL. If you want to build for 32bit version PostgreSQL, use `-G "Visual Studio 12 2013"` parameter instead:
 
 ```text
-pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER%
+pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER% -DGRN_WITH_BUNDLED_LZ4=yes -DGRN_WITH_BUNDLED_MECAB=yes -DGRN_WITH_BUNDLED_MESSAGE_PACK=yes -DGRN_WITH_MRUBY=yes
 ```
 
 If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\Program Files\PostgreSQL\%POSTGRESQL_VERSION%`.

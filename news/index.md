@@ -4,13 +4,27 @@ title: News
 
 # News
 
+## 1.1.8: 2016-11-09 {#version-1-1-8}
+
+### Improvements
+
+  * Added startup log with PGroonga version.
+
+  * Supported index only scan availability check for 8KiB over column (TOAST-ed column).
+
+  * Changed to use zlib compression as fallback for text column when LZ4 isn't available.
+
+  * [[CentOS](../install/centos.html) 7] Supported WAL. It requires EPEL.
+
+  * [`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functions/pgroonga-tuple-is-alive.html) Added a new Groonga function to remove invalid tuples. It can be used with [`pgroonga.command` function](../reference/functions/pgroonga-command.html).
+
 ## 1.1.7: 2016-11-03 {#version-1-1-7}
 
 ### Fixes
 
   * Fixed build error with PostgreSQL 9.4 or earlier.
 
-  * [[Ubuntu](../install.ubuntu.htmp)] Supported Yakkety Yak (16.10).
+  * [[Ubuntu](../install/ubuntu.html)] Supported Yakkety Yak (16.10).
 
 ## 1.1.6: 2016-11-03 {#version-1-1-6}
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-11-04 00:59+0900\n"
+"PO-Revision-Date: 2016-11-07 01:34+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,6 +20,35 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 1.1.8: 2016-11-09 {#version-1-1-8}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * Added startup log with PGroonga version."
+msgstr ""
+
+msgid ""
+"  * Supported index only scan availability check for 8KiB over column (TOAST-e"
+"d column)."
+msgstr ""
+
+msgid ""
+"  * Changed to use zlib compression as fallback for text column when LZ4 isn't"
+" available."
+msgstr ""
+
+msgid "  * [[CentOS](../install/centos.html) 7] Supported WAL. It requires EPEL."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-function"
+"s/pgroonga-tuple-is-alive.html) Added a new Groonga function to remove invalid"
+" tuples. It can be used with [`pgroonga.command` function](../reference/functi"
+"ons/pgroonga-command.html)."
+msgstr ""
+
 msgid "## 1.1.7: 2016-11-03 {#version-1-1-7}"
 msgstr ""
 
@@ -29,14 +58,11 @@ msgstr "### 修正"
 msgid "  * Fixed build error with PostgreSQL 9.4 or earlier."
 msgstr ""
 
-msgid "  * [[Ubuntu](../install.ubuntu.htmp)] Supported Yakkety Yak (16.10)."
+msgid "  * [[Ubuntu](../install/ubuntu.html)] Supported Yakkety Yak (16.10)."
 msgstr ""
 
 msgid "## 1.1.6: 2016-11-03 {#version-1-1-6}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.0."
 msgstr ""

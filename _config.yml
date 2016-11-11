@@ -5,6 +5,9 @@ pgroonga_version: 1.1.8
 pgroonga_release_date: 2016-11-09
 copyright_year: 2015-2016
 postgresql_short_version: 9.6
+postgresql_doc_base_url:
+  en: https://www.postgresql.org/docs/9.6/static
+  ja: https://www.postgresql.jp/document/9.5/html
 windows_postgresql_versions:
   - 9.5.5-1
   - 9.6.1-1

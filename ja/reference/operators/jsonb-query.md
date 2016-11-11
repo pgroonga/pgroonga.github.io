@@ -156,7 +156,7 @@ CREATE TABLE values (
 
 次は`www.example.com`という文字列値を含む`jsonb`型の値を検索する条件です。
 
-（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE)を使っています。）
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数]({{ site.postgresql_doc_base_url.ja }}/functions-json.html#functions-json-processing-table)を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.com"';

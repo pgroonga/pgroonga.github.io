@@ -102,10 +102,10 @@ ALTER EXTENSION pgroonga UPDATE;
 
 ## 参考
 
-  * [`CREATE EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-createextension.html)
+  * [`CREATE EXTENSION`]({{ site.postgresql_doc_base_url.ja }}/sql-createextension.html)
 
-  * [`DROP EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-dropextension.html)
+  * [`DROP EXTENSION`]({{ site.postgresql_doc_base_url.ja }}/sql-dropextension.html)
 
-  * [`ALTER EXTENSION`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-alterextension.html)
+  * [`ALTER EXTENSION`]({{ site.postgresql_doc_base_url.ja }}/sql-alterextension.html)
 
   * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)

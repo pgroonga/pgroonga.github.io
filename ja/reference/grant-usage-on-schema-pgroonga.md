@@ -10,7 +10,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## 一般ユーザーを作成 {#create-user}
 
-最初に[`CREATE USER`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-createuser.html)で一般ユーザー`alice`を作成します。
+最初に[`CREATE USER`]({{ site.postgresql_doc_base_url.ja }}/sql-createuser.html)で一般ユーザー`alice`を作成します。<
 
 ```sql
 CREATE USER alice;
@@ -29,7 +29,7 @@ SELECT pgroonga.snippet_html('PGroonga is fast', Array['fast']);
 
 ## `pgroonga`スキーマの`USAGE`権限を与える {#grant}
 
-[`GRANT`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-grant.html)を使って一般ユーザー`alice`に`pgroonga`スキーマの`USAGE`権限を与えることができます。
+[`GRANT`]({{ site.postgresql_doc_base_url.ja }}/sql-grant.html)を使って一般ユーザー`alice`に`pgroonga`スキーマの`USAGE`権限を与えることができます。
 
 ```sql
 GRANT USAGE ON SCHEMA pgroonga TO alice;

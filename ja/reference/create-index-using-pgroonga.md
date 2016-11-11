@@ -8,7 +8,7 @@ title: CREATE INDEX USING pgroonga
 
 ## 構文
 
-このセクションでは`pgroonga`インデックスメソッド関連の`CREATE INDEX`の構文だけ説明します。完全な`CREATE INDEX`の構文は[PostgreSQLの`CREATE INDEX`のドキュメント](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/sql-createindex.html)を参照してください。
+このセクションでは`pgroonga`インデックスメソッド関連の`CREATE INDEX`の構文だけ説明します。完全な`CREATE INDEX`の構文は[PostgreSQLの`CREATE INDEX`のドキュメント]({{ site.postgresql_doc_base_url.ja }}/sql-createindex.html)を参照してください。
 
 シングルカラムインデックスを作成する基本的な構文は次の通りです。
 
@@ -114,7 +114,7 @@ CREATE INDEX pgroonga_tag_index
 
 1.1.6で追加。
 
-[テーブルスペース](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/manage-ag-tablespaces.html)をカスタマイズするには`TABLESPACE ${TABLESPACE_NAME}`を指定してください。もし高速なストレージがある場合は、テーブルスペースを変更してそのストレージにPGroongaのインデックスを置きたくなるかもしれません。
+[テーブルスペース]({{ site.postgresql_doc_base_url.ja }}/manage-ag-tablespaces.html)をカスタマイズするには`TABLESPACE ${TABLESPACE_NAME}`を指定してください。もし高速なストレージがある場合は、テーブルスペースを変更してそのストレージにPGroongaのインデックスを置きたくなるかもしれません。
 
 以下はテーブルスペースを変更する例です。
 

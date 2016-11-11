@@ -10,7 +10,7 @@ title: "pgroonga.enable_walパラメーター"
 
 ## 概要
 
-`pgroonga.enable_wal`パラメーターは[WAL](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/runtime-config-wal.html)を有効にするかどうかを制御します。
+`pgroonga.enable_wal`パラメーターは[WAL]({{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html)を有効にするかどうかを制御します。
 
 PGroongaはPostgreSQL 9.6以降で使う場合はWALをサポートしています。PostgreSQL 9.5以前で使う場合は`pgroonga.enable_wal`パラメーターを設定しても意味はありません。
 

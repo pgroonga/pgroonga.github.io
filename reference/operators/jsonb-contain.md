@@ -8,7 +8,7 @@ title: "@> operator"
 
 PGroonga supports fast index search by `@>` operator.
 
-[`@>` operator is a built-in PostgreSQL operator](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` operator returns true when the right hand side `jsonb` type value is a subset of left hand side `jsonb` type value.
+[`@>` operator is a built-in PostgreSQL operator]({{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` operator returns true when the right hand side `jsonb` type value is a subset of left hand side `jsonb` type value.
 
 ## Syntax
 
@@ -73,7 +73,7 @@ SET enable_seqscan = off;
 
 Here is an example for match case:
 
-(It uses [`jsonb_pretty()` function](https://www.postgresql.org/docs/devel/static/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function]({{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;

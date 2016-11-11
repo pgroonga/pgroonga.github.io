@@ -8,7 +8,7 @@ title: LIKE operator
 
 PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) performs full text search with index. It's faster than `LIKE` operator without index.
 
-`column LIKE '%KEYWORD%'` with index is slower than `column %% 'KEYWORD'` with index because `column LIKE '%KEYWORD%'` with index needs "[Recheck](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/index-scanning.html)". `column %% 'KEYWORD'` doesn't need "Recheck".
+`column LIKE '%KEYWORD%'` with index is slower than `column %% 'KEYWORD'` with index because `column LIKE '%KEYWORD%'` with index needs "[Recheck]({{ site.postgresql_doc_base_url.en }}/index-scanning.html)". `column %% 'KEYWORD'` doesn't need "Recheck".
 
 The original `LIKE` operator searches against text as is. But `%%` operator performs full text search against normalized text. It means that search result of `LIKE` operator with index needs "Recheck".
 

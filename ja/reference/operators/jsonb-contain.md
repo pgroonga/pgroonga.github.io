@@ -8,7 +8,7 @@ title: "@>演算子"
 
 PGroongaは`@>`演算子の検索をインデックスを使って高速に実現できます。
 
-[`@>`演算子はPostgreSQL組み込みの演算子](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/functions-json.html#FUNCTIONS-JSONB-OP-TABLE)です。`@>`演算子は右辺の`jsonb`型の値が左辺の`jsonb`型の値のサブセットなら真を返します。
+[`@>`演算子はPostgreSQL組み込みの演算子]({{ site.postgresql_doc_base_url.ja }}/functions-json.html#functions-jsonb-op-table)です。`@>`演算子は右辺の`jsonb`型の値が左辺の`jsonb`型の値のサブセットなら真を返します。
 
 ## 構文
 
@@ -73,7 +73,7 @@ SET enable_seqscan = off;
 
 マッチする例は次の通りです。
 
-（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数](http://www.postgresql.jp/document/current/html/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE)を使っています。）
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数]({{ site.postgresql_doc_base_url.ja }}/functions-json.html#functions-json-processing-table)を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;

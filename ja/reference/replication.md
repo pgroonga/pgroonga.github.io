@@ -4,7 +4,7 @@ title: レプリケーション
 
 # レプリケーション
 
-PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能](https://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/warm-standby.html)をサポートしています。この機能を使うにはPostgreSQL 9.6以降が必要です。
+PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能]({{ site.postgresql_doc_base_url.ja }}/warm-standby.html)をサポートしています。この機能を使うにはPostgreSQL 9.6以降が必要です。
 
 PostgreSQL 9.5以前を使っている場合は、PGroongaと一緒に使える別のストリーミングレプリケーションの実装を使ってください。
 
@@ -142,11 +142,11 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
   * `wal_level = replica`
 
-     * [ログ先行書き込み（WAL）](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/runtime-config-wal.html#guc-wal-level)も参照してください。.
+     * [ログ先行書き込み（WAL）]({{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html#guc-wal-level)も参照してください。.
 
   * `max_wal_senders = 4`（`= 2（スレーブ数） * 2`。`* 2`は意図せず接続が切れた場合のため。)
 
-     * [レプリケーション](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/runtime-config-replication.html#guc-max-wal-senders)も参照してください。
+     * [レプリケーション]({{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#guc-max-wal-senders)も参照してください。
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
@@ -332,7 +332,7 @@ Password: (passw0rd)
 
   * `hot_standby = on`
 
-    * [レプリケーション](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/runtime-config-replication.html#guc-hot-standby)も参照してください。
+    * [レプリケーション]({{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#guc-hot-standby)も参照してください。
 
 スレーブ：
 

@@ -8,7 +8,7 @@ Here are PGroonga users.
 
 ## Zulip
 
-[Zulip](https://zulip.org/) is a powerful open source group chat. It uses PGroonga to implement all languages support full text search. Because [PostgreSQL built-in full text search feature](https://www.postgresql.org/docs/current/static/textsearch.html) supports only one language at the same time. PGroonga can support all languages at the same time.
+[Zulip](https://zulip.org/) is a powerful open source group chat. It uses PGroonga to implement all languages support full text search. Because [PostgreSQL built-in full text search feature]({{ site.postgresql_doc_base_url.en }}/textsearch.html) supports only one language at the same time. PGroonga can support all languages at the same time.
 
 ## (Send us your service name)
 

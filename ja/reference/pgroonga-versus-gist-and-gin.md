@@ -12,7 +12,7 @@ PGroongaの重要な機能はすべての言語に対する全文検索機能で
 
 ## 特徴
 
-[PostgreSQLのドキュメントはGiSTとGINの特徴を説明](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/textsearch-indexes.html)しています。手短にまとめると次の通りです。GiSTの検索はGINよりも遅いですが、GiSTの更新はGINよりも速いです。GINはGiSTよりも多くのディスク領域を使います。
+[PostgreSQLのドキュメントはGiSTとGINの特徴を説明]({{ site.postgresql_doc_base_url.ja }}/textsearch-indexes.html)しています。手短にまとめると次の通りです。GiSTの検索はGINよりも遅いですが、GiSTの更新はGINよりも速いです。GINはGiSTよりも多くのディスク領域を使います。
 
 PGroongaの検索はGINよりも速く、更新はGiSTよりも速いです。しかし、PGroongaはGIN・GiSTよりも多くのディスク領域を使います。
 

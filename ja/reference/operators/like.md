@@ -8,7 +8,7 @@ title: LIKE演算子
 
 PGroongaは内部的に`column LIKE '%キーワード%'`条件を`column %% 'キーワード'`条件に変換します。[`%%`演算子](match.html)はインデックスを使って全文検索をします。これはインデックスを使わない`LIKE`演算子より速いです。
 
-インデックスを使った`column LIKE '%キーワード%'`は`column %% 'キーワード'`よりも遅いです。これは、インデックスを使った`column LIKE '%キーワード%'`は「[再検査](https://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/index-scanning.html)」する必要があるからです。`column %% 'キーワード'`は「再検査」する必要がありません。
+インデックスを使った`column LIKE '%キーワード%'`は`column %% 'キーワード'`よりも遅いです。これは、インデックスを使った`column LIKE '%キーワード%'`は「[再検査]({{ site.postgresql_doc_base_url.ja }}/index-scanning.html)」する必要があるからです。`column %% 'キーワード'`は「再検査」する必要がありません。
 
 元の`LIKE`演算子は対象テキストに対して検索します。しかし、`%%`演算子は正規化したテキストに対して検索します。そのため、インデックスを使って`LIKE`演算子の検索を実行した場合は「再検査」が必要になります。
 

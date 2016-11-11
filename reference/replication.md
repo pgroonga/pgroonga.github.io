@@ -4,7 +4,7 @@ title: Replication
 
 # Replication
 
-PGroonga supports PostgreSQL built-in [WAL based streaming replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/warm-standby.html) since 1.1.6. It requires PostgreSQL 9.6 or later.
+PGroonga supports PostgreSQL built-in [WAL based streaming replication]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) since 1.1.6. It requires PostgreSQL 9.6 or later.
 
 If you're using PostgreSQL 9.5 or earlier, you can use some alternative streaming replication implementations that can be used with PGroonga:
 
@@ -142,11 +142,11 @@ Add the following streaming replication configurations to `postgresql.conf` on o
 
   * `wal_level = replica`
 
-     * See also [PostgreSQL: Documentation: Write Ahead Log](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-wal.html#GUC-WAL-LEVEL).
+     * See also [PostgreSQL: Documentation: Write Ahead Log]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL).
 
   * `max_wal_senders = 4` (`= 2 (The number of slaves) * 2`. `* 2` is for unexpected connection close.)
 
-     * See also [PostgreSQL: Documentation: Replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
+     * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
@@ -332,7 +332,7 @@ Add the following replica configurations to `postgresql.conf` on only slaves:
 
   * `hot_standby = on`
 
-    * See also [PostgreSQL: Documentation: Replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-replication.html#GUC-HOT-STANDBY).
+    * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-HOT-STANDBY).
 
 Slaves:
 

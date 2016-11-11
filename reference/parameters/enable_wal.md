@@ -10,7 +10,7 @@ It's still an experimental feature. If you find a problem, please [report it](ht
 
 ## Summary
 
-`pgroonga.enable_wal` parameter controls whether [WAL](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-wal.html) is enabled or not.
+`pgroonga.enable_wal` parameter controls whether [WAL]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html) is enabled or not.
 
 PGroonga supports WAL with PostgreSQL 9.6 or later. `pgroonga.enable_wal` parameter is meaningless with PostgreSQL 9.5 or earlier.
 

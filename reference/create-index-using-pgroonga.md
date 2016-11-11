@@ -8,7 +8,7 @@ You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index 
 
 ## Syntax
 
-This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [`CREATE INDEX` document by PostgreSQL](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/sql-createindex.html) for full `CREATE INDEX` syntax.
+This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [`CREATE INDEX` document by PostgreSQL]({{ site.postgresql_doc_base_url.en }}/sql-createindex.html) for full `CREATE INDEX` syntax.
 
 Here is a basic syntax for creating a single column index:
 
@@ -114,7 +114,7 @@ See [Normalizers](http://groonga.org/docs/reference/normalizers.html) for other 
 
 Since 1.1.6.
 
-Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/manage-ag-tablespaces.html). If you have fast storage, you may want to change tablespace for PGroonga indexes.
+Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace]({{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html). If you have fast storage, you may want to change tablespace for PGroonga indexes.
 
 Here is an example to change tablespace:
 

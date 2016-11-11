@@ -62,7 +62,7 @@ Windowsに`PGroonga`イベントソースを登録することでイベントビ
 > regsvr32 /n /i:PGroonga ${PostgreSQL install folder}\lib\pgevent.dll
 ```
 
-[WindowsにおけるEvent Logの登録](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/event-log-registration.html)も参照してください。
+[WindowsにおけるEvent Logの登録]({{ site.postgresql_doc_base_url.ja }}/event-log-registration.html)も参照してください。<
 
 ## 参考
 

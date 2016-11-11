@@ -10,9 +10,9 @@ title: "@~演算子"
 
 PostgreSQLは次のような組み込みの正規表現演算子を提供しています。
 
-  * [`SIMILAR TO`](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP)
+  * [`SIMILAR TO`]({{ site.postgresql_doc_base_url.ja }}/functions-matching.html#functions-similarto-regexp)
 
-  * [POSIX正規表現](http://www.postgresql.jp/document/{{ site.postgresql_short_version }}/html/functions-matching.html#FUNCTIONS-POSIX-REGEXP)
+  * [POSIX正規表現]({{ site.postgresql_doc_base_url.ja }}/functions-matching.html#functions-posix-regexp)
 
 `SIMILAR TO`はSQL標準をベースにしています。「POSIX正規表現」はPOSIXをベースにしています。これらはそれぞれ違う正規表現の構文を使います。
 

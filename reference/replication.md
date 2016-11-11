@@ -12,6 +12,8 @@ If you're using PostgreSQL 9.5 or earlier, you can use some alternative streamin
 
   * [pg\_shard](https://github.com/citusdata/pg_shard) (pg\_shard is deprecated. [Citus](https://github.com/citusdata/citus), the replacement of pg\_shard, may work with PGroonga. If you confirm that Citus can work with PGroonga, please [report it](https://github.com/pgroonga/pgroonga/issues/new).)
 
+Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html).
+
 This document describes how to configure PostgreSQL built-in WAL based streaming replication for PGroonga. Most of steps are normal steps. There are some PGroonga specific steps.
 
 ## Summary

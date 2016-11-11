@@ -18,6 +18,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)
 
+  * [レプリケーション](replication.html)
+
   * [`jsonb`サポート](jsonb.html)
 
 ## 演算子

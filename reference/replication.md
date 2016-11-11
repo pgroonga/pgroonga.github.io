@@ -6,7 +6,7 @@ title: Replication
 
 PGroonga supports PostgreSQL built-in [WAL based streaming replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/warm-standby.html) since 1.1.6. It requires PostgreSQL 9.6 or later.
 
-If you're using PostgreSQL 9.5 or earlier, there are some alternative streaming replication implementations that can be used with PGroonga:
+If you're using PostgreSQL 9.5 or earlier, you can use some alternative streaming replication implementations that can be used with PGroonga:
 
   * [pglogical](https://2ndquadrant.com/en/resources/pglogical/)
 
@@ -24,9 +24,9 @@ Here are steps to configure PostgreSQL built-in WAL based streaming replication 
 
   3. [normal] Initialize PostgreSQL database on master
 
-  4. [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf`
+  4. [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on master
 
-  5. [special] Add some PGroonga related configurations to `postgresql.conf`
+  5. [special] Add some PGroonga related configurations to `postgresql.conf` on master
 
   6. [normal] Insert data on master
 
@@ -36,7 +36,7 @@ Here are steps to configure PostgreSQL built-in WAL based streaming replication 
 
   9. [normal] Run `pg_basebackup` on slaves
 
-  10. [normal] Add some streaming replication configurations to `postgresql.conf`
+  10. [normal] Add some streaming replication configurations to `postgresql.conf` on slaves
 
   11. [normal] Start PostgreSQL on slaves
 
@@ -70,7 +70,7 @@ This document uses the following environment:
 
 This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself.
 
-For now (2016-11-09), the official PGroonga packages for CentOS 7 and Windows are only packages that support WAL. Because WAL support requires MessagePack and PostgreSQL 9.6 or later. Packages for other platforms don't satisfy one of them. If you build PGroonga from source, see [Install from source](../install/source.html) how to build with MessagePack.
+For now (2016-11-09), the official PGroonga packages for CentOS 7 and Windows are only packages that support WAL. Because WAL support requires MessagePack and PostgreSQL 9.6 or later. Packages for other platforms don't satisfy one of them. If you build PGroonga from source, see [Install from source](../install/source.html). It describes about how to build with MessagePack.
 
 ## [normal] Install PostgreSQL on master and slaves
 
@@ -86,7 +86,7 @@ Master:
 % sudo -H systemctl enable postgresql-9.6
 ```
 
-Slave:
+Slaves:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
@@ -94,7 +94,7 @@ Slave:
 % sudo -H systemctl enable postgresql-9.6
 ```
 
-See also [PostgreSQL: Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/#yum)
+See also [PostgreSQL: Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/#yum).
 
 ## [special] Install PGroonga on master and slaves
 
@@ -118,7 +118,7 @@ Slaves:
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 
-See also [Install on CentOS | PGroonga](/../install/centos.html#install-on-7)
+See also [Install on CentOS](/../install/centos.html#install-on-7).
 
 ## [normal] Initialize PostgreSQL database on master
 
@@ -132,7 +132,7 @@ Master:
 % sudo -H env PGSETUP_INITDB_OPTIONS="--locale C --encoding UTF-8" /usr/pgsql-9.6/bin/postgresql96-setup initdb
 ```
 
-## [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf`
+## [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on master
 
 This is a normal step.
 
@@ -142,11 +142,11 @@ Add the following streaming replication configurations to `postgresql.conf` on o
 
   * `wal_level = replica`
 
-     * See also [PostgreSQL: Documentation: Write Ahead Log](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-wal.html#GUC-WAL-LEVEL)
+     * See also [PostgreSQL: Documentation: Write Ahead Log](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-wal.html#GUC-WAL-LEVEL).
 
   * `max_wal_senders = 4` (`= 2 (The number of slaves) * 2`. `* 2` is for unexpected connection close.)
 
-     * See also [PostgreSQL: Documentation: Replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)
+     * See also [PostgreSQL: Documentation: Replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
@@ -195,7 +195,7 @@ Enter password for new role: (passw0rd)
 Enter it again: (passw0rd)
 ```
 
-## [special] Add some PGroonga related configurations to `postgresql.conf`
+## [special] Add some PGroonga related configurations to `postgresql.conf` on master
 
 This is a PGroonga specific step.
 
@@ -324,7 +324,7 @@ Password: (passw0rd)
 149261/149261 kB (100%), 1/1 tablespace
 ```
 
-## [normal] Add some streaming replication configurations to `postgresql.conf`
+## [normal] Add some streaming replication configurations to `postgresql.conf` on slaves
 
 This is a normal step.
 
@@ -332,7 +332,7 @@ Add the following replica configurations to `postgresql.conf` on only slaves:
 
   * `hot_standby = on`
 
-    * See also [PostgreSQL: Documentation: Replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-replication.html#GUC-HOT-STANDBY)
+    * See also [PostgreSQL: Documentation: Replication](https://www.postgresql.org/docs/{{ site.postgresql_short_version }}/static/runtime-config-replication.html#GUC-HOT-STANDBY).
 
 Slaves:
 

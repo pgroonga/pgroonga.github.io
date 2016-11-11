@@ -18,6 +18,8 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)
 
+  * [Replication](replication.html)
+
   * [`jsonb` support](jsonb.html)
 
 ## Operators

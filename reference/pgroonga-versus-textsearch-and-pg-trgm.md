@@ -141,8 +141,6 @@ CREATE TABLE wikipedia (
 
 ### Index creation
 
-<!--
-
 Here are benchmark results of creating full text search indexes:
 
 Module     | Elapsed time           | Index size  | Note
@@ -187,6 +185,8 @@ Here are benchmark results of full text searches.
   * "Groonga" means `pgroonga.command('select ...')` result. See also [`pgroonga.command`](functions/pgroonga-command.html)
 
   * "Relative elapsed time" is the ratio between the target elapsed time and the fastest case elapsed time. Larger means slower.
+
+<!--
 
 TODO: Graph as summary
 

@@ -11,7 +11,11 @@ postgresql_doc_base_url:
 windows_postgresql_versions:
   - 9.5.5-1
   - 9.6.1-1
-exclude: ["Rakefile", "Gemfile", "Gemfile.lock"]
+exclude:
+  - "Rakefile"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "data"
 description:
   en: Make PostgreSQL fast full text search platform for all languages!
   ja: PostgreSQLで高速日本語全文検索！

@@ -194,8 +194,8 @@ Module     | Elapsed time | N hits             | Relative time | Note
 ---------- | ------------ | ------------------ | ------------- | ----
 PGroonga   | About 173ms  | About 40thousands  | About 29      |
 Groonga    | About 6ms    | About 40thousands  | 1             |
-pg\_trgm   | About 44s    | About 30thousands  | About 7333    |
 textsearch | About 1s     | About 420thousands | About 167     | N hits is about 10 times than other cases. It's caused by stemming. "animation" is stemmed as "anim" and "anim" is searched.
+pg\_trgm   | About 44s    | About 30thousands  | About 7333    |
 
 Query: "database"
 
@@ -203,8 +203,8 @@ Module     | Elapsed time | N hits             | Relative time
 ---------- | ------------ | ------------------ | -------------
 PGroonga   | About 698ms  | About 210thousands | About 37
 Groonga    | About 19ms   | About 210thousands | 1
-pg\_trgm   | About 33s    | About 130thousands | About 1736
 textsearch | About 602ms  | About 190thousands | About 32
+pg\_trgm   | About 33s    | About 130thousands | About 1736
 
 
 Query: "PostgreSQL OR MySQL"
@@ -213,8 +213,8 @@ Module     | Elapsed time | N hits             | Relative time
 ---------- | ------------ | ------------------ | -------------
 PGroonga   | About 6ms    | 1636               | About 2
 Groonga    | About 3ms    | 1636               | 1
-pg\_trgm   | About 241ms  | 1484               | About 80
 textsearch | About 3ms    | 1506               | 1
+pg\_trgm   | About 241ms  | 1484               | About 80
 
 Query: "America"
 
@@ -222,5 +222,5 @@ Module     | Elapsed time | N hits             | Relative time
 ---------- | ------------ | ------------------ | -------------
 PGroonga   | About 1.3s   | About 470thousands | About 29
 Groonga    | About 45ms   | About 470thousands | 1
-pg\_trgm   | About 1m32s  | About 1.4millions  | About 2044
 textsearch | About 1.2s   | About 480thousands | About 26
+pg\_trgm   | About 1m32s  | About 1.4millions  | About 2044

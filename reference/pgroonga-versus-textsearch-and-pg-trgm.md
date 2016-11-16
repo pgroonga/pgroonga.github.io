@@ -80,6 +80,7 @@ here is the summary of benchmark result:
 
 ### Environment
 
+<!--
 Here is benchmark environment:
 
 CPU     | Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz (24cores)
@@ -224,3 +225,4 @@ PGroonga   | About 1.3s   | About 470thousands | About 29
 Groonga    | About 45ms   | About 470thousands | 1
 pg\_trgm   | About 1m32s  | About 1.4millions  | About 2044
 textsearch | About 1.2s   | About 480thousands | About 26
+-->

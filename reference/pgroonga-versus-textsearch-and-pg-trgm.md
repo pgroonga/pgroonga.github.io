@@ -80,7 +80,6 @@ here is the summary of benchmark result:
 
 ### Environment
 
-<!--
 Here is benchmark environment:
 
 CPU     | Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz (24cores)
@@ -141,6 +140,8 @@ CREATE TABLE wikipedia (
 ```
 
 ### Index creation
+
+<!--
 
 Here are benchmark results of creating full text search indexes:
 

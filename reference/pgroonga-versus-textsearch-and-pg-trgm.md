@@ -186,8 +186,6 @@ Here are benchmark results of full text searches.
 
   * "Relative elapsed time" is the ratio between the target elapsed time and the fastest case elapsed time. Larger means slower.
 
-<!--
-
 TODO: Graph as summary
 
 Query: "animation"
@@ -226,4 +224,3 @@ PGroonga   | About 1.3s   | About 470thousands | About 29
 Groonga    | About 45ms   | About 470thousands | 1
 pg\_trgm   | About 1m32s  | About 1.4millions  | About 2044
 textsearch | About 1.2s   | About 480thousands | About 26
--->

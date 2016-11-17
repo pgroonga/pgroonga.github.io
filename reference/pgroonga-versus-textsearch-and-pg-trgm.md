@@ -70,17 +70,43 @@ This section shows benchmark result against English Wikipedia. You can find benc
 
 ### Summary
 
-here is the summary of benchmark result:
+Here is the summary of full text search index creation benchmark result:
 
-  * pg\_trgm is slower than other modules.
+  * PGroonga is the fastest module.
 
-  * Performances of PGroonga and textsearch are similar.
+  * pg\_trgm is about 30% slower than PGroonga.
 
-  * Groonga, full text search engine by PGroonga, is faster than PGroonga and textsearch. It's 10 time or more faster.
+  * textsearch is about 2 times slower than PGroonga.
+
+![Index creation time](../images/pgroonga-textsearch-pg-trgm/index-creation.svg)
+
+Here is the summary of full text search index size benchmark result:
+
+  * pg\_trgm is the smallest module.
+
+  * textsearch is about 60% lager than pg\_trgm.
+
+  * PGroonga is about 5 times larger than pg\_trgm.
+
+![Index size](../images/pgroonga-textsearch-pg-trgm/index-size.svg)
+
+Here is the summary of full text search performance benchmark result:
+
+  * Full text search performance by pg\_trgm is very slower than other modules.
+
+  * Full text search performances of PGroonga and textsearch are similar.
+
+  * Full text search performance of Groonga, full text search engine by PGroonga, is faster than PGroonga and textsearch. It's 10 times or more faster.
+
+![Full text search performance](../images/pgroonga-textsearch-pg-trgm/search.svg)
+
+Here is the full text search performance graph without pg\_trgm because pg\_trgm is too slow:
+
+![Full text search performance without pg\_trgm](../images/pgroonga-textsearch-pg-trgm/search-without-pg-trgm.svg)
 
 ### Environment
 
-Here is benchmark environment:
+Here is the benchmark environment:
 
 CPU     | Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz (24cores)
 Memory  | 32GiB
@@ -90,7 +116,7 @@ OS      | CentOS 7.2
 
 ### Version
 
-Here are software versions:
+Here are the software versions:
 
 PostgreSQL | PGroonga
 ---------- | --------
@@ -98,7 +124,7 @@ PostgreSQL | PGroonga
 
 ### Data
 
-Here are statistics of target data:
+Here are statistics of the target data:
 
 Size                                | About 33GiB
 The number of records               | About 5.3millions
@@ -115,7 +141,7 @@ string is too long for tsvector (1618908 bytes, max 1048575 bytes)
 
 ### Data load
 
-Here is a benchmark result of data load. It's not related with full text search modules. Because any indexes aren't created yet.
+Here is the benchmark result of data load. It's not related with full text search modules. Because any indexes aren't created yet.
 
 Elapsed time    | Database size
 --------------- | -------------

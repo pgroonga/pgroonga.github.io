@@ -1,4 +1,4 @@
-set terminal pdfcairo enhanced color transparent rounded
+# set terminal pdfcairo enhanced color transparent rounded
 set terminal svg
 
 set key outside center top horizontal reverse Left samplen 2
@@ -19,7 +19,7 @@ set style line 9 lt 1 lc rgbcolor "#c17d11" lw 2.5 pt 3 ps 1
 set style line 10 lt 1 lc rgbcolor "#dce775" lw 2.5 pt 3 ps 1
 
 set xlabel "\n\nQuery"
-set ylabel "Elapsed time (ms)"
+set ylabel "Elapsed time (ms)\n(Shorter is better)"
 
 set style data histogram
 set style histogram cluster gap 1

@@ -26,6 +26,8 @@ PGroonga    | もっと速い | もっと速い | もっと多い
 
 ## ベンチマーク
 
-このセクションはサンプルデータを使ってこれらの特徴を示します。
+PGroongとGINのパフォーマンスに関しては次のドキュメントを参照してください。
 
-TODO
+  * [PGroonga対textsearch対pg\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html)
+
+  * [PGroonga対pg\_bigm](pgroonga-versus-pg-bigm.html)

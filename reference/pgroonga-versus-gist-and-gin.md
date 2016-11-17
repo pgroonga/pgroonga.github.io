@@ -26,7 +26,7 @@ PGroonga | More faster | More faster | More larger
 
 ## Benchmark
 
-See the following documents for PGroonga and GIN characteristics:
+See the following documents for PGroonga and GIN performance:
 
   * [PGroonga versus textsearch and pg\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html)
 

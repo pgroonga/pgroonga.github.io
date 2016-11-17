@@ -18,6 +18,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)
 
+  * [PGroonga対textsearch対pg\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html)
+
+  * [PGroonga対pg\_bigm](pgroonga-versus-pg-bigm.html)
+
   * [レプリケーション](replication.html)
 
   * [`jsonb`サポート](jsonb.html)

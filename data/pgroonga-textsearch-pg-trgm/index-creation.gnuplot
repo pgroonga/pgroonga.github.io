@@ -18,6 +18,8 @@ set style line 8 lt 1 lc rgbcolor "#5c3566" lw 2.5 pt 1 ps 1
 set style line 9 lt 1 lc rgbcolor "#c17d11" lw 2.5 pt 3 ps 1
 set style line 10 lt 1 lc rgbcolor "#dce775" lw 2.5 pt 3 ps 1
 
+set title "Index creation"
+
 set xlabel "Module"
 set ylabel "Elapsed time (hour)\n(Shorter is better)"
 set noxtic
@@ -29,6 +31,9 @@ set style histogram cluster gap 1
 set style fill solid border -1
 set boxwidth 0.9
 
+set label 1 \
+          "Data: English Wikipedia\nSize: About 33GiB\nMax text size: 1MiB" \
+          at 0.5,2.9 left
 set output "index-creation.svg"
 plot "index-creation.tsv" using 1 \
        title columnheader \

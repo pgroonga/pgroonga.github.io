@@ -43,7 +43,7 @@ pg\_bigm   | All                 | Slower  | Slower  | Smaller
 
 ## Benchmark {#benchmark}
 
-This section shows benchmark result against Japanese Wikipedia. You can find benchmark script at https://github.com/groonga/wikipedia-search/blob/master/benchmark/centos7/postgresql.sh .
+This section shows benchmark result against Japanese Wikipedia. You can find benchmark script at [postgresql.sh](https://github.com/groonga/wikipedia-search/blob/master/benchmark/centos7/postgresql.sh).
 
 ### Summary
 
@@ -118,7 +118,7 @@ Here is the SQL to load data:
 COPY wikipedia FROM 'ja-all-pages.csv' WITH CSV ENCODING 'utf8';
 ```
 
-You can download the CSV data at http://packages.groonga.org/tmp/ja-all-pages.csv.xz .
+You can download the CSV data at [ja-all-pages.csv.xz](http://packages.groonga.org/tmp/ja-all-pages.csv.xz).
 
 Here is the SQL to define the `wikipedia` table:
 

@@ -43,7 +43,7 @@ pg\_bigm   | 全言語               | 遅い | 遅い | 小さい
 
 ## ベンチマーク {#benchmark}
 
-このセクションでは日本語版Wikipediaを使ったベンチマーク結果を示します。ベンチマークスクリプトは https://github.com/groonga/wikipedia-search/blob/master/benchmark/centos7/postgresql.sh にあります。
+このセクションでは日本語版Wikipediaを使ったベンチマーク結果を示します。ベンチマークスクリプトは[postgresql.sh](https://github.com/groonga/wikipedia-search/blob/master/benchmark/centos7/postgresql.sh)にあります。
 
 ### 概要
 
@@ -118,7 +118,7 @@ PostgreSQL | PGroonga | pg\_bigm
 COPY wikipedia FROM 'ja-all-pages.csv' WITH CSV ENCODING 'utf8';
 ```
 
-このCSVデータは http://packages.groonga.org/tmp/ja-all-pages.csv.xz からダウンロードできます。
+このCSVデータは[ja-all-pages.csv.xz](http://packages.groonga.org/tmp/ja-all-pages.csv.xz)からダウンロードできます。
 
 以下は`wikipedia`テーブルを定義するSQLです。
 

@@ -84,7 +84,7 @@ Here is the summary of full text search index size benchmark result:
 
   * pg\_trgm is the smallest module.
 
-  * textsearch is about 60% lager than pg\_trgm.
+  * textsearch is about 60% larger than pg\_trgm.
 
   * PGroonga is about 5 times larger than pg\_trgm.
 
@@ -133,7 +133,7 @@ The max title length in byte        | 211B
 The average of body length in byte  | About 6.4KiB
 The max body length in byte         | About 1MiB (1047190B)
 
-It's important for textsearch that the max body length in byte is less than 1MiB. If it's equals to 1MiB - 1 or more, you can't create textsearch index with the following error message:
+It's important for textsearch that the max body length in byte is less than 1MiB. If it's equals to `1MiB - 1B` or more, you can't create textsearch index with the following error message:
 
 ```text
 string is too long for tsvector (1618908 bytes, max 1048575 bytes)
@@ -208,25 +208,23 @@ CREATE INDEX wikipedia_index_pg_trgm ON wikipedia
 
 Here are benchmark results of full text searches.
 
-  * "Groonga" means `pgroonga.command('select ...')` result. See also [`pgroonga.command`](functions/pgroonga-command.html)
+  * "Groonga" means `pgroonga.command('select ...')` result. See also [`pgroonga.command`](functions/pgroonga-command.html).
 
   * "Relative elapsed time" is the ratio between the target elapsed time and the fastest case elapsed time. Larger means slower.
 
-TODO: Graph as summary
-
 Query: "animation"
 
-Module     | Elapsed time | N hits             | Relative time | Note
----------- | ------------ | ------------------ | ------------- | ----
-PGroonga   | About 173ms  | About 40thousands  | About 29      |
-Groonga    | About 6ms    | About 40thousands  | 1             |
-textsearch | About 1s     | About 420thousands | About 167     | N hits is about 10 times than other cases. It's caused by stemming. "animation" is stemmed as "anim" and "anim" is searched.
-pg\_trgm   | About 44s    | About 30thousands  | About 7333    |
+Module     | Elapsed time | N hits             | Relative elapsed time | Note
+---------- | ------------ | ------------------ | --------------------- | ----
+PGroonga   | About 173ms  | About 40thousands  | About 29              |
+Groonga    | About 6ms    | About 40thousands  | 1                     |
+textsearch | About 1s     | About 420thousands | About 167             | N hits is about 10 times than other cases. It's caused by stemming. "animation" is stemmed as "anim" and "anim" is searched.
+pg\_trgm   | About 44s    | About 30thousands  | About 7333            |
 
 Query: "database"
 
-Module     | Elapsed time | N hits             | Relative time
----------- | ------------ | ------------------ | -------------
+Module     | Elapsed time | N hits             | Relative elapsed time
+---------- | ------------ | ------------------ | ---------------------
 PGroonga   | About 698ms  | About 210thousands | About 37
 Groonga    | About 19ms   | About 210thousands | 1
 textsearch | About 602ms  | About 190thousands | About 32
@@ -235,8 +233,8 @@ pg\_trgm   | About 33s    | About 130thousands | About 1736
 
 Query: "PostgreSQL OR MySQL"
 
-Module     | Elapsed time | N hits             | Relative time
----------- | ------------ | ------------------ | -------------
+Module     | Elapsed time | N hits             | Relative elapsed time
+---------- | ------------ | ------------------ | ---------------------
 PGroonga   | About 6ms    | 1636               | About 2
 Groonga    | About 3ms    | 1636               | 1
 textsearch | About 3ms    | 1506               | 1
@@ -244,8 +242,8 @@ pg\_trgm   | About 241ms  | 1484               | About 80
 
 Query: "America"
 
-Module     | Elapsed time | N hits             | Relative time
----------- | ------------ | ------------------ | -------------
+Module     | Elapsed time | N hits             | Relative elapsed time
+---------- | ------------ | ------------------ | ---------------------
 PGroonga   | About 1.3s   | About 470thousands | About 29
 Groonga    | About 45ms   | About 470thousands | 1
 textsearch | About 1.2s   | About 480thousands | About 26

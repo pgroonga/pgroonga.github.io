@@ -33,13 +33,13 @@ set boxwidth 0.9
 
 set label 1 \
           "Data: English Wikipedia" \
-          at 0.5,34 left
+          at 0.4,34 left
 set label 2 \
           "Size: About 33GiB" \
-          at 0.5,31.5 left
+          at 0.4,31.5 left
 set label 3 \
           "Max text size: 1MiB" \
-          at 0.5,29 left
+          at 0.4,29 left
 set output "index-size.svg"
 plot "index-size.tsv" using 1 \
        title columnheader \

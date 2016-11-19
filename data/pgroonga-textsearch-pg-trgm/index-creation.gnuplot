@@ -33,7 +33,7 @@ set boxwidth 0.9
 
 set label 1 \
           "Data: English Wikipedia\nSize: About 33GiB\nMax text size: 1MiB" \
-          at 0.5,2.9 left
+          at 0.4,2.9 left
 set output "index-creation.svg"
 plot "index-creation.tsv" using 1 \
        title columnheader \

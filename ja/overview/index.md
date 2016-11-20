@@ -16,23 +16,30 @@ PostgreSQLはアルファベットと数値だけを使った言語の全文検�
 
 あらゆる言語をサポートした全文検索を実現するための拡張機能がいくつかあります。
 
-  * [pg_trgm]({{ site.postgresql_doc_base_url.ja }}/pgtrgm.html)
+  * [pg\_trgm]({{ site.postgresql_doc_base_url.ja }}/pgtrgm.html)
+
     * PostgreSQLにバンドルされていますが、デフォルトではインストールされていません。
+
     * あらゆる言語に対応するためにはpg\_trgmのソースコードを変更する必要があります。
 
-  * [pg_bigm](http://pgbigm.osdn.jp/)
+  * [pg\_bigm](http://pgbigm.osdn.jp/)
+
     * ソースコードを変更しなくてもあらゆる言語をサポートした全文検索を実現できます。
-    * 誤検出を防ぐために[Recheck](http://pgbigm.osdn.jp/pg_bigm-1-1.html#enable_recheck)をする必要があります。
+
+    * 誤検出を防ぐために[Recheck](http://pgbigm.osdn.jp/pg_bigm-1-2.html#enable_recheck)をする必要があります。
+
     * Recheckはヒット数が多くなるほど遅くなります。なぜならRecheckはインデックスを使った検索でマッチしたレコードに対してシーケンシャルサーチをするからです。
+
+
     * Recheckを無効にすると誤検出したレコードも返ってくる可能性があります。
 
 PGroongaはソースコードを変更しなくてもあらゆる言語をサポートした全文検索を実現できます。
 
 PGroongaはRecheckなしで動きます。インデックスを使った検索で誤検出をしないからです。そのため、PGroongaはヒット数が多くなる場合でも高速です。
 
-PGroongaはクラッシュリカバリーとストリーミングレプリケーションをサポートしてません。なぜならPGroongaはWALをサポートしていないからです。どうしてWALをサポートしていないのかというと、PostgreSQLには拡張機能がWALをサポートするAPIがないからです。PostgreSQLがそのようなAPIを提供するようになったらPGroongaもWALをサポートする予定です。
+PGroongaは[レプリケーション](../reference/replication.html)をサポートしています。レプリケーション機能を使うにはPostgreSQL 9.6以降が必要です。
 
-参考：pg\_trgmとpg\_bigmはWALをサポートしています。正確に言うと、pg\_trgmとpg\_bigmが使っているGINとGiSTがWALをサポートしています。
+PGroongaはクラッシュセーフではありません。もし、更新中にPostgreSQLのプロセスがクラッシュした場合は[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)PGroongaのインデックスを再作成する必要があるかもしれません。
 
 ## 歴史
 

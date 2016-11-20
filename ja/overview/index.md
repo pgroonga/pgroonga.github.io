@@ -39,7 +39,7 @@ PGroongaはRecheckなしで動きます。インデックスを使った検索�
 
 PGroongaは[レプリケーション](../reference/replication.html)をサポートしています。レプリケーション機能を使うにはPostgreSQL 9.6以降が必要です。
 
-PGroongaはクラッシュセーフではありません。もし、更新中にPostgreSQLのプロセスがクラッシュした場合は[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)PGroongaのインデックスを再作成する必要があるかもしれません。
+PGroongaはクラッシュセーフではありません。更新中にPostgreSQLのプロセスがクラッシュした場合はPGroongaのインデックスが壊れるかもしれません。PGroongaのインデックスが壊れたら[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)PGroongaのインデックスを再作成する必要があります。
 
 ## 歴史
 

@@ -38,7 +38,7 @@ PGroonga works without Recheck. PGroonga can find exact records only by index se
 
 PGroonga supports [replication](../reference/replication.html) with PostgreSQL 9.6 or later.
 
-PGroonga isn't crash safe. If your PostgreSQL process is crashed while updating, you may need to recreate PGroonga indexes by [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html).
+PGroonga isn't crash safe. If your PostgreSQL process is crashed while updating, your PGroonga indexes may be broken. If your PGroonga indexes are broken, you need to recreate PGroonga indexes by [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html).
 
 ## History
 

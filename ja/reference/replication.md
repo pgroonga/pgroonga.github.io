@@ -10,7 +10,7 @@ PostgreSQL 9.5以前を使っている場合は、PGroongaと一緒に使える�
 
   * [pglogical](https://2ndquadrant.com/en/resources/pglogical/)
 
-  * [pg\_shard](https://github.com/citusdata/pg_shard)（pg\_shardは日宇h推奨になりました。pg\_shardの光景プロジェクトの[Citus](https://github.com/citusdata/citus),もおそらくPGroongaと一緒に使えます。もし、CitusがPGroongaと一緒に使えることを確認したら、[報告](https://github.com/pgroonga/pgroonga/issues/new)してください。）
+  * [pg\_shard](https://github.com/citusdata/pg_shard)（pg\_shardは非推奨になりました。pg\_shardの光景プロジェクトの[Citus](https://github.com/citusdata/citus)もおそらくPGroongaと一緒に使えます。もし、CitusがPGroongaと一緒に使えることを確認したら、[報告](https://github.com/pgroonga/pgroonga/issues/new)してください。）
 
 WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)で作り直さなければいけません。
 

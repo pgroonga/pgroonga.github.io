@@ -96,6 +96,8 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`pgroonga.query_extract_keywords`関数](functions/pgroonga-query-extract-keywords.html)
 
+  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)
+
 ## パラメーター
 
   * [`pgroonga.log_type`パラメーター](parameters/log_type.html)

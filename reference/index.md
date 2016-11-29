@@ -96,6 +96,8 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.query_extract_keywords` function](functions/pgroonga-query-extract-keywords.html)
 
+  * [`pgroonga.flush` function](functions/pgroonga-flush.html)
+
 ## Parameters
 
   * [`pgroonga.log_type` parameter](parameters/log_type.html)

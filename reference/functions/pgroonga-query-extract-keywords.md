@@ -32,40 +32,40 @@ You can get all terms as keywords for AND only case:
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga PostgreSQL');
- query_extract_keywords 
-------------------------
- {PostgreSQL,Groonga}
-(1 row)
+--  query_extract_keywords 
+-- ------------------------
+--  {PostgreSQL,Groonga}
+-- (1 row)
 ```
 
 You can get all terms as keywords for OR only case:
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga OR PostgreSQL');
- query_extract_keywords 
-------------------------
- {PostgreSQL,Groonga}
-(1 row)
+--  query_extract_keywords 
+-- ------------------------
+--  {PostgreSQL,Groonga}
+-- (1 row)
 ```
 
 You can use parentheses:
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga (MySQL OR PostgreSQL)');
-   query_extract_keywords   
-----------------------------
- {Groonga,PostgreSQL,MySQL}
-(1 row)
+--    query_extract_keywords   
+-- ----------------------------
+--  {Groonga,PostgreSQL,MySQL}
+-- (1 row)
 ```
 
 Term for NOT condition isn't keyword:
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga - MySQL PostgreSQL');
- query_extract_keywords 
-------------------------
- {PostgreSQL,Groonga}
-(1 row)
+--  query_extract_keywords 
+-- ------------------------
+--  {PostgreSQL,Groonga}
+-- (1 row)
 ```
 
 ## See also

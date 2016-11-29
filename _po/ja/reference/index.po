@@ -161,17 +161,11 @@ msgstr "    * [`&^~>`演算子](operators/prefix-rk-search-contain-v2.html)"
 msgid "## Functions"
 msgstr "## 関数"
 
-msgid "  * [`pgroonga.score` function](functions/pgroonga-score.html)"
-msgstr "  * [`pgroonga.score`関数](functions/pgroonga-score.html)"
-
 msgid "  * [`pgroonga.command` function](functions/pgroonga-command.html)"
 msgstr "  * [`pgroonga.command`関数](functions/pgroonga-command.html)"
 
-msgid "  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)"
-msgstr "  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)"
-
-msgid "  * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)"
-msgstr "  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html)"
+msgid "  * [`pgroonga.flush` function](functions/pgroonga-flush.html)"
+msgstr "  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)"
 
 msgid ""
 "  * [`pgroonga.highlight_html` function](functions/pgroonga-highlight-html.htm"
@@ -199,26 +193,32 @@ msgstr ""
 "  * [`pgroonga.query_extract_keywords`関数](functions/pgroonga-query-extract-key"
 "words.html)"
 
-msgid "  * [`pgroonga.flush` function](functions/pgroonga-flush.html)"
-msgstr "  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)"
+msgid "  * [`pgroonga.score` function](functions/pgroonga-score.html)"
+msgstr "  * [`pgroonga.score`関数](functions/pgroonga-score.html)"
+
+msgid "  * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)"
+msgstr "  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html)"
+
+msgid "  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)"
+msgstr "  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)"
 
 msgid "## Parameters"
 msgstr "## パラメーター"
 
-msgid "  * [`pgroonga.log_type` parameter](parameters/log_type.html)"
-msgstr "  * [`pgroonga.log_type`パラメーター](parameters/log_type.html)"
-
-msgid "  * [`pgroonga.log_path` parameter](parameters/log_path.html)"
-msgstr "  * [`pgroonga.log_path`パラメーター](parameters/log_path.html)"
-
-msgid "  * [`pgroonga.log_level` parameter](parameters/log_level.html)"
-msgstr "  * [`pgroonga.log_level`パラメーター](parameters/log_level.html)"
+msgid "  * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)"
+msgstr "  * [`pgroonga.enable_wal`パラメーター](parameters/enable_wal.html)"
 
 msgid "  * [`pgroonga.lock_timeout` parameter](parameters/lock_timeout.html)"
 msgstr "  * [`pgroonga.lock_timeout`パラメーター](parameters/lock_timeout.html)"
 
-msgid "  * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)"
-msgstr "  * [`pgroonga.enable_wal`パラメーター](parameters/enable_wal.html)"
+msgid "  * [`pgroonga.log_level` parameter](parameters/log_level.html)"
+msgstr "  * [`pgroonga.log_level`パラメーター](parameters/log_level.html)"
+
+msgid "  * [`pgroonga.log_path` parameter](parameters/log_path.html)"
+msgstr "  * [`pgroonga.log_path`パラメーター](parameters/log_path.html)"
+
+msgid "  * [`pgroonga.log_type` parameter](parameters/log_type.html)"
+msgstr "  * [`pgroonga.log_type`パラメーター](parameters/log_type.html)"
 
 msgid "## Groonga functions"
 msgstr "## Groongaの関数"

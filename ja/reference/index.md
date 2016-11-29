@@ -80,13 +80,9 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ## 関数
 
-  * [`pgroonga.score`関数](functions/pgroonga-score.html)
-
   * [`pgroonga.command`関数](functions/pgroonga-command.html)
 
-  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)
-
-  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html)
+  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)
 
   * [`pgroonga.highlight_html`関数](functions/pgroonga-highlight-html.html)
 
@@ -96,19 +92,23 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`pgroonga.query_extract_keywords`関数](functions/pgroonga-query-extract-keywords.html)
 
-  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)
+  * [`pgroonga.score`関数](functions/pgroonga-score.html)
+
+  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html)
+
+  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)
 
 ## パラメーター
 
-  * [`pgroonga.log_type`パラメーター](parameters/log_type.html)
-
-  * [`pgroonga.log_path`パラメーター](parameters/log_path.html)
-
-  * [`pgroonga.log_level`パラメーター](parameters/log_level.html)
+  * [`pgroonga.enable_wal`パラメーター](parameters/enable_wal.html)
 
   * [`pgroonga.lock_timeout`パラメーター](parameters/lock_timeout.html)
 
-  * [`pgroonga.enable_wal`パラメーター](parameters/enable_wal.html)
+  * [`pgroonga.log_level`パラメーター](parameters/log_level.html)
+
+  * [`pgroonga.log_path`パラメーター](parameters/log_path.html)
+
+  * [`pgroonga.log_type`パラメーター](parameters/log_type.html)
 
 ## Groongaの関数
 

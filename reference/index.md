@@ -80,13 +80,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 ## Functions
 
-  * [`pgroonga.score` function](functions/pgroonga-score.html)
-
   * [`pgroonga.command` function](functions/pgroonga-command.html)
 
-  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
-
-  * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)
+  * [`pgroonga.flush` function](functions/pgroonga-flush.html)
 
   * [`pgroonga.highlight_html` function](functions/pgroonga-highlight-html.html)
 
@@ -96,19 +92,23 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.query_extract_keywords` function](functions/pgroonga-query-extract-keywords.html)
 
-  * [`pgroonga.flush` function](functions/pgroonga-flush.html)
+  * [`pgroonga.score` function](functions/pgroonga-score.html)
+
+  * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)
+
+  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
 
 ## Parameters
 
-  * [`pgroonga.log_type` parameter](parameters/log_type.html)
-
-  * [`pgroonga.log_path` parameter](parameters/log_path.html)
-
-  * [`pgroonga.log_level` parameter](parameters/log_level.html)
+  * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)
 
   * [`pgroonga.lock_timeout` parameter](parameters/lock_timeout.html)
 
-  * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)
+  * [`pgroonga.log_level` parameter](parameters/log_level.html)
+
+  * [`pgroonga.log_path` parameter](parameters/log_path.html)
+
+  * [`pgroonga.log_type` parameter](parameters/log_type.html)
 
 ## Groonga functions
 

@@ -14,6 +14,13 @@ Here is the syntax of this function:
 
 ```text
 text pgroonga.command(command)
+```
+
+`command` is a `text` type value. `pgroonga.command` executes `command` as a Groonga command.
+
+Here is another syntax of this function. It can be used since 1.1.9:
+
+```text
 text pgroonga.command(name,
                       ARRAY[argument_name1, argument_value1,
                             argument_name2, argument_value2,
@@ -21,12 +28,6 @@ text pgroonga.command(name,
 ```
 
 The second syntax is recommended because it escapes argument values automatically. It prevents syntax error and Groonga command injection.
-
-Here is the description about the first syntax:
-
-`command` is a `text` type value. `pgroonga.command` executes `command` as a Groonga command.
-
-Here is the description about the second syntax:
 
 `name` is a `text` type value. It's a command name to be executed.
 

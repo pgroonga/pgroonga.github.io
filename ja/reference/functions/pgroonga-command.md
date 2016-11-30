@@ -14,6 +14,13 @@ title: pgroonga.command関数
 
 ```text
 text pgroonga.command(command)
+```
+
+`command`は`text`型の値です。`pgroonga.command`は`command`をGroongaのコマンドとして実行します。
+
+この関数にはもうひとつ構文があります。これは1.1.9以降で使えます。
+
+```text
 text pgroonga.command(name,
                       ARRAY[argument_name1, argument_value1,
                             argument_name2, argument_value2,
@@ -21,12 +28,6 @@ text pgroonga.command(name,
 ```
 
 2つめの構文を推奨します。理由は引数の値を自動でエスケープするからです。これによりシンタックスエラーとGroongaコマンドインジェクションを防げます。
-
-1つめの構文の説明は以下の通りです。
-
-`command`は`text`型の値です。`pgroonga.command`は`command`をGroongaのコマンドとして実行します。
-
-2つめの構文の説明は以下の通りです。
 
 `name`は`text`型の値です。実行するコマンド名です。
 

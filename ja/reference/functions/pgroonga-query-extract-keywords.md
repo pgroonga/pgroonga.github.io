@@ -20,7 +20,7 @@ title: pgroonga.query_extract_keywords関数
 text[] pgroonga.query_extract_keywords(query)
 ```
 
-`query`は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っているテキストです。
+`query`は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っている`text`型の値です。
 
 `pgroonga.query_extract_keywords`はキーワードの配列を返します。
 

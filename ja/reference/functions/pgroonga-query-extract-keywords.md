@@ -32,40 +32,40 @@ ANDのみの場合はすべての語がキーワードになります。
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga PostgreSQL');
- query_extract_keywords 
-------------------------
- {PostgreSQL,Groonga}
-(1 row)
+--  query_extract_keywords 
+-- ------------------------
+--  {PostgreSQL,Groonga}
+-- (1 row)
 ```
 
 ORのみの場合はすべての語がキーワードになります。
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga OR PostgreSQL');
- query_extract_keywords 
-------------------------
- {PostgreSQL,Groonga}
-(1 row)
+--  query_extract_keywords 
+-- ------------------------
+--  {PostgreSQL,Groonga}
+-- (1 row)
 ```
 
 カッコを使えます。
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga (MySQL OR PostgreSQL)');
-   query_extract_keywords   
-----------------------------
- {Groonga,PostgreSQL,MySQL}
-(1 row)
+--    query_extract_keywords   
+-- ----------------------------
+--  {Groonga,PostgreSQL,MySQL}
+-- (1 row)
 ```
 
 NOT条件の語はキーワードになりません。
 
 ```sql
 SELECT pgroonga.query_extract_keywords('Groonga - MySQL PostgreSQL');
- query_extract_keywords 
-------------------------
- {PostgreSQL,Groonga}
-(1 row)
+--  query_extract_keywords 
+-- ------------------------
+--  {PostgreSQL,Groonga}
+-- (1 row)
 ```
 
 ## 参考

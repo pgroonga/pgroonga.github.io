@@ -82,6 +82,8 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.command` function](functions/pgroonga-command.html)
 
+  * [`pgroonga.command_escape_value` function](functions/pgroonga-command-escape-value.html)
+
   * [`pgroonga.escape` function](functions/pgroonga-escape.html)
 
   * [`pgroonga.flush` function](functions/pgroonga-flush.html)

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-11-29 18:22+0900\n"
+"PO-Revision-Date: 2016-11-30 15:33+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -164,6 +164,16 @@ msgstr "## 関数"
 msgid "  * [`pgroonga.command` function](functions/pgroonga-command.html)"
 msgstr "  * [`pgroonga.command`関数](functions/pgroonga-command.html)"
 
+msgid ""
+"  * [`pgroonga.command_escape_value` function](functions/pgroonga-command-esca"
+"pe-value.html)"
+msgstr ""
+"  * [`pgroonga.command_escape_value`関数](functions/pgroonga-command-escape-valu"
+"e.html)"
+
+msgid "  * [`pgroonga.escape` function](functions/pgroonga-escape.html)"
+msgstr "  * [`pgroonga.escape`関数](functions/pgroonga-escape.html)"
+
 msgid "  * [`pgroonga.flush` function](functions/pgroonga-flush.html)"
 msgstr "  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)"
 
@@ -185,6 +195,9 @@ msgid ""
 msgstr ""
 "  * [`pgroonga.match_positions_character`関数](functions/pgroonga-match-position"
 "s-character.html)"
+
+msgid "  * [`pgroonga.query_escape` function](functions/pgroonga-query-escape.html)"
+msgstr "  * [`pgroonga.query_escape`関数](functions/pgroonga-query-escape.html)"
 
 msgid ""
 "  * [`pgroonga.query_extract_keywords` function](functions/pgroonga-query-extr"

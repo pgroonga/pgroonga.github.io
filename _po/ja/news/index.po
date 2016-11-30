@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-11-11 22:52+0900\n"
+"PO-Revision-Date: 2016-11-30 17:20+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,104 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.1.8: 2016-11-09 {#version-1-1-8}"
+msgid "## 1.1.9: 2016-11-30 {#version-1-1-9}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.1."
+msgstr ""
+
+msgid ""
+"  * Reduced memory usage on static index construction. You can use index const"
+"ruction by executing `CREATE INDEX` after inserting data to table."
+msgstr ""
+
+msgid "  * Supported logging backtrace on SEGV. It doesn't work on Windows."
+msgstr ""
+
+msgid ""
+"  * Supported Zstandard. If Groonga supports Zstandard, PGroonga uses Zstandar"
+"d. If Groonga doesn't support Zstandard but supports LZ4, PGroonga uses LZ4. I"
+"f Groonga doesn't support Zstandard nor LZ4 but supports zlib, PGroonga uses z"
+"lib."
+msgstr ""
+
+msgid "  * Added PID to log."
+msgstr ""
+
+msgid "  * Made the following functions optimizable for constant arguments case:"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga.table_name` function](../reference/functions/pgroonga-table-n"
+"ame.html)"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snipp"
+"et-html.html)"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga.highlight_html` function](../reference/functions/pgroonga-hig"
+"hlight-html.html)"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga.match_positions_byte` function](../reference/functions/pgroon"
+"ga-match-positions-byte.html)"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga.match_positions_character` function](../reference/functions/p"
+"groonga-match-positions-character.html)"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga.query_extract_keywords` function](../reference/functions/pgro"
+"onga-query-extract-keywords.html)"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.escape` function](../reference/functions/pgroonga-escape.html)"
+"] Added a new function to escape script syntax value."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.query_escape` function](../reference/functions/pgroonga-query-"
+"escape.html)] Added a new function to escape query syntax value."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.command_escape_escape` function](../reference/functions/pgroon"
+"ga-query-escape.html)] Added a new function to escape Groonga command argument"
+" value."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.table_name` function](../reference/functions/pgroonga-table-na"
+"me.html)] Changed return type to `text` from `cstring`."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.command` function](../reference/functions/pgroonga-command.htm"
+"l)] Added arguments array style. The style is recommended for preventing Groon"
+"ga command injection."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * [[`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functio"
+"ns/pgroonga-tuple-is-alive.html)] Fixed a bug that it may always return `false"
+"`."
+msgstr ""
+
+msgid "## 1.1.8: 2016-11-09 {#version-1-1-8}"
+msgstr ""
 
 msgid "  * Added startup log with PGroonga version."
 msgstr ""
@@ -43,17 +136,14 @@ msgid "  * [[CentOS](../install/centos.html) 7] Supported WAL. It requires EPEL.
 msgstr ""
 
 msgid ""
-"  * [`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-function"
-"s/pgroonga-tuple-is-alive.html) Added a new Groonga function to remove invalid"
-" tuples. It can be used with [`pgroonga.command` function](../reference/functi"
-"ons/pgroonga-command.html)."
+"  * [[`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functio"
+"ns/pgroonga-tuple-is-alive.html)] Added a new Groonga function to remove inval"
+"id tuples. It can be used with [`pgroonga.command` function](../reference/func"
+"tions/pgroonga-command.html)."
 msgstr ""
 
 msgid "## 1.1.7: 2016-11-03 {#version-1-1-7}"
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid "  * Fixed build error with PostgreSQL 9.4 or earlier."
 msgstr ""
@@ -74,7 +164,7 @@ msgid ""
 "n }}/warm-standby.html) but doesn't mean that PGroonga is crash safe. If Postg"
 "reSQL crashes while updating PGroonga data, PGroonga data may be broken. See a"
 "lso [replication](../reference/replication.html) and [`pgroonga.enable_wal` pa"
-"rameter][../reference/parameters/enable_wal.html]."
+"rameter][../reference/parameters/enable-wal.html]."
 msgstr ""
 
 msgid "  * Upgraded required Groonga version to 6.0.7 or later."

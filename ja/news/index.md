@@ -4,6 +4,48 @@ title: おしらせ
 
 # おしらせ
 
+## 1.1.9: 2016-11-30 {#version-1-1-9}
+
+### 改良
+
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.1.
+
+  * Reduced memory usage on static index construction. You can use index construction by executing `CREATE INDEX` after inserting data to table.
+
+  * Supported logging backtrace on SEGV. It doesn't work on Windows.
+
+  * Supported Zstandard. If Groonga supports Zstandard, PGroonga uses Zstandard. If Groonga doesn't support Zstandard but supports LZ4, PGroonga uses LZ4. If Groonga doesn't support Zstandard nor LZ4 but supports zlib, PGroonga uses zlib.
+
+  * Added PID to log.
+
+  * Made the following functions optimizable for constant arguments case:
+
+    * [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html)
+
+    * [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-html.html)
+
+    * [`pgroonga.highlight_html` function](../reference/functions/pgroonga-highlight-html.html)
+
+    * [`pgroonga.match_positions_byte` function](../reference/functions/pgroonga-match-positions-byte.html)
+
+    * [`pgroonga.match_positions_character` function](../reference/functions/pgroonga-match-positions-character.html)
+
+    * [`pgroonga.query_extract_keywords` function](../reference/functions/pgroonga-query-extract-keywords.html)
+
+  * [[`pgroonga.escape` function](../reference/functions/pgroonga-escape.html)] Added a new function to escape script syntax value.
+
+  * [[`pgroonga.query_escape` function](../reference/functions/pgroonga-query-escape.html)] Added a new function to escape query syntax value.
+
+  * [[`pgroonga.command_escape_escape` function](../reference/functions/pgroonga-query-escape.html)] Added a new function to escape Groonga command argument value.
+
+  * [[`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html)] Changed return type to `text` from `cstring`.
+
+  * [[`pgroonga.command` function](../reference/functions/pgroonga-command.html)] Added arguments array style. The style is recommended for preventing Groonga command injection.
+
+### 修正
+
+  * [[`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functions/pgroonga-tuple-is-alive.html)] Fixed a bug that it may always return `false`.
+
 ## 1.1.8: 2016-11-09 {#version-1-1-8}
 
 ### 改良
@@ -16,7 +58,7 @@ title: おしらせ
 
   * [[CentOS](../install/centos.html) 7] Supported WAL. It requires EPEL.
 
-  * [`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functions/pgroonga-tuple-is-alive.html) Added a new Groonga function to remove invalid tuples. It can be used with [`pgroonga.command` function](../reference/functions/pgroonga-command.html).
+  * [[`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functions/pgroonga-tuple-is-alive.html)] Added a new Groonga function to remove invalid tuples. It can be used with [`pgroonga.command` function](../reference/functions/pgroonga-command.html).
 
 ## 1.1.7: 2016-11-03 {#version-1-1-7}
 

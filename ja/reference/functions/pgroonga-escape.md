@@ -1,26 +1,26 @@
 ---
-title: pgroonga.escape function
+title: pgroonga.escape関数
 ---
 
-# `pgroonga.escape` function
+# `pgroonga.escape`関数
 
-Since 1.1.9.
+1.1.9で追加。
 
-## Summary
+## 概要
 
-`pgroonga.escape` function converts the given value to a literal for [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html). The literal is safely used in script syntax. Script syntax is used by [jsonb `@@` operator](../operators/jsonb-query.html) and so on.
+`pgroonga.escape`関数は渡された値を[スクリプト構文](http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html)のリテラルに変換します。このリテラルはスクリプト構文内で安全に使えます。スクリプト構文は[JSONBの`@@`演算子](../operators/jsonb-query.html)などで使っています。
 
-`pgroonga.escape` function is useful to prevent Groonga command injection via [`pgroonga.command` function](pgroonga-command.html). See also [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html) and [`pgroonga.query_escape` function](pgroonga-query-escape.html) for preventing Groonga command injection.
+`pgroonga.escape`関数は[`pgroonga.command`関数](pgroonga-command.html)経由でのGroongaコマンドインジェクションが発生することを防ぐために使えます。Groongaコマンドインジェクションを防ぐことについては[`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)と[`pgroonga.query_escape`関数](pgroonga-query-escape.html)も見てください。
 
-## Syntax
+## 構文
 
-Here is the syntax of this function:
+この関数の構文は次の通りです。
 
 ```text
 text pgroonga.escape(value)
 ```
 
-`value` type is one of the following types:
+`value`の型は次のどれかです。
 
   * `text`
 
@@ -40,21 +40,21 @@ text pgroonga.escape(value)
 
   * `timestamptz`
 
-`value` is a literal to be used in [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html).
+`value`は[スクリプト構文](http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html)で使うリテラルです。
 
-`pgroonga.query_escape` returns a `text` type value. The value can be used as a literal in script syntax safely.
+`pgroonga.query_escape`は`text`型の値を返します。この値はスクリプト構文中でリテラルとして安全に使えます。
 
-If `value` is a `text` type value, you can specify characters to be escaped like the following:
+もし`value`が`text`型の値の場合は、次のようにエスケープ対象の文字を0個以上指定できます。
 
 ```text
 text pgroonga.escape(value, special_characters)
 ```
 
-`special_characters` is a `text` type value. It contains all characters to be escaped. If you want to escape "(" and ")", you should specify `'()'`.
+`special_characters`は`text`型の値です。この値にエスケープ対象の文字をすべて含めます。「(」と「)」をエスケープしたい場合は`'()'`と指定します。
 
-## Usage
+## 使い方
 
-Here are sample schema and data:
+サンプルスキーマとデータは次の通りです。
 
 ```sql
 CREATE TABLE logs (
@@ -68,7 +68,7 @@ CREATE INDEX pgroonga_logs_index
 INSERT INTO logs VALUES ('{"body": "\"index.html\" not found"}');
 ```
 
-If you want to search `"index.html" not found`, you need to escape `"` as `\"` like the following:
+`"index.html" not found`を検索したい場合は、次のように`"`を`\"`とエスケープします。
 
 ```sql
 SELECT * FROM logs
@@ -79,7 +79,7 @@ SELECT * FROM logs
 -- (1 row)
 ```
 
-You can use `pgroonga.escape` function for it:
+この用途に`pgroonga.escape`関数を使えます。
 
 ```sql
 SELECT * FROM logs
@@ -90,7 +90,7 @@ SELECT * FROM logs
 -- (1 row)
 ```
 
-`pgroonga.escape` function is also useful with [`pgroonga.command` function](pgroonga-command.html):
+`pgroonga.escape`関数は[`pgroonga.command`関数](pgroonga-command.html)と組み合わせたときも便利です。
 
 ```sql
 SELECT jsonb_pretty(
@@ -132,7 +132,7 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-You can use `pgroonga.escape` function for non `text` type value such as integer:
+数値のように`text`型以外の値にも`pgroonga.escape`関数を使えます。
 
 ```sql
 SELECT jsonb_pretty(
@@ -171,10 +171,10 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-## See also
+## 参考
 
-  * [`pgroonga.command` function](pgroonga-command.html)
+  * [`pgroonga.command`関数](pgroonga-command.html)
 
-  * [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html)
+  * [`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)
 
-  * [`pgroonga.query_escape` function](pgroonga-query-escape.html)
+  * [`pgroonga.query_escape`関数](pgroonga-query-escape.html)

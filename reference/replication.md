@@ -201,7 +201,7 @@ Enter it again: (passw0rd)
 
 This is a PGroonga specific step.
 
-Add [`pgronga.enable_wal` parameter](parameters/enable_wal.html) configuration to `postgresql.conf` on only master:
+Add [`pgronga.enable_wal` parameter](parameters/enable-wal.html) configuration to `postgresql.conf` on only master:
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 

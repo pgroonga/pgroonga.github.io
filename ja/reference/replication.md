@@ -201,7 +201,7 @@ Enter it again: (passw0rd)
 
 これはPGroonga固有の手順です。
 
-マスターでだけ[`pgronga.enable_wal`パラメーター](parameters/enable_wal.html)の設定を`postgresql.conf`に追加します。
+マスターでだけ[`pgronga.enable_wal`パラメーター](parameters/enable-wal.html)の設定を`postgresql.conf`に追加します。
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 

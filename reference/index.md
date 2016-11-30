@@ -106,15 +106,15 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 ## Parameters
 
-  * [`pgroonga.enable_wal` parameter](parameters/enable_wal.html)
+  * [`pgroonga.enable_wal` parameter](parameters/enable-wal.html)
 
-  * [`pgroonga.lock_timeout` parameter](parameters/lock_timeout.html)
+  * [`pgroonga.lock_timeout` parameter](parameters/lock-timeout.html)
 
-  * [`pgroonga.log_level` parameter](parameters/log_level.html)
+  * [`pgroonga.log_level` parameter](parameters/log-level.html)
 
-  * [`pgroonga.log_path` parameter](parameters/log_path.html)
+  * [`pgroonga.log_path` parameter](parameters/log-path.html)
 
-  * [`pgroonga.log_type` parameter](parameters/log_type.html)
+  * [`pgroonga.log_type` parameter](parameters/log-type.html)
 
 ## Groonga functions
 

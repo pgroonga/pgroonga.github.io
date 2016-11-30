@@ -8,7 +8,7 @@ title: "pgroonga.log_pathパラメーター"
 
 `pgroonga.log_path`パラメーターはログのパスを制御します。
 
-このパラメーターは[`pgroonga.log_type` parameter](log_type.html)の値が`file`の時だけ有効です。
+このパラメーターは[`pgroonga.log_type`パラメーター](log-type.html)の値が`file`の時だけ有効です。
 
 デフォルト値は`$PGDATA/pgroonga.log`です。
 
@@ -48,4 +48,4 @@ SET pgroonga.log_path = 'none';
 
 ## 参考
 
-  * [`pgroonga.log_type`パラメーター](log_type.html)
+  * [`pgroonga.log_type`パラメーター](log-type.html)

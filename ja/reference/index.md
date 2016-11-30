@@ -106,15 +106,15 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ## パラメーター
 
-  * [`pgroonga.enable_wal`パラメーター](parameters/enable_wal.html)
+  * [`pgroonga.enable_wal`パラメーター](parameters/enable-wal.html)
 
-  * [`pgroonga.lock_timeout`パラメーター](parameters/lock_timeout.html)
+  * [`pgroonga.lock_timeout`パラメーター](parameters/lock-timeout.html)
 
-  * [`pgroonga.log_level`パラメーター](parameters/log_level.html)
+  * [`pgroonga.log_level`パラメーター](parameters/log-level.html)
 
-  * [`pgroonga.log_path`パラメーター](parameters/log_path.html)
+  * [`pgroonga.log_path`パラメーター](parameters/log-path.html)
 
-  * [`pgroonga.log_type`パラメーター](parameters/log_type.html)
+  * [`pgroonga.log_type`パラメーター](parameters/log-type.html)
 
 ## Groongaの関数
 

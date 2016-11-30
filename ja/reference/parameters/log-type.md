@@ -16,7 +16,7 @@ title: "pgroonga.log_typeパラメーター"
 
   * PostgreSQLのログシステムでログを出力する
 
-デフォルトではPGroongaはファイルにログを出力します。ファイルのパスは[`pgroonga.log_path`パラメーター](log_path.html)で指定します。
+デフォルトではPGroongaはファイルにログを出力します。ファイルのパスは[`pgroonga.log_path`パラメーター](log-path.html)で指定します。
 
 ## 構文
 
@@ -62,8 +62,8 @@ Windowsに`PGroonga`イベントソースを登録することでイベントビ
 > regsvr32 /n /i:PGroonga ${PostgreSQL install folder}\lib\pgevent.dll
 ```
 
-[WindowsにおけるEvent Logの登録]({{ site.postgresql_doc_base_url.ja }}/event-log-registration.html)も参照してください。<
+[WindowsにおけるEvent Logの登録]({{ site.postgresql_doc_base_url.ja }}/event-log-registration.html)も参照してください。
 
 ## 参考
 
-  * [`pgroonga.log_path`パラメーター](log_path.html)
+  * [`pgroonga.log_path`パラメーター](log-path.html)

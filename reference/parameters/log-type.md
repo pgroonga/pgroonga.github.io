@@ -16,7 +16,7 @@ You can choose one log type from the followings:
 
   * Log by log system in PostgreSQL
 
-PGroonga logs to a file by default. File path is specified by [`pgroonga.log_path` parameter](log_path.html).
+PGroonga logs to a file by default. File path is specified by [`pgroonga.log_path` parameter](log-path.html).
 
 ## Syntax
 
@@ -66,4 +66,4 @@ See also [Registering Event Log on Windows]({{ site.postgresql_doc_base_url.en }
 
 ## See also
 
-  * [`pgroonga.log_path` parameter](log_path.html)
+  * [`pgroonga.log_path` parameter](log-path.html)

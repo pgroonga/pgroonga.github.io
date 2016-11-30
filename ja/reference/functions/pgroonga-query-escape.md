@@ -1,32 +1,32 @@
 ---
-title: pgroonga.query_escape function
+title: pgroonga.query_escape関数
 ---
 
-# `pgroonga.query_escape` function
+# `pgroonga.query_escape`関数
 
-Since 1.1.9.
+1.1.9で追加。
 
-## Summary
+## 概要
 
-`pgroonga.query_escape` function escapes special characters in [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`@@` operator](../operators/query.html), [`&?` operator](../operators/query-v2.html) and so on.
+`pgroonga.query_escape`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)で特別な意味を持つ文字をエスケープします。[`@@`演算子](../operators/query.html)、[`&?`演算子](../operators/query-v2.html)などがクエリー構文を使っています。
 
-`pgroonga.query_escape` function is useful to prevent Groonga command injection via [`pgroonga.command` function](pgroonga-command.html). See also [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html) and [`pgroonga.escape` function](pgroonga-escape.html) for preventing Groonga command injection.
+`pgroonga.query_escape`関数は[`pgroonga.command`関数](pgroonga-command.html)経由でGroongaコマンドインジェクションが発生することを防ぐときに有用です。Groongaコマンドインジェクションを防ぐことについては[`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)と[`pgroonga.escape`関数](pgroonga-escape.html)も参照してください。
 
-## Syntax
+## 構文
 
-Here is the syntax of this function:
+この関数の構文は次の通りです。
 
 ```text
 text pgroonga.query_escape(query)
 ```
 
-`query` is a `text` type value. It uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html).
+`query`は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っている`text`型の値です。
 
-`pgroonga.query_escape` returns a `text` type value. All special characters in the value are escaped.
+`pgroonga.query_escape`は`text`型の値を返します。この値中の特別な意味を持つ文字はすべてエスケープされています。
 
-## Usage
+## 使い方
 
-Here are sample schema and data:
+サンプルスキーマとデータは次の通りです。
 
 ```sql
 CREATE TABLE memos (
@@ -40,14 +40,14 @@ CREATE INDEX pgroonga_memos_index
 INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');
 ```
 
-You get an error with the query "(PostgreSQL" because closed parenthesis doesn't exist:
+クエリーが「(PostgreSQL」の場合はエラーが発生します。なぜなら対応する閉じカッコがないからです。
 
 ```sql
 SELECT * FROM memos WHERE content @@ '(PostgreSQL';
 -- ERROR:  pgroonga: failed to parse expression: Syntax error: <(PostgreSQL||>
 ```
 
-You can use the query "(PostgreSQL" as is ("(" isn't treated as a special character) by `pgroonga.query_escape` function:
+`pgroonga.query_escape`関数を使うことで「(PostgreSQL」というクエリーそのもの（「(」を特別な文字として扱わない）で検索できます。
 
 ```sql
 SELECT * FROM memos WHERE content @@ pgroonga.query_escape('(PostgreSQL');
@@ -57,7 +57,7 @@ SELECT * FROM memos WHERE content @@ pgroonga.query_escape('(PostgreSQL');
 -- (1 row)
 ```
 
-The same thing is occurred with [`pgroonga.command` function](pgroonga-command.html):
+[`pgroonga.command`関数](pgroonga-command.html)でも同じことが発生します。
 
 ```sql
 SELECT jsonb_pretty(
@@ -79,7 +79,7 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-`pgroonga.query_escape` function with [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html) can prevent the case:
+`pgroonga.query_escape`関数を[`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)と一緒に使うとこのケースを防ぐことができます。
 
 ```sql
 SELECT jsonb_pretty(
@@ -126,7 +126,7 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-You can also use arguments array style [`pgroonga.command` function](pgroonga-command.html):
+コマンドの引数を配列で指定するスタイルで[`pgroonga.command`関数](pgroonga-command.html)使ってもこのケースを防ぐことができます。
 
 ```sql
 SELECT jsonb_pretty(
@@ -175,10 +175,10 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-## See also
+## 参考
 
-  * [`pgroonga.command` function](pgroonga-command.html)
+  * [`pgroonga.command`関数](pgroonga-command.html)
 
-  * [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html)
+  * [`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)
 
-  * [`pgroonga.escape` function](pgroonga-escape.html)
+  * [`pgroonga.escape`関数](pgroonga-escape.html)

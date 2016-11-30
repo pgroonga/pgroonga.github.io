@@ -20,7 +20,7 @@ Here is the syntax of this function:
 text[] pgroonga.query_extract_keywords(query)
 ```
 
-`query` is a text that uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html).
+`query` is a `text` type value. It uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html).
 
 `pgroonga.query_extract_keywords` returns an array of keywords.
 

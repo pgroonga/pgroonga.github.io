@@ -116,6 +116,8 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`pgroonga.log_type`パラメーター](parameters/log-type.html)
 
+  * [`pgroonga.query_log_path`パラメーター](parameters/query-log-path.html)
+
 ## Groongaの関数
 
 [`pgroonga.command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`WHERE`節では使えません。

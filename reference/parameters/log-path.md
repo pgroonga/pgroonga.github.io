@@ -49,3 +49,5 @@ SET pgroonga.log_path = 'none';
 ## See also
 
   * [`pgroonga.log_type` parameter](log-type.html)
+
+  * [Log format](http://groonga.org/docs/reference/log.html#format)

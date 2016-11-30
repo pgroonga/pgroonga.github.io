@@ -116,6 +116,8 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`pgroonga.log_type` parameter](parameters/log-type.html)
 
+  * [`pgroonga.query_log_path` parameter](parameters/query-log-path.html)
+
 ## Groonga functions
 
 You can use them with [`pgroonga.command` function](functions/pgroonga-command.html). You can't use them in `WHERE` clause.

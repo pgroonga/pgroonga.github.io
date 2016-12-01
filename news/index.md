@@ -88,7 +88,7 @@ title: News
 
 ### Fixes
 
-  * Fixed a bug that living PGroonga indexes are removed on VACUUM when PGroonga index is created at non default tablespace. [GitHub#27][Reported by pavelpopovgmail]
+  * Fixed a bug that living PGroonga indexes are removed on `VACUUM` when PGroonga index is created at non default tablespace. [GitHub#27][Reported by pavelpopovgmail]
 
 ### Thanks
 

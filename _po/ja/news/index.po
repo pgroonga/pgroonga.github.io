@@ -290,6 +290,9 @@ msgstr ""
 msgid "  * Tim Abbott"
 msgstr ""
 
+msgid "## 1.1.1: 2016-08-31 {#version-1-1-1}"
+msgstr ""
+
 msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.8."
 msgstr ""
 

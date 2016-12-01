@@ -166,6 +166,8 @@ title: おしらせ
 
   * Tim Abbott
 
+## 1.1.1: 2016-08-31 {#version-1-1-1}
+
 ### 改良
 
   * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.8.

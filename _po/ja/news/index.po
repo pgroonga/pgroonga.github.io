@@ -269,7 +269,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"  * [[Windows](../install/windows.html)] Fixed a but that `SELECT` may be cras"
+"  * [[Windows](../install/windows.html)] Fixed a bug that `SELECT` may be cras"
 "hed."
 msgstr ""
 

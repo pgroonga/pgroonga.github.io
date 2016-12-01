@@ -76,7 +76,7 @@ title: おしらせ
 
   * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.0.
 
-  * [experimental][WAL] Supported WAL. WAL support requires PostgreSQL 9.6 or later and [MessagePack](http://msgpack.org/). WAL support means that you can use PostgreSQL's [stream replication feature]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) but doesn't mean that PGroonga is crash safe. If PostgreSQL crashes while updating PGroonga data, PGroonga data may be broken. See also [replication](../reference/replication.html) and [`pgroonga.enable_wal` parameter][../reference/parameters/enable-wal.html].
+  * [experimental][WAL] Supported WAL. WAL support requires PostgreSQL 9.6 or later and [MessagePack](http://msgpack.org/). WAL support means that you can use PostgreSQL's [stream replication feature]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) but doesn't mean that PGroonga is crash safe. If PostgreSQL crashes while updating PGroonga data, PGroonga data may be broken. See also [replication](../reference/replication.html) and [`pgroonga.enable_wal` parameter](../reference/parameters/enable-wal.html).
 
   * Upgraded required Groonga version to 6.0.7 or later.
 
@@ -88,7 +88,7 @@ title: おしらせ
 
 ### 修正
 
-  * Fixed a bug that living PGroonga indexes are removed on VACUUM when PGroonga index is created at non default tablespace. [GitHub#27][Reported by pavelpopovgmail]
+  * Fixed a bug that living PGroonga indexes are removed on `VACUUM` when PGroonga index is created at non default tablespace. [GitHub#27][Reported by pavelpopovgmail]
 
 ### 感謝
 

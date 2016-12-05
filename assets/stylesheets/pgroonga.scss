@@ -36,4 +36,8 @@ table {
   @extend .table;
   @extend .table-striped;
   @extend .table-bordered;
+
+  td.note {
+    @extend .text-center;
+  }
 }

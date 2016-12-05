@@ -1,5 +1,6 @@
 ---
 title: pgroonga.command_escape_value function
+upper_level: ../
 ---
 
 # `pgroonga.command_escape_value` function

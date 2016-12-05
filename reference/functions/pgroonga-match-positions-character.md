@@ -1,5 +1,6 @@
 ---
 title: pgroonga.match_positions_character function
+upper_level: ../
 ---
 
 # `pgroonga.match_positions_character` function

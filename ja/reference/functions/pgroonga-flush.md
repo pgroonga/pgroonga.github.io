@@ -1,5 +1,6 @@
 ---
 title: pgroonga.flush関数
+upper_level: ../
 ---
 
 # `pgroonga.flush`関数

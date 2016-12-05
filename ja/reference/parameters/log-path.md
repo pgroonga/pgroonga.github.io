@@ -1,5 +1,6 @@
 ---
 title: "pgroonga.log_pathパラメーター"
+upper_level: ../
 ---
 
 # `pgroonga.log_path`パラメーター

@@ -1,5 +1,6 @@
 ---
 title: pgroonga.command関数
+upper_level: ../
 ---
 
 # `pgroonga.command`関数

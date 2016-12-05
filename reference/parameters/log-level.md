@@ -1,5 +1,6 @@
 ---
 title: "pgroonga.log_level parameter"
+upper_level: ../
 ---
 
 # `pgroonga.log_level` parameter

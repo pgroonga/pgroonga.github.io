@@ -1,5 +1,6 @@
 ---
 title: "pgroonga.enable_walパラメーター"
+upper_level: ../
 ---
 
 # `pgroonga.enable_wal`パラメーター

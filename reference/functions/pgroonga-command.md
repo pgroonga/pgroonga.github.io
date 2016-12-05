@@ -1,5 +1,6 @@
 ---
 title: pgroonga.command function
+upper_level: ../
 ---
 
 # `pgroonga.command` function

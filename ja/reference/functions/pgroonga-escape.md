@@ -1,5 +1,6 @@
 ---
 title: pgroonga.escape関数
+upper_level: ../
 ---
 
 # `pgroonga.escape`関数

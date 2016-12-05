@@ -1,5 +1,6 @@
 ---
 title: pgroonga.highlight_html関数
+upper_level: ../
 ---
 
 # `pgroonga.highlight_html`関数

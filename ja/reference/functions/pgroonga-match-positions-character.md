@@ -1,5 +1,6 @@
 ---
 title: pgroonga.match_positions_character関数
+upper_level: ../
 ---
 
 # `pgroonga.match_positions_character`関数

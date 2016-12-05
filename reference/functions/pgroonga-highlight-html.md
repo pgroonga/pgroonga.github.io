@@ -1,5 +1,6 @@
 ---
 title: pgroonga.highlight_html function
+upper_level: ../
 ---
 
 # `pgroonga.highlight_html` function

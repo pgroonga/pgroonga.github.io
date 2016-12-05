@@ -1,5 +1,6 @@
 ---
 title: pgroonga.snippet_html関数
+upper_level: ../
 ---
 
 # `pgroonga.snippet_html`関数

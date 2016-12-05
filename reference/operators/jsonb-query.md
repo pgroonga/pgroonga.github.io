@@ -1,5 +1,6 @@
 ---
 title: "@@ operator for jsonb type"
+upper_level: ../
 ---
 
 # `@@` operator for `jsonb` type

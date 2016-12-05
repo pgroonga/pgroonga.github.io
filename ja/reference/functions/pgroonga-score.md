@@ -1,5 +1,6 @@
 ---
 title: pgroonga.score関数
+upper_level: ../
 ---
 
 # `pgroonga.score`関数

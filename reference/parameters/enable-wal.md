@@ -1,5 +1,6 @@
 ---
 title: "pgroonga.enable_wal parameter"
+upper_level: ../
 ---
 
 # `pgroonga.enable_wal` parameter

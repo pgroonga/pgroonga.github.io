@@ -1,5 +1,6 @@
 ---
 title: pgroonga.flush function
+upper_level: ../
 ---
 
 # `pgroonga.flush` function

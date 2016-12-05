@@ -1,5 +1,6 @@
 ---
 title: "pgroonga.query_log_path parameter"
+upper_level: ../
 ---
 
 # `pgroonga.query_log_path` parameter

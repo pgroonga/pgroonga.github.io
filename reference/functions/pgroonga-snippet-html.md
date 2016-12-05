@@ -1,5 +1,6 @@
 ---
 title: pgroonga.snippet_html function
+upper_level: ../
 ---
 
 # `pgroonga.snippet_html` function

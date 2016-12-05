@@ -1,5 +1,6 @@
 ---
 title: LIKE operator
+upper_level: ../
 ---
 
 # `LIKE` operator

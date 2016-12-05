@@ -1,5 +1,6 @@
 ---
 title: pgroonga.table_name function
+upper_level: ../
 ---
 
 # `pgroonga.table_name` function

@@ -1,5 +1,6 @@
 ---
 title: pgroonga.table_name関数
+upper_level: ../
 ---
 
 # `pgroonga.table_name`関数

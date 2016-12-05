@@ -1,5 +1,6 @@
 ---
 title: pgroonga.score function
+upper_level: ../
 ---
 
 # `pgroonga.score` function

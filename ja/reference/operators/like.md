@@ -1,5 +1,6 @@
 ---
 title: LIKE演算子
+upper_level: ../
 ---
 
 # `LIKE`演算子

@@ -1,5 +1,6 @@
 ---
 title: "pgroonga.lock_timeoutパラメーター"
+upper_level: ../
 ---
 
 # `pgroonga.lock_timeout`パラメーター

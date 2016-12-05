@@ -1,5 +1,6 @@
 ---
 title: pgroonga_tuple_is_alive Groonga関数
+upper_level: ../
 ---
 
 # `pgroonga_tuple_is_alive` Groonga関数

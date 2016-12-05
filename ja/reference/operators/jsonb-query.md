@@ -1,5 +1,6 @@
 ---
 title: "jsonb型用の@@演算子"
+upper_level: ../
 ---
 
 # `jsonb`型用の`@@`演算子

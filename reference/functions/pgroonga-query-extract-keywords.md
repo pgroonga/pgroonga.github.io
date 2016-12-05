@@ -1,5 +1,6 @@
 ---
 title: pgroonga.query_extract_keywords function
+upper_level: ../
 ---
 
 # `pgroonga.query_extract_keywords` function

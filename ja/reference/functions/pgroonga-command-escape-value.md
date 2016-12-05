@@ -1,5 +1,6 @@
 ---
 title: pgroonga.command_escape_value関数
+upper_level: ../
 ---
 
 # `pgroonga.command_escape_value`関数

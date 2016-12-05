@@ -1,5 +1,6 @@
 ---
 title: pgroonga.query_escape function
+upper_level: ../
 ---
 
 # `pgroonga.query_escape` function

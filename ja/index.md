@@ -20,13 +20,13 @@
   </p>
 </div>
 
-## PGroongaについて
+## PGroongaについて {#about}
 
 PGroonga（ぴーじーるんが）はインデックスとして[Groonga](http://groonga.org/ja/)を使うPostgreSQLの拡張機能です。
 
 PostgreSQLはアルファベットと数値だけを使った言語の全文検索だけをサポートしています。これは、日本語や中国語などはサポートしていないということです。PGroongaをPostgreSQLにインストールすると全言語対応の超高速全文検索機能を使えるようになります！
 
-## ドキュメント
+## ドキュメント {#documentations}
 
   * [おしらせ](news/): リリース情報。
 
@@ -48,7 +48,7 @@ PostgreSQLはアルファベットと数値だけを使った言語の全文検�
 
   * [ユーザー](users/): PGroongaユーザー。
 
-## ライセンス
+## ライセンス {#license}
 
 PGroongaのライセンスは[PostgreSQLライセンス](http://opensource.org/licenses/postgresql)です。PostgreSQLはBSDライセンス、MITライセンスと似たライセンスです
 

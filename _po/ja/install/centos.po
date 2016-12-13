@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-11-30 17:35+0900\n"
+"PO-Revision-Date: 2016-12-13 20:33+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,7 +116,7 @@ msgid "## How to install on CentOS 6 {#install-on-6}"
 msgstr "## CentOS 6にインストールする方法 {#install-on-6}"
 
 msgid "You can use the following instruction to install PGroonga on CentOS 6."
-msgstr "CentOS 76PGroongaをインストールする方法は次の通りです。"
+msgstr "CentOS 6にPGroongaをインストールする方法は次の通りです。"
 
 msgid ""
 "```text\n"

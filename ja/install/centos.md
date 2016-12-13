@@ -61,7 +61,7 @@ PostgreSQLを実行します。
 
 ## CentOS 6にインストールする方法 {#install-on-6}
 
-CentOS 76PGroongaをインストールする方法は次の通りです。
+CentOS 6にPGroongaをインストールする方法は次の通りです。
 
 `postgresql-pgroonga`パッケージをインストールします。
 

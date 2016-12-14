@@ -7,7 +7,7 @@
       {% capture description %}{% include site-description.html %}{% endcapture %}
     {% endif %}
 
-    {% capture title %}{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }} - {{ description }}{% endif %}{% endcapture %}
+    {% capture title %}{% if page.title == "none" %}{{ site.title }} - {{ description }}{% else %}{{ page.title }} | {{ site.title }}{% endif %}{% endcapture %}
     {% capture relative_path %}{{ page.url | remove_first: page.path_prefix | remove: "index.html" }}{% endcapture %}
 
     <meta charset="utf-8">
@@ -43,7 +43,5 @@
 
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="/assets/javascripts/bootstrap.min.js"></script>
-
-title: [{{ page.title }}]
   </body>
 </html>

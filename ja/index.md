@@ -1,4 +1,5 @@
 ---
+title: none
 ---
 
 <div class="jumbotron">

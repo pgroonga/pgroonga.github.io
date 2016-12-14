@@ -10,10 +10,9 @@ msgstr ""
 
 msgid ""
 "---\n"
+"title: none\n"
 "---"
 msgstr ""
-"---\n"
-"---"
 
 msgid ""
 "<div class=\"jumbotron\">\n"

@@ -156,7 +156,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 ```text
 #listen_address = 'localhost'
 #wal_level = minimal
-#wal_wal_senders = 0
+#max_wal_senders = 0
 ```
 
 変更後：
@@ -164,7 +164,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 ```text
 listen_address = '*'
 wal_level = replica
-wal_wal_senders = 4
+max_wal_senders = 4
 ```
 
 マスターでだけ以下のストリーミングレプリケーション用の設定を`pg_hba.conf`に追加します。

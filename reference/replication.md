@@ -156,7 +156,7 @@ Before:
 ```text
 #listen_address = 'localhost'
 #wal_level = minimal
-#wal_wal_senders = 0
+#max_wal_senders = 0
 ```
 
 After:
@@ -164,7 +164,7 @@ After:
 ```text
 listen_address = '*'
 wal_level = replica
-wal_wal_senders = 4
+max_wal_senders = 4
 ```
 
 Add the following streaming replication configurations to `pg_hba.conf` on only master:

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-11-09 18:56+0900\n"
+"PO-Revision-Date: 2016-12-21 13:35+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -193,7 +193,7 @@ msgid ""
 msgstr "ソースからPGroongaをビルド・インストールするために必要なソフトウェアは次の通りです。これらをインストールしてください。"
 
 msgid "  * PostgreSQL (You can choose installer version or zip version.)"
-msgstr "PostgreSQL（インストーラーバージョンでもzipバージョンでもどちらでも構いません。）"
+msgstr "  * PostgreSQL（インストーラーバージョンでもzipバージョンでもどちらでも構いません。）"
 
 msgid ""
 "    * [Installer version](http://www.enterprisedb.com/products-services-traini"

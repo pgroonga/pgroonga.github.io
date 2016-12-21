@@ -95,7 +95,7 @@ PGroongaをインストールします。
 
 ソースからPGroongaをビルド・インストールするために必要なソフトウェアは次の通りです。これらをインストールしてください。
 
-PostgreSQL（インストーラーバージョンでもzipバージョンでもどちらでも構いません。）
+  * PostgreSQL（インストーラーバージョンでもzipバージョンでもどちらでも構いません。）
 
     * [インストーラーバージョン](http://www.enterprisedb.com/products-services-training/pgdownload)
 

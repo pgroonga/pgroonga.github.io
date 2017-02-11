@@ -43,7 +43,7 @@ msgid ""
 "se [report it](https://github.com/pgroonga/pgroonga/issues/new).)"
 msgstr ""
 "  * [pg\\_shard](https://github.com/citusdata/pg_shard)（pg\\_shardは非推奨になりました。pg\\"
-"_shardの光景プロジェクトの[Citus](https://github.com/citusdata/citus)もおそらくPGroongaと一緒に使え"
+"_shardの後継プロジェクトの[Citus](https://github.com/citusdata/citus)もおそらくPGroongaと一緒に使え"
 "ます。もし、CitusがPGroongaと一緒に使えることを確認したら、[報告](https://github.com/pgroonga/pgroonga/"
 "issues/new)してください。）"
 

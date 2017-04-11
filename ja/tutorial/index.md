@@ -123,7 +123,6 @@ PGroongaは`LIKE`演算子をサポートしています。既存のSQLを変更
 
 ```sql
 SELECT * FROM memos WHERE content LIKE '%全文検索%';
-
 --  id |                      content
 -- ----+---------------------------------------------------
 --   2 | Groongaは日本語対応の高速な全文検索エンジンです。

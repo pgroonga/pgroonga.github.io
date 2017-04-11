@@ -39,6 +39,8 @@ See a document for your platform in the followings:
 
     * 7
 
+  * [FreeBSD](freebsd.html)
+
   * [OS X](os-x.html)
 
     * Homebrew

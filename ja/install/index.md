@@ -39,6 +39,8 @@ title: インストール
 
     * 7
 
+  * [FreeBSD](freebsd.html)
+
   * [OS X](os-x.html)
 
     * Homebrew

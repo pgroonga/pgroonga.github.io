@@ -11,6 +11,7 @@ postgresql_doc_base_url:
 windows_postgresql_versions:
   - 9.5.6-2
   - 9.6.2-3
+freebsd_postgresql_version: 96
 exclude:
   - "Rakefile"
   - "Gemfile"

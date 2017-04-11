@@ -24,7 +24,7 @@ Install PostgreSQL.
 Extract PGroonga source:
 
 ```text
-% wget http://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz
+% wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz
 % tar xvf pgroonga-{{ site.pgroonga_version }}.tar.gz
 % cd pgroonga-{{ site.pgroonga_version }}
 ```

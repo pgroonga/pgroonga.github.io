@@ -22,8 +22,8 @@ Install `postgresql-pgroonga` package:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
-% wget http://packages.groonga.org/centos/groonga-release-1.2.0-1.noarch.rpm
-% sudo -H yum install -y --nogpgcheck groonga-release-1.2.0-1.noarch.rpm
+% wget https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
+% sudo -H yum install -y --nogpgcheck groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 

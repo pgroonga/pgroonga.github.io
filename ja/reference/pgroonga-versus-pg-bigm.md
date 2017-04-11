@@ -118,7 +118,7 @@ PostgreSQL | PGroonga | pg\_bigm
 COPY wikipedia FROM 'ja-all-pages.csv' WITH CSV ENCODING 'utf8';
 ```
 
-このCSVデータは[ja-all-pages.csv.xz](http://packages.groonga.org/tmp/ja-all-pages.csv.xz)からダウンロードできます。
+このCSVデータは[ja-all-pages.csv.xz](https://packages.groonga.org/tmp/ja-all-pages.csv.xz)からダウンロードできます。
 
 以下は`wikipedia`テーブルを定義するSQLです。
 

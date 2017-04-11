@@ -153,7 +153,7 @@ string is too long for tsvector (1618908 bytes, max 1048575 bytes)
 COPY wikipedia FROM 'en-all-pages.csv' WITH CSV ENCODING 'utf8';
 ```
 
-このCSVデータは[en-all-pages.csv.xz](http://packages.groonga.org/tmp/en-all-pages.csv.xz)からダウンロードできます。
+このCSVデータは[en-all-pages.csv.xz](https://packages.groonga.org/tmp/en-all-pages.csv.xz)からダウンロードできます。
 
 以下は`wikipedia`テーブルを定義するSQLです。
 

@@ -107,7 +107,7 @@ Here is a list of required software to build and install PGroonga from source. I
 
 Download PGroonga source archive for Windows from packages.groonga.org. Source archive for Windows is zip file. Source archive for Windows bundles Groonga.
 
-  * [pgroonga-{{ site.pgroonga_version }}](http://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)
+  * [pgroonga-{{ site.pgroonga_version }}](https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)
 
 Extract the downloaded source archive and move to source folder:
 

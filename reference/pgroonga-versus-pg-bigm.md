@@ -118,7 +118,7 @@ Here is the SQL to load data:
 COPY wikipedia FROM 'ja-all-pages.csv' WITH CSV ENCODING 'utf8';
 ```
 
-You can download the CSV data at [ja-all-pages.csv.xz](http://packages.groonga.org/tmp/ja-all-pages.csv.xz).
+You can download the CSV data at [ja-all-pages.csv.xz](https://packages.groonga.org/tmp/ja-all-pages.csv.xz).
 
 Here is the SQL to define the `wikipedia` table:
 

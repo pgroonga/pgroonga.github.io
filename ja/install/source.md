@@ -107,7 +107,7 @@ PGroongaをインストールします。
 
 packages.groonga.orgからWindows用のPGroongaソースアーカイブをダウンロードしてください。Windows用のソースアーカイブはzipファイルです。Windows用のソースアーカイブにはGroongaがバンドルされています。
 
-  * [pgroonga-{{ site.pgroonga_version }}](http://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)
+  * [pgroonga-{{ site.pgroonga_version }}](https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)
 
 ダウンロードしたソースアーカイブを展開し、ソースフォルダーに移動してください。
 

@@ -21,8 +21,8 @@ Add APT repository for Groonga:
 `/etc/apt/sources.list.d/groonga.list`:
 
 ```text
-deb http://packages.groonga.org/debian/ jessie main
-deb-src http://packages.groonga.org/debian/ jessie main
+deb https://packages.groonga.org/debian/ jessie main
+deb-src https://packages.groonga.org/debian/ jessie main
 ```
 
 Install `postgresql-9.4-pgroonga` package:

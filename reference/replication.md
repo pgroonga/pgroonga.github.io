@@ -107,14 +107,14 @@ Install PGroonga on master and slaves.
 Master:
 
 ```text
-% sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.2.0-1.noarch.rpm
+% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 
 Slaves:
 
 ```text
-% sudo -H yum install -y http://packages.groonga.org/centos/groonga-release-1.2.0-1.noarch.rpm
+% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
 % sudo -H yum install -y epel-release
 % sudo -H yum install -y postgresql96-pgroonga
 ```

@@ -4,6 +4,38 @@ title: News
 
 # News
 
+## 1.2.0: 2017-04-XX {#version-1-2-0}
+
+### Improvements
+
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 7.0.1.
+
+  * [[CentOS](../install/centos.html) 6] Supported WAL.
+
+  * [[Replication](../reference/replication.html)] Supported NULL column value.
+
+  * [[`pgroonga.score` function](../reference/functions/pgroonga-score.html)] Improved performance. This improvements makes `pgroonga.score` function 30 times faster. [GitHub#31][Reported by yongxianggao-chanjet]
+
+  * Supported PostgreSQL 9.6.2.
+
+  * Required Groonga 6.1.1 or later.
+
+  * [[`pgroonga-check`](../reference/modules/pgroonga-check.html)] Added. It checks PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database.
+    TODO: DOCUMENT ME.
+
+  * Supported applying WAL on `INSERT`.
+
+  * [[`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)] Supported token filters. [GitHub#32][Reported by Tim Bellefleur]
+    TODO: DOCUMENT ME.
+
+  * [[Windows](../install/windows.html)] Supported PostgreSQL 9.5.6.
+
+  * [[Windows](../install/windows.html)] Supported PostgreSQL 9.6.2.
+
+### Fixes
+
+  * [[CentOS](../install/centos.html)] Fixed wrong msgpack library link.
+
 ## 1.1.9: 2016-11-30 {#version-1-1-9}
 
 ### Improvements

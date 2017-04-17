@@ -16,6 +16,12 @@ FreeBSDにPGroongaをインストールする方法は次の通りです。
 % sudo pkg install -f groonga pkgconf postgresql{{ site.freebsd_postgresql_version }}-server
 ```
 
+トークナイザーとして[MeCab](http://taku910.github.io/mecab/)を利用する場合は、`japanese/mecab-ipadic`を追加でインストールします。
+
+```text
+% sudo pkg install -y japanese/mecab-ipadic
+```
+
 PostgreSQLを有効にするために次の内容の`/etc/rc.conf.d/postgresql`を作ります。
 
 `/etc/rc.conf.d/postgresql`:

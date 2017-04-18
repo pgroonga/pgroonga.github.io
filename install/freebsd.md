@@ -13,7 +13,7 @@ You can use the following instruction to install PGroonga on FreeBSD.
 Install Groonga, PostgreSQL, pkg-config and GNU Make by `pkg`:
 
 ```text
-% sudo pkg install -f groonga pkgconf postgresql{{ site.freebsd_postgresql_version }}-server
+% sudo pkg install -y groonga pkgconf postgresql{{ site.freebsd_postgresql_version }}-server
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) as tokenizer, install `japanese/mecab-ipadic` additionally

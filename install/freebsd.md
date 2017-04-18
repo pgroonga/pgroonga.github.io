@@ -16,7 +16,7 @@ Install Groonga, PostgreSQL, pkg-config and GNU Make by `pkg`:
 % sudo pkg install -y groonga pkgconf postgresql{{ site.freebsd_postgresql_version }}-server
 ```
 
-If you want to use [MeCab](http://taku910.github.io/mecab/) as tokenizer, install `japanese/mecab-ipadic` additionally
+If you want to use [MeCab](http://taku910.github.io/mecab/) as a tokenizer, install `japanese/mecab-ipadic` additionally:
 
 ```text
 % sudo pkg install -y japanese/mecab-ipadic

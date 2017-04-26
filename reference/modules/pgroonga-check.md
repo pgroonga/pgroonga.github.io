@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_check` module
 
+Since 1.2.0.
+
 ## Summary
 
 `pgroonga_check` module checkes PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database.

@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_check`モジュール
 
+1.2.0で追加。
+
 ## 概要
 
 `pgroonga_check`モジュールは起動時にPGroongaのデータベースの一貫性をチェックします。PGroongaのデータベースが壊れている場合は自動でそのデータベースを復旧します。

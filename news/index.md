@@ -20,13 +20,11 @@ title: News
 
   * Required Groonga 6.1.1 or later.
 
-  * [[`pgroonga-check`](../reference/modules/pgroonga-check.html)] Added. It checks PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database.
-    TODO: DOCUMENT ME.
+  * [[`pgroonga_check`](../reference/modules/pgroonga-check.html)] Added. It checks PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database.
 
   * Supported applying WAL on `INSERT`.
 
   * [[`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)] Supported token filters. [GitHub#32][Reported by Tim Bellefleur]
-    TODO: DOCUMENT ME.
 
   * [[Windows](../install/windows.html)] Supported PostgreSQL 9.5.6.
 

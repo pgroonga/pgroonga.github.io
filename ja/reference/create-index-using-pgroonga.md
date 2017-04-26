@@ -40,15 +40,49 @@ CREATE INDEX ${INDEX_NAME}
 
 `CREATE INDEX`の`WITH`オプションを使って次の項目をカスタマイズできます。
 
+  * プラグイン：Groongaの拡張機能です。プラグインを登録することで追加の機能を使うことができます。追加の機能には追加のトークナイザー・ノーマライザー・トークンフィルターなどがあります。
+
   * トークナイザー：キーワードの抽出方法をカスタマイズするモジュールです。
+
   * ノーマライザー：`text`型と`varchar`型の等価性をカスタマイズするモジュールです。
 
+  * トークンフィルター：トークナイザーが抽出したキーワードをフィルターするモジュールです。
+
 通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユーザー向けの機能です。
+
+デフォルトではプラグインとトークンフィルターは使われていません。
 
 デフォルトのトークナイザーとノーマライザーは次の通りです。
 
   * トークナイザー：[`TokenBigram`](http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram)：bigramベースのトークナイザーです。このトークナイザーはbigramベースのトークナイズ方法とスペース区切りベースのトークナイズ方法を組み合わせています。非ASCII文字にはbigramベースのトークナイズ方法を使い、ASCII文字にはスペース区切りベースのトークナイズ方法を使います。これはASCII文字だけのクエリーで検索したときのノイズを減らすためです。
+
   * ノーマライザー：[`NormalizerAuto`](http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto)：対象のエンコーディングに合わせて適切なノーマライズ方法を選びます。たとえば、UTF-8の場合は[Unicode NFKC](http://unicode.org/reports/tr15/)ベースのノーマライズ方法を使います。
+
+
+#### プラグインの登録方法 {#custom-plugins}
+
+1.2.0で追加。
+
+プラグインを登録するには`plugins='${プラグイン名1}, ${プラグイン名2}, ..., ${プラグイン名N}'`を指定します。
+
+`CREATE INDEX`の最初のオプションとして`plugins`を指定しなければいけないことに注意してください。`CREATE INDEX`のオプションは指定された順に処理されます。指定したプラグインに含まれてるトークナイザー・ノーマライザー・トークンフィルターを使うかもしれないので、他のオプションより先にプラグインを登録しておく必要があります。
+
+以下は`TokenFilterStem`トークンフィルターを使うために`token_filters/stem`プラグインを登録する例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (plugins='token_filters/stem',
+              token_filters='TokenFilterStem');
+```
+
+トークンフィルターについては[トークンフィルターのカスタマイズ方法](#custom-token-filters)を参照してください。
 
 #### トークナイザーのカスタマイズ方法 {#custom-tokenizer}
 
@@ -109,6 +143,33 @@ CREATE INDEX pgroonga_tag_index
 ```
 
 他のノーマライザーについては[ノーマライザー](http://groonga.org/ja/docs/reference/normalizers.html)を参照してください。
+
+#### トークンフィルターのカスタマイズ方法 {#custom-token-filter}
+
+1.2.0で追加。
+
+トークンフィルターを使うには`token_filters='${トークンフィルター1}, ${トークンフィルター2}, ..., ${トークンフィルターN}'`を指定します。
+
+Groongaはデフォルトでは1つもトークンフィルターを提供していません。すべてのトークンフィルターはプラグインとして提供しています。トークンフィルターを使う場合はプラグインを登録する必要があります。
+
+以下は`token_filters/stem`プラグインに含まれている`TokenFilterStem`トークンフィルターを使う例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (plugins='token_filters/stem',
+              token_filters='TokenFilterStem');
+```
+
+`token_filters`より前に`plugins`を指定しなければいけないことに注意してください。`CREATE INDEX`に指定したオプションは指定した順に処理されます。トークンフィルターを使う前にプラグインを登録しておく必要があります。
+
+他のトークンフィルターについては[トークンフィルター](http://groonga.org/ja/docs/reference/token_filters.html)を参照してください。
 
 #### テーブルスペースの変更方法 {#custom-tablespace}
 

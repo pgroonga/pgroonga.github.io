@@ -20,7 +20,7 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.2.0: 2017-04-XX {#version-1-2-0}"
+msgid "## 1.2.0: 2017-04-29 {#version-1-2-0}"
 msgstr ""
 
 msgid "### Improvements"
@@ -67,6 +67,22 @@ msgid "  * [[Windows](../install/windows.html)] Supported PostgreSQL 9.5.6."
 msgstr ""
 
 msgid "  * [[Windows](../install/windows.html)] Supported PostgreSQL 9.6.2."
+msgstr ""
+
+msgid ""
+"  * Added [`&@` operator](../reference/operators/match-v2.html) to `pgroonga.t"
+"ext_full_text_search_ops` (the current default operator class for `text` type)"
+". It means that you can use `&@` operator both with `pgroonga.text_full_text_s"
+"earch_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`%%`"
+" operator](../reference/operators/match.html) is deprecated."
+msgstr ""
+
+msgid ""
+"  * Added [`&?` operator](../reference/operators/query-v2.html) to `pgroonga.t"
+"ext_full_text_search_ops` (the current default operator class for `text` type)"
+". It means that you can use `&?` operator both with `pgroonga.text_full_text_s"
+"earch_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`@@`"
+" operator](../reference/operators/query.html) is deprecated."
 msgstr ""
 
 msgid "### Fixes"

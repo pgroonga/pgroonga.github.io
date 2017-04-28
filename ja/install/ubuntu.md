@@ -11,14 +11,20 @@ title: Ubuntuにインストール
 サポートしているUbuntuのバージョンは次の通りです。
 
   * Ubuntu 14.04
+
   * Ubuntu 16.04
+
   * Ubuntu 16.10
+
+  * Ubuntu 17.04
 
 ## インストール方法
 
 UbuntuでPGroongaをインストールする手順は次の通りです。
 
 Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージをインストールしてください。
+
+Ubuntu 17.04を使っている場合は`postgresql-9.6-pgroonga`パッケージをインストールしてください。
 
 それ以外の場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。
 
@@ -29,6 +35,8 @@ Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージ�
 % sudo apt-get update
 Ubuntu 14.04:
 % sudo apt-get install -y -V postgresql-9.3-pgroonga
+Ubuntu 17.04:
+% sudo apt-get install -y -V postgresql-9.6-pgroonga
 Others:
 % sudo apt-get install -y -V postgresql-9.5-pgroonga
 ```

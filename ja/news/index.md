@@ -4,7 +4,7 @@ title: おしらせ
 
 # おしらせ
 
-## 1.2.0: 2017-04-XX {#version-1-2-0}
+## 1.2.0: 2017-04-29 {#version-1-2-0}
 
 ### 改良
 
@@ -29,6 +29,10 @@ title: おしらせ
   * [[Windows](../install/windows.html)] Supported PostgreSQL 9.5.6.
 
   * [[Windows](../install/windows.html)] Supported PostgreSQL 9.6.2.
+
+  * Added [`&@` operator](../reference/operators/match-v2.html) to `pgroonga.text_full_text_search_ops` (the current default operator class for `text` type). It means that you can use `&@` operator both with `pgroonga.text_full_text_search_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`%%` operator](../reference/operators/match.html) is deprecated.
+
+  * Added [`&?` operator](../reference/operators/query-v2.html) to `pgroonga.text_full_text_search_ops` (the current default operator class for `text` type). It means that you can use `&?` operator both with `pgroonga.text_full_text_search_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`@@` operator](../reference/operators/query.html) is deprecated.
 
 ### 修正
 

@@ -72,7 +72,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
-2017年4月29日現在、WALサポートしている公式のPGroongaパッケージはCentOS 6用とCentOS 7用とWindows用だけです。これはWALサポートにはMessagePackとPostgreSQL 9.6以降が必要だからです。他のプラットフォームはこれら2つの条件を満たしていません。PGroongaをソースからビルドする場合は、[ソースからインストール](../install/source.html)を読んでください。MessagePackと一緒にビルドする方法が書いています。
+2017年4月29日現在、WALサポートしている公式のPGroongaパッケージはUbuntu 17.04用とCentOS 6用とCentOS 7用とWindows用です。これはWALサポートにはMessagePackとPostgreSQL 9.6以降が必要だからです。他のプラットフォームはこれら2つの条件を満たしていません。PGroongaをソースからビルドする場合は、[ソースからインストール](../install/source.html)を読んでください。MessagePackと一緒にビルドする方法が書いています。
 
 ## [通常] マスターとスレーブでPostgreSQLをインストールする
 

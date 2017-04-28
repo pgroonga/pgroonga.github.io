@@ -12,6 +12,8 @@ title: おしらせ
 
   * [[CentOS](../install/centos.html) 6] Supported WAL.
 
+  * Dropped [[CentOS](../install/centos.html) 5] support.
+
   * [[Replication](../reference/replication.html)] Supported NULL column value.
 
   * [[`pgroonga.score` function](../reference/functions/pgroonga-score.html)] Improved performance. This improvements makes `pgroonga.score` function 30 times faster. [GitHub#31][Reported by yongxianggao-chanjet]

@@ -35,8 +35,6 @@ title: インストール
 
   * [CentOS](centos.html)
 
-    * 5
-
     * 6
 
     * 7

@@ -35,8 +35,6 @@ See a document for your platform in the followings:
 
   * [CentOS](centos.html)
 
-    * 5
-
     * 6
 
     * 7

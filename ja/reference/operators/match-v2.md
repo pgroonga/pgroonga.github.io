@@ -7,8 +7,6 @@ upper_level: ../
 
 ## 概要
 
-この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。
-
 `&@`演算子は1つのキーワードで全文検索を実行します。
 
 ## 構文
@@ -31,8 +29,7 @@ CREATE TABLE memos (
   content text
 );
 
-CREATE INDEX pgroonga_content_index ON memos
-  USING pgroonga (content pgroonga.text_full_text_search_ops_v2);
+CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 
 ```sql

@@ -7,6 +7,8 @@ upper_level: ../
 
 ## 概要
 
+1.2.0からこの演算子は非推奨になりました。代わりに[`&?`演算子](query-v2.html)を使ってください。
+
 `@@`演算子はクエリーを使って全文検索を実行します。
 
 クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。
@@ -66,6 +68,10 @@ TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
 
 ## 参考
 
+  * [`&@`演算子](match-v2.html)
+
   * [`%%`演算子](match.html)
+
+    * 1.2.0から非推奨になりました。代わりに[`&@`演算子](match-v2.html)を使ってください。
 
   * [Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)

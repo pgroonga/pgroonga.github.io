@@ -32,9 +32,17 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * `ILIKE` operator
 
+  * [`&@` operator](operators/match-v2.html)
+
   * [`%%` operator](operators/match.html)
 
+    * Deprecated since 1.2.0. Use [`&@` operator](operators/match-v2.html) instead.
+
+  * [`&?` operator](operators/query-v2.html) for non `jsonb` types
+
   * [`@@` operator](operators/query.html) for non `jsonb` types
+
+    * Deprecated since 1.2.0. Use [`&?` operator](operators/query-v2.html) instead.
 
   * [`@@` operator](operators/jsonb-query.html) for `jsonb` type
 

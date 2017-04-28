@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-12-05 15:48+0900\n"
+"PO-Revision-Date: 2017-04-28 16:52+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,6 +24,11 @@ msgstr "# `%%`演算子"
 
 msgid "## Summary"
 msgstr "## 概要"
+
+msgid ""
+"This operator is deprecated since 1.2.0. Use [`&@` operator](match-v2.html) in"
+"stead."
+msgstr "1.2.0からこの演算子は非推奨になりました。代わりに[`&@`演算子](match-v2.html)を使ってください。"
 
 msgid "`%%` operator performs full text search by one keyword."
 msgstr "`%%`は1つのキーワードで全文検索を実行します。"
@@ -112,5 +117,11 @@ msgstr "複数のキーワードで検索したいときやAND/ORを使った検
 msgid "## See also"
 msgstr "## 参考"
 
+msgid "  * [`&?` operator](query-v2.html)"
+msgstr "  * [`&?`演算子](query-v2.html)"
+
 msgid "  * [`@@` operator](query.html)"
 msgstr "  * [`@@`演算子](query.html)"
+
+msgid "    * Deprecated since 1.2.0. Use [`&?` operator](query-v2.html) instead."
+msgstr "    * 1.2.0から非推奨になりました。代わりに[`&?`演算子](query-v2.html)を使ってください。"

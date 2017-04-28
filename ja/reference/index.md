@@ -32,9 +32,17 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * `ILIKE`演算子
 
+  * [`&@`演算子](operators/match-v2.html)
+
   * [`%%`演算子](operators/match.html)
 
+    * 1.2.0から非推奨になりました。代わりに[`&@`演算子](operators/match-v2.html)を使ってください。
+
+  * `jsonb`型以外の型用の[`&?`演算子](operators/query-v2.html)
+
   * `jsonb`型以外の型用の[`@@`演算子](operators/query.html)
+
+    * 1.2.0から非推奨になりました。代わりに[`&?`演算子](operators/query-v2.html)を使ってください。
 
   * `jsonb`型用の[`@@`演算子](operators/jsonb-query.html)
 

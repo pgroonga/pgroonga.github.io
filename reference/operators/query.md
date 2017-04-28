@@ -7,6 +7,8 @@ upper_level: ../
 
 ## Summary
 
+This operator is deprecated since 1.2.0. Use [`&?` operator](query-v2.html) instead.
+
 `@@` operator performs full text search with query.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query.
@@ -66,6 +68,10 @@ TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
 
 ## See also
 
+  * [`&@` operator](match-v2.html)
+
   * [`%%` operator](match.html)
+
+    * Deprecated since 1.2.0. Use [`&@` operator](match-v2.html) instead.
 
   * [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)

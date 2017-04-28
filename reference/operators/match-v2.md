@@ -7,8 +7,6 @@ upper_level: ../
 
 ## Summary
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
-
 `&@` operator performs full text search by one keyword.
 
 ## Syntax
@@ -31,8 +29,7 @@ CREATE TABLE memos (
   content text
 );
 
-CREATE INDEX pgroonga_content_index ON memos
-  USING pgroonga (content pgroonga.text_full_text_search_ops_v2);
+CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 
 ```sql

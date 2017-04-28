@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-04-26 16:18+0900\n"
+"PO-Revision-Date: 2017-04-28 17:13+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,11 +80,27 @@ msgstr "  * [`LIKE`演算子](operators/like.html)"
 msgid "  * `ILIKE` operator"
 msgstr "  * `ILIKE`演算子"
 
+msgid "  * [`&@` operator](operators/match-v2.html)"
+msgstr "  * [`&@`演算子](operators/match-v2.html)"
+
 msgid "  * [`%%` operator](operators/match.html)"
 msgstr "  * [`%%`演算子](operators/match.html)"
 
+msgid ""
+"    * Deprecated since 1.2.0. Use [`&@` operator](operators/match-v2.html) ins"
+"tead."
+msgstr "    * 1.2.0から非推奨になりました。代わりに[`&@`演算子](operators/match-v2.html)を使ってください。"
+
+msgid "  * [`&?` operator](operators/query-v2.html) for non `jsonb` types"
+msgstr "  * `jsonb`型以外の型用の[`&?`演算子](operators/query-v2.html)"
+
 msgid "  * [`@@` operator](operators/query.html) for non `jsonb` types"
 msgstr "  * `jsonb`型以外の型用の[`@@`演算子](operators/query.html)"
+
+msgid ""
+"    * Deprecated since 1.2.0. Use [`&?` operator](operators/query-v2.html) ins"
+"tead."
+msgstr "    * 1.2.0から非推奨になりました。代わりに[`&?`演算子](operators/query-v2.html)を使ってください。"
 
 msgid "  * [`@@` operator](operators/jsonb-query.html) for `jsonb` type"
 msgstr "  * `jsonb`型用の[`@@`演算子](operators/jsonb-query.html)"

@@ -7,8 +7,6 @@ upper_level: ../
 
 ## Summary
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
-
 `&?` operator performs full text search with query.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query.
@@ -35,8 +33,7 @@ CREATE TABLE memos (
   content text
 );
 
-CREATE INDEX pgroonga_content_index ON memos
-  USING pgroonga (content pgroonga.text_full_text_search_ops_v2);
+CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 
 ```sql

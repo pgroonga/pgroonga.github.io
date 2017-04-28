@@ -7,6 +7,8 @@ upper_level: ../
 
 ## Summary
 
+This operator is deprecated since 1.2.0. Use [`&@` operator](match-v2.html) instead.
+
 `%%` operator performs full text search by one keyword.
 
 ## Syntax
@@ -53,4 +55,8 @@ If you want to perform full text search with multiple keywords or AND/OR search,
 
 ## See also
 
+  * [`&?` operator](query-v2.html)
+
   * [`@@` operator](query.html)
+
+    * Deprecated since 1.2.0. Use [`&?` operator](query-v2.html) instead.

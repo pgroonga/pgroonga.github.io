@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-04-26 18:08+0900\n"
+"PO-Revision-Date: 2017-04-29 12:39+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -195,7 +195,7 @@ msgid ""
 msgstr "トークンフィルターについては[トークンフィルターのカスタマイズ方法](#custom-token-filters)を参照してください。"
 
 msgid "#### How to custom tokenizer {#custom-tokenizer}"
-msgstr "#### トークナイザーのカスタマイズ方法 {#custom-tokenizer}"
+msgstr "#### トークナイザーのカスタマイズ方法 {#custom-tokenizers}"
 
 msgid ""
 "Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, y"

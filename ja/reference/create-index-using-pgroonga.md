@@ -84,7 +84,7 @@ CREATE INDEX pgroonga_content_index
 
 トークンフィルターについては[トークンフィルターのカスタマイズ方法](#custom-token-filters)を参照してください。
 
-#### トークナイザーのカスタマイズ方法 {#custom-tokenizer}
+#### トークナイザーのカスタマイズ方法 {#custom-tokenizers}
 
 トークナイザーをカスタマイズするには`tokenizer='${トークナイザー名}'`を指定します。通常、トークナイザーをカスタマイズする必要はありません。
 

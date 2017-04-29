@@ -8,11 +8,13 @@ title: おしらせ
 
 ### 改良
 
-  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 7.0.1.
+  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 7.0.2.
 
   * [[CentOS](../install/centos.html) 6] Supported WAL.
 
   * Dropped [[CentOS](../install/centos.html) 5] support.
+
+  * [[Ubuntu](../install/ubuntu.html) 17.04] Supported. It supports WAL.
 
   * [[Replication](../reference/replication.html)] Supported NULL column value.
 

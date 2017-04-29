@@ -26,13 +26,16 @@ msgstr ""
 msgid "### Improvements"
 msgstr "### 改良"
 
-msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 7.0.1."
+msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 7.0.2."
 msgstr ""
 
 msgid "  * [[CentOS](../install/centos.html) 6] Supported WAL."
 msgstr ""
 
 msgid "  * Dropped [[CentOS](../install/centos.html) 5] support."
+msgstr ""
+
+msgid "  * [[Ubuntu](../install/ubuntu.html) 17.04] Supported. It supports WAL."
 msgstr ""
 
 msgid ""

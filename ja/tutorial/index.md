@@ -173,7 +173,7 @@ SET enable_seqscan = off;
 SELECT *, pgroonga.score(score_memos)
   FROM score_memos
  WHERE content %% 'PGroonga' OR content %% 'PostgreSQL';
---  id |                                  content                                  | score 
+--  id |                                  content                                  | score
 -- ----+---------------------------------------------------------------------------+-------
 --   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
@@ -187,7 +187,7 @@ SELECT *, pgroonga.score(score_memos)
   FROM score_memos
  WHERE content %% 'PGroonga' OR content %% 'PostgreSQL'
  ORDER BY pgroonga.score(score_memos) DESC;
---  id |                                  content                                  | score 
+--  id |                                  content                                  | score
 -- ----+---------------------------------------------------------------------------+-------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
 --   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1

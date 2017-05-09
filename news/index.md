@@ -4,6 +4,18 @@ title: News
 
 # News
 
+## 1.2.1: 2017-05-09 {#version-1-2-1}
+
+### Improvements
+
+  * [`pgroonga.text_full_text_search_ops_v2`] Supported `@@` and `%%` for backward compatibility.
+
+TODO
+
+### Fixes
+
+TODO
+
 ## 1.2.0: 2017-04-29 {#version-1-2-0}
 
 ### Improvements

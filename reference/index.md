@@ -134,17 +134,17 @@ Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double pre
 
 ### For `jsonb`
 
-  * [`&@` operator](operators/match-jsonb-v2.html): Full text search against all text data in `jsonb` by a keyword
+  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
-  * [`&?` operator](operators/query-jsonb-v2.html): Full text search against all text data in `jsonb` by easy to use query language
+  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
 
-  * [`` &` `` operator](operators/script-jsonb-v2.html): Advanced search by ECMAScript like query language
+  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
 
-  * [`@@` operator](operators/script-jsonb.html): Advanced search by ECMAScript like query language
+  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query language
 
-    * Deprecated since 1.2.1. Use [`` &` `` operator](operators/script-jsonb-v2.html) instead.
+    * Deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead.
 
-  * [`@>` operator](operators/contain-jsonb.html): Search by a `jsonb` data
+  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
 
 ## Operators v2
 
@@ -282,17 +282,17 @@ By `pgroonga.varchar_array_ops_v2` operator class:
 
 By `pgroonga.jsonb_ops_v2` operator class:
 
-  * [`&@` operator](operators/match-jsonb-v2.html): Full text search against all text data in `jsonb` by a keyword
+  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
-  * [`&?` operator](operators/query-jsonb-v2.html): Full text search against all text data in `jsonb` by easy to use query language
+  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
 
-  * [`` &` `` operator](operators/script-jsonb-v2.html): Advanced search by ECMAScript like query language
+  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
 
-  * [`@@` operator](operators/script-jsonb.html): Advanced search by ECMAScript like query language
+  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query language
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
-  * [`@>` operator](operators/contain-jsonb.html): Search by a `jsonb` data
+  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
 
 ## Functions
 
@@ -351,3 +351,9 @@ Normally, you don't need to tune PGroonga because PGroonga works well by default
 But you need to tune PGroonga in some cases such as a case that you need to handle a very large database. PGroonga uses Groonga as backend. It means that you can apply tuning knowledge for Groonga to PGroonga. See the following Groonga document to tune PGroonga:
 
   * [Tuning](http://groonga.org/docs/reference/tuning.html)
+
+[match-jsonb-v2]:operators/match-jsonb-v2.html
+[query-jsonb-v2]:operators/query-jsonb-v2.html
+[script-jsonb-v2]:operators/script-jsonb-v2.html
+[script-jsonb]:operators/script-jsonb.html
+[contain-jsonb]:operators/contain-jsonb.html

@@ -20,11 +20,25 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.2.0: 2017-04-29 {#version-1-2-0}"
+msgid "## 1.2.1: 2017-05-09 {#version-1-2-1}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [`pgroonga.text_full_text_search_ops_v2`] Supported `@@` and `%%` for back"
+"ward compatibility."
+msgstr ""
+
+msgid "TODO"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "## 1.2.0: 2017-04-29 {#version-1-2-0}"
+msgstr ""
 
 msgid "  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 7.0.2."
 msgstr ""
@@ -90,9 +104,6 @@ msgid ""
 "earch_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`@@`"
 " operator](../reference/operators/query.html) is deprecated."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid "  * [[CentOS](../install/centos.html)] Fixed wrong msgpack library link."
 msgstr ""

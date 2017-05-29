@@ -180,9 +180,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
 
-  * [`&@>` operator](operators/match-contain-v2.html): Full text search by an array of keywords
+  * [`&@>` operator][match-in-v2]: Full text search by an array of keywords
 
-  * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
+  * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
 #### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
 
@@ -190,9 +190,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`&^~` operator](operators/prefix-rk-search-v2.html): Prefix RK search
 
-  * [`&^>` operator](operators/prefix-search-contain-v2.html): Prefix search by an array of prefixes
+  * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
-  * [`&^~>` operator](operators/prefix-rk-search-contain-v2.html): Prefix RK search by an array of prefixes
+  * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
 #### `pgroonga.text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
@@ -226,9 +226,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
 
-  * [`&@>` operator](operators/match-contain-v2.html): Full text search by an array of keywords
+  * [`&@>` operator][match-in-v2]: Full text search by an array of keywords
 
-  * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
+  * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
 #### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term-search-ops-v2}
 
@@ -236,9 +236,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`&^~` operator](operators/prefix-rk-search-v2.html): Prefix RK search
 
-  * [`&^>` operator](operators/prefix-search-contain-v2.html): Prefix search by an array of prefixes
+  * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
-  * [`&^~>` operator](operators/prefix-rk-search-contain-v2.html): Prefix RK search by an array of prefixes
+  * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
 ### For `varchar`
 
@@ -260,9 +260,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
 
-  * [`&@>` operator](operators/match-contain-v2.html): Full text search by an array of keywords
+  * [`&@>` operator][match-in-v2]: Full text search by an array of keywords
 
-  * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
+  * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
 #### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
 
@@ -358,6 +358,10 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 
   * [Tuning](http://groonga.org/docs/reference/tuning.html)
 
+[match-in-v2]:operators/match-in-v2.html
+[query-in-v2]:operators/query-in-v2.html
+[prefix-search-in-v2]:operators/prefix-search-in-v2.html
+[prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
 [match-jsonb-v2]:operators/match-jsonb-v2.html
 [query-jsonb-v2]:operators/query-jsonb-v2.html
 [script-jsonb-v2]:operators/script-jsonb-v2.html

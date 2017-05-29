@@ -67,4 +67,4 @@ SELECT * FROM memos WHERE content &?> ARRAY['Groonga engine', 'PostgreSQL -PGroo
 
   * [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)
 
-  * [`&@>` operator](match-contain-v2.html)
+  * [`&@>` operator](match-in-v2.html)

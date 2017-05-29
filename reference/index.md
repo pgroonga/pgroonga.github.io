@@ -114,11 +114,11 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 #### `pgroonga.varchar_array_ops` operator class (default) {#varchar-array-ops}
 
-  * [`&@` operator](operators/match-term-v2.html): Exact match by a keyword
+  * [`&@` operator][contain-term-v2]: Check whether a term is included in an array of terms
 
-  * [`%%` operator](operators/match-term.html): Exact match by a keyword
+  * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
 
-    * Deprecated since 1.2.1. Use [`&@` operator](operators/match-term-v2.html) instead.
+    * Deprecated since 1.2.1. Use [`&@` operator][contain-term-v2] instead.
 
 ### For boolean, numbers and timestamps
 
@@ -276,9 +276,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.varchar_array_term_search_ops_v2` operator class {#varchar-array-term-search-ops-v2}
 
-  * [`&@` operator](operators/match-term-v2.html): Exact match by a keyword
+  * [`&@` operator][contain-term-v2]: Check whether a term is included in an array of terms
 
-  * [`%%` operator](operators/match-term.html): Exact match by a keyword
+  * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
@@ -360,6 +360,8 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 
 [match-in-v2]:operators/match-in-v2.html
 [query-in-v2]:operators/query-in-v2.html
+[contain-term-v2]:operators/contain-term-v2.html
+[contain-term]:operators/contain-term.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html
 [prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
 [match-jsonb-v2]:operators/match-jsonb-v2.html

@@ -4,17 +4,87 @@ title: News
 
 # News
 
-## 1.2.1: 2017-05-09 {#version-1-2-1}
+## 1.2.1: 2017-05-29 {#version-1-2-1}
 
 ### Improvements
 
-  * [`pgroonga.text_full_text_search_ops_v2`] Supported `@@` and `%%` for backward compatibility.
+  * [[`pgroonga.text_full_text_search_ops_v2` operator class][text-full-text-search-ops-v2]] Supported `@@` and `%%` for backward compatibility.
 
-TODO
+  * [[`pgroonga.text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2]] Added.
+
+  * [[`pgroonga.text_array_full_text_search_ops` operator class][text-array-full-text-search-ops]] Added the following v2 operators for forward compatibility:
+
+    * [`&@` operator][match-v2]
+
+    * [`&?` operator][query-v2]
+
+  * [[`pgroonga.varchar_full_text_search_ops_v2` operator class][varchar-full-text-search-ops-v2]] Added.
+
+  * [[`pgroonga.varchar_full_text_search_ops` operator class][varchar-full-text-search-ops]] Added the following v2 operators for forward compatibility:
+
+    * [`&@` operator][match-v2]
+
+    * [`&?` operator][query-v2]
+
+  * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Added the following operators:
+
+    * [`&^>` operator][prefix-search-contain-v2]
+
+    * [`&^~>` operator][prefix-rk-search-contain-v2]
+
+  * [[`pgroonga.text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]] Added the following operators:
+
+    * [`&^` operator][prefix-search-v2]
+
+    * [`&^~` operator][prefix-rk-search-v2]
+
+  * [[`pgroonga.text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]] Changed signature to `(text[], text[])` from `(text[], text)` of the following operators for consistency:
+
+    * [`&^>` operator][prefix-search-contain-v2]
+
+    * [`&^~>` operator][prefix-rk-search-contain-v2]
+
+  * [[`pgroonga.text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Added.
+
+  * [[`pgroonga.varchar_regexp_ops_v2` operator class][text-regexp-ops-v2]] Added.
+
+  * [[`pgroonga.varchar_array_term_search_ops_v2` operator class][varchar-array-term-search-ops-v2]] Added.
+
+  * [[`pgroonga.varchar_array_ops` operator class][varchar-array-ops]] Added the following v2 operators for forward compatibility:
+
+    * [`&@` operator][match-term-v2]
+
+  * [[`pgroonga.jsonb_ops_v2` operator class][jsonb-ops-v2]] Added.
+
+  * [[`pgroonga.jsonb_ops` operator class][jsonb-ops]] Added the following v2 operators for forward compatibility:
+
+    * [`` &@ `` operator][match-jsonb-v2]
+
+    * [`` &? `` operator][query-jsonb-v2]
+
+    * [`` &` `` operator][script-jsonb-v2]
+
+  * [[Debian][debian]][[Ubuntu][ubuntu]] Supported log rotation by logrotate.
+
+  * [[`pgroonga.text_regexp_ops` operator class][text-regexp-ops]] Added the following v2 operators for forward compatibility:
+
+    * [`&~` operator][regular-expression-v2]
+
+  * [[`pgroonga.varchar_regexp_ops` operator class][varchar-regexp-ops]] Added the following v2 operators for forward compatibility:
+
+    * [`&~` operator][regular-expression-v2]
+
+  * [[`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]] Added. [GitHub#37][Reported by ArturFormella]
 
 ### Fixes
 
-TODO
+  * Fixed a bug that removed entries may be referenced. [GitHub#36][Reported by peter-schmitz]
+
+### Thanks
+
+  * peter-schmitz
+
+  * ArturFormella
 
 ## 1.2.0: 2017-04-29 {#version-1-2-0}
 
@@ -579,3 +649,36 @@ CREATE EXTENSION pgroonga;
 ## 0.2.0: 2015-01-29
 
 The first release!!!
+
+[debian]:../install/debian.html
+[ubuntu]:../install/ubuntu.html
+
+[text-regexp-ops]:../reference/#text-regexp-ops
+[text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops
+[varchar-full-text-search-ops]:../reference/#varchar-full-text-search-ops
+[varchar-regexp-ops]:../reference/#varchar-regexp-ops
+[jsonb-ops]:../reference/#jsonb-ops
+
+[text-full-text-search-ops-v2]:../reference/#text-full-text-search-ops-v2
+[text-term-search-ops-v2]:../reference/#text-term-search-ops-v2
+[text-regexp-ops-v2]:../reference/#text-regexp-ops-v2
+[text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2
+[text-array-term-search-ops-v2]:../reference/#text-array-term-search-ops-v2
+[varchar-full-text-search-ops-v2]:../reference/#varchar-full-text-search-ops-v2
+[varchar-regexp-ops-v2]:../reference/#varchar-regexp-ops-v2
+[varchar-array-term-search-ops-v2]:../reference/#varchar-array-term-search-ops-v2
+[jsonb-ops-v2]:../reference/#jsonb-ops-v2
+
+[match-v2]:../reference/operators/match-v2.html
+[match-term-v2]:../reference/operators/match-term-v2.html
+[query-v2]:../reference/operators/query-v2.html
+[prefix-search-v2]:../reference/operators/prefix-search-v2.html
+[prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html
+[prefix-search-contain-v2]:../reference/operators/prefix-search-contain-v2.html
+[prefix-rk-search-contain-v2]:../reference/operators/prefix-rk-search-contain-v2.html
+[match-jsonb-v2]:../reference/operators/match-jsonb-v2.html
+[query-jsonb-v2]:../reference/operators/query-jsonb-v2.html
+[script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
+[regular-expression-v2]:../reference/operators/regular-expression-v2.html
+
+[match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html

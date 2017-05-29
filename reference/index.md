@@ -30,7 +30,7 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 ### For `text`
 
-By the default operator class:
+#### `pgroonga.text_full_text_search_ops` operator class (default) {#text-full-text-search-ops}
 
   * [`LIKE` operator](operators/like.html)
 
@@ -48,7 +48,7 @@ By the default operator class:
 
     * Deprecated since 1.2.0. Use [`&?` operator](operators/query-v2.html) instead.
 
-By `pgroonga.text_regexp_ops` operator class:
+#### `pgroonga.text_regexp_ops` operator class {#text-regexp-ops}
 
   * [`LIKE` operator](operators/like.html)
 
@@ -76,7 +76,7 @@ By `pgroonga.text_regexp_ops` operator class:
 
 ### For `varchar`
 
-By the default operator class:
+#### `pgroonga.varchar_ops` operator class (default) {#varchar-ops}
 
   * `<`
 
@@ -88,7 +88,7 @@ By the default operator class:
 
   * `>`
 
-By `pgroonga.varchar_full_text_search_ops` operator class:
+#### `pgroonga.varchar_full_text_search_ops` operator class {#varchar-full-text-search-ops}
 
   * [`&@` operator](operators/match-v2.html): Full text search by a keyword
 
@@ -102,7 +102,7 @@ By `pgroonga.varchar_full_text_search_ops` operator class:
 
     * Deprecated since 1.2.0. Use [`&?` operator](operators/query-v2.html) instead.
 
-By `pgroonga.varchar_regexp_ops` operator class:
+#### `pgroonga.varchar_regexp_ops` operator class {#varchar-regexp-ops}
 
   * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
 
@@ -112,11 +112,13 @@ By `pgroonga.varchar_regexp_ops` operator class:
 
 ### For `varchar[]`
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+#### `pgroonga.varchar_array_ops` operator class (default) {#varchar-array-ops}
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
+  * [`&@` operator](operators/match-term-v2.html): Exact match by a keyword
 
-    * Deprecated since 1.2.1. Use [`&@` operator](operators/match-v2.html) instead.
+  * [`%%` operator](operators/match-term.html): Exact match by a keyword
+
+    * Deprecated since 1.2.1. Use [`&@` operator](operators/match-term-v2.html) instead.
 
 ### For boolean, numbers and timestamps
 
@@ -134,7 +136,9 @@ Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double pre
 
 ### For `jsonb`
 
-  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
+#### `pgroonga.jsonb_ops` operator class (default) {#jsonb-ops}
+
+* [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
   * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
 
@@ -154,7 +158,7 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 ### For `text`
 
-By `pgroonga.text_full_text_search_ops_v2` operator class:
+#### `pgroonga.text_full_text_search_ops_v2` operator class {#text-full-text-search-ops-v2}
 
   * [`LIKE` operator](operators/like.html)
 
@@ -180,7 +184,7 @@ By `pgroonga.text_full_text_search_ops_v2` operator class:
 
   * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
 
-By `pgroonga.text_term_search_ops_v2` operator class:
+#### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
 
   * [`&^` operator](operators/prefix-search-v2.html): Prefix search
 
@@ -190,7 +194,7 @@ By `pgroonga.text_term_search_ops_v2` operator class:
 
   * [`&^~>` operator](operators/prefix-rk-search-contain-v2.html): Prefix RK search by an array of prefixes
 
-By `pgroonga.text_regexp_ops_v2` operator class:
+#### `pgroonga.text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
   * [`LIKE` operator](operators/like.html)
 
@@ -204,7 +208,7 @@ By `pgroonga.text_regexp_ops_v2` operator class:
 
 ### For `text[]`
 
-By `pgroonga.text_full_text_search_ops_v2` operator class:
+#### `pgroonga.text_array_full_text_search_ops_v2` operator class {#text-array-full-text-search-ops-v2}
 
   * [`&@` operator](operators/match-v2.html): Full text search by a keyword
 
@@ -226,7 +230,7 @@ By `pgroonga.text_full_text_search_ops_v2` operator class:
 
   * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
 
-By `pgroonga.text_array_term_search_ops_v2` operator class
+#### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term-search-ops-v2}
 
   * [`&^` operator](operators/prefix-search-v2.html): Prefix search
 
@@ -238,7 +242,7 @@ By `pgroonga.text_array_term_search_ops_v2` operator class
 
 ### For `varchar`
 
-By `pgroonga.varchar_full_text_search_ops_v2` operator class:
+#### `pgroonga.varchar_full_text_search_ops_v2` operator class {#varchar-full-text-search-ops-v2}
 
   * [`&@` operator](operators/match-v2.html): Full text search by a keyword
 
@@ -260,7 +264,7 @@ By `pgroonga.varchar_full_text_search_ops_v2` operator class:
 
   * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
 
-By `pgroonga.varchar_regexp_ops_v2` operator class:
+#### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
 
   * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
 
@@ -270,17 +274,17 @@ By `pgroonga.varchar_regexp_ops_v2` operator class:
 
 ### For `varchar[]`
 
-By `pgroonga.varchar_array_ops_v2` operator class:
+#### `pgroonga.varchar_array_term_search_ops_v2` operator class {#varchar-array-term-search-ops-v2}
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+  * [`&@` operator](operators/match-term-v2.html): Exact match by a keyword
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
+  * [`%%` operator](operators/match-term.html): Exact match by a keyword
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
 ### For `jsonb`
 
-By `pgroonga.jsonb_ops_v2` operator class:
+#### `pgroonga.jsonb_ops_v2` operator class {#varchar-jsonb-ops-v2}
 
   * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
@@ -333,6 +337,8 @@ By `pgroonga.jsonb_ops_v2` operator class:
   * [`pgroonga.log_type` parameter](parameters/log-type.html)
 
   * [`pgroonga.query_log_path` parameter](parameters/query-log-path.html)
+
+  * [`pgroonga.match_escalation_threshold` parameter](parameters/match-escalation-threshold.html)
 
 ## Modules
 

@@ -114,11 +114,11 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 #### `pgroonga.varchar_array_ops` operator class (default) {#varchar-array-ops}
 
-  * [`&@` operator][contain-term-v2]: Check whether a term is included in an array of terms
+  * [`&>` operator][contain-term-v2]: Check whether a term is included in an array of terms
 
   * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
 
-    * Deprecated since 1.2.1. Use [`&@` operator][contain-term-v2] instead.
+    * Deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead.
 
 ### For boolean, numbers and timestamps
 
@@ -276,7 +276,7 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.varchar_array_term_search_ops_v2` operator class {#varchar-array-term-search-ops-v2}
 
-  * [`&@` operator][contain-term-v2]: Check whether a term is included in an array of terms
+  * [`&>` operator][contain-term-v2]: Check whether a term is included in an array of terms
 
   * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
 

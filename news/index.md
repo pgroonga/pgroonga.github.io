@@ -52,7 +52,7 @@ title: News
 
   * [[`pgroonga.varchar_array_ops` operator class][varchar-array-ops]] Added the following v2 operators for forward compatibility:
 
-    * [`&@` operator][match-term-v2]
+    * [`&>` operator][contain-term-v2]
 
   * [[`pgroonga.jsonb_ops_v2` operator class][jsonb-ops-v2]] Added.
 
@@ -670,7 +670,7 @@ The first release!!!
 [jsonb-ops-v2]:../reference/#jsonb-ops-v2
 
 [match-v2]:../reference/operators/match-v2.html
-[match-term-v2]:../reference/operators/match-term-v2.html
+[contain-term-v2]:../reference/operators/contain-term-v2.html
 [query-v2]:../reference/operators/query-v2.html
 [prefix-search-v2]:../reference/operators/prefix-search-v2.html
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html

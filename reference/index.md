@@ -180,9 +180,17 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
 
+  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
+
   * [`&@>` operator][match-in-v2]: Full text search by an array of keywords
 
+    * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead.
+
+  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
   * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
+    * Deprecated since 1.2.1. Use [`&?|` operator][query-in-v2] instead.
 
 #### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
 
@@ -190,9 +198,17 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`&^~` operator](operators/prefix-rk-search-v2.html): Prefix RK search
 
+  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
+
   * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
+    * Deprecated since 1.2.1. Use [`&^|` operator][query-in-v2] instead.
+
+  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
+
   * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
+
+    * Deprecated since 1.2.1. Use [`&^~|` operator][query-in-v2] instead.
 
 #### `pgroonga.text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
@@ -226,9 +242,17 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
 
+  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
+
   * [`&@>` operator][match-in-v2]: Full text search by an array of keywords
 
+    * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead.
+
+  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
   * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
+    * Deprecated since 1.2.1. Use [`&?|` operator][query-in-v2] instead.
 
 #### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term-search-ops-v2}
 
@@ -236,9 +260,17 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`&^~` operator](operators/prefix-rk-search-v2.html): Prefix RK search
 
+  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
+
   * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
+    * Deprecated since 1.2.1. Use [`&^|` operator][query-in-v2] instead.
+
+  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
+
   * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
+
+    * Deprecated since 1.2.1. Use [`&^~|` operator][query-in-v2] instead.
 
 ### For `varchar`
 
@@ -260,9 +292,17 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
   * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
 
+  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
+
   * [`&@>` operator][match-in-v2]: Full text search by an array of keywords
 
+    * Deprecated since 1.2.1. Use [`&@|` operator][query-in-v2] instead.
+
+  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
   * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
+    * Deprecated since 1.2.1. Use [`&?|` operator][query-in-v2] instead.
 
 #### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
 

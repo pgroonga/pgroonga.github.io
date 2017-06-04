@@ -36,43 +36,43 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * `ILIKE` operator
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
+  * [`%%` operator][match]: Full text search by a keyword
 
-    * Deprecated since 1.2.0. Use [`&@` operator](operators/match-v2.html) instead.
+    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use query language
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
-  * [`@@` operator](operators/query.html): Full text search by easy to use query language
+  * [`@@` operator][query]: Full text search by easy to use query language
 
-    * Deprecated since 1.2.0. Use [`&?` operator](operators/query-v2.html) instead.
+    * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
 
 #### `pgroonga.text_regexp_ops` operator class {#text-regexp-ops}
 
-  * [`LIKE` operator](operators/like.html)
+  * [`LIKE` operator][like]
 
   * `ILIKE` operator
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by a regular expression
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
-  * [`@~` operator](operators/regular-expression.html): Search by regular a expression
+  * [`@~` operator][regular-expression]: Search by regular a expression
 
-    * Deprecated since 1.2.1. Use [`&~` operator](operators/regular-expression-v2.html) instead.
+    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
 
 ### For `text[]`
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
+  * [`%%` operator][match]: Full text search by a keyword
 
-    * Deprecated since 1.2.0. Use [`&@` operator](operators/match-v2.html) instead.
+    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use language
+  * [`&?` operator][query-v2]: Full text search by easy to use language
 
-  * [`@@` operator](operators/query.html): Full text search by easy to use language
+  * [`@@` operator][query]: Full text search by easy to use language
 
-    * Deprecated since 1.2.0. Use [`&?` operator](operators/query-v2.html) instead.
+    * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
 
 ### For `varchar`
 
@@ -90,25 +90,25 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 #### `pgroonga.varchar_full_text_search_ops` operator class {#varchar-full-text-search-ops}
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
+  * [`%%` operator][match]: Full text search by a keyword
 
-    * Deprecated since 1.2.0. Use [`&@` operator](operators/match-v2.html) instead.
+    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use language
+  * [`&?` operator][query-v2]: Full text search by easy to use language
 
-  * [`@@` operator](operators/query.html): Full text search by easy to use language
+  * [`@@` operator][query]: Full text search by easy to use language
 
-    * Deprecated since 1.2.0. Use [`&?` operator](operators/query-v2.html) instead.
+    * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
 
 #### `pgroonga.varchar_regexp_ops` operator class {#varchar-regexp-ops}
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
+  * [`&~` operator][regular-expression-v2]: Search by regular expression
 
-  * [`@~` operator](operators/regular-expression.html): Search by regular expression
+  * [`@~` operator][regular-expression]: Search by regular expression
 
-    * Deprecated since 1.2.1. Use [`&~` operator](operators/regular-expression-v2.html) instead.
+    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
 
 ### For `varchar[]`
 
@@ -160,25 +160,25 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.text_full_text_search_ops_v2` operator class {#text-full-text-search-ops-v2}
 
-  * [`LIKE` operator](operators/like.html)
+  * [`LIKE` operator][like]
 
   * `ILIKE` operator
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
-
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
-
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use query language
-
-  * [`@@` operator](operators/query.html): Full text search by easy to use query language
+  * [`%%` operator][match]: Full text search by a keyword
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
-  * [`&~?` operator](operators/similar-search-v2.html): Similar search
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
-  * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
+  * [`@@` operator][query]: Full text search by easy to use query language
+
+    * Don't use this operator class for newly written code. It's just for backward compatibility.
+
+  * [`&~?` operator][similar-search-v2]: Similar search
+
+  * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query language 
 
   * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
 
@@ -194,9 +194,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
 
-  * [`&^` operator](operators/prefix-search-v2.html): Prefix search
+  * [`&^` operator][prefix-search-v2]: Prefix search
 
-  * [`&^~` operator](operators/prefix-rk-search-v2.html): Prefix RK search
+  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
 
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
@@ -212,13 +212,13 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
-  * [`LIKE` operator](operators/like.html)
+  * [`LIKE` operator][like]
 
   * `ILIKE` operator
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
+  * [`&~` operator][regular-expression-v2]: Search by regular expression
 
-  * [`@~` operator](operators/regular-expression.html): Search by regular expression
+  * [`@~` operator][regular-expression]: Search by regular expression
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
@@ -226,21 +226,21 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.text_array_full_text_search_ops_v2` operator class {#text-array-full-text-search-ops-v2}
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
-
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
-
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use language
-
-  * [`@@` operator](operators/query.html): Full text search by easy to use language
+  * [`%%` operator][match]: Full text search by a keyword
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
-  * [`&~?` operator](operators/similar-search-v2.html): Similar search
+  * [`&?` operator][query-v2]: Full text search by easy to use language
 
-  * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
+  * [`@@` operator][query]: Full text search by easy to use language
+
+    * Don't use this operator class for newly written code. It's just for backward compatibility.
+
+  * [`&~?` operator][similar-search-v2]: Similar search
+
+  * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query language 
 
   * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
 
@@ -256,9 +256,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term-search-ops-v2}
 
-  * [`&^` operator](operators/prefix-search-v2.html): Prefix search
+  * [`&^` operator][prefix-search-v2]: Prefix search
 
-  * [`&^~` operator](operators/prefix-rk-search-v2.html): Prefix RK search
+  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
 
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
@@ -276,21 +276,21 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.varchar_full_text_search_ops_v2` operator class {#varchar-full-text-search-ops-v2}
 
-  * [`&@` operator](operators/match-v2.html): Full text search by a keyword
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`%%` operator](operators/match.html): Full text search by a keyword
-
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
-
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use query language
-
-  * [`@@` operator](operators/query.html): Full text search by easy to use query language
+  * [`%%` operator][match]: Full text search by a keyword
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
-  * [`&~?` operator](operators/similar-search-v2.html): Similar search
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
-  * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
+  * [`@@` operator][query]: Full text search by easy to use query language
+
+    * Don't use this operator class for newly written code. It's just for backward compatibility.
+
+  * [`&~?` operator][similar-search-v2]: Similar search
+
+  * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query language 
 
   * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
 
@@ -306,9 +306,9 @@ If you use them, you need to use [incompatible case steps](../upgrade/#incompati
 
 #### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
+  * [`&~` operator][regular-expression-v2]: Search by regular expression
 
-  * [`@~` operator](operators/regular-expression.html): Search by regular expression
+  * [`@~` operator][regular-expression]: Search by regular expression
 
     * Don't use this operator class for newly written code. It's just for backward compatibility.
 
@@ -398,12 +398,25 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 
   * [Tuning](http://groonga.org/docs/reference/tuning.html)
 
+[like]:operators/like.html
+
+[match]:operators/match.html
+[query]:operators/query.html
+[regular-expression]:operators/regular-expression.html
+
+[match-v2]:operators/match-v2.html
+[query-v2]:operators/query-v2.html
 [match-in-v2]:operators/match-in-v2.html
 [query-in-v2]:operators/query-in-v2.html
+[regular-expression-v2]:operators/regular-expression-v2.html
 [contain-term-v2]:operators/contain-term-v2.html
 [contain-term]:operators/contain-term.html
+[prefix-search-v2]:operators/prefix-search-v2.html
+[prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html
 [prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
+[similar-search-v2]:operators/similar-search-v2.html
+[script-v2]:operators/script-v2.html
 [match-jsonb-v2]:operators/match-jsonb-v2.html
 [query-jsonb-v2]:operators/query-jsonb-v2.html
 [script-jsonb-v2]:operators/script-jsonb-v2.html

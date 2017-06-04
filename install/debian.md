@@ -16,6 +16,13 @@ Here are supported Debian GNU/Linux versions:
 
 You can use the following instruction to install PGroonga on Debian GNU/Linux Jessie.
 
+Install `apt-transport-https` package:
+
+```console
+% sudo apt update
+% sudo apt install -y -V apt-transport-https
+```
+
 Add APT repository for Groonga:
 
 `/etc/apt/sources.list.d/groonga.list`:
@@ -27,22 +34,22 @@ deb-src https://packages.groonga.org/debian/ jessie main
 
 Install `postgresql-9.4-pgroonga` package:
 
-```text
-% sudo apt-get update
-% sudo apt-get install -y -V --allow-unauthenticated groonga-keyring
-% sudo apt-get update
-% sudo apt-get install -y -V postgresql-9.4-pgroonga
+```console
+% sudo apt update
+% sudo apt install -y -V --allow-unauthenticated groonga-keyring
+% sudo apt update
+% sudo apt install -y -V postgresql-9.4-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
-```text
+```console
 % sudo apt-get install -y -V groonga-tokenizer-mecab
 ```
 
 Create a database:
 
-```text
+```console
 % sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
@@ -50,7 +57,7 @@ Create a database:
 
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
-```text
+```console
 % sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 

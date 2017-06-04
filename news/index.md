@@ -28,9 +28,9 @@ title: News
 
   * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Added the following operators:
 
-    * [`&^>` operator][prefix-search-contain-v2]
+    * [`&^|` operator][prefix-search-in-v2]
 
-    * [`&^~>` operator][prefix-rk-search-contain-v2]
+    * [`&^~|` operator][prefix-rk-search-in-v2]
 
   * [[`pgroonga.text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]] Added the following operators:
 
@@ -38,11 +38,11 @@ title: News
 
     * [`&^~` operator][prefix-rk-search-v2]
 
-  * [[`pgroonga.text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]] Changed signature to `(text[], text[])` from `(text[], text)` of the following operators for consistency:
+  * [[`pgroonga.text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]] Added the following operators:
 
-    * [`&^>` operator][prefix-search-contain-v2]
+    * [`&^|` operator][prefix-search-in-v2]
 
-    * [`&^~>` operator][prefix-rk-search-contain-v2]
+    * [`&^~|` operator][prefix-rk-search-in-v2]
 
   * [[`pgroonga.text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Added.
 
@@ -674,8 +674,8 @@ The first release!!!
 [query-v2]:../reference/operators/query-v2.html
 [prefix-search-v2]:../reference/operators/prefix-search-v2.html
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html
-[prefix-search-contain-v2]:../reference/operators/prefix-search-contain-v2.html
-[prefix-rk-search-contain-v2]:../reference/operators/prefix-rk-search-contain-v2.html
+[prefix-search-in-v2]:../reference/operators/prefix-search-in-v2.html
+[prefix-rk-search-in-v2]:../reference/operators/prefix-rk-search-in-v2.html
 [match-jsonb-v2]:../reference/operators/match-jsonb-v2.html
 [query-jsonb-v2]:../reference/operators/query-jsonb-v2.html
 [script-jsonb-v2]:../reference/operators/script-jsonb-v2.html

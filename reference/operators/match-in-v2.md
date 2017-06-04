@@ -1,20 +1,20 @@
 ---
-title: "&@> operator"
+title: "&@| operator"
 upper_level: ../
 ---
 
-# `&@>` operator
+# `&@|` operator
 
 ## Summary
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
+`&@>` operator is deprecated since 1.2.1. Use `&@|` operator instead.
 
-`&@>` operator performs full text search by array of keywords. If one or more keywords are found, the record is matched.
+`&@|` operator performs full text search by array of keywords. If one or more keywords are found, the record is matched.
 
 ## Syntax
 
 ```sql
-column &@> keywords
+column &@| keywords
 ```
 
 `column` is a column to be searched.
@@ -44,10 +44,10 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
-You can perform full text search with keywords by `&@>` operator:
+You can perform full text search with keywords by `&@|` operator:
 
 ```sql
-SELECT * FROM memos WHERE content &@> ARRAY['engine', 'database'];
+SELECT * FROM memos WHERE content &@| ARRAY['engine', 'database'];
 --  id |                                content                                 
 -- ----+------------------------------------------------------------------------
 --   1 | PostgreSQL is a relational database management system.
@@ -55,10 +55,16 @@ SELECT * FROM memos WHERE content &@> ARRAY['engine', 'database'];
 -- (2 rows)
 ```
 
-`column &@> ARRAY['KEYWORD1', 'KEYWORD2']` equals to `column &? 'KEYWORD1 OR KEYWORD2'`.
+`column &@| ARRAY['KEYWORD1', 'KEYWORD2']` equals to `column &? 'KEYWORD1 OR KEYWORD2'`.
 
 ## See also
 
-  * [`&@` operator](match-v2.html)
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`&?` operator](query-v2.html)
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
+[match-v2]:match-v2.html
+[query-v2]:query-v2.html
+[query-in-v2]:query-v2.html

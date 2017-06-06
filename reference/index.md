@@ -32,7 +32,7 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 #### `pgroonga.text_full_text_search_ops` operator class (default) {#text-full-text-search-ops}
 
-  * [`LIKE` operator](operators/like.html)
+  * [`LIKE` operator][like]
 
   * `ILIKE` operator
 

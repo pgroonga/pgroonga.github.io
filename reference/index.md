@@ -138,7 +138,7 @@ Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double pre
 
 #### `pgroonga.jsonb_ops` operator class (default) {#jsonb-ops}
 
-* [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
+  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
   * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
 

@@ -657,6 +657,7 @@ The first release!!!
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops
 [varchar-full-text-search-ops]:../reference/#varchar-full-text-search-ops
 [varchar-regexp-ops]:../reference/#varchar-regexp-ops
+[varchar-array-ops]:../reference/#varchar-array-ops
 [jsonb-ops]:../reference/#jsonb-ops
 
 [text-full-text-search-ops-v2]:../reference/#text-full-text-search-ops-v2

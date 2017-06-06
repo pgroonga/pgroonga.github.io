@@ -7,19 +7,19 @@ upper_level: ../
 
 ## Summary
 
-This operator is deprecated since 1.2.0. Use [`&~` operator](regular-expression-v2.html) instead.
+This operator is deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
 
 `@~` operator performs regular expression search.
 
 PostgreSQL provides the following built-in regular expression operators:
 
-  * [`SIMILAR TO`]({{ site.postgresql_doc_base_url.en }}/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP)
+  * [`SIMILAR TO`][postgresql-similar-to]
 
-  * [POSIX Regular Expression]({{ site.postgresql_doc_base_url.en }}/functions-matching.html#FUNCTIONS-POSIX-REGEXP)
+  * [POSIX Regular Expression][postgresql-regexp]
 
 `SIMILAR TO` is based on SQL standard. "POSIX Regular Expression" is based on POSIX. They use different regular expression syntax.
 
-PGroonga's `@~` operator uses another regular expression syntax. `@~` uses syntax that is used in [Ruby](https://www.ruby-lang.org/). Because PGroonga uses the same regular expression engine that is used in Ruby. It's [Onigmo](https://github.com/k-takata/Onigmo). See [Onigmo document](https://github.com/k-takata/Onigmo/blob/master/doc/RE) for full syntax definition.
+PGroonga's `@~` operator uses another regular expression syntax. `@~` uses syntax that is used in [Ruby][ruby]. Because PGroonga uses the same regular expression engine that is used in Ruby. It's [Onigmo][onigmo]. See [Onigmo document][onigmo-document] for full syntax definition.
 
 PGroonga's `@~` operator normalizes target text before matching. It's similar to `~*` operator in "POSIX Regular Expression". It performs case insensitive match.
 
@@ -45,17 +45,23 @@ Note that Groonga may search with regular expression pattern by sequential scan 
 column @~ regular_expression
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type or `varchar` type.
 
-`regular_expression` is a regular expression to be used as pattern.
-
-Types of `column` and `regular_expression` must be the same. Here are available types:
-
-  * `text`
-
-  * `varchar`
+`regular_expression` is a regular expression to be used as pattern. It's `text` type for `text` type `column. It's `varchar` type for `varchar` type column.
 
 If `column` value is matched against `regular_expression` pattern, the expression returns `true`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_regexp_ops`: For `text`.
+
+  * `pgroonga.varchar_regexp_ops`: For `varchar`.
+
+  * `pgroonga.text_regexp_ops_v2`: For `text`.
+
+  * `pgroonga.varchar_regexp_ops_v2`: For `varchar`.
 
 ## Usage
 
@@ -70,14 +76,6 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_content_index ON memos
   USING pgroonga (content pgroonga.text_regexp_ops);
 ```
-
-You must specify operator class to perform regular expression search by index. Here are available operator classes:
-
-  * `pgroonga.text_regexp_ops`: It's the operator class for `text` type column.
-
-  * `pgroonga.varchar_regexp_ops`: It's the operator class for `varchar` type column.
-
-In this example, `pgroonga.text_regexp_ops` is used. Because `content` column is a `text` type column.
 
 Here are data for examples:
 
@@ -106,8 +104,23 @@ Why is "`PostgreSQL is a ...`" record matched? Remember that `@~` operator norma
 
 ## See also
 
-  * [Onigmo's regular expression syntax document](https://github.com/k-takata/Onigmo/blob/master/doc/RE)
+  * [`&~` operator][regular-expression-v2]
 
-  * [Groonga's regular expression support document](http://groonga.org/docs/reference/regular_expression.html)
+  * [Onigmo's regular expression syntax document][onigmo-document]
 
-  * [`&~` operator](regular-expression-v2.html)
+  * [Groonga's regular expression support document][groonga-regular-expression]
+
+[regular-expression-v2]:regular-expression-v2.html
+
+[postgresql-similar-to]:{{ site.postgresql_doc_base_url.en }}/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP
+
+[postgresql-regexp]:{{ site.postgresql_doc_base_url.en }}/functions-matching.html#FUNCTIONS-POSIX-REGEXP
+
+[ruby]:https://www.ruby-lang.org/
+
+[onigmo]:https://github.com/k-takata/Onigmo
+
+[onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE
+
+[groonga-regular-expression]:http://groonga.org/docs/reference/regular_expression.html#regular-expression-index
+

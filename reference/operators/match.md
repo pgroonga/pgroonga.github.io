@@ -17,9 +17,25 @@ This operator is deprecated since 1.2.0. Use [`&@` operator](match-v2.html) inst
 column %% keyword
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`keyword` is a keyword for full text search. It's `text` type.
+`keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column. It's `varchar` type for `varchar` type `column`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_full_text_search_ops`: Default for `text`.
+
+  * `pgroonga.text_array_full_text_search_ops`: Default for `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops`: For `varchar`.
+
+  * `pgroonga.text_full_text_search_ops_v2`: For `text`.
+
+  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`.
 
 ## Usage
 
@@ -51,12 +67,15 @@ SELECT * FROM memos WHERE content %% 'engine';
 -- (1 row)
 ```
 
-If you want to perform full text search with multiple keywords or AND/OR search, use [`@@` operator](query.html).
+If you want to perform full text search with multiple keywords or AND/OR search, use [`&?` operator][query-v2].
+
+If you want to perform full text search with multiple keywords OR search, use [`&@|` operator][match-in-v2].
 
 ## See also
 
-  * [`&?` operator](query-v2.html)
+  * [`&?` operator][query-v2]
 
-  * [`@@` operator](query.html)
+  * [`&@|` operator][match-in-v2]
 
-    * Deprecated since 1.2.0. Use [`&?` operator](query-v2.html) instead.
+[query-v2]:query-v2.html
+[match-in-v2]:match-in-v2.html

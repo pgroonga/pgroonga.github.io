@@ -65,12 +65,15 @@ SELECT * FROM memos WHERE content &@ 'engine';
 -- (1 row)
 ```
 
-If you want to perform full text search with multiple keywords or AND/OR search, use [`&?` operator](query-v2.html).
+If you want to perform full text search with multiple keywords or AND/OR search, use [`&?` operator][query-v2].
 
-If you want to perform full text search with multiple keywords OR search, use [`&@|` operator](match-in-v2.html).
+If you want to perform full text search with multiple keywords OR search, use [`&@|` operator][match-in-v2].
 
 ## See also
 
-  * [`&?` operator](query-v2.html)
+  * [`&?` operator][query-v2]
 
-  * [`&@|` operator](match-in-v2.html)
+  * [`&@|` operator][match-in-v2]
+
+[query-v2]:query-v2.html
+[match-in-v2]:match-in-v2.html

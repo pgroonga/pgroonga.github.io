@@ -1,20 +1,20 @@
 ---
-title: "&> operator"
+title: "%% operator for varchar[]"
 upper_level: ../
 ---
 
-# `&>` operator
-
-Since 1.2.1.
+# `&>` operator for `varchar[]`
 
 ## Summary
 
-`&>` operator checks whether a term is included in an array of terms.
+This operator is deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead.
+
+`%%` operator checks whether a term is included in an array of terms.
 
 ## Syntax
 
 ```sql
-column &> term
+column %% term
 ```
 
 `column` is a column to be searched. It's `varchar[]` type.
@@ -49,10 +49,10 @@ INSERT INTO memos VALUES (3, ARRAY['PGroonga', 'PostgreSQL', 'Groonga']);
 INSERT INTO memos VALUES (4, ARRAY['Groonga']);
 ```
 
-You can find records that contain `'Groonga'` term in an array of terms by `&>` operator:
+You can find records that contain `'Groonga'` term in an array of terms by `%%` operator:
 
 ```sql
-SELECT * FROM memos WHERE tags &> 'Groonga';
+SELECT * FROM memos WHERE tags %% 'Groonga';
 --  id |             tags              
 -- ----+-------------------------------
 --   2 | {Groonga}
@@ -60,3 +60,9 @@ SELECT * FROM memos WHERE tags &> 'Groonga';
 --   4 | {Groonga}
 -- (3 rows)
 ```
+
+## See also
+
+  * [`&>` operator][contain-term-v2]
+
+[contain-term-v2]:contain-term-v2.html

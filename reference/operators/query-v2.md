@@ -5,6 +5,8 @@ upper_level: ../
 
 # `&?` operator for non `jsonb` types
 
+Since 1.2.0.
+
 ## Summary
 
 `&?` operator performs full text search with query.
@@ -17,11 +19,27 @@ Query's syntax is similar to syntax that is used in Web search engine. For examp
 column &? query
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`query` is a query for full text search. It's `text` type.
+`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column. It's `varchar` type for `varchar` type `column`.
 
-[Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html) is used in `query`.
+[Groonga's query syntax][groonga-query-syntax] is used in `query`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_full_text_search_ops`: Default for `text`.
+
+  * `pgroonga.text_array_full_text_search_ops`: Default for `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops`: For `varchar`.
+
+  * `pgroonga.text_full_text_search_ops_v2`: For `text`.
+
+  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`.
 
 ## Usage
 
@@ -54,7 +72,7 @@ SELECT * FROM memos WHERE content &? 'PGroonga OR PostgreSQL';
 -- (2 rows)
 ```
 
-See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for query syntax details.
+See [Groonga document][groonga-query-syntax] for query syntax details.
 
 Note that you can't use syntax that starts with `COLUMN_NAME:` like `COLUMN_NAME:@KEYWORD`. It's disabled in PGroonga.
 
@@ -62,6 +80,10 @@ You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` f
 
 ## See also
 
-  * [`&@` operator](match-v2.html)
+  * [`&@` operator][match-v2]
 
-  * [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)
+  * [Groonga's query syntax][groonga-query-syntax]
+
+[match-v2]:match-v2.html
+
+[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html

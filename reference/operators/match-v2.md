@@ -5,6 +5,8 @@ upper_level: ../
 
 # `&@` operator
 
+Since 1.2.0.
+
 ## Summary
 
 `&@` operator performs full text search by one keyword.

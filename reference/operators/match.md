@@ -7,7 +7,7 @@ upper_level: ../
 
 ## Summary
 
-This operator is deprecated since 1.2.0. Use [`&@` operator](match-v2.html) instead.
+This operator is deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
 `%%` operator performs full text search by one keyword.
 
@@ -77,5 +77,6 @@ If you want to perform full text search with multiple keywords OR search, use [`
 
   * [`&@|` operator][match-in-v2]
 
+[match-v2]:match-v2.html
 [query-v2]:query-v2.html
 [match-in-v2]:match-in-v2.html

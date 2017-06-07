@@ -9,7 +9,7 @@ upper_level: ../
 
 PGroonga supports fast index search by `@>` operator.
 
-[`@>` operator is a built-in PostgreSQL operator]({{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` operator returns true when the right hand side `jsonb` type value is a subset of left hand side `jsonb` type value.
+[`@>` operator is a built-in PostgreSQL operator][postgresql-jsonb-operators]. `@>` operator returns `true` when the right hand side `jsonb` type value is a subset of left hand side `jsonb` type value.
 
 ## Syntax
 
@@ -24,6 +24,14 @@ jsonb_column @> jsonb_query
 `jsonb_query` is a `jsonb` type value used as query.
 
 The operator returns `true` when `jsonb_query` is a subset of `jsonb_column` value, `false` otherwise.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.jsonb_ops`: Default for `jsonb`.
+
+  * `pgroonga.jsonb_ops_v2`: For `jsonb`.
 
 ## Usage
 
@@ -74,7 +82,7 @@ SET enable_seqscan = off;
 
 Here is an example for match case:
 
-(It uses [`jsonb_pretty()` function]({{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function][jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
@@ -115,5 +123,18 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"tags": ["mail", "web"]}
 
 ## See also
 
-  * [`jsonb` support](../jsonb.html)
-  * [`@@` operator](jsonb-query.html)
+  * [`jsonb` support][jsonb]
+
+  * [`&?` operator][query-jsonb-v2]
+
+  * [`` &` `` operator][script-jsonb-v2]
+
+[jsonb]:../jsonb.html
+
+[query-jsonb-v2]:query-jsonb-v2.html
+
+[script-jsonb-v2]:script-jsonb-v2.html
+
+[postgresql-jsonb-operators]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
+
+[jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

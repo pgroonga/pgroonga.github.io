@@ -17,11 +17,21 @@ This operator uses v2 operator class. It doesn't provide backward compatibility 
 column &~? document
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`document` is a document for similar search. It's `text` type.
+`document` is a document for similar search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
-Similar search searches records that have similar content with `document`. If `document` is short content, similar search may return records that is less similar.
+Similar search searches records that have similar content with `document`. If `document` is short content, similar search may return records that are less similar.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_full_text_search_ops_v2`: For `text`.
+
+  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`.
 
 ## Usage
 

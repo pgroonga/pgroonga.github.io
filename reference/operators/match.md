@@ -19,7 +19,7 @@ column %% keyword
 
 `column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column. It's `varchar` type for `varchar` type `column`.
+`keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
 ## Operator classes
 

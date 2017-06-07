@@ -21,7 +21,7 @@ column &? query
 
 `column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column. It's `varchar` type for `varchar` type `column`.
+`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
 [Groonga's query syntax][groonga-query-syntax] is used in `query`.
 

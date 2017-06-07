@@ -47,7 +47,7 @@ column @~ regular_expression
 
 `column` is a column to be searched. It's `text` type or `varchar` type.
 
-`regular_expression` is a regular expression to be used as pattern. It's `text` type for `text` type `column. It's `varchar` type for `varchar` type column.
+`regular_expression` is a regular expression to be used as pattern. It's `text` type for `text` type `column`. It's `varchar` type for `varchar` type column.
 
 If `column` value is matched against `regular_expression` pattern, the expression returns `true`.
 

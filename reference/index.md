@@ -154,7 +154,7 @@ Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double pre
 
 PGroonga 1.Y.Z provides `pgroonga.XXX_v2` operator classes. They don't provide backward compatibility until PGroonga 2.0.0. But they include many improvements aggressively when new versions are released.
 
-If you use them, you need to use [incompatible case steps](../upgrade/#incompatible-case) to upgrade PGroonga.
+If you use them, you need to use [incompatible case steps][upgrade-incompatible] to upgrade PGroonga.
 
 ### For `text`
 
@@ -422,3 +422,5 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [script-jsonb-v2]:operators/script-jsonb-v2.html
 [script-jsonb]:operators/script-jsonb.html
 [contain-jsonb]:operators/contain-jsonb.html
+
+[upgrade-incompatible]:../upgrade/#incompatible-case

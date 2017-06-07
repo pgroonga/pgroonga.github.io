@@ -7,7 +7,7 @@ upper_level: ../
 
 ## 概要
 
-1.2.0からこの演算子は非推奨になりました。代わりに[`&@`演算子](match-v2.html)を使ってください。
+この演算子は1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
 
 `%%`は1つのキーワードで全文検索を実行します。
 
@@ -17,9 +17,25 @@ upper_level: ../
 column %% keyword
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
-`keyword`は全文検索で使うキーワードです。`text`型です。
+`keyword`は全文検索で使うキーワードです。`column`が`text`型または`text[]`型なら`keyword`は`text`型です。`column`が`varchar`型なら`keyword`は`varchar`型です。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト
+
+  * `pgroonga.text_array_full_text_search_ops`：`text[]`のデフォルト
+
+  * `pgroonga.varchar_full_text_search_ops`：`varchar`用
+
+  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+
+  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -51,12 +67,16 @@ SELECT * FROM memos WHERE content %% '全文検索';
 -- (1 row)
 ```
 
-複数のキーワードで検索したいときやAND/ORを使った検索をしたいときは[`@@`演算子](query.html)を使います。
+複数のキーワードで全文検索したいときやAND/ORを使った検索をしたいときは[`&?`演算子][query-v2]を使います。
+
+複数のキーワードでOR全文検索をしたいときは[`&@|`演算子][match-in-v2]を使います。
 
 ## 参考
 
-  * [`&?`演算子](query-v2.html)
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
 
-  * [`@@`演算子](query.html)
+  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索
 
-    * 1.2.0から非推奨になりました。代わりに[`&?`演算子](query-v2.html)を使ってください。
+[match-v2]:match-v2.html
+[query-v2]:query-v2.html
+[match-in-v2]:match-in-v2.html

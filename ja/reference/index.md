@@ -28,55 +28,55 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## 演算子
 
-### For `text`
+### `text`用
 
-By the default operator class:
+#### `pgroonga.text_full_text_search_ops`演算子クラス（デフォルト） {#text-full-text-search-ops}
 
-  * [`LIKE`演算子](operators/like.html)
-
-  * `ILIKE`演算子
-
-  * [`&@`演算子](operators/match-v2.html)
-
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
-
-    * 1.2.0から非推奨になりました。代わりに[`&@`演算子](operators/match-v2.html)を使ってください。
-
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use query language
-
-  * [`@@` operator](operators/query.html): Full text search by easy to use query language
-
-    * 1.2.0から非推奨になりました。代わりに[`&?`演算子](operators/query-v2.html)を使ってください。
-
-`pgroonga.text_regexp_ops`演算子クラスが提供：
-
-  * [`LIKE`演算子](operators/like.html)
+  * [`ILIKE`演算子][like]
 
   * `ILIKE`演算子
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by a regular expression
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
-  * [`@~`演算子](operators/regular-expression.html)：正規表現で検索
+  * [`%%` operator][match]：キーワード1つでの全文検索
 
-    * 1.2.1から非推奨になりました。代わりに[`&~`演算子](operators/regular-expression-v2.html)を使ってください。
+    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
 
-### For `text[]`
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
 
-  * [`&@`演算子](operators/match-v2.html)
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
 
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
+    * 1.2.0から非推奨です。代わりに[`&?`演算子][query-v2]を使ってください。
 
-    * 1.2.0から非推奨になりました。代わりに[`&@`演算子](operators/match-v2.html)を使ってください。
+#### `pgroonga.text_regexp_ops`演算子クラス {#text-regexp-ops}
 
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use language
+  * [`ILIKE`演算子][like]
 
-  * [`@@` operator](operators/query.html): Full text search by easy to use language
+  * `ILIKE`演算子
 
-    * 1.2.0から非推奨になりました。代わりに[`&?`演算子](operators/query-v2.html)を使ってください。
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-### For `varchar`
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-By the default operator class:
+    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
+
+### `text[]`用
+
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
+
+  * [`%%` operator][match]：キーワード1つでの全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
+
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&?`演算子][query-v2]を使ってください。
+
+### `varchar`用
+
+#### `pgroonga.varchar_ops`演算子クラス（デフォルト） {#varchar-ops}
 
   * `<`
 
@@ -88,39 +88,41 @@ By the default operator class:
 
   * `>`
 
-`pgroonga.varchar_full_text_search_ops`演算子クラスが提供：
+#### `pgroonga.varchar_full_text_search_ops`演算子クラス {#varchar-full-text-search-ops}
 
-  * [`&@`演算子](operators/match-v2.html)
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
+  * [`%%` operator][match]：キーワード1つでの全文検索
 
-    * 1.2.0から非推奨になりました。代わりに[`&@`演算子](operators/match-v2.html)を使ってください。
+    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
 
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use language
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
 
-  * [`@@` operator](operators/query.html): Full text search by easy to use language
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
 
-    * 1.2.0から非推奨になりました。代わりに[`&?`演算子](operators/query-v2.html)を使ってください。
+    * 1.2.0から非推奨です。代わりに[`&?`演算子][query-v2]を使ってください。
 
-By `pgroonga.varchar_regexp_ops` operator class:
+#### `pgroonga.varchar_regexp_ops`演算子クラス {#varchar-regexp-ops}
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-  * [`@~`演算子](operators/regular-expression.html)：正規表現で検索
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-    * 1.2.1から非推奨になりました。代わりに[`&~`演算子](operators/regular-expression-v2.html)を使ってください。
+    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
 
-### For `varchar[]`
+### `varchar[]`用
 
-  * [`&@`演算子](operators/match-v2.html)
+#### `pgroonga.varchar_array_ops`演算子クラス（デフォルト） {#varchar-array-ops}
 
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
+  * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック
 
-    * 1.2.1から非推奨になりました。代わりに[`&@`演算子](operators/match-v2.html)を使ってください。
+  * [`%%`演算子][contain-term]：検索対象の単語の配列に指定した単語が含まれているかをチェック
 
-### For boolean, numbers and timestamps
+    * 1.2.1から非推奨です。代わりに[`&>`演算子][contain-term-v2]を使ってください。
 
-Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double precision`, `timestamp` and `timestamp with time zone`
+### 真偽値、数値、タイムスタンプ用
+
+サポートしている型：`boolean`、`smallint`、`integer`、`bigint`、`real`、`double precision`、`timestamp`、`timestamp with time zone`
 
   * `<`
 
@@ -132,167 +134,209 @@ Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double pre
 
   * `>`
 
-### For `jsonb`
+### `jsonb`用
 
-  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
+#### `pgroonga.jsonb_ops`演算子クラス（デフォルト） {#jsonb-ops}
 
-  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+  * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
 
-  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
+  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
 
-  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query language
+  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
 
-    * Deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead.
+  * [`@@`演算子][script-jsonb]：ECMAScriptのようなクエリー言語を使った高度な検索
 
-  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
+    * 1.2.1から非推奨です。代わりに[`` &` ``演算子][script-jsonb-v2]を使ってください。
+
+  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
 
 ## v2演算子
 
 PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します。これらはPGroonga 2.0.0になるまで後方互換性を提供しません。しかし、これらの演算子クラスには新しいバージョンがリリースされるごとに積極的に多くの改良が入ります。
 
-これらを使った場合、PGroongaをアップグレードする場合は[非互換の場合の手順](../upgrade/#incompatible-case)を使う必要があります。
+これらを使った場合、PGroongaをアップグレードする場合は[非互換の場合の手順][upgrade-incompatible]を使う必要があります。
 
-### For `text`
+### `text`用
 
-`pgroonga.text_full_text_search_ops_v2`演算子クラスが提供：
+#### `pgroonga.text_full_text_search_ops_v2`演算子クラス {#text-full-text-search-ops-v2}
 
-  * [`LIKE`演算子](operators/like.html)
-
-  * `ILIKE`演算子
-
-  * [`&@`演算子](operators/match-v2.html)
-
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
-
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
-
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use query language
-
-  * [`@@` operator](operators/query.html): Full text search by easy to use query language
-
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
-
-    * [`&~?`演算子](operators/similar-search-v2.html)：類似文書検索
-
-  * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
-
-  * [`&@>` operator](operators/match-contain-v2.html): Full text search by an array of keywords
-
-  * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
-
-`pgroonga.text_term_search_ops_v2`演算子クラスが提供：
-
-    * [`&^`演算子](operators/prefix-search-v2.html)：前方一致検索
-
-    * [`&^~`演算子](operators/prefix-rk-search-v2.html)：前方一致RK検索
-
-  * [`&^>` operator](operators/prefix-search-contain-v2.html): Prefix search by an array of prefixes
-
-  * [`&^~>` operator](operators/prefix-rk-search-contain-v2.html): Prefix RK search by an array of prefixes
-
-`pgroonga.text_regexp_ops_v2`演算子クラスが提供：
-
-  * [`LIKE`演算子](operators/like.html)
+  * [`ILIKE`演算子][like]
 
   * `ILIKE`演算子
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
-  * [`@~`演算子](operators/regular-expression.html)：正規表現で検索
+  * [`%%` operator][match]：キーワード1つでの全文検索
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
-### For `text[]`
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
 
-`pgroonga.text_full_text_search_ops_v2`演算子クラスが提供：
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
 
-  * [`&@`演算子](operators/match-v2.html)
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
+  * [`&~?`演算子][similar-search-v2]：類似文書検索
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+  * [`` &` ``演算子][script-v2]：ECMAScriptのようなクエリー言語を使った高度な検索 
 
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use language
+  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索
 
-  * [`@@` operator](operators/query.html): Full text search by easy to use language
+  * [`&@>`演算子][match-in-v2]：キーワードの配列での全文検索
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * 1.2.1から非推奨です。代わりに[`&@|`演算子][match-in-v2]を使ってください。
 
-    * [`&~?`演算子](operators/similar-search-v2.html)：類似文書検索
+  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
 
-  * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
+  * [`&?>`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
 
-  * [`&@>` operator](operators/match-contain-v2.html): Full text search by an array of keywords
+    * 1.2.1から非推奨です。代わりに[`&?|`演算子][query-in-v2]を使ってください。
 
-  * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
+#### `pgroonga.text_term_search_ops_v2`演算子クラス {#text-term-search-ops-v2}
 
-`pgroonga.text_array_term_search_ops_v2`演算子クラスが提供：
+  * [`&^`演算子][prefix-search-v2]：前方一致検索
 
-    * [`&^`演算子](operators/prefix-search-v2.html)：前方一致検索
+  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索
 
-    * [`&^~`演算子](operators/prefix-rk-search-v2.html)：前方一致RK検索
+  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索
 
-  * [`&^>` operator](operators/prefix-search-contain-v2.html): Prefix search by an array of prefixes
+  * [`&^>`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索
 
-  * [`&^~>` operator](operators/prefix-rk-search-contain-v2.html): Prefix RK search by an array of prefixes
+    * 1.2.1から非推奨です。代わりに[`&^|`演算子][prefix-search-in-v2]を使ってください。
 
-### For `varchar`
+  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
 
-`pgroonga.varchar_full_text_search_ops_v2`演算子クラスが提供：
+  * [`&^~>`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
 
-  * [`&@`演算子](operators/match-v2.html)
+    * 1.2.1から非推奨です。代わりに[`&^~|`演算子][prefix-rk-search-in-v2]を使ってください。
 
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
+#### `pgroonga.text_regexp_ops_v2`演算子クラス {#text-regexp-ops-v2}
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+  * [`ILIKE`演算子][like]
 
-  * [`&?` operator](operators/query-v2.html): Full text search by easy to use query language
+  * `ILIKE`演算子
 
-  * [`@@` operator](operators/query.html): Full text search by easy to use query language
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-    * [`&~?`演算子](operators/similar-search-v2.html)：類似文書検索
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
-  * [`` &` `` operator](operators/script-v2.html): Advanced search by ECMAScript like query language 
+### `text[]`用
 
-  * [`&@>` operator](operators/match-contain-v2.html): Full text search by an array of keywords
+#### `pgroonga.text_array_full_text_search_ops_v2`演算子クラス {#text-array-full-text-search-ops-v2}
 
-  * [`&?>` operator](operators/query-contain-v2.html): Full text search by an array of queries in easy to use query language
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
-By `pgroonga.varchar_regexp_ops_v2` operator class:
+  * [`%%` operator][match]：キーワード1つでの全文検索
 
-  * [`&~` operator](operators/regular-expression-v2.html): Search by regular expression
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
-  * [`@~`演算子](operators/regular-expression.html)：正規表現で検索
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
 
-### For `varchar[]`
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
-By `pgroonga.varchar_array_ops_v2` operator class:
+  * [`&~?`演算子][similar-search-v2]：類似文書検索
 
-  * [`&@`演算子](operators/match-v2.html)
+  * [`` &` ``演算子][script-v2]：ECMAScriptのようなクエリー言語を使った高度な検索 
 
-  * [`%%`演算子](operators/match.html)：キーワード1つでの全文検索
+  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+  * [`&@>`演算子][match-in-v2]：キーワードの配列での全文検索
 
-### For `jsonb`
+    * 1.2.1から非推奨です。代わりに[`&@|`演算子][match-in-v2]を使ってください。
 
-By `pgroonga.jsonb_ops_v2` operator class:
+  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
 
-  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
+  * [`&?>`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
 
-  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+    * 1.2.1から非推奨です。代わりに[`&?|`演算子][query-in-v2]を使ってください。
 
-  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
+#### `pgroonga.text_array_term_search_ops_v2`演算子クラス {#text-array-term-search-ops-v2}
 
-  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query language
+  * [`&^`演算子][prefix-search-v2]：前方一致検索
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+  * [`&^>`演算子][prefix-search-v2]：前方一致検索
 
-  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
+    * 1.2.1から非推奨です。代わりに[`&^`演算子][prefix-search-v2]を使ってください。
+
+  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索
+
+  * [`&^~>`演算子][prefix-rk-search-v2]：前方一致RK検索
+
+    * 1.2.1から非推奨です。代わりに[`&^~`演算子][prefix-rk-search-v2]を使ってください。
+
+  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索
+
+  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
+
+### `varchar`用
+
+#### `pgroonga.varchar_full_text_search_ops_v2`演算子クラス {#varchar-full-text-search-ops-v2}
+
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
+
+  * [`%%` operator][match]：キーワード1つでの全文検索
+
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
+
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
+
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
+
+  * [`&~?`演算子][similar-search-v2]：類似文書検索
+
+  * [`` &` ``演算子][script-v2]：ECMAScriptのようなクエリー言語を使った高度な検索 
+
+  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索
+
+  * [`&@>`演算子][match-in-v2]：キーワードの配列での全文検索
+
+    * 1.2.1から非推奨です。代わりに[`&@|`演算子][query-in-v2]を使ってください。
+
+  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
+
+  * [`&?>`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
+
+    * 1.2.1から非推奨です。代わりに[`&?|`演算子][query-in-v2]を使ってください。
+
+#### `pgroonga.varchar_regexp_ops_v2`演算子クラス {#varchar-regexp-ops-v2}
+
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
+
+### `varchar[]`用
+
+#### `pgroonga.varchar_array_term_search_ops_v2`演算子クラス {#varchar-array-term-search-ops-v2}
+
+  * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック
+
+  * [`%%`演算子][contain-term]：検索対象の単語の配列に指定した単語が含まれているかをチェック
+
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
+
+### `jsonb`用
+
+#### `pgroonga.jsonb_ops_v2`演算子クラス {#varchar-jsonb-ops-v2}
+
+  * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
+
+  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
+
+  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
+
+  * [`@@`演算子][script-jsonb]：ECMAScriptのようなクエリー言語を使った高度な検索
+
+    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
+
+  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
 
 ## 関数
 
@@ -334,6 +378,8 @@ By `pgroonga.jsonb_ops_v2` operator class:
 
   * [`pgroonga.query_log_path`パラメーター](parameters/query-log-path.html)
 
+  * [`pgroonga.match_escalation_threshold`パラメーター](parameters/match-escalation-threshold.html)
+
 ## モジュール
 
 
@@ -353,8 +399,29 @@ By `pgroonga.jsonb_ops_v2` operator class:
 
   * [チューニング](http://groonga.org/ja/docs/reference/tuning.html)
 
+[like]:operators/like.html
+
+[match]:operators/match.html
+[query]:operators/query.html
+[regular-expression]:operators/regular-expression.html
+
+[match-v2]:operators/match-v2.html
+[query-v2]:operators/query-v2.html
+[match-in-v2]:operators/match-in-v2.html
+[query-in-v2]:operators/query-in-v2.html
+[regular-expression-v2]:operators/regular-expression-v2.html
+[contain-term-v2]:operators/contain-term-v2.html
+[contain-term]:operators/contain-term.html
+[prefix-search-v2]:operators/prefix-search-v2.html
+[prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
+[prefix-search-in-v2]:operators/prefix-search-in-v2.html
+[prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
+[similar-search-v2]:operators/similar-search-v2.html
+[script-v2]:operators/script-v2.html
 [match-jsonb-v2]:operators/match-jsonb-v2.html
 [query-jsonb-v2]:operators/query-jsonb-v2.html
 [script-jsonb-v2]:operators/script-jsonb-v2.html
 [script-jsonb]:operators/script-jsonb.html
 [contain-jsonb]:operators/contain-jsonb.html
+
+[upgrade-incompatible]:../upgrade/#incompatible-case

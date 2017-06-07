@@ -56,7 +56,7 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
-  * [`@~` operator][regular-expression]: Search by regular a expression
+  * [`@~` operator][regular-expression]: Search by a regular expression
 
     * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
 
@@ -68,9 +68,9 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
-  * [`&?` operator][query-v2]: Full text search by easy to use language
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
-  * [`@@` operator][query]: Full text search by easy to use language
+  * [`@@` operator][query]: Full text search by easy to use query language
 
     * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
 
@@ -96,17 +96,17 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
-  * [`&?` operator][query-v2]: Full text search by easy to use language
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
-  * [`@@` operator][query]: Full text search by easy to use language
+  * [`@@` operator][query]: Full text search by easy to use query language
 
     * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
 
 #### `pgroonga.varchar_regexp_ops` operator class {#varchar-regexp-ops}
 
-  * [`&~` operator][regular-expression-v2]: Search by regular expression
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
-  * [`@~` operator][regular-expression]: Search by regular expression
+  * [`@~` operator][regular-expression]: Search by a regular expression
 
     * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
 
@@ -168,13 +168,13 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`%%` operator][match]: Full text search by a keyword
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
   * [`&?` operator][query-v2]: Full text search by easy to use query language
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
   * [`&~?` operator][similar-search-v2]: Similar search
 
@@ -216,11 +216,11 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * `ILIKE` operator
 
-  * [`&~` operator][regular-expression-v2]: Search by regular expression
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
-  * [`@~` operator][regular-expression]: Search by regular expression
+  * [`@~` operator][regular-expression]: Search by a regular expression
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
 ### For `text[]`
 
@@ -230,13 +230,13 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`%%` operator][match]: Full text search by a keyword
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
-  * [`&?` operator][query-v2]: Full text search by easy to use language
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
-  * [`@@` operator][query]: Full text search by easy to use language
+  * [`@@` operator][query]: Full text search by easy to use query language
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
   * [`&~?` operator][similar-search-v2]: Similar search
 
@@ -280,13 +280,13 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`%%` operator][match]: Full text search by a keyword
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
   * [`&?` operator][query-v2]: Full text search by easy to use query language
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
   * [`&~?` operator][similar-search-v2]: Similar search
 
@@ -306,11 +306,11 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
 #### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
 
-  * [`&~` operator][regular-expression-v2]: Search by regular expression
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
-  * [`@~` operator][regular-expression]: Search by regular expression
+  * [`@~` operator][regular-expression]: Search by a regular expression
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
 ### For `varchar[]`
 
@@ -320,7 +320,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
 ### For `jsonb`
 
@@ -334,7 +334,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query language
 
-    * Don't use this operator class for newly written code. It's just for backward compatibility.
+    * Don't use this operator for newly written code. It's just for backward compatibility.
 
   * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
 

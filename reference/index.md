@@ -202,13 +202,13 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
-    * Deprecated since 1.2.1. Use [`&^|` operator][query-in-v2] instead.
+    * Deprecated since 1.2.1. Use [`&^|` operator][prefix-search-in-v2] instead.
 
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
   * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
-    * Deprecated since 1.2.1. Use [`&^~|` operator][query-in-v2] instead.
+    * Deprecated since 1.2.1. Use [`&^~|` operator][prefix-rk-search-in-v2] instead.
 
 #### `pgroonga.text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
@@ -258,19 +258,19 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`&^` operator][prefix-search-v2]: Prefix search
 
+  * [`&^>` operator][prefix-search-v2]: Prefix search
+
+    * Deprecated since 1.2.1. Use [`&^` operator][prefix-search-v2] instead.
+
   * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
+
+  * [`&^~>` operator][prefix-rk-search-v2]: Prefix RK search
+
+    * Deprecated since 1.2.1. Use [`&^~` operator][prefix-rk-search-v2] instead.
 
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
-  * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
-
-    * Deprecated since 1.2.1. Use [`&^|` operator][query-in-v2] instead.
-
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
-
-  * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
-
-    * Deprecated since 1.2.1. Use [`&^~|` operator][query-in-v2] instead.
 
 ### For `varchar`
 

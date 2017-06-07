@@ -5,9 +5,11 @@ upper_level: ../
 
 # `&^` operator
 
-Since 2.0.0.
+Since 1.2.1.
 
 ## Summary
+
+`&^>` operator for `text[]` is deprecated since 1.2.1. Use `&^` operator instead.
 
 `&^` operator performs prefix search.
 

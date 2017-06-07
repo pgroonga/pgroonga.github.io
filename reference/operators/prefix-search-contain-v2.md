@@ -1,5 +1,5 @@
 ---
 title: "&^> operator"
 upper_level: ../
-redirect: prefix-search-in-v2.html
+redirect: prefix-search-v2.html
 ---

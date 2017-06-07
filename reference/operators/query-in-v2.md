@@ -11,7 +11,7 @@ Since 2.0.0.
 
 `&?>` operator is deprecated since 1.2.1. Use `&?|` operator instead.
 
-`&?|` operator performs full text search by array of queries. If one or more queries are matched, the record is matched.
+`&?|` operator performs full text search by an array of queries. If one or more queries are matched, the record is matched.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query.
 
@@ -27,7 +27,7 @@ column &?| queries
 
 [Groonga's query syntax][groonga-query-syntax] is used in `query`.
 
-The operator returns `true` when one or more query in `queries` are matched against `column`.
+The operator returns `true` when one or more queries in `queries` are matched against `column`.
 
 ## Operator classes
 

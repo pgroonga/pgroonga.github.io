@@ -82,7 +82,7 @@ SET enable_seqscan = off;
 
 Here is an example for match case:
 
-(It uses [`jsonb_pretty()` function][jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
@@ -137,4 +137,4 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"tags": ["mail", "web"]}
 
 [postgresql-jsonb-operators]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
 
-[jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE
+[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

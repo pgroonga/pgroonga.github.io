@@ -76,7 +76,7 @@ INSERT INTO logs
 
 You can perform full text search with multiple keywords by `&?` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
 
-(It uses [`jsonb_pretty()` function][jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record &? 'server OR mail';
@@ -117,4 +117,4 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &? 'server OR mail';
 [script-jsonb-v2]:script-jsonb-v2.html
 [contain-jsonb]:contain-jsonb.html
 
-[jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE
+[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

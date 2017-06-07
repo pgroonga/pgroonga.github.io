@@ -1,15 +1,15 @@
 ---
-title: "@@ operator for jsonb type"
+title: "&` operator for jsonb type"
 upper_level: ../
 ---
 
-# `@@` operator for `jsonb` type
+# `` &`` `` operator for `jsonb` type
+
+Since 1.2.1.
 
 ## Summary
 
-This operator is deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead.
-
-`@@` operator is a PGroonga original operator. You can use complex condition that can't be written by [`@>` operator][contain-jsonb] such as range search.
+`` &` `` operator is a PGroonga original operator. You can use complex condition that can't be written by [`@>` operator][contain-jsonb] such as range search.
 
 If you know [JsQuery][jsquery], you can understand like "PGroonga provides `jsonb` type related search features that are similar to JsQuery with different syntax".
 
@@ -18,12 +18,12 @@ If you know [JsQuery][jsquery], you can understand like "PGroonga provides `json
 Here is the syntax of this operator:
 
 ```sql
-jsonb_column @@ condition
+jsonb_column &` condition
 ```
 
 `jsonb_column` is a column that its type is `jsonb`.
 
-`condition` is a `text` value used as query. It uses [Groonga's script syntax][groogna-script-syntax].
+`condition` is a `text` value used as query. It uses [Groonga's script syntax][groonga-script-syntax].
 
 The operator returns `true` when `condition` matches `jsonb_column` value, `false` otherwise.
 
@@ -163,14 +163,14 @@ The JSON is split to the following values. (They are part of all split values.)
 | `.["message"]|string|GET /` | `.["message"]` | `[.message, .["message"], message, ["message"]]` | `string` | | | `GET /` | |
 | `.["tags"][]|string|web` | `.["tags"]` | `[.tags, .["tags"], .["tags"][], tags, ["tags"], ["tags"][], []]` | `string` | | | `web` | |
 
-You specify condition that matches split value to `@@` operator. If there is one or more split values that match specified condition in `jsonb` type value, the `jsonb` type value is matched.
+You specify condition that matches split value to `` &` `` operator. If there is one or more split values that match specified condition in `jsonb` type value, the `jsonb` type value is matched.
 
 Here is a condition that searches `jsonb` type value that has `www.example.com` string:
 
 (It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
 
 ```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.com"';
+SELECT jsonb_pretty(record) FROM logs WHERE record &` 'string == "www.example.com"';
 --             jsonb_pretty             
 -- -------------------------------------
 --  {                                  +
@@ -196,7 +196,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.co
 Here is a condition that searches `jsonb` type value that has number between `200` to `299` as `code` column value. The condition uses `paths @ "..."` syntax to use simple path format (`.code`) to specify path.
 
 ```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number >= 200 && number < 300';
+SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ ".code" && number >= 200 && number < 300';
 --           jsonb_pretty          
 -- --------------------------------
 --  {                             +
@@ -214,7 +214,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ ".code" && number
 Here is a condition for full text search from all text values in `jsonb` value type:
 
 ```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string @ "started"';
+SELECT jsonb_pretty(record) FROM logs WHERE record &` 'string @ "started"';
 --             jsonb_pretty             
 -- -------------------------------------
 --  {                                  +
@@ -231,7 +231,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string @ "started"';
 You can use [Groonga's query syntax][groonga-query-syntax] (`a OR b` can be used) for full text search by `query("string", "...")` syntax:
 
 ```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query("string", "send OR server")';
+SELECT jsonb_pretty(record) FROM logs WHERE record &` 'query("string", "send OR server")';
 --                  jsonb_pretty                 
 -- ----------------------------------------------
 --  {                                           +
@@ -259,12 +259,10 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query("string", "send OR 
 
   * [`@>` operator][contain-jsonb]
 
-  * [`` &` `` operator][script-jsonb-v2]
-
 [jsonb]:../jsonb.html
 
 [contain-jsonb]:contain-jsonb.html
-[script-jsonb-v2]:script-jsonb-v2.html
+
 [jsquery]:https://github.com/postgrespro/jsquery
 
 [jq]:https://stedolan.github.io/jq/

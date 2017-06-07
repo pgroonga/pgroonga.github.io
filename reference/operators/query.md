@@ -84,7 +84,7 @@ TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
 
 ## See also
 
-  * [`&@` operator][match-v2]
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
   * [Groonga's query syntax][groonga-query-syntax]
 

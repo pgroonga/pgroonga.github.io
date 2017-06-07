@@ -5,6 +5,8 @@ upper_level: ../
 
 # `jsonb`型以外の型用の`&?`演算子
 
+1.2.0で追加。
+
 ## 概要
 
 `&?`演算子はクエリーを使って全文検索を実行します。
@@ -17,11 +19,27 @@ upper_level: ../
 column &? query
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
-`query`は全文検索で使うクエリーです。`text`型です。
+`query`は全文検索用のクエリーです。`column`が`text`型または`text[]`型なら`query`は`text`型です。`column`が`varchar`型なら`query`は`varchar`型です。
 
-`query`では[Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使います。
+`qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト
+
+  * `pgroonga.text_array_full_text_search_ops`：`text[]`のデフォルト
+
+  * `pgroonga.varchar_full_text_search_ops`：`varchar`用
+
+  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+
+  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -45,15 +63,16 @@ INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 
 `@?`演算子を使うと`キーワード1 キーワード2`のように複数のキーワードを指定して全文検索できます。`キーワード1 OR キーワード2`のようにOR検索することもできます。
 
+```sql
 SELECT * FROM memos WHERE content &? 'PGroonga OR PostgreSQL';
 --  id |                                  content
 -- ----+---------------------------------------------------------------------------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
 --   1 | PostgreSQLはリレーショナル・データベース管理システムです。
 -- (2 rows)
+```
 
-
-クエリーの構文の詳細は[Groongaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を参照してください。
+クエリーの構文の詳細は[Groongaのドキュメント][groonga-query-syntax]を参照してください。
 
 `カラム名:@キーワード`のように`カラム名:`から始まる構文を使うことはできません。これはPGroongaで無効にしています。
 
@@ -61,6 +80,10 @@ SELECT * FROM memos WHERE content &? 'PGroonga OR PostgreSQL';
 
 ## 参考
 
-  * [`&@`演算子](match-v2.html)
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
-  * [Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)
+  * [Groongaのクエリーの構文][groonga-query-syntax]
+
+[match-v2]:match-v2.html
+
+[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html

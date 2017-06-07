@@ -7,7 +7,7 @@ upper_level: ../
 
 ## 概要
 
-1.2.0からこの演算子は非推奨になりました。代わりに[`&?`演算子](query-v2.html)を使ってください。
+この演算子は1.2.0から非推奨です。代わりに[`&?`演算子][query-v2]を使ってください。
 
 `@@`演算子はクエリーを使って全文検索を実行します。
 
@@ -19,11 +19,27 @@ upper_level: ../
 column @@ query
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
-`query`は全文検索で使うクエリーです。`text`型です。
+`query`は全文検索用のクエリーです。`column`が`text`型または`text[]`型なら`query`は`text`型です。`column`が`varchar`型なら`query`は`varchar`型です。
 
-`query`では[Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使います。
+`qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト
+
+  * `pgroonga.text_array_full_text_search_ops`：`text[]`のデフォルト
+
+  * `pgroonga.varchar_full_text_search_ops`：`varchar`用
+
+  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+
+  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -56,7 +72,7 @@ SELECT * FROM memos WHERE content @@ 'PGroonga OR PostgreSQL';
 -- (2 rows)
 ```
 
-クエリーの構文の詳細は[Groongaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を参照してください。
+クエリーの構文の詳細は[Groongaのドキュメント][groonga-query-syntax]を参照してください。
 
 `カラム名:@キーワード`のように`カラム名:`から始まる構文を使うことはできません。これはPGroongaで無効にしています。
 
@@ -68,10 +84,10 @@ TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
 
 ## 参考
 
-  * [`&@`演算子](match-v2.html)
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
-  * [`%%`演算子](match.html)
+  * [Groongaのクエリーの構文][groonga-query-syntax]
 
-    * 1.2.0から非推奨になりました。代わりに[`&@`演算子](match-v2.html)を使ってください。
+[match-v2]:match-v2.html
 
-  * [Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)
+[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html

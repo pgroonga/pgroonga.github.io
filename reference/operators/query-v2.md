@@ -80,7 +80,7 @@ You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` f
 
 ## See also
 
-  * [`&@` operator][match-v2]
+  * [`&@` operator][match-v2]: Full text search by a keyword
 
   * [Groonga's query syntax][groonga-query-syntax]
 

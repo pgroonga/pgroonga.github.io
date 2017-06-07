@@ -17,11 +17,21 @@ upper_level: ../
 column &@| keywords
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`keywords` is an array of keywords for full text search. It's `text[]` type.
+`keywords` is an array of keywords for full text search. It's `text[]` type for `text` type or `text[]` type `column`. It's `varchar[]` for `varchar` type `column`.
 
 The operator returns `true` when one or more keyword in `keywords` are included in `column`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_full_text_search_ops_v2`: For `text`.
+
+  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`.
 
 ## Usage
 
@@ -67,4 +77,4 @@ SELECT * FROM memos WHERE content &@| ARRAY['engine', 'database'];
 
 [match-v2]:match-v2.html
 [query-v2]:query-v2.html
-[query-in-v2]:query-v2.html
+[query-in-v2]:query-in-v2.html

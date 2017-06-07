@@ -73,9 +73,9 @@ If you want to perform full text search with multiple keywords OR search, use [`
 
 ## See also
 
-  * [`&?` operator][query-v2]
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
-  * [`&@|` operator][match-in-v2]
+  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
 
 [query-v2]:query-v2.html
 [match-in-v2]:match-in-v2.html

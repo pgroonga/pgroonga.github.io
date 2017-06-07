@@ -5,6 +5,8 @@ upper_level: ../
 
 # `&@`演算子
 
+1.2.0で追加。
+
 ## 概要
 
 `&@`演算子は1つのキーワードで全文検索を実行します。
@@ -15,9 +17,25 @@ upper_level: ../
 column &@ keyword
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
-`keyword`は全文検索で使うキーワードです。`text`型です。
+`keyword`は全文検索で使うキーワードです。`column`が`text`型または`text[]`型なら`keyword`は`text`型です。`column`が`varchar`型なら`keyword`は`varchar`型です。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト
+
+  * `pgroonga.text_array_full_text_search_ops`：`text[]`のデフォルト
+
+  * `pgroonga.varchar_full_text_search_ops`：`varchar`用
+
+  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+
+  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -42,19 +60,22 @@ INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 `&@`演算子を使うと1つキーワードで全文検索できます。
 
 ```sql
-SELECT * FROM memos WHERE content &@ 'engine';
---  id |                                content                                 
--- ----+------------------------------------------------------------------------
---   2 | Groonga is a fast full text search engine that supports all languages.
+SELECT * FROM memos WHERE content &@ 'エンジン';
+--  id |                      content                      
+-- ----+---------------------------------------------------
+--   2 | Groongaは日本語対応の高速な全文検索エンジンです。
 -- (1 row)
 ```
 
-複数のキーワードで検索したいときやAND/ORを使った検索をしたいときは[`&?`演算子](query-v2.html)を使います。
+複数のキーワードで全文検索したいときやAND/ORを使った全文検索をしたいときは[`&?`演算子][query-v2]を使います。
 
-複数のキーワードでOR検索をしたいときは[`&@>`演算子](match-contain-v2.html)を使います。
+複数のキーワードでOR全文検索をしたいときは[`&@|`演算子][match-in-v2]を使います。
 
 ## 参考
 
-  * [`&?`演算子](query-v2.html)
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
 
-  * [`&@>`演算子](match-contain-v2.html)
+  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索
+
+[query-v2]:query-v2.html
+[match-in-v2]:match-in-v2.html

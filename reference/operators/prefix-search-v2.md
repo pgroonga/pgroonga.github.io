@@ -5,9 +5,9 @@ upper_level: ../
 
 # `&^` operator
 
-## Summary
+Since 2.0.0.
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
+## Summary
 
 `&^` operator performs prefix search.
 
@@ -19,11 +19,19 @@ Prefix search is useful for implementing input completion.
 column &^ prefix
 ```
 
-`column` is a column to be searched. It's `text` type.
+`column` is a column to be searched. It's `text` type or `text[]` type.
 
 `prefix` is a prefix to be found. It's `text` type.
 
 The operator returns `true` when the `column` value starts with `prefix`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_term_search_ops`: For `text`.
+
+  * `pgroonga.text_array_term_search_ops`: For `text[]`.
 
 ## Usage
 
@@ -58,4 +66,6 @@ SELECT * FROM tags WHERE name &^ 'pg';
 
 ## See also
 
-  * [`&^?` operator](prefix-rk-search-v2.html)
+  * [`&^?` operator][prefix-rk-search-v2]
+
+[prefix-rk-search-v2]:prefix-rk-search-v2.html

@@ -5,11 +5,11 @@ upper_level: ../
 
 # `&^~` operator
 
+Since 2.0.0.
+
 ## Summary
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
-
-`&^~` operator performs [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html). R is for [Romaji](https://en.wikipedia.org/wiki/Romanization_of_Japanese). K is for [Kana](https://en.wikipedia.org/wiki/Kana).
+`&^~` operator performs [prefix RK search][groonga-prefik-rk-search]. R is for [Romaji][wikipedia-romaji]. K is for [Kana][wikipedia-kana].
 
 Prefix RK search is useful for Japanese.
 
@@ -21,13 +21,21 @@ Prefix RK search is useful for implementing input completion.
 column &^~ prefix
 ```
 
-`column` is a column to be searched. It's `text` type.
+`column` is a column to be searched. It's `text` type or `text[]` type.
 
 `prefix` is a prefix to be found. It's `text` type.
 
 `column` values must be in Katakana. `prefix` must be in Romaji, Hiragana or Katakana.
 
 The operator returns `true` when the `column` value starts with `prefix`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_term_search_ops`: For `text`.
+
+  * `pgroonga.text_array_term_search_ops`: For `text[]`.
 
 ## Usage
 
@@ -87,8 +95,20 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
 
 ## See also
 
-  * [`&^` operator](prefix-search-v2.html)
+  * [`&^` operator][prefix-search-v2]
 
-  * [`&^>` operator](prefix-search-contain-v2.html)
+  * [`&^|` operator][prefix-search-in-v2]
 
-  * [`&^~>` operator](prefix-rk-search-contain-v2.html)
+  * [`&^~|` operator][prefix-rk-search-in-v2]
+
+[groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix_rk_search.html
+
+[wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese
+
+[wikipedia-kana]:https://en.wikipedia.org/wiki/Kana
+
+[prefix-search-v2]:prefix-search-v2.html
+
+[prefix-search-in-v2]:prefix-search-in-v2.html
+
+[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html

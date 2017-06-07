@@ -1,29 +1,43 @@
 ---
-title: "&?> operator for non jsonb types"
+title: "&?| operator"
 upper_level: ../
 ---
 
-# `&?>` operator for non jsonb types
+# `&?|` operator
+
+Since 2.0.0.
 
 ## Summary
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
+`&?>` operator is deprecated since 1.2.1. Use `&?|` operator instead.
 
-`&?>` operator performs full text search by array of queries. If one or more queries are matched, the record is matched.
+`&?|` operator performs full text search by array of queries. If one or more queries are matched, the record is matched.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query.
 
 ## Syntax
 
 ```sql
-column &?> queries
+column &?| queries
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`queries` is an array of queries for full text search. It's `text[]` type.
+`queries` is an array of queries for full text search. It's `text[]` type for `text` type or `text[]` type `column`. It's `varchar[]` for `varchar` type `column`.
+
+[Groonga's query syntax][groonga-query-syntax] is used in `query`.
 
 The operator returns `true` when one or more query in `queries` are matched against `column`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_full_text_search_ops_v2`: For `text`.
+
+  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`.
 
 ## Usage
 
@@ -46,10 +60,10 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
-You can perform full text search with queries by `&?>` operator:
+You can perform full text search with queries by `&?|` operator:
 
 ```sql
-SELECT * FROM memos WHERE content &?> ARRAY['Groonga engine', 'PostgreSQL -PGroonga'];
+SELECT * FROM memos WHERE content &?| ARRAY['Groonga engine', 'PostgreSQL -PGroonga'];
 --  id |                                content                                 
 -- ----+------------------------------------------------------------------------
 --   1 | PostgreSQL is a relational database management system.
@@ -63,8 +77,14 @@ SELECT * FROM memos WHERE content &?> ARRAY['Groonga engine', 'PostgreSQL -PGroo
 
 ## See also
 
-  * [`&?` operator](query-v2.html)
+  * [`&?` operator][query-v2]
 
-  * [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)
+  * [Groonga's query syntax][groonga-query-syntax]
 
-  * [`&@>` operator](match-in-v2.html)
+  * [`&@|` operator][match-in-v2]
+
+[query-v2]:query-v2.html
+
+[match-in-v2]:match-in-v2.html
+
+[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html

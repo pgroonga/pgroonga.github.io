@@ -5,6 +5,8 @@ upper_level: ../
 
 # `&@|` operator
 
+Since 2.0.0.
+
 ## Summary
 
 `&@>` operator is deprecated since 1.2.1. Use `&@|` operator instead.

@@ -16,14 +16,14 @@ PGroonga supports fast index search by `@>` operator.
 Here is the syntax of this operator:
 
 ```sql
-jsonb_column @> jsonb_query
+column @> query
 ```
 
-`jsonb_column` is a column that its type is `jsonb`.
+`column` is a column to be searched. It's `jsonb` type.
 
-`jsonb_query` is a `jsonb` type value used as query.
+`query` is a `jsonb` type value used as query.
 
-The operator returns `true` when `jsonb_query` is a subset of `jsonb_column` value, `false` otherwise.
+The operator returns `true` when `query` is a subset of `column` value, `false` otherwise.
 
 ## Operator classes
 

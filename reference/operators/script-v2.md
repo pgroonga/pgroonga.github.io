@@ -5,9 +5,9 @@ upper_level: ../
 
 # `` &` `` operator
 
-## Summary
+Since 2.0.0.
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
+## Summary
 
 `` &` `` operator searches records with search condition written in [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html). Script syntax is a powerful syntax. You can use many operations such as full text search, prefix search, range search and so on.
 

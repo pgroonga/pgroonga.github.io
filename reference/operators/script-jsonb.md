@@ -7,9 +7,11 @@ upper_level: ../
 
 ## Summary
 
-`@@` operator is a PGroonga original operator. You can use complex condition that can't be written by [`@>` operator](jsonb-contain.html) such as range search.
+This operator is deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead.
 
-If you know [JsQuery](https://github.com/postgrespro/jsquery), you can understand like "PGroonga provides `jsonb` type related search features that are similar to JsQuery with different syntax".
+`@@` operator is a PGroonga original operator. You can use complex condition that can't be written by [`@>` operator][contain-jsonb] such as range search.
+
+If you know [JsQuery][jsquery], you can understand like "PGroonga provides `jsonb` type related search features that are similar to JsQuery with different syntax".
 
 ## Syntax
 
@@ -21,9 +23,17 @@ jsonb_column @@ condition
 
 `jsonb_column` is a column that its type is `jsonb`.
 
-`condition` is a `text` value used as query. It uses [Groonga's script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html).
+`condition` is a `text` value used as query. It uses [Groonga's script syntax][groogna-script-syntax].
 
 The operator returns `true` when `condition` matches `jsonb_column` value, `false` otherwise.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.jsonb_ops`: Default for `jsonb`.
+
+  * `pgroonga.jsonb_ops_v2`: For `jsonb`.
 
 ## Usage
 
@@ -93,7 +103,7 @@ Here are descriptions of column:
 
   * `key`: The ID of the value. If value has the same path and content, `key` is the same value. Key format is `'${PATH}|${TYPE}|${VALUE}'`. It's not used in search condition.
 
-  * `path`: The path of the value from root. It uses [jq](https://stedolan.github.io/jq/) compatible format. Object is `["${ELEMENT_NAME}"]`, array is `[]`. For example, the path of `"web"` in `{"tags": ["web"]}` is `.["tags"][]`. If you know absolute path of the value, you can use this value in search condition.
+  * `path`: The path of the value from root. It uses [jq][jq] compatible format. Object is `["${ELEMENT_NAME}"]`, array is `[]`. For example, the path of `"web"` in `{"tags": ["web"]}` is `.["tags"][]`. If you know absolute path of the value, you can use this value in search condition.
 
   * `paths`: The paths of the value. It includes absolute path, sub paths, `.${ELEMENT_NAME1}.${ELEMENT_NAME2}` format paths and paths without array. This column is convenient for search condition because you can use one of them for search condition. Here are paths for `"x"` in `{"a": {"b": "c": ["x"]}}`:
 
@@ -157,7 +167,7 @@ You specify condition that matches split value to `@@` operator. If there is one
 
 Here is a condition that searches `jsonb` type value that has `www.example.com` string:
 
-(It uses [`jsonb_pretty()` function]({{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE) provided since PostgreSQL 9.5 for readability.)
+(It uses [`jsonb_pretty()` function][jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.com"';
@@ -218,7 +228,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string @ "started"';
 -- (1 row)
 ```
 
-You can use [Groonga's query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html) (`a OR b` can be used) for full text search by `query("string", "...")` syntax:
+You can use [Groonga's query syntax][groonga-query-syntax] (`a OR b` can be used) for full text search by `query("string", "...")` syntax:
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query("string", "send OR server")';
@@ -245,5 +255,22 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query("string", "send OR 
 
 ## See also
 
-  * [`jsonb` support](../jsonb.html)
-  * [`@>` operator](jsonb-contain.html)
+  * [`jsonb` support][jsonb]
+
+  * [`@>` operator][contain-jsonb]
+
+  * [`` &` `` operator][script-jsonb-v2]
+
+[jsonb]:../jsonb.html
+
+[contain-jsonb]:contain-jsonb.html
+[script-jsonb-v2]:script-jsonb-v2.html
+[jsquery]:https://github.com/postgrespro/jsquery
+
+[jq]:https://stedolan.github.io/jq/
+
+[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html
+
+[groonga-script-syntax]:http://groonga.org/docs/reference/grn_expr/script_syntax.html
+
+[jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

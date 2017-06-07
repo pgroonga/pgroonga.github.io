@@ -25,9 +25,9 @@ column %% term
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.varchar_array_ops`: Default for `varchar[]`.
+  * `pgroonga.varchar_array_ops`: Default for `varchar[]`
 
-  * `pgroonga.varchar_array_term_search_ops`: For `varchar[]`.
+  * `pgroonga.varchar_array_term_search_ops`: For `varchar[]`
 
 ## Usage
 

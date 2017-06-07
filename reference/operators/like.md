@@ -13,6 +13,17 @@ PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` i
 
 The original `LIKE` operator searches against text as is. But `%%` operator performs full text search against normalized text. It means that search result of `LIKE` operator with index needs "Recheck".
 
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_full_text_search_ops`: Default for `text`
+
+  * `pgroonga.text_regexp_ops`: For `text`
+
+  * `pgroonga.text_full_text_search_ops_v2`: For `text`
+
+  * `pgroonga.text_regexp_ops_v2`: For `text`
 
 ## Syntax
 

@@ -13,6 +13,17 @@ PGroongaは内部的に`column LIKE '%キーワード%'`条件を`column %% 'キ
 
 元の`LIKE`演算子は対象テキストに対して検索します。しかし、`%%`演算子は正規化したテキストに対して検索します。そのため、インデックスを使って`LIKE`演算子の検索を実行した場合は「再検査」が必要になります。
 
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト
+
+  * `pgroonga.text_regexp_ops`：`text`用
+
+  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+
+  * `pgroonga.text_regexp_ops_v2`：`text`用
 
 ## 構文
 

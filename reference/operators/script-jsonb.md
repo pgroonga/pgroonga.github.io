@@ -31,9 +31,9 @@ The operator returns `true` when `condition` matches `jsonb_column` value, `fals
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.jsonb_ops`: Default for `jsonb`.
+  * `pgroonga.jsonb_ops`: Default for `jsonb`
 
-  * `pgroonga.jsonb_ops_v2`: For `jsonb`.
+  * `pgroonga.jsonb_ops_v2`: For `jsonb`
 
 ## Usage
 

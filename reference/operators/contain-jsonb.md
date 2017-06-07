@@ -29,9 +29,9 @@ The operator returns `true` when `query` is a subset of `column` value, `false` 
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.jsonb_ops`: Default for `jsonb`.
+  * `pgroonga.jsonb_ops`: Default for `jsonb`
 
-  * `pgroonga.jsonb_ops_v2`: For `jsonb`.
+  * `pgroonga.jsonb_ops_v2`: For `jsonb`
 
 ## Usage
 

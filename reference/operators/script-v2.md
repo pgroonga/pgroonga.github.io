@@ -9,7 +9,7 @@ Since 2.0.0.
 
 ## Summary
 
-`` &` `` operator searches records with search condition written in [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html). Script syntax is a powerful syntax. You can use many operations such as full text search, prefix search, range search and so on.
+`` &` `` operator searches records with search condition written in [script syntax][groonga-script-syntax]. Script syntax is a powerful syntax. You can use many operations such as full text search, prefix search, range search and so on.
 
 ## Syntax
 
@@ -17,11 +17,21 @@ Since 2.0.0.
 column &` script
 ```
 
-`column` is a column to be searched.
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
 
-`script` is a script that specifies search conditions. It's `text` type.
+`script` is a script that specifies search conditions. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
-Syntax in `script` is [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html).
+Syntax in `script` is [script syntax][groonga-script-syntax].
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_full_text_search_ops_v2`: For `text`.
+
+  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`.
+
+  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`.
 
 ## Usage
 
@@ -60,8 +70,12 @@ The specified script `'id >= 2 && (content @ "engine" || content @ "rdbms")'` me
 
   * `content` must contain `"engine"` or `"rdbms"` (full text search)
 
-You can also use [functions](http://groonga.org/docs/reference/function.html) in the script.
+You can also use [functions][groonga-functions] in the script.
 
 ## Sequential scan
 
 You can't use this operator with sequential scan.
+
+[groonga-script-syntax]:http://groonga.org/docs/reference/grn_expr/script_syntax.html
+
+[groonga-functions]:http://groonga.org/docs/reference/function.html

@@ -5,9 +5,9 @@ upper_level: ../
 
 # `&~?` operator
 
-## Summary
+Since 2.0.0.
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
+## Summary
 
 `&~?` operator performs similar search.
 

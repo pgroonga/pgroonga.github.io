@@ -11,7 +11,7 @@ Since 1.2.1.
 
 `&^~>` operator for `text[]` is deprecated since 1.2.1. Use `&^~` operator instead.
 
-`&^~` operator performs [prefix RK search][groonga-prefik-rk-search]. R is for [Romaji][wikipedia-romaji]. K is for [Kana][wikipedia-kana].
+`&^~` operator performs [prefix RK search][groonga-prefix-rk-search]. R is for [Romaji][wikipedia-romaji]. K is for [Kana][wikipedia-kana].
 
 Prefix RK search is useful for Japanese.
 
@@ -35,9 +35,9 @@ The operator returns `true` when the `column` value starts with `prefix`.
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.text_term_search_ops`: For `text`.
+  * `pgroonga.text_term_search_ops_v2`: For `text`.
 
-  * `pgroonga.text_array_term_search_ops`: For `text[]`.
+  * `pgroonga.text_array_term_search_ops_v2`: For `text[]`.
 
 ## Usage
 

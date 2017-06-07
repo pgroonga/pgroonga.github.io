@@ -1,17 +1,15 @@
 ---
-title: "&^~> operator"
+title: "&^~| operator"
 upper_level: ../
 ---
 
-# `&^~>` operator
+# `&^~|` operator
 
-Since 1.0.9.
+Since 1.2.1.
 
 ## Summary
 
-This operator uses v2 operator class. It doesn't provide backward compatibility until PGroonga 2.0.0. Use it carefully.
-
-`&^~>` operator performs [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html). R is for [Romaji](https://en.wikipedia.org/wiki/Romanization_of_Japanese). K is for [Kana](https://en.wikipedia.org/wiki/Kana).
+`&^~|` operator performs [prefix RK search][groonga-prefix-rk-search] by an array of prefixes. R is for [Romaji][wikipedia-romaji]. K is for [Kana][wikipedia-kana]. If one ore more prefixes are matched, the record is matched.
 
 Prefix RK search is useful for Japanese.
 
@@ -20,16 +18,24 @@ Prefix RK search is useful for implementing input completion.
 ## Syntax
 
 ```sql
-column &^~> prefix
+column &^~| prefix
 ```
 
-`column` is a column to be searched. It's `text[]` type.
+`column` is a column to be searched. It's `text` type or `text[]` type.
 
-`prefix` is a prefix to be found. It's `text` type.
+`prefix` is an array of prefixes to be found. It's `text[]` type.
 
 `column` values must be in Katakana. `prefix` must be in Romaji, Hiragana or Katakana.
 
-The operator returns `true` when one of the `column` values start with `prefix`.
+The operator returns `true` when the `column` value starts with one or more prefixes in `prefixes`.
+
+## Operator classes
+
+You need to specify one of the following operator classes to use this operator:
+
+  * `pgroonga.text_term_search_ops_v2`: For `text`.
+
+  * `pgroonga.text_array_term_search_ops_v2`: For `text[]`.
 
 ## Usage
 
@@ -38,61 +44,73 @@ Here are sample schema and data for examples:
 ```sql
 CREATE TABLE tags (
   name text PRIMARY KEY,
-  readings text[]
+  reading text
 );
 
 CREATE INDEX pgroonga_tags_index ON tags
-  USING pgroonga (readings pgroonga.text_array_term_search_ops_v2);
+  USING pgroonga (reading pgroonga.text_term_search_ops_v2);
 ```
 
 ```sql
 INSERT INTO tags VALUES ('PostgreSQL',
-                         ARRAY['ポストグレスキューエル', 'ポスグレ', 'ピージー']);
-INSERT INTO tags VALUES ('Groonga',    ARRAY['グルンガ']);
-INSERT INTO tags VALUES ('PGroonga',   ARRAY['ピージールンガ']);
-INSERT INTO tags VALUES ('pglogical',  ARRAY['ピージーロジカル']);
+                         'ポストグレスキューエル');
+INSERT INTO tags VALUES ('Groonga',   'グルンガ');
+INSERT INTO tags VALUES ('PGroonga',  'ピージールンガ');
+INSERT INTO tags VALUES ('pglogical', 'ピージーロジカル');
 ```
 
-You can perform prefix RK search with prefix in Romaji by `&^~>` operator:
+You can perform prefix RK search with prefixes in Romaji by `&^~|` operator:
 
 ```sql
-SELECT * FROM tags WHERE readings &^~> 'pi-ji-';
---     name    |                  readings                  
--- ------------+--------------------------------------------
---  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
---  PGroonga   | {ピージールンガ}
---  pglogical  | {ピージーロジカル}
+SELECT * FROM tags WHERE reading &^~| ARRAY['pi-ji-', 'posu'];
+--     name    |        reading         
+-- ------------+------------------------
+--  PostgreSQL | ポストグレスキューエル
+--  PGroonga   | ピージールンガ
+--  pglogical  | ピージーロジカル
 -- (3 rows)
 ```
 
-You can also use Hiragana for prefix:
+You can also use Hiragana for prefixes:
 
 ```sql
-SELECT * FROM tags WHERE readings &^~> 'ぴーじー';
---     name    |                  readings                  
--- ------------+--------------------------------------------
---  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
---  PGroonga   | {ピージールンガ}
---  pglogical  | {ピージーロジカル}
+SELECT * FROM tags WHERE reading &^~| ARRAY['ぴーじー', 'ぽす'];
+--     name    |        reading         
+-- ------------+------------------------
+--  PostgreSQL | ポストグレスキューエル
+--  PGroonga   | ピージールンガ
+--  pglogical  | ピージーロジカル
 -- (3 rows)
 ```
 
-You can also use Katakana for prefix:
+You can also use Katakana for prefixes:
 
 ```sql
-SELECT * FROM tags WHERE readings &^~> 'ピージー';
---     name    |                  readings                  
--- ------------+--------------------------------------------
---  PostgreSQL | {ポストグレスキューエル,ポスグレ,ピージー}
---  PGroonga   | {ピージールンガ}
---  pglogical  | {ピージーロジカル}
+SELECT * FROM tags WHERE reading &^~| ARRAY['ピージー', 'ポス'];
+--     name    |        reading         
+-- ------------+------------------------
+--  PostgreSQL | ポストグレスキューエル
+--  PGroonga   | ピージールンガ
+--  pglogical  | ピージーロジカル
 -- (3 rows)
 ```
 
 ## See also
 
-  * [`&^` operator](prefix-search-v2.html)
+  * [`&^` operator][prefix-search-v2]
 
-  * [`&^>` operator](prefix-search-contain-v2.html)
+  * [`&^|` operator][prefix-search-in-v2]
 
-  * [`&^~` operator](prefix-rk-search-v2.html)
+  * [`&^~` operator][prefix-rk-search-v2]
+
+[groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix_rk_search.html
+
+[wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese
+
+[wikipedia-kana]:https://en.wikipedia.org/wiki/Kana
+
+[prefix-search-v2]:prefix-search-v2.html
+
+[prefix-search-in-v2]:prefix-search-in-v2.html
+
+[prefix-rk-search-v2]:prefix-rk-search-v2.html

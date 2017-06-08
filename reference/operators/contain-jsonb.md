@@ -125,9 +125,9 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"tags": ["mail", "web"]}
 
   * [`jsonb` support][jsonb]
 
-  * [`&?` operator][query-jsonb-v2]
+  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
 
-  * [`` &` `` operator][script-jsonb-v2]
+  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
 
 [jsonb]:../jsonb.html
 

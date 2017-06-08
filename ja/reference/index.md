@@ -24,7 +24,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [レプリケーション](replication.html)
 
-  * [`jsonb`サポート](jsonb.html)
+  * [`jsonb`サポート][jsonb]
 
 ## 演算子
 
@@ -398,6 +398,8 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroongaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のGroongaのドキュメントを参照してください。
 
   * [チューニング](http://groonga.org/ja/docs/reference/tuning.html)
+
+[jsonb]:jsonb.html
 
 [like]:operators/like.html
 

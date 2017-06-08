@@ -24,7 +24,7 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * [Replication](replication.html)
 
-  * [`jsonb` support](jsonb.html)
+  * [`jsonb` support][jsonb]
 
 ## Operators
 
@@ -397,6 +397,8 @@ Normally, you don't need to tune PGroonga because PGroonga works well by default
 But you need to tune PGroonga in some cases such as a case that you need to handle a very large database. PGroonga uses Groonga as backend. It means that you can apply tuning knowledge for Groonga to PGroonga. See the following Groonga document to tune PGroonga:
 
   * [Tuning](http://groonga.org/docs/reference/tuning.html)
+
+[jsonb]:jsonb.html
 
 [like]:operators/like.html
 

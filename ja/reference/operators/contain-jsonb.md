@@ -9,21 +9,30 @@ upper_level: ../
 
 PGroongaは`@>`演算子の検索をインデックスを使って高速に実現できます。
 
-[`@>`演算子はPostgreSQL組み込みの演算子]({{ site.postgresql_doc_base_url.ja }}/functions-json.html#functions-jsonb-op-table)です。`@>`演算子は右辺の`jsonb`型の値が左辺の`jsonb`型の値のサブセットなら真を返します。
+[`@>`演算子はPostgreSQL組み込みの演算子][postgresql-jsonb-operators]です。`@>`演算子は右辺の`jsonb`型の値が左辺の`jsonb`型の値のサブセットなら真を返します。
+
 
 ## 構文
 
 この演算子の構文は次の通りです。
 
 ```sql
-jsonb_column @> jsonb_query
+column @> query
 ```
 
-`jsonb_column`は`jsonb`型のカラムです。
+`column`は検索対象のカラムです。型は`jsonb`型です。
 
-`jsonb_query`はクエリーとして使う`jsonb`型の値です。
+`query`はクエリーに使う`jsonb`型の値です。
 
-この演算子は`jsonb_query`が`jsonb_column`の値のサブセットなら`true`を返し、そうでない場合は`false`を返します。
+この演算子は`query`が`column`の値のサブセットなら`true`を返し、それ以外の時は`false`を返します。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.jsonb_ops`：`jsonb`型のデフォルト
+
+  * `pgroonga.jsonb_ops_v2`：`jsonb`型用
 
 ## 使い方
 
@@ -74,7 +83,7 @@ SET enable_seqscan = off;
 
 マッチする例は次の通りです。
 
-（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数]({{ site.postgresql_doc_base_url.ja }}/functions-json.html#functions-json-processing-table)を使っています。）
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-pretty]を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com"}'::jsonb;
@@ -115,5 +124,18 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"tags": ["mail", "web"]}
 
 ## 参考
 
-  * [`jsonb`サポート](../jsonb.html)
-  * [`@@`演算子](jsonb-query.html)
+  * [`jsonb`サポート][jsonb]
+
+  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
+
+  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
+
+[jsonb]:../jsonb.html
+
+[query-jsonb-v2]:query-jsonb-v2.html
+
+[script-jsonb-v2]:script-jsonb-v2.html
+
+[postgresql-jsonb-operators]:{{ site.postgresql_doc_base_url.ja }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE
+
+[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.ja }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

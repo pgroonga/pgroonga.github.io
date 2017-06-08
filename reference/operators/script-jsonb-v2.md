@@ -257,7 +257,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &` 'query("string", "send OR 
 
   * [`jsonb` support][jsonb]
 
-  * [`@>` operator][contain-jsonb]
+  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
 
 [jsonb]:../jsonb.html
 

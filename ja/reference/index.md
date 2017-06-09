@@ -56,7 +56,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+  * [`@~`演算子][regular-expression]：正規表現を使った検索
 
     * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
 
@@ -106,7 +106,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+  * [`@~`演算子][regular-expression]：正規表現を使った検索
 
     * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
 
@@ -218,7 +218,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+  * [`@~`演算子][regular-expression]：正規表現を使った検索
 
     * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
@@ -308,7 +308,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+  * [`@~`演算子][regular-expression]：正規表現を使った検索
 
     * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 

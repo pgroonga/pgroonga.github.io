@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-06-09 00:29+0900\n"
+"PO-Revision-Date: 2017-06-09 10:39+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -115,7 +115,7 @@ msgid "  * [`&~` operator][regular-expression-v2]: Search by a regular expressio
 msgstr "  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索"
 
 msgid "  * [`@~` operator][regular-expression]: Search by a regular expression"
-msgstr "  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索"
+msgstr "  * [`@~`演算子][regular-expression]：正規表現を使った検索"
 
 msgid ""
 "    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] inste"

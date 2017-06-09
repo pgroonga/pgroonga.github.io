@@ -104,7 +104,7 @@ Why is "`PostgreSQL is a ...`" record matched? Remember that `@~` operator norma
 
 ## See also
 
-  * [`&~` operator][regular-expression-v2]
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
   * [Onigmo's regular expression syntax document][onigmo-document]
 

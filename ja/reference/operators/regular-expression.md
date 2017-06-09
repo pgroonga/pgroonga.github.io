@@ -7,17 +7,19 @@ upper_level: ../
 
 ## 概要
 
+この演算子は1.2.1から非推奨になりました。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
+
 `@~`演算子は正規表現検索をします。
 
 PostgreSQLは次のような組み込みの正規表現演算子を提供しています。
 
-  * [`SIMILAR TO`]({{ site.postgresql_doc_base_url.ja }}/functions-matching.html#functions-similarto-regexp)
+  * [`SIMILAR TO`][postgresql-similar-to]
 
-  * [POSIX正規表現]({{ site.postgresql_doc_base_url.ja }}/functions-matching.html#functions-posix-regexp)
+  * [POSIX正規表現][postgresql-regexp]
 
 `SIMILAR TO`はSQL標準をベースにしています。「POSIX正規表現」はPOSIXをベースにしています。これらはそれぞれ違う正規表現の構文を使います。
 
-PGroongaの`@~`演算子はさらに別の正規表現の構文を使います。`@~`は[Ruby](https://www.ruby-lang.org/ja/)で使われている構文を使います。なぜなら、PGroongaはRubyが使っている正規表現エンジンと同じエンジンを使っているからです。そのエンジンは[Onigmo](https://github.com/k-takata/Onigmo)です。完全な構文定義は[Onigmoのドキュメント](https://github.com/k-takata/Onigmo/blob/master/doc/RE.ja)を参照してください。
+PGroongaの`@~`演算子はさらに別の正規表現の構文を使います。`@~`は[Ruby][ruby]で使われている構文を使います。なぜなら、PGroongaはRubyが使っている正規表現エンジンと同じエンジンを使っているからです。そのエンジンは[Onigmo][onigmo]です。完全な構文定義は[Onigmoのドキュメント][onigmo-document]を参照してください。
 
 PGroongaの`@~`演算子はマッチ前に対象文字列を正規化します。これは「POSIX正規表現」の`~*`演算子と似ています。`~*`演算子は大文字小文字の違いを無視してマッチしているかを判断します。
 
@@ -43,17 +45,23 @@ PGroongaの`@~`演算子はマッチ前に対象文字列を正規化します�
 column @~ regular_expression
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。型は`text`型か`varchar`型です。
 
-`regular_expression`はパターンとして使う正規表現です。
-
-`column`と`regular_expression`の型は同じでなければいけません。利用可能な型は次の通りです。
-
-  * `text`
-
-  * `varchar`
+`regular_expression`はパターンとして使う正規表現です。`column`の型が`text`型のときは`text`型です。`column`の型が`varchar`型のときは`varchar`型です。
 
 `column`の値が`regular_expression`パターンにマッチしたら、その式は`true`を返します。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_regexp_ops`：`text`用
+
+  * `pgroonga.varchar_regexp_ops`：`varchar`用
+
+  * `pgroonga.text_regexp_ops_v2`：`text`用
+
+  * `pgroonga.varchar_regexp_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -68,14 +76,6 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_content_index ON memos
   USING pgroonga (content pgroonga.text_regexp_ops);
 ```
-
-インデックスを用いて正規表現検索を実行するにはオペレータークラスを指定しなければいけません。利用可能なオペレータークラスは次の通りです。
-
-  * `pgroonga.text_regexp_ops`：`text`型のカラム用のオペレータークラス。
-
-  * `pgroonga.varchar_regexp_ops`：`varchar`型のカラム用のオペレータークラス。
-
-この例では`pgroonga.text_regexp_ops`を使っています。なぜなら`content`カラムは`text`型のカラムだからです。
 
 以下は例で使うデータです。
 
@@ -98,12 +98,29 @@ SELECT * FROM memos WHERE content @~ '\Apostgresql';
 
 「`\Apostgresql`」の中の「`\A`」はRubyの正規表現構文では特別な記法です。これはテキストの最初という意味です。つまり、このパターンは「`postgresql`」がテキストの最初に現れること、という意味です。
 
-どうして「`PostgreSQLは..`」レコードがマッチしているのでしょうか？`@~`演算しはマッチ前にマッチ対象のテキストを正規化することを思い出してください。つまり、「`PostgreSQLは...`」テキストはマッチ前に「`postgresqlは...`」と正規化されるということです。正規化されたテキストは「`postgresql`」で始まっています。そのため、「`\Apostgresql`」正規表現はこのレコードにマッチします。
+どうして「`PostgreSQLは..`」レコードがマッチしているのでしょうか？`@~`演算子はマッチ前にマッチ対象のテキストを正規化することを思い出してください。つまり、「`PostgreSQLは...`」テキストはマッチ前に「`postgresqlは...`」と正規化されるということです。正規化されたテキストは「`postgresql`」で始まっています。そのため、「`\Apostgresql`」正規表現はこのレコードにマッチします。
 
 "`PGroongaはPostgreSQLの ...`"レコードはマッチしません。このレコードは正規化後のテキストに「`postgresql`」を含んでいますが、「`postgresql`」はテキストの先頭には現れていません。そのためマッチしません。
 
 ## 参考
 
-  * [Onigmoの正規表現構文のドキュメント](https://github.com/k-takata/Onigmo/blob/master/doc/RE.ja)
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
-  * [Groongaの正規表現サポートに関するドキュメント](http://groonga.org/ja/docs/reference/regular_expression.html)
+  * [Onigmoの正規表現構文のドキュメント][onigmo-document]
+
+  * [Groongaの正規表現サポートに関するドキュメント][groonga-regular-expression]
+
+[regular-expression-v2]:regular-expression-v2.html
+
+[postgresql-similar-to]:{{ site.postgresql_doc_base_url.ja }}/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP
+
+[postgresql-regexp]:{{ site.postgresql_doc_base_url.ja }}/functions-matching.html#FUNCTIONS-POSIX-REGEXP
+
+[ruby]:https://www.ruby-lang.org/ja/
+
+[onigmo]:https://github.com/k-takata/Onigmo
+
+[onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE.ja
+
+[groonga-regular-expression]:http://groonga.org/ja/docs/reference/regular_expression.html#regular-expression-index
+

@@ -5,9 +5,9 @@ upper_level: ../
 
 # `&~?`演算子
 
-## 概要
+1.2.1で追加。
 
-この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。
+## 概要
 
 `&~?`演算子は類似文書検索を実行します。
 
@@ -17,11 +17,21 @@ upper_level: ../
 column &~? document
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
-`document`は類似文書検索に利用する文書です。`text`型です。
+`document`は類似文書検索で使う文書です。`column`が`text`型または`text[]`型の場合は型は`text`型です。`column`が`varchar`型の場合は型は`text`型です。
 
 類似文書検索は`document`のコンテンツに似たレコードを探します。もし、`document`のコンテンツが短かった場合、類似文書検索はそれほど似ていないレコードも返してしまうかもしれません。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+
+  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
 
 ## 使い方
 

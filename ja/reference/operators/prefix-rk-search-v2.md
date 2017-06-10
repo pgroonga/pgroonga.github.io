@@ -11,7 +11,7 @@ upper_level: ../
 
 1.2.1から`text[]`用の`&^~>`演算子は非推奨になりました。代わりに`&^~`演算子を使ってください。
 
-`&^~`演算子は[前方一致RK検索][groonga-prefix-rk-search]をします。Rは[Romaji（ローマ字）][wikipedia-romaji]のRです。Kは[Katakana（カタカナ）][wikipedia-kana]のKです。
+`&^~`演算子は[前方一致RK検索][groonga-prefix-rk-search]をします。Rは[Romaji（ローマ字）][wikipedia-romaji]のRです。Kは[Katakana（カタカナ）][wikipedia-katakana]のKです。
 
 前方一致RK検索は日本語を検索するときに便利です。
 
@@ -105,9 +105,9 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
 
 [groonga-prefix-rk-search]:http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html
 
-[wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese
+[wikipedia-romaji]:https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%BC%E3%83%9E%E5%AD%97
 
-[wikipedia-katakana]:https://en.wikipedia.org/wiki/Katakana
+[wikipedia-katakana]:https://ja.wikipedia.org/wiki/%E7%89%87%E4%BB%AE%E5%90%8D
 
 [prefix-search-v2]:prefix-search-v2.html
 

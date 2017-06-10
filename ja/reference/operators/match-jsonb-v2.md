@@ -1,37 +1,37 @@
 ---
-title: "&@ operator for jsonb type"
+title: "jsonb型用の&@演算子"
 upper_level: ../
 ---
 
-# `&@` operator for `jsonb` type
+# `jsonb`型用の`&@`演算子
 
-Since 1.2.1.
+1.2.1で追加。
 
-## Summary
+## 概要
 
-`&@` operator performs full text search against all texts in `jsonb` by one keyword.
+`&@`演算子は`jsonb`内のすべてのテキストに対して1つのキーワードで全文検索を実行します。
 
-## Syntax
+## 構文
 
 ```sql
 column &@ keyword
 ```
 
-`column` is a column to be searched. It's `jsonb` type.
+`column`は検索対象のカラムです。型は`jsonb`型です。
 
-`keyword` is a keyword for full text search. It's `text` type.
+`keyword`は全文検索で使うキーワードです。型は`text`型です。
 
-## Operator classes
+## 演算子クラス
 
-You need to specify one of the following operator classes to use this operator:
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.jsonb_ops`: Default for `jsonb`
+  * `pgroonga.jsonb_ops`：`jsonb`型のデフォルト
 
-  * `pgroonga.jsonb_ops_v2`: For `jsonb`
+  * `pgroonga.jsonb_ops_v2`：`jsonb`型用
 
-## Usage
+## 使い方
 
-Here are sample schema and data for examples:
+例に使うサンプルスキーマとデータは次の通りです。
 
 ```sql
 CREATE TABLE logs (
@@ -70,9 +70,9 @@ INSERT INTO logs
               }');
 ```
 
-You can perform full text search with one keyword by `&@`:
+`&@`演算子を使うと1つのキーワードで全文検索できます。
 
-(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-pretty]を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record &@ 'server';
@@ -89,15 +89,15 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@ 'server';
 -- (1 row)
 ```
 
-## See also
+## 参考
 
-  * [`jsonb` support][jsonb]
+  * [`jsonb`サポート][jsonb]
 
-  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
 
-  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
+  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
 
-  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
+  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
 
 [jsonb]:../jsonb.html
 
@@ -105,4 +105,4 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@ 'server';
 [script-jsonb-v2]:script-jsonb-v2.html
 [contain-jsonb]:contain-jsonb.html
 
-[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE
+[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.ja }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

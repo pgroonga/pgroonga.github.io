@@ -9,7 +9,7 @@ Since 1.2.1.
 
 ## Summary
 
-`&^~|` operator performs [prefix RK search][groonga-prefix-rk-search] by an array of prefixes. R is for [Romaji][wikipedia-romaji]. K is for [Kana][wikipedia-kana]. If one ore more prefixes are matched, the record is matched.
+`&^~|` operator performs [prefix RK search][groonga-prefix-rk-search] by an array of prefixes. R is for [Romaji][wikipedia-romaji]. K is for [Katakana][wikipedia-katakana]. If one ore more prefixes are matched, the record is matched.
 
 Prefix RK search is useful for Japanese.
 
@@ -107,7 +107,7 @@ SELECT * FROM tags WHERE reading &^~| ARRAY['ピージー', 'ポス'];
 
 [wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese
 
-[wikipedia-kana]:https://en.wikipedia.org/wiki/Kana
+[wikipedia-katakana]:https://en.wikipedia.org/wiki/Katakana
 
 [prefix-search-v2]:prefix-search-v2.html
 

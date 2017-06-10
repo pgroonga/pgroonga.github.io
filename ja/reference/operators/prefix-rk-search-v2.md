@@ -5,11 +5,13 @@ upper_level: ../
 
 # `&^~`演算子
 
+1.2.1で追加。
+
 ## 概要
 
-この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。
+1.2.1から`text[]`用の`&^~>`演算子は非推奨になりました。代わりに`&^~`演算子を使ってください。
 
-`&^~`演算子は[前方一致RK検索](http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html)を実行します。Rはローマ字でKは仮名（ひらがなとカタカナ）という意味です。
+`&^~`演算子は[前方一致RK検索][groonga-prefix-rk-search]をします。Rは[Romaji（ローマ字）][wikipedia-romaji]のRです。Kは[Katakana（カタカナ）][wikipedia-kana]のKです。
 
 前方一致RK検索は日本語を検索するときに便利です。
 
@@ -21,13 +23,21 @@ upper_level: ../
 column &^~ prefix
 ```
 
-`column`は検索対象のカラムです。`text`型です。
+`column`は検索対象のカラムです。型は`text`型か`text[]`型です。
 
 `prefix`は含まれているべきプレフィックスです。`text`型です。
 
 `column`の値はカタカナにします。`prefix`はローマ字かひらがなかカタカナにします。
 
 `column`の値が`prefix`から始まっていれば`true`を返します。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_term_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_term_search_ops_v2`：`text[]`用
 
 ## 使い方
 
@@ -87,8 +97,20 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
 
 ## 参考
 
-  * [`&^`演算子](prefix-search-v2.html)
+  * [`&^`演算子][prefix-search-v2]：前方一致検索
 
-  * [`&^>`演算子](prefix-search-contain-v2.html)
+  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索
 
-  * [`&^~>`演算子](prefix-rk-search-contain-v2.html)
+  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
+
+[groonga-prefix-rk-search]:http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html
+
+[wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese
+
+[wikipedia-katakana]:https://en.wikipedia.org/wiki/Katakana
+
+[prefix-search-v2]:prefix-search-v2.html
+
+[prefix-search-in-v2]:prefix-search-in-v2.html
+
+[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html

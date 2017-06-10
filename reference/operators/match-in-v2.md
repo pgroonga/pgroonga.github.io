@@ -5,7 +5,7 @@ upper_level: ../
 
 # `&@|` operator
 
-Since 2.0.0.
+Since 1.2.1.
 
 ## Summary
 

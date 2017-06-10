@@ -1,13 +1,15 @@
 ---
-title: "&? operator for jsonb type"
+title: "jsonb型用の&?演算子"
 upper_level: ../
 ---
 
-# `$?` operator for `jsonb` type
+# `jsonb`型用の`&?`演算子
+
+1.2.1で追加。
 
 ## 概要
 
-`$?` operator performs full text search against all texts in `jsonb` with query.
+`&?`は`jsonb`内のすべてのテキストに対してクエリーを使って全文検索を実行します。
 
 クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。
 
@@ -17,11 +19,19 @@ upper_level: ../
 column &? query
 ```
 
-`column` is a column to be searched. It's `jsonb` type.
+`column`は検索対象のカラムです。型は`jsonb`型です。
 
 `query`は全文検索で使うクエリーです。`text`型です。
 
-`query`では[Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使います。
+`qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.jsonb_ops`：`jsonb`型のデフォルト
+
+  * `pgroonga.jsonb_ops_v2`：`jsonb`型用
 
 ## 使い方
 
@@ -66,7 +76,7 @@ INSERT INTO logs
 
 `@?`演算子を使うと`キーワード1 キーワード2`のように複数のキーワードを指定して全文検索できます。`キーワード1 OR キーワード2`のようにOR検索することもできます。
 
-（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数]({{ site.postgresql_doc_base_url.ja }}/functions-json.html#functions-json-processing-table)を使っています。）
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-pretty]を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record &? 'server OR mail';
@@ -93,14 +103,21 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &? 'server OR mail';
 
 ## 参考
 
-  * [`jsonb` support](../jsonb.html)
+  * [`jsonb`サポート][jsonb]
 
-  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
+  * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
 
-  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
+  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
 
-  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
+  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
+
+  * [Groongaのクエリーの構文][groonga-query-syntax]
+
+[jsonb]:../jsonb.html
 
 [match-jsonb-v2]:match-jsonb-v2.html
 [script-jsonb-v2]:script-jsonb-v2.html
 [contain-jsonb]:contain-jsonb.html
+
+[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html
+[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

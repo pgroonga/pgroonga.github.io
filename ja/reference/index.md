@@ -32,7 +32,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 #### `pgroonga.text_full_text_search_ops`演算子クラス（デフォルト） {#text-full-text-search-ops}
 
-  * [`ILIKE`演算子][like]
+  * [`LIKE`演算子][like]
 
   * `ILIKE`演算子
 
@@ -50,7 +50,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 #### `pgroonga.text_regexp_ops`演算子クラス {#text-regexp-ops}
 
-  * [`ILIKE`演算子][like]
+  * [`LIKE`演算子][like]
 
   * `ILIKE`演算子
 
@@ -160,7 +160,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 #### `pgroonga.text_full_text_search_ops_v2`演算子クラス {#text-full-text-search-ops-v2}
 
-  * [`ILIKE`演算子][like]
+  * [`LIKE`演算子][like]
 
   * `ILIKE`演算子
 
@@ -212,7 +212,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 #### `pgroonga.text_regexp_ops_v2`演算子クラス {#text-regexp-ops-v2}
 
-  * [`ILIKE`演算子][like]
+  * [`LIKE`演算子][like]
 
   * `ILIKE`演算子
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-06-09 10:39+0900\n"
+"PO-Revision-Date: 2017-06-10 13:25+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,7 +85,7 @@ msgstr ""
 "-ops}"
 
 msgid "  * [`LIKE` operator][like]"
-msgstr "  * [`ILIKE`演算子][like]"
+msgstr "  * [`LIKE`演算子][like]"
 
 msgid "  * `ILIKE` operator"
 msgstr "  * `ILIKE`演算子"

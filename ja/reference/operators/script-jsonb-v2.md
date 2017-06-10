@@ -230,7 +230,6 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &` 'string @ "started"';
 
 全文検索用に[Groongaのクエリー構文][groonga-query-syntax]（`a OR b`という構文を使えます）を使うには`query("string", "...")`という構文を使います。
 
-
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record &` 'query("string", "send OR server")';
 --                  jsonb_pretty                 

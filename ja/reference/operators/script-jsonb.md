@@ -7,9 +7,11 @@ upper_level: ../
 
 ## 概要
 
-`@@`演算子はPGroonga独自の演算子です。範囲検索のような[`@>`演算子](jsonb-contain.html)では書けないような複雑な条件を書くことができます。
+この演算子は1.2.1から非推奨になりました。代わりに[`` &` ``演算子][script-jsonb-v2]を使ってください。
 
-もし[JsQuery](https://github.com/postgrespro/jsquery)を知っているなら、「PGroongaはJsQueryが提供しているような`jsonb`型用の検索機能を違う構文で提供している」と理解してください。
+`@@`演算子はPGroonga独自の演算子です。[`@>`演算子][contain-jsonb]では書けない範囲検索のような複雑な条件を書くことができます。
+
+もし[JsQuery][jsquery]を知っているなら、「PGroongaはJsQueryが提供しているような`jsonb`型用の検索機能を違う構文で提供している」と理解してください。
 
 ## 構文
 
@@ -21,9 +23,17 @@ jsonb_column @@ condition
 
 `jsonb_column`は`jsonb`型のカラムです。
 
-`condition`はクエリーとして使う`text`型の値です。[Groongaのスクリプト構文](http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html)を使います。
+`condition`はクエリーとして使う`text`型の値です。[Groongaのスクリプト構文][groonga-script-syntax]を使います。
 
 この演算子は`condition`が`jsonb_column`の値にマッチしたら`true`を返し、マッチしなかったら`false`を返します。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.jsonb_ops`：`jsonb`型のデフォルト
+
+  * `pgroonga.jsonb_ops_v2`：`jsonb`型用
 
 ## 使い方
 
@@ -93,7 +103,7 @@ CREATE TABLE values (
 
   * `key`：値のIDです。値が違うパスで違う内容なら`key`は違う値になります。キーのフォーマットは`'${パス}|${種類}|${値}'`です。このカラムは検索条件には使いません。
 
-  * `path`：値がある位置へのルートからのパスです。[jq](https://stedolan.github.io/jq/)互換のフォーマットです。オブジェクトは`["${要素名}"]`で配列は`[]`です。たとえば、`{"tags": ["web"]}`の中の`"web"`のパスは`.["tags"][]`です。もし、値の絶対パスを知っているなら検索条件でこの値を使えます。
+  * `path`：値がある位置へのルートからのパスです。[jq][jq]互換のフォーマットです。オブジェクトは`["${要素名}"]`で配列は`[]`です。たとえば、`{"tags": ["web"]}`の中の`"web"`のパスは`.["tags"][]`です。もし、値の絶対パスを知っているなら検索条件でこの値を使えます。
 
   * `paths`: 値を示すパスです。値を示すパスは複数あります。絶対パス、サブパス、`.${要素名1}.${要素名2}`というフォーマットのパス、配列部分を省略したパスがあります。このカラムは検索条件の指定を便利にするために用意されています。検索時にはこの中のパスのどれでも使うことができます。以下はどれも`{"a": {"b": "c": ["x"]}}`の中の`"x"`を指定するパスです。
 
@@ -157,7 +167,7 @@ CREATE TABLE values (
 
 次は`www.example.com`という文字列値を含む`jsonb`型の値を検索する条件です。
 
-（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数]({{ site.postgresql_doc_base_url.ja }}/functions-json.html#functions-json-processing-table)を使っています。）
+（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-pretty]を使っています。）
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == "www.example.com"';
@@ -218,7 +228,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string @ "started"';
 -- (1 row)
 ```
 
-全文検索用に[Groongaのクエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)（`a OR b`という構文を使えます）を使うには`query("string", "...")`という構文を使います。
+全文検索用に[Groongaのクエリー構文][groonga-query-syntax]（`a OR b`という構文を使えます）を使うには`query("string", "...")`という構文を使います。
 
 ```sql
 SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query("string", "send OR server")';
@@ -245,5 +255,22 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query("string", "send OR 
 
 ## 参考
 
-  * [`jsonb`サポート](../jsonb.html)
-  * [`@>`演算子](jsonb-contain.html)
+  * [`jsonb`サポート][jsonb]
+
+  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
+
+  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
+
+[jsonb]:../jsonb.html
+
+[contain-jsonb]:contain-jsonb.html
+[script-jsonb-v2]:script-jsonb-v2.html
+[jsquery]:https://github.com/postgrespro/jsquery
+
+[jq]:https://stedolan.github.io/jq/
+
+[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html
+
+[groonga-script-syntax]:http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html
+
+[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.ja }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

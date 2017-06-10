@@ -68,11 +68,11 @@ SELECT * FROM tags WHERE alias &^| ARRAY['pg', 'mrn'];
 
 ## See also
 
-  * [`&^` operator][prefix-search-v2]
+  * [`&^` operator][prefix-search-v2]: Prefix search
 
-  * [`&^~` operator][prefix-rk-search-v2]
+  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
 
-  * [`&^~|` operator][prefix-rk-search-in-v2]
+  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
 [prefix-search-v2]:prefix-search-v2.html
 

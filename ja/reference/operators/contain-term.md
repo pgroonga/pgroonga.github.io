@@ -1,37 +1,37 @@
 ---
-title: "%% operator for varchar[]"
+title: "varchar[]用の%%演算子"
 upper_level: ../
 ---
 
-# `%%` operator for `varchar[]`
+# `varchar[]`用の`%%`演算子
 
-## Summary
+## 概要
 
 This operator is deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead.
 
 `%%` operator checks whether a term is included in an array of terms.
 
-## Syntax
+## 構文
 
 ```sql
 column %% term
 ```
 
-`column` is a column to be searched. It's `varchar[]` type.
+`column`は検索対象のカラムです。型は`varchar[]`型です。
 
-`term` is a term to be found. It's `varchar` type.
+`term`は検索条件の単語です。型は`varchar`です。
 
-## Operator classes
+## 演算子クラス
 
-You need to specify one of the following operator classes to use this operator:
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.varchar_array_ops`: Default for `varchar[]`
+  * `pgroonga.varchar_array_ops`：`varchar[]`型のデフォルト
 
-  * `pgroonga.varchar_array_term_search_ops`: For `varchar[]`
+  * `pgroonga.varchar_array_term_search_ops`：`varchar[]`用
 
-## Usage
+## 使い方
 
-Here are sample schema and data for examples:
+例に使うサンプルスキーマとデータは次の通りです。
 
 ```sql
 CREATE TABLE memos (
@@ -49,7 +49,7 @@ INSERT INTO memos VALUES (3, ARRAY['PGroonga', 'PostgreSQL', 'Groonga']);
 INSERT INTO memos VALUES (4, ARRAY['Groonga']);
 ```
 
-You can find records that contain `'Groonga'` term in an array of terms by `%%` operator:
+`%%`演算子を使うと単語の配列中から`'Groonga'`という単語を含むレコードを検索できます。
 
 ```sql
 SELECT * FROM memos WHERE tags %% 'Groonga';
@@ -61,8 +61,8 @@ SELECT * FROM memos WHERE tags %% 'Groonga';
 -- (3 rows)
 ```
 
-## See also
+## 参考
 
-  * [`&>` operator][contain-term-v2]: Check whether a term is included in an array of terms
+  * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック
 
 [contain-term-v2]:contain-term-v2.html

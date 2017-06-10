@@ -5,11 +5,11 @@ upper_level: ../
 
 # `` &` ``演算子
 
+1.2.1で追加。
+
 ## 概要
 
-この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。
-
-`` &` ``演算子は[スクリプト構文](http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html)で書かれた検索条件で検索します。スクリプト構文は強力な構文です。全文検索、前方一致検索、範囲検索といった多くの演算を使えます。
+`` &` ``演算子は[スクリプト構文][groonga-script-syntax]で書かれた検索条件で検索します。スクリプト構文は強力な構文です。全文検索、前方一致検索、範囲検索といった多くの演算ができます。
 
 ## 構文
 
@@ -17,11 +17,21 @@ upper_level: ../
 column &` script
 ```
 
-`column`は検索対象のカラムです。
+`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
-`script`は検索条件を指定したスクリプトです。`text`型です。
+`script`は検索条件を指定するスクリプトです。`column`が`text`型または`text[]`の場合は型は`text`型になります。`column`が`varchar`型の場合は型は`varchar`型になります。
 
-`script`の構文は[スクリプト構文](http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html)です。
+`script`の構文は[スクリプト構文][groonga-script-syntax]です。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+
+  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -60,8 +70,12 @@ SELECT * FROM memos WHERE content &` 'id >= 2 && (content @ "全文検索" || co
 
   * `content`は`"全文検索"`または`"MySQL"`を含んでいること（全文検索）
 
-スクリプト中では[関数](http://groonga.org/ja/docs/reference/function.html)を使うこともできます。
+スクリプト中では[関数][groonga-functions]を使うこともできます。
 
 ## シーケンシャルスキャン
 
 シーケンシャルスキャン時にはこの演算子を使うことはできません。
+
+[groonga-script-syntax]:http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html
+
+[groonga-functions]:http://groonga.org/docs/reference/function.html

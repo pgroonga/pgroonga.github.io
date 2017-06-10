@@ -5,7 +5,7 @@ upper_level: ../
 
 # `&?|` operator
 
-Since 2.0.0.
+Since 1.2.1.
 
 ## Summary
 
@@ -77,11 +77,11 @@ SELECT * FROM memos WHERE content &?| ARRAY['Groonga engine', 'PostgreSQL -PGroo
 
 ## See also
 
-  * [`&?` operator][query-v2]
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
 
   * [Groonga's query syntax][groonga-query-syntax]
 
-  * [`&@|` operator][match-in-v2]
+  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords
 
 [query-v2]:query-v2.html
 

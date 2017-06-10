@@ -68,6 +68,6 @@ SELECT * FROM tags WHERE name &^ 'pg';
 
 ## See also
 
-  * [`&^?` operator][prefix-rk-search-v2]
+  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
 
 [prefix-rk-search-v2]:prefix-rk-search-v2.html

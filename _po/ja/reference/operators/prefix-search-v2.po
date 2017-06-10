@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-12-05 15:49+0900\n"
+"PO-Revision-Date: 2017-06-10 13:55+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +22,16 @@ msgstr ""
 msgid "# `&^` operator"
 msgstr "# `&^`演算子"
 
+msgid "Since 1.2.1."
+msgstr "1.2.1で追加。"
+
 msgid "## Summary"
 msgstr "## 概要"
 
 msgid ""
-"This operator uses v2 operator class. It doesn't provide backward compatibilit"
-"y until PGroonga 2.0.0. Use it carefully."
-msgstr "この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。"
+"`&^>` operator for `text[]` is deprecated since 1.2.1. Use `&^` operator inste"
+"ad."
+msgstr "1.2.1から`text[]`用の`&^>`演算子は非推奨になりました。代わりに`&^`演算子を使ってください。"
 
 msgid "`&^` operator performs prefix search."
 msgstr "`&^`演算子は前方一致検索を実行します。"
@@ -45,14 +48,28 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type."
-msgstr "`column`は検索対象のカラムです。`text`型です。"
+msgid "`column` is a column to be searched. It's `text` type or `text[]` type."
+msgstr "`column`は検索対象のカラムです。型は`text`型か`text[]`型です。"
 
 msgid "`prefix` is a prefix to be found. It's `text` type."
 msgstr "`prefix`は含まれているべきプレフィックスです。`text`型です。"
 
 msgid "The operator returns `true` when the `column` value starts with `prefix`."
 msgstr "`column`の値が`prefix`から始まっていれば`true`を返します。"
+
+msgid "## Operator classes"
+msgstr "## 演算子クラス"
+
+msgid ""
+"You need to specify one of the following operator classes to use this operator"
+":"
+msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
+
+msgid "  * `pgroonga.text_term_search_ops_v2`: For `text`"
+msgstr "  * `pgroonga.text_term_search_ops_v2`：`text`用"
+
+msgid "  * `pgroonga.text_array_term_search_ops_v2`: For `text[]`"
+msgstr "  * `pgroonga.text_array_term_search_ops_v2`：`text[]`用"
 
 msgid "## Usage"
 msgstr "## 使い方"
@@ -99,5 +116,8 @@ msgstr ""
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`&^?` operator](prefix-rk-search-v2.html)"
-msgstr "  * [`&^?`演算子](prefix-rk-search-v2.html)"
+msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
+msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
+
+msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
+msgstr ""

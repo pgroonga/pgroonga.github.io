@@ -5,9 +5,11 @@ upper_level: ../
 
 # `&^`演算子
 
+1.2.1で追加。
+
 ## 概要
 
-この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。
+1.2.1から`text[]`用の`&^>`演算子は非推奨になりました。代わりに`&^`演算子を使ってください。
 
 `&^`演算子は前方一致検索を実行します。
 
@@ -19,11 +21,19 @@ upper_level: ../
 column &^ prefix
 ```
 
-`column`は検索対象のカラムです。`text`型です。
+`column`は検索対象のカラムです。型は`text`型か`text[]`型です。
 
 `prefix`は含まれているべきプレフィックスです。`text`型です。
 
 `column`の値が`prefix`から始まっていれば`true`を返します。
+
+## 演算子クラス
+
+この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
+
+  * `pgroonga.text_term_search_ops_v2`：`text`用
+
+  * `pgroonga.text_array_term_search_ops_v2`：`text[]`用
 
 ## 使い方
 
@@ -58,4 +68,6 @@ SELECT * FROM tags WHERE name &^ 'pg';
 
 ## 参考
 
-  * [`&^?`演算子](prefix-rk-search-v2.html)
+  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索
+
+[prefix-rk-search-v2]:prefix-rk-search-v2.html

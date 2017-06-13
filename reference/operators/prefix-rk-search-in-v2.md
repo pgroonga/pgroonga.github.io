@@ -18,14 +18,14 @@ Prefix RK search is useful for implementing input completion.
 ## Syntax
 
 ```sql
-column &^~| prefix
+column &^~| prefixes
 ```
 
 `column` is a column to be searched. It's `text` type or `text[]` type.
 
-`prefix` is an array of prefixes to be found. It's `text[]` type.
+`prefixes` is an array of prefixes to be found. It's `text[]` type.
 
-`column` values must be in Katakana. `prefix` must be in Romaji, Hiragana or Katakana.
+`column` values must be in Katakana. `prefixes` must be in Romaji, Hiragana or Katakana.
 
 The operator returns `true` when the `column` value starts with one or more prefixes in `prefixes`.
 
@@ -97,11 +97,11 @@ SELECT * FROM tags WHERE reading &^~| ARRAY['ピージー', 'ポス'];
 
 ## See also
 
-  * [`&^` operator][prefix-search-v2]
+  * [`&^` operator][prefix-search-v2]: Prefix search
 
-  * [`&^|` operator][prefix-search-in-v2]
+  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
-  * [`&^~` operator][prefix-rk-search-v2]
+  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
 
 [groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix_rk_search.html
 

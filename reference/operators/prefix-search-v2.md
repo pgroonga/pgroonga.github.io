@@ -75,3 +75,8 @@ SELECT * FROM tags WHERE name &^ 'pg';
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
 [prefix-rk-search-v2]:prefix-rk-search-v2.html
+
+[prefix-search-in-v2]:prefix-search-in-v2.html
+
+[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html
+

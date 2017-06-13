@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-06-10 14:12+0900\n"
+"PO-Revision-Date: 2017-06-13 13:38+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -130,4 +130,10 @@ msgid ""
 msgstr "  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
 
 msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
+msgstr ""
+
+msgid "[prefix-search-in-v2]:prefix-search-in-v2.html"
+msgstr ""
+
+msgid "[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html"
 msgstr ""

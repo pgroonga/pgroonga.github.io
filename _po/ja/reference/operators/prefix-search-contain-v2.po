@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2016-12-05 15:49+0900\n"
+"PO-Revision-Date: 2017-06-10 14:14+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,103 +12,11 @@ msgid ""
 "---\n"
 "title: \"&^> operator\"\n"
 "upper_level: ../\n"
+"redirect: prefix-search-v2.html\n"
 "---"
 msgstr ""
 "---\n"
 "title: \"&^>演算子\"\n"
 "upper_level: ../\n"
+"redirect: prefix-search-v2.html\n"
 "---"
-
-msgid "# `&^>` operator"
-msgstr "# `&^>`演算子"
-
-msgid "Since 1.0.9."
-msgstr "1.0.9で追加。"
-
-msgid "## Summary"
-msgstr "## 概要"
-
-msgid ""
-"This operator uses v2 operator class. It doesn't provide backward compatibilit"
-"y until PGroonga 2.0.0. Use it carefully."
-msgstr "この演算子はv2演算子クラスを使います。v2演算子クラスはPGroonga 2.0.0まで互換性を提供しません。注意して使ってください。"
-
-msgid "`&^>` operator performs prefix search."
-msgstr "`&^>`演算子は前方一致検索を実行します。"
-
-msgid "Prefix search is useful for implementing input completion."
-msgstr "前方一致検索は入力補完機能を実現する場合に便利です。"
-
-msgid "## Syntax"
-msgstr "## 構文"
-
-msgid ""
-"```sql\n"
-"column &^> prefix\n"
-"```"
-msgstr ""
-
-msgid "`column` is a column to be searched. It's `text[]` type."
-msgstr "`column`は検索対象のカラムです。`text[]`型です。"
-
-msgid "`prefix` is a prefix to be found. It's `text` type."
-msgstr "`prefix`は含まれているべきプレフィックスです。`text`型です。"
-
-msgid ""
-"The operator returns `true` when one of the `column` values start with `prefix"
-"`."
-msgstr "`column`のどれかの値が`prefix`から始まっていれば`true`を返します。"
-
-msgid "## Usage"
-msgstr "## 使い方"
-
-msgid "Here are sample schema and data for examples:"
-msgstr "例に使うサンプルスキーマとデータは次の通りです。"
-
-msgid ""
-"```sql\n"
-"CREATE TABLE tags (\n"
-"  name text PRIMARY KEY,\n"
-"  aliases text[]\n"
-");"
-msgstr ""
-
-msgid ""
-"CREATE INDEX pgroonga_tag_aliases_index ON tags\n"
-"  USING pgroonga (aliases pgroonga.text_array_term_search_ops_v2);\n"
-"```"
-msgstr ""
-
-msgid ""
-"```sql\n"
-"INSERT INTO tags VALUES ('PostgreSQL', ARRAY['PostgreSQL', 'PG']);\n"
-"INSERT INTO tags VALUES ('Groonga',    ARRAY['Groonga', 'grn']);\n"
-"INSERT INTO tags VALUES ('PGroonga',   ARRAY['PGroonga', 'pgrn']);\n"
-"```"
-msgstr ""
-
-msgid "You can perform prefix search with prefix by `&^>` operator:"
-msgstr "`&^>`演算子を使うと指定したプレフィックスで前方一致検索を実行できます。"
-
-msgid ""
-"```sql\n"
-"SELECT * FROM tags WHERE aliases &^> 'pg';\n"
-"--     name    |     aliases     \n"
-"-- ------------+-----------------\n"
-"--  PostgreSQL | {PostgreSQL,PG}\n"
-"--  PGroonga   | {PGroonga,pgrn}\n"
-"-- (2 rows)\n"
-"```"
-msgstr ""
-
-msgid "## See also"
-msgstr "## 参考"
-
-msgid "  * [`&^` operator](prefix-search-v2.html)"
-msgstr "  * [`&^`演算子](prefix-search-v2.html)"
-
-msgid "  * [`&^~` operator](prefix-rk-search-v2.html)"
-msgstr "  * [`&^~`演算子](prefix-rk-search-v2.html)"
-
-msgid "  * [`&^~>` operator](prefix-rk-search-contain-v2.html)"
-msgstr "  * [`&^~>`演算子](prefix-rk-search-contain-v2.html)"

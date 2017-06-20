@@ -90,4 +90,6 @@ TODO: Describe about `SET search_path = "$user",public,pgroonga,pg_catalog;`.
 
 [match-v2]:match-v2.html
 
+[query-v2]:query-v2.html
+
 [groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html

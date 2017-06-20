@@ -184,6 +184,9 @@ msgstr "  * [Groongaのクエリーの構文][groonga-query-syntax]"
 msgid "[match-v2]:match-v2.html"
 msgstr ""
 
+msgid "[query-v2]:query-v2.html"
+msgstr ""
+
 msgid ""
 "[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax"
 ".html"

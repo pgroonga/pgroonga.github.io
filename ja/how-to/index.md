@@ -8,9 +8,9 @@ title: ハウツー
 
 このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！
 
-## オートコンプリートする方法
+## オートコンプリートの実装方法
 
-  * [オートコンプリートする方法](autocomplete.html)
+  * [オートコンプリートの実装方法](auto-complete.html)
 
 ## Webアプリケーションフレームワークと一緒にPGroongaを使う方法
 

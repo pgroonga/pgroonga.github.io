@@ -120,4 +120,5 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &? 'server OR mail';
 [contain-jsonb]:contain-jsonb.html
 
 [groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html
+
 [postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE

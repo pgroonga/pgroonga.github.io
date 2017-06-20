@@ -8,6 +8,10 @@ title: ハウツー
 
 このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！
 
+## オートコンプリートする方法
+
+  * [オートコンプリートする方法](autocomplete.html)
+
 ## Webアプリケーションフレームワークと一緒にPGroongaを使う方法
 
   * Ruby on Railsと一緒に使う方法：TODO

@@ -3,7 +3,7 @@ title: "&` operator for jsonb type"
 upper_level: ../
 ---
 
-# `` &`` `` operator for `jsonb` type
+# `` &` `` operator for `jsonb` type
 
 Since 1.2.1.
 

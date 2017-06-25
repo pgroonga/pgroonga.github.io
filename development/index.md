@@ -88,7 +88,7 @@ Regression tests exist under `sql/` directory. For example, `sql/full-text-searc
 
   * `text` type
 
-  * [`&@`][match-v2-operator] (v2 match operator)
+  * [`&@`][match-v2] (v2 match operator)
 
   * Index scan
 

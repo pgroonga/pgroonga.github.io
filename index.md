@@ -51,6 +51,8 @@ PostgreSQL supports full text search against languages that use only alphabet an
 
   * [Users](users/): It lists PGroonga users.
 
+  * [Development](development/): It describes how to develop PGroonga.
+
 ## License {#license}
 
 PGroonga is released under [PostgreSQL license](http://opensource.org/licenses/postgresql) that is similar to BSD license and MIT license.

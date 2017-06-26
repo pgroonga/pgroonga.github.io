@@ -46,7 +46,7 @@ PostgreSQLを初期化して実行します。
 以下のワンライナーはPostgreSQL関連のすべてのデータをリセットするときに便利です。このワンライナーをシェルのヒストリーに入れておけば、すぐにこのワンライナーを再実行できます。
 
 ```console
-% rm -rf /tmp/local/lib/postgresql && \
+% rm -rf /tmp/local/var/lib/postgresql && \
     mkdir -p /tmp/local/var/lib/postgresql &&
     /tmp/local/bin/initdb \
       --locale C \

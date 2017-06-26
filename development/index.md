@@ -46,7 +46,7 @@ Initialize and run PostgreSQL:
 The following one liner is useful to reset all PostgreSQL related data. You store the one liner in your shell history, you can rerun the one linear quickly:
 
 ```console
-% rm -rf /tmp/local/lib/postgresql && \
+% rm -rf /tmp/local/var/lib/postgresql && \
     mkdir -p /tmp/local/var/lib/postgresql &&
     /tmp/local/bin/initdb \
       --locale C \

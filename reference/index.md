@@ -194,6 +194,26 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
 #### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
 
+  * `<`
+
+    * Since 1.2.2.
+
+  * `<=`
+
+    * Since 1.2.2.
+
+  * `=`
+
+    * Since 1.2.2.
+
+  * `>=`
+
+    * Since 1.2.2.
+
+  * `>`
+
+    * Since 1.2.2.
+
   * [`&^` operator][prefix-search-v2]: Prefix search
 
   * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search

@@ -2,5 +2,6 @@
 *.edit.po~
 *.pot
 *.time_stamp
+/.sass-cache/
 /_site/
 /_po/*.po

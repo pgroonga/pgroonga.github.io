@@ -4,6 +4,36 @@ title: おしらせ
 
 # おしらせ
 
+## 1.2.2: 2017-07-03 {#version-1-2-2}
+
+### 改良
+
+  * Improved performance against empty array.
+
+  * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Ignored tokenizer option.
+
+  * Supported `NULL` value for `jsonb` column.
+    [groonga-dev,04382][Reported by Hirokazu Matsuo]
+
+  * [[`pgroonga.query_expand` function][query-expand]]: Added
+
+  * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Supported comparison operators.
+
+  * Stopped to use `?` for operator name:
+    [GitHub#45][Reported by YUKI "Piro" Hiroshi]
+
+    * [[`&@~` operator][query-v2]]: Added. Deprecated `&?` operator.
+
+    * [[`&@~|` operator][query-in-v2]]: Added. Deprecated `&?|` operator.
+
+    * [[`&@*` operator][similar-v2]]: Added. Deprecated `&~?` operator.
+
+### 感謝
+
+  * Hirokazu Matsuo
+
+  * YUKI "Piro" Hiroshi
+
 ## 1.2.1: 2017-06-08 {#version-1-2-1}
 
 ### 改良
@@ -681,5 +711,7 @@ The first release!!!
 [query-jsonb-v2]:../reference/operators/query-jsonb-v2.html
 [script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
 [regular-expression-v2]:../reference/operators/regular-expression-v2.html
+
+[query-expand]:../reference/functions/pgroonga-query-expand.html
 
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html

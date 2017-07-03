@@ -9,7 +9,7 @@ Since 1.2.2.
 
 ## Summary
 
-`pgroonga.query_expand` function expands registered synonyms in query in [query syntax][groonga-query-syntax]. Query syntax is used by [`&@*` operator][query-v2], [`&@*|` operator][query-in-v2] and so on.
+`pgroonga.query_expand` function expands registered synonyms in query in [query syntax][groonga-query-syntax]. Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on.
 
 `pgroonga.query_expand` function is useful to implement [query expansion][wikipedia-query-expansion]. See also [document for Groonga's query expansion feature][groonga-query-expander].
 
@@ -87,9 +87,9 @@ SELECT pgroonga.query_expand('synonyms', 'term', 'synonyms',
 
 ## See also
 
-  * [`&@*` operator][query-v2]: Full text search by easy to use query language
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
 
-  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
 [groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html
 

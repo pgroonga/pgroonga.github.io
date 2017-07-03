@@ -67,15 +67,15 @@ SELECT * FROM memos WHERE content &@| ARRAY['engine', 'database'];
 -- (2 rows)
 ```
 
-`column &@| ARRAY['KEYWORD1', 'KEYWORD2']` equals to `column &? 'KEYWORD1 OR KEYWORD2'`.
+`column &@| ARRAY['KEYWORD1', 'KEYWORD2']` equals to `column &@~ 'KEYWORD1 OR KEYWORD2'`.
 
 ## See also
 
   * [`&@` operator][match-v2]: Full text search by a keyword
 
-  * [`&?` operator][query-v2]: Full text search by easy to use query language
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
 
-  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
 [match-v2]:match-v2.html
 [query-v2]:query-v2.html

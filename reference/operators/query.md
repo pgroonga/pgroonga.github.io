@@ -5,9 +5,9 @@ upper_level: ../
 
 # `@@` operator for non `jsonb` types
 
-## Summary
+This operator is deprecated since 1.2.0. Use [`&@*` operator][query-v2] instead.
 
-This operator is deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
+## Summary
 
 `@@` operator performs full text search with query.
 

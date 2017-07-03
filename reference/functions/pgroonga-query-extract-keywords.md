@@ -9,7 +9,7 @@ Since 1.0.7.
 
 ## Summary
 
-`pgroonga.query_extract_keywords` function extract keywords from text that uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`@@` operator](../operators/query.html), [`&?` operator](../operators/query-v2.html) and so on.
+`pgroonga.query_extract_keywords` function extract keywords from text that uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on.
 
 Extracting keywords from query helps you to use [`pgroonga.snippet_html` function](pgroonga-snippet-html.html), [`pgroonga.highlight_html` function](pgroonga-highlight-html.html) and so on. They require keywords as an argument. Normally, the keywords must be keywords in query.
 
@@ -76,3 +76,7 @@ SELECT pgroonga.query_extract_keywords('Groonga - MySQL PostgreSQL');
   * [`pgroonga.highlight_html` function](pgroonga-query-highlight-html.html)
 
   * [`pgroonga.match_positions_byte` function](pgroonga-match-positions-byte.html)
+
+[query-v2]:../operators/query-v2.html
+
+[query-in-v2]:../operators/query-in-v2.html

@@ -9,7 +9,7 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga.query_escape`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)で特別な意味を持つ文字をエスケープします。[`@@`演算子](../operators/query.html)、[`&?`演算子](../operators/query-v2.html)などがクエリー構文を使っています。
+`pgroonga.query_escape`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)で特別な意味を持つ文字をエスケープします。[`&@~`演算子][query-v2]、[`&@~|`演算子][query-in-v2]などがクエリー構文を使っています。
 
 `pgroonga.query_escape`関数は[`pgroonga.command`関数](pgroonga-command.html)経由でGroongaコマンドインジェクションが発生することを防ぐときに有用です。Groongaコマンドインジェクションを防ぐことについては[`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)と[`pgroonga.escape`関数](pgroonga-escape.html)も参照してください。
 
@@ -183,3 +183,7 @@ SELECT jsonb_pretty(
   * [`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)
 
   * [`pgroonga.escape`関数](pgroonga-escape.html)
+
+[query-v2]:../operators/query-v2.html
+
+[query-in-v2]:../operators/query-in-v2.html

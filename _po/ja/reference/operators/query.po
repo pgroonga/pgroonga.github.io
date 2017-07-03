@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-06-07 23:10+0900\n"
+"PO-Revision-Date: 2017-07-03 11:56+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,13 +22,13 @@ msgstr ""
 msgid "# `@@` operator for non `jsonb` types"
 msgstr "# `jsonb`型以外の型用の`@@`演算子"
 
+msgid ""
+"This operator is deprecated since 1.2.0. Use [`&@*` operator][query-v2] instea"
+"d."
+msgstr "この演算子は1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。"
+
 msgid "## Summary"
 msgstr "## 概要"
-
-msgid ""
-"This operator is deprecated since 1.2.0. Use [`&?` operator][query-v2] instead"
-"."
-msgstr "この演算子は1.2.0から非推奨です。代わりに[`&?`演算子][query-v2]を使ってください。"
 
 msgid "`@@` operator performs full text search with query."
 msgstr "`@@`演算子はクエリーを使って全文検索を実行します。"

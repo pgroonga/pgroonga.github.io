@@ -42,11 +42,15 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
   * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
-    * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
+    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
 
 #### `pgroonga.text_regexp_ops` operator class {#text-regexp-ops}
 
@@ -68,11 +72,15 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
   * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
-    * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
+    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
 
 ### For `varchar`
 
@@ -96,11 +104,15 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
 
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
   * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
-    * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead.
+    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
 
 #### `pgroonga.varchar_regexp_ops` operator class {#varchar-regexp-ops}
 
@@ -140,7 +152,11 @@ Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double pre
 
   * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
+  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+
   * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead.
 
   * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
 
@@ -170,7 +186,11 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
   * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
@@ -186,11 +206,15 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead.
 
+  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
   * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~|` operator][query-in-v2] instead.
 
   * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
-    * Deprecated since 1.2.1. Use [`&?|` operator][query-in-v2] instead.
+    * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead.
 
 #### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
 
@@ -252,13 +276,21 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
   * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+  * [`&@*` operator][similar-search-v2]: Similar search
+
   * [`&~?` operator][similar-search-v2]: Similar search
+
+    * Deprecated since 1.2.2. Use [`&@*` operator][similar-search-v2] instead.
 
   * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query language 
 
@@ -268,11 +300,15 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead.
 
+  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
   * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~|` operator][query-in-v2] instead.
 
   * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
-    * Deprecated since 1.2.1. Use [`&?|` operator][query-in-v2] instead.
+    * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead.
 
 #### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term-search-ops-v2}
 
@@ -302,13 +338,21 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
   * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
 
   * [`@@` operator][query]: Full text search by easy to use query language
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+  * [`&@*` operator][similar-search-v2]: Similar search
+
   * [`&~?` operator][similar-search-v2]: Similar search
+
+    * Deprecated since 1.2.2. Use [`&@*` operator][similar-search-v2] instead.
 
   * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query language 
 
@@ -318,11 +362,15 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Deprecated since 1.2.1. Use [`&@|` operator][query-in-v2] instead.
 
+  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
   * [`&?|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~|` operator][query-in-v2] instead.
 
   * [`&?>` operator][query-in-v2]: Full text search by an array of queries in easy to use query language
 
-    * Deprecated since 1.2.1. Use [`&?|` operator][query-in-v2] instead.
+    * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead.
 
 #### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
 
@@ -348,7 +396,11 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
+  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+
   * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead.
 
   * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
 

@@ -1,22 +1,24 @@
 ---
-title: "jsonb型以外の型用の&?演算子"
+title: "jsonb型以外の型用の&@~演算子"
 upper_level: ../
 ---
 
-# `jsonb`型以外の型用の`&?`演算子
+# `jsonb`型以外の型用の`&@~`演算子
 
 1.2.0で追加。
 
+`&?`演算子は1.2.2から非推奨です。代わりに`&@~`演算子を使ってください。
+
 ## 概要
 
-`&?`演算子はクエリーを使って全文検索を実行します。
+`&@~`演算子はクエリーを使って全文検索を実行します。
 
 クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。
 
 ## 構文
 
 ```sql
-column &? query
+column &@~ query
 ```
 
 `column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
@@ -61,10 +63,10 @@ INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを�
 INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 ```
 
-`@?`演算子を使うと`キーワード1 キーワード2`のように複数のキーワードを指定して全文検索できます。`キーワード1 OR キーワード2`のようにOR検索することもできます。
+`&@~`演算子を使うと`キーワード1 キーワード2`のように複数のキーワードを指定して全文検索できます。`キーワード1 OR キーワード2`のようにOR検索することもできます。
 
 ```sql
-SELECT * FROM memos WHERE content &? 'PGroonga OR PostgreSQL';
+SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';
 --  id |                                  content
 -- ----+---------------------------------------------------------------------------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。

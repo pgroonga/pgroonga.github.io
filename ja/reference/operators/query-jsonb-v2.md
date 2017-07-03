@@ -1,22 +1,24 @@
 ---
-title: "jsonb型用の&?演算子"
+title: "jsonb型用の&@~演算子"
 upper_level: ../
 ---
 
-# `jsonb`型用の`&?`演算子
+# `jsonb`型用の`&@~`演算子
 
 1.2.1で追加。
 
+`&?`演算子は1.2.2から非推奨です。代わりに`&@~`演算子を使ってください。
+
 ## 概要
 
-`&?`は`jsonb`内のすべてのテキストに対してクエリーを使って全文検索を実行します。
+`&@~`は`jsonb`内のすべてのテキストに対してクエリーを使って全文検索を実行します。
 
 クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。
 
 ## 構文
 
 ```sql
-column &? query
+column &@~ query
 ```
 
 `column`は検索対象のカラムです。型は`jsonb`型です。
@@ -74,12 +76,12 @@ INSERT INTO logs
               }');
 ```
 
-`@?`演算子を使うと`キーワード1 キーワード2`のように複数のキーワードを指定して全文検索できます。`キーワード1 OR キーワード2`のようにOR検索することもできます。
+`&@~`演算子を使うと`キーワード1 キーワード2`のように複数のキーワードを指定して全文検索できます。`キーワード1 OR キーワード2`のようにOR検索することもできます。
 
 （読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-pretty]を使っています。）
 
 ```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record &? 'server OR mail';
+SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';
 --                  jsonb_pretty                 
 -- ----------------------------------------------
 --  {                                           +

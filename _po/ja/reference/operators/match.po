@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-06-07 22:57+0900\n"
+"PO-Revision-Date: 2017-07-03 11:53+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -143,8 +143,8 @@ msgstr ""
 
 msgid ""
 "If you want to perform full text search with multiple keywords or AND/OR searc"
-"h, use [`&?` operator][query-v2]."
-msgstr "複数のキーワードで全文検索したいときやAND/ORを使った検索をしたいときは[`&?`演算子][query-v2]を使います。"
+"h, use [`&@~` operator][query-v2]."
+msgstr "複数のキーワードで全文検索したいときやAND/ORを使った検索をしたいときは[`&@~`演算子][query-v2]を使います。"
 
 msgid ""
 "If you want to perform full text search with multiple keywords OR search, use "
@@ -154,8 +154,8 @@ msgstr "複数のキーワードでOR全文検索をしたいときは[`&@|`演�
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`&?` operator][query-v2]: Full text search by easy to use query language"
-msgstr "  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索"
+msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+msgstr "  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索"
 
 msgid "  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
 msgstr "  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索"

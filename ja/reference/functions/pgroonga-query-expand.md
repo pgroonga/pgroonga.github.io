@@ -9,7 +9,7 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga.query_expand`関数は[クエリー構文][groonga-query-syntax]を使ったクエリー内にある登録済みの同義語を展開します。クエリー構文は[`&@*`演算子][query-v2]や[`&@*|`演算子][query-in-v2]で使われています。
+`pgroonga.query_expand`関数は[クエリー構文][groonga-query-syntax]を使ったクエリー内にある登録済みの同義語を展開します。クエリー構文は[`&@~`演算子][query-v2]や[`&@~|`演算子][query-in-v2]で使われています。
 
 `pgroonga.query_expand`関数は[クエリー展開][wikipedia-query-expansion]機能を実現するときに便利です。[Groongaのクエリー展開機能のドキュメント][groonga-query-expander]も参照してください。
 
@@ -87,9 +87,9 @@ SELECT pgroonga.query_expand('synonyms', 'term', 'synonyms',
 
 ## 参考
 
-  * [`&@*` operator][query-v2]: Full text search by easy to use query language
+  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索
 
-  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
+  * [`&@~|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索
 
 [groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html
 

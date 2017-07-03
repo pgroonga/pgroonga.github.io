@@ -1,22 +1,24 @@
 ---
-title: "&? operator for non jsonb types"
+title: "&@~ operator for non jsonb types"
 upper_level: ../
 ---
 
-# `&?` operator for non `jsonb` types
+# `&@~` operator for non `jsonb` types
 
 Since 1.2.0.
 
+`&?` operator is deprecated since 1.2.2. Use `&@~` operator instead.
+
 ## Summary
 
-`&?` operator performs full text search with query.
+`&@~` operator performs full text search with query.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query.
 
 ## Syntax
 
 ```sql
-column &? query
+column &@~ query
 ```
 
 `column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
@@ -61,10 +63,10 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
-You can perform full text search with multiple keywords by `&?` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
+You can perform full text search with multiple keywords by `&@~` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
 
 ```sql
-SELECT * FROM memos WHERE content &? 'PGroonga OR PostgreSQL';
+SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';
 --  id |                            content                             
 -- ----+----------------------------------------------------------------
 --   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.

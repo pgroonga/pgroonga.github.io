@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-07-03 11:25+0900\n"
+"PO-Revision-Date: 2017-07-03 11:56+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -99,14 +99,20 @@ msgstr "  * [`%%` operator][match]：キーワード1つでの全文検索"
 msgid "    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead."
 msgstr "    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。"
 
+msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+msgstr "  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索"
+
 msgid "  * [`&?` operator][query-v2]: Full text search by easy to use query language"
 msgstr "  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。"
 
 msgid "  * [`@@` operator][query]: Full text search by easy to use query language"
 msgstr "  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索"
 
-msgid "    * Deprecated since 1.2.0. Use [`&?` operator][query-v2] instead."
-msgstr "    * 1.2.0から非推奨です。代わりに[`&?`演算子][query-v2]を使ってください。"
+msgid "    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead."
+msgstr "    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。"
 
 msgid "#### `pgroonga.text_regexp_ops` operator class {#text-regexp-ops}"
 msgstr "#### `pgroonga.text_regexp_ops`演算子クラス {#text-regexp-ops}"
@@ -199,9 +205,17 @@ msgid ""
 msgstr "  * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索"
 
 msgid ""
+"  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data i"
+"n `jsonb` by easy to use query language"
+msgstr "  * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索"
+
+msgid ""
 "  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in"
 " `jsonb` by easy to use query language"
 msgstr "  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-jsonb-v2]を使ってください。"
 
 msgid ""
 "  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like q"
@@ -267,17 +281,25 @@ msgid "    * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&@|`演算子][match-in-v2]を使ってください。"
 
 msgid ""
+"  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in"
+" easy to use query language"
+msgstr "  * [`&@~|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
+
+msgid ""
 "  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in "
 "easy to use query language"
 msgstr "  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@~|` operator][query-in-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。"
 
 msgid ""
 "  * [`&?>` operator][query-in-v2]: Full text search by an array of queries in "
 "easy to use query language"
 msgstr "  * [`&?>`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
 
-msgid "    * Deprecated since 1.2.1. Use [`&?|` operator][query-in-v2] instead."
-msgstr "    * 1.2.1から非推奨です。代わりに[`&?|`演算子][query-in-v2]を使ってください。"
+msgid "    * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。"
 
 msgid ""
 "#### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-"
@@ -332,6 +354,12 @@ msgid ""
 msgstr ""
 "#### `pgroonga.text_array_full_text_search_ops_v2`演算子クラス {#text-array-full-tex"
 "t-search-ops-v2}"
+
+msgid "  * [`&@*` operator][similar-search-v2]: Similar search"
+msgstr "  * [`&@*`演算子][similar-search-v2]：類似文書検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@*` operator][similar-search-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@*`演算子][similar-search-v2]を使ってください。"
 
 msgid ""
 "#### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term"

@@ -9,7 +9,7 @@ Since 1.1.9.
 
 ## Summary
 
-`pgroonga.query_escape` function escapes special characters in [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`@@` operator](../operators/query.html), [`&?` operator](../operators/query-v2.html) and so on.
+`pgroonga.query_escape` function escapes special characters in [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on.
 
 `pgroonga.query_escape` function is useful to prevent Groonga command injection via [`pgroonga.command` function](pgroonga-command.html). See also [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html) and [`pgroonga.escape` function](pgroonga-escape.html) for preventing Groonga command injection.
 
@@ -183,3 +183,7 @@ SELECT jsonb_pretty(
   * [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html)
 
   * [`pgroonga.escape` function](pgroonga-escape.html)
+
+[query-v2]:../operators/query-v2.html
+
+[query-in-v2]:../operators/query-in-v2.html

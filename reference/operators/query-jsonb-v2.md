@@ -1,22 +1,24 @@
 ---
-title: "&? operator for jsonb type"
+title: "&@~ operator for jsonb type"
 upper_level: ../
 ---
 
-# `&?` operator for `jsonb` type
+# `&@~` operator for `jsonb` type
 
 Since 1.2.1.
 
+`&?` operator is deprecated since 1.2.2. Use `&@~` operator instead.
+
 ## Summary
 
-`&?` operator performs full text search against all texts in `jsonb` with query.
+`&@~` operator performs full text search against all texts in `jsonb` with query.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query.
 
 ## Syntax
 
 ```sql
-column &? query
+column &@~ query
 ```
 
 `column` is a column to be searched. It's `jsonb` type.
@@ -74,12 +76,12 @@ INSERT INTO logs
               }');
 ```
 
-You can perform full text search with multiple keywords by `&?` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
+You can perform full text search with multiple keywords by `&@~` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:
 
 (It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)
 
 ```sql
-SELECT jsonb_pretty(record) FROM logs WHERE record &? 'server OR mail';
+SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';
 --                  jsonb_pretty                 
 -- ----------------------------------------------
 --  {                                           +

@@ -9,7 +9,7 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga.query_extract_keywords`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っているテキストからキーワードを抽出します。クエリー構文は[`@@`演算子](../operators/query.html)や[`&?`演算子](../operators/query-v2.html)などで使われています。
+`pgroonga.query_extract_keywords`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っているテキストからキーワードを抽出します。クエリー構文は[`&@~`演算子][query-v2]や[`&@~|`演算子][query-in-v2]などで使われています。
 
 クエリーからキーワードを抽出できると[`pgroonga.snippet_html`関数](pgroonga-snippet-html.html)や[`pgroonga.highlight_html`関数](pgroonga-highlight-html.html)などを使いやすくなります。これらにはキーワードを引数として渡さなければいけません。通常、渡すキーワードはクエリー内のキーワードになります。
 
@@ -76,3 +76,7 @@ SELECT pgroonga.query_extract_keywords('Groonga - MySQL PostgreSQL');
   * [`pgroonga.highlight_html`関数](pgroonga-query-highlight-html.html)
 
   * [`pgroonga.match_positions_byte`関数](pgroonga-match-positions-byte.html)
+
+[query-v2]:../operators/query-v2.html
+
+[query-in-v2]:../operators/query-in-v2.html

@@ -72,7 +72,17 @@ This document uses the following environment:
 
 This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself.
 
-For now (2017-04-29), the official PGroonga packages for Ubuntu 17.04, CentOS 6, CentOS 7 and Windows are packages that support WAL. Because WAL support requires MessagePack and PostgreSQL 9.6 or later. Packages for other platforms don't satisfy one of them. If you build PGroonga from source, see [Install from source](../install/source.html). It describes about how to build with MessagePack.
+For now (2017-07-03), the following official PGroonga packages support WAL. Because WAL support requires MessagePack and PostgreSQL 9.6 or later. Packages for other platforms don't satisfy one of them. If you build PGroonga from source, see [Install from source](../install/source.html). It describes about how to build with MessagePack.
+
+  * [Debian GNU/Linux Stretch][debian-stretch]
+
+  * [Ubuntu 17.04][ubuntu]
+
+  * [CentOS 6][centos-6]
+
+  * [CentOS 7][centos-7]
+
+  * [Windows][windows]
 
 ## [normal] Install PostgreSQL on master and slaves
 
@@ -411,3 +421,13 @@ SELECT title FROM entries WHERE title %% 'replication';
 --  PostgreSQL 9.6 and replication
 -- (2 rows)
 ```
+
+[debian-stretch]:../install/debian.html#install-on-stretch
+
+[ubuntu]:../install/ubuntu.html
+
+[centos-6]:../install/centos.html#install-on-6
+
+[centos-7]:../install/centos.html#install-on-7
+
+[windows]:../install/windows.html

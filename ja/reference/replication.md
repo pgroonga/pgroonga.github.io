@@ -72,7 +72,17 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
-2017年4月29日現在、WALサポートしている公式のPGroongaパッケージはUbuntu 17.04用とCentOS 6用とCentOS 7用とWindows用です。これはWALサポートにはMessagePackとPostgreSQL 9.6以降が必要だからです。他のプラットフォームはこれら2つの条件を満たしていません。PGroongaをソースからビルドする場合は、[ソースからインストール](../install/source.html)を読んでください。MessagePackと一緒にビルドする方法が書いています。
+2017年7月03日現在、WALをサポートしている公式のPGroongaパッケージは次の通りです。これはWALサポートにはMessagePackとPostgreSQL 9.6以降が必要だからです。他のプラットフォームはこれら2つの条件を満たしていません。PGroongaをソースからビルドする場合は、[ソースからインストール](../install/source.html)を読んでください。MessagePackと一緒にビルドする方法が書いています。
+
+  * [Debian GNU/Linux Stretch][debian-stretch]
+
+  * [Ubuntu 17.04][ubuntu]
+
+  * [CentOS 6][centos-6]
+
+  * [CentOS 7][centos-7]
+
+  * [Windows][windows]
 
 ## [通常] マスターとスレーブでPostgreSQLをインストールする
 
@@ -411,3 +421,13 @@ SELECT title FROM entries WHERE title %% 'replication';
 --  PostgreSQL 9.6 and replication
 -- (2 rows)
 ```
+
+[debian-stretch]:../install/debian.html#install-on-stretch
+
+[ubuntu]:../install/ubuntu.html
+
+[centos-6]:../install/centos.html#install-on-6
+
+[centos-7]:../install/centos.html#install-on-7
+
+[windows]:../install/windows.html

@@ -10,6 +10,8 @@ title: News
 
   * [[Ubuntu][ubuntu]] Fixed invalid package.
 
+  * [[Debian][debian]] Supported Debian GNU/Linux Stretch.
+
 ## 1.2.2: 2017-07-03 {#version-1-2-2}
 
 ### Improvements

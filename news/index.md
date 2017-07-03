@@ -34,7 +34,7 @@ title: News
 
     * [[`&@~|` operator][query-in-v2]]: Added. Deprecated `&?|` operator.
 
-    * [[`&@*` operator][similar-v2]]: Added. Deprecated `&~?` operator.
+    * [[`&@*` operator][similar-search-v2]]: Added. Deprecated `&~?` operator.
 
 ### Thanks
 
@@ -402,11 +402,11 @@ title: News
 
   * [Windows] Added version information to DLL. [groonga-dev,03962] [Suggested by Naoki Takami]
 
-  * [`pgroonga.text_full_text_search_ops_v2`] Supported similar search by [`&~?`](../reference/operators/similar-search-v2.html).
+  * [`pgroonga.text_full_text_search_ops_v2`] Supported similar search by [`&~?`][similar-search-v2].
 
-  * [`pgroonga.text_term_search_ops_v2`] Supported prefix search by [`&^`](../reference/operators/prefix-search-v2.html).
+  * [`pgroonga.text_term_search_ops_v2`] Supported prefix search by [`&^`][prefix-search-v2].
 
-  * [`pgroonga.text_term_search_ops_v2`] Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html) by [`&^~`](../reference/operators/prefix-rk-search-v2.html).
+  * [`pgroonga.text_term_search_ops_v2`] Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html) by [`&^~`][prefix-rk-search-v2].
 
   * [Windows] Changed Visual Studio version to 2013 from 2015. Because PostgreSQL binary uses 2013.
 
@@ -714,6 +714,8 @@ The first release!!!
 [match-v2]:../reference/operators/match-v2.html
 [contain-term-v2]:../reference/operators/contain-term-v2.html
 [query-v2]:../reference/operators/query-v2.html
+[query-in-v2]:../reference/operators/query-in-v2.html
+[similar-search-v2]:../reference/operators/similar-search-v2.html
 [prefix-search-v2]:../reference/operators/prefix-search-v2.html
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:../reference/operators/prefix-search-in-v2.html

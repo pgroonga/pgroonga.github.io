@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-06-07 16:07+0900\n"
+"PO-Revision-Date: 2017-07-03 16:34+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,11 +29,14 @@ msgstr "## サポートしているバージョン"
 msgid "Here are supported Debian GNU/Linux versions:"
 msgstr "サポートしているDebian GNU/Linuxのバージョンは次の通りです。"
 
-msgid "  * Jessie"
+msgid "  * [Jessie](#install-on-jessie)"
 msgstr ""
 
-msgid "## How to install on Debian GNU/Linux Jessie"
-msgstr "## Debian GNU/Linux Jessieにインストールする方法"
+msgid "  * [Stretch](#install-on-stretch)"
+msgstr ""
+
+msgid "## How to install on Debian GNU/Linux Jessie {#install-on-jessie}"
+msgstr "## Debian GNU/Linux Jessieにインストールする方法 {#install-on-jessie}"
 
 msgid ""
 "You can use the following instruction to install PGroonga on Debian GNU/Linux "
@@ -120,3 +123,30 @@ msgstr "これで終わりです！"
 
 msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
 msgstr "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"
+
+msgid "## How to install on Debian GNU/Linux Stretch {#install-on-stretch}"
+msgstr "## Debian GNU/Linux Stretchにインストールする方法 {#install-on-stretch}"
+
+msgid ""
+"You can use the following instruction to install PGroonga on Debian GNU/Linux "
+"Stretch."
+msgstr "Debian GNU/Linux StretchにPGroongaをインストールする方法は次の通りです。"
+
+msgid ""
+"```text\n"
+"deb https://packages.groonga.org/debian/ stretch main\n"
+"deb-src https://packages.groonga.org/debian/ stretch main\n"
+"```"
+msgstr ""
+
+msgid "Install `postgresql-9.6-pgroonga` package:"
+msgstr "`postgresql-9.6-pgroonga`パッケージをインストールします。"
+
+msgid ""
+"```console\n"
+"% sudo apt update\n"
+"% sudo apt install -y -V --allow-unauthenticated groonga-keyring\n"
+"% sudo apt update\n"
+"% sudo apt install -y -V postgresql-9.6-pgroonga\n"
+"```"
+msgstr ""

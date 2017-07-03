@@ -4,6 +4,12 @@ title: News
 
 # News
 
+## 1.2.3: 2017-07-03 {#version-1-2-3}
+
+### Fixes
+
+  * [[Ubuntu][ubuntu]] Fixed invalid package.
+
 ## 1.2.2: 2017-07-03 {#version-1-2-2}
 
 ### Improvements

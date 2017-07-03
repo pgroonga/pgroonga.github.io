@@ -20,6 +20,15 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 1.2.3: 2017-07-03 {#version-1-2-3}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * [[Ubuntu][ubuntu]] Fixed invalid package."
+msgstr ""
+
 msgid "## 1.2.2: 2017-07-03 {#version-1-2-2}"
 msgstr ""
 
@@ -193,9 +202,6 @@ msgid ""
 "  * [[`pgroonga.match_escalation_threshold` parameter][match-escalation-thresh"
 "old]] Added. [GitHub#37][Reported by ArturFormella]"
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a bug that removed entries may be referenced. [GitHub#36][Reported b"

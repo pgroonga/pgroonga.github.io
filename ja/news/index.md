@@ -8,6 +8,8 @@ title: おしらせ
 
 ### 改良
 
+  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.4.
+
   * Improved performance against empty array.
 
   * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Ignored tokenizer option.
@@ -37,6 +39,8 @@ title: おしらせ
 ## 1.2.1: 2017-06-08 {#version-1-2-1}
 
 ### 改良
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.3.
 
   * [[`pgroonga.text_full_text_search_ops_v2` operator class][text-full-text-search-ops-v2]] Supported `@@` and `%%` for backward compatibility.
 
@@ -682,6 +686,7 @@ The first release!!!
 
 [debian]:../install/debian.html
 [ubuntu]:../install/ubuntu.html
+[windows]:../install/windows.html
 
 [text-regexp-ops]:../reference/#text-regexp-ops
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops

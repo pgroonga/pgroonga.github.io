@@ -384,6 +384,8 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)
 
+  * [`pgroonga.query_expand`関数][query-expand]
+
 ## パラメーター
 
   * [`pgroonga.enable_wal`パラメーター](parameters/enable-wal.html)
@@ -447,3 +449,5 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 [contain-jsonb]:operators/contain-jsonb.html
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
+
+[query-expand]:functions/pgroonga-query-expand.html

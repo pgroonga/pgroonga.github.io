@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-07-01 13:51+0900\n"
+"PO-Revision-Date: 2017-07-03 11:25+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -434,6 +434,9 @@ msgstr "  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html
 msgid "  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)"
 msgstr "  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)"
 
+msgid "  * [`pgroonga.query_expand` function][query-expand]"
+msgstr "  * [`pgroonga.query_expand`関数][query-expand]"
+
 msgid "## Parameters"
 msgstr "## パラメーター"
 
@@ -541,4 +544,7 @@ msgid ""
 msgstr ""
 
 msgid "[upgrade-incompatible]:../upgrade/#incompatible-case"
+msgstr ""
+
+msgid "[query-expand]:functions/pgroonga-query-expand.html"
 msgstr ""

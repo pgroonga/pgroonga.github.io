@@ -384,6 +384,8 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
 
+  * [`pgroonga.query_expand` function][query-expand]
+
 ## Parameters
 
   * [`pgroonga.enable_wal` parameter](parameters/enable-wal.html)
@@ -446,3 +448,5 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [contain-jsonb]:operators/contain-jsonb.html
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
+
+[query-expand]:functions/pgroonga-query-expand.html

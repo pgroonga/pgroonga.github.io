@@ -150,7 +150,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 #### `pgroonga.jsonb_ops`演算子クラス（デフォルト） {#jsonb-ops}
 
-  * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
+  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
 
   * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
 
@@ -394,7 +394,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 #### `pgroonga.jsonb_ops_v2`演算子クラス {#jsonb-ops-v2}
 
-  * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
+  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
 
   * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
 

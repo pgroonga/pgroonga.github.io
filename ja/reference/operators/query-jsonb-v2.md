@@ -107,7 +107,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';
 
   * [`jsonb`サポート][jsonb]
 
-  * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
+  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
 
   * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
 

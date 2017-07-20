@@ -392,7 +392,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
 ### For `jsonb`
 
-#### `pgroonga.jsonb_ops_v2` operator class {#varchar-jsonb-ops-v2}
+#### `pgroonga.jsonb_ops_v2` operator class {#jsonb-ops-v2}
 
   * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 

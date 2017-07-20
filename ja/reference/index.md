@@ -392,7 +392,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ### `jsonb`用
 
-#### `pgroonga.jsonb_ops_v2`演算子クラス {#varchar-jsonb-ops-v2}
+#### `pgroonga.jsonb_ops_v2`演算子クラス {#jsonb-ops-v2}
 
   * [`&@` operator][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
 

@@ -159,11 +159,6 @@ msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query lan
 msgstr "  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索"
 
 msgid ""
-"  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in "
-"easy to use query language"
-msgstr "  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
-
-msgid ""
 "[match-v2]:match-v2.html\n"
 "[query-v2]:query-v2.html\n"
 "[query-in-v2]:query-in-v2.html"

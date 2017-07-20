@@ -72,3 +72,19 @@ You can't use similar search with sequential scan. If you use similar search wit
 SELECT * FROM memos WHERE content &~? 'Mroonga is a MySQL extension taht uses Groonga';
 -- ERROR:  pgroonga: operator &~? is available only in index scan
 ```
+
+## For Japanese
+
+You should use `TokenMecab` tokenizer instead of the default `TokenBigram` for similar search against Japanese documents:
+
+```sql
+CREATE INDEX pgroonga_content_index ON memos
+  USING pgroonga (content pgroonga.text_full_text_search_ops_v2)
+  WITH (tokenizer='TokenMecab');
+```
+
+`TokenMecab` will tokenize target documents to words. It improves similar search precision.
+
+See also [`CREATE INDEX USING pgroonga`][create-index-using-pgroonga] how to specify `TokenMecab` tokenizer.
+
+[create-index-using-pgroonga]:../create-index-using-pgroonga.html

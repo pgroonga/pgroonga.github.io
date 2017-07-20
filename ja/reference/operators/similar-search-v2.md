@@ -72,3 +72,19 @@ SELECT * FROM memos WHERE content &~? 'MroongaはGroongaを使うMySQLの拡張�
 SELECT * FROM memos WHERE content &~? 'MroongaはGroongaを使うMySQLの拡張機能です。';
 -- ERROR:  pgroonga: operator &~? is available only in index scan
 ```
+
+## 日本語向け
+
+日本語の文書を類似文書検索する場合はデフォルトの`TokenBigram`ではなく`TokenMecab`を使う方がよいです。
+
+```sql
+CREATE INDEX pgroonga_content_index ON memos
+  USING pgroonga (content pgroonga.text_full_text_search_ops_v2)
+  WITH (tokenizer='TokenMecab');
+```
+
+`TokenMecab`は対象の文書を（ほぼ）単語にトークナイズします。これにより類似文書検索の精度が上がります。
+
+`TokenMecab`トークナイザーの指定方法については[`CREATE INDEX USING pgroonga`][create-index-using-pgroonga]も参照してください。
+
+[create-index-using-pgroonga]:../create-index-using-pgroonga.html

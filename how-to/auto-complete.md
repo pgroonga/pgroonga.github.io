@@ -20,8 +20,8 @@ Here is the sample schema:
 
 ```sql
 CREATE TABLE terms (
-    term text,
-    readings text[]
+  term text,
+  readings text[]
 );
 ```
 

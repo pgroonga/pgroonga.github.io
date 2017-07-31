@@ -20,8 +20,8 @@ title: オートコンプリートの実装方法
 
 ```sql
 CREATE TABLE terms (
-    term text,
-    readings text[]
+  term text,
+  readings text[]
 );
 ```
 

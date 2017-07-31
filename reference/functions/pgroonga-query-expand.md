@@ -18,10 +18,10 @@ Since 1.2.2.
 Here is the syntax of this function:
 
 ```text
-text pgroonga.query_expansion(table_name,
-                              term_column_name,
-                              synonyms_column_name,
-                              query)
+text pgroonga.query_expand(table_name,
+                           term_column_name,
+                           synonyms_column_name,
+                           query)
 ```
 
 `table_name` is a `text` type value. It's an existing table name that stores synonyms.

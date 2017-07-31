@@ -18,10 +18,10 @@ upper_level: ../
 この関数の構文は次の通りです。
 
 ```text
-text pgroonga.query_expansion(table_name,
-                              term_column_name,
-                              synonyms_column_name,
-                              query)
+text pgroonga.query_expand(table_name,
+                           term_column_name,
+                           synonyms_column_name,
+                           query)
 ```
 
 `table_name`は`text`型の値です。同義語を格納している既存のテーブルの名前を指定します。

@@ -1,20 +1,22 @@
 ---
-title: "&~? operator"
+title: "&@* operator"
 upper_level: ../
 ---
 
-# `&~?` operator
+# `&@*` operator
 
 Since 1.2.1.
 
+`&~?` operator is deprecated since 1.2.2. Use `&@*` operator instead.
+
 ## Summary
 
-`&~?` operator performs similar search.
+`&@*` operator performs similar search.
 
 ## Syntax
 
 ```sql
-column &~? document
+column &@* document
 ```
 
 `column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
@@ -54,10 +56,10 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 INSERT INTO memos VALUES (4, 'There is groonga command.');
 ```
 
-You can search records that are similar with the specified document by `&~?` operator:
+You can search records that are similar with the specified document by `&@*` operator:
 
 ```sql
-SELECT * FROM memos WHERE content &~? 'Mroonga is a MySQL extension taht uses Groonga';
+SELECT * FROM memos WHERE content &@* 'Mroonga is a MySQL extension taht uses Groonga';
 --  id |                            content                             
 -- ----+----------------------------------------------------------------
 --   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
@@ -69,8 +71,8 @@ SELECT * FROM memos WHERE content &~? 'Mroonga is a MySQL extension taht uses Gr
 You can't use similar search with sequential scan. If you use similar search with sequential search, you get the following error:
 
 ```sql
-SELECT * FROM memos WHERE content &~? 'Mroonga is a MySQL extension taht uses Groonga';
--- ERROR:  pgroonga: operator &~? is available only in index scan
+SELECT * FROM memos WHERE content &@* 'Mroonga is a MySQL extension taht uses Groonga';
+-- ERROR:  pgroonga: operator &@* is available only in index scan
 ```
 
 ## For Japanese

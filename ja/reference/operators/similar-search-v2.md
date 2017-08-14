@@ -1,20 +1,22 @@
 ---
-title: "&~?演算子"
+title: "&@*演算子"
 upper_level: ../
 ---
 
-# `&~?`演算子
+# `&@*`演算子
 
 1.2.1で追加。
 
+`&~?`演算子は1.2.2から非推奨です。代わりに`&@*`演算子を使ってください。
+
 ## 概要
 
-`&~?`演算子は類似文書検索を実行します。
+`&@*`演算子は類似文書検索を実行します。
 
 ## 構文
 
 ```sql
-column &~? document
+column &@* document
 ```
 
 `column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
@@ -54,10 +56,10 @@ INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを�
 INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 ```
 
-`&~?`演算子を使うと指定した文書と似たレコードを検索できます。
+`&@*`演算子を使うと指定した文書と似たレコードを検索できます。
 
 ```sql
-SELECT * FROM memos WHERE content &~? 'MroongaはGroongaを使うMySQLの拡張機能です。';
+SELECT * FROM memos WHERE content &@* 'MroongaはGroongaを使うMySQLの拡張機能です。';
 --  id |                                  content                                  
 -- ----+---------------------------------------------------------------------------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
@@ -69,8 +71,8 @@ SELECT * FROM memos WHERE content &~? 'MroongaはGroongaを使うMySQLの拡張�
 シーケンシャルスキャンでは類似文書検索を使うことはできません。シーケンシャルスキャンで類似文書検索を使うと次のエラーが返ります。
 
 ```sql
-SELECT * FROM memos WHERE content &~? 'MroongaはGroongaを使うMySQLの拡張機能です。';
--- ERROR:  pgroonga: operator &~? is available only in index scan
+SELECT * FROM memos WHERE content &@* 'MroongaはGroongaを使うMySQLの拡張機能です。';
+-- ERROR:  pgroonga: operator &@* is available only in index scan
 ```
 
 ## 日本語向け

@@ -16,11 +16,15 @@ This document describes about the followings:
 
   * How to use PGroonga as index for regular expression
 
+  * How to use PGroonga as index for similar search
+
   * How to use PGroonga as index for equality condition and comparison conditions
 
   * How to use PGroonga as index for array
 
   * How to use PGroonga as index for JSON
+
+  * How to use PGroonga as index for auto complete
 
   * How to use Groonga throw PGroonga (advanced topic)
 
@@ -78,13 +82,16 @@ NOTE: You should not disable sequential scan on production environment. This is 
 There are the following operators to perform full text search:
 
   * `&@`
-  * `&?`
+
+  * `&@~`
+
   * `LIKE`
+
   * `ILIKE`
 
 #### `&@` operator
 
-You can use `&@` operator to perform full text search by one word:
+You can use `&@` operator to perform full text search by one keyword:
 
 ```sql
 SELECT * FROM memos WHERE content &@ 'engine';
@@ -96,12 +103,12 @@ SELECT * FROM memos WHERE content &@ 'engine';
 
 See [`&@` operator](../reference/operators/match-v2.html) for more details.
 
-#### `&?` operator
+#### `&@~` operator
 
-You can use `&?` operator to perform full text search by query syntax such as `keyword1 OR keyword2`:
+You can use `&@~` operator to perform full text search by query syntax such as `keyword1 OR keyword2`:
 
 ```sql
-SELECT * FROM memos WHERE content &? 'PGroonga OR PostgreSQL';
+SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';
 --  id |                            content                             
 -- ----+----------------------------------------------------------------
 --   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
@@ -113,13 +120,13 @@ Query syntax is similar to syntax of Web search engine. For example, you can use
 
 See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for full query syntax.
 
-See [`&?` operator](../reference/operators/query-v2.html) for more details.
+See [`&@~` operator](../reference/operators/query-v2.html) for more details.
 
 #### `LIKE` operator {#like}
 
 PGroonga supports `LIKE` operator. You can perform fast full text search by PGroonga without changing existing SQL.
 
-`column LIKE '%keyword%'` equals to `column &@ 'keyword'`:
+`column LIKE '%keyword%'` almost equals to `column &@ 'keyword'`:
 
 ```sql
 SELECT * FROM memos WHERE content LIKE '%engine%';
@@ -128,6 +135,8 @@ SELECT * FROM memos WHERE content LIKE '%engine%';
 --   2 | Groonga is a fast full text search engine that supports all languages.
 -- (1 row)
 ```
+
+`LIKE` operator support is convenient because you can improve performance without changing existing applications. But `LIKE` operator is slower than `&@` because `LIKE` operator requires sequential search after index search. The process is called as "recheck". It's recommend that you change to `&@` or `&@~` from `LIKE` in your application for more performance.
 
 See [`LIKE` operator](../reference/operators/like.html) for more details.
 
@@ -196,6 +205,12 @@ SELECT *, pgroonga.score(score_memos)
 
 See [`pgroonga.score` function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
 
+### Highlight {#highlight}
+
+TODO
+
+See [`pgroonga.highlight_html` function](../reference/functions/pgroonga-highlight-html.html) for more details.
+
 ### Snippet (KWIC, keyword in context) {#snippet}
 
 You can use `pgroonga.snippet_html` function to get texts around keywords from search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
@@ -241,9 +256,23 @@ SELECT unnest(pgroonga.snippet_html(
 
 See [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-html.html) for more details.
 
-## Regular expression
+### Synonym {#synonym}
 
 TODO
+
+See [`pgroonga.query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
+
+## Regular expression {#regular-expression}
+
+TODO
+
+See [`&~` operator](../reference/operations/regular-expression-v2.html) for more details.
+
+## Similar search {#similar-search}
+
+TODO
+
+See [`&@*` operator](../reference/operations/similar-search-v2.html) for more details.
 
 ## Equality condition and comparison conditions {#equal}
 
@@ -252,6 +281,7 @@ You can use PGroonga for equality condition and comparison conditions. There are
 This section describes about the followings:
 
   * How to use PGroonga for not string types
+
   * How to use PGroonga for string types
 
 ### How to use PGroonga for not string types {#equal-not-string}
@@ -349,6 +379,7 @@ You can perform full text search against array of `text` type. If one or more el
 You can perform equality condition against array of `varchar` type. If one or more elements in an array are matched, the record is matched. It's useful for tag search.
 
   * How to use PGroonga for `text` type of array
+
   * How to use PGroonga for `varchar` type of array
 
 ### How to use PGroonga for `text` type of array
@@ -381,7 +412,7 @@ INSERT INTO docs
                    'It adds powerful full text search feature to PostgreSQL.']);
 ```
 
-You can use `&@` operator or `&?` operator for full text search. The full text search doesn't care about the position of element.
+You can use `&@` operator or `&@~` operator for full text search. The full text search doesn't care about the position of element.
 
 ```sql
 SELECT * FROM docs WHERE sections &@ 'text';
@@ -424,10 +455,10 @@ INSERT INTO products
              ARRAY['PostgreSQL', 'Groonga', 'full-text search']);
 ```
 
-You can use `&@` operator to find records that have one or more matched elements. If element's value equals to queried value, the element is treated as matched.
+You can use `@>` operator to find records that have one or more matched elements. If element's value equals to queried value, the element is treated as matched.
 
 ```sql
-SELECT * FROM products WHERE tags &@ 'PostgreSQL';
+SELECT * FROM products WHERE tags @> 'PostgreSQL';
 --  id |    name    |                  tags                   
 -- ----+------------+-----------------------------------------
 --   1 | PostgreSQL | {PostgreSQL,RDBMS}
@@ -439,7 +470,7 @@ SELECT * FROM products WHERE tags &@ 'PostgreSQL';
 
 PGroonga also supports `jsonb` type. You can search JSON data by one or more keys and/or one or more values with PGroonga.
 
-You can also search JSON data by full text search against all text values in JSON. It's an unique feature of PGroonga. Built-in PostgreSQL features and [JsQuery](https://github.com/postgrespro/jsquery) don't support it.
+You can also search JSON data by full text search against all text values in JSON. It's an unique feature of PGroonga. Built-in PostgreSQL 9 features and [JsQuery](https://github.com/postgrespro/jsquery) don't support it. PostgreSQL 10 supports it as a built-in feature.
 
 Think about the following JSON:
 
@@ -458,11 +489,20 @@ You can find the JSON by full text search with `search`, `example` or `web` beca
 PGroonga provides the following two operators for searching against `jsonb`:
 
   * `@>` operator
+
+  * `&@` operator
+
+  * `&@~` operator
+
   * `` &` `` operator
 
 [`@>` operator is a built-in PostgreSQL operator]({{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`.
 
 You can execute `@>` faster by PGroonga.
+
+`&@` operator is a PGroonga original operator. You can perform full text search against all texts in JSON by one keyword.
+
+`&@~` operator is a PGroonga original operator. You can perform full text search against all texts in JSON by query syntax.
 
 `` &` `` operator is a PGroonga original operator. You can write complex condition that can't be written by `@>` operator such as range search.
 
@@ -545,6 +585,60 @@ SELECT jsonb_pretty(record) FROM logs WHERE record @> '{"host": "www.example.com
 
 See [`@>` operator](../reference/operators/jsonb-contain.html) for more details.
 
+### `&@` operator
+
+`&@` operator is a PGroonga original operator. You can perform full text search against all texts in JSON by one keyword.
+
+Here is an example to search "server" in JSON:
+
+```sql
+SELECT jsonb_pretty(record) FROM logs WHERE record &@ 'server';
+--             jsonb_pretty             
+-- -------------------------------------
+--  {                                  +
+--      "host": "www.example.com",     +
+--      "tags": [                      +
+--          "web",                     +
+--          "example.com"              +
+--      ],                             +
+--      "message": "Server is started."+
+--  }
+-- (1 row)
+```
+
+See [`&@` operator for `jsonb`](../reference/operators/match-jsonb-v2.html) for more details.
+
+### `&@~` operator
+
+`&@~` operator is a PGroonga original operator. You can perform full text search against all texts in JSON by query syntax.
+
+Here is an example to search "server" or "send" in JSON:
+
+```sql
+SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR send';
+--                  jsonb_pretty                 
+-- ----------------------------------------------
+--  {                                           +
+--      "host": "www.example.com",              +
+--      "tags": [                               +
+--          "web",                              +
+--          "example.com"                       +
+--      ],                                      +
+--      "message": "Server is started."         +
+--  }
+--  {                                           +
+--      "host": "mail.example.net",             +
+--      "tags": [                               +
+--          "mail",                             +
+--          "example.net"                       +
+--      ],                                      +
+--      "message": "Send to <info@example.com>."+
+--  }
+-- (2 rows)
+```
+
+See [`&@~` operator for `jsonb`](../reference/operators/query-jsonb-v2.html) for more details.
+
 ### `` &` `` operator
 
 `` &` `` operator is a PGroonga original operator. You can write complex condition that can't be written by `@>` operator such as range search.
@@ -552,6 +646,7 @@ See [`@>` operator](../reference/operators/jsonb-contain.html) for more details.
 Here is an example for range search. The `SELECT` returns records that is matched with the following conditions:
 
   * `code` key exists at the top-level object
+
   * Value of the `code` is greater than or equal to `200` and less than `300`
 
 ```sql
@@ -570,7 +665,13 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ ".code" && number
 -- (1 row)
 ```
 
-See [`` &` `` operator for `jsonb`](../reference/operators/jsonb-query-v2.html) for more details.
+See [`` &` `` operator for `jsonb`](../reference/operators/script-jsonb-v2.html) for more details.
+
+## Auto complete
+
+TODO
+
+See [how to implement auto complete feature](../how-to/auto-complete.html) for more details.
 
 ## How to use Groonga throw PGroonga {#groonga}
 

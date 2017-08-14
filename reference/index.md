@@ -196,7 +196,11 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+  * [`&@*` operator][similar-search-v2]: Similar search
+
   * [`&~?` operator][similar-search-v2]: Similar search
+
+    * Deprecated since 1.2.2. Use [`&@*` operator][similar-search-v2] instead.
 
   * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query language 
 

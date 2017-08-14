@@ -5,7 +5,7 @@ upper_level: ../
 
 # `&@~` operator for non `jsonb` types
 
-Since 1.2.0.
+Since 1.2.2.
 
 `&?` operator is deprecated since 1.2.2. Use `&@~` operator instead.
 

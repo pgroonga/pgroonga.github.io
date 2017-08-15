@@ -13,7 +13,7 @@ PGroongaはTravis CI上でPGroongaをセットアップするシェルスクリ�
 ```yaml
 sudo: required
 install:
-  - curl --silent --location https://github.com/pgroonga/pgroonga/raw/master/data/travis/setup.sh | sh
+  - curl --silent --location https://raw.githubusercontent.com/pgroonga/pgroonga/master/data/travis/setup.sh | sh
 ```
 
 `sudo: required`は重要です。このセットアップスクリプトは`sudo`を使っています。そのため、`sudo: required`が必要なのです。

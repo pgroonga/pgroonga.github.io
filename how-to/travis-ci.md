@@ -13,7 +13,7 @@ Add the following configuration into your `.travis.yml`:
 ```yaml
 sudo: required
 install:
-  - curl --silent --location https://github.com/pgroonga/pgroonga/raw/master/data/travis/setup.sh | sh
+  - curl --silent --location https://raw.githubusercontent.com/pgroonga/pgroonga/master/data/travis/setup.sh | sh
 ```
 
 `sudo: required` is important. The setup script uses `sudo`. So `sudo: required` is required.

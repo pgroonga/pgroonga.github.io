@@ -31,11 +31,11 @@ Here is the sample index definition:
 
 ```sql
 CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
-  (term pgroonga.text_term_search_ops_v2,
-   readings pgroonga.text_array_term_search_ops_v2);
+  (term pgroonga_text_term_search_ops_v2,
+   readings pgroonga_text_array_term_search_ops_v2);
 
 CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
-  (term pgroonga.text_full_text_search_ops_v2)
+  (term)
   WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
 ```
 

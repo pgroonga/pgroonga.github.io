@@ -4,6 +4,8 @@ title: GRANT USAGE ON SCHEME pgroonga
 
 # `GRANT USAGE ON SCHEME pgroonga`
 
+`pgroonga`スキーマは2.0.0から非推奨です。新しく書くコードでは`pgroonga`スキーマではなくカレントスキーマに定義されている`pgroonga_*`関数・演算子・演算子クラスを使ってください。
+
 PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスなどを定義します。デフォルトではスーパーユーザーしか`pgroonga`スキーマの機能を使えません。スーパーユーザーはPGroongaを使いたいすべての一般ユーザーに`pgroonga`スキーマの`USAGE`権限を与えなければいけません。
 
 このドキュメントは一般ユーザーに`pgroonga`スキーマの`USAGE`権限を与える方法を説明します。

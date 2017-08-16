@@ -8,6 +8,8 @@ This document describes about all features. [Tutorial](../tutorial/) focuses on 
 
 ## `pgroonga` schema
 
+`pgroonga` schema is deprecated since 2.0.0. Use `pgroonga_*` functions, operators and operator classes in the current schema for newly written code.
+
 PGroonga defines functions, operators, operator classes and so on into `pgroonga` schema. Only superuser can use features in `pgroonga` schema by default. Superuser needs to grant `USAGE` privilege on `pgroonga` schema to normal users who want to use PGroonga.
 
   * [`GRANT USAGE ON SCHEMA pgroonga`](grant-usage-on-schema-pgroonga.html)

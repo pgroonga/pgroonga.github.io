@@ -4,6 +4,8 @@ title: GRANT USAGE ON SCHEME pgroonga
 
 # `GRANT USAGE ON SCHEME pgroonga`
 
+`pgroonga` schema is deprecated since 2.0.0. Use `pgroonga_*` functions, operators and operator classes in the current schema for newly written code.
+
 PGroonga defines functions, operators, operator classes and so on into `pgroonga` schema. Only superuser can use features in `pgroonga` schema by default. Superuser needs to grant `USAGE` privilege on `pgroonga` schema to normal users who want to use PGroonga.
 
 This document describes how to grant `USAGE` privilege on `pgroonga` schema to a normal user.

@@ -14,6 +14,7 @@ title: インストール
   * 9.4
   * 9.5
   * 9.6
+  * 10
 
 もし、これより古いPostgreSQLを使っているなら、PGroongaをインストールする前にPostgreSQLをアップグレードしてください。
 
@@ -57,16 +58,8 @@ title: インストール
 
 もし、このリストの中に自分のプラットフォームがない場合は、[ソースからビルドしてインストールする](source.html)か[issue](https://github.com/pgroonga/pgroonga/issues/new)にリクエストを送ってください。
 
-## アンインストール
+## 参考
 
-次のSQLでPGroongaをアンインストールできます。
+  * [アンインストール][uninstall]
 
-```sql
-DROP EXTENSION pgroonga CASCADE;
-```
-
-PostgreSQL 9.5以前を使っている場合は以下のSQLも実行する必要があります。
-
-```sql
-DELETE FROM pg_catalog.pg_am WHERE amname = 'pgroonga';
-```
+[uninstall]:../uninstall/

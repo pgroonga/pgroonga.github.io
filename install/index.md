@@ -14,6 +14,7 @@ Here are supported PostgreSQL versions:
   * 9.4
   * 9.5
   * 9.6
+  * 10
 
 If your PostgreSQL is older than them, you need to upgrade your PostgreSQL before you install PGroonga.
 
@@ -57,16 +58,8 @@ See a document for your platform in the followings:
 
 If you can't find your platform in the above list, [build and install from source](source.html) or send a request as an [issue](https://github.com/pgroonga/pgroonga/issues/new).
 
-## Uninstall
+## See also
 
-You can uninstall PGroonga by the following SQL:
+  * [Uninstall][uninstall]
 
-```sql
-DROP EXTENSION pgroonga CASCADE;
-```
-
-If you're using PostgreSQL 9.5 or earlier, you need to also run the following SQL:
-
-```sql
-DELETE FROM pg_catalog.pg_am WHERE amname = 'pgroonga';
-```
+[uninstall]:../uninstall/

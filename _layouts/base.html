@@ -34,6 +34,15 @@
     </nav>
 
     <div class="container">
+      {% if page.url contains "/v1/" %}
+        {% include v1-content-header.html %}
+      {% elsif page.url contains "/tutorial/" %}
+        {% include v2-content-header.html %}
+      {% elsif page.url contains "/reference/" %}
+        {% include v2-content-header.html %}
+      {% elsif page.url contains "/how-to/" %}
+        {% include v2-content-header.html %}
+      {% endif %}
       {{ content }}
     </div>
 

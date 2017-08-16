@@ -41,3 +41,12 @@ table {
     @extend .text-center;
   }
 }
+
+div.note {
+  @extend .alert;
+  @extend .alert-info;
+
+  a {
+    @extend .alert-link;
+  }
+}

@@ -10,6 +10,8 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
+  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.5.
+
   * Added PostgreSQL 10 support.
 
   * Added logical replication support.

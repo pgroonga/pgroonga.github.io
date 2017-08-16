@@ -67,4 +67,6 @@ Windowsに`PGroonga`イベントソースを登録することでイベントビ
 
 ## 参考
 
-  * [`pgroonga.log_path`パラメーター](log-path.html)
+  * [`pgroonga.log_path`パラメーター][log-path]
+
+[log-path]:log-path.html

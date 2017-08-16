@@ -9,7 +9,7 @@ upper_level: ../
 
 `pgroonga.query_log_path` parameter controls the path of query log.
 
-This parameter is meaningless when you don't use [`pgroonga.command` function](../functions/pgroonga-command.html). Because query can be executed only via `pgroonga.command` function.
+This parameter is meaningless when you don't use [`pgroonga_command` function](../functions/pgroonga-command.html). Because query can be executed only via `pgroonga_command` function.
 
 If you specify relative path, the path is resolved from `$PGDATA`.
 

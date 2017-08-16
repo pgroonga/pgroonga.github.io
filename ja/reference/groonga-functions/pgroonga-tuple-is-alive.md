@@ -13,7 +13,7 @@ upper_level: ../
 
 PostgreSQLは`VACUUM`を実行するまで`DELETE`・`UPDATE`された無効なタプルを消さずに持っています。PostgreSQLは検索時にこれらの無効なタプルを除外しています。
 
-PGroongaが使っているGroongaのデータベースにも無効なタプルに関連づいたレコードが残っています。これらは`VACUUM`が実行されるまで残っています。残っているということは、`SELECT pgroonga.command('select ' || pgroonga.table_name('INDEX_NAME'))`の結果には無効なタプルに関連づいたレコードが含まれるということです。なぜなら、[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)はPostgreSQLで無効なタプルかどうか知らないからです。
+PGroongaが使っているGroongaのデータベースにも無効なタプルに関連づいたレコードが残っています。これらは`VACUUM`が実行されるまで残っています。残っているということは、`SELECT pgroonga_command('select ' || pgroonga.table_name('INDEX_NAME'))`の結果には無効なタプルに関連づいたレコードが含まれるということです。なぜなら、[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)はPostgreSQLで無効なタプルかどうか知らないからです。
 
 `pgroonga_tuple_is_alive`はGroongaのレコードに関連づいたタプルが有効か（無効になっていないか）をチェックします。[`--filter`パラメーター](http://groonga.org/ja/docs/reference/commands/select.html#select-filter)の値に`pgroonga_tuple_is_alive(ctid)`を追加すると`VACUUM`を実行していなくても有効なレコードのみ取得できます。
 
@@ -58,8 +58,8 @@ INSERT INTO posts VALUES (3, 'PGroonga', 'PGroonga is a PostgreSQL extension tha
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index')
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index')
                          )::json->1->0);
 --                                               value                                              
 -- -------------------------------------------------------------------------------------------------
@@ -85,8 +85,8 @@ Groongaの`select`コマンドを再度実行します。4レコード返りま�
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index')
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index')
                          )::json->1->0);
 --                                               value                                              
 -- -------------------------------------------------------------------------------------------------
@@ -104,8 +104,8 @@ SELECT *
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index') ||
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index') ||
                           ' --filter "pgroonga_tuple_is_alive(ctid)"'
                          )::json->1->0);
 --                                               value                                              
@@ -128,8 +128,8 @@ SELECT *
 VACUUM FULL;
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index')
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index')
                          )::json->1->0);
 --                                               value                                              
 -- -------------------------------------------------------------------------------------------------
@@ -143,4 +143,6 @@ SELECT *
 
 ## 参考
 
-  * [`pgroonga.command`関数](../functions/pgroonga-command.html)
+  * [`pgroonga_command`関数][command]
+
+[command]:(../functions/pgroonga-command.html

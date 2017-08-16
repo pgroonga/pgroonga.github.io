@@ -13,7 +13,7 @@ Since 1.1.8.
 
 PostgreSQL keeps invalid tuples such as `DELETE`-ed or `UPDATE`-ed tuples until `VACUUM`. PostgreSQL removes invalid tuples when it searches.
 
-The Groonga database used by PGroonga also keeps records associated with invalid tuples until `VACUUM`. It means that `SELECT pgroonga.command('select ' || pgroonga.table_name('INDEX_NAME'))` includes records associated with invalid tuples. Because [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) doesn't know about invalid tuples in PostgreSQL.
+The Groonga database used by PGroonga also keeps records associated with invalid tuples until `VACUUM`. It means that `SELECT pgroonga_command('select ' || pgroonga_table_name('INDEX_NAME'))` includes records associated with invalid tuples. Because [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) doesn't know about invalid tuples in PostgreSQL.
 
 `pgroonga_tuple_is_alive` checks whether the tuple associated with the Groonga record is alive (= not invalid). If you add `pgroonga_tuple_is_alive(ctid)` to [`--filter` parameter](http://groonga.org/docs/reference/commands/select.html#select-filter) value of `select` Groonga command, you can get only alive records even if `VACUUM` isn't executed.
 
@@ -58,8 +58,8 @@ Here is the result before updating. There are 3 records:
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index')
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index')
                          )::json->1->0);
 --                                               value                                              
 -- -------------------------------------------------------------------------------------------------
@@ -85,8 +85,8 @@ Executes `select` Groonga command again. It returns 4 records. 1 record is added
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index')
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index')
                          )::json->1->0);
 --                                               value                                              
 -- -------------------------------------------------------------------------------------------------
@@ -104,8 +104,8 @@ You can remove the record associated old tuple by specify `pgroonga_tuple_is_ali
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index') ||
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index') ||
                           ' --filter "pgroonga_tuple_is_alive(ctid)"'
                          )::json->1->0);
 --                                               value                                              
@@ -128,8 +128,8 @@ Execute `VACUUM FULL` explicitly. And then execute `select` Groonga command with
 VACUUM FULL;
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_posts_index')
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_posts_index')
                          )::json->1->0);
 --                                               value                                              
 -- -------------------------------------------------------------------------------------------------
@@ -143,4 +143,6 @@ SELECT *
 
 ## See also
 
-  * [`pgroonga.command` function](../functions/pgroonga-command.html)
+  * [`pgroonga_command` function][command]
+
+[command]:(../functions/pgroonga-command.html

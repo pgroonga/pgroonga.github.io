@@ -67,4 +67,6 @@ See also [Registering Event Log on Windows]({{ site.postgresql_doc_base_url.en }
 
 ## See also
 
-  * [`pgroonga.log_path` parameter](log-path.html)
+  * [`pgroonga.log_path` parameter][log-path]
+
+[log-path]:log-path.html

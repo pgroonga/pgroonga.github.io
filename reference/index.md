@@ -496,19 +496,19 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
 ## Parameters
 
-  * [`pgoronga.enable_wal` parameter](parameters/enable-wal.html)
+  * [`pgoronga.enable_wal` parameter][enable-wal]
 
-  * [`pgoronga.lock_timeout` parameter](parameters/lock-timeout.html)
+  * [`pgoronga.lock_timeout` parameter][lock-timeout]
 
-  * [`pgoronga.log_level` parameter](parameters/log-level.html)
+  * [`pgoronga.log_level` parameter][log-level]
 
-  * [`pgoronga.log_path` parameter](parameters/log-path.html)
+  * [`pgoronga.log_path` parameter][log-path]
 
-  * [`pgoronga.log_type` parameter](parameters/log-type.html)
+  * [`pgoronga.log_type` parameter][log-type]
 
-  * [`pgoronga.query_log_path` parameter](parameters/query-log-path.html)
+  * [`pgoronga.query_log_path` parameter][query-log-path]
 
-  * [`pgoronga.match_escalation_threshold` parameter](parameters/match-escalation-threshold.html)
+  * [`pgoronga.match_escalation_threshold` parameter][match-escalation-threshold]
 
 ## Modules
 
@@ -572,3 +572,11 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [query-expand]:functions/pgroonga-query-expand.html
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
+
+[enable-wal]:parameters/enable-wal.html
+[lock-timeout]:parameters/lock-timeout.html
+[log-level]:parameters/log-level.html
+[log-path]:parameters/log-path.html
+[log-type]:parameters/log-type.html
+[query-log-path]:parameters/query-log-path.html
+[match-escalation-threshold]:parameters/match-escalation-threshold.html

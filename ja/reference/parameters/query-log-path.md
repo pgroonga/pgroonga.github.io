@@ -9,7 +9,7 @@ upper_level: ../
 
 `pgroonga.query_log_path`パラメーターはクエリーログのパスを管理します。
 
-[`pgroonga.command`関数](../functions/pgroonga-command.html)を使っていないのならこのパラメーターは意味がありません。なぜならクエリーは`pgroonga.command`関数経由でしか実行できないからです。
+[`pgroonga_command`関数](../functions/pgroonga-command.html)を使っていないのならこのパラメーターは意味がありません。なぜならクエリーは`pgroonga_command`関数経由でしか実行できないからです。
 
 相対パスを指定した場合は、`$PGDATA`を基準にしてパスを解決します。
 

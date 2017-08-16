@@ -496,19 +496,19 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## パラメーター
 
-  * [`pgroonga.enable_wal`パラメーター](parameters/enable-wal.html)
+  * [`pgroonga.enable_wal`パラメーター][enable-wal]
 
-  * [`pgroonga.lock_timeout`パラメーター](parameters/lock-timeout.html)
+  * [`pgroonga.lock_timeout`パラメーター][lock-timeout]
 
-  * [`pgroonga.log_level`パラメーター](parameters/log-level.html)
+  * [`pgroonga.log_level`パラメーター][log-level]
 
-  * [`pgroonga.log_path`パラメーター](parameters/log-path.html)
+  * [`pgroonga.log_path`パラメーター][log-path]
 
-  * [`pgroonga.log_type`パラメーター](parameters/log-type.html)
+  * [`pgroonga.log_type`パラメーター][log-type]
 
-  * [`pgroonga.query_log_path`パラメーター](parameters/query-log-path.html)
+  * [`pgroonga.query_log_path`パラメーター][query-log-path]
 
-  * [`pgroonga.match_escalation_threshold`パラメーター](parameters/match-escalation-threshold.html)
+  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold.html]
 
 ## モジュール
 
@@ -573,3 +573,11 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [query-expand]:functions/pgroonga-query-expand.html
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
+
+[enable-wal]:parameters/enable-wal.html
+[lock-timeout]:parameters/lock-timeout.html
+[log-level]:parameters/log-level.html
+[log-path]:parameters/log-path.html
+[log-type]:parameters/log-type.html
+[query-log-path]:parameters/query-log-path.html
+[match-escalation-threshold]:parameters/match-escalation-threshold.html

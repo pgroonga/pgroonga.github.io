@@ -144,9 +144,9 @@ SELECT * FROM memos WHERE content LIKE '%全文検索%';
 
 ### スコアー {#score}
 
-`pgroonga.score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。
+`pgroonga_score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。
 
-`pgroonga.score`関数を使うためにはプライマリーキーカラムを`pgroonga`インデックスに入れる必要があります。もし、プライマリーキーカラムが`pgroonga`インデックスに入っていない場合は、`pgroonga.score`関数は常に`0`を返します。
+`pgroonga_score`関数を使うためにはプライマリーキーカラムを`pgroonga`インデックスに入れる必要があります。もし、プライマリーキーカラムが`pgroonga`インデックスに入っていない場合は、`pgroonga_score`関数は常に`0`を返します。
 
 以下はインデックス対象のカラムにプライマリーキーが入っているスキーマの例です。
 
@@ -179,7 +179,7 @@ SET enable_seqscan = off;
 全文検索を実行してスコアーを取得します。
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(score_memos) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';
 --  id |                                  content                                  | score 
@@ -189,13 +189,13 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-`ORDER BY`節で`pgroonga.score`関数を使うことでスコアー順にマッチしたレコードをソートできます。
+`ORDER BY`節で`pgroonga_score`関数を使うことでスコアー順にマッチしたレコードをソートできます。
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(score_memos) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'
- ORDER BY pgroonga.score(score_memos) DESC;
+ ORDER BY pgroonga_score(score_memos) DESC;
 --  id |                                  content                                  | score 
 -- ----+---------------------------------------------------------------------------+-------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
@@ -203,28 +203,28 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-マッチした度合いの計算方法など詳細は[`pgroonga.score`関数](../reference/functions/pgroonga-score.html)を参照してください。
+マッチした度合いの計算方法など詳細は[`pgroonga_score`関数](../reference/functions/pgroonga-score.html)を参照してください。
 
 ### ハイライト {#highlight}
 
 TODO
 
-詳細は[`pgroonga.highlight_html`関数](../reference/functions/pgroonga-highlight-html.html)を参照してください。
+詳細は[`pgroonga_highlight_html`関数](../reference/functions/pgroonga-highlight-html.html)を参照してください。
 
 ### スニペット（KWIC、keyword in context） {#snippet}
 
-`pgroonga.snippet_html`関数を使うと検索対象のテキストからキーワード周辺のテキストを抽出できます。この処理を[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword in context）とも言います。Webの検索エンジンの検索結果でみたことがある人も多いでしょう。
+`pgroonga_snippet_html`関数を使うと検索対象のテキストからキーワード周辺のテキストを抽出できます。この処理を[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword in context）とも言います。Webの検索エンジンの検索結果でみたことがある人も多いでしょう。
 
 説明用のサンプルテキストは次の通りです。なお、これはGroongaの説明文です。
 
 > Groonga is a fast and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Groonga allows updates without read locks. These characteristics result in superior performance on real-time applications.
 
 
-この中には`fast`というキーワードがいくつか出現しています。`pgroonga.snippet_html`は`fast`周辺のテキストを抽出します。抽出されたテキスト内のキーワードは`<span class="keyword">`と`</span>`で囲まれています。
+この中には`fast`というキーワードがいくつか出現しています。`pgroonga_snippet_html`は`fast`周辺のテキストを抽出します。抽出されたテキスト内のキーワードは`<span class="keyword">`と`</span>`で囲まれています。
 
-`pgroonga.snippet_html`という関数名の中の`html`は、この関数はHTML出力用の結果を返す、という意味です。
+`pgroonga_snippet_html`という関数名の中の`html`は、この関数はHTML出力用の結果を返す、という意味です。
 
-上述のテキストに対して`pgroonga.snippet_html`を実行した結果は次の通りです。
+上述のテキストに対して`pgroonga_snippet_html`を実行した結果は次の通りです。
 
 > Groonga is a <span class="keyword">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro
 
@@ -233,7 +233,7 @@ TODO
 この挙動を説明するサンプルSQLは次の通りです。`FROM`がない次の`SELECT`でもこの関数を使えます。[`unnest`]({{ site.postgresql_doc_base_url.ja }}/functions-array.html)は配列を列に変換するPostgreSQLの関数であることに注意してください。
 
 ```sql
-SELECT unnest(pgroonga.snippet_html(
+SELECT unnest(pgroonga_snippet_html(
   'Groonga is a fast and accurate full text search engine based on ' ||
   'inverted index. One of the characteristics of Groonga is that a ' ||
   'newly registered document instantly appears in search results. ' ||
@@ -254,13 +254,13 @@ SELECT unnest(pgroonga.snippet_html(
 -- (2 rows)
 ```
 
-詳細は[`pgroonga.snippet_html`関数](../reference/functions/pgroonga-snippet-html.html)を参照してください。
+詳細は[`pgroonga_snippet_html`関数](../reference/functions/pgroonga-snippet-html.html)を参照してください。
 
 ### 同義語 {#synonym}
 
 TODO
 
-詳細は[`pgroonga.query_expand`関数](../reference/functions/pgroonga-query-expand.html)を参照してください。
+詳細は[`pgroonga_query_expand`関数](../reference/functions/pgroonga-query-expand.html)を参照してください。
 
 ## 正規表現 {#regular-expression}
 
@@ -685,14 +685,14 @@ TODO
 
 GroongaそのものはSQLのインターフェイスを提供していません。これはPostgreSQLユーザーには使いづらいです。しかし、PGroongaはSQL経由でGroongaを使う機能を提供しています。
 
-### `pgroonga.command`関数
+### `pgroonga_command`関数
 
-`pgroonga.command`関数を使うと[Groongaのコマンド](http://groonga.org/ja/docs/reference/command.html)を実行し、その結果を文字列で取得できます。
+`pgroonga_command`関数を使うと[Groongaのコマンド](http://groonga.org/ja/docs/reference/command.html)を実行し、その結果を文字列で取得できます。
 
 以下は[`status`コマンド](http://groonga.org/ja/docs/reference/commands/status.html)を実行する例です。
 
 ```sql
-SELECT pgroonga.command('status');
+SELECT pgroonga_command('status') AS command;
 --                                   command                                                                                                                  
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --  [[0,1423911561.69344,6.15119934082031e-05],{"alloc_count":164,"starttime":1423911561,"uptime":0,"version":"5.0.0-6-g17847c9","n_queries":0,"cache_hit_rate":0.0,"command_version":1,"default_command_version":1,"max_command_version":2}]
@@ -704,7 +704,7 @@ Groongaから返ってくる結果はJSONです。Groongaから返ってくる�
 以下は`status`コマンドの結果のキーと値のペアそれぞれを列に変換する例です。
 
 ```sql
-SELECT * FROM json_each(pgroonga.command('status')::json->1);
+SELECT * FROM json_each(pgroonga_command('status')::json->1);
 --            key           |       value        
 -- -------------------------+--------------------
 --  alloc_count             | 168
@@ -719,19 +719,19 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 -- (9 rows)
 ```
 
-詳細は[`pgroonga.command`関数](../reference/functions/pgroonga-command.html)を参照してください。
+詳細は[`pgroonga_command`関数](../reference/functions/pgroonga-command.html)を参照してください。
 
-### `pgroonga.table_name`関数 {#pgroonga-table-name}
+### `pgroonga_table_name`関数 {#pgroonga-table-name}
 
 PGroongaはインデックス対象のカラムの値を保存しています。これらの値を[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)で検索・出力するために使うことができます。
 
-Groongaの`select`コマンドを使うにはテーブル名が必要です。`pgroonga.table_name`関数を使うとPostgreSQLでのインデックス名をGroongaでのテーブル名に変換できます。
+Groongaの`select`コマンドを使うにはテーブル名が必要です。`pgroonga_table_name`関数を使うとPostgreSQLでのインデックス名をGroongaでのテーブル名に変換できます。
 
-以下は`pgroonga.table_name`関数を使って`select`コマンドを実行する例です。
+以下は`pgroonga_table_name`関数を使って`select`コマンドを実行する例です。
 
 ```sql
 SELECT *
-  FROM json_array_elements(pgroonga.command('select ' || pgroonga.table_name('pgroonga_content_index'))::json->1->0);
+  FROM json_array_elements(pgroonga_command('select ' || pgroonga_table_name('pgroonga_content_index'))::json->1->0);
 --                                        value                                       
 -- -----------------------------------------------------------------------------------
 --  [4]
@@ -743,7 +743,7 @@ SELECT *
 -- (6 rows)
 ```
 
-詳細は[`pgroonga.table_name`関数](../reference/functions/pgroonga-table-name.html)を参照してください。
+詳細は[`pgroonga_table_name`関数](../reference/functions/pgroonga-table-name.html)を参照してください。
 
 ## 次のステップ
 

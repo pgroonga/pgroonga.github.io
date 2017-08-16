@@ -144,9 +144,9 @@ You can also use `ILIKE` operator like `LIKE` operator.
 
 ### Score {#score}
 
-You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
+You can use `pgroonga_score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
 
-You need to add primary key column into `pgroonga` index to use `pgroonga.score` function. If you don't add primary key column into `pgroonga` index, `pgroonga.score` function always returns `0`.
+You need to add primary key column into `pgroonga` index to use `pgroonga_score` function. If you don't add primary key column into `pgroonga` index, `pgroonga_score` function always returns `0`.
 
 Here is a sample schema that includes primary key into indexed columns:
 
@@ -179,7 +179,7 @@ SET enable_seqscan = off;
 Perform full text search and get score.
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(score_memos) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';
 --  id |                            content                             | score 
@@ -189,13 +189,13 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-You can sort matched records by precision ascending by using `pgroonga.score` function in `ORDER BY` clause:
+You can sort matched records by precision ascending by using `pgroonga_score` function in `ORDER BY` clause:
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(score_memos) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'
- ORDER BY pgroonga.score(score_memos) DESC;
+ ORDER BY pgroonga_score(score_memos) DESC;
 --  id |                            content                             | score 
 -- ----+----------------------------------------------------------------+-------
 --   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2
@@ -203,28 +203,28 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-See [`pgroonga.score` function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
+See [`pgroonga_score` function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision.
 
 ### Highlight {#highlight}
 
 TODO
 
-See [`pgroonga.highlight_html` function](../reference/functions/pgroonga-highlight-html.html) for more details.
+See [`pgroonga_highlight_html` function](../reference/functions/pgroonga-highlight-html.html) for more details.
 
 ### Snippet (KWIC, keyword in context) {#snippet}
 
-You can use `pgroonga.snippet_html` function to get texts around keywords from search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
+You can use `pgroonga_snippet_html` function to get texts around keywords from search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
 
 Here is a sample text for description. It's a description about Groonga.
 
 > Groonga is a fast and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Groonga allows updates without read locks. These characteristics result in superior performance on real-time applications.
 
 
-There are some `fast` keywords. `pgroonga.snippet_html` extracts texts around `fast`. Keywords in extracted texts are surround with `<span class="keyword">` and `</span>`.
+There are some `fast` keywords. `pgroonga_snippet_html` extracts texts around `fast`. Keywords in extracted texts are surround with `<span class="keyword">` and `</span>`.
 
-`html` in `pgroonga.snippet_html` means that this function returns result for HTML output.
+`html` in `pgroonga_snippet_html` means that this function returns result for HTML output.
 
-Here is the result of `pgroonga.snippet_html` against the above text:
+Here is the result of `pgroonga_snippet_html` against the above text:
 
 > Groonga is a <span class="keyword">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro
 
@@ -233,7 +233,7 @@ This function can be used for all texts. It's not only for search result by PGro
 Here is a sample SQL that describes about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`]({{ site.postgresql_doc_base_url.en }}/functions-array.html) is a PostgreSQL function that converts an array to rows.
 
 ```sql
-SELECT unnest(pgroonga.snippet_html(
+SELECT unnest(pgroonga_snippet_html(
   'Groonga is a fast and accurate full text search engine based on ' ||
   'inverted index. One of the characteristics of Groonga is that a ' ||
   'newly registered document instantly appears in search results. ' ||
@@ -254,13 +254,13 @@ SELECT unnest(pgroonga.snippet_html(
 -- (2 rows)
 ```
 
-See [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-html.html) for more details.
+See [`pgroonga_snippet_html` function](../reference/functions/pgroonga-snippet-html.html) for more details.
 
 ### Synonym {#synonym}
 
 TODO
 
-See [`pgroonga.query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
+See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
 
 ## Regular expression {#regular-expression}
 
@@ -685,14 +685,14 @@ In another instance, Groonga can perform query that doesn't use all columns in r
 
 You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. But PGroonga provides a feature to use Groonga directly throw SQL.
 
-### `pgroonga.command` function
+### `pgroonga_command` function
 
-You can execute [Groonga commands](http://groonga.org/docs/reference/command.html) and get the result of the execution as string by `pgroonga.command` function.
+You can execute [Groonga commands](http://groonga.org/docs/reference/command.html) and get the result of the execution as string by `pgroonga_command` function.
 
 Here is an example that executes [`status` command](http://groonga.org/docs/reference/commands/status.html):
 
 ```sql
-SELECT pgroonga.command('status');
+SELECT pgroonga_command('status') AS command;
 --                                   command                                                                                                                  
 -- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --  [[0,1423911561.69344,6.15119934082031e-05],{"alloc_count":164,"starttime":1423911561,"uptime":0,"version":"5.0.0-6-g17847c9","n_queries":0,"cache_hit_rate":0.0,"command_version":1,"default_command_version":1,"max_command_version":2}]
@@ -704,7 +704,7 @@ Result from Groonga is JSON. You can use JSON related functions provided by Post
 Here is an example to map one key value pair in the result of `status` command to one row:
 
 ```sql
-SELECT * FROM json_each(pgroonga.command('status')::json->1);
+SELECT * FROM json_each(pgroonga_command('status')::json->1);
 --            key           |       value        
 -- -------------------------+--------------------
 --  alloc_count             | 168
@@ -719,19 +719,19 @@ SELECT * FROM json_each(pgroonga.command('status')::json->1);
 -- (9 rows)
 ```
 
-See [`pgroonga.command` function](../reference/functions/pgroonga-command.html) for more details.
+See [`pgroonga_command` function](../reference/functions/pgroonga-command.html) for more details.
 
-### `pgroonga.table_name` function {#pgroonga-table-name}
+### `pgroonga_table_name` function {#pgroonga-table-name}
 
 PGroonga stores values of index target columns. You can use these values to search and output by [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html).
 
-`select` Groonga command needs table name. You can use `pgroonga.table_name` function to convert index name in PostgreSQL to table name in Groonga.
+`select` Groonga command needs table name. You can use `pgroonga_table_name` function to convert index name in PostgreSQL to table name in Groonga.
 
-Here is an example to use `select` command with `pgroonga.table_name` function:
+Here is an example to use `select` command with `pgroonga_table_name` function:
 
 ```sql
 SELECT *
-  FROM json_array_elements(pgroonga.command('select ' || pgroonga.table_name('pgroonga_content_index'))::json->1->0);
+  FROM json_array_elements(pgroonga_command('select ' || pgroonga_table_name('pgroonga_content_index'))::json->1->0);
 --                                      value                                      
 -- --------------------------------------------------------------------------------
 --  [4]
@@ -743,7 +743,7 @@ SELECT *
 -- (6 rows)
 ```
 
-See [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html) for more details.
+See [`pgroonga_table_name` function](../reference/functions/pgroonga-table-name.html) for more details.
 
 ## Next step
 

@@ -30,8 +30,6 @@ See a document for your platform in the followings:
 
     * 16.04
 
-    * 16.10
-
     * 17.04
 
   * [CentOS](centos.html)

@@ -14,8 +14,6 @@ Here are supported Ubuntu versions:
 
   * Ubuntu 16.04
 
-  * Ubuntu 16.10
-
   * Ubuntu 17.04
 
 ## How to install

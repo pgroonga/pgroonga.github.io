@@ -1,28 +1,28 @@
 ---
-title: pgroonga.command function
+title: pgroonga_command function
 upper_level: ../
 ---
 
-# `pgroonga.command` function
+# `pgroonga_command` function
 
 ## Summary
 
-`pgroonga.command` function executes a [Groonga command](http://groonga.org/docs/reference/command.html) and returns the result as `text` type value.
+`pgroonga_command` function executes a [Groonga command](http://groonga.org/docs/reference/command.html) and returns the result as `text` type value.
 
 ## Syntax
 
 Here is the syntax of this function:
 
 ```text
-text pgroonga.command(command)
+text pgroonga_command(command)
 ```
 
-`command` is a `text` type value. `pgroonga.command` executes `command` as a Groonga command.
+`command` is a `text` type value. `pgroonga_command` executes `command` as a Groonga command.
 
 Here is another syntax of this function. It can be used since 1.1.9:
 
 ```text
-text pgroonga.command(name,
+text pgroonga_command(name,
                       ARRAY[argument_name1, argument_value1,
                             argument_name2, argument_value2,
                             ...])
@@ -36,9 +36,9 @@ The second syntax is recommended because it escapes argument values automaticall
 
 `argument_value` is a `text` type value. It's an argument value of the preceding argument name.
 
-`pgroonga.command` builds a Groonga command from `name` and `argument_name`s and `argument_value`s and executes the built Groonga command.
+`pgroonga_command` builds a Groonga command from `name` and `argument_name`s and `argument_value`s and executes the built Groonga command.
 
-Groonga command returns result as JSON. `pgroonga.command` returns the JSON as `text` type value. You can use [JSON functions and operations provided by PostgreSQL]({{ site.postgresql_doc_base_url.en }}/functions-json.html) by casting the result to `json` or `jsonb` type.
+Groonga command returns result as JSON. `pgroonga_command` returns the JSON as `text` type value. You can use [JSON functions and operations provided by PostgreSQL]({{ site.postgresql_doc_base_url.en }}/functions-json.html) by casting the result to `json` or `jsonb` type.
 
 ## Usage
 
@@ -59,7 +59,7 @@ INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');
 Here is an example to run [`status` Groonga command](http://groonga.org/en/docs/reference/commands/status.html) that doesn't have any arguments:
 
 ```sql
-SELECT jsonb_pretty(pgroonga.command('status')::jsonb);
+SELECT jsonb_pretty(pgroonga_command('status')::jsonb);
 --               jsonb_pretty               
 -- -----------------------------------------
 --  [                                      +
@@ -84,13 +84,13 @@ SELECT jsonb_pretty(pgroonga.command('status')::jsonb);
 -- (1 row)
 ```
 
-Here is an example to search inserted data. You can use [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) for the purpose. You need to convert PGroonga index name to Groonga table name by [`pgroonga.table_name` function](pgroonga-table-name.html).
+Here is an example to search inserted data. You can use [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) for the purpose. You need to convert PGroonga index name to Groonga table name by [`pgroonga_table_name` function](pgroonga-table-name.html).
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command(
+  pgroonga_command(
     'select ' ||
-    '--table ' || pgroonga.table_name('pgroonga_memos_index')
+    '--table ' || pgroonga_table_name('pgroonga_memos_index')
   )::jsonb
 );
 --                         jsonb_pretty                        
@@ -135,9 +135,9 @@ Here is an example that searches records that contains "PostgreSQL" and "Groonga
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command(
+  pgroonga_command(
     'select ' ||
-    '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||
+    '--table ' || pgroonga_table_name('pgroonga_memos_index') || ' ' ||
     '--match_columns content ' ||
     '--query "PostgreSQL Groonga"'
   )::jsonb
@@ -184,10 +184,10 @@ If you use arguments array style, you don't need to care about quoting:
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command(
+  pgroonga_command(
     'select',
     ARRAY[
-      'table', pgroonga.table_name('pgroonga_memos_index'),
+      'table', pgroonga_table_name('pgroonga_memos_index'),
       'match_columns', 'content',
       'query', 'PostgreSQL Groonga'
     ]
@@ -241,6 +241,10 @@ See [`pgroonga_tuple_is_alive` Groonga function](../groonga-functions/pgroonga-t
 
   * [Examples in tutorial](../../tutorial/#groonga)
 
-  * [`pgroonga.table_name` function](pgroonga-table-name.html)
+  * [`pgroonga_table_name` function][table-name]
 
-  * [`pgroonga_tuple_is_alive` Groonga function](../groonga-functions/pgroonga-tuple-is-alive.html)
+  * [`pgroonga_tuple_is_alive` Groonga function][tuple-is-alive]
+
+[table-name]:pgroonga-table-name.html
+
+[tuple-is-alive]:../groonga-functions/pgroonga-tuple-is-alive.html

@@ -519,7 +519,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 [`pgroonga_command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`WHERE`節では使えません。
 
-  * [`pgroonga_tuple_is_alive` Groonga関数](groonga-functions/pgroonga-tuple-is-alive.html)
+  * [`pgroonga_tuple_is_alive` Groonga関数][tuple-is-alive]
 
 ## チューニング
 
@@ -571,3 +571,5 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [snippet-html]:functions/pgroonga-snippet-html.html
 [table-name]:functions/pgroonga-table-name.html
 [query-expand]:functions/pgroonga-query-expand.html
+
+[tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html

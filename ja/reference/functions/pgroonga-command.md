@@ -1,28 +1,28 @@
 ---
-title: pgroonga.command関数
+title: pgroonga_command関数
 upper_level: ../
 ---
 
-# `pgroonga.command`関数
+# `pgroonga_command`関数
 
 ## 概要
 
-`pgroonga.command`関数は[Groongaのコマンド](http://groonga.org/ja/docs/reference/command.html)を実行して`text`型の値として結果を返します。
+`pgroonga_command`関数は[Groongaのコマンド](http://groonga.org/ja/docs/reference/command.html)を実行して`text`型の値として結果を返します。
 
 ## 構文
 
 この関数の構文は次の通りです。
 
 ```text
-text pgroonga.command(command)
+text pgroonga_command(command)
 ```
 
-`command`は`text`型の値です。`pgroonga.command`は`command`をGroongaのコマンドとして実行します。
+`command`は`text`型の値です。`pgroonga_command`は`command`をGroongaのコマンドとして実行します。
 
 この関数にはもうひとつ構文があります。これは1.1.9以降で使えます。
 
 ```text
-text pgroonga.command(name,
+text pgroonga_command(name,
                       ARRAY[argument_name1, argument_value1,
                             argument_name2, argument_value2,
                             ...])
@@ -36,9 +36,9 @@ text pgroonga.command(name,
 
 `argument_value`は`text`型の値です。直前にした引数名に対応する値です。
 
-`pgroonga.command`は`name`と`argument_name`と`argument_value`からGroongaコマンドを作り、そのGroongaコマンドを実行します。
+`pgroonga_command`は`name`と`argument_name`と`argument_value`からGroongaコマンドを作り、そのGroongaコマンドを実行します。
 
-Groongaのコマンドは結果をJSONとして返します。`pgroonga.command`はJSONを`text`型の値として返します。結果を`json`型か`jsonb`型にキャストすると[PostgreSQLが提供するJSON関数・演算]({{ site.postgresql_doc_base_url.ja }}/functions-json.html)を使うことができます。
+Groongaのコマンドは結果をJSONとして返します。`pgroonga_command`はJSONを`text`型の値として返します。結果を`json`型か`jsonb`型にキャストすると[PostgreSQLが提供するJSON関数・演算]({{ site.postgresql_doc_base_url.ja }}/functions-json.html)を使うことができます。
 
 ## 使い方
 
@@ -59,7 +59,7 @@ INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');
 以下は[`status` Groongaコマンド](http://groonga.org/ja/docs/reference/commands/status.html)の実行例です。このコマンドには引数はありません。
 
 ```sql
-SELECT jsonb_pretty(pgroonga.command('status')::jsonb);
+SELECT jsonb_pretty(pgroonga_command('status')::jsonb);
 --               jsonb_pretty               
 -- -----------------------------------------
 --  [                                      +
@@ -84,13 +84,13 @@ SELECT jsonb_pretty(pgroonga.command('status')::jsonb);
 -- (1 row)
 ```
 
-以下は挿入したデータを検索する例です。検索には[`select` Groongaコマンド](http://groonga.org/ja/docs/reference/commands/select.html)を使います。[`pgroonga.table_name`関数](pgroonga-table-name.html)を使ってPGroongaのインデックス名をGroongaのテーブル名に変換する必要があります。
+以下は挿入したデータを検索する例です。検索には[`select` Groongaコマンド](http://groonga.org/ja/docs/reference/commands/select.html)を使います。[`pgroonga_table_name`関数](pgroonga-table-name.html)を使ってPGroongaのインデックス名をGroongaのテーブル名に変換する必要があります。
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command(
+  pgroonga_command(
     'select ' ||
-    '--table ' || pgroonga.table_name('pgroonga_memos_index')
+    '--table ' || pgroonga_table_name('pgroonga_memos_index')
   )::jsonb
 );
 --                         jsonb_pretty                        
@@ -135,9 +135,9 @@ SELECT jsonb_pretty(
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command(
+  pgroonga_command(
     'select ' ||
-    '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||
+    '--table ' || pgroonga_table_name('pgroonga_memos_index') || ' ' ||
     '--match_columns content ' ||
     '--query "PostgreSQL Groonga"'
   )::jsonb
@@ -184,10 +184,10 @@ SELECT jsonb_pretty(
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command(
+  pgroonga_command(
     'select',
     ARRAY[
-      'table', pgroonga.table_name('pgroonga_memos_index'),
+      'table', pgroonga_table_name('pgroonga_memos_index'),
       'match_columns', 'content',
       'query', 'PostgreSQL Groonga'
     ]
@@ -241,6 +241,10 @@ SELECT jsonb_pretty(
 
   * [チュートリアルにある例](../../tutorial/#groonga)
 
-  * [`pgroonga.table_name`関数](pgroonga-table-name.html)
+  * [`pgroonga_table_name`関数][table-name]
 
-  * [`pgroonga_tuple_is_alive` Groonga関数](../groonga-functions/pgroonga-tuple-is-alive.html)
+  * [`pgroonga_tuple_is_alive` Groonga関数][tuple-is-alive]
+
+[table-name]:pgroonga-table-name.html
+
+[tuple-is-alive]:../groonga-functions/pgroonga-tuple-is-alive.html

@@ -518,7 +518,7 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
 You can use them with [`pgroonga_command` function](functions/pgroonga-command.html). You can't use them in `WHERE` clause.
 
-  * [`pgroonga_tuple_is_alive` Groonga function](groonga-functions/pgroonga-tuple-is-alive.html)
+  * [`pgroonga_tuple_is_alive` Groonga function][tuple-is-alive]
 
 ## Tuning
 
@@ -570,3 +570,5 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [snippet-html]:functions/pgroonga-snippet-html.html
 [table-name]:functions/pgroonga-table-name.html
 [query-expand]:functions/pgroonga-query-expand.html
+
+[tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html

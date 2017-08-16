@@ -42,7 +42,7 @@ title: インストール
 
   * [FreeBSD](freebsd.html)
 
-  * [OS X](os-x.html)
+  * [macOS](macos.html)
 
     * Homebrew
 

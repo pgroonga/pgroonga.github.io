@@ -42,7 +42,7 @@ See a document for your platform in the followings:
 
   * [FreeBSD](freebsd.html)
 
-  * [OS X](os-x.html)
+  * [macOS](macos.html)
 
     * Homebrew
 

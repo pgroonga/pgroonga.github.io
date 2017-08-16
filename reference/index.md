@@ -32,151 +32,7 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 ### For `text`
 
-#### `pgroonga.text_full_text_search_ops` operator class (default) {#text-full-text-search-ops}
-
-  * [`LIKE` operator][like]
-
-  * `ILIKE` operator
-
-  * [`&@` operator][match-v2]: Full text search by a keyword
-
-  * [`%%` operator][match]: Full text search by a keyword
-
-    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
-
-  * [`&@~` operator][query-v2]: Full text search by easy to use query language
-
-  * [`&?` operator][query-v2]: Full text search by easy to use query language
-
-    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
-
-  * [`@@` operator][query]: Full text search by easy to use query language
-
-    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
-
-#### `pgroonga.text_regexp_ops` operator class {#text-regexp-ops}
-
-  * [`LIKE` operator][like]
-
-  * `ILIKE` operator
-
-  * [`&~` operator][regular-expression-v2]: Search by a regular expression
-
-  * [`@~` operator][regular-expression]: Search by a regular expression
-
-    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
-
-### For `text[]`
-
-  * [`&@` operator][match-v2]: Full text search by a keyword
-
-  * [`%%` operator][match]: Full text search by a keyword
-
-    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
-
-  * [`&@~` operator][query-v2]: Full text search by easy to use query language
-
-  * [`&?` operator][query-v2]: Full text search by easy to use query language
-
-    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
-
-  * [`@@` operator][query]: Full text search by easy to use query language
-
-    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
-
-### For `varchar`
-
-#### `pgroonga.varchar_ops` operator class (default) {#varchar-ops}
-
-  * `<`
-
-  * `<=`
-
-  * `=`
-
-  * `>=`
-
-  * `>`
-
-#### `pgroonga.varchar_full_text_search_ops` operator class {#varchar-full-text-search-ops}
-
-  * [`&@` operator][match-v2]: Full text search by a keyword
-
-  * [`%%` operator][match]: Full text search by a keyword
-
-    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
-
-  * [`&@~` operator][query-v2]: Full text search by easy to use query language
-
-  * [`&?` operator][query-v2]: Full text search by easy to use query language
-
-    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
-
-  * [`@@` operator][query]: Full text search by easy to use query language
-
-    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
-
-#### `pgroonga.varchar_regexp_ops` operator class {#varchar-regexp-ops}
-
-  * [`&~` operator][regular-expression-v2]: Search by a regular expression
-
-  * [`@~` operator][regular-expression]: Search by a regular expression
-
-    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
-
-### For `varchar[]`
-
-#### `pgroonga.varchar_array_ops` operator class (default) {#varchar-array-ops}
-
-  * [`&>` operator][contain-term-v2]: Check whether a term is included in an array of terms
-
-  * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
-
-    * Deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead.
-
-### For boolean, numbers and timestamps
-
-Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double precision`, `timestamp` and `timestamp with time zone`
-
-  * `<`
-
-  * `<=`
-
-  * `=`
-
-  * `>=`
-
-  * `>`
-
-### For `jsonb`
-
-#### `pgroonga.jsonb_ops` operator class (default) {#jsonb-ops}
-
-  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
-
-  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
-
-  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
-
-    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead.
-
-  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
-
-  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query language
-
-    * Deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead.
-
-  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
-
-## Operators v2
-
-PGroonga 1.Y.Z provides `pgroonga.XXX_v2` operator classes. They don't provide backward compatibility until PGroonga 2.0.0. But they include many improvements aggressively when new versions are released.
-
-If you use them, you need to use [incompatible case steps][upgrade-incompatible] to upgrade PGroonga.
-
-### For `text`
-
-#### `pgroonga.text_full_text_search_ops_v2` operator class {#text-full-text-search-ops-v2}
+#### `pgroonga_text_full_text_search_ops_v2` operator class (default) {#text-full-text-search-ops-v2}
 
   * [`LIKE` operator][like]
 
@@ -222,7 +78,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead.
 
-#### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
+#### `pgroonga_text_term_search_ops_v2` operator class {#text-term-search-ops-v2}
 
   * `<`
 
@@ -260,7 +116,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Deprecated since 1.2.1. Use [`&^~|` operator][prefix-rk-search-in-v2] instead.
 
-#### `pgroonga.text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
+#### `pgroonga_text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
   * [`LIKE` operator][like]
 
@@ -274,7 +130,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
 ### For `text[]`
 
-#### `pgroonga.text_array_full_text_search_ops_v2` operator class {#text-array-full-text-search-ops-v2}
+#### `pgroonga_text_array_full_text_search_ops_v2` operator class (default) {#text-array-full-text-search-ops-v2}
 
   * [`&@` operator][match-v2]: Full text search by a keyword
 
@@ -316,7 +172,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead.
 
-#### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term-search-ops-v2}
+#### `pgroonga_text_array_term_search_ops_v2` operator class {#text-array-term-search-ops-v2}
 
   * [`&^` operator][prefix-search-v2]: Prefix search
 
@@ -336,7 +192,27 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
 ### For `varchar`
 
-#### `pgroonga.varchar_full_text_search_ops_v2` operator class {#varchar-full-text-search-ops-v2}
+#### `pgroonga_varchar_term_search_ops_v2` operator class (default) {#varchar-term-search-ops-v2}
+
+  * `<`
+
+  * `<=`
+
+  * `=`
+
+  * `>=`
+
+  * `>`
+
+  * [`&^` operator][prefix-search-v2]: Prefix search
+
+  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
+
+  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
+
+  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
+
+#### `pgroonga_varchar_full_text_search_ops_v2` operator class {#varchar-full-text-search-ops-v2}
 
   * [`&@` operator][match-v2]: Full text search by a keyword
 
@@ -378,7 +254,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead.
 
-#### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
+#### `pgroonga_varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}
 
   * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
@@ -388,7 +264,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
 ### For `varchar[]`
 
-#### `pgroonga.varchar_array_term_search_ops_v2` operator class {#varchar-array-term-search-ops-v2}
+#### `pgroonga_varchar_array_term_search_ops_v2` operator class (default) {#varchar-array-term-search-ops-v2}
 
   * [`&>` operator][contain-term-v2]: Check whether a term is included in an array of terms
 
@@ -396,9 +272,23 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+### For boolean, numbers and timestamps
+
+Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double precision`, `timestamp` and `timestamp with time zone`
+
+  * `<`
+
+  * `<=`
+
+  * `=`
+
+  * `>=`
+
+  * `>`
+
 ### For `jsonb`
 
-#### `pgroonga.jsonb_ops_v2` operator class {#jsonb-ops-v2}
+#### `pgroonga_jsonb_ops_v2` operator class (default) {#jsonb-ops-v2}
 
   * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
 
@@ -416,49 +306,209 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
   * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
 
+## Old operators
+
+### For `text`
+
+#### `pgroonga_text_full_text_search_ops` operator class (default) {#text-full-text-search-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_text_full_text_search_ops_v2` operator class](#text-full-text-search-ops-v2) instead.
+
+  * [`LIKE` operator][like]
+
+  * `ILIKE` operator
+
+  * [`&@` operator][match-v2]: Full text search by a keyword
+
+  * [`%%` operator][match]: Full text search by a keyword
+
+    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
+
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
+
+  * [`@@` operator][query]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
+
+#### `pgroonga_text_regexp_ops` operator class {#text-regexp-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_text_regexp_ops_v2` operator class](#text-regexp-ops-v2) instead.
+
+  * [`LIKE` operator][like]
+
+  * `ILIKE` operator
+
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
+
+  * [`@~` operator][regular-expression]: Search by a regular expression
+
+    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
+
+### For `text[]`
+
+#### `pgroonga_text_array_full_text_search_ops` operator class {#text-array-full-text-search-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_text_array_full_text_search_ops_v2` operator class](#text-array-full-text-search-ops-v2) instead.
+
+  * [`&@` operator][match-v2]: Full text search by a keyword
+
+  * [`%%` operator][match]: Full text search by a keyword
+
+    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
+
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
+
+  * [`@@` operator][query]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
+
+### For `varchar`
+
+#### `pgroonga_varchar_ops` operator class {#varchar-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_varchar_term_search_ops_v2` operator class](#text-varchar-term-search-ops-v2) instead.
+
+  * `<`
+
+  * `<=`
+
+  * `=`
+
+  * `>=`
+
+  * `>`
+
+#### `pgroonga_varchar_full_text_search_ops` operator class {#varchar-full-text-search-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_varchar_full_text_search_ops_v2` operator class](#text-varchar-full-text-search-ops-v2) instead.
+
+  * [`&@` operator][match-v2]: Full text search by a keyword
+
+  * [`%%` operator][match]: Full text search by a keyword
+
+    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead.
+
+  * [`&@~` operator][query-v2]: Full text search by easy to use query language
+
+  * [`&?` operator][query-v2]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead.
+
+  * [`@@` operator][query]: Full text search by easy to use query language
+
+    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead.
+
+#### `pgroonga_varchar_regexp_ops` operator class {#varchar-regexp-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_varchar_regexp_ops_v2` operator class](#text-varchar-regexp-ops-v2) instead.
+
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
+
+  * [`@~` operator][regular-expression]: Search by a regular expression
+
+    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
+
+### For `varchar[]`
+
+#### `pgroonga_varchar_array_ops` operator class {#varchar-array-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_varchar_array_term_search_ops_v2` operator class](#text-varchar-array-term-search-ops-v2) instead.
+
+  * [`&>` operator][contain-term-v2]: Check whether a term is included in an array of terms
+
+  * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
+
+    * Deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead.
+
+### For `jsonb`
+
+#### `pgroonga_jsonb_ops` operator class {#jsonb-ops}
+
+Deprecated since 2.0.0.
+
+Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
+
+  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
+
+  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+
+  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+
+    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead.
+
+  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language
+
+  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query language
+
+    * Deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead.
+
+  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
+
 ## Functions
 
-  * [`pgroonga.command` function](functions/pgroonga-command.html)
+  * [`pgroonga_command` function](functions/pgroonga-command.html)
 
-  * [`pgroonga.command_escape_value` function](functions/pgroonga-command-escape-value.html)
+  * [`pgroonga_command_escape_value` function](functions/pgroonga-command-escape-value.html)
 
-  * [`pgroonga.escape` function](functions/pgroonga-escape.html)
+  * [`pgroonga_escape` function](functions/pgroonga-escape.html)
 
-  * [`pgroonga.flush` function](functions/pgroonga-flush.html)
+  * [`pgroonga_flush` function](functions/pgroonga-flush.html)
 
-  * [`pgroonga.highlight_html` function](functions/pgroonga-highlight-html.html)
+  * [`pgroonga_highlight_html` function](functions/pgroonga-highlight-html.html)
 
-  * [`pgroonga.match_positions_byte` function](functions/pgroonga-match-positions-byte.html)
+  * [`pgroonga_match_positions_byte` function](functions/pgroonga-match-positions-byte.html)
 
-  * [`pgroonga.match_positions_character` function](functions/pgroonga-match-positions-character.html)
+  * [`pgroonga_match_positions_character` function](functions/pgroonga-match-positions-character.html)
 
-  * [`pgroonga.query_escape` function](functions/pgroonga-query-escape.html)
+  * [`pgroonga_query_escape` function](functions/pgroonga-query-escape.html)
 
-  * [`pgroonga.query_extract_keywords` function](functions/pgroonga-query-extract-keywords.html)
+  * [`pgroonga_query_extract_keywords` function](functions/pgroonga-query-extract-keywords.html)
 
-  * [`pgroonga.score` function](functions/pgroonga-score.html)
+  * [`pgroonga_score` function](functions/pgroonga-score.html)
 
-  * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)
+  * [`pgroonga_snippet_html` function](functions/pgroonga-snippet-html.html)
 
-  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)
+  * [`pgroonga_table_name` function](functions/pgroonga-table-name.html)
 
-  * [`pgroonga.query_expand` function][query-expand]
+  * [`pgroonga_query_expand` function][query-expand]
 
 ## Parameters
 
-  * [`pgroonga.enable_wal` parameter](parameters/enable-wal.html)
+  * [`pgoronga.enable_wal` parameter](parameters/enable-wal.html)
 
-  * [`pgroonga.lock_timeout` parameter](parameters/lock-timeout.html)
+  * [`pgoronga.lock_timeout` parameter](parameters/lock-timeout.html)
 
-  * [`pgroonga.log_level` parameter](parameters/log-level.html)
+  * [`pgoronga.log_level` parameter](parameters/log-level.html)
 
-  * [`pgroonga.log_path` parameter](parameters/log-path.html)
+  * [`pgoronga.log_path` parameter](parameters/log-path.html)
 
-  * [`pgroonga.log_type` parameter](parameters/log-type.html)
+  * [`pgoronga.log_type` parameter](parameters/log-type.html)
 
-  * [`pgroonga.query_log_path` parameter](parameters/query-log-path.html)
+  * [`pgoronga.query_log_path` parameter](parameters/query-log-path.html)
 
-  * [`pgroonga.match_escalation_threshold` parameter](parameters/match-escalation-threshold.html)
+  * [`pgoronga.match_escalation_threshold` parameter](parameters/match-escalation-threshold.html)
 
 ## Modules
 
@@ -466,7 +516,7 @@ If you use them, you need to use [incompatible case steps][upgrade-incompatible]
 
 ## Groonga functions
 
-You can use them with [`pgroonga.command` function](functions/pgroonga-command.html). You can't use them in `WHERE` clause.
+You can use them with [`pgroonga_command` function](functions/pgroonga-command.html). You can't use them in `WHERE` clause.
 
   * [`pgroonga_tuple_is_alive` Groonga function](groonga-functions/pgroonga-tuple-is-alive.html)
 

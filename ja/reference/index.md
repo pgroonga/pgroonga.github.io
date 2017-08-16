@@ -32,151 +32,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ### `text`用
 
-#### `pgroonga.text_full_text_search_ops`演算子クラス（デフォルト） {#text-full-text-search-ops}
-
-  * [`LIKE`演算子][like]
-
-  * `ILIKE`演算子
-
-  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
-
-  * [`%%` operator][match]：キーワード1つでの全文検索
-
-    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
-
-  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索
-
-  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
-
-    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
-
-  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
-
-    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
-
-#### `pgroonga.text_regexp_ops`演算子クラス {#text-regexp-ops}
-
-  * [`LIKE`演算子][like]
-
-  * `ILIKE`演算子
-
-  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
-
-  * [`@~`演算子][regular-expression]：正規表現を使った検索
-
-    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
-
-### `text[]`用
-
-  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
-
-  * [`%%` operator][match]：キーワード1つでの全文検索
-
-    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
-
-  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索
-
-  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
-
-    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
-
-  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
-
-    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
-
-### `varchar`用
-
-#### `pgroonga.varchar_ops`演算子クラス（デフォルト） {#varchar-ops}
-
-  * `<`
-
-  * `<=`
-
-  * `=`
-
-  * `>=`
-
-  * `>`
-
-#### `pgroonga.varchar_full_text_search_ops`演算子クラス {#varchar-full-text-search-ops}
-
-  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
-
-  * [`%%` operator][match]：キーワード1つでの全文検索
-
-    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
-
-  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索
-
-  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
-
-    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
-
-  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
-
-    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
-
-#### `pgroonga.varchar_regexp_ops`演算子クラス {#varchar-regexp-ops}
-
-  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
-
-  * [`@~`演算子][regular-expression]：正規表現を使った検索
-
-    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
-
-### `varchar[]`用
-
-#### `pgroonga.varchar_array_ops`演算子クラス（デフォルト） {#varchar-array-ops}
-
-  * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック
-
-  * [`%%`演算子][contain-term]：検索対象の単語の配列に指定した単語が含まれているかをチェック
-
-    * 1.2.1から非推奨です。代わりに[`&>`演算子][contain-term-v2]を使ってください。
-
-### 真偽値、数値、タイムスタンプ用
-
-サポートしている型：`boolean`、`smallint`、`integer`、`bigint`、`real`、`double precision`、`timestamp`、`timestamp with time zone`
-
-  * `<`
-
-  * `<=`
-
-  * `=`
-
-  * `>=`
-
-  * `>`
-
-### `jsonb`用
-
-#### `pgroonga.jsonb_ops`演算子クラス（デフォルト） {#jsonb-ops}
-
-  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
-
-  * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
-
-  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
-
-    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-jsonb-v2]を使ってください。
-
-  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
-
-  * [`@@`演算子][script-jsonb]：ECMAScriptのようなクエリー言語を使った高度な検索
-
-    * 1.2.1から非推奨です。代わりに[`` &` ``演算子][script-jsonb-v2]を使ってください。
-
-  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
-
-## v2演算子
-
-PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します。これらはPGroonga 2.0.0になるまで後方互換性を提供しません。しかし、これらの演算子クラスには新しいバージョンがリリースされるごとに積極的に多くの改良が入ります。
-
-これらを使った場合、PGroongaをアップグレードする場合は[非互換の場合の手順][upgrade-incompatible]を使う必要があります。
-
-### `text`用
-
-#### `pgroonga.text_full_text_search_ops_v2`演算子クラス {#text-full-text-search-ops-v2}
+#### `pgroonga.text_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-full-text-search-ops-v2}
 
   * [`LIKE`演算子][like]
 
@@ -222,7 +78,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
     * 1.2.1から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。
 
-#### `pgroonga.text_term_search_ops_v2`演算子クラス {#text-term-search-ops-v2}
+#### `pgroonga_text_term_search_ops_v2`演算子クラス（デフォルト） {#text-term-search-ops-v2}
 
   * `<`
 
@@ -260,7 +116,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
     * 1.2.1から非推奨です。代わりに[`&^~|`演算子][prefix-rk-search-in-v2]を使ってください。
 
-#### `pgroonga.text_regexp_ops_v2`演算子クラス {#text-regexp-ops-v2}
+#### `pgroonga_text_regexp_ops_v2`演算子クラス {#text-regexp-ops-v2}
 
   * [`LIKE`演算子][like]
 
@@ -274,7 +130,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ### `text[]`用
 
-#### `pgroonga.text_array_full_text_search_ops_v2`演算子クラス {#text-array-full-text-search-ops-v2}
+#### `pgroonga_text_array_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-array-full-text-search-ops-v2}
 
   * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
@@ -316,7 +172,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
     * 1.2.1から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。
 
-#### `pgroonga.text_array_term_search_ops_v2`演算子クラス {#text-array-term-search-ops-v2}
+#### `pgroonga_text_array_term_search_ops_v2`演算子クラス（デフォルト） {#text-array-term-search-ops-v2}
 
   * [`&^`演算子][prefix-search-v2]：前方一致検索
 
@@ -336,7 +192,27 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ### `varchar`用
 
-#### `pgroonga.varchar_full_text_search_ops_v2`演算子クラス {#varchar-full-text-search-ops-v2}
+#### `pgroonga_varchar_array_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-array-term-search-ops-v2}
+
+  * `<`
+
+  * `<=`
+
+  * `=`
+
+  * `>=`
+
+  * `>`
+
+  * [`&^`演算子][prefix-search-v2]：前方一致検索
+
+  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索
+
+  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索
+
+  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
+
+#### `pgroonga_varchar_full_text_search_ops_v2`演算子クラス {#varchar-full-text-search-ops-v2}
 
   * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
@@ -378,7 +254,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
     * 1.2.1から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。
 
-#### `pgroonga.varchar_regexp_ops_v2`演算子クラス {#varchar-regexp-ops-v2}
+#### `pgroonga_varchar_regexp_ops_v2`演算子クラス {#varchar-regexp-ops-v2}
 
   * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
@@ -388,7 +264,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ### `varchar[]`用
 
-#### `pgroonga.varchar_array_term_search_ops_v2`演算子クラス {#varchar-array-term-search-ops-v2}
+#### `pgroonga_varchar_array_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-array-term-search-ops-v2}
 
   * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック
 
@@ -396,9 +272,23 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
     * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
+### 真偽値、数値、タイムスタンプ用
+
+サポートしている型：`boolean`、`smallint`、`integer`、`bigint`、`real`、`double precision`、`timestamp`、`timestamp with time zone`
+
+  * `<`
+
+  * `<=`
+
+  * `=`
+
+  * `>=`
+
+  * `>`
+
 ### `jsonb`用
 
-#### `pgroonga.jsonb_ops_v2`演算子クラス {#jsonb-ops-v2}
+#### `pgroonga_jsonb_ops_v2`演算子クラス（デフォルト） {#jsonb-ops-v2}
 
   * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
 
@@ -416,33 +306,193 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
   * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
 
+## 古い演算子
+
+### `text`用
+
+#### `pgroonga_text_full_text_search_ops`演算子クラス {#text-full-text-search-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_text_full_text_search_ops_v2`演算子クラス](#text-full-text-search-ops-v2)を使ってください。
+
+  * [`LIKE`演算子][like]
+
+  * `ILIKE`演算子
+
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
+
+  * [`%%` operator][match]：キーワード1つでの全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
+
+  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
+
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
+
+#### `pgroonga_text_regexp_ops`演算子クラス {#text-regexp-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_text_regexp_ops_v2`演算子クラス](#text-regexp-ops-v2)を使ってください。
+
+  * [`LIKE`演算子][like]
+
+  * `ILIKE`演算子
+
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+
+  * [`@~`演算子][regular-expression]：正規表現を使った検索
+
+    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
+
+### `text[]`用
+
+#### `pgroonga_text_array_full_text_search_ops`演算子クラス {#text-array-full-text-search-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_text_array_full_text_search_ops_v2`演算子クラス](#text-array-full-text-search-ops-v2)を使ってください。
+
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
+
+  * [`%%` operator][match]：キーワード1つでの全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
+
+  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
+
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
+
+### `varchar`用
+
+#### `pgroonga_varchar_ops`演算子クラス {#varchar-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_varchar_term_search_ops_v2`演算子クラス](#text-varchar-term-search-ops-v2)を使ってください。
+
+  * `<`
+
+  * `<=`
+
+  * `=`
+
+  * `>=`
+
+  * `>`
+
+#### `pgroonga_varchar_full_text_search_ops`演算子クラス {#varchar-full-text-search-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_varchar_full_text_search_ops_v2`演算子クラス](#text-varchar-full-text-search-ops-v2)を使ってください。
+
+  * [`&@`演算子][match-v2]：キーワード1つでの全文検索
+
+  * [`%%` operator][match]：キーワード1つでの全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。
+
+  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索
+
+    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
+
+  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索
+
+    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。
+
+#### `pgroonga_varchar_regexp_ops`演算子クラス {#varchar-regexp-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_varchar_regexp_ops_v2`演算子クラス](#text-varchar-regexp-ops-v2)を使ってください。
+
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+
+  * [`@~`演算子][regular-expression]：正規表現を使った検索
+
+    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。
+
+### `varchar[]`用
+
+#### `pgroonga_varchar_array_ops`演算子クラス {#varchar-array-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_varchar_array_term_search_ops_v2`演算子クラス](#text-varchar-array-term-search-ops-v2)を使ってください。
+
+  * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック
+
+  * [`%%`演算子][contain-term]：検索対象の単語の配列に指定した単語が含まれているかをチェック
+
+    * 1.2.1から非推奨です。代わりに[`&>`演算子][contain-term-v2]を使ってください。
+
+### `jsonb`用
+
+#### `pgroonga_jsonb_ops`演算子クラス {#jsonb-ops}
+
+2.0.0から非推奨です。
+
+代わりに[`pgroonga_jsonb_ops_v2`演算子クラス](#text-jsonb-ops-v2)を使ってください。
+
+  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
+
+  * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
+
+  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
+
+    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-jsonb-v2]を使ってください。
+
+  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索
+
+  * [`@@`演算子][script-jsonb]：ECMAScriptのようなクエリー言語を使った高度な検索
+
+    * 1.2.1から非推奨です。代わりに[`` &` ``演算子][script-jsonb-v2]を使ってください。
+
+  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
+
 ## 関数
 
-  * [`pgroonga.command`関数](functions/pgroonga-command.html)
+  * [`pgroonga_command`関数](functions/pgroonga-command.html)
 
-  * [`pgroonga.command_escape_value`関数](functions/pgroonga-command-escape-value.html)
+  * [`pgroonga_command_escape_value`関数](functions/pgroonga-command-escape-value.html)
 
-  * [`pgroonga.escape`関数](functions/pgroonga-escape.html)
+  * [`pgroonga_escape`関数](functions/pgroonga-escape.html)
 
-  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)
+  * [`pgroonga_flush`関数](functions/pgroonga-flush.html)
 
-  * [`pgroonga.highlight_html`関数](functions/pgroonga-highlight-html.html)
+  * [`pgroonga_highlight_html`関数](functions/pgroonga-highlight-html.html)
 
-  * [`pgroonga.match_positions_byte`関数](functions/pgroonga-match-positions-byte.html)
+  * [`pgroonga_match_positions_byte`関数](functions/pgroonga-match-positions-byte.html)
 
-  * [`pgroonga.match_positions_character`関数](functions/pgroonga-match-positions-character.html)
+  * [`pgroonga_match_positions_character`関数](functions/pgroonga-match-positions-character.html)
 
-  * [`pgroonga.query_escape`関数](functions/pgroonga-query-escape.html)
+  * [`pgroonga_query_escape`関数](functions/pgroonga-query-escape.html)
 
-  * [`pgroonga.query_extract_keywords`関数](functions/pgroonga-query-extract-keywords.html)
+  * [`pgroonga_query_extract_keywords`関数](functions/pgroonga-query-extract-keywords.html)
 
-  * [`pgroonga.score`関数](functions/pgroonga-score.html)
+  * [`pgroonga_score`関数](functions/pgroonga-score.html)
 
-  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html)
+  * [`pgroonga_snippet_html`関数](functions/pgroonga-snippet-html.html)
 
-  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)
+  * [`pgroonga_table_name`関数](functions/pgroonga-table-name.html)
 
-  * [`pgroonga.query_expand`関数][query-expand]
+  * [`pgroonga_query_expand`関数][query-expand]
 
 ## パラメーター
 
@@ -467,7 +517,7 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ## Groongaの関数
 
-[`pgroonga.command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`WHERE`節では使えません。
+[`pgroonga_command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`WHERE`節では使えません。
 
   * [`pgroonga_tuple_is_alive` Groonga関数](groonga-functions/pgroonga-tuple-is-alive.html)
 

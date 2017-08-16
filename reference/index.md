@@ -468,29 +468,29 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
 ## Functions
 
-  * [`pgroonga_command` function](functions/pgroonga-command.html)
+  * [`pgroonga_command` function][command]
 
-  * [`pgroonga_command_escape_value` function](functions/pgroonga-command-escape-value.html)
+  * [`pgroonga_command_escape_value` function][command-escape-value]
 
-  * [`pgroonga_escape` function](functions/pgroonga-escape.html)
+  * [`pgroonga_escape` function][escape]
 
-  * [`pgroonga_flush` function](functions/pgroonga-flush.html)
+  * [`pgroonga_flush` function][flush]
 
-  * [`pgroonga_highlight_html` function](functions/pgroonga-highlight-html.html)
+  * [`pgroonga_highlight_html` function][highlight-html]
 
-  * [`pgroonga_match_positions_byte` function](functions/pgroonga-match-positions-byte.html)
+  * [`pgroonga_match_positions_byte` function][match-positions-byte]
 
-  * [`pgroonga_match_positions_character` function](functions/pgroonga-match-positions-character.html)
+  * [`pgroonga_match_positions_character` function][match-positions-character]
 
-  * [`pgroonga_query_escape` function](functions/pgroonga-query-escape.html)
+  * [`pgroonga_query_escape` function][query-escape]
 
-  * [`pgroonga_query_extract_keywords` function](functions/pgroonga-query-extract-keywords.html)
+  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]
 
-  * [`pgroonga_score` function](functions/pgroonga-score.html)
+  * [`pgroonga_score` function][score]
 
-  * [`pgroonga_snippet_html` function](functions/pgroonga-snippet-html.html)
+  * [`pgroonga_snippet_html` function][snippet-html]
 
-  * [`pgroonga_table_name` function](functions/pgroonga-table-name.html)
+  * [`pgroonga_table_name` function][table-name]
 
   * [`pgroonga_query_expand` function][query-expand]
 
@@ -557,4 +557,16 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
 
+[command]:functions/pgroonga-command.html
+[command-escape-value]:functions/pgroonga-command-escape-value.html)
+[escape]:functions/pgroonga-escape.html
+[flush]:functions/pgroonga-flush.html
+[highlight-html]:functions/pgroonga-highlight-html.html
+[match-positions-byte]:functions/pgroonga-match-positions-byte.html
+[match-positions-character]:functions/pgroonga-match-positions-character.html
+[query-escape]:functions/pgroonga-query-escape.html
+[query-extract-keywords]:functions/pgroonga-query-extract-keywords.html
+[score]:functions/pgroonga-score.html
+[snippet-html]:functions/pgroonga-snippet-html.html
+[table-name]:functions/pgroonga-table-name.html
 [query-expand]:functions/pgroonga-query-expand.html

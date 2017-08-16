@@ -468,29 +468,29 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## 関数
 
-  * [`pgroonga_command`関数](functions/pgroonga-command.html)
+  * [`pgroonga_command`関数][command]
 
-  * [`pgroonga_command_escape_value`関数](functions/pgroonga-command-escape-value.html)
+  * [`pgroonga_command_escape_value`関数][command-escape-value]
 
-  * [`pgroonga_escape`関数](functions/pgroonga-escape.html)
+  * [`pgroonga_escape`関数][escape]
 
-  * [`pgroonga_flush`関数](functions/pgroonga-flush.html)
+  * [`pgroonga_flush`関数][flush]
 
-  * [`pgroonga_highlight_html`関数](functions/pgroonga-highlight-html.html)
+  * [`pgroonga_highlight_html`関数][highlight-html]
 
-  * [`pgroonga_match_positions_byte`関数](functions/pgroonga-match-positions-byte.html)
+  * [`pgroonga_match_positions_byte`関数][match-positions-byte]
 
-  * [`pgroonga_match_positions_character`関数](functions/pgroonga-match-positions-character.html)
+  * [`pgroonga_match_positions_character`関数][match-positions-character]
 
-  * [`pgroonga_query_escape`関数](functions/pgroonga-query-escape.html)
+  * [`pgroonga_query_escape`関数][query-escape]
 
-  * [`pgroonga_query_extract_keywords`関数](functions/pgroonga-query-extract-keywords.html)
+  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]
 
-  * [`pgroonga_score`関数](functions/pgroonga-score.html)
+  * [`pgroonga_score`関数][score]
 
-  * [`pgroonga_snippet_html`関数](functions/pgroonga-snippet-html.html)
+  * [`pgroonga_snippet_html`関数][snippet-html]
 
-  * [`pgroonga_table_name`関数](functions/pgroonga-table-name.html)
+  * [`pgroonga_table_name`関数][table-name]
 
   * [`pgroonga_query_expand`関数][query-expand]
 
@@ -558,4 +558,16 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
 
+[command]:functions/pgroonga-command.html
+[command-escape-value]:functions/pgroonga-command-escape-value.html)
+[escape]:functions/pgroonga-escape.html
+[flush]:functions/pgroonga-flush.html
+[highlight-html]:functions/pgroonga-highlight-html.html
+[match-positions-byte]:functions/pgroonga-match-positions-byte.html
+[match-positions-character]:functions/pgroonga-match-positions-character.html
+[query-escape]:functions/pgroonga-query-escape.html
+[query-extract-keywords]:functions/pgroonga-query-extract-keywords.html
+[score]:functions/pgroonga-score.html
+[snippet-html]:functions/pgroonga-snippet-html.html
+[table-name]:functions/pgroonga-table-name.html
 [query-expand]:functions/pgroonga-query-expand.html

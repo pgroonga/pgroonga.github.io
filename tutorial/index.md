@@ -4,7 +4,7 @@ title: Tutorial
 
 # Tutorial
 
-This document describes how to use PGroonga step by step. If you don't install PGroonga yet, [install](../install/) PGroonga before you read this document.
+This document describes how to use PGroonga step by step. If you don't install PGroonga yet, [install][install] PGroonga before you read this document.
 
 You can use PGroonga as fast full text search index. You can also use PGroonga as more general index for equality condition (`=`) and comparison conditions (`<`, `>=` and so on).
 
@@ -671,7 +671,7 @@ See [`` &` `` operator for `jsonb`](../reference/operators/script-jsonb-v2.html)
 
 TODO
 
-See [how to implement auto complete feature](../how-to/auto-complete.html) for more details.
+See [how to implement auto complete feature][how-to-auto-complete] for more details.
 
 ## How to use Groonga throw PGroonga {#groonga}
 
@@ -747,8 +747,18 @@ See [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.
 
 ## Next step
 
-Now, you knew all PGroonga features! If you want to understand each feature, see [reference manual](../reference/) for each feature.
+Now, you knew all PGroonga features! If you want to understand each feature, see [reference manual][reference] for each feature.
 
-[How to](../how-to/) may help you to use PGroonga for specific situation.
+[How to][how-to] may help you to use PGroonga for specific situation.
 
-If you get a problem or want to share your useful information, please contact [PGroonga community](../community/).
+If you get a problem or want to share your useful information, please contact [PGroonga community][community].
+
+[install]:../install/
+
+[reference]:../reference/
+
+[how-to]:../how-to/
+
+[how-to-auto-complete]:../how-to/auto-complete.html
+
+[community]:../community/

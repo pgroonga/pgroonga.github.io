@@ -4,7 +4,7 @@ title: チュートリアル
 
 # チュートリアル
 
-このドキュメントはPGroongaの使い方を段階を追って説明します。まだPGroongaをインストールしていない場合は、このドキュメントを読む前にPGroongaを[インストール](../install/)してください。
+このドキュメントはPGroongaの使い方を段階を追って説明します。まだPGroongaをインストールしていない場合は、このドキュメントを読む前にPGroongaを[インストール][install]してください。
 
 PGroongaは高速な全文検索インデックスを提供します。さらに、等価条件（`=`）・比較条件（`<`や`>=`など）用の一般的なインデックスも提供します。
 
@@ -671,7 +671,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ ".code" && number
 
 TODO
 
-詳細は[オートコンプリート機能の実装方法](../how-to/auto-complete.html)を参照してください。
+詳細は[オートコンプリート機能の実装方法][how-to-auto-complete]を参照してください。
 
 ## PGroonga経由でGroongaを使う方法 {#groonga}
 
@@ -747,8 +747,18 @@ SELECT *
 
 ## 次のステップ
 
-これでPGroongaのすべての機能を知ったことになります！各機能を理解したい場合は各機能の[リファレンスマニュアル](../reference/)を参照しくてください。
+これでPGroongaのすべての機能を知ったことになります！各機能を理解したい場合は各機能の[リファレンスマニュアル][reference]を参照しくてください。
 
-[ハウツー](../how-to/)は特定用途向けのPGroongaの使い方を紹介しています。
+[ハウツー][how-to]は特定用途向けのPGroongaの使い方を紹介しています。
 
-なにか問題にぶつかった、有用な情報を持っている、そんな方は[PGroongaのコミュニティー](../community/)に参加してください。
+なにか問題にぶつかった、有用な情報を持っている、そんな方は[PGroongaのコミュニティー][community]に参加してください。
+
+[install]:../install/
+
+[reference]:../reference/
+
+[how-to]:../how-to/
+
+[how-to-auto-complete]:../how-to/auto-complete.html
+
+[community]:../community/

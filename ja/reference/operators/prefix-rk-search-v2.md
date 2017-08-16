@@ -35,9 +35,11 @@ column &^~ prefix
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.text_term_search_ops_v2`：`text`用
+  * `pgroonga_text_term_search_ops_v2`：`text`用
 
-  * `pgroonga.text_array_term_search_ops_v2`：`text[]`用
+  * `pgroonga_text_array_term_search_ops_v2`：`text[]`用
+
+  * `pgroonga_varchar_term_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -51,7 +53,7 @@ CREATE TABLE tag_readings (
 );
 
 CREATE INDEX pgroonga_tag_reading_katakana_index ON tag_readings
-  USING pgroonga (katakana pgroonga.text_term_search_ops_v2);
+  USING pgroonga (katakana pgroonga_text_term_search_ops_v2);
 ```
 
 ```sql

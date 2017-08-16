@@ -25,9 +25,9 @@ column &@ keyword
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.jsonb_ops`: Default for `jsonb`
+  * `pgroonga_jsonb_ops_v2`: Default for `jsonb`
 
-  * `pgroonga.jsonb_ops_v2`: For `jsonb`
+  * `pgroonga_jsonb_ops`: For `jsonb`
 
 ## Usage
 

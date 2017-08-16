@@ -30,9 +30,9 @@ column @> query
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.jsonb_ops`：`jsonb`型のデフォルト
+  * `pgroonga_jsonb_ops_v2`：`jsonb`型のデフォルト
 
-  * `pgroonga.jsonb_ops_v2`：`jsonb`型用
+  * `pgroonga_jsonb_ops`：`jsonb`用
 
 ## 使い方
 

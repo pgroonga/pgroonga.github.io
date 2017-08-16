@@ -29,17 +29,17 @@ column @@ query
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト
+  * `pgroonga_text_full_text_search_ops_v2`：`text`型のデフォルト
 
-  * `pgroonga.text_array_full_text_search_ops`：`text[]`のデフォルト
+  * `pgroonga_text_array_full_text_search_ops_v2`：`text[]`型のデフォルト
 
-  * `pgroonga.varchar_full_text_search_ops`：`varchar`用
+  * `pgroonga_varchar_full_text_search_ops_v2`：`varchar`用
 
-  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+  * `pgroonga_text_full_text_search_ops`：`text`用
 
-  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+  * `pgroonga_text_array_full_text_search_ops`：`text[]`用
 
-  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
+  * `pgroonga_varchar_full_text_search_ops`：`varchar`用
 
 ## 使い方
 

@@ -35,9 +35,11 @@ The operator returns `true` when the `column` value starts with `prefix`.
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.text_term_search_ops_v2`: For `text`
+  * `pgroonga_text_term_search_ops_v2`: For `text`
 
-  * `pgroonga.text_array_term_search_ops_v2`: For `text[]`
+  * `pgroonga_text_array_term_search_ops_v2`: For `text[]`
+
+  * `pgroonga_varchar_term_search_ops_v2`: For `varchar`
 
 ## Usage
 
@@ -51,7 +53,7 @@ CREATE TABLE tag_readings (
 );
 
 CREATE INDEX pgroonga_tag_reading_katakana_index ON tag_readings
-  USING pgroonga (katakana pgroonga.text_term_search_ops_v2);
+  USING pgroonga (katakana pgroonga_text_term_search_ops_v2);
 ```
 
 ```sql

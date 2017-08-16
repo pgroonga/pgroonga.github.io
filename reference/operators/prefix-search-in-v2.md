@@ -29,9 +29,11 @@ The operator returns `true` when the `column` value starts with one or more pref
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.text_term_search_ops_v2`: For `text`
+  * `pgroonga_text_term_search_ops_v2`: For `text`
 
-  * `pgroonga.text_array_term_search_ops_v2`: For `text[]`
+  * `pgroonga_text_array_term_search_ops_v2`: For `text[]`
+
+  * `pgroonga_varchar_term_search_ops_v2`: For `varchar`
 
 ## Usage
 
@@ -44,7 +46,7 @@ CREATE TABLE tags (
 );
 
 CREATE INDEX pgroonga_tag_alias_index ON tags
-  USING pgroonga (alias pgroonga.text_term_search_ops_v2);
+  USING pgroonga (alias pgroonga_text_term_search_ops_v2);
 ```
 
 ```sql

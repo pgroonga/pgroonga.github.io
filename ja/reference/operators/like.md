@@ -17,13 +17,13 @@ PGroongaは内部的に`column LIKE '%キーワード%'`条件を`column %% 'キ
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト
+  * `pgroonga_text_full_text_search_ops_v2`：`text`型のデフォルト
 
-  * `pgroonga.text_regexp_ops`：`text`用
+  * `pgroonga_text_regexp_ops_v2`：`text`用
 
-  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+  * `pgroonga_text_full_text_search_ops`：`text`用
 
-  * `pgroonga.text_regexp_ops_v2`：`text`用
+  * `pgroonga_text_regexp_ops`：`text`用
 
 ## 構文
 
@@ -146,14 +146,14 @@ SELECT * FROM memos WHERE content LIKE '%roonga%';
 
 トークナイザーをカスタマイズする方法については[`CREATE INDEX USING pgroonga`のカスタマイズ](../create-index-using-pgroonga.html#customization)を参照してください。
 
-2つめの方法は`pgroonga.text_regexp_ops`オペレータークラスを使う方法です。
+2つめの方法は`pgroonga_text_regexp_ops`オペレータークラスを使う方法です。
 
 ```sql
 DROP INDEX IF EXISTS pgroonga_content_index;
 
 CREATE INDEX pgroonga_content_index
           ON memos
-       USING pgroonga (content pgroonga.text_regexp_ops);
+       USING pgroonga (content pgroonga_text_regexp_ops_v2);
 ```
 
 これで`roonga`でもヒットするようになります。

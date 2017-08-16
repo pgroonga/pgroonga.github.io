@@ -29,9 +29,11 @@ column &^| prefixes
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.text_term_search_ops_v2`：`text`用
+  * `pgroonga_text_term_search_ops_v2`：`text`用
 
-  * `pgroonga.text_array_term_search_ops_v2`：`text[]`用
+  * `pgroonga_text_array_term_search_ops_v2`：`text[]`用
+
+  * `pgroonga_varchar_term_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -44,7 +46,7 @@ CREATE TABLE tags (
 );
 
 CREATE INDEX pgroonga_tag_alias_index ON tags
-  USING pgroonga (alias pgroonga.text_term_search_ops_v2);
+  USING pgroonga (alias pgroonga_text_term_search_ops_v2);
 ```
 
 ```sql

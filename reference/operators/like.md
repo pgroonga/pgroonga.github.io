@@ -17,13 +17,13 @@ The original `LIKE` operator searches against text as is. But `%%` operator perf
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.text_full_text_search_ops`: Default for `text`
+  * `pgroonga_text_full_text_search_ops_v2`: Default for `text`
 
-  * `pgroonga.text_regexp_ops`: For `text`
+  * `pgroonga_text_regexp_ops_v2`: For `text`
 
-  * `pgroonga.text_full_text_search_ops_v2`: For `text`
+  * `pgroonga_text_full_text_search_ops`: For `text`
 
-  * `pgroonga.text_regexp_ops_v2`: For `text`
+  * `pgroonga_text_regexp_ops`: For `text`
 
 ## Syntax
 
@@ -146,14 +146,14 @@ SELECT * FROM memos WHERE content LIKE '%roonga%';
 
 See [Customization in `CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html#customization) for tokenizer.
 
-The second approach is using `pgroonga.text_regexp_ops` operator class:
+The second approach is using `pgroonga_text_regexp_ops_v2` operator class:
 
 ```sql
 DROP INDEX IF EXISTS pgroonga_content_index;
 
 CREATE INDEX pgroonga_content_index
           ON memos
-       USING pgroonga (content pgroonga.text_regexp_ops);
+       USING pgroonga (content pgroonga_text_regexp_ops_v2);
 ```
 
 You can find records by `rooonga`:

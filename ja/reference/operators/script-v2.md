@@ -27,11 +27,11 @@ column &` script
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.text_full_text_search_ops_v2`：`text`用
+  * `pgroonga_text_full_text_search_ops_v2`：`text`型のデフォルト
 
-  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用
+  * `pgroonga_text_array_full_text_search_ops_v2`：`text[]`型のデフォルト
 
-  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用
+  * `pgroonga_varchar_full_text_search_ops_v2`：`varchar`用
 
 ## 使い方
 
@@ -44,7 +44,7 @@ CREATE TABLE memos (
 );
 
 CREATE INDEX pgroonga_content_index ON memos
-  USING pgroonga (id, content pgroonga.text_full_text_search_ops_v2);
+  USING pgroonga (id, content);
 ```
 
 ```sql

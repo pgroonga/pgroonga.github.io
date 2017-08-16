@@ -55,13 +55,13 @@ If `column` value is matched against `regular_expression` pattern, the expressio
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.text_regexp_ops`: For `text`
+  * `pgroonga_text_regexp_ops_v2`: For `text`
 
-  * `pgroonga.varchar_regexp_ops`: For `varchar`
+  * `pgroonga_varchar_regexp_ops_v2`: For `varchar`
 
-  * `pgroonga.text_regexp_ops_v2`: For `text`
+  * `pgroonga_text_regexp_ops`: For `text`
 
-  * `pgroonga.varchar_regexp_ops_v2`: For `varchar`
+  * `pgroonga_varchar_regexp_ops`: For `varchar`
 
 ## Usage
 
@@ -74,7 +74,7 @@ CREATE TABLE memos (
 );
 
 CREATE INDEX pgroonga_content_index ON memos
-  USING pgroonga (content pgroonga.text_regexp_ops);
+  USING pgroonga (content pgroonga_text_regexp_ops_v2);
 ```
 
 Here are data for examples:

@@ -27,11 +27,11 @@ Syntax in `script` is [script syntax][groonga-script-syntax].
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga.text_full_text_search_ops_v2`: For `text`
+  * `pgroonga_text_full_text_search_ops_v2`: Default for `text`
 
-  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`
+  * `pgroonga_text_array_full_text_search_ops_v2`: Default for `text[]`
 
-  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`
+  * `pgroonga_varchar_full_text_search_ops_v2`: For `varchar`
 
 ## Usage
 
@@ -44,7 +44,7 @@ CREATE TABLE memos (
 );
 
 CREATE INDEX pgroonga_content_index ON memos
-  USING pgroonga (id, content pgroonga.text_full_text_search_ops_v2);
+  USING pgroonga (id, content);
 ```
 
 ```sql

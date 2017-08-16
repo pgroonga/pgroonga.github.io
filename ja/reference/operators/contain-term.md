@@ -25,9 +25,9 @@ column %% term
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.varchar_array_ops`：`varchar[]`型のデフォルト
+  * `pgroonga_varchar_array_term_search_ops_v2`：`varchar[]`型のデフォルト
 
-  * `pgroonga.varchar_array_term_search_ops`：`varchar[]`用
+  * `pgroonga_varchar_array_ops`：`varchar[]`用
 
 ## 使い方
 

@@ -55,13 +55,13 @@ column @~ regular_expression
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga.text_regexp_ops`：`text`用
+  * `pgroonga_text_regexp_ops_v2`：`text`用
 
-  * `pgroonga.varchar_regexp_ops`：`varchar`用
+  * `pgroonga_varchar_regexp_ops_v2`：`varchar`用
 
-  * `pgroonga.text_regexp_ops_v2`：`text`用
+  * `pgroonga_text_regexp_ops`：`text`用
 
-  * `pgroonga.varchar_regexp_ops_v2`：`varchar`用
+  * `pgroonga_varchar_regexp_ops`：`varchar`用
 
 ## 使い方
 
@@ -74,7 +74,7 @@ CREATE TABLE memos (
 );
 
 CREATE INDEX pgroonga_content_index ON memos
-  USING pgroonga (content pgroonga.text_regexp_ops);
+  USING pgroonga (content pgroonga_text_regexp_ops_v2);
 ```
 
 以下は例で使うデータです。

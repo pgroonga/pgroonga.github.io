@@ -31,10 +31,10 @@ Here is a basic syntax for creating a full text search index for a `varchar` typ
 ```sql
 CREATE INDEX ${INDEX_NAME}
           ON ${TABLE_NAME}
-       USING pgroonga (${COLUMN} pgroonga.varchar_full_text_search_ops);
+       USING pgroonga (${COLUMN} pgroonga_varchar_full_text_search_ops_v2);
 ```
 
-You need to specify `pgroonga.varchar_full_text_search_ops` operator class for the case.
+You need to specify `pgroonga_varchar_full_text_search_ops_v2` operator class for the case.
 
 ### Customization {#customization}
 

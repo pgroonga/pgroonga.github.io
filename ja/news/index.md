@@ -4,6 +4,31 @@ title: おしらせ
 
 # おしらせ
 
+## 2.0.0: 2017-08-17 {#version-2-0-0}
+
+This is the second major release! It's upgradable from 1.X! 2.X is backward compatible with 1.X!
+
+### 改良
+
+  * Added PostgreSQL 10 support.
+
+  * Added logical replication support.
+
+  * Changed to install functions, operators and operator classes to the current schema with `pgroonga_` prefix from `pgroonga` schema without `pgroonga_` prefix. `pgroonga` schema is still used for backward compatibility. But `pgroonga` schema is deprecated.
+
+  * Changed to the default operator classes to `_v2` operator classes.
+
+### 修正
+
+  * Fixed a crash bug when primary key column isn't the first indexed column.
+    [GitHub#50][Reported by tedypranolo]
+
+  * Fixed upgrade failure from 1.2.0 on PostgreSQL 9.6 or later.
+
+### 感謝
+
+  * tedypranolo
+
 ## 1.2.3: 2017-07-03 {#version-1-2-3}
 
 ### 修正

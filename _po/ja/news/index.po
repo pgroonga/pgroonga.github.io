@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-07-03 16:34+0900\n"
+"PO-Revision-Date: 2017-08-15 00:28+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,11 +20,52 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 1.2.3: 2017-07-03 {#version-1-2-3}"
+msgid "## 2.0.0: 2017-08-17 {#version-2-0-0}"
+msgstr ""
+
+msgid ""
+"This is the second major release! It's upgradable from 1.X! 2.X is backward co"
+"mpatible with 1.X!"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * Added PostgreSQL 10 support."
+msgstr ""
+
+msgid "  * Added logical replication support."
+msgstr ""
+
+msgid ""
+"  * Changed to install functions, operators and operator classes to the curren"
+"t schema with `pgroonga_` prefix from `pgroonga` schema without `pgroonga_` pr"
+"efix. `pgroonga` schema is still used for backward compatibility. But `pgroong"
+"a` schema is deprecated."
+msgstr ""
+
+msgid "  * Changed to the default operator classes to `_v2` operator classes."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid ""
+"  * Fixed a crash bug when primary key column isn't the first indexed column.\n"
+"    [GitHub#50][Reported by tedypranolo]"
+msgstr ""
+
+msgid "  * Fixed upgrade failure from 1.2.0 on PostgreSQL 9.6 or later."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * tedypranolo"
+msgstr ""
+
+msgid "## 1.2.3: 2017-07-03 {#version-1-2-3}"
+msgstr ""
 
 msgid "  * [[Ubuntu][ubuntu]] Fixed invalid package."
 msgstr ""
@@ -34,9 +75,6 @@ msgstr ""
 
 msgid "## 1.2.2: 2017-07-03 {#version-1-2-2}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.4."
 msgstr ""
@@ -75,9 +113,6 @@ msgstr ""
 
 msgid "    * [[`&@*` operator][similar-search-v2]]: Added. Deprecated `&~?` operator."
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Hirokazu Matsuo"
 msgstr ""

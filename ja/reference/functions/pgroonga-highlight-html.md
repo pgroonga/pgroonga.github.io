@@ -1,29 +1,29 @@
 ---
-title: pgroonga.highlight_html関数
+title: pgroonga_highlight_html関数
 upper_level: ../
 ---
 
-# `pgroonga.highlight_html`関数
+# `pgroonga_highlight_html`関数
 
 1.0.7で追加。
 
 ## 概要
 
-`pgroonga.highlight_html`関数は指定したテキスト中にある指定したキーワードを`<span class="keyword">`と`</span>`で囲みます。指定したテキスト中にある`&`などのHTMLの特別な文字はエスケープされます。
+`pgroonga_highlight_html`関数は指定したテキスト中にある指定したキーワードを`<span class="keyword">`と`</span>`で囲みます。指定したテキスト中にある`&`などのHTMLの特別な文字はエスケープされます。
 
 ## 構文
 
 この関数の構文は次の通りです。
 
 ```text
-text pgroonga.highlight_html(target, ARRAY[keyword1, keyword2, ...])
+text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
 ```
 
 `target`はハイライト対象のテキストです。型は`text`です。
 
 キーワードは`<span class="keyword">`と`</span>`で囲まれています。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
 
-`pgroonga.highlight_html`は`target`中のキーワードをマークアップします。型は`text`です。
+`pgroonga_highlight_html`は`target`中のキーワードをマークアップします。型は`text`です。
 
 キーワードは`<span class="keyword">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
 
@@ -32,8 +32,8 @@ text pgroonga.highlight_html(target, ARRAY[keyword1, keyword2, ...])
 少なくとも1つキーワードを指定しなければいけません。
 
 ```sql
-SELECT pgroonga.highlight_html('PGroonga is a PostgreSQL extension.',
-                               ARRAY['PostgreSQL']);
+SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',
+                               ARRAY['PostgreSQL']) AS highlight_html;
 --                           highlight_html                          
 -- ------------------------------------------------------------------
 --  PGroonga is a <span class="keyword">PostgreSQL</span> extension.
@@ -43,19 +43,19 @@ SELECT pgroonga.highlight_html('PGroonga is a PostgreSQL extension.',
 複数のキーワードを指定できます。
 
 ```sql
-SELECT pgroonga.highlight_html('PGroonga is a PostgreSQL extension.',
-                               ARRAY['Groonga', 'PostgreSQL']);
+SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',
+                               ARRAY['Groonga', 'PostgreSQL']) AS highlight_html;
 --                                         highlight_html                                         
 -- -----------------------------------------------------------------------------------------------
 --  P<span class="keyword">Groonga</span> is a <span class="keyword">PostgreSQL</span> extension.
 -- (1 row)
 ```
 
-[`pgroonga.query_extract_keywords`関数](pgroonga-query-extract-keywords.html)を使うとクエリーからキーワードを抽出できます。
+[`pgroonga_query_extract_keywords`関数](pgroonga-query-extract-keywords.html)を使うとクエリーからキーワードを抽出できます。
 
 ```sql
-SELECT pgroonga.highlight_html('PGroonga is a PostgreSQL extension.',
-                               pgroonga.query_extract_keywords('Groonga PostgreSQL -extension'));
+SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',
+                               pgroonga_query_extract_keywords('Groonga PostgreSQL -extension')) AS highlight_html;
 --                                         highlight_html                                         
 -- -----------------------------------------------------------------------------------------------
 --  P<span class="keyword">Groonga</span> is a <span class="keyword">PostgreSQL</span> extension.
@@ -65,8 +65,8 @@ SELECT pgroonga.highlight_html('PGroonga is a PostgreSQL extension.',
 HTMLの特別な文字は自動でエスケープされます。
 
 ```sql
-SELECT pgroonga.highlight_html('<p>PGroonga is Groonga & PostgreSQL.</p>',
-                               ARRAY['PostgreSQL']);
+SELECT pgroonga_highlight_html('<p>PGroonga is Groonga & PostgreSQL.</p>',
+                               ARRAY['PostgreSQL']) AS highlight_html;
 --                                     highlight_html                                     
 -- ---------------------------------------------------------------------------------------
 --  &lt;p&gt;PGroonga is Groonga &amp; <span class="keyword">PostgreSQL</span>.&lt;/p&gt;
@@ -76,8 +76,8 @@ SELECT pgroonga.highlight_html('<p>PGroonga is Groonga & PostgreSQL.</p>',
 文字は正規化されます。
 
 ```sql
-SELECT pgroonga.highlight_html('PGroonga + pglogical = replicatable!',
-                               ARRAY['Pg']);
+SELECT pgroonga_highlight_html('PGroonga + pglogical = replicatable!',
+                               ARRAY['Pg']) AS highlight_html;
                                          highlight_html                                         
 ------------------------------------------------------------------------------------------------
  <span class="keyword">PG</span>roonga + <span class="keyword">pg</span>logical = replicatable!
@@ -87,8 +87,8 @@ SELECT pgroonga.highlight_html('PGroonga + pglogical = replicatable!',
 マルチバイト文字にも対応しています。
 
 ```sql
-SELECT pgroonga.highlight_html('10㌖先にある100ｷﾛグラムの米',
-                               ARRAY['キロ']);
+SELECT pgroonga_highlight_html('10㌖先にある100ｷﾛグラムの米',
+                               ARRAY['キロ']) AS highlight_html;
 --                                     highlight_html                                     
 -- ---------------------------------------------------------------------------------------
 --  10<span class="keyword">㌖</span>先にある100<span class="keyword">ｷﾛ</span>グラムの米
@@ -97,4 +97,6 @@ SELECT pgroonga.highlight_html('10㌖先にある100ｷﾛグラムの米',
 
 ## 参考
 
-  * [`pgroonga.query_extract_keywords`関数](pgroonga-query-extract-keywords.html)
+  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]
+
+[query-extract-keywords]:pgroonga-query-extract-keywords.html

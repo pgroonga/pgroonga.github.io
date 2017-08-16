@@ -1,27 +1,27 @@
 ---
-title: pgroonga.snippet_html関数
+title: pgroonga_snippet_html関数
 upper_level: ../
 ---
 
-# `pgroonga.snippet_html`関数
+# `pgroonga_snippet_html`関数
 
 ## 概要
 
-`pgroonga.snippet_html`関数は対象テキストの中からキーワード周辺のテキストを抽出して返します。これは[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword in context）とも呼ばれています。Web検索エンジンの結果で使われていることが多いので見たことが多い人も多いでしょう。
+`pgroonga_snippet_html`関数は対象テキストの中からキーワード周辺のテキストを抽出して返します。これは[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword in context）とも呼ばれています。Web検索エンジンの結果で使われていることが多いので見たことが多い人も多いでしょう。
 
 ## 構文
 
 この関数の構文は次の通りです。
 
 ```text
-text[] pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])
+text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...])
 ```
 
-`target`は`text`型の値です。`pgroonga.snippet_html`は`target`の中からキーワード周辺のテキストを抽出します。
+`target`は`text`型の値です。`pgroonga_snippet_html`は`target`の中からキーワード周辺のテキストを抽出します。
 
 `keyword1`, `keyword2`, `...`は`text`型の配列です。これらのキーワードを`target`から抽出します。1つ以上のキーワードを指定する必要があります。
 
-`pgroonga.snippet_html`は`text`型の配列を返します。
+`pgroonga_snippet_html`は`text`型の配列を返します。
 
 返ってくる配列の各要素はキーワード周辺のテキストです。
 
@@ -37,4 +37,6 @@ text[] pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])
 
   * [チュートリアルの中の例](../../tutorial/#snippet)
 
-  * [`pgroonga.query_extract_keywords`関数](pgroonga-query-extract-keywords.html)
+  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]
+
+[query-extract-keywords]:pgroonga-query-extract-keywords.html

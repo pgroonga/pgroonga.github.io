@@ -1,29 +1,29 @@
 ---
-title: pgroonga.query_escape function
+title: pgroonga_query_escape function
 upper_level: ../
 ---
 
-# `pgroonga.query_escape` function
+# `pgroonga_query_escape` function
 
 Since 1.1.9.
 
 ## Summary
 
-`pgroonga.query_escape` function escapes special characters in [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on.
+`pgroonga_query_escape` function escapes special characters in [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on.
 
-`pgroonga.query_escape` function is useful to prevent Groonga command injection via [`pgroonga.command` function](pgroonga-command.html). See also [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html) and [`pgroonga.escape` function](pgroonga-escape.html) for preventing Groonga command injection.
+`pgroonga_query_escape` function is useful to prevent Groonga command injection via [`pgroonga_command` function](pgroonga-command.html). See also [`pgroonga_command_escape_value` function](pgroonga-command-escape-value.html) and [`pgroonga_escape` function](pgroonga-escape.html) for preventing Groonga command injection.
 
 ## Syntax
 
 Here is the syntax of this function:
 
 ```text
-text pgroonga.query_escape(query)
+text pgroonga_query_escape(query)
 ```
 
 `query` is a `text` type value. It uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html).
 
-`pgroonga.query_escape` returns a `text` type value. All special characters in the value are escaped.
+`pgroonga_query_escape` returns a `text` type value. All special characters in the value are escaped.
 
 ## Usage
 
@@ -48,22 +48,22 @@ SELECT * FROM memos WHERE content @@ '(PostgreSQL';
 -- ERROR:  pgroonga: failed to parse expression: Syntax error: <(PostgreSQL||>
 ```
 
-You can use the query "(PostgreSQL" as is ("(" isn't treated as a special character) by `pgroonga.query_escape` function:
+You can use the query "(PostgreSQL" as is ("(" isn't treated as a special character) by `pgroonga_query_escape` function:
 
 ```sql
-SELECT * FROM memos WHERE content @@ pgroonga.query_escape('(PostgreSQL');
+SELECT * FROM memos WHERE content @@ pgroonga_query_escape('(PostgreSQL');
 --                  content                 
 -- -----------------------------------------
 --  PGroonga (PostgreSQL+Groonga) is great!
 -- (1 row)
 ```
 
-The same thing is occurred with [`pgroonga.command` function](pgroonga-command.html):
+The same thing is occurred with [`pgroonga_command` function](pgroonga-command.html):
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command('select ' ||
-                   '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||
+  pgroonga_command('select ' ||
+                   '--table ' || pgroonga_table_name('pgroonga_memos_index') || ' ' ||
                    '--match_columns content ' ||
                    '--query "(PostgreSQL"')::jsonb
 );
@@ -80,14 +80,14 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-`pgroonga.query_escape` function with [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html) can prevent the case:
+`pgroonga_query_escape` function with [`pgroonga_command_escape_value` function](pgroonga-command-escape-value.html) can prevent the case:
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command('select ' ||
-                   '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||
+  pgroonga_command('select ' ||
+                   '--table ' || pgroonga_table_name('pgroonga_memos_index') || ' ' ||
                    '--match_columns content ' ||
-                   '--query ' || pgroonga.command_escape_value(pgroonga.query_escape('(PostgreSQL')))::jsonb
+                   '--query ' || pgroonga_command_escape_value(pgroonga_query_escape('(PostgreSQL')))::jsonb
 );
 --                         jsonb_pretty                        
 -- ------------------------------------------------------------
@@ -127,15 +127,15 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-You can also use arguments array style [`pgroonga.command` function](pgroonga-command.html):
+You can also use arguments array style [`pgroonga_command` function](pgroonga-command.html):
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command('select',
+  pgroonga_command('select',
                    ARRAY[
-                     'table', pgroonga.table_name('pgroonga_memos_index'),
+                     'table', pgroonga_table_name('pgroonga_memos_index'),
                      'match_columns', 'content',
-                     'query', pgroonga.query_escape('(PostgreSQL')
+                     'query', pgroonga_query_escape('(PostgreSQL')
                    ])::jsonb
 );
 --                         jsonb_pretty                        
@@ -178,12 +178,16 @@ SELECT jsonb_pretty(
 
 ## See also
 
-  * [`pgroonga.command` function](pgroonga-command.html)
+  * [`pgroonga_command` function][command]
 
-  * [`pgroonga.command_escape_value` function](pgroonga-command-escape-value.html)
+  * [`pgroonga_command_escape_value` function][command-escape-value]
 
-  * [`pgroonga.escape` function](pgroonga-escape.html)
+  * [`pgroonga_escape` function][escape]
 
 [query-v2]:../operators/query-v2.html
 
 [query-in-v2]:../operators/query-in-v2.html
+
+[command]:pgroonga-command.html
+[command-escape-value]:pgroonga-command-escape-value.html
+[escape]:pgroonga-escape.html

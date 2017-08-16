@@ -1,13 +1,13 @@
 ---
-title: pgroonga.table_name function
+title: pgroonga_table_name function
 upper_level: ../
 ---
 
-# `pgroonga.table_name` function
+# `pgroonga_table_name` function
 
 ## Summary
 
-`pgroonga.table_name` function converts PGroonga index name to Groonga table name. Groonga table name is useful [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) by [`pgroonga.command` function](pgroonga-command.html).
+`pgroonga_table_name` function converts PGroonga index name to Groonga table name. Groonga table name is useful [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) by [`pgroonga_command` function](pgroonga-command.html).
 
 You can use weight feature by `select` Groonga command.
 
@@ -16,12 +16,12 @@ You can use weight feature by `select` Groonga command.
 Here is the syntax of this function:
 
 ```text
-text pgroonga.table_name(pgroonga_index_name)
+text pgroonga_table_name(pgroonga_index_name)
 ```
 
 `pgroonga_index_name` is a `text` type value. It's an index name to be converted to Groonga table name. The index should be created with `USING pgroonga`.
 
-`pgroonga.table_name` returns Groonga table name for `pgroonga_index_name` as `text` type value. If `pgroonga_index_name` doesn't exist or isn't a PGroonga index, `pgroonga.table_name` raises an error.
+`pgroonga_table_name` returns Groonga table name for `pgroonga_index_name` as `text` type value. If `pgroonga_index_name` doesn't exist or isn't a PGroonga index, `pgroonga_table_name` raises an error.
 
 ## Usage
 
@@ -61,8 +61,8 @@ You can use [`match_columns` option](http://groonga.org/docs/reference/commands/
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index') || ' ' ||
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_terms_index') || ' ' ||
                           '--match_columns "title * 10 || content" ' ||
                           '--query "Groonga OR PostgreSQL OR engine" ' ||
                           '--output_columns "_score, title, content" ' ||
@@ -83,8 +83,8 @@ You can use drilldown feature by [`drilldown` option](http://groonga.org/docs/re
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index') || ' ' ||
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_terms_index') || ' ' ||
                           '--match_columns "title * 10 || content" ' ||
                           '--query "Groonga OR PostgreSQL OR engine" ' ||
                           '--output_columns "_score, title" ' ||
@@ -102,5 +102,6 @@ SELECT *
 
 ## See also
 
-  * [`pgroonga.table_name` function description in tutorial](../../tutorial/#pgroonga-table-name)
+  * [`pgroonga_table_name` function description in tutorial](../../tutorial/#pgroonga-table-name)
+
   * [Attention when you use `select` Groonga command](pgroonga-command.html#attention)

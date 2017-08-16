@@ -1,24 +1,24 @@
 ---
-title: pgroonga.query_expand function
+title: pgroonga_query_expand function
 upper_level: ../
 ---
 
-# `pgroonga.query_expand` function
+# `pgroonga_query_expand` function
 
 Since 1.2.2.
 
 ## Summary
 
-`pgroonga.query_expand` function expands registered synonyms in query in [query syntax][groonga-query-syntax]. Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on.
+`pgroonga_query_expand` function expands registered synonyms in query in [query syntax][groonga-query-syntax]. Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on.
 
-`pgroonga.query_expand` function is useful to implement [query expansion][wikipedia-query-expansion]. See also [document for Groonga's query expansion feature][groonga-query-expander].
+`pgroonga_query_expand` function is useful to implement [query expansion][wikipedia-query-expansion]. See also [document for Groonga's query expansion feature][groonga-query-expander].
 
 ## Syntax
 
 Here is the syntax of this function:
 
 ```text
-text pgroonga.query_expand(table_name,
+text pgroonga_query_expand(table_name,
                            term_column_name,
                            synonyms_column_name,
                            query)
@@ -32,9 +32,9 @@ text pgroonga.query_expand(table_name,
 
 `query` is a `text` type value. It's a query that uses [query syntax][groonga-query-syntax].
 
-`pgroonga.query_expand` returns a `text` type value. All registered synonyms are expanded in the `query`.
+`pgroonga_query_expand` returns a `text` type value. All registered synonyms are expanded in the `query`.
 
-It's recommended that `${table_name}.${term_column_name}` is indexed by PGroonga with `pgroonga.text_term_search_ops_v2` operator class for fast query expansion like the following:
+It's recommended that `${table_name}.${term_column_name}` is indexed by PGroonga with `pgroonga_text_term_search_ops_v2` operator class for fast query expansion like the following:
 
 ```sql
 CREATE TABLE synonyms (
@@ -44,10 +44,10 @@ CREATE TABLE synonyms (
 
 CREATE INDEX synonyms_term
           ON synonyms
-       USING pgroonga (term pgroonga.text_term_search_ops_v2);
+       USING pgroonga (term pgroonga_text_term_search_ops_v2);
 ```
 
-`pgroonga.query_escape` function can work without index but can work faster with index.
+`pgroonga_query_escape` function can work without index but can work faster with index.
 
 You can use all index access methods that support `=` for `text` type such as `btree`. But it's recommended that you use PGroonga. Because PGroonga supports value normalized `=` (including case insensitive comparison) for `text`. Value normalized `=` is useful for query expansion.
 
@@ -63,7 +63,7 @@ CREATE TABLE synonyms (
 
 CREATE INDEX synonyms_term
           ON synonyms
-       USING pgroonga (term pgroonga.text_term_search_ops_v2);
+       USING pgroonga (term pgroonga_text_term_search_ops_v2);
 
 INSERT INTO synonyms VALUES ('PGroonga', ARRAY['PGroonga', 'Groonga PostgreSQL']);
 ```
@@ -71,14 +71,14 @@ INSERT INTO synonyms VALUES ('PGroonga', ARRAY['PGroonga', 'Groonga PostgreSQL']
 In this sample, all of `"PGroonga"` and `"pgroonga"` in query are expanded because PGroonga index is used:
 
 ```sql
-SELECT pgroonga.query_expand('synonyms', 'term', 'synonyms',
-                             'PGroonga OR Mroonga');
+SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
+                             'PGroonga OR Mroonga') AS query_expand;
 --                  query_expand                   
 -- -------------------------------------------------
 --  ((PGroonga) OR (Groonga PostgreSQL)) OR Mroonga
 -- (1 row)
-SELECT pgroonga.query_expand('synonyms', 'term', 'synonyms',
-                             'pgroonga OR mroonga');
+SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
+                             'pgroonga OR mroonga') AS query_expand;
 --                   query_expand                   
 -- -------------------------------------------------
 --  ((PGroonga) OR (Groonga PostgreSQL)) OR mroonga

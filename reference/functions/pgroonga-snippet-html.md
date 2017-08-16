@@ -1,27 +1,27 @@
 ---
-title: pgroonga.snippet_html function
+title: pgroonga_snippet_html function
 upper_level: ../
 ---
 
-# `pgroonga.snippet_html` function
+# `pgroonga_snippet_html` function
 
 ## Summary
 
-`pgroonga.snippet_html` function returns texts around keywords from target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
+`pgroonga_snippet_html` function returns texts around keywords from target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine.
 
 ## Syntax
 
 Here is the syntax of this function:
 
 ```text
-text[] pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])
+text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...])
 ```
 
-`target` is a `text` type value. `pgroonga.snippet_html` extracts keywords with around texts from `target`.
+`target` is a `text` type value. `pgroonga_snippet_html` extracts keywords with around texts from `target`.
 
 `keyword1`, `keyword2`, `...` are an array of `text` type. The keywords to be extracted from `target`. You must specify one or more keywords.
 
-`pgroonga.snippet_html` returns an array of `text` type.
+`pgroonga_snippet_html` returns an array of `text` type.
 
 Element in the returned array is a text around keyword.
 
@@ -37,4 +37,6 @@ See [examples in tutorial](../../tutorial/#snippet).
 
   * [Examples in tutorial](../../tutorial/#snippet)
 
-  * [`pgroonga.query_extract_keywords` function](pgroonga-query-extract-keywords.html)
+  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]
+
+[query-extract-keywords]:pgroonga-query-extract-keywords.html

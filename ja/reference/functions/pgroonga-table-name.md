@@ -1,13 +1,13 @@
 ---
-title: pgroonga.table_name関数
+title: pgroonga_table_name関数
 upper_level: ../
 ---
 
-# `pgroonga.table_name`関数
+# `pgroonga_table_name`関数
 
 ## 概要
 
-`pgroonga.table_name`関数はPGroongaのインデックス名をGroongaのテーブル名に変換します。Groongaのテーブル名は[`pgroonga.command`関数](pgroonga-command.html)で[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)を使うときに便利です。
+`pgroonga_table_name`関数はPGroongaのインデックス名をGroongaのテーブル名に変換します。Groongaのテーブル名は[`pgroonga_command`関数](pgroonga-command.html)で[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)を使うときに便利です。
 
 Groongaの`select`コマンドを使うと重み機能を使えます。
 
@@ -16,12 +16,12 @@ Groongaの`select`コマンドを使うと重み機能を使えます。
 この関数の構文は次の通りです。
 
 ```text
-text pgroonga.table_name(pgroonga_index_name)
+text pgroonga_table_name(pgroonga_index_name)
 ```
 
 `pgroonga_index_name`は`text`型の値です。このインデックス名をGroongaのテーブル名に指定します。このインデックスは`USING pgroonga`で作ったインデックスでなければいけません。
 
-`pgroonga.table_name`は`pgroonga_index_name`に対応するGroongaのテーブル名を`text`型の値として返します。もし、`pgroonga_index_name`が存在していない、または、PGroongaのインデックスでない場合は、`pgroonga.table_name`はエラーにします。
+`pgroonga_table_name`は`pgroonga_index_name`に対応するGroongaのテーブル名を`text`型の値として返します。もし、`pgroonga_index_name`が存在していない、または、PGroongaのインデックスでない場合は、`pgroonga_table_name`はエラーにします。
 
 ## 使い方
 
@@ -61,8 +61,8 @@ INSERT INTO terms
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index') || ' ' ||
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_terms_index') || ' ' ||
                           '--match_columns "title * 10 || content" ' ||
                           '--query "Groonga OR PostgreSQL OR 全文検索" ' ||
                           '--output_columns "_score, title, content" ' ||
@@ -83,8 +83,8 @@ SELECT *
 ```sql
 SELECT *
   FROM json_array_elements(
-         pgroonga.command('select ' ||
-                          pgroonga.table_name('pgroonga_terms_index') || ' ' ||
+         pgroonga_command('select ' ||
+                          pgroonga_table_name('pgroonga_terms_index') || ' ' ||
                           '--match_columns "title * 10 || content" ' ||
                           '--query "Groonga OR PostgreSQL OR 全文検索" ' ||
                           '--output_columns "_score, title" ' ||
@@ -103,4 +103,5 @@ Groongaの`select`コマンドはSQLの`SELECT`分が遅いときの手段とし
 ## 参考
 
   * [チュートリアルの`pgroonga.table_name`関数の説明](../../tutorial/#pgroonga-table-name)
+
   * [Groongaの`select`コマンドを使う時の注意](pgroonga-command.html#attention)

@@ -1,20 +1,20 @@
 ---
-title: pgroonga.score function
+title: pgroonga_score function
 upper_level: ../
 ---
 
-# `pgroonga.score` function
+# `pgroonga_score` function
 
 ## Summary
 
-`pgroonga.score` function returns precision as a number. If a record is more precision against searched query, the record has more higher number.
+`pgroonga_score` function returns precision as a number. If a record is more precision against searched query, the record has more higher number.
 
 ## Syntax
 
-You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
+You can use `pgroonga_score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
 
 ```text
-double precision pgroonga.score(record)
+double precision pgroonga_score(record)
 ```
 
 `record` is a table name.
@@ -35,20 +35,20 @@ CREATE INDEX pgroonga_score_memos_content_index
 `record` must be `score_memos`:
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(score_memos)
   FROM score_memos
  WHERE content %% 'PGroonga';
 ```
 
-`pgroonga.score` function return precision as `double precision` type value.
+`pgroonga_score` function return precision as `double precision` type value.
 
 ## Usage
 
-You need to add primary key column into `pgroonga` index to use `pgroonga.score` function. If you don't add primary key column into `pgroonga` index, `pgroonga.score` function always returns `0.0`.
+You need to add primary key column into `pgroonga` index to use `pgroonga_score` function. If you don't add primary key column into `pgroonga` index, `pgroonga_score` function always returns `0.0`.
 
-`pgroonga.score` function always returns `0.0` when full text search isn't performed by index. In other words, `pgroonga.score` function always returns `0.0` when full text search is performed by sequential scan.
+`pgroonga_score` function always returns `0.0` when full text search isn't performed by index. In other words, `pgroonga_score` function always returns `0.0` when full text search is performed by sequential scan.
 
-If `pgroonga.score` function returns `0.0` unexpectedly, confirm the followings:
+If `pgroonga_score` function returns `0.0` unexpectedly, confirm the followings:
 
   * Whether the column that is specified as primary key is included in index targets of the PGroonga index or not
   * Whether the full text search is performed by index or not

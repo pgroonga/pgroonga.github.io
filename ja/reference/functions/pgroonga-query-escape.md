@@ -1,29 +1,29 @@
 ---
-title: pgroonga.query_escape関数
+title: pgroonga_query_escape関数
 upper_level: ../
 ---
 
-# `pgroonga.query_escape`関数
+# `pgroonga_query_escape`関数
 
 1.1.9で追加。
 
 ## 概要
 
-`pgroonga.query_escape`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)で特別な意味を持つ文字をエスケープします。[`&@~`演算子][query-v2]、[`&@~|`演算子][query-in-v2]などがクエリー構文を使っています。
+`pgroonga_query_escape`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)で特別な意味を持つ文字をエスケープします。[`&@~`演算子][query-v2]、[`&@~|`演算子][query-in-v2]などがクエリー構文を使っています。
 
-`pgroonga.query_escape`関数は[`pgroonga.command`関数](pgroonga-command.html)経由でGroongaコマンドインジェクションが発生することを防ぐときに有用です。Groongaコマンドインジェクションを防ぐことについては[`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)と[`pgroonga.escape`関数](pgroonga-escape.html)も参照してください。
+`pgroonga_query_escape`関数は[`pgroonga_command`関数](pgroonga-command.html)経由でGroongaコマンドインジェクションが発生することを防ぐときに有用です。Groongaコマンドインジェクションを防ぐことについては[`pgroonga_command_escape_value`関数](pgroonga-command-escape-value.html)と[`pgroonga_escape`関数](pgroonga-escape.html)も参照してください。
 
 ## 構文
 
 この関数の構文は次の通りです。
 
 ```text
-text pgroonga.query_escape(query)
+text pgroonga_query_escape(query)
 ```
 
 `query`は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っている`text`型の値です。
 
-`pgroonga.query_escape`は`text`型の値を返します。この値中の特別な意味を持つ文字はすべてエスケープされています。
+`pgroonga_query_escape`は`text`型の値を返します。この値の中の特別な意味を持つ文字はすべてエスケープされています。
 
 ## 使い方
 
@@ -48,22 +48,22 @@ SELECT * FROM memos WHERE content @@ '(PostgreSQL';
 -- ERROR:  pgroonga: failed to parse expression: Syntax error: <(PostgreSQL||>
 ```
 
-`pgroonga.query_escape`関数を使うことで「(PostgreSQL」というクエリーそのもの（「(」を特別な文字として扱わない）で検索できます。
+`pgroonga_query_escape`関数を使うことで「(PostgreSQL」というクエリーそのもの（「(」を特別な文字として扱わない）で検索できます。
 
 ```sql
-SELECT * FROM memos WHERE content @@ pgroonga.query_escape('(PostgreSQL');
+SELECT * FROM memos WHERE content @@ pgroonga_query_escape('(PostgreSQL');
 --                  content                 
 -- -----------------------------------------
 --  PGroonga (PostgreSQL+Groonga) is great!
 -- (1 row)
 ```
 
-[`pgroonga.command`関数](pgroonga-command.html)でも同じことが発生します。
+[`pgroonga_command`関数](pgroonga-command.html)でも同じことが発生します。
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command('select ' ||
-                   '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||
+  pgroonga_command('select ' ||
+                   '--table ' || pgroonga_table_name('pgroonga_memos_index') || ' ' ||
                    '--match_columns content ' ||
                    '--query "(PostgreSQL"')::jsonb
 );
@@ -80,14 +80,14 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-`pgroonga.query_escape`関数を[`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)と一緒に使うとこのケースを防ぐことができます。
+`pgroonga_query_escape`関数を[`pgroonga_command_escape_value`関数](pgroonga-command-escape-value.html)と一緒に使うとこのケースを防ぐことができます。
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command('select ' ||
-                   '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||
+  pgroonga_command('select ' ||
+                   '--table ' || pgroonga_table_name('pgroonga_memos_index') || ' ' ||
                    '--match_columns content ' ||
-                   '--query ' || pgroonga.command_escape_value(pgroonga.query_escape('(PostgreSQL')))::jsonb
+                   '--query ' || pgroonga_command_escape_value(pgroonga_query_escape('(PostgreSQL')))::jsonb
 );
 --                         jsonb_pretty                        
 -- ------------------------------------------------------------
@@ -127,15 +127,15 @@ SELECT jsonb_pretty(
 -- (1 row)
 ```
 
-コマンドの引数を配列で指定するスタイルで[`pgroonga.command`関数](pgroonga-command.html)使ってもこのケースを防ぐことができます。
+コマンドの引数を配列で指定するスタイルで[`pgroonga_command`関数](pgroonga-command.html)使ってもこのケースを防ぐことができます。
 
 ```sql
 SELECT jsonb_pretty(
-  pgroonga.command('select',
+  pgroonga_command('select',
                    ARRAY[
-                     'table', pgroonga.table_name('pgroonga_memos_index'),
+                     'table', pgroonga_table_name('pgroonga_memos_index'),
                      'match_columns', 'content',
-                     'query', pgroonga.query_escape('(PostgreSQL')
+                     'query', pgroonga_query_escape('(PostgreSQL')
                    ])::jsonb
 );
 --                         jsonb_pretty                        
@@ -178,12 +178,16 @@ SELECT jsonb_pretty(
 
 ## 参考
 
-  * [`pgroonga.command`関数](pgroonga-command.html)
+  * [`pgroonga_command`関数][command]
 
-  * [`pgroonga.command_escape_value`関数](pgroonga-command-escape-value.html)
+  * [`pgroonga_command_escape_value`関数][command-escape-value]
 
-  * [`pgroonga.escape`関数](pgroonga-escape.html)
+  * [`pgroonga_escape`関数][escape]
 
 [query-v2]:../operators/query-v2.html
 
 [query-in-v2]:../operators/query-in-v2.html
+
+[command]:pgroonga-command.html
+[command-escape-value]:pgroonga-command-escape-value.html
+[escape]:pgroonga-escape.html

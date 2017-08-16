@@ -208,7 +208,7 @@ CREATE INDEX wikipedia_index_pg_trgm ON wikipedia
 
 Here are benchmark results of full text searches.
 
-  * "Groonga" means `pgroonga.command('select ...')` result. See also [`pgroonga.command`](functions/pgroonga-command.html).
+  * "Groonga" means `pgroonga_command('select ...')` result. See also [`pgroonga_command`](functions/pgroonga-command.html).
 
   * "Relative elapsed time" is the ratio between the target elapsed time and the fastest case elapsed time. Larger means slower.
 

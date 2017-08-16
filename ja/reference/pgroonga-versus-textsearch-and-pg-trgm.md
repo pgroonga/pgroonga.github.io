@@ -208,7 +208,7 @@ CREATE INDEX wikipedia_index_pg_trgm ON wikipedia
 
 全文検索のベンチマーク結果は以下の通りです。
 
-  * 「Groonga」は`pgroonga.command('select ...')`の結果です。[`pgroonga.command`](functions/pgroonga-command.html)も参照してください。
+  * 「Groonga」は`pgroonga_command('select ...')`の結果です。[`pgroonga_command`](functions/pgroonga-command.html)も参照してください。
 
   * 「相対経過時間」は対象の経過時間と最速のケースの経過時間の比率です。大きいほど遅いです。
 

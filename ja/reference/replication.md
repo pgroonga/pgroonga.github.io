@@ -305,14 +305,14 @@ SELECT title FROM entries WHERE title %% 'replication';
 
 マスターでだけメモリー上にあるPGroonga関連のデータを確実にディスクに書き出します。以下のどれかの方法を使います。
 
-  1. `SELECT pgroonga.command('io_flush');`を実行する
+  1. `SELECT pgroonga_command('io_flush');`を実行する
 
   2. すべての接続を切断する
 
-`pgroonga.command('io_flush')`を使う場合は次のようになります。
+`pgroonga_command('io_flush')`を使う場合は次のようになります。
 
 ```sql
-SELECT pgroonga.command('io_flush');
+SELECT pgroonga_command('io_flush') AS command;
 --                     command                    
 -- -----------------------------------------------
 --  [[0,1478446349.2241,0.1413860321044922],true]

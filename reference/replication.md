@@ -305,14 +305,14 @@ This is a PGroonga specific step.
 
 Ensure writing PGroonga related data on memory to disk on only master. You can choose one of them:
 
-  1. Run `SELECT pgroonga.command('io_flush');`
+  1. Run `SELECT pgroonga_command('io_flush');`
 
   2. Disconnect all connections
 
-Here is an example to use `pgroonga.command('io_flush')`:
+Here is an example to use `pgroonga_command('io_flush')`:
 
 ```sql
-SELECT pgroonga.command('io_flush');
+SELECT pgroonga_command('io_flush') AS command;
 --                     command                    
 -- -----------------------------------------------
 --  [[0,1478446349.2241,0.1413860321044922],true]

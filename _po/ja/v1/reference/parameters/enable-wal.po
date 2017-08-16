@@ -1,0 +1,123 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2016-12-05 15:50+0900\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga.enable_wal parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga.enable_walパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga.enable_wal` parameter"
+msgstr "# `pgroonga.enable_wal`パラメーター"
+
+msgid "Since 1.1.6."
+msgstr "1.1.6で追加。"
+
+msgid ""
+"It's still an experimental feature. If you find a problem, please [report it]("
+"https://github.com/pgroonga/pgroonga/issues/new)."
+msgstr ""
+"これはまだ実験的な機能です。問題を見つけた場合は[報告](https://github.com/pgroonga/pgroonga/issues/new)し"
+"てください。（日本語で大丈夫です。）"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga.enable_wal` parameter controls whether [WAL]({{ site.postgresql_doc_"
+"base_url.en }}/runtime-config-wal.html) is enabled or not."
+msgstr ""
+"`pgroonga.enable_wal`パラメーターは[WAL]({{ site.postgresql_doc_base_url.ja }}/runtim"
+"e-config-wal.html)を有効にするかどうかを制御します。"
+
+msgid ""
+"PGroonga supports WAL with PostgreSQL 9.6 or later. `pgroonga.enable_wal` para"
+"meter is meaningless with PostgreSQL 9.5 or earlier."
+msgstr ""
+"PGroongaはPostgreSQL 9.6以降で使う場合はWALをサポートしています。PostgreSQL 9.5以前で使う場合は`pgroonga.e"
+"nable_wal`パラメーターを設定しても意味はありません。"
+
+msgid ""
+"If you enable WAL support, you can use PostgreSQL's streaming replication feat"
+"ure. See [Replication](../replication.html) for details."
+msgstr ""
+"WALサポートを有効にするとPostgreSQLのストリーミングレプリケーション機能を使えます。詳細は[レプリケーション](../replication.h"
+"tml)を参照してください。"
+
+msgid ""
+"If you enable WAL support, update performance will be decreased because some e"
+"xtra disk writes are needed."
+msgstr "WALサポートを有効にすると更新性能が落ちるはずです。これは追加のディスク書き込みが必要になるからです。"
+
+msgid ""
+"The default value is `off`. It means that PGroonga doesn't generate WAL even w"
+"hen you're using PostgreSQL 9.6 or later. It'll be `on` by default when this f"
+"eature is marked as stable."
+msgstr ""
+"デフォルト値は`off`です。これは、PGroongaはPostgreSQL 9.6以降で使っている場合でもWALを生成しないということです。この機能が安定"
+"したらデフォルトで`on`になる予定です。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In SQL:"
+msgstr "SQLの場合："
+
+msgid ""
+"```sql\n"
+"SET pgroonga.enable_wal = boolean;\n"
+"```"
+msgstr ""
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga.enable_wal = boolean\n"
+"```"
+msgstr ""
+
+msgid ""
+"`boolean` is a boolean value. There are some literals for boolean value such a"
+"s `on`, `off`, `true`, `false`, `yes` and `no`."
+msgstr "`boolean`は真偽値です。真偽値には`on`、`off`、`true`、`false`、`yes`、`no`のようなリテラルがあります。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example SQL to enable WAL support:"
+msgstr "以下はWALサポートを有効にするSQLの例です。"
+
+msgid ""
+"```sql\n"
+"SET pgroonga.enable_wal = on;\n"
+"```"
+msgstr ""
+
+msgid "Here is an example configration to enable WAL support:"
+msgstr "以下はWALサポートを有効にする設定の例です。"
+
+msgid ""
+"```sql\n"
+"pgroonga.enable_wal = on\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [Replication](../replication.html)"
+msgstr "  * [レプリケーション](../replication.html)"

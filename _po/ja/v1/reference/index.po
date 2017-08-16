@@ -1,0 +1,578 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2017-08-14 23:08+0900\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: Reference manual\n"
+"---"
+msgstr ""
+"---\n"
+"title: リファレンスマニュアル\n"
+"---"
+
+msgid "# Reference manual"
+msgstr "# リファレンスマニュアル"
+
+msgid ""
+"This document describes about all features. [Tutorial](../tutorial/) focuses o"
+"n easy to understand only about important features. This document focuses on c"
+"ompleteness. If you don't read [tutorial](../tutorial/) yet, read tutorial bef"
+"ore read this document."
+msgstr ""
+"このドキュメントはすべての機能を説明しています。[チュートリアル](../tutorial/)は重要な機能だけを簡単に理解できることに注力しています。このド"
+"キュメントは完全に説明することに注力しています。もし、まだ[チュートリアル](../tutorial/)を読んでいない場合は、このドキュメントを読む前にチュ"
+"ートリアルを読んでください。"
+
+msgid "## `pgroonga` schema"
+msgstr "## `pgroonga`スキーマ"
+
+msgid ""
+"PGroonga defines functions, operators, operator classes and so on into `pgroon"
+"ga` schema. Only superuser can use features in `pgroonga` schema by default. S"
+"uperuser needs to grant `USAGE` privilege on `pgroonga` schema to normal users"
+" who want to use PGroonga."
+msgstr ""
+"PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスなどを定義します。デフォルトではスーパーユーザーしか`pgroonga`スキーマの"
+"機能を使えません。スーパーユーザーはPGroongaを使いたいすべての一般ユーザーに`pgroonga`スキーマの`USAGE`権限を与えなければいけません"
+"。"
+
+msgid "  * [`GRANT USAGE ON SCHEMA pgroonga`](grant-usage-on-schema-pgroonga.html)"
+msgstr ""
+
+msgid "## `pgroonga` index"
+msgstr "## `pgroonga`インデックス"
+
+msgid "  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)"
+msgstr ""
+
+msgid "  * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)"
+msgstr "  * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)"
+
+msgid ""
+"  * [PGroonga versus textsearch and pg\\_trgm](pgroonga-versus-textsearch-and-p"
+"g-trgm.html)"
+msgstr ""
+"  * [PGroonga対textsearch対pg\\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html"
+")"
+
+msgid "  * [PGroonga versus pg\\_bigm](pgroonga-versus-pg-bigm.html)"
+msgstr "  * [PGroonga対pg\\_bigm](pgroonga-versus-pg-bigm.html)"
+
+msgid "  * [Replication](replication.html)"
+msgstr "  * [レプリケーション](replication.html)"
+
+msgid "  * [`jsonb` support][jsonb]"
+msgstr "  * [`jsonb`サポート][jsonb]"
+
+msgid "## Operators"
+msgstr "## 演算子"
+
+msgid "### For `text`"
+msgstr "### `text`用"
+
+msgid ""
+"#### `pgroonga.text_full_text_search_ops` operator class (default) {#text-full"
+"-text-search-ops}"
+msgstr ""
+"#### `pgroonga.text_full_text_search_ops`演算子クラス（デフォルト） {#text-full-text-search"
+"-ops}"
+
+msgid "  * [`LIKE` operator][like]"
+msgstr "  * [`LIKE`演算子][like]"
+
+msgid "  * `ILIKE` operator"
+msgstr "  * `ILIKE`演算子"
+
+msgid "  * [`&@` operator][match-v2]: Full text search by a keyword"
+msgstr "  * [`&@`演算子][match-v2]：キーワード1つでの全文検索"
+
+msgid "  * [`%%` operator][match]: Full text search by a keyword"
+msgstr "  * [`%%` operator][match]：キーワード1つでの全文検索"
+
+msgid "    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead."
+msgstr "    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。"
+
+msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+msgstr "  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索"
+
+msgid "  * [`&?` operator][query-v2]: Full text search by easy to use query language"
+msgstr "  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。"
+
+msgid "  * [`@@` operator][query]: Full text search by easy to use query language"
+msgstr "  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索"
+
+msgid "    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead."
+msgstr "    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。"
+
+msgid "#### `pgroonga.text_regexp_ops` operator class {#text-regexp-ops}"
+msgstr "#### `pgroonga.text_regexp_ops`演算子クラス {#text-regexp-ops}"
+
+msgid "  * [`&~` operator][regular-expression-v2]: Search by a regular expression"
+msgstr "  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索"
+
+msgid "  * [`@~` operator][regular-expression]: Search by a regular expression"
+msgstr "  * [`@~`演算子][regular-expression]：正規表現を使った検索"
+
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] inste"
+"ad."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。"
+
+msgid "### For `text[]`"
+msgstr "### `text[]`用"
+
+msgid "### For `varchar`"
+msgstr "### `varchar`用"
+
+msgid "#### `pgroonga.varchar_ops` operator class (default) {#varchar-ops}"
+msgstr "#### `pgroonga.varchar_ops`演算子クラス（デフォルト） {#varchar-ops}"
+
+msgid "  * `<`"
+msgstr ""
+
+msgid "  * `<=`"
+msgstr ""
+
+msgid "  * `=`"
+msgstr ""
+
+msgid "  * `>=`"
+msgstr ""
+
+msgid "  * `>`"
+msgstr ""
+
+msgid ""
+"#### `pgroonga.varchar_full_text_search_ops` operator class {#varchar-full-tex"
+"t-search-ops}"
+msgstr ""
+"#### `pgroonga.varchar_full_text_search_ops`演算子クラス {#varchar-full-text-search-"
+"ops}"
+
+msgid "#### `pgroonga.varchar_regexp_ops` operator class {#varchar-regexp-ops}"
+msgstr "#### `pgroonga.varchar_regexp_ops`演算子クラス {#varchar-regexp-ops}"
+
+msgid "### For `varchar[]`"
+msgstr "### `varchar[]`用"
+
+msgid ""
+"#### `pgroonga.varchar_array_ops` operator class (default) {#varchar-array-ops"
+"}"
+msgstr "#### `pgroonga.varchar_array_ops`演算子クラス（デフォルト） {#varchar-array-ops}"
+
+msgid ""
+"  * [`&>` operator][contain-term-v2]: Check whether a term is included in an a"
+"rray of terms"
+msgstr "  * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック"
+
+msgid ""
+"  * [`%%` operator][contain-term]: Check whether a term is included in an arra"
+"y of terms"
+msgstr "  * [`%%`演算子][contain-term]：検索対象の単語の配列に指定した単語が含まれているかをチェック"
+
+msgid "    * Deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&>`演算子][contain-term-v2]を使ってください。"
+
+msgid "### For boolean, numbers and timestamps"
+msgstr "### 真偽値、数値、タイムスタンプ用"
+
+msgid ""
+"Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double p"
+"recision`, `timestamp` and `timestamp with time zone`"
+msgstr ""
+"サポートしている型：`boolean`、`smallint`、`integer`、`bigint`、`real`、`double precision`、`t"
+"imestamp`、`timestamp with time zone`"
+
+msgid "### For `jsonb`"
+msgstr "### `jsonb`用"
+
+msgid "#### `pgroonga.jsonb_ops` operator class (default) {#jsonb-ops}"
+msgstr "#### `pgroonga.jsonb_ops`演算子クラス（デフォルト） {#jsonb-ops}"
+
+msgid ""
+"  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in"
+" `jsonb` by a keyword"
+msgstr "  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索"
+
+msgid ""
+"  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data i"
+"n `jsonb` by easy to use query language"
+msgstr "  * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索"
+
+msgid ""
+"  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in"
+" `jsonb` by easy to use query language"
+msgstr "  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-jsonb-v2]を使ってください。"
+
+msgid ""
+"  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like q"
+"uery language"
+msgstr "  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索"
+
+msgid ""
+"  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query la"
+"nguage"
+msgstr "  * [`@@`演算子][script-jsonb]：ECMAScriptのようなクエリー言語を使った高度な検索"
+
+msgid ""
+"    * Deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead"
+"."
+msgstr "    * 1.2.1から非推奨です。代わりに[`` &` ``演算子][script-jsonb-v2]を使ってください。"
+
+msgid "  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data"
+msgstr "  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索"
+
+msgid "## Operators v2"
+msgstr "## v2演算子"
+
+msgid ""
+"PGroonga 1.Y.Z provides `pgroonga.XXX_v2` operator classes. They don't provide"
+" backward compatibility until PGroonga 2.0.0. But they include many improvemen"
+"ts aggressively when new versions are released."
+msgstr ""
+"PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します。これらはPGroonga 2.0.0になるまで後方互換性を提"
+"供しません。しかし、これらの演算子クラスには新しいバージョンがリリースされるごとに積極的に多くの改良が入ります。"
+
+msgid ""
+"If you use them, you need to use [incompatible case steps][upgrade-incompatibl"
+"e] to upgrade PGroonga."
+msgstr "これらを使った場合、PGroongaをアップグレードする場合は[非互換の場合の手順][upgrade-incompatible]を使う必要があります。"
+
+msgid ""
+"#### `pgroonga.text_full_text_search_ops_v2` operator class {#text-full-text-s"
+"earch-ops-v2}"
+msgstr ""
+"#### `pgroonga.text_full_text_search_ops_v2`演算子クラス {#text-full-text-search-ops"
+"-v2}"
+
+msgid ""
+"    * Don't use this operator for newly written code. It's just for backward c"
+"ompatibility."
+msgstr "    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。"
+
+msgid "  * [`&@*` operator][similar-search-v2]: Similar search"
+msgstr "  * [`&@*`演算子][similar-search-v2]：類似文書検索"
+
+msgid "  * [`&~?` operator][similar-search-v2]: Similar search"
+msgstr "  * [`&~?`演算子][similar-search-v2]：類似文書検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@*` operator][similar-search-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@*`演算子][similar-search-v2]を使ってください。"
+
+msgid ""
+"  * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query l"
+"anguage"
+msgstr "  * [`` &` ``演算子][script-v2]：ECMAScriptのようなクエリー言語を使った高度な検索"
+
+msgid "  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
+msgstr "  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索"
+
+msgid "  * [`&@>` operator][match-in-v2]: Full text search by an array of keywords"
+msgstr "  * [`&@>`演算子][match-in-v2]：キーワードの配列での全文検索"
+
+msgid "    * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&@|`演算子][match-in-v2]を使ってください。"
+
+msgid ""
+"  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in"
+" easy to use query language"
+msgstr "  * [`&@~|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
+
+msgid ""
+"  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in "
+"easy to use query language"
+msgstr "  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
+
+msgid "    * Deprecated since 1.2.2. Use [`&@~|` operator][query-in-v2] instead."
+msgstr "    * 1.2.2から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。"
+
+msgid ""
+"  * [`&?>` operator][query-in-v2]: Full text search by an array of queries in "
+"easy to use query language"
+msgstr "  * [`&?>`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
+
+msgid "    * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。"
+
+msgid ""
+"#### `pgroonga.text_term_search_ops_v2` operator class {#text-term-search-ops-"
+"v2}"
+msgstr "#### `pgroonga.text_term_search_ops_v2`演算子クラス {#text-term-search-ops-v2}"
+
+msgid "    * Since 1.2.2."
+msgstr "    * 1.2.2で追加。"
+
+msgid "  * [`&^` operator][prefix-search-v2]: Prefix search"
+msgstr "  * [`&^`演算子][prefix-search-v2]：前方一致検索"
+
+msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
+msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
+
+msgid ""
+"  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefix"
+"es"
+msgstr "  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
+
+msgid ""
+"  * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefix"
+"es"
+msgstr "  * [`&^>`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
+
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&^|` operator][prefix-search-in-v2] instea"
+"d."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&^|`演算子][prefix-search-in-v2]を使ってください。"
+
+msgid ""
+"  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of"
+" prefixes"
+msgstr "  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
+
+msgid ""
+"  * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of"
+" prefixes"
+msgstr "  * [`&^~>`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
+
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&^~|` operator][prefix-rk-search-in-v2] in"
+"stead."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&^~|`演算子][prefix-rk-search-in-v2]を使ってください。"
+
+msgid "#### `pgroonga.text_regexp_ops_v2` operator class {#text-regexp-ops-v2}"
+msgstr "#### `pgroonga.text_regexp_ops_v2`演算子クラス {#text-regexp-ops-v2}"
+
+msgid ""
+"#### `pgroonga.text_array_full_text_search_ops_v2` operator class {#text-array"
+"-full-text-search-ops-v2}"
+msgstr ""
+"#### `pgroonga.text_array_full_text_search_ops_v2`演算子クラス {#text-array-full-tex"
+"t-search-ops-v2}"
+
+msgid ""
+"#### `pgroonga.text_array_term_search_ops_v2` operator class {#text-array-term"
+"-search-ops-v2}"
+msgstr ""
+"#### `pgroonga.text_array_term_search_ops_v2`演算子クラス {#text-array-term-search-o"
+"ps-v2}"
+
+msgid "  * [`&^>` operator][prefix-search-v2]: Prefix search"
+msgstr "  * [`&^>`演算子][prefix-search-v2]：前方一致検索"
+
+msgid "    * Deprecated since 1.2.1. Use [`&^` operator][prefix-search-v2] instead."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&^`演算子][prefix-search-v2]を使ってください。"
+
+msgid "  * [`&^~>` operator][prefix-rk-search-v2]: Prefix RK search"
+msgstr "  * [`&^~>`演算子][prefix-rk-search-v2]：前方一致RK検索"
+
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&^~` operator][prefix-rk-search-v2] instea"
+"d."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&^~`演算子][prefix-rk-search-v2]を使ってください。"
+
+msgid ""
+"#### `pgroonga.varchar_full_text_search_ops_v2` operator class {#varchar-full-"
+"text-search-ops-v2}"
+msgstr ""
+"#### `pgroonga.varchar_full_text_search_ops_v2`演算子クラス {#varchar-full-text-sear"
+"ch-ops-v2}"
+
+msgid "    * Deprecated since 1.2.1. Use [`&@|` operator][query-in-v2] instead."
+msgstr "    * 1.2.1から非推奨です。代わりに[`&@|`演算子][query-in-v2]を使ってください。"
+
+msgid "#### `pgroonga.varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}"
+msgstr "#### `pgroonga.varchar_regexp_ops_v2`演算子クラス {#varchar-regexp-ops-v2}"
+
+msgid ""
+"#### `pgroonga.varchar_array_term_search_ops_v2` operator class {#varchar-arra"
+"y-term-search-ops-v2}"
+msgstr ""
+"#### `pgroonga.varchar_array_term_search_ops_v2`演算子クラス {#varchar-array-term-se"
+"arch-ops-v2}"
+
+msgid "#### `pgroonga.jsonb_ops_v2` operator class {#jsonb-ops-v2}"
+msgstr "#### `pgroonga.jsonb_ops_v2`演算子クラス {#jsonb-ops-v2}"
+
+msgid "## Functions"
+msgstr "## 関数"
+
+msgid "  * [`pgroonga.command` function](functions/pgroonga-command.html)"
+msgstr "  * [`pgroonga.command`関数](functions/pgroonga-command.html)"
+
+msgid ""
+"  * [`pgroonga.command_escape_value` function](functions/pgroonga-command-esca"
+"pe-value.html)"
+msgstr ""
+"  * [`pgroonga.command_escape_value`関数](functions/pgroonga-command-escape-valu"
+"e.html)"
+
+msgid "  * [`pgroonga.escape` function](functions/pgroonga-escape.html)"
+msgstr "  * [`pgroonga.escape`関数](functions/pgroonga-escape.html)"
+
+msgid "  * [`pgroonga.flush` function](functions/pgroonga-flush.html)"
+msgstr "  * [`pgroonga.flush`関数](functions/pgroonga-flush.html)"
+
+msgid ""
+"  * [`pgroonga.highlight_html` function](functions/pgroonga-highlight-html.htm"
+"l)"
+msgstr "  * [`pgroonga.highlight_html`関数](functions/pgroonga-highlight-html.html)"
+
+msgid ""
+"  * [`pgroonga.match_positions_byte` function](functions/pgroonga-match-positi"
+"ons-byte.html)"
+msgstr ""
+"  * [`pgroonga.match_positions_byte`関数](functions/pgroonga-match-positions-byt"
+"e.html)"
+
+msgid ""
+"  * [`pgroonga.match_positions_character` function](functions/pgroonga-match-p"
+"ositions-character.html)"
+msgstr ""
+"  * [`pgroonga.match_positions_character`関数](functions/pgroonga-match-position"
+"s-character.html)"
+
+msgid "  * [`pgroonga.query_escape` function](functions/pgroonga-query-escape.html)"
+msgstr "  * [`pgroonga.query_escape`関数](functions/pgroonga-query-escape.html)"
+
+msgid ""
+"  * [`pgroonga.query_extract_keywords` function](functions/pgroonga-query-extr"
+"act-keywords.html)"
+msgstr ""
+"  * [`pgroonga.query_extract_keywords`関数](functions/pgroonga-query-extract-key"
+"words.html)"
+
+msgid "  * [`pgroonga.score` function](functions/pgroonga-score.html)"
+msgstr "  * [`pgroonga.score`関数](functions/pgroonga-score.html)"
+
+msgid "  * [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html)"
+msgstr "  * [`pgroonga.snippet_html`関数](functions/pgroonga-snippet-html.html)"
+
+msgid "  * [`pgroonga.table_name` function](functions/pgroonga-table-name.html)"
+msgstr "  * [`pgroonga.table_name`関数](functions/pgroonga-table-name.html)"
+
+msgid "  * [`pgroonga.query_expand` function][query-expand]"
+msgstr "  * [`pgroonga.query_expand`関数][query-expand]"
+
+msgid "## Parameters"
+msgstr "## パラメーター"
+
+msgid "  * [`pgroonga.enable_wal` parameter](parameters/enable-wal.html)"
+msgstr "  * [`pgroonga.enable_wal`パラメーター](parameters/enable-wal.html)"
+
+msgid "  * [`pgroonga.lock_timeout` parameter](parameters/lock-timeout.html)"
+msgstr "  * [`pgroonga.lock_timeout`パラメーター](parameters/lock-timeout.html)"
+
+msgid "  * [`pgroonga.log_level` parameter](parameters/log-level.html)"
+msgstr "  * [`pgroonga.log_level`パラメーター](parameters/log-level.html)"
+
+msgid "  * [`pgroonga.log_path` parameter](parameters/log-path.html)"
+msgstr "  * [`pgroonga.log_path`パラメーター](parameters/log-path.html)"
+
+msgid "  * [`pgroonga.log_type` parameter](parameters/log-type.html)"
+msgstr "  * [`pgroonga.log_type`パラメーター](parameters/log-type.html)"
+
+msgid "  * [`pgroonga.query_log_path` parameter](parameters/query-log-path.html)"
+msgstr "  * [`pgroonga.query_log_path`パラメーター](parameters/query-log-path.html)"
+
+msgid ""
+"  * [`pgroonga.match_escalation_threshold` parameter](parameters/match-escalat"
+"ion-threshold.html)"
+msgstr ""
+"  * [`pgroonga.match_escalation_threshold`パラメーター](parameters/match-escalation-"
+"threshold.html)"
+
+msgid "## Modules"
+msgstr ""
+"## モジュール\n"
+
+msgid "  * [`pgroonga_check` module](modules/pgroonga-check.html)"
+msgstr "  * [`pgroonga_check`モジュール](modules/pgroonga-check.html)"
+
+msgid "## Groonga functions"
+msgstr "## Groongaの関数"
+
+msgid ""
+"You can use them with [`pgroonga.command` function](functions/pgroonga-command"
+".html). You can't use them in `WHERE` clause."
+msgstr ""
+"[`pgroonga.command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`W"
+"HERE`節では使えません。"
+
+msgid ""
+"  * [`pgroonga_tuple_is_alive` Groonga function](groonga-functions/pgroonga-tu"
+"ple-is-alive.html)"
+msgstr ""
+"  * [`pgroonga_tuple_is_alive` Groonga関数](groonga-functions/pgroonga-tuple-is-"
+"alive.html)"
+
+msgid "## Tuning"
+msgstr "## チューニング"
+
+msgid ""
+"Normally, you don't need to tune PGroonga because PGroonga works well by defau"
+"lt."
+msgstr "通常、PGroongaはデフォルトで高速に動くため、特別にPGroongaをチューニングする必要はありません。"
+
+msgid ""
+"But you need to tune PGroonga in some cases such as a case that you need to ha"
+"ndle a very large database. PGroonga uses Groonga as backend. It means that yo"
+"u can apply tuning knowledge for Groonga to PGroonga. See the following Groong"
+"a document to tune PGroonga:"
+msgstr ""
+"しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroo"
+"ngaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のG"
+"roongaのドキュメントを参照してください。"
+
+msgid "  * [Tuning](http://groonga.org/docs/reference/tuning.html)"
+msgstr "  * [チューニング](http://groonga.org/ja/docs/reference/tuning.html)"
+
+msgid "[jsonb]:jsonb.html"
+msgstr ""
+
+msgid "[like]:operators/like.html"
+msgstr ""
+
+msgid ""
+"[match]:operators/match.html\n"
+"[query]:operators/query.html\n"
+"[regular-expression]:operators/regular-expression.html"
+msgstr ""
+
+msgid ""
+"[match-v2]:operators/match-v2.html\n"
+"[query-v2]:operators/query-v2.html\n"
+"[match-in-v2]:operators/match-in-v2.html\n"
+"[query-in-v2]:operators/query-in-v2.html\n"
+"[regular-expression-v2]:operators/regular-expression-v2.html\n"
+"[contain-term-v2]:operators/contain-term-v2.html\n"
+"[contain-term]:operators/contain-term.html\n"
+"[prefix-search-v2]:operators/prefix-search-v2.html\n"
+"[prefix-rk-search-v2]:operators/prefix-rk-search-v2.html\n"
+"[prefix-search-in-v2]:operators/prefix-search-in-v2.html\n"
+"[prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html\n"
+"[similar-search-v2]:operators/similar-search-v2.html\n"
+"[script-v2]:operators/script-v2.html\n"
+"[match-jsonb-v2]:operators/match-jsonb-v2.html\n"
+"[query-jsonb-v2]:operators/query-jsonb-v2.html\n"
+"[script-jsonb-v2]:operators/script-jsonb-v2.html\n"
+"[script-jsonb]:operators/script-jsonb.html\n"
+"[contain-jsonb]:operators/contain-jsonb.html"
+msgstr ""
+
+msgid "[upgrade-incompatible]:../upgrade/#incompatible-case"
+msgstr ""
+
+msgid "[query-expand]:functions/pgroonga-query-expand.html"
+msgstr ""

@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2017-06-09 00:16+0900\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga.match_escalation_threshold parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga.match_escalation_thresholdパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga.match_escalation_threshold` parameter"
+msgstr "# `pgroonga.match_escalation_threshold`パラメーター"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga.match_escalation_threshold` parameter controls when match escalation"
+" is occurred."
+msgstr "`pgroonga.match_escalation_threshold`パラメーターはいつマッチエスカレーションが実行されるかを制御します。"
+
+msgid ""
+"Match escalation is auto loose search. If the number of matched records is equ"
+"al or less than the threshold specified by `pgroonga.match_escalation_threshol"
+"d` parameter, loose search is done automatically. It's match escalation."
+msgstr ""
+"マッチエスカレーションとは自動で条件のゆるい検索をする機能のことです。ヒット数が`pgroonga.match_escalation_threshold`パ"
+"ラメーターで指定した閾値よりも小さい時、自動で条件のゆるい検索をします。これがマッチエスカレーションです。"
+
+msgid ""
+"The default threshold is `0`. It means that no records are matched, loose sear"
+"ch is done automatically."
+msgstr "デフォルトの閾値は`0`です。これは1件もヒットしない時は自動で条件のゆるい検索をするという意味です。"
+
+msgid "You can disable match escalation by specifying `-1`."
+msgstr "`-1`を指定することでマッチエスカレーションを無効にできます。"
+
+msgid ""
+"Normally, you don't need to change this parameter. Auto loose search is useful"
+" for users."
+msgstr "通常、このパラメーターを変更する必要はありません。自動で条件のゆるい検索をするとユーザーは便利になるからです。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In SQL:"
+msgstr "SQLの場合："
+
+msgid ""
+"```sql\n"
+"SET pgroonga.match_escalation_threshold = threshold;\n"
+"```"
+msgstr ""
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga.match_escalation_threshold = threshold\n"
+"```"
+msgstr ""
+
+msgid "`threshold` is a number value."
+msgstr "`threshold`は数値です。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to disable match escalation:"
+msgstr "以下はマッチエスカレーションを無効にする例です。"
+
+msgid ""
+"```sql\n"
+"SET pgroonga.match_escalation_threshold = -1;\n"
+"```"
+msgstr ""

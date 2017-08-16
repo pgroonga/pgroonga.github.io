@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: 2017-06-20 20:55+0900\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: How to\n"
+"---"
+msgstr ""
+"---\n"
+"title: ハウツー\n"
+"---"
+
+msgid "# How to"
+msgstr "# ハウツー"
+
+msgid "This document describes about useful information for specific situations."
+msgstr "このドキュメントは特定用途向けの有用な情報を説明します。"
+
+msgid ""
+"If you have useful information that isn't listed in this page, please send a p"
+"ull request to [pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroo"
+"nga.github.io). Please share your useful information!"
+msgstr ""
+"このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgro"
+"onga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！"
+
+msgid "## How to implement auto complete feature"
+msgstr "## オートコンプリートの実装方法"
+
+msgid "  * [How to implement auto complete feature](auto-complete.html)"
+msgstr "  * [オートコンプリートの実装方法](auto-complete.html)"
+
+msgid "## How to use PGroonga with Web application framework"
+msgstr "## Webアプリケーションフレームワークと一緒にPGroongaを使う方法"
+
+msgid ""
+"  * How to use with Ruby on Rails: TODO\n"
+"  * ..."
+msgstr ""
+"  * Ruby on Railsと一緒に使う方法：TODO\n"
+"  * ..."
+
+msgid "## Continuous integration"
+msgstr "## 継続的インテグレーション（CI）"
+
+msgid "  * [How to use PGroonga on Travis CI](travis-ci.html)"
+msgstr "  * [Travis CI上でPGroongaを使う方法](travis-ci.html)"
+
+msgid "## ..."
+msgstr ""
+
+msgid "  * ..."
+msgstr ""

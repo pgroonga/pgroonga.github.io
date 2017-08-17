@@ -4,6 +4,12 @@ title: News
 
 # News
 
+## 2.0.1: 2017-08-17 {#version-2-0-1}
+
+### Fixes
+
+  * Fixed upgrading failure on PostgreSQL 9.5 or earlier.
+
 ## 2.0.0: 2017-08-17 {#version-2-0-0}
 
 This is the second major release! It's upgradable from 1.X! 2.X is backward compatible with 1.X!

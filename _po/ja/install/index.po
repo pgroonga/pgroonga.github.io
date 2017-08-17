@@ -62,9 +62,6 @@ msgstr ""
 msgid "    * 16.04"
 msgstr ""
 
-msgid "    * 16.10"
-msgstr ""
-
 msgid "    * 17.04"
 msgstr ""
 

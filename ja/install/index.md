@@ -30,8 +30,6 @@ title: インストール
 
     * 16.04
 
-    * 16.10
-
     * 17.04
 
   * [CentOS](centos.html)

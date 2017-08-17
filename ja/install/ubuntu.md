@@ -14,8 +14,6 @@ title: Ubuntuにインストール
 
   * Ubuntu 16.04
 
-  * Ubuntu 16.10
-
   * Ubuntu 17.04
 
 ## インストール方法

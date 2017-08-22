@@ -179,3 +179,7 @@ SELECT jsonb_pretty(
   * [`pgroonga_command_escape_value` function][command-escape-value]
 
   * [`pgroonga_query_escape` function][query-escape]
+
+[command]:pgroonga-command.html
+[command-escape-value]:pgroonga-command-escape-value.html)
+[query-escape]:pgroonga-query-escape.html

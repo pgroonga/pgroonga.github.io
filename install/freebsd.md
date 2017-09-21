@@ -10,7 +10,7 @@ This document describes how to install PGroonga on FreeBSD.
 
 You can use the following instruction to install PGroonga on FreeBSD.
 
-Install pgroonga and PostgreSQL by `pkg`:
+Install PGroonga and PostgreSQL by `pkg`:
 
 ```text
 % sudo pkg install -y pgroonga postgresql{{ site.freebsd_postgresql_version }}-server

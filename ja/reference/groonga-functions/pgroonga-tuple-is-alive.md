@@ -145,4 +145,4 @@ SELECT *
 
   * [`pgroonga_command`関数][command]
 
-[command]:(../functions/pgroonga-command.html
+[command]:../functions/pgroonga-command.html

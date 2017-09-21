@@ -145,4 +145,4 @@ SELECT *
 
   * [`pgroonga_command` function][command]
 
-[command]:(../functions/pgroonga-command.html
+[command]:../functions/pgroonga-command.html

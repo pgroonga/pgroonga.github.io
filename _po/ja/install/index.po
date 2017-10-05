@@ -53,6 +53,9 @@ msgstr ""
 msgid "    * Jessie"
 msgstr ""
 
+msgid "    * Stretch"
+msgstr ""
+
 msgid "  * [Ubuntu](ubuntu.html)"
 msgstr ""
 

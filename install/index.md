@@ -24,6 +24,8 @@ See a document for your platform in the followings:
 
     * Jessie
 
+    * Stretch
+
   * [Ubuntu](ubuntu.html)
 
     * 14.04

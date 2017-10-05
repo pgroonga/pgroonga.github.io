@@ -24,6 +24,8 @@ title: インストール
 
     * Jessie
 
+    * Stretch
+
   * [Ubuntu](ubuntu.html)
 
     * 14.04

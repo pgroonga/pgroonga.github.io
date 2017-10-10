@@ -20,11 +20,64 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.0.1: 2017-08-17 {#version-2-0-1}"
+msgid "## 2.0.2: 2017-10-10 {#version-2-0-2}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.7."
+msgstr ""
+
+msgid ""
+"  * Added `INTEGER_COLUMN = ANY(ARRAY[]::integer[])` support.\n"
+"    [GitHub#53][Reported by tedypranolo]"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Added `text`\n"
+"    type for synonym column."
+msgstr ""
+
+msgid ""
+"  * Improved index search estimation with `IMMUTABLE` or `STABLE`\n"
+"    function call."
+msgstr ""
+
+msgid "  * Added missing empty array check for the following functions:"
+msgstr ""
+
+msgid "    * [[`pgroonga_snippet_html` function][snippet-html]]"
+msgstr ""
+
+msgid "    * [[`pgroonga_highlight_html` function][highlight-html]]"
+msgstr ""
+
+msgid "    * [[`pgroonga_command` function][command]]"
+msgstr ""
+
+msgid "  * Added PostgreSQL 10 packages."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid "  * Fixed build error on Windows."
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that creating index may be removed by `VACUUM`\n"
+"    including `AUTO VACUUM`."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * tedypranolo"
+msgstr ""
+
+msgid "## 2.0.1: 2017-08-17 {#version-2-0-1}"
+msgstr ""
 
 msgid "  * Fixed upgrading failure on PostgreSQL 9.5 or earlier."
 msgstr ""
@@ -36,9 +89,6 @@ msgid ""
 "This is the second major release! It's upgradable from 1.X! 2.X is backward co"
 "mpatible with 1.X!"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.5."
 msgstr ""
@@ -65,12 +115,6 @@ msgid ""
 msgstr ""
 
 msgid "  * Fixed upgrade failure from 1.2.0 on PostgreSQL 9.6 or later."
-msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
-
-msgid "  * tedypranolo"
 msgstr ""
 
 msgid "## 1.2.3: 2017-07-03 {#version-1-2-3}"
@@ -1132,7 +1176,11 @@ msgid ""
 "[regular-expression-v2]:../reference/operators/regular-expression-v2.html"
 msgstr ""
 
-msgid "[query-expand]:../reference/functions/pgroonga-query-expand.html"
+msgid ""
+"[query-expand]:../reference/functions/pgroonga-query-expand.html\n"
+"[snippet-html]:../reference/functions/pgroonga-snippet-html.html\n"
+"[highlight-html]:../reference/functions/pgroonga-highlight-html.html\n"
+"[command]:../reference/functions/pgroonga-command.html"
 msgstr ""
 
 msgid ""

@@ -4,6 +4,42 @@ title: おしらせ
 
 # おしらせ
 
+## 2.0.2: 2017-10-10 {#version-2-0-2}
+
+### 改良
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.7.
+
+  * Added `INTEGER_COLUMN = ANY(ARRAY[]::integer[])` support.
+    [GitHub#53][Reported by tedypranolo]
+
+  * [[`pgroonga_query_expand` function][query-expand]] Added `text`
+    type for synonym column.
+
+  * Improved index search estimation with `IMMUTABLE` or `STABLE`
+    function call.
+
+  * Added missing empty array check for the following functions:
+
+    * [[`pgroonga_snippet_html` function][snippet-html]]
+
+    * [[`pgroonga_highlight_html` function][highlight-html]]
+
+    * [[`pgroonga_command` function][command]]
+
+  * Added PostgreSQL 10 packages.
+
+### 修正
+
+  * Fixed build error on Windows.
+
+  * Fixed a bug that creating index may be removed by `VACUUM`
+    including `AUTO VACUUM`.
+
+### 感謝
+
+  * tedypranolo
+
 ## 2.0.1: 2017-08-17 {#version-2-0-1}
 
 ### 修正
@@ -761,5 +797,8 @@ The first release!!!
 [regular-expression-v2]:../reference/operators/regular-expression-v2.html
 
 [query-expand]:../reference/functions/pgroonga-query-expand.html
+[snippet-html]:../reference/functions/pgroonga-snippet-html.html
+[highlight-html]:../reference/functions/pgroonga-highlight-html.html
+[command]:../reference/functions/pgroonga-command.html
 
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html

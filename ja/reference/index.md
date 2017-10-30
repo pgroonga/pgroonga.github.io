@@ -508,7 +508,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.query_log_path`パラメーター][query-log-path]
 
-  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold.html]
+  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]
 
 ## モジュール
 

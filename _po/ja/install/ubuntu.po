@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2017-08-16 23:50+0900\n"
+"PO-Revision-Date: 2017-11-01 10:23+0900\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,6 +38,9 @@ msgstr ""
 msgid "  * Ubuntu 17.04"
 msgstr ""
 
+msgid "  * Ubuntu 17.10"
+msgstr ""
+
 msgid "## How to install"
 msgstr "## インストール方法"
 
@@ -47,11 +50,11 @@ msgstr "UbuntuでPGroongaをインストールする手順は次の通りです�
 msgid "If you're using Ubuntu 14.04, install `postgresql-9.3-pgroonga` package."
 msgstr "Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージをインストールしてください。"
 
-msgid "If you're using Ubuntu 17.04, install `postgresql-9.6-pgroonga` package."
-msgstr "Ubuntu 17.04を使っている場合は`postgresql-9.6-pgroonga`パッケージをインストールしてください。"
+msgid "If you're using Ubuntu 16.04, install `postgresql-9.5-pgroonga` package."
+msgstr "Ubuntu 16.04を使っている場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。"
 
-msgid "Otherwise, install `postgresql-9.5-pgroonga` package:"
-msgstr "それ以外の場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。"
+msgid "Otherwise, install `postgresql-9.6-pgroonga` package:"
+msgstr "それ以外の場合は`postgresql-9.6-pgroonga`パッケージをインストールしてください。"
 
 msgid ""
 "```text\n"
@@ -61,10 +64,10 @@ msgid ""
 "% sudo apt-get update\n"
 "Ubuntu 14.04:\n"
 "% sudo apt-get install -y -V postgresql-9.3-pgroonga\n"
-"Ubuntu 17.04:\n"
-"% sudo apt-get install -y -V postgresql-9.6-pgroonga\n"
-"Others:\n"
+"Ubuntu 16.04:\n"
 "% sudo apt-get install -y -V postgresql-9.5-pgroonga\n"
+"Others:\n"
+"% sudo apt-get install -y -V postgresql-9.6-pgroonga\n"
 "```"
 msgstr ""
 

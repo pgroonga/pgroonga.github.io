@@ -34,6 +34,8 @@ title: インストール
 
     * 17.04
 
+    * 17.10
+
   * [CentOS](centos.html)
 
     * 6

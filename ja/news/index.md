@@ -10,6 +10,8 @@ title: おしらせ
 
   * [[Windows][windows]] Upgraded bundled Groonga to 7.0.7.
 
+  * [[Ubuntu][ubuntu]] Added Ubuntu 17.10 (Artful Aardvark) support.
+
   * Added `INTEGER_COLUMN = ANY(ARRAY[]::integer[])` support.
     [GitHub#53][Reported by tedypranolo]
 

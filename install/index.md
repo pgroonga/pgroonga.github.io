@@ -34,6 +34,8 @@ See a document for your platform in the followings:
 
     * 17.04
 
+    * 17.10
+
   * [CentOS](centos.html)
 
     * 6

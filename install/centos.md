@@ -21,9 +21,9 @@ You can use the following instruction to install PGroonga on CentOS 6.
 Install `postgresql-pgroonga` package:
 
 ```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
+% sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-1.3.0-1.noarch.rpm
-% sudo -H yum install -y postgresql96-pgroonga
+% sudo -H yum install -y postgresql10-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -35,9 +35,9 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 Run PostgreSQL:
 
 ```text
-% sudo -H /sbin/service postgresql-9.6 initdb
-% sudo -H /sbin/chkconfig postgresql-9.6 on
-% sudo -H /sbin/service postgresql-9.6 start
+% sudo -H /sbin/service postgresql-10 initdb
+% sudo -H /sbin/chkconfig postgresql-10 on
+% sudo -H /sbin/service postgresql-10 start
 ```
 
 Create a database:
@@ -65,9 +65,9 @@ You can use the following instruction to install PGroonga on CentOS 7.
 Install `postgresql-pgroonga` package:
 
 ```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
+% sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-1.3.0-1.noarch.rpm
-% sudo -H yum install -y postgresql96-pgroonga
+% sudo -H yum install -y postgresql10-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -79,9 +79,9 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 Run PostgreSQL:
 
 ```text
-% sudo -H /usr/pgsql-9.6/bin/postgresql96-setup initdb
-% sudo -H systemctl enable postgresql-9.6
-% sudo -H systemctl start postgresql-9.6
+% sudo -H /usr/pgsql-10/bin/postgresql-10-setup initdb
+% sudo -H systemctl enable postgresql-10
+% sudo -H systemctl start postgresql-10
 ```
 
 Create a database:

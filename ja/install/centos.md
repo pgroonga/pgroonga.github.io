@@ -21,9 +21,9 @@ CentOS 6にPGroongaをインストールする方法は次の通りです。
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
+% sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-1.3.0-1.noarch.rpm
-% sudo -H yum install -y postgresql96-pgroonga
+% sudo -H yum install -y postgresql10-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -35,9 +35,9 @@ CentOS 6にPGroongaをインストールする方法は次の通りです。
 PostgreSQLを実行します。
 
 ```text
-% sudo -H /sbin/service postgresql-9.6 initdb
-% sudo -H /sbin/chkconfig postgresql-9.6 on
-% sudo -H /sbin/service postgresql-9.6 start
+% sudo -H /sbin/service postgresql-10 initdb
+% sudo -H /sbin/chkconfig postgresql-10 on
+% sudo -H /sbin/service postgresql-10 start
 ```
 
 データベースを作成します。
@@ -65,9 +65,9 @@ CentOS 7にPGroongaをインストールする方法は次の通りです。
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
+% sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-1.3.0-1.noarch.rpm
-% sudo -H yum install -y postgresql96-pgroonga
+% sudo -H yum install -y postgresql10-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -79,9 +79,9 @@ CentOS 7にPGroongaをインストールする方法は次の通りです。
 PostgreSQLを実行します。
 
 ```text
-% sudo -H /usr/pgsql-9.6/bin/postgresql96-setup initdb
-% sudo -H systemctl enable postgresql-9.6
-% sudo -H systemctl start postgresql-9.6
+% sudo -H /usr/pgsql-10/bin/postgresql-10-setup initdb
+% sudo -H systemctl enable postgresql-10
+% sudo -H systemctl start postgresql-10
 ```
 
 データベースを作成します。

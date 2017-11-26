@@ -50,13 +50,13 @@ msgstr ""
 msgid "  * Added missing empty array check for the following functions:"
 msgstr ""
 
-msgid "    * [[`pgroonga_snippet_html` function][snippet-html]]"
+msgid "    * [`pgroonga_snippet_html` function][snippet-html]"
 msgstr ""
 
-msgid "    * [[`pgroonga_highlight_html` function][highlight-html]]"
+msgid "    * [`pgroonga_highlight_html` function][highlight-html]"
 msgstr ""
 
-msgid "    * [[`pgroonga_command` function][command]]"
+msgid "    * [`pgroonga_command` function][command]"
 msgstr ""
 
 msgid "  * Added PostgreSQL 10 packages."

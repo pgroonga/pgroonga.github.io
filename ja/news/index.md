@@ -23,11 +23,11 @@ title: おしらせ
 
   * Added missing empty array check for the following functions:
 
-    * [[`pgroonga_snippet_html` function][snippet-html]]
+    * [`pgroonga_snippet_html` function][snippet-html]
 
-    * [[`pgroonga_highlight_html` function][highlight-html]]
+    * [`pgroonga_highlight_html` function][highlight-html]
 
-    * [[`pgroonga_command` function][command]]
+    * [`pgroonga_command` function][command]
 
   * Added PostgreSQL 10 packages.
 

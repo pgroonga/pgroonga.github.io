@@ -482,6 +482,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_match_positions_character` function][match-positions-character]
 
+  * [`pgroonga_normalize` function][normalizer]
+
   * [`pgroonga_query_escape` function][query-escape]
 
   * [`pgroonga_query_extract_keywords` function][query-extract-keywords]
@@ -564,6 +566,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [highlight-html]:functions/pgroonga-highlight-html.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
 [match-positions-character]:functions/pgroonga-match-positions-character.html
+[normalizer]:functions/pgroonga-normalize.html
 [query-escape]:functions/pgroonga-query-escape.html
 [query-extract-keywords]:functions/pgroonga-query-extract-keywords.html
 [score]:functions/pgroonga-score.html

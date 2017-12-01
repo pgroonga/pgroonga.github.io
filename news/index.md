@@ -203,7 +203,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 7.0.2.
+  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.2.
 
   * [[CentOS](../install/centos.html) 6] Supported WAL.
 
@@ -225,9 +225,9 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * [[`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)] Supported token filters. [GitHub#32][Reported by Tim Bellefleur]
 
-  * [[Windows](../install/windows.html)] Supported PostgreSQL 9.5.6.
+  * [[Windows][windows]] Supported PostgreSQL 9.5.6.
 
-  * [[Windows](../install/windows.html)] Supported PostgreSQL 9.6.2.
+  * [[Windows][windows]] Supported PostgreSQL 9.6.2.
 
   * Added [`&@` operator](../reference/operators/match-v2.html) to `pgroonga.text_full_text_search_ops` (the current default operator class for `text` type). It means that you can use `&@` operator both with `pgroonga.text_full_text_search_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`%%` operator](../reference/operators/match.html) is deprecated.
 
@@ -241,7 +241,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.1.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.1.1.
 
   * Reduced memory usage on static index construction. You can use index construction by executing `CREATE INDEX` after inserting data to table.
 
@@ -307,7 +307,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.1.0.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.1.0.
 
   * [experimental][WAL] Supported WAL. WAL support requires PostgreSQL 9.6 or later and [MessagePack](http://msgpack.org/). WAL support means that you can use PostgreSQL's [stream replication feature]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) but doesn't mean that PGroonga is crash safe. If PostgreSQL crashes while updating PGroonga data, PGroonga data may be broken. See also [replication](../reference/replication.html) and [`pgroonga.enable_wal` parameter](../reference/parameters/enable-wal.html).
 
@@ -331,7 +331,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Provided PostgreSQL 9.5 package again.
+  * [[Windows][windows]] Provided PostgreSQL 9.5 package again.
 
 ### Fixes
 
@@ -349,7 +349,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Upgraded target PostgreSQL to 9.6.0.
+  * [[Windows][windows]] Upgraded target PostgreSQL to 9.6.0.
 
   * [[CentOS](../install/centos.html)] Supported PostgreSQL 9.6.0.
 
@@ -365,7 +365,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.9.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.9.
 
   * Supported `Windows-1252` encoding.
 
@@ -375,9 +375,9 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * Fixed a bug that searching against JSONB may return wrong result.
 
-  * [[Windows](../install/windows.html)] Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pgroonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Dinh Anh Duy]
+  * [[Windows][windows]] Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pgroonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Dinh Anh Duy]
 
-  * [[Windows](../install/windows.html)] Fixed a bug that `SELECT` may be crashed.
+  * [[Windows][windows]] Fixed a bug that `SELECT` may be crashed.
 
 ### Thanks
 
@@ -403,7 +403,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.8.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.8.
 
   * Supported estimation. It improves performance.
 
@@ -427,7 +427,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [[Windows](../install/windows.html)] Upgraded bundled Groonga to 6.0.4.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.4.
 
 ## 1.0.9: 2016-06-02 {#version-1-0-9}
 
@@ -439,15 +439,15 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * [`pgroonga.text_array_term_search_ops_v2`] Supported prefix RK search against `text[]` by [`&^~>`](../reference/operators/prefix-rk-search-contain-v2.html).
 
-  * [Windows] Upgraded bundled Groonga to 6.0.3.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.3.
 
 ## 1.0.8: 2016-05-21 {#version-1-0-8}
 
 ### Improvements
 
-  * [Windows] Upgraded base PostgreSQL to 9.5.3 from 9.5.2
+  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.3 from 9.5.2
 
-  * [Windows] Upgraded bundled Groonga to 6.0.2.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.2.
 
 ### Fixes
 
@@ -473,7 +473,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Improvements
 
-  * [Windows] Added version information to DLL. [groonga-dev,03962] [Suggested by Naoki Takami]
+  * [[Windows][windows]] Added version information to DLL. [groonga-dev,03962] [Suggested by Naoki Takami]
 
   * [`pgroonga.text_full_text_search_ops_v2`] Supported similar search by [`&~?`][similar-search-v2].
 
@@ -481,11 +481,11 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * [`pgroonga.text_term_search_ops_v2`] Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html) by [`&^~`][prefix-rk-search-v2].
 
-  * [Windows] Changed Visual Studio version to 2013 from 2015. Because PostgreSQL binary uses 2013.
+  * [[Windows][windows]] Changed Visual Studio version to 2013 from 2015. Because PostgreSQL binary uses 2013.
 
-  * [Windows] Upgraded base PostgreSQL to 9.5.2 from 9.5.1
+  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.2 from 9.5.1
 
-  * [Windows] Upgraded bundled Groonga to 6.0.1.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.1.
 
 ### Thanks
 
@@ -501,7 +501,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Fixes
 
-  * [Windows] Added a missing symbol export.
+  * [[Windows][windows]] Added a missing symbol export.
 
 ## 1.0.3: 2016-02-29 {#version-1-0-3}
 
@@ -511,11 +511,11 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * [`pgroonga.text_full_text_search_ops_v2`] Added `` &` `` operator that accepts [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html) as condition.
 
-  * [Windows] Enabled LZ4.
+  * [[Windows][windows]] Enabled LZ4.
 
-  * [Windows] Upgraded base PostgreSQL to 9.5.1 from 9.5.0.
+  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.1 from 9.5.0.
 
-  * [Windows] Upgraded bundled Groonga to 6.0.0 from 5.1.2.
+  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.0 from 5.1.2.
 
 ### Fixes
 
@@ -531,11 +531,11 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * Required Groonga 5.1.2 or later.
 
-  * [Windows] Upgraded base PostgreSQL to 9.5.0 from 9.4.5.
+  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.0 from 9.4.5.
 
-  * [Windows] Upgraded bundled Groonga to 5.1.2.
+  * [[Windows][windows]] Upgraded bundled Groonga to 5.1.2.
 
-  * [Windows] Enabled mruby.
+  * [[Windows][windows]] Enabled mruby.
 
   * [RPM] Supported PostgreSQL 9.5.
 
@@ -599,7 +599,7 @@ You need to run `DROP EXTENSION pgroonga CASCADE`, upgrade PGroonga binary, run 
 
   * Supported regular expression search by `@~`. [groonga-dev,03563] [Reported by Hiroaki Tachikawa]
 
-  * [Windows] Bundled MeCab.
+  * [[Windows][windows]] Bundled MeCab.
 
   * Made `LIKE` with index outputs `LIKE` with sequential scan compatible outputs. It's implemented by using recheck feature provided by PostgreSQL. It means that `LIKE` is slower than `%%` operator and `@@` operator.
 

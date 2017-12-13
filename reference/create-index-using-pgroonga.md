@@ -38,7 +38,7 @@ You need to specify `pgroonga_varchar_full_text_search_ops_v2` operator class fo
 
 ### Customization {#customization}
 
-You can custom the followings by `WITH` option of `CREATE INDEX`:
+You can customize the followings by `WITH` option of `CREATE INDEX`:
 
   * Plugin: It's an extension for Groonga. You can use additional features including additional tokenizers, normalizers and token filters by registering a plugin.
 
@@ -48,7 +48,7 @@ You can custom the followings by `WITH` option of `CREATE INDEX`:
 
   * Token filter: It's a module for filtering keywords extracted by tokenizer.
 
-Normally, you don't need to custom them because the default values of them are suitable for most cases. Features to custom them are for advanced users.
+Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to customize them are for advanced users.
 
 Plugin and token filter aren't used by default.
 
@@ -85,7 +85,7 @@ See [How to custom token filters](#custom-token-filters) for token filters detai
 
 #### How to custom tokenizer {#custom-tokenizer}
 
-Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to custom tokenizer.
+Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to customize tokenizer.
 
 Here is an example to use [MeCab](http://taku910.github.io/mecab/) based tokenizer. You need to specify `tokenizer='TokenMecab'`. [`TokenMecab`](http://groonga.org/docs/reference/tokenizers.html#token-mecab) is a name of MeCab based tokenizer.
 

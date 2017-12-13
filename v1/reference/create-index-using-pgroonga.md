@@ -38,7 +38,7 @@ You need to specify `pgroonga.varchar_full_text_search_ops` operator class for t
 
 ### Customization {#customization}
 
-You can custom the followings by `WITH` option of `CREATE INDEX`:
+You can customize the followings by `WITH` option of `CREATE INDEX`:
 
   * Plugin: It's an extension for Groonga. You can use additional features including additional tokenizers, normalizers and token filters by registering a plugin.
 
@@ -48,7 +48,7 @@ You can custom the followings by `WITH` option of `CREATE INDEX`:
 
   * Token filter: It's a module for filtering keywords extracted by tokenizer.
 
-Normally, you don't need to custom them because the default values of them are suitable for most cases. Features to custom them are for advanced users.
+Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to custom them are for advanced users.
 
 Plugin and token filter aren't used by default.
 
@@ -81,9 +81,9 @@ CREATE INDEX pgroonga_content_index
               token_filters='TokenFilterStem');
 ```
 
-See [How to custom token filters](#custom-token-filters) for token filters details.
+See [How to customize token filters](#custom-token-filters) for token filters details.
 
-#### How to custom tokenizer {#custom-tokenizer}
+#### How to customize tokenizer {#custom-tokenizer}
 
 Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to custom tokenizer.
 
@@ -121,9 +121,9 @@ CREATE INDEX pgroonga_tag_index
 
 See [Tokenizers](http://groonga.org/docs/reference/tokenizers.html) for other tokenizers.
 
-#### How to custom normalizer {#custom-normalizer}
+#### How to customize normalizer {#custom-normalizer}
 
-Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. Normally, you don't need to custom normalizer.
+Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. Normally, you don't need to customize normalizer.
 
 You can disable normalizer by specifying `normalizer=''`. If you disable normalizer, you can search column value only by the original column value. If normalizer increases noise, it's useful.
 

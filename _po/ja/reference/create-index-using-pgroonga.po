@@ -89,7 +89,7 @@ msgstr "この場合は`pgroonga_varchar_full_text_search_ops_v2`オペレータ
 msgid "### Customization {#customization}"
 msgstr "### カスタマイズ {#customization}"
 
-msgid "You can custom the followings by `WITH` option of `CREATE INDEX`:"
+msgid "You can customize the followings by `WITH` option of `CREATE INDEX`:"
 msgstr "`CREATE INDEX`の`WITH`オプションを使って次の項目をカスタマイズできます。"
 
 msgid ""
@@ -112,8 +112,9 @@ msgid "  * Token filter: It's a module for filtering keywords extracted by token
 msgstr "  * トークンフィルター：トークナイザーが抽出したキーワードをフィルターするモジュールです。"
 
 msgid ""
-"Normally, you don't need to custom them because the default values of them are"
-" suitable for most cases. Features to custom them are for advanced users."
+"Normally, you don't need to customize them because the default values of them "
+"are suitable for most cases. Features to customize them are for advanced users"
+"."
 msgstr ""
 "通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユ"
 "ーザー向けの機能です。"
@@ -190,16 +191,16 @@ msgid ""
 msgstr ""
 
 msgid ""
-"See [How to custom token filters](#custom-token-filters) for token filters det"
-"ails."
+"See [How to customize token filters](#custom-token-filters) for token filters "
+"details."
 msgstr "トークンフィルターについては[トークンフィルターのカスタマイズ方法](#custom-token-filters)を参照してください。"
 
-msgid "#### How to custom tokenizer {#custom-tokenizer}"
+msgid "#### How to customize tokenizer {#custom-tokenizer}"
 msgstr "#### トークナイザーのカスタマイズ方法 {#custom-tokenizers}"
 
 msgid ""
 "Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, y"
-"ou don't need to custom tokenizer."
+"ou don't need to customize tokenizer."
 msgstr "トークナイザーをカスタマイズするには`tokenizer='${トークナイザー名}'`を指定します。通常、トークナイザーをカスタマイズする必要はありません。"
 
 msgid ""

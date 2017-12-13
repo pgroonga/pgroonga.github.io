@@ -89,7 +89,7 @@ msgstr "この場合は`pgroonga.varchar_full_text_search_ops`オペレーター
 msgid "### Customization {#customization}"
 msgstr "### カスタマイズ {#customization}"
 
-msgid "You can custom the followings by `WITH` option of `CREATE INDEX`:"
+msgid "You can customize the followings by `WITH` option of `CREATE INDEX`:"
 msgstr "`CREATE INDEX`の`WITH`オプションを使って次の項目をカスタマイズできます。"
 
 msgid ""
@@ -112,8 +112,8 @@ msgid "  * Token filter: It's a module for filtering keywords extracted by token
 msgstr "  * トークンフィルター：トークナイザーが抽出したキーワードをフィルターするモジュールです。"
 
 msgid ""
-"Normally, you don't need to custom them because the default values of them are"
-" suitable for most cases. Features to custom them are for advanced users."
+"Normally, you don't need to customize them because the default values of them "
+"are suitable for most cases. Features to custom them are for advanced users."
 msgstr ""
 "通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユ"
 "ーザー向けの機能です。"
@@ -190,11 +190,11 @@ msgid ""
 msgstr ""
 
 msgid ""
-"See [How to custom token filters](#custom-token-filters) for token filters det"
-"ails."
+"See [How to customize token filters](#custom-token-filters) for token filters "
+"details."
 msgstr "トークンフィルターについては[トークンフィルターのカスタマイズ方法](#custom-token-filters)を参照してください。"
 
-msgid "#### How to custom tokenizer {#custom-tokenizer}"
+msgid "#### How to customize tokenizer {#custom-tokenizer}"
 msgstr "#### トークナイザーのカスタマイズ方法 {#custom-tokenizers}"
 
 msgid ""
@@ -262,12 +262,12 @@ msgstr ""
 "他のトークナイザーについては[トークナイザー](http://groonga.org/ja/docs/reference/tokenizers.html)を"
 "参照してください。"
 
-msgid "#### How to custom normalizer {#custom-normalizer}"
+msgid "#### How to customize normalizer {#custom-normalizer}"
 msgstr "#### ノーマライザーのカスタマイズ方法 {#custom-normalizer}"
 
 msgid ""
 "Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. Normally"
-", you don't need to custom normalizer."
+", you don't need to customize normalizer."
 msgstr ""
 "ノーマライザーをカスタマイズするには`normalizer='${ノーマライザー名}'`を指定してください。通常はノーマライザーをカスタマイズする必要はあり"
 "ません。"

@@ -81,9 +81,9 @@ CREATE INDEX pgroonga_content_index
               token_filters='TokenFilterStem');
 ```
 
-See [How to custom token filters](#custom-token-filters) for token filters details.
+See [How to customize token filters](#custom-token-filters) for token filters details.
 
-#### How to custom tokenizer {#custom-tokenizer}
+#### How to customize tokenizer {#custom-tokenizer}
 
 Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to customize tokenizer.
 

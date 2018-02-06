@@ -192,7 +192,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ### `varchar`用
 
-#### `pgroonga_varchar_array_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-array-term-search-ops-v2}
+#### `pgroonga_varchar_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-term-search-ops-v2}
 
   * `<`
 

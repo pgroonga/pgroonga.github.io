@@ -4,6 +4,81 @@ title: News
 
 # News
 
+## 2.0.3: 2018-03-06 {#version-2-0-3}
+
+### Improvements
+
+  * Improved performance for sub `SELECT`.
+    [GitHub#55][Reported by tedypranolo]
+
+  * Improved `text[]` load performance.
+    [groonga-dev,04533][Reported by Toshio Uchiyama]
+
+  * [[`pgroonga_jsonb_full_text_search_ops_v2` operator class][jsonb-full-text-search-ops-v2]] Added.
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added new options.
+
+    * `full_text_search_normalizer`
+
+    * `regexp_search_normalizer`
+
+    * `prefix_search_normalizer`
+
+  * Made query parsing loose. No syntax error is occurred.
+    [GitHub:zulip/zulip#8457][Reported by burek967]
+
+  * [[`pgroonga_wal_apply` function][wal-apply]] Added.
+
+  * [[`pgroonga_wal_truncate` function][wal-truncate]] Added.
+
+  * [[`pgroonga_set_writable` function][set-writable]] Added.
+
+  * [[`pgroonga_is_writable` function][is-writable]] Added.
+
+  * Added vector column comparison support.
+
+    * It requires Groonga 8.0.1.
+
+  * [[`pgroonga.libgroonga_version` parameter][libgroonga-version]] Added.
+
+  * [WAL] Added record deletion on `VACUUM`.
+
+  * Changed location to store `ctid` to source table key from a column.
+
+    * It requires Groonga 8.0.1.
+
+    * It doesn't break backward compatibility. Only newly created indexes uses this style. Old style indexes are still supported.
+
+  * [[`pgroonga_normalize` function][normalize]] Added.
+    [GitHub#13][Patch by Fujimoto Seiji]
+
+### Fixes
+
+  * Fixed a bug that `timezone (without time zone)` value is stored as local time.
+
+    * You need to recreate PGroonga indexes that use `timezone (without time zone)` after you upgrade PGroonga.
+
+  * Fixed a bug that `jsonb` WAL was broken since 2.0.2.
+
+  * Fixed a bug that wrong table may be removed on `VACUUM`.
+
+  * [[`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2]] Fixed a bug that it may return wrong result.
+
+    * You need to recreate PGroonga indexes that use [`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2] after you upgrade PGroonga.
+
+  * [[`pgroonga_varchar_full_text_search_ops_v2` operator class][varchar-full-text-search-ops-v2]] Fixed a bug that needless 4KiB check is done.
+    [Reported by Rising Sun]
+
+### Thanks
+
+  * tedypranolo
+
+  * Toshio Uchiyama
+
+  * Rising Sun
+
+  * Fujimoto Seiji
+
 ## 2.0.2: 2017-10-10 {#version-2-0-2}
 
 ### Improvements
@@ -15,11 +90,9 @@ title: News
   * Added `INTEGER_COLUMN = ANY(ARRAY[]::integer[])` support.
     [GitHub#53][Reported by tedypranolo]
 
-  * [[`pgroonga_query_expand` function][query-expand]] Added `text`
-    type for synonym column.
+  * [[`pgroonga_query_expand` function][query-expand]] Added `text` type for synonym column.
 
-  * Improved index search estimation with `IMMUTABLE` or `STABLE`
-    function call.
+  * Improved index search estimation with `IMMUTABLE` or `STABLE` function call.
 
   * Added missing empty array check for the following functions:
 
@@ -35,8 +108,7 @@ title: News
 
   * Fixed build error on Windows.
 
-  * Fixed a bug that creating index may be removed by `VACUUM`
-    including `AUTO VACUUM`.
+  * Fixed a bug that creating index may be removed by `VACUUM` including `AUTO VACUUM`.
 
 ### Thanks
 
@@ -223,7 +295,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * Supported applying WAL on `INSERT`.
 
-  * [[`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)] Supported token filters. [GitHub#32][Reported by Tim Bellefleur]
+  * [[`CREATE INDEX USING pgroonga`][create-index-using-pgroonga] Supported token filters. [GitHub#32][Reported by Tim Bellefleur]
 
   * [[Windows][windows]] Supported PostgreSQL 9.5.6.
 
@@ -767,6 +839,8 @@ The first release!!!
 [ubuntu]:../install/ubuntu.html
 [windows]:../install/windows.html
 
+[create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
+
 [text-regexp-ops]:../reference/#text-regexp-ops
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops
 [varchar-full-text-search-ops]:../reference/#varchar-full-text-search-ops
@@ -783,6 +857,7 @@ The first release!!!
 [varchar-regexp-ops-v2]:../reference/#varchar-regexp-ops-v2
 [varchar-array-term-search-ops-v2]:../reference/#varchar-array-term-search-ops-v2
 [jsonb-ops-v2]:../reference/#jsonb-ops-v2
+[jsonb-full-text-search-ops-v2]:../reference/#jsonb-full-text-search-ops-v2
 
 [match-v2]:../reference/operators/match-v2.html
 [contain-term-v2]:../reference/operators/contain-term-v2.html
@@ -802,5 +877,11 @@ The first release!!!
 [snippet-html]:../reference/functions/pgroonga-snippet-html.html
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [command]:../reference/functions/pgroonga-command.html
+[wal-apply]:../reference/functions/pgroonga-wal-aplly.html
+[wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
+[set-writable]:../reference/functions/pgroonga-set-writable.html
+[is-writable]:../reference/functions/pgroonga-is-writable.html
+[normalize]:../reference/functions/pgroonga-normalize.html
 
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
+[libgroonga-version]:../reference/parameters/libgroonga-version.html

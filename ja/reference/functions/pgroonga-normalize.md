@@ -17,15 +17,15 @@ upper_level: ../
 この関数の構文は次の通りです。
 
 ```text
-text pgroonga_normalize(string)
+text pgroonga_normalize(target)
 ```
 
-`string`は正規化処理の対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto](http://groonga.org/ja/docs/reference/normalizers.html#normalizerauto)モジュールが使われます。
+`target`は正規化処理の対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto](http://groonga.org/ja/docs/reference/normalizers.html#normalizerauto)モジュールが使われます。
 
 第二引数を利用すると、他のノーマライザーモジュールを使うことができます。
 
 ```text
-text pgroonga_normalize(string, normalizerName)
+text pgroonga_normalize(target, normalizerName)
 ```
 
 `normalizerName`は`text`型の値で、利用したいノーマライザーモジュールを指定します。

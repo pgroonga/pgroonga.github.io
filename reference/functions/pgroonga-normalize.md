@@ -17,15 +17,15 @@ This function lets you use the same preprocessing mechanism that Groonga uses be
 Here is the syntax of this function:
 
 ```text
-text pgroonga_normalize(string)
+text pgroonga_normalize(target)
 ```
 
-`string` is a `text` type value to be normalized. By default, it uses the built-in [NormalizerAuto](http://groonga.org/docs/reference/normalizers.html#normalizerauto) module for normalization.
+`target` is a `text` type value to be normalized. By default, it uses the built-in [NormalizerAuto](http://groonga.org/docs/reference/normalizers.html#normalizerauto) module for normalization.
 
 You can also use a different normalizer module by passing the second argument:
 
 ```text
-text pgroonga_normalize(string, normalizerName)
+text pgroonga_normalize(target, normalizerName)
 ```
 
 `normalizerName` is a `text` type value which specifies the normalizer module you want to use.

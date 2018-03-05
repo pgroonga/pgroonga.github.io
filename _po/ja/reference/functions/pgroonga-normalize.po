@@ -46,16 +46,16 @@ msgstr "この関数の構文は次の通りです。"
 
 msgid ""
 "```text\n"
-"text pgroonga_normalize(string)\n"
+"text pgroonga_normalize(target)\n"
 "```"
 msgstr ""
 
 msgid ""
-"`string` is a `text` type value to be normalized. By default, it uses the buil"
+"`target` is a `text` type value to be normalized. By default, it uses the buil"
 "t-in [NormalizerAuto](http://groonga.org/docs/reference/normalizers.html#norma"
 "lizerauto) module for normalization."
 msgstr ""
-"`string`は正規化処理の対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto](http://g"
+"`target`は正規化処理の対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto](http://g"
 "roonga.org/ja/docs/reference/normalizers.html#normalizerauto)モジュールが使われます。"
 
 msgid "You can also use a different normalizer module by passing the second argument:"
@@ -63,7 +63,7 @@ msgstr "第二引数を利用すると、他のノーマライザーモジュー
 
 msgid ""
 "```text\n"
-"text pgroonga_normalize(string, normalizerName)\n"
+"text pgroonga_normalize(target, normalizerName)\n"
 "```"
 msgstr ""
 

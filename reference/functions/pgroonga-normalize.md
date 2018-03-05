@@ -10,7 +10,6 @@ Since 2.0.3.
 ## Summary
 
 `pgroonga_normalize` function converts a text into a normalized form using [Groonga's normalizer modules][groonga-normalizers].
-This function lets you use the same preprocessing mechanism that Groonga uses before tokenizing.
 
 ## Syntax
 
@@ -32,7 +31,7 @@ text pgroonga_normalize(target, normalizerName)
 
 ## Usage
 
-Here is an example usage of `pgroonga_normalize` function:
+You can normalize a `text` type value:
 
 ```sql
 SELECT pgroonga_normalize('aBcDe 123');
@@ -42,15 +41,18 @@ SELECT pgroonga_normalize('aBcDe 123');
 -- (1 row)
 ```
 
-You can also use non-default normalizers (if installed on the system):
+You can specify the normalizer:
 
 ```sql
-SELECT pgroonga_normalize('Àá', 'NormalizerMySQLGeneralCI');
+SELECT pgroonga_command('plugin_register normalizers/mysql');
+SELECT pgroonga_normalize('aBcDe 123', 'NormalizerMySQLGeneralCI');
 --  pgroonga_normalize 
 -- --------------------
---  AA
+--  ABCDE 123
 -- (1 row)
 ```
+
+`plugin_register normalizers/mysql` is needed to use [groonga-normalizer-mysql][groonga-normalizer-mysql]. It provides some MySQL compatible normalizers.
 
 ## See also
 
@@ -59,3 +61,5 @@ SELECT pgroonga_normalize('Àá', 'NormalizerMySQLGeneralCI');
 [groonga-normalizers]:http://groonga.org/docs/reference/normalizers.html
 
 [groonga-normalizer-auto]:http://groonga.org/docs/reference/normalizers.html#normalizer-auto
+
+[groonga-normalizer-mysql]:https://github.com/groonga/groonga-normalizer-mysql

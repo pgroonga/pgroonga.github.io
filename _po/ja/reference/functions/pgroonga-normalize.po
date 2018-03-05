@@ -48,10 +48,10 @@ msgstr ""
 
 msgid ""
 "`target` is a `text` type value to be normalized. By default, it uses the buil"
-"t-in [NormalizerAuto][groonga-normalizer-auto] module for normalization."
+"t-in [`NormalizerAuto`][groonga-normalizer-auto] normalizer."
 msgstr ""
-"`target`はノーマライズ対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto][groonga-"
-"normalizer-auto]モジュールが使われます。"
+"`target`はノーマライズ対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[`NormalizerAuto`][groong"
+"a-normalizer-auto]ノーマライザーを使います。"
 
 msgid "Here is another syntax of this function:"
 msgstr "この関数の別の構文は次の通りです。"

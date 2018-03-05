@@ -19,7 +19,7 @@ upper_level: ../
 text pgroonga_normalize(target)
 ```
 
-`target`はノーマライズ対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto][groonga-normalizer-auto]モジュールが使われます。
+`target`はノーマライズ対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[`NormalizerAuto`][groonga-normalizer-auto]ノーマライザーを使います。
 
 この関数の別の構文は次の通りです。
 

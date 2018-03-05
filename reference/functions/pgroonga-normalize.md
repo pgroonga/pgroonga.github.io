@@ -19,7 +19,7 @@ Here is the syntax of this function:
 text pgroonga_normalize(target)
 ```
 
-`target` is a `text` type value to be normalized. By default, it uses the built-in [NormalizerAuto][groonga-normalizer-auto] module for normalization.
+`target` is a `text` type value to be normalized. By default, it uses the built-in [`NormalizerAuto`][groonga-normalizer-auto] normalizer.
 
 Here is another syntax of this function:
 

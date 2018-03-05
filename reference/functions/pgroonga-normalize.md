@@ -9,7 +9,7 @@ Since 2.0.3.
 
 ## Summary
 
-`pgroonga_normalize` function converts a text into a normalized form using [Groonga's normalizer modules](http://groonga.org/docs/reference/normalizers.html).
+`pgroonga_normalize` function converts a text into a normalized form using [Groonga's normalizer modules][groonga-normalizers].
 This function lets you use the same preprocessing mechanism that Groonga uses before tokenizing.
 
 ## Syntax
@@ -20,9 +20,9 @@ Here is the syntax of this function:
 text pgroonga_normalize(target)
 ```
 
-`target` is a `text` type value to be normalized. By default, it uses the built-in [NormalizerAuto](http://groonga.org/docs/reference/normalizers.html#normalizerauto) module for normalization.
+`target` is a `text` type value to be normalized. By default, it uses the built-in [NormalizerAuto][groonga-normalizer-auto] module for normalization.
 
-You can also use a different normalizer module by passing the second argument:
+Here is another syntax of this function:
 
 ```text
 text pgroonga_normalize(target, normalizerName)
@@ -54,4 +54,8 @@ SELECT pgroonga_normalize('Àá', 'NormalizerMySQLGeneralCI');
 
 ## See also
 
- * [Groonga document on normalizers](http://groonga.org/docs/reference/normalizers.html)
+ * [Groonga document for normalizers][groonga-normalizers]
+
+[groonga-normalizers]:http://groonga.org/docs/reference/normalizers.html
+
+[groonga-normalizer-auto]:http://groonga.org/docs/reference/normalizers.html#normalizer-auto

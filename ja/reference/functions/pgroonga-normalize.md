@@ -9,7 +9,7 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga_normalize`関数は[Groongaのノーマライザー](http://groonga.org/ja/docs/reference/normalizers.html)を利用してテキストを正規化された形式に変換します。
+`pgroonga_normalize`関数は[Groongaのノーマライザー][groonga-normalizers]を利用してテキストを正規化します。
 この関数を使うことで、Groongaがトークナイズの前段階で施している処理を利用することができます。
 
 ## 構文
@@ -20,9 +20,9 @@ upper_level: ../
 text pgroonga_normalize(target)
 ```
 
-`target`は正規化処理の対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto](http://groonga.org/ja/docs/reference/normalizers.html#normalizerauto)モジュールが使われます。
+`target`は正規化処理の対象となる`text`型の値です。処理にあたっては、デフォルトでは組み込みの[NormalizerAuto][groonga-normalizer-auto]モジュールが使われます。
 
-第二引数を利用すると、他のノーマライザーモジュールを使うことができます。
+この関数の別の構文は次の通りです。
 
 ```text
 text pgroonga_normalize(target, normalizerName)
@@ -54,4 +54,8 @@ SELECT pgroonga_normalize('Àá', 'NormalizerMySQLGeneralCI');
 
 ## 参考
 
- * [Groongaのノーマライザに関するドキュメント](http://groonga.org/ja/docs/reference/normalizers.html)
+ * [Groongaのノーマライザーのドキュメント][groonga-normalizers]
+
+[groonga-normalizers]:http://groonga.org/ja/docs/reference/normalizers.html
+
+[groonga-normalizer-auto]:http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto

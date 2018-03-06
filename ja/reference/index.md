@@ -306,6 +306,12 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索
 
+#### `pgroonga_jsonb_full_text_search_ops_v2`演算子クラス {#jsonb-full-text-search-ops-v2}
+
+  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索
+
+  * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索
+
 ## 古い演算子
 
 ### `text`用

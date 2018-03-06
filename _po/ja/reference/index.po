@@ -354,6 +354,13 @@ msgstr "  * [`@@`演算子][script-jsonb]：ECMAScriptのようなクエリー�
 msgid "  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data"
 msgstr "  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索"
 
+msgid ""
+"#### `pgroonga_jsonb_full_text_search_ops_v2` operator class {#jsonb-full-text"
+"-search-ops-v2}"
+msgstr ""
+"#### `pgroonga_jsonb_full_text_search_ops_v2`演算子クラス {#jsonb-full-text-search-o"
+"ps-v2}"
+
 msgid "## Old operators"
 msgstr "## 古い演算子"
 

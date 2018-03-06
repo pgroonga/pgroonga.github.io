@@ -306,6 +306,12 @@ Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double pre
 
   * [`@>` operator][contain-jsonb]: Search by a `jsonb` data
 
+#### `pgroonga_jsonb_full_text_search_ops_v2` operator class {#jsonb-full-text-search-ops-v2}
+
+  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword
+
+  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language
+
 ## Old operators
 
 ### For `text`

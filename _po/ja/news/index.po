@@ -19,11 +19,136 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.0.2: 2017-10-10 {#version-2-0-2}"
+msgid "## 2.0.3: 2018-03-06 {#version-2-0-3}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * Improved performance for sub `SELECT`.\n"
+"    [GitHub#55][Reported by tedypranolo]"
+msgstr ""
+
+msgid ""
+"  * Improved `text[]` load performance.\n"
+"    [groonga-dev,04533][Reported by Toshio Uchiyama]"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_jsonb_full_text_search_ops_v2` operator class][jsonb-full-text"
+"-search-ops-v2]] Added."
+msgstr ""
+
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added new o"
+"ptions."
+msgstr ""
+
+msgid "    * `full_text_search_normalizer`"
+msgstr ""
+
+msgid "    * `regexp_search_normalizer`"
+msgstr ""
+
+msgid "    * `prefix_search_normalizer`"
+msgstr ""
+
+msgid ""
+"  * Made query parsing loose. No syntax error is occurred.\n"
+"    [GitHub:zulip/zulip#8457][Reported by burek967]"
+msgstr ""
+
+msgid "  * [[`pgroonga_wal_apply` function][wal-apply]] Added."
+msgstr ""
+
+msgid "  * [[`pgroonga_wal_truncate` function][wal-truncate]] Added."
+msgstr ""
+
+msgid "  * [[`pgroonga_set_writable` function][set-writable]] Added."
+msgstr ""
+
+msgid "  * [[`pgroonga_is_writable` function][is-writable]] Added."
+msgstr ""
+
+msgid "  * Added vector column comparison support."
+msgstr ""
+
+msgid "    * It requires Groonga 8.0.1."
+msgstr ""
+
+msgid "  * [[`pgroonga.libgroonga_version` parameter][libgroonga-version]] Added."
+msgstr ""
+
+msgid "  * [WAL] Added record deletion on `VACUUM`."
+msgstr ""
+
+msgid "  * Changed location to store `ctid` to source table key from a column."
+msgstr ""
+
+msgid ""
+"    * It doesn't break backward compatibility. Only newly created indexes uses"
+" this style. Old style indexes are still supported."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_normalize` function][normalize]] Added.\n"
+"    [GitHub#13][Patch by Fujimoto Seiji]"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that `timezone (without time zone)` value is stored as local t"
+"ime."
+msgstr ""
+
+msgid ""
+"    * You need to recreate PGroonga indexes that use `timezone (without time z"
+"one)` after you upgrade PGroonga."
+msgstr ""
+
+msgid "  * Fixed a bug that `jsonb` WAL was broken since 2.0.2."
+msgstr ""
+
+msgid "  * Fixed a bug that wrong table may be removed on `VACUUM`."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array"
+"-full-text-search-ops-v2]] Fixed a bug that it may return wrong result."
+msgstr ""
+
+msgid ""
+"    * You need to recreate PGroonga indexes that use [`pgroonga_text_array_ful"
+"l_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2] afte"
+"r you upgrade PGroonga."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_varchar_full_text_search_ops_v2` operator class][varchar-full-"
+"text-search-ops-v2]] Fixed a bug that needless 4KiB check is done.\n"
+"    [Reported by Rising Sun]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * tedypranolo"
+msgstr ""
+
+msgid "  * Toshio Uchiyama"
+msgstr ""
+
+msgid "  * Rising Sun"
+msgstr ""
+
+msgid "  * Fujimoto Seiji"
+msgstr ""
+
+msgid "## 2.0.2: 2017-10-10 {#version-2-0-2}"
+msgstr ""
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.7."
 msgstr ""
@@ -37,13 +162,13 @@ msgid ""
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_query_expand` function][query-expand]] Added `text`\n"
-"    type for synonym column."
+"  * [[`pgroonga_query_expand` function][query-expand]] Added `text` type for s"
+"ynonym column."
 msgstr ""
 
 msgid ""
-"  * Improved index search estimation with `IMMUTABLE` or `STABLE`\n"
-"    function call."
+"  * Improved index search estimation with `IMMUTABLE` or `STABLE` function cal"
+"l."
 msgstr ""
 
 msgid "  * Added missing empty array check for the following functions:"
@@ -61,21 +186,12 @@ msgstr ""
 msgid "  * Added PostgreSQL 10 packages."
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid "  * Fixed build error on Windows."
 msgstr ""
 
 msgid ""
-"  * Fixed a bug that creating index may be removed by `VACUUM`\n"
-"    including `AUTO VACUUM`."
-msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
-
-msgid "  * tedypranolo"
+"  * Fixed a bug that creating index may be removed by `VACUUM` including `AUTO"
+" VACUUM`."
 msgstr ""
 
 msgid "## 2.0.1: 2017-08-17 {#version-2-0-1}"
@@ -349,8 +465,8 @@ msgid "  * Supported applying WAL on `INSERT`."
 msgstr ""
 
 msgid ""
-"  * [[`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga."
-"html)] Supported token filters. [GitHub#32][Reported by Tim Bellefleur]"
+"  * [[`CREATE INDEX USING pgroonga`][create-index-using-pgroonga] Supported to"
+"ken filters. [GitHub#32][Reported by Tim Bellefleur]"
 msgstr ""
 
 msgid "  * [[Windows][windows]] Supported PostgreSQL 9.5.6."
@@ -1132,6 +1248,9 @@ msgid ""
 "[windows]:../install/windows.html"
 msgstr ""
 
+msgid "[create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html"
+msgstr ""
+
 msgid ""
 "[text-regexp-ops]:../reference/#text-regexp-ops\n"
 "[text-array-full-text-search-ops]:../reference/#text-array-full-text-search-op"
@@ -1154,7 +1273,8 @@ msgid ""
 "[varchar-regexp-ops-v2]:../reference/#varchar-regexp-ops-v2\n"
 "[varchar-array-term-search-ops-v2]:../reference/#varchar-array-term-search-ops"
 "-v2\n"
-"[jsonb-ops-v2]:../reference/#jsonb-ops-v2"
+"[jsonb-ops-v2]:../reference/#jsonb-ops-v2\n"
+"[jsonb-full-text-search-ops-v2]:../reference/#jsonb-full-text-search-ops-v2"
 msgstr ""
 
 msgid ""
@@ -1177,10 +1297,16 @@ msgid ""
 "[query-expand]:../reference/functions/pgroonga-query-expand.html\n"
 "[snippet-html]:../reference/functions/pgroonga-snippet-html.html\n"
 "[highlight-html]:../reference/functions/pgroonga-highlight-html.html\n"
-"[command]:../reference/functions/pgroonga-command.html"
+"[command]:../reference/functions/pgroonga-command.html\n"
+"[wal-apply]:../reference/functions/pgroonga-wal-aplly.html\n"
+"[wal-truncate]:../reference/functions/pgroonga-wal-truncate.html\n"
+"[set-writable]:../reference/functions/pgroonga-set-writable.html\n"
+"[is-writable]:../reference/functions/pgroonga-is-writable.html\n"
+"[normalize]:../reference/functions/pgroonga-normalize.html"
 msgstr ""
 
 msgid ""
 "[match-escalation-threshold]:../reference/parameters/match-escalation-threshol"
-"d.html"
+"d.html\n"
+"[libgroonga-version]:../reference/parameters/libgroonga-version.html"
 msgstr ""

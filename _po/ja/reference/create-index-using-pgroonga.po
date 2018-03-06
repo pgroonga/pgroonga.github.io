@@ -252,7 +252,7 @@ msgstr ""
 msgid "See [Tokenizers][groonga-tokenizers] for other tokenizers."
 msgstr "他のトークナイザーについては[トークナイザー][groonga-tokenizers]を参照してください。"
 
-msgid "#### How to custom normalizer {#custom-normalizer}"
+msgid "#### How to customize normalizer {#custom-normalizer}"
 msgstr "#### ノーマライザーのカスタマイズ方法 {#custom-normalizer}"
 
 msgid ""

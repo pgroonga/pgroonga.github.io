@@ -121,7 +121,7 @@ CREATE INDEX pgroonga_tag_index
 
 See [Tokenizers][groonga-tokenizers] for other tokenizers.
 
-#### How to custom normalizer {#custom-normalizer}
+#### How to customize normalizer {#custom-normalizer}
 
 Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. Normally, you don't need to custom normalizer.
 

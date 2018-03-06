@@ -143,6 +143,93 @@ CREATE INDEX pgroonga_tag_index
 
 See [Normalizers][groonga-normalizers] for other normalizers.
 
+You can use other custom normalizer for full text search, regular expression search and prefix search separately. Here are sample operator classes for them:
+
+  * Full text search: [`pgroonga_text_full_text_search_ops_v2`][text-full-text-search-ops-v2]
+
+  * Regular expression search: [`pgroonga_text_regexp_ops_v2`][text-regexp-ops-v2]
+
+  * Prefix search: [`pgroonga_text_term_search_ops_v2`][text-term-search-ops-v2]
+
+You can use different normalizer for each search operations by the following parameters.
+
+  * Full text search: `full_text_search_normalizer`
+
+  * Regular expression search: `regexp_search_normalizer`
+
+  * Prefix search: `prefix_search_normalizer`
+
+If they aren't used, the `normalizer` parameter is used as fallback.
+
+Here is an example to disable normalizer only for full text search:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_full_text_search_ops_v2,
+               content pgroonga_regexp_ops_v2,
+               tag pgroonga_term_search_ops_v2
+             )
+        WITH (full_text_search_normalizer='',
+              normalizer='NormalizerAuto');
+```
+
+The index for `title` is for full text search. It doesn't use normalizer because `full_text_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizer` is `'NormalizerAuto'`.
+
+Here is an example to disable normalizer only for regular expression search:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_full_text_search_ops_v2,
+               content pgroonga_regexp_ops_v2,
+               tag pgroonga_term_search_ops_v2
+             )
+        WITH (regexp_search_normalizer='',
+              normalizer='NormalizerAuto');
+```
+
+The index for `content` is for regular expression search. It doesn't use normalizer because `regexp_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizer` is `'NormalizerAuto'`.
+
+Here is an example to disable normalizer only for prefix search:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_full_text_search_ops_v2,
+               content pgroonga_regexp_ops_v2,
+               tag pgroonga_term_search_ops_v2
+             )
+        WITH (prefix_search_normalizer='',
+              normalizer='NormalizerAuto');
+```
+
+The index for `tag` is for term search that includes prefix search. It doesn't use normalizer because `prefix_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizer` is `'NormalizerAuto'`.
+
 #### How to use token filters {#custom-token-filters}
 
 Since 1.2.0.
@@ -210,4 +297,10 @@ CREATE INDEX pgroonga_tag_index
 
 [groonga-token-filters]:http://groonga.org/docs/reference/token_filters.html
 
-[postgresql-table-space]:{{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html
+[postgresql-tablespace]:{{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html
+
+[text-full-text-search-ops-v2]:./#text-full-text-search-ops-v2
+
+[text-regexp-ops-v2]:./#text-regexp-ops-v2
+
+[text-term-search-ops-v2]:./#text-term-search-ops-v2

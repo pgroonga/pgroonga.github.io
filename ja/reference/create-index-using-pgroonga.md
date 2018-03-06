@@ -142,7 +142,94 @@ CREATE INDEX pgroonga_tag_index
         WITH (normalizer='');
 ```
 
-他のノーマライザーについては[Normalizers][groonga-normalizers]を参照してください。
+他のノーマライザーについては[ノーマライザー][groonga-normalizers]を参照してください。
+
+全文検索・正規表現検索・前方一致検索それぞれに別のノーマライザーを使うこともできます。これらの検索用の代表的な演算子クラスは次の通りです。
+
+  * 全文検索：[`pgroonga_text_full_text_search_ops_v2`][text-full-text-search-ops-v2]
+
+  * 正規表現検索：[`pgroonga_text_regexp_ops_v2`][text-regexp-ops-v2]
+
+  * 前方一致検索：[`pgroonga_text_term_search_ops_v2`][text-term-search-ops-v2]
+
+次のパラメーターを使うことでそれぞれの検索方法ごとに異なるノーマライザーを使えます。
+
+  * 全文検索：`full_text_search_normalizer`
+
+  * 正規表現検索：`regexp_search_normalizer`
+
+  * 前方一致検索：`prefix_search_normalizer`
+
+これらのパラメーターを使っていない場合は`normalizer`パラメーターの値を使います。
+
+以下は全文検索用のインデックスだけノーマライザーを無効にする例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_full_text_search_ops_v2,
+               content pgroonga_regexp_ops_v2,
+               tag pgroonga_term_search_ops_v2
+             )
+        WITH (full_text_search_normalizer='',
+              normalizer='NormalizerAuto');
+```
+
+`title`のインデックスは全文検索用です。`full_text_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizer`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。
+
+以下は正規表現検索用のインデックスだけノーマライザーを無効にする例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_full_text_search_ops_v2,
+               content pgroonga_regexp_ops_v2,
+               tag pgroonga_term_search_ops_v2
+             )
+        WITH (regexp_search_normalizer='',
+              normalizer='NormalizerAuto');
+```
+
+`content`のインデックスは正規表現検索用です。`regular_expression_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizer`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。
+
+以下は前方一致検索用のインデックスだけノーマライザーを無効にする例です。<
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_full_text_search_ops_v2,
+               content pgroonga_regexp_ops_v2,
+               tag pgroonga_term_search_ops_v2
+             )
+        WITH (prefix_search_normalizer='',
+              normalizer='NormalizerAuto');
+```
+
+`tag`のインデックスは単語検索用です。単語検索は前方一致検索も含んでいます。`prefix_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizer`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。<
 
 #### トークンフィルターのカスタマイズ方法 {#custom-token-filter}
 
@@ -211,4 +298,10 @@ CREATE INDEX pgroonga_tag_index
 
 [groonga-token-filters]:http://groonga.org/ja/docs/reference/token_filters.html
 
-[postgresql-table-space]:{{ site.postgresql_doc_base_url.ja }}/manage-ag-tablespaces.html
+[postgresql-tablespace]:{{ site.postgresql_doc_base_url.ja }}/manage-ag-tablespaces.html
+
+[text-full-text-search-ops-v2]:./#text-full-text-search-ops-v2
+
+[text-regexp-ops-v2]:./#text-regexp-ops-v2
+
+[text-term-search-ops-v2]:./#text-term-search-ops-v2

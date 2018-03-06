@@ -54,9 +54,9 @@ Plugin and token filter aren't used by default.
 
 Here are the default tokenizer and normalizer:
 
-  * Tokenizer: [`TokenBigram`](http://groonga.org/docs/reference/tokenizers.html#token-bigram): It's a bigram based tokenizer. It combines bigram tokenization and white space based tokenization. It uses bigram tokenization for non ASCII characters and white space based tokenization for ASCII characters. It reduces noise for ASCII characters only query.
+  * Tokenizer: [`TokenBigram`][groonga-token-bigram]: It's a bigram based tokenizer. It combines bigram tokenization and white space based tokenization. It uses bigram tokenization for non ASCII characters and white space based tokenization for ASCII characters. It reduces noise for ASCII characters only query.
 
-  * Normalizer: [`NormalizerAuto`](http://groonga.org/docs/reference/normalizers.html#normalizer-auto): It chooses suitable normalization based on target encoding. For example, it uses [Unicode NFKC](http://unicode.org/reports/tr15/) based normalization for UTF-8.
+  * Normalizer: [`NormalizerAuto`][groonga-normalizer-auto]: It chooses suitable normalization based on target encoding. For example, it uses [Unicode NFKC][unicode-nfkc] based normalization for UTF-8.
 
 #### How to register plugins {#custom-plugins}
 
@@ -87,7 +87,7 @@ See [How to customize token filters](#custom-token-filters) for token filters de
 
 Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to customize tokenizer.
 
-Here is an example to use [MeCab](http://taku910.github.io/mecab/) based tokenizer. You need to specify `tokenizer='TokenMecab'`. [`TokenMecab`](http://groonga.org/docs/reference/tokenizers.html#token-mecab) is a name of MeCab based tokenizer.
+Here is an example to use [MeCab][mecab] based tokenizer. You need to specify `tokenizer='TokenMecab'`. [`TokenMecab`][groonga-token-mecab] is a name of MeCab based tokenizer.
 
 ```sql
 CREATE TABLE memos (
@@ -117,9 +117,9 @@ CREATE INDEX pgroonga_tag_index
         WITH (tokenizer='');
 ```
 
-`tokenizer='TokenDelimit'` will be useful for tag search. See also [`TokenDelimit`](http://groonga.org/docs/reference/tokenizers.html#token-delimit).
+`tokenizer='TokenDelimit'` will be useful for tag search. See also [`TokenDelimit`][groonga-token-delimit].
 
-See [Tokenizers](http://groonga.org/docs/reference/tokenizers.html) for other tokenizers.
+See [Tokenizers][groonga-tokenizers] for other tokenizers.
 
 #### How to custom normalizer {#custom-normalizer}
 
@@ -141,7 +141,7 @@ CREATE INDEX pgroonga_tag_index
         WITH (normalizer='');
 ```
 
-See [Normalizers](http://groonga.org/docs/reference/normalizers.html) for other normalizers.
+See [Normalizers][groonga-normalizers] for other normalizers.
 
 #### How to use token filters {#custom-token-filters}
 
@@ -168,13 +168,13 @@ CREATE INDEX pgroonga_content_index
 
 Note that you must specify `plugins` before `token_filters`. These `CREATE INDEX` options are processed by the specified order. Plugins must be registered before you use token filters.
 
-See [Token filters](http://groonga.org/docs/reference/token_filters.html) for other token filters.
+See [Token filters][groonga-token-filters] for other token filters.
 
 #### How to change tablespace {#custom-tablespace}
 
 Since 1.1.6.
 
-Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace]({{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html). If you have fast storage, you may want to change tablespace for PGroonga indexes.
+Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace][postgresql-tablespace]. If you have fast storage, you may want to change tablespace for PGroonga indexes.
 
 Here is an example to change tablespace:
 
@@ -191,3 +191,23 @@ CREATE INDEX pgroonga_tag_index
        USING pgroonga (tag)
   TABLESPACE fast;
 ```
+
+[groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers.html#token-bigram
+
+[groonga-normalizer-auto]:http://groonga.org/docs/reference/normalizers.html#normalizer-auto
+
+[unicode-nfkc]:http://unicode.org/reports/tr15/
+
+[mecab]:http://taku910.github.io/mecab/
+
+[groonga-token-mecab]:http://groonga.org/docs/reference/tokenizers.html#token-mecab
+
+[groonga-token-delimit]:http://groonga.org/docs/reference/tokenizers.html#token-delimit
+
+[groonga-tokenizers]:http://groonga.org/docs/reference/tokenizers.html
+
+[groonga-normalizers]:http://groonga.org/docs/reference/normalizers.html
+
+[groonga-token-filters]:http://groonga.org/docs/reference/token_filters.html
+
+[postgresql-table-space]:{{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html

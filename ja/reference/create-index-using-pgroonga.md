@@ -54,9 +54,9 @@ CREATE INDEX ${INDEX_NAME}
 
 デフォルトのトークナイザーとノーマライザーは次の通りです。
 
-  * トークナイザー：[`TokenBigram`](http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram)：bigramベースのトークナイザーです。このトークナイザーはbigramベースのトークナイズ方法とスペース区切りベースのトークナイズ方法を組み合わせています。非ASCII文字にはbigramベースのトークナイズ方法を使い、ASCII文字にはスペース区切りベースのトークナイズ方法を使います。これはASCII文字だけのクエリーで検索したときのノイズを減らすためです。
+  * トークナイザー：[`TokenBigram`][groonga-token-bigram]：bigramベースのトークナイザーです。このトークナイザーはbigramベースのトークナイズ方法とスペース区切りベースのトークナイズ方法を組み合わせています。非ASCII文字にはbigramベースのトークナイズ方法を使い、ASCII文字にはスペース区切りベースのトークナイズ方法を使います。これはASCII文字だけのクエリーで検索したときのノイズを減らすためです。
 
-  * ノーマライザー：[`NormalizerAuto`](http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto)：対象のエンコーディングに合わせて適切なノーマライズ方法を選びます。たとえば、UTF-8の場合は[Unicode NFKC](http://unicode.org/reports/tr15/)ベースのノーマライズ方法を使います。
+  * ノーマライザー：[`NormalizerAuto`][groonga-normalizer-auto]：対象のエンコーディングに合わせて適切なノーマライズ方法を選びます。たとえば、UTF-8の場合は[Unicode NFKC][unicode-nfkc]ベースのノーマライズ方法を使います。
 
 
 #### プラグインの登録方法 {#custom-plugins}
@@ -88,7 +88,7 @@ CREATE INDEX pgroonga_content_index
 
 トークナイザーをカスタマイズするには`tokenizer='${トークナイザー名}'`を指定します。通常、トークナイザーをカスタマイズする必要はありません。
 
-以下は[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使う例です。`tokenizer='TokenMecab'`を指定する必要があります。[`TokenMecab`](http://groonga.org/ja/docs/reference/tokenizers.html#token-mecab)はMeCabベースのトークナイザーの名前です。
+以下は[MeCab][mecab]ベースのトークナイザーを使う例です。`tokenizer='TokenMecab'`を指定する必要があります。[`TokenMecab`][groonga-token-mecab]はMeCabベースのトークナイザーの名前です。
 
 ```sql
 CREATE TABLE memos (
@@ -118,9 +118,9 @@ CREATE INDEX pgroonga_tag_index
         WITH (tokenizer='');
 ```
 
-`tokenizer='TokenDelimit'`はタグ検索で便利です。[`TokenDelimit`](http://groonga.org/ja/docs/reference/tokenizers.html#token-delimit)も参照してください。
+`tokenizer='TokenDelimit'`はタグ検索で便利です。[`TokenDelimit`][groonga-token-delimit]も参照してください。
 
-他のトークナイザーについては[トークナイザー](http://groonga.org/ja/docs/reference/tokenizers.html)を参照してください。
+他のトークナイザーについては[トークナイザー][groonga-tokenizers]を参照してください。
 
 #### ノーマライザーのカスタマイズ方法 {#custom-normalizer}
 
@@ -142,7 +142,7 @@ CREATE INDEX pgroonga_tag_index
         WITH (normalizer='');
 ```
 
-他のノーマライザーについては[ノーマライザー](http://groonga.org/ja/docs/reference/normalizers.html)を参照してください。
+他のノーマライザーについては[Normalizers][groonga-normalizers]を参照してください。
 
 #### トークンフィルターのカスタマイズ方法 {#custom-token-filter}
 
@@ -169,13 +169,13 @@ CREATE INDEX pgroonga_content_index
 
 `token_filters`より前に`plugins`を指定しなければいけないことに注意してください。`CREATE INDEX`に指定したオプションは指定した順に処理されます。トークンフィルターを使う前にプラグインを登録しておく必要があります。
 
-他のトークンフィルターについては[トークンフィルター](http://groonga.org/ja/docs/reference/token_filters.html)を参照してください。
+他のトークンフィルターについては[トークンフィルター][groonga-token-filters]を参照してください。
 
 #### テーブルスペースの変更方法 {#custom-tablespace}
 
 1.1.6で追加。
 
-[テーブルスペース]({{ site.postgresql_doc_base_url.ja }}/manage-ag-tablespaces.html)をカスタマイズするには`TABLESPACE ${TABLESPACE_NAME}`を指定してください。もし高速なストレージがある場合は、テーブルスペースを変更してそのストレージにPGroongaのインデックスを置きたくなるかもしれません。
+[テーブルスペース][postgresql-tablespace]をカスタマイズするには`TABLESPACE ${TABLESPACE_NAME}`を指定してください。もし高速なストレージがある場合は、テーブルスペースを変更してそのストレージにPGroongaのインデックスを置きたくなるかもしれません。
 
 以下はテーブルスペースを変更する例です。
 
@@ -192,3 +192,23 @@ CREATE INDEX pgroonga_tag_index
        USING pgroonga (tag)
   TABLESPACE fast;
 ```
+
+[groonga-token-bigram]:http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram
+
+[groonga-normalizer-auto]:http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto
+
+[unicode-nfkc]:http://unicode.org/reports/tr15/
+
+[mecab]:http://taku910.github.io/mecab/
+
+[groonga-token-mecab]:http://groonga.org/ja/docs/reference/tokenizers.html#token-mecab
+
+[groonga-token-delimit]:http://groonga.org/ja/docs/reference/tokenizers.html#token-delimit
+
+[groonga-tokenizers]:http://groonga.org/ja/docs/reference/tokenizers.html
+
+[groonga-normalizers]:http://groonga.org/ja/docs/reference/normalizers.html
+
+[groonga-token-filters]:http://groonga.org/ja/docs/reference/token_filters.html
+
+[postgresql-table-space]:{{ site.postgresql_doc_base_url.ja }}/manage-ag-tablespaces.html

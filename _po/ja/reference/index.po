@@ -488,6 +488,9 @@ msgstr "  * [`pgroonga_flush`関数][flush]"
 msgid "  * [`pgroonga_highlight_html` function][highlight-html]"
 msgstr "  * [`pgroonga_highlight_html`関数][highlight-html]"
 
+msgid "  * [`pgroonga_is_writable` function][is-writable]"
+msgstr "  * [`pgroonga_is_writable`関数][is-writable]"
+
 msgid "  * [`pgroonga_match_positions_byte` function][match-positions-byte]"
 msgstr "  * [`pgroonga_match_positions_byte`関数][match-positions-byte]"
 
@@ -500,8 +503,14 @@ msgstr "  * [`pgroonga_normalize`関数][normalize]"
 msgid "  * [`pgroonga_query_escape` function][query-escape]"
 msgstr "  * [`pgroonga_query_escape`関数][query-escape]"
 
+msgid "  * [`pgroonga_query_expand` function][query-expand]"
+msgstr "  * [`pgroonga_query_expand`関数][query-expand]"
+
 msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr "  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]"
+
+msgid "  * [`pgroonga_set_writable` function][set-writable]"
+msgstr "  * [`pgroonga_set_writable`関数][set-writable]"
 
 msgid "  * [`pgroonga_score` function][score]"
 msgstr "  * [`pgroonga_score`関数][score]"
@@ -512,14 +521,20 @@ msgstr "  * [`pgroonga_snippet_html`関数][snippet-html]"
 msgid "  * [`pgroonga_table_name` function][table-name]"
 msgstr "  * [`pgroonga_table_name`関数][table-name]"
 
-msgid "  * [`pgroonga_query_expand` function][query-expand]"
-msgstr "  * [`pgroonga_query_expand`関数][query-expand]"
+msgid "  * [`pgroonga_wal_apply` function][wal-apply]"
+msgstr "  * [`pgroonga_wal_apply`関数][wal-apply]"
+
+msgid "  * [`pgroonga_wal_truncate` function][wal-truncate]"
+msgstr "  * [`pgroonga_wal_truncate`関数][wal-truncate]"
 
 msgid "## Parameters"
 msgstr "## パラメーター"
 
 msgid "  * [`pgoronga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
+
+msgid "  * [`pgoronga.libgroonga_version` parameter][libgroonga-version]"
+msgstr "  * [`pgoronga.libgroonga_version`パラメーター][libgroonga-version]"
 
 msgid "  * [`pgoronga.lock_timeout` parameter][lock-timeout]"
 msgstr "  * [`pgroonga.lock_timeout`パラメーター][lock-timeout]"
@@ -624,15 +639,19 @@ msgid ""
 "[escape]:functions/pgroonga-escape.html\n"
 "[flush]:functions/pgroonga-flush.html\n"
 "[highlight-html]:functions/pgroonga-highlight-html.html\n"
+"[is-writable]:functions/pgroonga-is-writable.html\n"
 "[match-positions-byte]:functions/pgroonga-match-positions-byte.html\n"
 "[match-positions-character]:functions/pgroonga-match-positions-character.html\n"
 "[normalize]:functions/pgroonga-normalize.html\n"
 "[query-escape]:functions/pgroonga-query-escape.html\n"
+"[query-expand]:functions/pgroonga-query-expand.html\n"
 "[query-extract-keywords]:functions/pgroonga-query-extract-keywords.html\n"
+"[set-writable]:functions/pgroonga-set-writable.html\n"
 "[score]:functions/pgroonga-score.html\n"
 "[snippet-html]:functions/pgroonga-snippet-html.html\n"
 "[table-name]:functions/pgroonga-table-name.html\n"
-"[query-expand]:functions/pgroonga-query-expand.html"
+"[wal-apply]:functions/pgroonga-wal-apply.html\n"
+"[wal-truncate]:functions/pgroonga-wal-truncate.html"
 msgstr ""
 
 msgid "[tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html"
@@ -640,6 +659,7 @@ msgstr ""
 
 msgid ""
 "[enable-wal]:parameters/enable-wal.html\n"
+"[libgroonga-version]:parameters/libgroonga-version.html\n"
 "[lock-timeout]:parameters/lock-timeout.html\n"
 "[log-level]:parameters/log-level.html\n"
 "[log-path]:parameters/log-path.html\n"

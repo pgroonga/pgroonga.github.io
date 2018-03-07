@@ -484,6 +484,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_highlight_html`関数][highlight-html]
 
+  * [`pgroonga_is_writable`関数][is-writable]
+
   * [`pgroonga_match_positions_byte`関数][match-positions-byte]
 
   * [`pgroonga_match_positions_character`関数][match-positions-character]
@@ -492,7 +494,11 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_query_escape`関数][query-escape]
 
+  * [`pgroonga_query_expand`関数][query-expand]
+
   * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]
+
+  * [`pgroonga_set_writable`関数][set-writable]
 
   * [`pgroonga_score`関数][score]
 
@@ -500,11 +506,15 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_table_name`関数][table-name]
 
-  * [`pgroonga_query_expand`関数][query-expand]
+  * [`pgroonga_wal_apply`関数][wal-apply]
+
+  * [`pgroonga_wal_truncate`関数][wal-truncate]
 
 ## パラメーター
 
   * [`pgroonga.enable_wal`パラメーター][enable-wal]
+
+  * [`pgoronga.libgroonga_version`パラメーター][libgroonga-version]
 
   * [`pgroonga.lock_timeout`パラメーター][lock-timeout]
 
@@ -571,19 +581,24 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html
 [highlight-html]:functions/pgroonga-highlight-html.html
+[is-writable]:functions/pgroonga-is-writable.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
 [match-positions-character]:functions/pgroonga-match-positions-character.html
 [normalize]:functions/pgroonga-normalize.html
 [query-escape]:functions/pgroonga-query-escape.html
+[query-expand]:functions/pgroonga-query-expand.html
 [query-extract-keywords]:functions/pgroonga-query-extract-keywords.html
+[set-writable]:functions/pgroonga-set-writable.html
 [score]:functions/pgroonga-score.html
 [snippet-html]:functions/pgroonga-snippet-html.html
 [table-name]:functions/pgroonga-table-name.html
-[query-expand]:functions/pgroonga-query-expand.html
+[wal-apply]:functions/pgroonga-wal-apply.html
+[wal-truncate]:functions/pgroonga-wal-truncate.html
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
 [enable-wal]:parameters/enable-wal.html
+[libgroonga-version]:parameters/libgroonga-version.html
 [lock-timeout]:parameters/lock-timeout.html
 [log-level]:parameters/log-level.html
 [log-path]:parameters/log-path.html

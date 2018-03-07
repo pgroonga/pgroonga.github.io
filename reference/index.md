@@ -484,6 +484,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_highlight_html` function][highlight-html]
 
+  * [`pgroonga_is_writable` function][is-writable]
+
   * [`pgroonga_match_positions_byte` function][match-positions-byte]
 
   * [`pgroonga_match_positions_character` function][match-positions-character]
@@ -492,7 +494,11 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_query_escape` function][query-escape]
 
+  * [`pgroonga_query_expand` function][query-expand]
+
   * [`pgroonga_query_extract_keywords` function][query-extract-keywords]
+
+  * [`pgroonga_set_writable` function][set-writable]
 
   * [`pgroonga_score` function][score]
 
@@ -500,11 +506,15 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_table_name` function][table-name]
 
-  * [`pgroonga_query_expand` function][query-expand]
+  * [`pgroonga_wal_apply` function][wal-apply]
+
+  * [`pgroonga_wal_truncate` function][wal-truncate]
 
 ## Parameters
 
   * [`pgoronga.enable_wal` parameter][enable-wal]
+
+  * [`pgoronga.libgroonga_version` parameter][libgroonga-version]
 
   * [`pgoronga.lock_timeout` parameter][lock-timeout]
 
@@ -570,19 +580,24 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html
 [highlight-html]:functions/pgroonga-highlight-html.html
+[is-writable]:functions/pgroonga-is-writable.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
 [match-positions-character]:functions/pgroonga-match-positions-character.html
 [normalize]:functions/pgroonga-normalize.html
 [query-escape]:functions/pgroonga-query-escape.html
+[query-expand]:functions/pgroonga-query-expand.html
 [query-extract-keywords]:functions/pgroonga-query-extract-keywords.html
+[set-writable]:functions/pgroonga-set-writable.html
 [score]:functions/pgroonga-score.html
 [snippet-html]:functions/pgroonga-snippet-html.html
 [table-name]:functions/pgroonga-table-name.html
-[query-expand]:functions/pgroonga-query-expand.html
+[wal-apply]:functions/pgroonga-wal-apply.html
+[wal-truncate]:functions/pgroonga-wal-truncate.html
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
 [enable-wal]:parameters/enable-wal.html
+[libgroonga-version]:parameters/libgroonga-version.html
 [lock-timeout]:parameters/lock-timeout.html
 [log-level]:parameters/log-level.html
 [log-path]:parameters/log-path.html

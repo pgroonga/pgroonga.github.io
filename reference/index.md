@@ -512,7 +512,7 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
 ## Parameters
 
-  * [`pgoronga.enable_wal` parameter][enable-wal]
+  * [`pgroonga.enable_wal` parameter][enable-wal]
 
   * [`pgoronga.libgroonga_version` parameter][libgroonga-version]
 

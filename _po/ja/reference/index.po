@@ -530,7 +530,7 @@ msgstr "  * [`pgroonga_wal_truncate`関数][wal-truncate]"
 msgid "## Parameters"
 msgstr "## パラメーター"
 
-msgid "  * [`pgoronga.enable_wal` parameter][enable-wal]"
+msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
 msgid "  * [`pgoronga.libgroonga_version` parameter][libgroonga-version]"

@@ -111,12 +111,71 @@ SELECT pgroonga_wal_truncate();
 -- (1 row)
 ```
 
+## Backup and PGroonga's WAL truncation {#backup-and-pgroonga-wal-truncation}
+
+PGroonga's data isn't crash safe. You just create backup only for PGroonga's data to reduce recover time from crash when you enable PGroonga's WAL. You don't need to create backup all PostgreSQL data. You can use [`rsync`][rsync] for backup.
+
+Note that you must create PostgreSQL backup into other host for storage crash.
+
+Here are sample shell script to create backup and restore from backup:
+
+```shell
+db_name="YOUR_DB_NAME"
+
+# Detect database information
+db_oid=$(psql \
+  --dbname ${db_name} \
+  --no-psqlrc \
+  --no-align \
+  --tuples-only \
+  -c "SELECT datid FROM pg_stat_database WHERE datname = '${db_name}'")
+data_dir=$(psql \
+  --dbname ${db_name} \
+  --no-psqlrc \
+  --no-align \
+  --tuples-only \
+  -c "SHOW data_directory")
+
+# Define directories
+db_dir=${data_dir}/base/${db_oid}
+backup_dir=${data_dir}/../../backup
+
+# Create backup directory
+mkdir -p ${backup_dir}
+
+# Stop PostgreSQL
+systemctl stop postgresql-10
+
+# Create backup
+rsync -a --include '/pgrn*' --exclude '*' --delete ${db_dir}/ ${backup_dir}/
+
+# Run PostgreSQL
+systemctl start postgresql-10
+
+# Remove PGroonga's WAL
+psql --dbname ${db_name} -c "SELECT pgroonga_wal_truncate()"
+
+# ...PostgreSQL is crashed...
+
+# Restore from backup
+rsync -a --include '/pgrn*' --exclude '*' --delete ${backup_dir}/ ${db_dir}/
+
+# Run PostgreSQL again
+systemctl restart postgresql-10
+```
+
 ## See also
 
   * [`pgroonga.enable_wal` parameter][enable-wal]
 
-  * [`pgroonga_wal_truncate` function][wal-truncate]
+  * [`pgroonga_wal_apply` function][wal-apply]
+
+  * [`pgroonga_set_writable` function][set-writable]
 
 [enable-wal]:../parameters/enable-wal.html
 
-[wal-truncate]:pgroonga-wal-truncate.html
+[wal-apply]:pgroonga-wal-apply.html
+
+[set-writable]:pgroonga-set-writable.html
+
+[rsync]:https://rsync.samba.org/

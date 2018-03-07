@@ -191,17 +191,110 @@ msgid ""
 "```"
 msgstr ""
 
+msgid "## Backup and PGroonga's WAL truncation {#backup-and-pgroonga-wal-truncation}"
+msgstr "## バックアップとPGroongaのWALの削除 {#backup-and-pgroonga-wal-truncation}"
+
+msgid ""
+"PGroonga's data isn't crash safe. You just create backup only for PGroonga's d"
+"ata to reduce recover time from crash when you enable PGroonga's WAL. You don'"
+"t need to create backup all PostgreSQL data. You can use [`rsync`][rsync] for "
+"backup."
+msgstr ""
+"PGroongaのデータはクラッシュセーフではありません。PGroongaのWALを有効にしている場合はPGroongaのデータだけバックアップをとればより"
+"速く復旧できます。PostgreSQL全体のデータをバックアップする必要はありません。バックアップには[`rsync`][rsync]が便利です。"
+
+msgid "Note that you must create PostgreSQL backup into other host for storage crash."
+msgstr "ストレージ故障に対応するために別のホストにPostgreSQLのバックアップを作るべきだということは忘れないでください。"
+
+msgid "Here are sample shell script to create backup and restore from backup:"
+msgstr "以下はバックアップを作成し、リストアするシェルスクリプトの例です。"
+
+msgid ""
+"```shell\n"
+"db_name=\"YOUR_DB_NAME\""
+msgstr ""
+
+msgid ""
+"# Detect database information\n"
+"db_oid=$(psql \\\n"
+"  --dbname ${db_name} \\\n"
+"  --no-psqlrc \\\n"
+"  --no-align \\\n"
+"  --tuples-only \\\n"
+"  -c \"SELECT datid FROM pg_stat_database WHERE datname = '${db_name}'\")\n"
+"data_dir=$(psql \\\n"
+"  --dbname ${db_name} \\\n"
+"  --no-psqlrc \\\n"
+"  --no-align \\\n"
+"  --tuples-only \\\n"
+"  -c \"SHOW data_directory\")"
+msgstr ""
+
+msgid ""
+"# Define directories\n"
+"db_dir=${data_dir}/base/${db_oid}\n"
+"backup_dir=${data_dir}/../../backup"
+msgstr ""
+
+msgid ""
+"# Create backup directory\n"
+"mkdir -p ${backup_dir}"
+msgstr ""
+
+msgid ""
+"# Stop PostgreSQL\n"
+"systemctl stop postgresql-10"
+msgstr ""
+
+msgid ""
+"# Create backup\n"
+"rsync -a --include '/pgrn*' --exclude '*' --delete ${db_dir}/ ${backup_dir}/"
+msgstr ""
+
+msgid ""
+"# Run PostgreSQL\n"
+"systemctl start postgresql-10"
+msgstr ""
+
+msgid ""
+"# Remove PGroonga's WAL\n"
+"psql --dbname ${db_name} -c \"SELECT pgroonga_wal_truncate()\""
+msgstr ""
+
+msgid "# ...PostgreSQL is crashed..."
+msgstr ""
+
+msgid ""
+"# Restore from backup\n"
+"rsync -a --include '/pgrn*' --exclude '*' --delete ${backup_dir}/ ${db_dir}/"
+msgstr ""
+
+msgid ""
+"# Run PostgreSQL again\n"
+"systemctl restart postgresql-10\n"
+"```"
+msgstr ""
+
 msgid "## See also"
 msgstr "## 参考"
 
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
-msgid "  * [`pgroonga_wal_truncate` function][wal-truncate]"
-msgstr "  * [`pgroonga_wal_truncate`関数][wal-truncate]"
+msgid "  * [`pgroonga_wal_apply` function][wal-apply]"
+msgstr "  * [`pgroonga_wal_apply`関数][wal-apply]"
+
+msgid "  * [`pgroonga_set_writable` function][set-writable]"
+msgstr "  * [`pgroonga_set_writable`関数][set-writable]"
 
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
-msgid "[wal-truncate]:pgroonga-wal-truncate.html"
+msgid "[wal-apply]:pgroonga-wal-apply.html"
+msgstr ""
+
+msgid "[set-writable]:pgroonga-set-writable.html"
+msgstr ""
+
+msgid "[rsync]:https://rsync.samba.org/"
 msgstr ""

@@ -153,6 +153,9 @@ rsync -a --include '/pgrn*' --exclude '*' --delete ${db_dir}/ ${backup_dir}/
 systemctl start postgresql-10
 
 # Remove PGroonga's WAL
+#
+# You must not change your data
+# between creating backup and running pgroonga_wal_truncate
 psql --dbname ${db_name} -c "SELECT pgroonga_wal_truncate()"
 
 # ...PostgreSQL is crashed...

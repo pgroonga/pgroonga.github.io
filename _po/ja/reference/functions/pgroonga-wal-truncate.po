@@ -258,6 +258,9 @@ msgstr ""
 
 msgid ""
 "# Remove PGroonga's WAL\n"
+"#\n"
+"# You must not change your data\n"
+"# between creating backup and running pgroonga_wal_truncate\n"
 "psql --dbname ${db_name} -c \"SELECT pgroonga_wal_truncate()\""
 msgstr ""
 

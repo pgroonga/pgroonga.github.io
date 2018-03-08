@@ -56,9 +56,9 @@ title: News
 
 ### Fixes
 
-  * Fixed a bug that `timezone (without time zone)` value is stored as local time.
+  * Fixed a bug that `timestamp (without time zone)` value is stored as local time.
 
-    * You need to recreate PGroonga indexes that use `timezone (without time zone)` after you upgrade PGroonga.
+    * You need to recreate PGroonga indexes that use `timestamp (without time zone)` after you upgrade PGroonga.
 
   * Fixed a bug that `jsonb` WAL was broken since 2.0.2.
 

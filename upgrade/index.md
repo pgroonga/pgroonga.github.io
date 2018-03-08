@@ -10,7 +10,7 @@ Here is a list of compatibility:
 
   * 2.0.2 -> 2.0.3: Compatible
 
-    * But you need to recreate your PGroonga indexes that use `timezone (without time zone)`.
+    * But you need to recreate your PGroonga indexes that use `timestamp (without time zone)`.
 
     * But you need to recreate your PGroonga indexes that use [`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2].
 

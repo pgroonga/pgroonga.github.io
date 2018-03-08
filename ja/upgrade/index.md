@@ -10,7 +10,7 @@ title: アップグレード
 
   * 2.0.2 -> 2.0.3: 互換
 
-    * ただし、`timezone (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります。
+    * ただし、`timestamp (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります。
 
     * ただし、[`pgroonga_text_array_full_text_search_ops_v2`演算子クラス][text-array-full-text-search-ops-v2]を使ったPGroongaのインデックスがある場合は再作成する必要があります。
 

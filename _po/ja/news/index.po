@@ -25,6 +25,9 @@ msgstr ""
 msgid "### Improvements"
 msgstr "### 改良"
 
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.0."
+msgstr ""
+
 msgid ""
 "  * Improved performance for sub `SELECT`.\n"
 "    [GitHub#55][Reported by tedypranolo]"
@@ -100,13 +103,13 @@ msgid "### Fixes"
 msgstr "### 修正"
 
 msgid ""
-"  * Fixed a bug that `timezone (without time zone)` value is stored as local t"
-"ime."
+"  * Fixed a bug that `timestamp (without time zone)` value is stored as local "
+"time."
 msgstr ""
 
 msgid ""
-"    * You need to recreate PGroonga indexes that use `timezone (without time z"
-"one)` after you upgrade PGroonga."
+"    * You need to recreate PGroonga indexes that use `timestamp (without time "
+"zone)` after you upgrade PGroonga."
 msgstr ""
 
 msgid "  * Fixed a bug that `jsonb` WAL was broken since 2.0.2."

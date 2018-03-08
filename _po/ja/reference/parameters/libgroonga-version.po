@@ -1,0 +1,61 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga.libgroonga_version parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga.libgroonga_versionパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga.libgroonga_version` parameter"
+msgstr "# `pgroonga.libgroonga_version`パラメーター"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga.libgroonga_version` parameter shows the Groonga version what you're "
+"using."
+msgstr "`pgroonga.libgroonga_version`パラメーターには使っているGroongaのバージョンが入っています。"
+
+msgid "This parameter is read-only parameter."
+msgstr "このパラメーターは読み込み専用です。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "Here is the syntax to show the value of this parameter:"
+msgstr "このパラメーターの値を表示する構文は以下の通りです。"
+
+msgid ""
+"```sql\n"
+"SHOW pgroonga.libgroonga_version;\n"
+"```"
+msgstr ""
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example:"
+msgstr "例です。"
+
+msgid ""
+"```sql\n"
+"SHOW pgroonga.libgroonga_version;\n"
+"--  pgroonga.libgroonga_version \n"
+"-- -----------------------------\n"
+"--  8.0.1\n"
+"-- (1 row)\n"
+"```"
+msgstr ""

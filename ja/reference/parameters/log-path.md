@@ -51,6 +51,8 @@ SET pgroonga.log_path = 'none';
 
   * [`pgroonga.log_type`パラメーター][log-type]
 
-  * [ログのフォーマット](http://groonga.org/ja/docs/reference/log.html#format)
+  * [ログのフォーマット][groonga-log-format]
 
 [log-type]:log-type.html
+
+[groonga-log-format]:http://groonga.org/ja/docs/reference/log.html#format

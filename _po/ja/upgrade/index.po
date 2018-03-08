@@ -31,6 +31,22 @@ msgstr ""
 msgid "Here is a list of compatibility:"
 msgstr "以下は互換性のリストです。"
 
+msgid "  * 2.0.2 -> 2.0.3: Compatible"
+msgstr "  * 2.0.2 -> 2.0.3: 互換"
+
+msgid ""
+"    * But you need to recreate your PGroonga indexes that use `timezone (witho"
+"ut time zone)`."
+msgstr "    * ただし、`timezone (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります。"
+
+msgid ""
+"    * But you need to recreate your PGroonga indexes that use [`pgroonga_text_"
+"array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops"
+"-v2]."
+msgstr ""
+"    * ただし、[`pgroonga_text_array_full_text_search_ops_v2`演算子クラス][text-array-ful"
+"l-text-search-ops-v2]を使ったPGroongaのインデックスがある場合は再作成する必要があります。"
+
 msgid "  * 2.0.1 -> 2.0.2: Compatible"
 msgstr "  * 2.0.1 -> 2.0.2: 互換"
 
@@ -219,4 +235,9 @@ msgstr ""
 msgid ""
 "  * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.h"
 "tml)"
+msgstr ""
+
+msgid ""
+"[text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search"
+"-ops-v2"
 msgstr ""

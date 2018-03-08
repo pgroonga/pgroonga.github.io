@@ -8,6 +8,12 @@ title: アップグレード
 
 以下は互換性のリストです。
 
+  * 2.0.2 -> 2.0.3: 互換
+
+    * ただし、`timezone (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります。
+
+    * ただし、[`pgroonga_text_array_full_text_search_ops_v2`演算子クラス][text-array-full-text-search-ops-v2]を使ったPGroongaのインデックスがある場合は再作成する必要があります。
+
   * 2.0.1 -> 2.0.2: 互換
 
   * 2.0.0 -> 2.0.1: 互換
@@ -125,3 +131,5 @@ ALTER EXTENSION pgroonga UPDATE;
   * [`ALTER EXTENSION`]({{ site.postgresql_doc_base_url.ja }}/sql-alterextension.html)
 
   * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)
+
+[text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2

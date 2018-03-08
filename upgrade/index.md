@@ -8,6 +8,12 @@ You can upgrade PGroonga without recreating PGroonga indexes when new version do
 
 Here is a list of compatibility:
 
+  * 2.0.2 -> 2.0.3: Compatible
+
+    * But you need to recreate your PGroonga indexes that use `timezone (without time zone)`.
+
+    * But you need to recreate your PGroonga indexes that use [`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2].
+
   * 2.0.1 -> 2.0.2: Compatible
 
   * 2.0.0 -> 2.0.1: Compatible
@@ -125,3 +131,5 @@ ALTER EXTENSION pgroonga UPDATE;
   * [`ALTER EXTENSION`]({{ site.postgresql_doc_base_url.en }}/sql-alterextension.html)
 
   * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)
+
+[text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2

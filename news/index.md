@@ -8,6 +8,8 @@ title: News
 
 ### Improvements
 
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.0.
+
   * Improved performance for sub `SELECT`.
     [GitHub#55][Reported by tedypranolo]
 

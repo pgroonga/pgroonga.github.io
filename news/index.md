@@ -4,7 +4,7 @@ title: News
 
 # News
 
-## 2.0.3: 2018-03-06 {#version-2-0-3}
+## 2.0.3: 2018-03-08 {#version-2-0-3}
 
 ### Improvements
 

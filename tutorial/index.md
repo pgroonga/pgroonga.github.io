@@ -146,8 +146,6 @@ You can also use `ILIKE` operator like `LIKE` operator.
 
 You can use `pgroonga_score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number.
 
-You need to add primary key column into `pgroonga` index to use `pgroonga_score` function. If you don't add primary key column into `pgroonga` index, `pgroonga_score` function always returns `0`.
-
 Here is a sample schema that includes primary key into indexed columns:
 
 ```sql
@@ -158,7 +156,7 @@ CREATE TABLE score_memos (
 
 CREATE INDEX pgroonga_score_memos_content_index
           ON score_memos
-       USING pgroonga (id, content);
+       USING pgroonga (content);
 ```
 
 Insert test data:
@@ -179,7 +177,7 @@ SET enable_seqscan = off;
 Perform full text search and get score.
 
 ```sql
-SELECT *, pgroonga_score(score_memos) AS score
+SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';
 --  id |                            content                             | score 
@@ -192,7 +190,7 @@ SELECT *, pgroonga_score(score_memos) AS score
 You can sort matched records by precision ascending by using `pgroonga_score` function in `ORDER BY` clause:
 
 ```sql
-SELECT *, pgroonga_score(score_memos) AS score
+SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'
  ORDER BY pgroonga_score(score_memos) DESC;

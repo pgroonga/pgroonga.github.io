@@ -4,6 +4,29 @@ title: おしらせ
 
 # おしらせ
 
+## 2.0.4: 2018-03-22 {#version-2-0-4}
+
+### 改良
+
+  * [[`pgroonga_score` function][score]] Improved performance.
+
+    * `pgroonga_score(tableoid, ctid)` version is faster than existing `pgroonga_score(record)` version.
+
+  * Added parallel query support.
+    [GitHub#59][Reported by tedypranolo]
+
+  * Added summer time support.
+
+  * Added weight support in the following operators:
+
+    * [`&@` operator][match-v2]
+
+    * [`&@~` operator][query-v2]
+
+### 感謝
+
+  * tedypranolo
+
 ## 2.0.3: 2018-03-08 {#version-2-0-3}
 
 ### 改良
@@ -882,6 +905,7 @@ The first release!!!
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 [set-writable]:../reference/functions/pgroonga-set-writable.html
+[score]:../reference/functions/pgroonga-score.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
 [normalize]:../reference/functions/pgroonga-normalize.html
 

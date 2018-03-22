@@ -19,11 +19,45 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.0.3: 2018-03-08 {#version-2-0-3}"
+msgid "## 2.0.4: 2018-03-22 {#version-2-0-4}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * [[`pgroonga_score` function][score]] Improved performance."
+msgstr ""
+
+msgid ""
+"    * `pgroonga_score(tableoid, ctid)` version is faster than existing `pgroon"
+"ga_score(record)` version."
+msgstr ""
+
+msgid ""
+"  * Added parallel query support.\n"
+"    [GitHub#59][Reported by tedypranolo]"
+msgstr ""
+
+msgid "  * Added summer time support."
+msgstr ""
+
+msgid "  * Added weight support in the following operators:"
+msgstr ""
+
+msgid "    * [`&@` operator][match-v2]"
+msgstr ""
+
+msgid "    * [`&@~` operator][query-v2]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * tedypranolo"
+msgstr ""
+
+msgid "## 2.0.3: 2018-03-08 {#version-2-0-3}"
+msgstr ""
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.0."
 msgstr ""
@@ -133,12 +167,6 @@ msgid ""
 "  * [[`pgroonga_varchar_full_text_search_ops_v2` operator class][varchar-full-"
 "text-search-ops-v2]] Fixed a bug that needless 4KiB check is done.\n"
 "    [Reported by Rising Sun]"
-msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
-
-msgid "  * tedypranolo"
 msgstr ""
 
 msgid "  * Toshio Uchiyama"
@@ -314,9 +342,6 @@ msgid ""
 "  * [[`pgroonga.text_array_full_text_search_ops` operator class][text-array-fu"
 "ll-text-search-ops]] Added the following v2 operators for forward compatibilit"
 "y:"
-msgstr ""
-
-msgid "    * [`&@` operator][match-v2]"
 msgstr ""
 
 msgid "    * [`&?` operator][query-v2]"
@@ -1304,6 +1329,7 @@ msgid ""
 "[wal-apply]:../reference/functions/pgroonga-wal-aplly.html\n"
 "[wal-truncate]:../reference/functions/pgroonga-wal-truncate.html\n"
 "[set-writable]:../reference/functions/pgroonga-set-writable.html\n"
+"[score]:../reference/functions/pgroonga-score.html\n"
 "[is-writable]:../reference/functions/pgroonga-is-writable.html\n"
 "[normalize]:../reference/functions/pgroonga-normalize.html"
 msgstr ""

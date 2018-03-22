@@ -146,8 +146,6 @@ SELECT * FROM memos WHERE content LIKE '%全文検索%';
 
 `pgroonga_score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。
 
-`pgroonga_score`関数を使うためにはプライマリーキーカラムを`pgroonga`インデックスに入れる必要があります。もし、プライマリーキーカラムが`pgroonga`インデックスに入っていない場合は、`pgroonga_score`関数は常に`0`を返します。
-
 以下はインデックス対象のカラムにプライマリーキーが入っているスキーマの例です。
 
 ```sql
@@ -158,7 +156,7 @@ CREATE TABLE score_memos (
 
 CREATE INDEX pgroonga_score_memos_content_index
           ON score_memos
-       USING pgroonga (id, content);
+       USING pgroonga (content);
 ```
 
 テストデータを挿入します。
@@ -179,7 +177,7 @@ SET enable_seqscan = off;
 全文検索を実行してスコアーを取得します。
 
 ```sql
-SELECT *, pgroonga_score(score_memos) AS score
+SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';
 --  id |                                  content                                  | score 
@@ -192,7 +190,7 @@ SELECT *, pgroonga_score(score_memos) AS score
 `ORDER BY`節で`pgroonga_score`関数を使うことでスコアー順にマッチしたレコードをソートできます。
 
 ```sql
-SELECT *, pgroonga_score(score_memos) AS score
+SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'
  ORDER BY pgroonga_score(score_memos) DESC;

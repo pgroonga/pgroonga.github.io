@@ -117,14 +117,14 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 マスター：
 
 ```text
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
+% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 
 スレーブ：
 
 ```text
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
+% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
 % sudo -H yum install -y epel-release
 % sudo -H yum install -y postgresql96-pgroonga
 ```

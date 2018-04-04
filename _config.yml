@@ -12,7 +12,6 @@ windows_postgresql_versions:
   - 9.6.8-1
   - 10.3-1
 freebsd_postgresql_version: 96
-centos_groonga_release_version: 1.4.0-1
 development_postgresql_version: 10.3
 exclude:
   - "Rakefile"

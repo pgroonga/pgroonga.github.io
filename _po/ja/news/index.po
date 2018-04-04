@@ -19,6 +19,22 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.0.5: 2018-04-04 {#version-2-0-5}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that large index update may fail with WAL related error after "
+"[[`pgroonga_wal_truncate` function][wal-truncate]] is used."
+msgstr ""
+
+msgid ""
+"  * Fixed required Groonga version. PGroonga will always depend on the latest "
+"Groonga to prevent this problem."
+msgstr ""
+
 msgid "## 2.0.4: 2018-03-22 {#version-2-0-4}"
 msgstr ""
 
@@ -132,9 +148,6 @@ msgid ""
 "  * [[`pgroonga_normalize` function][normalize]] Added.\n"
 "    [GitHub#13][Patch by Fujimoto Seiji]"
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a bug that `timestamp (without time zone)` value is stored as local "

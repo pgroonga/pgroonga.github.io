@@ -22,6 +22,12 @@ msgstr "# おしらせ"
 msgid "## 2.0.5: 2018-04-04 {#version-2-0-5}"
 msgstr ""
 
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.1."
+msgstr ""
+
 msgid "### Fixes"
 msgstr "### 修正"
 
@@ -37,9 +43,6 @@ msgstr ""
 
 msgid "## 2.0.4: 2018-03-22 {#version-2-0-4}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * [[`pgroonga_score` function][score]] Improved performance."
 msgstr ""

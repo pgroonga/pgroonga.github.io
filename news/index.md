@@ -6,6 +6,10 @@ title: News
 
 ## 2.0.5: 2018-04-04 {#version-2-0-5}
 
+### Improvements
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.1.
+
 ### Fixes
 
   * Fixed a bug that large index update may fail with WAL related error after [[`pgroonga_wal_truncate` function][wal-truncate]] is used.

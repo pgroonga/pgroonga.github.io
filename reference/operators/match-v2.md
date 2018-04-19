@@ -17,7 +17,7 @@ There are two signatures:
 
 ```sql
 column &@ keyword
-column &@ ROW(keyword, weights, index_name)
+column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition
 ```
 
 The former is simpler than the latter. The former is enough for most cases.
@@ -39,7 +39,7 @@ column &@ keyword
 Here is the description of the latter signature.
 
 ```sql
-column &@ ROW(keyword, weights, index_name)
+column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition
 ```
 
 `column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
@@ -135,7 +135,9 @@ You can find more suitable records against "`Groonga`" word with [`pgroonga_scor
 SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM memos
  WHERE ARRAY[title, content] &@
-       ROW('Groonga', ARRAY[5, 1], 'pgroonga_memos_index')
+       ('Groonga',
+        ARRAY[5, 1],
+        'pgroonga_memos_index')::pgroonga_full_text_search_condition
  ORDER BY score DESC;
 --   title   |                                content                                 | score 
 -- ----------+------------------------------------------------------------------------+-------
@@ -153,7 +155,9 @@ You can ignore `content` column data by specifying `0` as the second weight valu
 SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM memos
  WHERE ARRAY[title, content] &@
-       ROW('Groonga', ARRAY[5, 0], 'pgroonga_memos_index')
+       ('Groonga',
+        ARRAY[5, 0],
+        'pgroonga_memos_index')::pgroonga_full_text_search_condition
  ORDER BY score DESC;
 --   title  |                                content                                 | score 
 -- ---------+------------------------------------------------------------------------+-------

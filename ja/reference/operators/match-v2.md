@@ -17,7 +17,7 @@ upper_level: ../
 
 ```sql
 column &@ keyword
-column &@ ROW(keyword, weights, index_name)
+column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition
 ```
 
 前者は後者よりもシンブルです。多くの場合は前者で十分です。
@@ -39,7 +39,7 @@ column &@ keyword
 以下は後者の使い方の説明です。
 
 ```sql
-column &@ ROW(keyword, weights, index_name)
+column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition
 ```
 
 `column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
@@ -135,7 +135,9 @@ INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあり
 SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM memos
  WHERE ARRAY[title, content] &@
-       ROW('Groonga', ARRAY[5, 1], 'pgroonga_memos_index')
+       ('Groonga',
+        ARRAY[5, 1],
+        'pgroonga_memos_index')::pgroonga_full_text_search_condition
  ORDER BY score DESC;
 --      title      |                                  content                                  | score 
 -- ----------------+---------------------------------------------------------------------------+-------
@@ -153,7 +155,9 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM memos
  WHERE ARRAY[title, content] &@
-       ROW('Groonga', ARRAY[5, 0], 'pgroonga_memos_index')
+       ('Groonga',
+        ARRAY[5, 0],
+        'pgroonga_memos_index')::pgroonga_full_text_search_condition
  ORDER BY score DESC;
 --   title  |                      content                      | score 
 -- ---------+---------------------------------------------------+-------

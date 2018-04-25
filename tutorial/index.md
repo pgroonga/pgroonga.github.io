@@ -26,7 +26,7 @@ This document describes about the followings:
 
   * How to use PGroonga as index for auto complete
 
-  * How to use Groonga throw PGroonga (advanced topic)
+  * How to use Groonga through PGroonga (advanced topic)
 
 
 ## Full text search
@@ -671,7 +671,7 @@ TODO
 
 See [how to implement auto complete feature][how-to-auto-complete] for more details.
 
-## How to use Groonga throw PGroonga {#groonga}
+## How to use Groonga through PGroonga {#groonga}
 
 This is an advanced topic.
 
@@ -681,7 +681,7 @@ For example, [drilldown feature](http://groonga.org/docs/reference/commands/sele
 
 In another instance, Groonga can perform query that doesn't use all columns in record faster than PostgreSQL. Because Groonga has column oriented data store. Column oriented data store (Groonga) is faster than row oriented data store (PostgreSQL) for accessing some columns. Row oriented data store needs to read all columns in record to access only partial columns. Column oriented data store just need to read only target columns in record.
 
-You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. But PGroonga provides a feature to use Groonga directly throw SQL.
+You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. But PGroonga provides a feature to use Groonga directly through SQL.
 
 ### `pgroonga_command` function
 

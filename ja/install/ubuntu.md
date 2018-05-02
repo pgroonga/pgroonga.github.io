@@ -14,9 +14,9 @@ title: Ubuntuにインストール
 
   * Ubuntu 16.04
 
-  * Ubuntu 17.04
-
   * Ubuntu 17.10
+
+  * Ubuntu 18.04
 
 ## インストール方法
 
@@ -26,7 +26,9 @@ Ubuntu 14.04を使っている場合は`postgresql-9.3-pgroonga`パッケージ�
 
 Ubuntu 16.04を使っている場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。
 
-それ以外の場合は`postgresql-9.6-pgroonga`パッケージをインストールしてください。
+Ubuntu 17.10を使っている場合は`postgresql-9.6-pgroonga`パッケージをインストールしてください。
+
+それ以外の場合は`postgresql-10-pgroonga`パッケージをインストールしてください。
 
 ```text
 % sudo apt-get install -y software-properties-common
@@ -37,8 +39,10 @@ Ubuntu 14.04:
 % sudo apt-get install -y -V postgresql-9.3-pgroonga
 Ubuntu 16.04:
 % sudo apt-get install -y -V postgresql-9.5-pgroonga
-Others:
+Ubuntu 17.10:
 % sudo apt-get install -y -V postgresql-9.6-pgroonga
+Others:
+% sudo apt-get install -y -V postgresql-10-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

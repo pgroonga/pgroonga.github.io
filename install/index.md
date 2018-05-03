@@ -32,9 +32,9 @@ See a document for your platform in the followings:
 
     * 16.04
 
-    * 17.04
-
     * 17.10
+
+    * 18.04
 
   * [CentOS](centos.html)
 

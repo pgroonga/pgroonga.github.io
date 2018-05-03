@@ -64,10 +64,10 @@ msgstr ""
 msgid "    * 16.04"
 msgstr ""
 
-msgid "    * 17.04"
+msgid "    * 17.10"
 msgstr ""
 
-msgid "    * 17.10"
+msgid "    * 18.04"
 msgstr ""
 
 msgid "  * [CentOS](centos.html)"

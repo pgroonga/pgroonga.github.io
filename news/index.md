@@ -4,6 +4,60 @@ title: News
 
 # News
 
+<!--
+## 2.0.7: 2018-XX-XX {#version-2-0-7}
+
+### Improvements
+
+  * Added index options support on sequential scan in the following operators:
+
+    * [`&@` operator][match-v2]
+
+    * [`&@~` operator][query-v2]
+
+    * [`` &` `` operator][script-v2]
+
+-->
+
+## 2.0.6: 2018-05-14 {#version-2-0-6}
+
+### Improvements
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.2.
+
+  * Changed to require Groonga 8.0.2 or later.
+
+  * Added scorer support in the following operators:
+
+    * [`&@` operator][match-v2]
+
+    * [`&@~` operator][query-v2]
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added tokenizer options support.
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added normalizer options support.
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added new options.
+
+    * `lexicon_type`
+
+  * [[Ubuntu][ubuntu]] Added Ubuntu 18.04 (Bionic Beaver) support.
+
+  * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.04 (Zesty Zapus) support.
+
+### Fixes
+
+  * Fixed a bug that wrong search result may be returned when `ARRAY` has one or more `NULL`.
+    [GitHub#64][Reported by peter-schmitz]
+
+  * Fixed a bug that `timestamp (without time zone)` value is stored with long offset.
+
+    * You need to recreate PGroonga indexes that use `timestamp (without time zone)` after you upgrade PGroonga.
+
+### Thanks
+
+  * peter-schmitz
+
 ## 2.0.5: 2018-04-04 {#version-2-0-5}
 
 ### Improvements

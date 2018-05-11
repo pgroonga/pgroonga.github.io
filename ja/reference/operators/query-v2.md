@@ -60,7 +60,7 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 
 `index_name`は対応するPGroongaのインデックス名です。`text`型です。
 
-`index_name` can be `NULL`.
+`index_name`には`NULL`を指定できます。
 
 これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
 

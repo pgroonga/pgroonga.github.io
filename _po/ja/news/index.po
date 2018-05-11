@@ -19,17 +19,95 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.0.5: 2018-04-04 {#version-2-0-5}"
+msgid ""
+"<!--\n"
+"## 2.0.7: 2018-XX-XX {#version-2-0-7}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
 
-msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.1."
+msgid "  * Added index options support on sequential scan in the following operators:"
+msgstr ""
+
+msgid "    * [`&@` operator][match-v2]"
+msgstr ""
+
+msgid "    * [`&@~` operator][query-v2]"
+msgstr ""
+
+msgid "    * [`` &` `` operator][script-v2]"
+msgstr ""
+
+msgid "-->"
+msgstr ""
+
+msgid "## 2.0.6: 2018-05-14 {#version-2-0-6}"
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.2."
+msgstr ""
+
+msgid "  * Changed to require Groonga 8.0.2 or later."
+msgstr ""
+
+msgid "  * Added scorer support in the following operators:"
+msgstr ""
+
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added token"
+"izer options support."
+msgstr ""
+
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added norma"
+"lizer options support."
+msgstr ""
+
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added new o"
+"ptions."
+msgstr ""
+
+msgid "    * `lexicon_type`"
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Added Ubuntu 18.04 (Bionic Beaver) support."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.04 (Zesty Zapus) support."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that wrong search result may be returned when `ARRAY` has one "
+"or more `NULL`.\n"
+"    [GitHub#64][Reported by peter-schmitz]"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that `timestamp (without time zone)` value is stored with long"
+" offset."
+msgstr ""
+
+msgid ""
+"    * You need to recreate PGroonga indexes that use `timestamp (without time "
+"zone)` after you upgrade PGroonga."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * peter-schmitz"
+msgstr ""
+
+msgid "## 2.0.5: 2018-04-04 {#version-2-0-5}"
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.1."
+msgstr ""
 
 msgid ""
 "  * Fixed a bug that large index update may fail with WAL related error after "
@@ -63,15 +141,6 @@ msgstr ""
 msgid "  * Added weight support in the following operators:"
 msgstr ""
 
-msgid "    * [`&@` operator][match-v2]"
-msgstr ""
-
-msgid "    * [`&@~` operator][query-v2]"
-msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
-
 msgid "  * tedypranolo"
 msgstr ""
 
@@ -94,11 +163,6 @@ msgstr ""
 msgid ""
 "  * [[`pgroonga_jsonb_full_text_search_ops_v2` operator class][jsonb-full-text"
 "-search-ops-v2]] Added."
-msgstr ""
-
-msgid ""
-"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added new o"
-"ptions."
 msgstr ""
 
 msgid "    * `full_text_search_normalizer`"
@@ -155,11 +219,6 @@ msgstr ""
 msgid ""
 "  * Fixed a bug that `timestamp (without time zone)` value is stored as local "
 "time."
-msgstr ""
-
-msgid ""
-"    * You need to recreate PGroonga indexes that use `timestamp (without time "
-"zone)` after you upgrade PGroonga."
 msgstr ""
 
 msgid "  * Fixed a bug that `jsonb` WAL was broken since 2.0.2."
@@ -459,9 +518,6 @@ msgstr ""
 msgid ""
 "  * Fixed a bug that removed entries may be referenced. [GitHub#36][Reported b"
 "y peter-schmitz]"
-msgstr ""
-
-msgid "  * peter-schmitz"
 msgstr ""
 
 msgid "  * ArturFormella"

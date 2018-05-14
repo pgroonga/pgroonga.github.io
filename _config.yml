@@ -1,18 +1,18 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 2.0.5
-pgroonga_release_date: 2018-04-04
+pgroonga_version: 2.0.6
+pgroonga_release_date: 2018-05-14
 copyright_year: 2015-2018
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/10/static
   ja: https://www.postgresql.jp/document/9.6/html
 windows_postgresql_versions:
-  - 9.5.12-1
-  - 9.6.8-1
-  - 10.3-1
+  - 9.5.13-1
+  - 9.6.9-1
+  - 10.4-1
 freebsd_postgresql_version: 96
-development_postgresql_version: 10.3
+development_postgresql_version: 10.4
 exclude:
   - "Rakefile"
   - "Gemfile"

@@ -110,6 +110,9 @@ msgstr "  * ノーマライザー：`text`型と`varchar`型の等価性をカ�
 msgid "  * Token filter: It's a module for filtering keywords extracted by tokenizer."
 msgstr "  * トークンフィルター：トークナイザーが抽出したキーワードをフィルターするモジュールです。"
 
+msgid "  * Lexicon type: It's a type for lexicon that manages tokens."
+msgstr "  * 語彙表の種類：トークンを管理する語彙表の種類です。"
+
 msgid ""
 "Normally, you don't need to customize them because the default values of them "
 "are suitable for most cases. Features to customize them are for advanced users"
@@ -121,8 +124,8 @@ msgstr ""
 msgid "Plugin and token filter aren't used by default."
 msgstr "デフォルトではプラグインとトークンフィルターは使われていません。"
 
-msgid "Here are the default tokenizer and normalizer:"
-msgstr "デフォルトのトークナイザーとノーマライザーは次の通りです。"
+msgid "Here are the default tokenizer, normalizer and lexicon type:"
+msgstr "デフォルトのトークナイザーとノーマライザーと語彙表の種類は次の通りです。"
 
 msgid ""
 "  * Tokenizer: [`TokenBigram`][groonga-token-bigram]: It's a bigram based toke"
@@ -141,6 +144,13 @@ msgid ""
 msgstr ""
 "  * ノーマライザー：[`NormalizerAuto`][groonga-normalizer-auto]：対象のエンコーディングに合わせて適切なノーマ"
 "ライズ方法を選びます。たとえば、UTF-8の場合は[Unicode NFKC][unicode-nfkc]ベースのノーマライズ方法を使います。\n"
+
+msgid ""
+"  * Lexicon type: [`patricia_trie`][groonga-table-patricia-trie]: It supports "
+"rich token search features such as predictive search. Its size is small."
+msgstr ""
+"  * 語彙表の種類：[`patricia_trie`][groonga-table-patricia-trie]：前方一致検索のようなリッチな方法でトーク"
+"ンを検索できます。サイズも小さいです。"
 
 msgid "#### How to register plugins {#custom-plugins}"
 msgstr "#### プラグインの登録方法 {#custom-plugins}"
@@ -249,6 +259,25 @@ msgstr ""
 "`tokenizer='TokenDelimit'`はタグ検索で便利です。[`TokenDelimit`][groonga-token-delimit]も参"
 "照してください。"
 
+msgid ""
+"You can specify tokenizer options by `tokenizer='${TOKENIZER_NAME}(...)'` synt"
+"ax."
+msgstr "`tokenizer='${TOKENIZER_NAME}(...)'`という構文でトークナイザーのオプションを指定できます。"
+
+msgid "It's available since 2.0.6."
+msgstr "2.0.6から使えます。"
+
+msgid "Here is an example to use `TokenNgram` tokenizer with `\"n\"` and `3` options:"
+msgstr "以下は`\"n\"`オプションと`3`オプションを指定して`TokenNgram`トークナイザーを使う例です。"
+
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
+"          ON memos\n"
+"       USING pgroonga (tag)\n"
+"        WITH (tokenizer='TokenNgram(\"n\", 3)');\n"
+"```"
+msgstr ""
+
 msgid "See [Tokenizers][groonga-tokenizers] for other tokenizers."
 msgstr "他のトークナイザーについては[トークナイザー][groonga-tokenizers]を参照してください。"
 
@@ -278,6 +307,24 @@ msgid ""
 "          ON memos\n"
 "       USING pgroonga (tag)\n"
 "        WITH (normalizer='');\n"
+"```"
+msgstr ""
+
+msgid ""
+"You can specify normalizer options by `normalizer='${NORMALIZER_NAME}(...)'` s"
+"yntax."
+msgstr "`normalizer='${NORMALIZER_NAME}(...)'`という構文でノーマライザーのオプションを指定できます。"
+
+msgid ""
+"Here is an example to use `NormalizerNFKC100` normalizer with `\"unify_kana\"` a"
+"nd `true` options:"
+msgstr "以下は`\"unify_kana\"`オプションと`true`オプションを指定して`NormalizerNFKC100`ノーマライザーを使う例です。"
+
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
+"          ON memos\n"
+"       USING pgroonga (tag)\n"
+"        WITH (normalizer='NormalizerNFKC100(\"unify_kana\", true)');\n"
 "```"
 msgstr ""
 
@@ -477,6 +524,48 @@ msgid ""
 "```"
 msgstr ""
 
+msgid "#### How to change lexicon type {#custom-lexicon-type}"
+msgstr "#### 語彙表の種類の変更方法 {#custom-lexicon-type}"
+
+msgid "Since 2.0.6."
+msgstr "2.0.6で追加。"
+
+msgid "Specify `lexicon_type='${LEXICON_TYPE}'` for changing lexicon type."
+msgstr "語彙表の種類を変更するには`lexicon_type='${LEXICON_TYPE}'`を指定します。"
+
+msgid "Here are available lexicon types:"
+msgstr "利用可能な語彙表の種類は次の通りです。"
+
+msgid "  * [`hash_table`][groonga-table-hash-table]"
+msgstr ""
+
+msgid "  * [`patricia_trie`][groonga-table-patricia-trie]"
+msgstr ""
+
+msgid "    * Default"
+msgstr "    * デフォルト"
+
+msgid "  * [`double_array_trie`][groonga-table-double-array-trie]"
+msgstr ""
+
+msgid ""
+"Normally, you don't need to customize this because the default value is suitab"
+"le for most cases."
+msgstr "通常、これをカスタマイズする必要はありません。なぜなら多くの場合はデフォルト値が適切だからです。"
+
+msgid ""
+"Here is an example to use `hash_table` lexicon type to disable predictive toke"
+"n search:"
+msgstr "以下はトークンの前方一致検索を無効にするために語彙表の種類を`hash_table`にする例です。"
+
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
+"          ON memos\n"
+"       USING pgroonga (content)\n"
+"        WITH (lexicon_type='hash_table');\n"
+"```"
+msgstr ""
+
 msgid ""
 "[groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers.html#token"
 "-bigram"
@@ -490,6 +579,27 @@ msgid ""
 msgstr ""
 "[groonga-normalizer-auto]:http://groonga.org/ja/docs/reference/normalizers.htm"
 "l#normalizer-auto"
+
+msgid ""
+"[groonga-table-patricia-trie]:http://groonga.org/docs/reference/tables.html#ta"
+"ble-pat-key"
+msgstr ""
+"[groonga-table-patricia-trie]:http://groonga.org/docs/ja/reference/tables.html"
+"#table-pat-key"
+
+msgid ""
+"[groonga-table-hash-table]:http://groonga.org/docs/reference/tables.html#table"
+"-hash-key"
+msgstr ""
+"[groonga-table-hash-table]:http://groonga.org/docs/ja/reference/tables.html#ta"
+"ble-hash-key"
+
+msgid ""
+"[groonga-table-double-array-trie]:http://groonga.org/docs/reference/tables.htm"
+"l#table-dat-key"
+msgstr ""
+"[groonga-table-double-array-trie]:http://groonga.org/docs/ja/reference/tables."
+"html#table-dat-key"
 
 msgid "[unicode-nfkc]:http://unicode.org/reports/tr15/"
 msgstr ""

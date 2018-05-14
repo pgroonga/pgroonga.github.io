@@ -48,16 +48,20 @@ CREATE INDEX ${INDEX_NAME}
 
   * トークンフィルター：トークナイザーが抽出したキーワードをフィルターするモジュールです。
 
+  * 語彙表の種類：トークンを管理する語彙表の種類です。
+
 通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユーザー向けの機能です。
 
 デフォルトではプラグインとトークンフィルターは使われていません。
 
-デフォルトのトークナイザーとノーマライザーは次の通りです。
+デフォルトのトークナイザーとノーマライザーと語彙表の種類は次の通りです。
 
   * トークナイザー：[`TokenBigram`][groonga-token-bigram]：bigramベースのトークナイザーです。このトークナイザーはbigramベースのトークナイズ方法とスペース区切りベースのトークナイズ方法を組み合わせています。非ASCII文字にはbigramベースのトークナイズ方法を使い、ASCII文字にはスペース区切りベースのトークナイズ方法を使います。これはASCII文字だけのクエリーで検索したときのノイズを減らすためです。
 
   * ノーマライザー：[`NormalizerAuto`][groonga-normalizer-auto]：対象のエンコーディングに合わせて適切なノーマライズ方法を選びます。たとえば、UTF-8の場合は[Unicode NFKC][unicode-nfkc]ベースのノーマライズ方法を使います。
 
+
+  * 語彙表の種類：[`patricia_trie`][groonga-table-patricia-trie]：前方一致検索のようなリッチな方法でトークンを検索できます。サイズも小さいです。
 
 #### プラグインの登録方法 {#custom-plugins}
 
@@ -120,6 +124,24 @@ CREATE INDEX pgroonga_tag_index
 
 `tokenizer='TokenDelimit'`はタグ検索で便利です。[`TokenDelimit`][groonga-token-delimit]も参照してください。
 
+`tokenizer='${TOKENIZER_NAME}(...)'`という構文でトークナイザーのオプションを指定できます。
+
+2.0.6から使えます。
+
+以下は`"n"`オプションと`3`オプションを指定して`TokenNgram`トークナイザーを使う例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (tag)
+        WITH (tokenizer='TokenNgram("n", 3)');
+```
+
 他のトークナイザーについては[トークナイザー][groonga-tokenizers]を参照してください。
 
 #### ノーマライザーのカスタマイズ方法 {#custom-normalizer}
@@ -140,6 +162,24 @@ CREATE INDEX pgroonga_tag_index
           ON memos
        USING pgroonga (tag)
         WITH (normalizer='');
+```
+
+`normalizer='${NORMALIZER_NAME}(...)'`という構文でノーマライザーのオプションを指定できます。
+
+2.0.6から使えます。
+
+以下は`"unify_kana"`オプションと`true`オプションを指定して`NormalizerNFKC100`ノーマライザーを使う例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (tag)
+        WITH (normalizer='NormalizerNFKC100("unify_kana", true)');
 ```
 
 他のノーマライザーについては[ノーマライザー][groonga-normalizers]を参照してください。
@@ -280,9 +320,47 @@ CREATE INDEX pgroonga_tag_index
   TABLESPACE fast;
 ```
 
+#### 語彙表の種類の変更方法 {#custom-lexicon-type}
+
+2.0.6で追加。
+
+語彙表の種類を変更するには`lexicon_type='${LEXICON_TYPE}'`を指定します。
+
+利用可能な語彙表の種類は次の通りです。
+
+  * [`hash_table`][groonga-table-hash-table]
+
+  * [`patricia_trie`][groonga-table-patricia-trie]
+
+    * デフォルト
+
+  * [`double_array_trie`][groonga-table-double-array-trie]
+
+通常、これをカスタマイズする必要はありません。なぜなら多くの場合はデフォルト値が適切だからです。
+
+以下はトークンの前方一致検索を無効にするために語彙表の種類を`hash_table`にする例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (lexicon_type='hash_table');
+```
+
 [groonga-token-bigram]:http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram
 
 [groonga-normalizer-auto]:http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto
+
+[groonga-table-patricia-trie]:http://groonga.org/docs/ja/reference/tables.html#table-pat-key
+
+[groonga-table-hash-table]:http://groonga.org/docs/ja/reference/tables.html#table-hash-key
+
+[groonga-table-double-array-trie]:http://groonga.org/docs/ja/reference/tables.html#table-dat-key
 
 [unicode-nfkc]:http://unicode.org/reports/tr15/
 

@@ -48,15 +48,19 @@ You can customize the followings by `WITH` option of `CREATE INDEX`:
 
   * Token filter: It's a module for filtering keywords extracted by tokenizer.
 
+  * Lexicon type: It's a type for lexicon that manages tokens.
+
 Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to customize them are for advanced users.
 
 Plugin and token filter aren't used by default.
 
-Here are the default tokenizer and normalizer:
+Here are the default tokenizer, normalizer and lexicon type:
 
   * Tokenizer: [`TokenBigram`][groonga-token-bigram]: It's a bigram based tokenizer. It combines bigram tokenization and white space based tokenization. It uses bigram tokenization for non ASCII characters and white space based tokenization for ASCII characters. It reduces noise for ASCII characters only query.
 
   * Normalizer: [`NormalizerAuto`][groonga-normalizer-auto]: It chooses suitable normalization based on target encoding. For example, it uses [Unicode NFKC][unicode-nfkc] based normalization for UTF-8.
+
+  * Lexicon type: [`patricia_trie`][groonga-table-patricia-trie]: It supports rich token search features such as predictive search. Its size is small.
 
 #### How to register plugins {#custom-plugins}
 
@@ -119,6 +123,24 @@ CREATE INDEX pgroonga_tag_index
 
 `tokenizer='TokenDelimit'` will be useful for tag search. See also [`TokenDelimit`][groonga-token-delimit].
 
+You can specify tokenizer options by `tokenizer='${TOKENIZER_NAME}(...)'` syntax.
+
+It's available since 2.0.6.
+
+Here is an example to use `TokenNgram` tokenizer with `"n"` and `3` options:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (tag)
+        WITH (tokenizer='TokenNgram("n", 3)');
+```
+
 See [Tokenizers][groonga-tokenizers] for other tokenizers.
 
 #### How to customize normalizer {#custom-normalizer}
@@ -139,6 +161,24 @@ CREATE INDEX pgroonga_tag_index
           ON memos
        USING pgroonga (tag)
         WITH (normalizer='');
+```
+
+You can specify normalizer options by `normalizer='${NORMALIZER_NAME}(...)'` syntax.
+
+It's available since 2.0.6.
+
+Here is an example to use `NormalizerNFKC100` normalizer with `"unify_kana"` and `true` options:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (tag)
+        WITH (normalizer='NormalizerNFKC100("unify_kana", true)');
 ```
 
 See [Normalizers][groonga-normalizers] for other normalizers.
@@ -279,9 +319,47 @@ CREATE INDEX pgroonga_tag_index
   TABLESPACE fast;
 ```
 
+#### How to change lexicon type {#custom-lexicon-type}
+
+Since 2.0.6.
+
+Specify `lexicon_type='${LEXICON_TYPE}'` for changing lexicon type.
+
+Here are available lexicon types:
+
+  * [`hash_table`][groonga-table-hash-table]
+
+  * [`patricia_trie`][groonga-table-patricia-trie]
+
+    * Default
+
+  * [`double_array_trie`][groonga-table-double-array-trie]
+
+Normally, you don't need to customize this because the default value is suitable for most cases.
+
+Here is an example to use `hash_table` lexicon type to disable predictive token search:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (lexicon_type='hash_table');
+```
+
 [groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers.html#token-bigram
 
 [groonga-normalizer-auto]:http://groonga.org/docs/reference/normalizers.html#normalizer-auto
+
+[groonga-table-patricia-trie]:http://groonga.org/docs/reference/tables.html#table-pat-key
+
+[groonga-table-hash-table]:http://groonga.org/docs/reference/tables.html#table-hash-key
+
+[groonga-table-double-array-trie]:http://groonga.org/docs/reference/tables.html#table-dat-key
 
 [unicode-nfkc]:http://unicode.org/reports/tr15/
 

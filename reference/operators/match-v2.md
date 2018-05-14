@@ -63,7 +63,7 @@ If importance factor is `0`, the value is ignored. For example, `ARRAY[1, 0, 1]`
 
 It's for using the same search options specified in PGroonga index in sequential search.
 
-It's available since 2.0.7.
+It's available since 2.0.6.
 
 Here is the description of the third signature.
 
@@ -103,7 +103,7 @@ It's replaced with the correct Groonga index name internally.
 
 It's for using the same search options specified in PGroonga index in sequential search.
 
-It's available since 2.0.7.
+It's available since 2.0.6.
 
 ## Operator classes
 
@@ -243,7 +243,8 @@ If you want to perform full text search with multiple keywords OR search, use [`
 
 [groonga-scorer]:http://groonga.org/docs/reference/scorer.html
 
-[query-v2]:query-v2.html
-[match-in-v2]:match-in-v2.html
-
 [score]:../functions/pgroonga-score.html
+
+[query-v2]:query-v2.html
+
+[match-in-v2]:match-in-v2.html

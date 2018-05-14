@@ -17,20 +17,25 @@ upper_level: ../
 
 ## 構文
 
-使い方は2つあります。
+使い方は3つあります。
 
 ```sql
 column &@~ query
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
+column &~@ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
 ```
 
-前者は後者よりもシンブルです。多くの場合は前者で十分です。
+1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。
 
-後者は検索スコアーを最適化するときに便利です。たとえば、ブログアプリケーションで「タイトルは本文よりも重要」という検索を実現できます。
+2つ目の使い方は検索スコアーを最適化するときに便利です。たとえば、ブログアプリケーションで「タイトルは本文よりも重要」という検索を実現できます。
 
-後者は2.0.4から使えます。
+2つ目の使い方は2.0.4から使えます。
 
-以下は前者の使い方の説明です。
+3つ目の使い方は検索スコアーをより最適化するときに便利です。たとえば、[キーワードスタッフィング][wikipedia-keyword-stuffing]対策を実現することができます。
+
+3つ目の使い方は2.0.6から使えます。
+
+以下は1つ目の使い方の説明です。
 
 ```sql
 column &@~ query
@@ -42,7 +47,7 @@ column &@~ query
 
 `qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。
 
-以下は後者の使い方の説明です。
+以下は2つ目の使い方の説明です。
 
 ```sql
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
@@ -64,7 +69,47 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 
 これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
 
-未実装です。
+2.0.6から使えます。
+
+以下は3つ目の使い方の説明です。
+
+```sql
+column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition
+```
+
+`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
+
+`query`は全文検索用のクエリーです。`column`が`text`型または`text[]`型なら`query`は`text`型です。`column`が`varchar`型なら`query`は`varchar`型です。
+
+`weights`はそれぞれの値の重要度です。`int[]`型です。もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
+
+`weights`を`NULL`にできます。`weights`の要素も`NULL`にできます。対応する重要度が`NULL`の場合は重要度は`1`になります。
+
+重要度が`0`の場合は対応する値を無視します。たとえば、`ARRAY[1, 0, 1]`は2番目の値は検索しないという意味になります。
+
+`scorers`はそれぞれの値のスコアーを計算する処理です。`text[]`型です。もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値のスコアーを計算します。`column`が`text[]`型なら、同じ位置の値がその値のスコアーを計算します。
+
+`scorers`を`NULL`にできます。`scorers`の要素も`NULL`にできます。対応するスコアラーが`NULL`の場合は単語の出現数をスコアーにするスコアラーを使います。
+
+スコアラーの詳細はGroongaの[スコアラー][groonga-scorer]のドキュメントを参照してください。
+
+スコアラーの最初の引数には`$index`を指定しなければいけないことに注意してください。
+
+例：
+
+```sql
+'scorer_tf_at_most($index, 0.25)'
+```
+
+`$index`は内部的に適切なGroongaのインデックス名に置き換えられます。
+
+`index_name`は対応するPGroongaのインデックス名です。`text`型です。
+
+`index_name`には`NULL`を指定できます。
+
+これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
+
+2.0.6から使えます。
 
 `qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。
 
@@ -176,6 +221,25 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 -- (2 rows)
 ```
 
+You can customize how to compute score confirm. For example, you can limit the score of `content` column to `0.5`.
+
+```sql
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       ('Groonga OR PostgreSQL',
+        ARRAY[5, 1],
+        'pgroonga_memos_index')::pgroonga_full_text_search_condition
+ ORDER BY score DESC;
+--      title      |                                  content                                  | score 
+-- ----------------+---------------------------------------------------------------------------+-------
+--  Groonga        | Groongaは日本語対応の高速な全文検索エンジンです。                         |   5.5
+--  PostgreSQL     | PostgreSQLはリレーショナル・データベース管理システムです。                |   5.5
+--  PGroonga       | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     1
+--  コマンドライン | groongaコマンドがあります。                                               |   0.5
+-- (4 rows)
+```
+
 クエリーの構文の詳細は[Groongaのドキュメント][groonga-query-syntax]を参照してください。
 
 `カラム名:@キーワード`のように`カラム名:`から始まる構文を使うことはできません。これはPGroongaで無効にしています。
@@ -187,6 +251,12 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
   * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
   * [Groongaのクエリーの構文][groonga-query-syntax]
+
+[wikipedia-keyword-stuffing]:https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89%E3%82%B9%E3%82%BF%E3%83%83%E3%83%95%E3%82%A3%E3%83%B3%E3%82%B0
+
+[groonga-scorer]:http://groonga.org/ja/docs/reference/scorer.html
+
+[score]:../functions/pgroonga-score.html
 
 [match-v2]:match-v2.html
 

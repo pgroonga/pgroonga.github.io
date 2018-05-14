@@ -130,8 +130,8 @@ msgid ""
 "al search."
 msgstr "これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。"
 
-msgid "It's available since 2.0.7."
-msgstr "2.0.7から使えます。"
+msgid "It's available since 2.0.6."
+msgstr "2.0.6から使えます。"
 
 msgid "Here is the description of the third signature."
 msgstr "以下は3つ目の使い方の説明です。"
@@ -475,10 +475,11 @@ msgstr ""
 msgid "[groonga-scorer]:http://groonga.org/docs/reference/scorer.html"
 msgstr "[groonga-scorer]:http://groonga.org/ja/docs/reference/scorer.html"
 
-msgid ""
-"[query-v2]:query-v2.html\n"
-"[match-in-v2]:match-in-v2.html"
+msgid "[score]:../functions/pgroonga-score.html"
 msgstr ""
 
-msgid "[score]:../functions/pgroonga-score.html"
+msgid "[query-v2]:query-v2.html"
+msgstr ""
+
+msgid "[match-in-v2]:match-in-v2.html"
 msgstr ""

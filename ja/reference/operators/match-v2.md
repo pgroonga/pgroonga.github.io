@@ -63,7 +63,7 @@ column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition
 
 これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
 
-2.0.7から使えます。
+2.0.6から使えます。
 
 以下は3つ目の使い方の説明です。
 
@@ -103,7 +103,7 @@ column &@ (keyword, weights, scorers, index_name)::pgroonga_full_text_search_con
 
 これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
 
-2.0.7から使えます。
+2.0.6から使えます。
 
 ## 演算子クラス
 
@@ -243,7 +243,8 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 
 [groonga-scorer]:http://groonga.org/ja/docs/reference/scorer.html
 
-[query-v2]:query-v2.html
-[match-in-v2]:match-in-v2.html
-
 [score]:../functions/pgroonga-score.html
+
+[query-v2]:query-v2.html
+
+[match-in-v2]:match-in-v2.html

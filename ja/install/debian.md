@@ -87,13 +87,22 @@ deb https://packages.groonga.org/debian/ stretch main
 deb-src https://packages.groonga.org/debian/ stretch main
 ```
 
-`postgresql-9.6-pgroonga`パッケージをインストールします。
+PostgreSQL 10を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
+
+```console
+% echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+% wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+```
+
+`postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`パッケージをインストールします。
 
 ```console
 % sudo apt update
 % sudo apt install -y -V --allow-unauthenticated groonga-keyring
 % sudo apt update
 % sudo apt install -y -V postgresql-9.6-pgroonga
+Or
+% sudo apt install -y -V postgresql-10-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -119,3 +128,5 @@ deb-src https://packages.groonga.org/debian/ stretch main
 これで終わりです！
 
 [チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
+
+postgresql-apt:https://www.postgresql.org/download/linux/debian/

@@ -87,13 +87,22 @@ deb https://packages.groonga.org/debian/ stretch main
 deb-src https://packages.groonga.org/debian/ stretch main
 ```
 
-Install `postgresql-9.6-pgroonga` package:
+If you want to use PostgreSQL 10, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
+
+```console
+% echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+% wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+```
+
+Install `postgresql-9.6-pgroonga` or `postgresql-10-pgroonga` package:
 
 ```console
 % sudo apt update
 % sudo apt install -y -V --allow-unauthenticated groonga-keyring
 % sudo apt update
 % sudo apt install -y -V postgresql-9.6-pgroonga
+Or
+% sudo apt install -y -V postgresql-10-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -119,3 +128,5 @@ Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 That's all!
 
 Try [tutorial](../tutorial/). You can understand more about PGroonga.
+
+postgresql-apt:https://www.postgresql.org/download/linux/debian/

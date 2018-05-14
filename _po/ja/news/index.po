@@ -78,6 +78,11 @@ msgstr ""
 msgid "  * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.04 (Zesty Zapus) support."
 msgstr ""
 
+msgid ""
+"  * [[Debian][debian]] Added package for PostgreSQL 10 on Debian GNU/Linux Str"
+"ecth."
+msgstr ""
+
 msgid "### Fixes"
 msgstr "### 修正"
 

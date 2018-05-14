@@ -45,6 +45,8 @@ title: おしらせ
 
   * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.04 (Zesty Zapus) support.
 
+  * [[Debian][debian]] Added package for PostgreSQL 10 on Debian GNU/Linux Strecth.
+
 ### 修正
 
   * Fixed a bug that wrong search result may be returned when `ARRAY` has one or more `NULL`.

@@ -210,7 +210,7 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 -- (1 row)
 ```
 
-You can customize how to compute score confirm. For example, you can limit the score of `content` column to `0.5`.
+You can customize how to compute score. For example, you can limit the score of `content` column to `0.5`.
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score

@@ -423,9 +423,9 @@ msgstr ""
 "```"
 
 msgid ""
-"You can customize how to compute score confirm. For example, you can limit the"
-" score of `content` column to `0.5`."
-msgstr ""
+"You can customize how to compute score. For example, you can limit the score o"
+"f `content` column to `0.5`."
+msgstr "スコアーの計算方法をカスタマイズできます。たとえば、`content`カラムのスコアーを最大で`0.5`に制限できます。"
 
 msgid ""
 "```sql\n"

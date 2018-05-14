@@ -221,7 +221,7 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 -- (2 rows)
 ```
 
-You can customize how to compute score confirm. For example, you can limit the score of `content` column to `0.5`.
+スコアーの計算方法をカスタマイズできます。たとえば、`content`カラムのスコアーを最大で`0.5`に制限できます。
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score

@@ -31,6 +31,16 @@ msgstr ""
 msgid "Here is a list of compatibility:"
 msgstr "以下は互換性のリストです。"
 
+msgid "  * 2.0.5 -> 2.0.6: Compatible"
+msgstr "  * 2.0.5 -> 2.0.6: 互換"
+
+msgid ""
+"    * But you need to recreate your PGroonga indexes that use `timestamp (with"
+"out time zone)`."
+msgstr ""
+"    * ただし、`timestamp (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります"
+"。"
+
 msgid "  * 2.0.4 -> 2.0.5: Compatible"
 msgstr "  * 2.0.4 -> 2.0.5: 互換"
 
@@ -39,13 +49,6 @@ msgstr "  * 2.0.3 -> 2.0.4: 互換"
 
 msgid "  * 2.0.2 -> 2.0.3: Compatible"
 msgstr "  * 2.0.2 -> 2.0.3: 互換"
-
-msgid ""
-"    * But you need to recreate your PGroonga indexes that use `timestamp (with"
-"out time zone)`."
-msgstr ""
-"    * ただし、`timestamp (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります"
-"。"
 
 msgid ""
 "    * But you need to recreate your PGroonga indexes that use [`pgroonga_text_"

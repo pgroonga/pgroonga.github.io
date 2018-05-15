@@ -8,6 +8,10 @@ You can upgrade PGroonga without recreating PGroonga indexes when new version do
 
 Here is a list of compatibility:
 
+  * 2.0.5 -> 2.0.6: Compatible
+
+    * But you need to recreate your PGroonga indexes that use `timestamp (without time zone)`.
+
   * 2.0.4 -> 2.0.5: Compatible
 
   * 2.0.3 -> 2.0.4: Compatible

@@ -22,7 +22,7 @@ upper_level: ../
 ```sql
 column &@~ query
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
-column &~@ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
+column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
 ```
 
 1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。

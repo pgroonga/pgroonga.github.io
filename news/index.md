@@ -967,6 +967,7 @@ The first release!!!
 [contain-term-v2]:../reference/operators/contain-term-v2.html
 [query-v2]:../reference/operators/query-v2.html
 [query-in-v2]:../reference/operators/query-in-v2.html
+[script-v2]:../reference/operators/script-v2.html
 [similar-search-v2]:../reference/operators/similar-search-v2.html
 [prefix-search-v2]:../reference/operators/prefix-search-v2.html
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html

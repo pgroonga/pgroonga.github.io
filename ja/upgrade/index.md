@@ -8,6 +8,8 @@ title: アップグレード
 
 以下は互換性のリストです。
 
+  * 2.0.6 -> 2.0.7: Compatible
+
   * 2.0.5 -> 2.0.6: 互換
 
     * ただし、`timestamp (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります。

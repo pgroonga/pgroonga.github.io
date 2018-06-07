@@ -13,7 +13,20 @@ Since 1.0.7.
 
 ## Syntax
 
-Here is the syntax of this function:
+There are two signatures:
+
+```text
+text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
+text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
+```
+
+The first signature is simpler than others. The first signature is enough for most cases.
+
+The second signature is useful when you use custom normalizer.
+
+The second signature is available since 2.0.7.
+
+Here is the description of the first signature.
 
 ```text
 text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
@@ -26,6 +39,56 @@ text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
 `pgroonga_highlight_html` markups the keywords in `target`. It's type is `text` type.
 
 The keywords are surrounded with `<span class="keyword">` and `</span>`. `<`, `>`, `&` and `"` in `target` is HTML escaped.
+
+Here is the description of the second signature.
+
+```text
+text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
+```
+
+`target` is a text to be highlighted. It's `text` type.
+
+`keyword1`, `keyword2`, `...` are keywords to be highlighted. They're an array of `text` type. You must specify one or more keywords.
+
+`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+
+`index_name` can be `NULL`.
+
+If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. `pgroonga_highlight_html` uses `NormalizerAuto` normalizer by default. It may cause unexpected result.
+
+If you specify `index_name`, the specified PGroonga index must have `TokenNgram` tokenizer with `"report_source_location"` option.
+
+Here is an example:
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (tokenizer='TokenNgram("report_source_location", true)',
+              normalizer='NormalizerNFKC100');
+```
+
+Now, you can use `pgroonga_content_index` as `index_name`:
+
+```sql
+SELECT pgroonga_highlight_html('one two three four five',
+                               ARRAY['two three', 'five'],
+                               'pgroonga_content_index');
+--                               pgroonga_highlight_html                              
+-- -----------------------------------------------------------------------------------
+--  one<span class="keyword"> two three</span> four<span class="keyword"> five</span>
+-- (1 row)
+```
+
+`pgroonga_highlight_html` markups the keywords in `target`. It's type is `text` type.
+
+The keywords are surrounded with `<span class="keyword">` and `</span>`. `<`, `>`, `&` and `"` in `target` is HTML escaped.
+
+It's available since 2.0.7.
 
 ## Usage
 
@@ -92,6 +155,28 @@ SELECT pgroonga_highlight_html('10㌖先にある100ｷﾛグラムの米',
 --                                     highlight_html                                     
 -- ---------------------------------------------------------------------------------------
 --  10<span class="keyword">㌖</span>先にある100<span class="keyword">ｷﾛ</span>グラムの米
+-- (1 row)
+```
+
+Custom tokenizer and normalizer can be used by specifying a PGroonga index name:
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (tokenizer='TokenNgram("report_source_location", true)',
+              normalizer='NormalizerNFKC100');
+
+SELECT pgroonga_highlight_html('one two three four five',
+                               ARRAY['two three', 'five'],
+                               'pgroonga_content_index');
+--                               pgroonga_highlight_html                              
+-- -----------------------------------------------------------------------------------
+--  one<span class="keyword"> two three</span> four<span class="keyword"> five</span>
 -- (1 row)
 ```
 

@@ -13,7 +13,20 @@ upper_level: ../
 
 ## 構文
 
-この関数の構文は次の通りです。
+使い方は2つあります。
+
+```text
+text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
+text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
+```
+
+1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。
+
+2つ目の使い方はノーマライザーを変更しているときに便利です。
+
+2つ目の使い方は2.0.7から使えます。
+
+以下は1つ目の使い方の説明です。
 
 ```text
 text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
@@ -26,6 +39,56 @@ text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
 `pgroonga_highlight_html`は`target`中のキーワードをマークアップします。型は`text`です。
 
 キーワードは`<span class="keyword">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+
+以下は2つ目の使い方の説明です。
+
+```text
+text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
+```
+
+`target`はハイライト対象のテキストです。型は`text`です。
+
+キーワードは`<span class="keyword">`と`</span>`で囲まれています。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+
+`index_name`は対応するPGroongaのインデックス名です。`text`型です。
+
+`index_name`には`NULL`を指定できます。
+
+`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。`pgroonga_highlight_html`はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。
+
+`index_name`を指定した場合は、指定したPGroongaのインデックスには`"report_source_location"`オプションを指定した`TokenNgram`トークナイザーを指定しないといけません。
+
+例です。
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (tokenizer='TokenNgram("report_source_location", true)',
+              normalizer='NormalizerNFKC100');
+```
+
+これで`index_name`に`pgroonga_content_index`を指定できます。
+
+```sql
+SELECT pgroonga_highlight_html('one two three four five',
+                               ARRAY['two three', 'five'],
+                               'pgroonga_content_index');
+--                               pgroonga_highlight_html                              
+-- -----------------------------------------------------------------------------------
+--  one<span class="keyword"> two three</span> four<span class="keyword"> five</span>
+-- (1 row)
+```
+
+`pgroonga_highlight_html`は`target`中のキーワードをマークアップします。型は`text`です。
+
+キーワードは`<span class="keyword">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+
+2.0.7から使えます。
 
 ## 使い方
 
@@ -92,6 +155,28 @@ SELECT pgroonga_highlight_html('10㌖先にある100ｷﾛグラムの米',
 --                                     highlight_html                                     
 -- ---------------------------------------------------------------------------------------
 --  10<span class="keyword">㌖</span>先にある100<span class="keyword">ｷﾛ</span>グラムの米
+-- (1 row)
+```
+
+PGroongaのインデックス名を指定するとトークナイザーとノーマライザーをカスタマイズできます。
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (tokenizer='TokenNgram("report_source_location", true)',
+              normalizer='NormalizerNFKC100');
+
+SELECT pgroonga_highlight_html('one two three four five',
+                               ARRAY['two three', 'five'],
+                               'pgroonga_content_index');
+--                               pgroonga_highlight_html                              
+-- -----------------------------------------------------------------------------------
+--  one<span class="keyword"> two three</span> four<span class="keyword"> five</span>
 -- (1 row)
 ```
 

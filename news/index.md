@@ -4,10 +4,13 @@ title: News
 
 # News
 
-<!--
-## 2.0.7: 2018-XX-XX {#version-2-0-7}
+## 2.0.7: 2018-06-07 {#version-2-0-7}
 
 ### Improvements
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.3.
+
+  * Changed to require Groonga 8.0.3 or later.
 
   * Added index options support on sequential scan in the following operators:
 
@@ -17,7 +20,15 @@ title: News
 
     * [`` &` `` operator][script-v2]
 
--->
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for index based highlight.
+
+  * Increased sequential scan cost of full text search related operators. They aren't so lightweight.
+
+### Fixes
+
+  * Fixed a bug in 2.0.5 to 2.0.6 upgrade SQL.
+
+  * Fixed a bug that `text[] &@~` has different behavior between index scan and sequential scan.
 
 ## 2.0.6: 2018-05-14 {#version-2-0-6}
 

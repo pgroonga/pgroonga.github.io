@@ -19,11 +19,17 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.0.7: 2018-06-07 {#version-2-0-7}"
+msgid "## 2.0.8: 2018-07-03 {#version-2-0-8}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Improved index cost estimation."
+msgstr ""
+
+msgid "## 2.0.7: 2018-06-07 {#version-2-0-7}"
+msgstr ""
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.3."
 msgstr ""

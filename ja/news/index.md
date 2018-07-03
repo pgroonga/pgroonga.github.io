@@ -4,6 +4,12 @@ title: おしらせ
 
 # おしらせ
 
+## 2.0.8: 2018-07-03 {#version-2-0-8}
+
+### 改良
+
+  * Improved index cost estimation.
+
 ## 2.0.7: 2018-06-07 {#version-2-0-7}
 
 ### 改良

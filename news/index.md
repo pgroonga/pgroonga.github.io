@@ -4,6 +4,12 @@ title: News
 
 # News
 
+## 2.0.8: 2018-07-03 {#version-2-0-8}
+
+### Improvements
+
+  * Improved index cost estimation.
+
 ## 2.0.7: 2018-06-07 {#version-2-0-7}
 
 ### Improvements

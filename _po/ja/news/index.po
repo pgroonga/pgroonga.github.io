@@ -25,6 +25,9 @@ msgstr ""
 msgid "### Improvements"
 msgstr "### 改良"
 
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.4."
+msgstr ""
+
 msgid "  * Improved index cost estimation."
 msgstr ""
 

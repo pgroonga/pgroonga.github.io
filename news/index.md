@@ -8,6 +8,8 @@ title: News
 
 ### Improvements
 
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.4.
+
   * Improved index cost estimation.
 
 ## 2.0.7: 2018-06-07 {#version-2-0-7}

@@ -4,6 +4,12 @@ title: おしらせ
 
 # おしらせ
 
+## 2.0.9: 2018-07-04 {#version-2-0-9}
+
+### 修正
+
+  * Fixed a bug that sequential full text search against array data uses wrong configuration.
+
 ## 2.0.8: 2018-07-03 {#version-2-0-8}
 
 ### 改良

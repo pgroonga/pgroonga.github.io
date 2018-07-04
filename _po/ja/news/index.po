@@ -19,6 +19,17 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.0.9: 2018-07-04 {#version-2-0-9}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that sequential full text search against array data uses wrong"
+" configuration."
+msgstr ""
+
 msgid "## 2.0.8: 2018-07-03 {#version-2-0-8}"
 msgstr ""
 
@@ -61,9 +72,6 @@ msgid ""
 "  * Increased sequential scan cost of full text search related operators. They"
 " aren't so lightweight."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid "  * Fixed a bug in 2.0.5 to 2.0.6 upgrade SQL."
 msgstr ""

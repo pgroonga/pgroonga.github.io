@@ -6,7 +6,7 @@ pgroonga_release_date: 2018-07-04
 copyright_year: 2015-2018
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/10/static
-  ja: https://www.postgresql.jp/document/9.6/html
+  ja: https://www.postgresql.jp/document/10/html
 windows_postgresql_versions:
   - 9.5.13-1
   - 9.6.9-1

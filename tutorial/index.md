@@ -453,10 +453,10 @@ INSERT INTO products
              ARRAY['PostgreSQL', 'Groonga', 'full-text search']);
 ```
 
-You can use `@>` operator to find records that have one or more matched elements. If element's value equals to queried value, the element is treated as matched.
+You can use `&@` operator to find records that have one or more matched elements. If element's value equals to queried value, the element is treated as matched.
 
 ```sql
-SELECT * FROM products WHERE tags @> 'PostgreSQL';
+SELECT * FROM products WHERE tags &@ 'PostgreSQL';
 --  id |    name    |                  tags                   
 -- ----+------------+-----------------------------------------
 --   1 | PostgreSQL | {PostgreSQL,RDBMS}

@@ -455,10 +455,10 @@ INSERT INTO products
              ARRAY['PostgreSQL', 'Groonga', 'full-text search']);
 ```
 
-指定した要素を含むレコードを検索するには`&>`演算子を使います。要素の値が指定した値と同じなら、その要素はマッチしたことになります。
+指定した要素を含むレコードを検索するには`&@`演算子を使います。要素の値が指定した値と同じなら、その要素はマッチしたことになります。
 
 ```sql
-SELECT * FROM products WHERE tags @> 'PostgreSQL';
+SELECT * FROM products WHERE tags &@ 'PostgreSQL';
 --  id |    name    |                  tags                   
 -- ----+------------+-----------------------------------------
 --   1 | PostgreSQL | {PostgreSQL,RDBMS}

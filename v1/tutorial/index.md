@@ -179,7 +179,7 @@ SET enable_seqscan = off;
 Perform full text search and get score.
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(tableoid, ctid)
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';
 --  id |                            content                             | score 
@@ -189,13 +189,13 @@ SELECT *, pgroonga.score(score_memos)
 -- (2 rows)
 ```
 
-You can sort matched records by precision ascending by using `pgroonga.score` function in `ORDER BY` clause:
+You can sort matched records by precision descending by using `pgroonga.score` function in `ORDER BY` clause:
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(tableoid, ctid)
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'
- ORDER BY pgroonga.score(score_memos) DESC;
+ ORDER BY pgroonga_score(tableoid, ctid) DESC;
 --  id |                            content                             | score 
 -- ----+----------------------------------------------------------------+-------
 --   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2

@@ -35,7 +35,7 @@ CREATE INDEX pgroonga_score_memos_content_index
 `record`は`score_memos`にします。
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga_score(tableoid, ctid)
   FROM score_memos
  WHERE content %% 'PGroonga';
 ```

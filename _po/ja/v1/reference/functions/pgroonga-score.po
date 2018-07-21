@@ -73,7 +73,7 @@ msgstr "`record`は`score_memos`にします。"
 
 msgid ""
 "```sql\n"
-"SELECT *, pgroonga.score(score_memos)\n"
+"SELECT *, pgroonga_score(tableoid, ctid)\n"
 "  FROM score_memos\n"
 " WHERE content %% 'PGroonga';\n"
 "```"

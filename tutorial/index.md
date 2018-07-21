@@ -187,13 +187,13 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 -- (2 rows)
 ```
 
-You can sort matched records by precision ascending by using `pgroonga_score` function in `ORDER BY` clause:
+You can sort matched records by precision descending by using `pgroonga_score` function in `ORDER BY` clause:
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'
- ORDER BY pgroonga_score(score_memos) DESC;
+ ORDER BY pgroonga_score(tableoid, ctid) DESC;
 --  id |                            content                             | score 
 -- ----+----------------------------------------------------------------+-------
 --   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2

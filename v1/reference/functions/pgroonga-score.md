@@ -35,12 +35,12 @@ CREATE INDEX pgroonga_score_memos_content_index
 `record` must be `score_memos`:
 
 ```sql
-SELECT *, pgroonga.score(score_memos)
+SELECT *, pgroonga.score(tableoid, ctid)
   FROM score_memos
  WHERE content %% 'PGroonga';
 ```
 
-`pgroonga.score` function return precision as `double precision` type value.
+`pgroonga_score` function return precision as `double precision` type value.
 
 ## Usage
 

@@ -382,8 +382,8 @@ msgstr ""
 "```"
 
 msgid ""
-"You can sort matched records by precision descending by using `pgroonga_score` "
-"function in `ORDER BY` clause:"
+"You can sort matched records by precision descending by using `pgroonga_score`"
+" function in `ORDER BY` clause:"
 msgstr "`ORDER BY`節で`pgroonga_score`関数を使うことでスコアー順にマッチしたレコードをソートできます。"
 
 msgid ""

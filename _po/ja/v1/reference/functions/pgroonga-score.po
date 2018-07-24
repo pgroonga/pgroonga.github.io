@@ -73,14 +73,14 @@ msgstr "`record`は`score_memos`にします。"
 
 msgid ""
 "```sql\n"
-"SELECT *, pgroonga_score(tableoid, ctid)\n"
+"SELECT *, pgroonga.score(tableoid, ctid)\n"
 "  FROM score_memos\n"
 " WHERE content %% 'PGroonga';\n"
 "```"
 msgstr ""
 
-msgid "`pgroonga.score` function return precision as `double precision` type value."
-msgstr "`pgroonga.score`関数は`double precision`型の値でマッチした度合いを返します。"
+msgid "`pgroonga_score` function return precision as `double precision` type value."
+msgstr "`pgroonga_score`関数は`double precision`型の値でマッチした度合いを返します。"
 
 msgid "## Usage"
 msgstr "## 使い方"

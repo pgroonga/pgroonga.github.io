@@ -35,12 +35,12 @@ CREATE INDEX pgroonga_score_memos_content_index
 `record`は`score_memos`にします。
 
 ```sql
-SELECT *, pgroonga_score(tableoid, ctid)
+SELECT *, pgroonga.score(tableoid, ctid)
   FROM score_memos
  WHERE content %% 'PGroonga';
 ```
 
-`pgroonga.score`関数は`double precision`型の値でマッチした度合いを返します。
+`pgroonga_score`関数は`double precision`型の値でマッチした度合いを返します。
 
 ## 使い方
 

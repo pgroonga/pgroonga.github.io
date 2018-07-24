@@ -189,7 +189,7 @@ SELECT *, pgroonga_score(tableoid, ctid)
 -- (2 rows)
 ```
 
-You can sort matched records by precision descending by using `pgroonga.score` function in `ORDER BY` clause:
+You can sort matched records by precision descending by using `pgroonga_score` function in `ORDER BY` clause:
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid)

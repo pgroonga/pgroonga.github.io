@@ -193,7 +193,7 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM score_memos
  WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'
- ORDER BY pgroonga_score(score_memos) DESC;
+ ORDER BY pgroonga_score(tableoid, ctid) DESC;
 --  id |                                  content                                  | score 
 -- ----+---------------------------------------------------------------------------+-------
 --   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2

@@ -22,7 +22,7 @@ Install `postgresql-pgroonga` package:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-1.3.0-1.noarch.rpm
+% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
 % sudo -H yum install -y postgresql10-pgroonga
 ```
 
@@ -66,7 +66,7 @@ Install `postgresql-pgroonga` package:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-1.3.0-1.noarch.rpm
+% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
 % sudo -H yum install -y postgresql10-pgroonga
 ```
 

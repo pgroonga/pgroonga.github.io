@@ -4,6 +4,49 @@ title: News
 
 # News
 
+## 2.1.1: 2018-08-08 {#version-2-1-1}
+
+### Fixes
+
+  * Fixed packages.
+
+## 2.1.0: 2018-08-08 {#version-2-1-0}
+
+### Improvements
+
+  * Improved cost estimation.
+
+  * [[Travis CI][travis-ci]] Added support for WAL with `PGROONGA_MASTER=yes`.
+    [GitHub#71][Reported by Jason Truesdell]
+
+  * Added support for closing unused files after recreating indexes.
+    [GitHub#72][Reported by Jason Truesdell]
+
+  * Added support for index only scan availability check for vector
+    column.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.5.
+
+  * Required Groonga 8.0.5 or later.
+
+  * [[`pgroonga_score` function][score]] Added debug logs.
+
+  * [[Debian][debian]] Dropped Debian GNU/Linux Jessie support.
+
+  * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.10 support.
+
+### Fixes
+
+  * [WAL] Fixed a bug that WAL may be broken when multiple updates are
+    occurred at once.
+    [GitHub#70][Reported by Eiji Ito]
+
+### Thanks
+
+  * Jason Truesdell
+
+  * Eiji Ito
+
 ## 2.0.9: 2018-07-04 {#version-2-0-9}
 
 ### Fixes
@@ -1005,3 +1048,5 @@ The first release!!!
 
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html
+
+[travis-ci]:../how-to/travis-ci.html

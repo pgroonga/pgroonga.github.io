@@ -19,11 +19,72 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.0.9: 2018-07-04 {#version-2-0-9}"
+msgid "## 2.1.1: 2018-08-08 {#version-2-1-1}"
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid "  * Fixed packages."
+msgstr ""
+
+msgid "## 2.1.0: 2018-08-08 {#version-2-1-0}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * Improved cost estimation."
+msgstr ""
+
+msgid ""
+"  * [[Travis CI][travis-ci]] Added support for WAL with `PGROONGA_MASTER=yes`."
+"\n"
+"    [GitHub#71][Reported by Jason Truesdell]"
+msgstr ""
+
+msgid ""
+"  * Added support for closing unused files after recreating indexes.\n"
+"    [GitHub#72][Reported by Jason Truesdell]"
+msgstr ""
+
+msgid ""
+"  * Added support for index only scan availability check for vector\n"
+"    column."
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.5."
+msgstr ""
+
+msgid "  * Required Groonga 8.0.5 or later."
+msgstr ""
+
+msgid "  * [[`pgroonga_score` function][score]] Added debug logs."
+msgstr ""
+
+msgid "  * [[Debian][debian]] Dropped Debian GNU/Linux Jessie support."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.10 support."
+msgstr ""
+
+msgid ""
+"  * [WAL] Fixed a bug that WAL may be broken when multiple updates are\n"
+"    occurred at once.\n"
+"    [GitHub#70][Reported by Eiji Ito]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Jason Truesdell"
+msgstr ""
+
+msgid "  * Eiji Ito"
+msgstr ""
+
+msgid "## 2.0.9: 2018-07-04 {#version-2-0-9}"
+msgstr ""
 
 msgid ""
 "  * Fixed a bug that sequential full text search against array data uses wrong"
@@ -32,9 +93,6 @@ msgstr ""
 
 msgid "## 2.0.8: 2018-07-03 {#version-2-0-8}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.4."
 msgstr ""
@@ -137,9 +195,6 @@ msgid ""
 "    * You need to recreate PGroonga indexes that use `timestamp (without time "
 "zone)` after you upgrade PGroonga."
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * peter-schmitz"
 msgstr ""
@@ -1452,4 +1507,7 @@ msgid ""
 "[match-escalation-threshold]:../reference/parameters/match-escalation-threshol"
 "d.html\n"
 "[libgroonga-version]:../reference/parameters/libgroonga-version.html"
+msgstr ""
+
+msgid "[travis-ci]:../how-to/travis-ci.html"
 msgstr ""

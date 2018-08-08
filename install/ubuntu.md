@@ -14,8 +14,6 @@ Here are supported Ubuntu versions:
 
   * Ubuntu 16.04
 
-  * Ubuntu 17.10
-
   * Ubuntu 18.04
 
 ## How to install
@@ -25,8 +23,6 @@ You can use the following instruction to install PGroonga on Ubuntu.
 If you're using Ubuntu 14.04, install `postgresql-9.3-pgroonga` package.
 
 If you're using Ubuntu 16.04, install `postgresql-9.5-pgroonga` package.
-
-If you're using Ubuntu 17.10, install `postgresql-9.6-pgroonga` package.
 
 Otherwise, install `postgresql-10-pgroonga` package:
 
@@ -39,8 +35,6 @@ Ubuntu 14.04:
 % sudo apt-get install -y -V postgresql-9.3-pgroonga
 Ubuntu 16.04:
 % sudo apt-get install -y -V postgresql-9.5-pgroonga
-Ubuntu 17.10:
-% sudo apt-get install -y -V postgresql-9.6-pgroonga
 Others:
 % sudo apt-get install -y -V postgresql-10-pgroonga
 ```

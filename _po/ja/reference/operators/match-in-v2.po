@@ -146,7 +146,7 @@ msgstr ""
 msgid ""
 "`column &@| ARRAY['KEYWORD1', 'KEYWORD2']` equals to `column &@~ 'KEYWORD1 OR "
 "KEYWORD2'`."
-msgstr "column &@| ARRAY['キーワード1', 'キーワード2']`は`column &@~ 'キーワード1 OR キーワード2'`と同じです。"
+msgstr "`column &@| ARRAY['キーワード1', 'キーワード2']`は`column &@~ 'キーワード1 OR キーワード2'`と同じです。"
 
 msgid "## See also"
 msgstr "## 参考"

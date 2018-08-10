@@ -68,7 +68,7 @@ SELECT * FROM memos WHERE content &@> ARRAY['全文検索', 'データベース'
 ```
 
 
-column &@| ARRAY['キーワード1', 'キーワード2']`は`column &@~ 'キーワード1 OR キーワード2'`と同じです。
+`column &@| ARRAY['キーワード1', 'キーワード2']`は`column &@~ 'キーワード1 OR キーワード2'`と同じです。
 
 ## 参考
 

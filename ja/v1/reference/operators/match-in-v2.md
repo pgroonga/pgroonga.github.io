@@ -59,7 +59,7 @@ INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
 `&@|`演算子を使うと複数のキーワードで全文検索できます。
 
 ```sql
-SELECT * FROM memos WHERE content &@> ARRAY['全文検索', 'データベース'];
+SELECT * FROM memos WHERE content &@| ARRAY['全文検索', 'データベース'];
 --  id |                          content                           
 -- ----+------------------------------------------------------------
 --   1 | PostgreSQLはリレーショナル・データベース管理システムです。

@@ -141,10 +141,10 @@ SELECT pgroonga_highlight_html('<p>PGroonga is Groonga & PostgreSQL.</p>',
 ```sql
 SELECT pgroonga_highlight_html('PGroonga + pglogical = replicatable!',
                                ARRAY['Pg']) AS highlight_html;
-                                         highlight_html                                         
-------------------------------------------------------------------------------------------------
- <span class="keyword">PG</span>roonga + <span class="keyword">pg</span>logical = replicatable!
-(1 row)
+--                                     highlight_html                                         
+-- ------------------------------------------------------------------------------------------------
+--  <span class="keyword">PG</span>roonga + <span class="keyword">pg</span>logical = replicatable!
+-- (1 row)
 ```
 
 マルチバイト文字にも対応しています。

@@ -156,6 +156,6 @@ msgstr ""
 
 msgid ""
 "[snippet-html]:pgroonga-query-snippet-html.html\n"
-"[query-highlight-html]:pgroonga-query-highlight-html.html\n"
+"[highlight-html]:pgroonga-highlight-html.html\n"
 "[match-positions-byte]:pgroonga-match-positions-byte.html"
 msgstr ""

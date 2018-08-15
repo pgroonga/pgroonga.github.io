@@ -82,5 +82,5 @@ SELECT pgroonga_query_extract_keywords('Groonga - MySQL PostgreSQL') AS query_ex
 [query-in-v2]:../operators/query-in-v2.html
 
 [snippet-html]:pgroonga-query-snippet-html.html
-[query-highlight-html]:pgroonga-query-highlight-html.html
+[highlight-html]:pgroonga-highlight-html.html
 [match-positions-byte]:pgroonga-match-positions-byte.html

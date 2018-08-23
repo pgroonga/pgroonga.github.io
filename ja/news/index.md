@@ -4,6 +4,21 @@ title: おしらせ
 
 # おしらせ
 
+## 2.1.2: 2018-08-23 {#version-2-1-2}
+
+### 改良
+
+  * Added support for PostgreSQL 11.
+
+  * [[`pgroonga_score` function][score]] Added missing error checks.
+
+  * Added more debug logs on insert and delete.
+
+### 修正
+
+  * [[`pgroonga_score` function][score]] Fixed a bug that score is 0 when
+    HOT redirection is occurred.
+
 ## 2.1.1: 2018-08-08 {#version-2-1-1}
 
 ### 修正

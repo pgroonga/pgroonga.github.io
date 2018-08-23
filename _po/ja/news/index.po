@@ -19,20 +19,37 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.1.1: 2018-08-08 {#version-2-1-1}"
+msgid "## 2.1.2: 2018-08-23 {#version-2-1-2}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * Added support for PostgreSQL 11."
+msgstr ""
+
+msgid "  * [[`pgroonga_score` function][score]] Added missing error checks."
+msgstr ""
+
+msgid "  * Added more debug logs on insert and delete."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid ""
+"  * [[`pgroonga_score` function][score]] Fixed a bug that score is 0 when\n"
+"    HOT redirection is occurred."
+msgstr ""
+
+msgid "## 2.1.1: 2018-08-08 {#version-2-1-1}"
+msgstr ""
 
 msgid "  * Fixed packages."
 msgstr ""
 
 msgid "## 2.1.0: 2018-08-08 {#version-2-1-0}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * Improved cost estimation."
 msgstr ""

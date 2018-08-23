@@ -4,6 +4,21 @@ title: News
 
 # News
 
+## 2.1.2: 2018-08-23 {#version-2-1-2}
+
+### Improvements
+
+  * Added support for PostgreSQL 11.
+
+  * [[`pgroonga_score` function][score]] Added missing error checks.
+
+  * Added more debug logs on insert and delete.
+
+### Fixes
+
+  * [[`pgroonga_score` function][score]] Fixed a bug that score is 0 when
+    HOT redirection is occurred.
+
 ## 2.1.1: 2018-08-08 {#version-2-1-1}
 
 ### Fixes

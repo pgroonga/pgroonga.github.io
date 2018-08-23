@@ -21,9 +21,10 @@ If you have useful information that isn't listed in this page, please send a pul
 
   * [How to use PGroonga on Travis CI](travis-ci.html)
 
-## How to use on JSONB type column
+## How to use on `jsonb` type column
 
-  * [How to use on JSONB type column](jsonb.html)
+  * [How to use on `jsonb` type column](jsonb.html)
+
 ## ...
 
   * ...

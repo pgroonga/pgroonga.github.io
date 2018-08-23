@@ -8,6 +8,8 @@ You can upgrade PGroonga without recreating PGroonga indexes when new version do
 
 Here is a list of compatibility:
 
+  * 2.1.1 -> 2.1.2: Compatible
+
   * 2.1.0 -> 2.1.1: Compatible
 
   * 2.0.9 -> 2.1.0: Compatible

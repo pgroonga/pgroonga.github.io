@@ -21,6 +21,10 @@ title: ハウツー
 
   * [Travis CI上でPGroongaを使う方法](travis-ci.html)
 
+## `jsonb`型のカラムで使う方法
+
+  * [`jsonb`型のカラムで使う方法](jsonb.html)
+
 ## ...
 
   * ...

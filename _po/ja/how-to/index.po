@@ -52,6 +52,12 @@ msgstr "## 継続的インテグレーション（CI）"
 msgid "  * [How to use PGroonga on Travis CI](travis-ci.html)"
 msgstr "  * [Travis CI上でPGroongaを使う方法](travis-ci.html)"
 
+msgid "## How to use on `jsonb` type column"
+msgstr "## `jsonb`型のカラムで使う方法"
+
+msgid "  * [How to use on `jsonb` type column](jsonb.html)"
+msgstr "  * [`jsonb`型のカラムで使う方法](jsonb.html)"
+
 msgid "## ..."
 msgstr ""
 

@@ -28,8 +28,8 @@ GroongaのAPTリポジトリーを追加します。
 `/etc/apt/sources.list.d/groonga.list`:
 
 ```text
-deb https://packages.groonga.org/debian/ stretch main
-deb-src https://packages.groonga.org/debian/ stretch main
+deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
+deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
 ```
 
 PostgreSQL 10を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
@@ -42,8 +42,7 @@ PostgreSQL 10を使いたい場合は[PostgreSQLが提供しているAPTリポ�
 `postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`パッケージをインストールします。
 
 ```console
-% sudo apt update
-% sudo apt install -y -V --allow-unauthenticated groonga-keyring
+% sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
 % sudo apt update
 % sudo apt install -y -V postgresql-9.6-pgroonga
 Or

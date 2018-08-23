@@ -57,8 +57,10 @@ msgstr ""
 
 msgid ""
 "```text\n"
-"deb https://packages.groonga.org/debian/ stretch main\n"
-"deb-src https://packages.groonga.org/debian/ stretch main\n"
+"deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packag"
+"es.groonga.org/debian/ stretch main\n"
+"deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://pa"
+"ckages.groonga.org/debian/ stretch main\n"
 "```"
 msgstr ""
 
@@ -81,8 +83,8 @@ msgstr "`postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`パッケー�
 
 msgid ""
 "```console\n"
-"% sudo apt update\n"
-"% sudo apt install -y -V --allow-unauthenticated groonga-keyring\n"
+"% sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://package"
+"s.groonga.org/debian/groonga-archive-keyring.gpg\n"
 "% sudo apt update\n"
 "% sudo apt install -y -V postgresql-9.6-pgroonga\n"
 "Or\n"

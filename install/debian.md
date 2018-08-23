@@ -28,8 +28,8 @@ Add APT repository for Groonga:
 `/etc/apt/sources.list.d/groonga.list`:
 
 ```text
-deb https://packages.groonga.org/debian/ stretch main
-deb-src https://packages.groonga.org/debian/ stretch main
+deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
+deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
 ```
 
 If you want to use PostgreSQL 10, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
@@ -42,8 +42,7 @@ If you want to use PostgreSQL 10, you need to add [the APT repository by Postgre
 Install `postgresql-9.6-pgroonga` or `postgresql-10-pgroonga` package:
 
 ```console
-% sudo apt update
-% sudo apt install -y -V --allow-unauthenticated groonga-keyring
+% sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
 % sudo apt update
 % sudo apt install -y -V postgresql-9.6-pgroonga
 Or

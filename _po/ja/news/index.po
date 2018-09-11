@@ -19,11 +19,49 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.1.2: 2018-08-23 {#version-2-1-2}"
+msgid "## 2.1.3: 2018-09-11 {#version-2-1-3}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Added debug logs."
+msgstr ""
+
+msgid ""
+"  * Added a workaround for error by `SELECT FOR UPDATE NOWAIT`.\n"
+"    It's a PostgreSQL problem.\n"
+"    [GitHub#80][Reported by dodaisuke]"
+msgstr ""
+
+msgid "  * [`&@~` operator][query-v2] Added valid index check."
+msgstr ""
+
+msgid "  * Improved PGroonga index detection for PGroonga < 9.6."
+msgstr ""
+
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]\n"
+"    Added `query_allow_column` option to use `column:...` syntax in\n"
+"    `&@~`."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a crash bug that is occurred when executing `&@~` by\n"
+"    sequential search with multiple indexes."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * dodaisuke"
+msgstr ""
+
+msgid "## 2.1.2: 2018-08-23 {#version-2-1-2}"
+msgstr ""
 
 msgid "  * Added support for PostgreSQL 11."
 msgstr ""
@@ -33,9 +71,6 @@ msgstr ""
 
 msgid "  * Added more debug logs on insert and delete."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [[`pgroonga_score` function][score]] Fixed a bug that score is 0 when\n"
@@ -90,9 +125,6 @@ msgid ""
 "    occurred at once.\n"
 "    [GitHub#70][Reported by Eiji Ito]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Jason Truesdell"
 msgstr ""

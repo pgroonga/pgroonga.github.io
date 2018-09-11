@@ -4,6 +4,33 @@ title: おしらせ
 
 # おしらせ
 
+## 2.1.3: 2018-09-11 {#version-2-1-3}
+
+### 改良
+
+  * Added debug logs.
+
+  * Added a workaround for error by `SELECT FOR UPDATE NOWAIT`.
+    It's a PostgreSQL problem.
+    [GitHub#80][Reported by dodaisuke]
+
+  * [`&@~` operator][query-v2] Added valid index check.
+
+  * Improved PGroonga index detection for PGroonga < 9.6.
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]
+    Added `query_allow_column` option to use `column:...` syntax in
+    `&@~`.
+
+### 修正
+
+  * Fixed a crash bug that is occurred when executing `&@~` by
+    sequential search with multiple indexes.
+
+### 感謝
+
+  * dodaisuke
+
 ## 2.1.2: 2018-08-23 {#version-2-1-2}
 
 ### 改良

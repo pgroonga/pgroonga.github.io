@@ -50,6 +50,8 @@ You can customize the followings by `WITH` option of `CREATE INDEX`:
 
   * Lexicon type: It's a type for lexicon that manages tokens.
 
+  * Query syntax: It's the syntax used by [`$@~` operator][query-v2].
+
 Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to customize them are for advanced users.
 
 Plugin and token filter aren't used by default.
@@ -351,6 +353,76 @@ CREATE INDEX pgroonga_content_index
         WITH (lexicon_type='hash_table');
 ```
 
+#### How to use `column:...` syntax in query {#query-allow-column}
+
+Since 2.1.3.
+
+Specify `query_allow_column=true` to use `column:...` syntax in query.
+
+If you use `column:...` syntax, you can use other columns and not only match operations but also other operations.
+
+Note that `column:...` syntax doesn't work with sequential search. It works only with index search.
+
+Here is an example to use `query_allow_column` to use other column in the same index:
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memo_texts_index
+          ON memos
+       USING pgroonga (title, content)
+        WITH (query_allow_column=true);
+
+INSERT INTO memos VALUES
+  ('PGroonga = PostgreSQL + Groonga', 'Very fast full text search extension.'),
+  ('PostGIS', 'GIS extension.');
+
+SELECT *
+  FROM memos
+    -- The content column must have 'extension' and
+    -- the title column must have 'Groonga'.
+ WHERE content &@~ 'extension title:@Groonga';
+--               title              |                content                
+-- ---------------------------------+---------------------------------------
+--  PGroonga = PostgreSQL + Groonga | Very fast full text search extension.
+-- (1 row)
+```
+
+Here is an example to use `query_allow_column` to use other operation:
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text
+);
+
+CREATE INDEX pgroonga_title_index
+          ON memos
+       USING pgroonga (title)
+        WITH (query_allow_column=true);
+
+INSERT INTO memos VALUES ('PGroonga');
+INSERT INTO memos VALUES ('PGroonga = PostgreSQL + Groonga');
+
+SELECT *
+  FROM memos
+    -- The title column must equal to 'PGroonga'.
+    -- Note that this operation doesn't use index.
+ WHERE title &@~ 'title:PGroonga';
+--   title   
+-- ----------
+--  PGroonga
+-- (1 row)
+```
+
+See [Groonga's query syntax][groonga-query-syntax] for available operations.
+
+[query-v2]:operators/query-v2.html
+
 [groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers.html#token-bigram
 
 [groonga-normalizer-auto]:http://groonga.org/docs/reference/normalizers.html#normalizer-auto
@@ -382,3 +454,5 @@ CREATE INDEX pgroonga_content_index
 [text-regexp-ops-v2]:./#text-regexp-ops-v2
 
 [text-term-search-ops-v2]:./#text-term-search-ops-v2
+
+[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html

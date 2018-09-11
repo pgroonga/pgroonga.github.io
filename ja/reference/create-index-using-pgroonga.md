@@ -50,6 +50,8 @@ CREATE INDEX ${INDEX_NAME}
 
   * 語彙表の種類：トークンを管理する語彙表の種類です。
 
+  * クエリー構文：[`$@~`演算子][query-v2]が使っている構文です。
+
 通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユーザー向けの機能です。
 
 デフォルトではプラグインとトークンフィルターは使われていません。
@@ -352,6 +354,76 @@ CREATE INDEX pgroonga_content_index
         WITH (lexicon_type='hash_table');
 ```
 
+#### クエリーで`column:...`構文を使う方法 {#query-allow-column}
+
+2.1.3で追加。
+
+クエリー中で`column:...`構文を使うには`query_allow_column=true`を指定します。
+
+`column:...`構文を使うと、他のカラムを使ったり、マッチ以外の演算子も使うことができます。
+
+`column:...`構文はシーケンシャルサーチでは動かないことに注意してください。インデックスサーチでしか動きません。
+
+以下は同じインデックス内の他のカラムを使うために`query_allow_column`を使う例です。
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memo_texts_index
+          ON memos
+       USING pgroonga (title, content)
+        WITH (query_allow_column=true);
+
+INSERT INTO memos VALUES
+  ('PGroonga = PostgreSQL + Groonga', 'Very fast full text search extension.'),
+  ('PostGIS', 'GIS extension.');
+
+SELECT *
+  FROM memos
+    -- contentカラムは'extension'を含んでいて、かつ、
+    -- titleカラムは'Groonga'を含んでいなければいけない。
+ WHERE content &@~ 'extension title:@Groonga';
+--               title              |                content                
+-- ---------------------------------+---------------------------------------
+--  PGroonga = PostgreSQL + Groonga | Very fast full text search extension.
+-- (1 row)
+```
+
+以下は他の演算を使うために`query_allow_column`を使う例です。
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text
+);
+
+CREATE INDEX pgroonga_title_index
+          ON memos
+       USING pgroonga (title)
+        WITH (query_allow_column=true);
+
+INSERT INTO memos VALUES ('PGroonga');
+INSERT INTO memos VALUES ('PGroonga = PostgreSQL + Groonga');
+
+SELECT *
+  FROM memos
+    -- titleカラムは'PGroonga'でなければいけない。
+    -- この演算はインデックスを使わないことに注意すること。
+ WHERE title &@~ 'title:PGroonga';
+--   title   
+-- ----------
+--  PGroonga
+-- (1 row)
+```
+
+使える演算は[Groongaのクエリー構文][groonga-query-syntax]を参照してください。
+
+[query-v2]:operators/query-v2.html
+
 [groonga-token-bigram]:http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram
 
 [groonga-normalizer-auto]:http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto
@@ -383,3 +455,5 @@ CREATE INDEX pgroonga_content_index
 [text-regexp-ops-v2]:./#text-regexp-ops-v2
 
 [text-term-search-ops-v2]:./#text-term-search-ops-v2
+
+[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html

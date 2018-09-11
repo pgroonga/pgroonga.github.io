@@ -22,8 +22,6 @@ See a document for your platform in the followings:
 
   * [Debian GNU/Linux](debian.html)
 
-    * Jessie
-
     * Stretch
 
   * [Ubuntu](ubuntu.html)

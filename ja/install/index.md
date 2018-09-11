@@ -22,8 +22,6 @@ title: インストール
 
   * [Debian GNU/Linux](debian.html)
 
-    * Jessie
-
     * Stretch
 
   * [Ubuntu](ubuntu.html)

@@ -49,9 +49,6 @@ msgstr "次の中から自分のプラットフォーム用のドキュメント
 msgid "  * [Debian GNU/Linux](debian.html)"
 msgstr ""
 
-msgid "    * Jessie"
-msgstr ""
-
 msgid "    * Stretch"
 msgstr ""
 

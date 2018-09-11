@@ -8,6 +8,8 @@ title: News
 
 ### Improvements
 
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.6.
+
   * Added debug logs.
 
   * Added a workaround for error by `SELECT FOR UPDATE NOWAIT`.

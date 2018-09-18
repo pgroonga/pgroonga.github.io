@@ -19,11 +19,25 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.1.3: 2018-09-11 {#version-2-1-3}"
+msgid "## 2.1.4: 2018-09-18 {#version-2-1-4}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * Use resource release mechanism to release internal data in scan.\n"
+"    [GitHub#82][Reported by dodaisuke]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * dodaisuke"
+msgstr ""
+
+msgid "## 2.1.3: 2018-09-11 {#version-2-1-3}"
+msgstr ""
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.6."
 msgstr ""
@@ -55,12 +69,6 @@ msgstr "### 修正"
 msgid ""
 "  * Fixed a crash bug that is occurred when executing `&@~` by\n"
 "    sequential search with multiple indexes."
-msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
-
-msgid "  * dodaisuke"
 msgstr ""
 
 msgid "## 2.1.2: 2018-08-23 {#version-2-1-2}"

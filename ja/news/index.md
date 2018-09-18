@@ -4,6 +4,17 @@ title: おしらせ
 
 # おしらせ
 
+## 2.1.4: 2018-09-18 {#version-2-1-4}
+
+### 改良
+
+  * Use resource release mechanism to release internal data in scan.
+    [GitHub#82][Reported by dodaisuke]
+
+### 感謝
+
+  * dodaisuke
+
 ## 2.1.3: 2018-09-11 {#version-2-1-3}
 
 ### 改良

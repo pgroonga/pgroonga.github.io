@@ -8,6 +8,8 @@ title: News
 
 ### Improvements
 
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.7.
+
   * Reduces memory usage on multiple sub-selects.
 
   * Reduces memory usage on index only scan.

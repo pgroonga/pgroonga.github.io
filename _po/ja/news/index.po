@@ -19,19 +19,47 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.1.4: 2018-09-18 {#version-2-1-4}"
+msgid "## 2.1.6: 2018-10-18 {#version-2-1-6}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
 
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.7."
+msgstr ""
+
+msgid "  * Reduces memory usage on multiple sub-selects."
+msgstr ""
+
 msgid ""
-"  * Use resource release mechanism to release internal data in scan.\n"
-"    [GitHub#82][Reported by dodaisuke]"
+"  * Reduces memory usage on index only scan.\n"
+"    [groonga-dev,04684][Reported by Kawakami]"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that streaming replication doesn't work.\n"
+"    [GitHub#84][Reported by tongsama]"
 msgstr ""
 
 msgid "### Thanks"
 msgstr "### 感謝"
+
+msgid "  * tongsama"
+msgstr ""
+
+msgid "  * Kawakami"
+msgstr ""
+
+msgid "## 2.1.4: 2018-09-18 {#version-2-1-4}"
+msgstr ""
+
+msgid ""
+"  * Use resource release mechanism to release internal data in scan.\n"
+"    [GitHub#82][Reported by dodaisuke]"
+msgstr ""
 
 msgid "  * dodaisuke"
 msgstr ""
@@ -62,9 +90,6 @@ msgid ""
 "    Added `query_allow_column` option to use `column:...` syntax in\n"
 "    `&@~`."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a crash bug that is occurred when executing `&@~` by\n"

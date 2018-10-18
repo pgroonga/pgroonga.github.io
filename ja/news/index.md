@@ -4,6 +4,28 @@ title: おしらせ
 
 # おしらせ
 
+## 2.1.6: 2018-10-18 {#version-2-1-6}
+
+### 改良
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.7.
+
+  * Reduces memory usage on multiple sub-selects.
+
+  * Reduces memory usage on index only scan.
+    [groonga-dev,04684][Reported by Kawakami]
+
+### 修正
+
+  * Fixed a bug that streaming replication doesn't work.
+    [GitHub#84][Reported by tongsama]
+
+### 感謝
+
+  * tongsama
+
+  * Kawakami
+
 ## 2.1.4: 2018-09-18 {#version-2-1-4}
 
 ### 改良

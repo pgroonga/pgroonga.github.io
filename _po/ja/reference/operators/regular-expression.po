@@ -110,7 +110,7 @@ msgid ""
 "cument](http://groonga.org/docs/reference/regular_expression.html#regular-expr"
 "ession-index) for index searchable patterns."
 msgstr ""
-"いくつかのシンプルが正規表現のパターンはGroonga内でインデックスを使って検索します。インデックスを使った場合は非常に高速です。インデックスを使って検索"
+"いくつかのシンプルな正規表現のパターンはGroonga内でインデックスを使って検索します。インデックスを使った場合は非常に高速です。インデックスを使って検索"
 "可能なパターンの詳細は[Groongaの正規表現のドキュメント](http://groonga.org/ja/docs/reference/regular_"
 "expression.html#regular-expression-index)を参照してください。"
 

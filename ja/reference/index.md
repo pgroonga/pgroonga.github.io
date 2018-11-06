@@ -32,7 +32,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ### `text`用
 
-#### `pgroonga.text_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-full-text-search-ops-v2}
+#### `pgroonga_text_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-full-text-search-ops-v2}
 
   * [`LIKE`演算子][like]
 
@@ -78,7 +78,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 1.2.1から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。
 
-#### `pgroonga_text_term_search_ops_v2`演算子クラス（デフォルト） {#text-term-search-ops-v2}
+#### `pgroonga_text_term_search_ops_v2`演算子クラス {#text-term-search-ops-v2}
 
   * `<`
 

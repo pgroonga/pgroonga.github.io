@@ -2,6 +2,7 @@
 *.edit.po~
 *.pot
 *.time_stamp
+/Gemfile.lock
 /.sass-cache/
 /_site/
 /_po/*.po

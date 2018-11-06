@@ -33,7 +33,7 @@ PGroongaの`@~`演算子はマッチ前に対象文字列を正規化します�
 
 たとえば、パターンに「`Groonga`」を使ってはいけません。そうではなく、「`groonga`」を使うべきです。なぜなら、対象テキスト中の「`G`」は「`g`」に正規化されるからです。対象テキスト中に「`Groonga`」という文字列は決して現れません。
 
-いくつかのシンプルが正規表現のパターンはGroonga内でインデックスを使って検索します。インデックスを使った場合は非常に高速です。インデックスを使って検索可能なパターンの詳細は[Groongaの正規表現のドキュメント](http://groonga.org/ja/docs/reference/regular_expression.html#regular-expression-index)を参照してください。
+いくつかのシンプルな正規表現のパターンはGroonga内でインデックスを使って検索します。インデックスを使った場合は非常に高速です。インデックスを使って検索可能なパターンの詳細は[Groongaの正規表現のドキュメント](http://groonga.org/ja/docs/reference/regular_expression.html#regular-expression-index)を参照してください。
 
 もし、正規表現のパターンをインデックスを使って検索できない場合、Groonga内でシーケンシャルスキャンで検索します。
 

@@ -577,7 +577,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [upgrade-incompatible]:../upgrade/#incompatible-case
 
 [command]:functions/pgroonga-command.html
-[command-escape-value]:functions/pgroonga-command-escape-value.html)
+[command-escape-value]:functions/pgroonga-command-escape-value.html
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html
 [highlight-html]:functions/pgroonga-highlight-html.html

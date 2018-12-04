@@ -12,9 +12,17 @@ Here are PGroonga users.
 
 ## waja
 
-ECサイト[waja](https://www.waja.co.jp/) のキーワード検索エンジンに採用しました。
-既存の検索処理と整合性を取りやすかったこと、インデックスの追加のみで全文検索機能を付与できること、十分に高速であること、が主な採用理由です。
-同義語検索、オートコンプリート機能も備えており、運用でデータベースをメンテナンスすることで機能改善する作りになっています。
+[waja](https://www.waja.co.jp/) is an EC for fashion items. It uses PGroonga to implement full text search by keywords.
+
+Here are main reasons to use PGroonga:
+
+  * It's easy to integrate with existing search process. (waja uses PostgreSQL.)
+
+  * waja only needs to add indexes to use fast full text search.
+
+  * It's fast enough.
+
+PGroonga also supports query expansion and auto complete. Their precision can be  improved by maintaining normal PostgreSQL tables. It's easy to use.
 
 ## (Send us your service name)
 

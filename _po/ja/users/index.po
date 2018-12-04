@@ -36,6 +36,33 @@ msgstr ""
 "めにPGroongaを使っています。なぜなら、[PostgreSQL組み込みの全文検索機能]({{ site.postgresql_doc_base_url"
 ".ja }}/textsearch.html)は同時に1つの言語しかサポートできないからです。PGroongaは同時にすべての言語をサポートできます。"
 
+msgid "## waja"
+msgstr ""
+
+msgid ""
+"[waja](https://www.waja.co.jp/) is an EC for fashion items. It uses PGroonga t"
+"o implement full text search by keywords."
+msgstr "ECサイト[waja](https://www.waja.co.jp/)のキーワード検索エンジンに採用しました。"
+
+msgid "Here are main reasons to use PGroonga:"
+msgstr "PGroongaを採用した主な理由は次の通りです。"
+
+msgid ""
+"  * It's easy to integrate with existing search process. (waja uses PostgreSQL"
+".)"
+msgstr "  * 既存の検索処理と整合性を取りやすい"
+
+msgid "  * waja only needs to add indexes to use fast full text search."
+msgstr "  * インデックスの追加のみで全文検索機能を付与できる"
+
+msgid "  * It's fast enough."
+msgstr "  * 十分に高速である"
+
+msgid ""
+"PGroonga also supports query expansion and auto complete. Their precision can "
+"be  improved by maintaining normal PostgreSQL tables. It's easy to use."
+msgstr "同義語検索、オートコンプリート機能も備えており、運用でデータベースをメンテナンスすることで機能改善する作りになっています。"
+
 msgid "## (Send us your service name)"
 msgstr "## （サービス名を教えてください）"
 

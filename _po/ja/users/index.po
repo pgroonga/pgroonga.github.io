@@ -63,6 +63,11 @@ msgid ""
 "be  improved by maintaining normal PostgreSQL tables. It's easy to use."
 msgstr "同義語検索、オートコンプリート機能も備えており、運用でデータベースをメンテナンスすることで機能改善する作りになっています。"
 
+msgid ""
+"See also [the blog post by the developer](https://www.waja.co.jp/corp/6359). ("
+"Japanese)"
+msgstr "[開発者のブログ](https://www.waja.co.jp/corp/6359)も読んでみてください。"
+
 msgid "## (Send us your service name)"
 msgstr "## （サービス名を教えてください）"
 

@@ -24,6 +24,8 @@ Here are main reasons to use PGroonga:
 
 PGroonga also supports query expansion and auto complete. Their precision can be  improved by maintaining normal PostgreSQL tables. It's easy to use.
 
+See also [the blog post by the developer](https://www.waja.co.jp/corp/6359). (Japanese)
+
 ## (Send us your service name)
 
 (Send us your service description, how do you use PGroonga and why did you choose PGroonga.)

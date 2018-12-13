@@ -50,3 +50,7 @@ div.note {
     @extend .alert-link;
   }
 }
+
+#myautocomplete {
+  padding: 0 $padding-base-horizontal;
+}

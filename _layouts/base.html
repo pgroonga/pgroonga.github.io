@@ -22,9 +22,19 @@
     <link rel="icon" href="/favicon.png">
 
     <title>{{ title }}</title>
-    <link href="/assets/stylesheets/pgroonga.css" rel="stylesheet" medis="screen">
-    <link href="/assets/stylesheets/syntax.css" rel="stylesheet" medis="screen">
     <meta name="description" content="{{ description | strip_newlines }}">
+
+    {% if page.language == "ja" %}
+      <link rel="stylesheet"
+            href="http://search.groonga.org/static/css/myautocomplete.css"
+            type="text/css">
+    {% endif %}
+
+    <link href="/assets/stylesheets/syntax.css"
+          rel="stylesheet">
+    <link href="/assets/stylesheets/pgroonga.css"
+          rel="stylesheet"
+          media="screen">
   </head>
 
   <body>
@@ -57,5 +67,13 @@
 
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="/assets/javascripts/bootstrap.min.js"></script>
+
+    {% if page.language == "ja" %}
+      <script type="text/javascript"
+              src="http://search.groonga.org/static/js/myautocomplete.js"></script>
+      <script type="text/javascript"
+              src="/assets/javascripts/site-search.js"
+              async="async"></script>
+    {% endif %}
   </body>
 </html>

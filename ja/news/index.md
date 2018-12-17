@@ -4,6 +4,46 @@ title: おしらせ
 
 # おしらせ
 
+## 2.1.7: 2018-12-17 {#version-2-1-7}
+
+### 改良
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.9.
+
+  * Added support for PostgreSQL 11.
+
+  * [[`pgroonga_tokenize` function][tokenize]] Added a new function
+    that tokenizes the given text.
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]
+    Added support for token filter options.
+
+  * [[`pgroonga_normalize` function][normalize]] Added support for
+    normalizer options.
+
+  * [[`pgroonga_vacuum` function][vacuum]] Added a new function that
+    removes garbage in Groonga explicitly.
+
+### 修正
+
+  * Fixed a crash bug on error in `SELECT`.
+
+  * Fixed a bug that needless records in `IndexStatuses` internal
+    Groonga table on `VACUUM`.
+    [Gitter#5c10aad7e4787d16e3833ffe][Reported by kwata]
+
+  * Fixed a bug that wrong ctid may be returned in `SELECT`.
+    [GitHub#89][Reported by Daisuke Ando]
+
+  * [[`pgroonga_escape` function][escape]] Fixed a bug that
+    `pgroonga_escape(float4)` returns wrong result.
+
+### 感謝
+
+  * kwata
+
+  * Daisuke Ando
+
 ## 2.1.6: 2018-10-18 {#version-2-1-6}
 
 ### 改良
@@ -1122,6 +1162,9 @@ The first release!!!
 [score]:../reference/functions/pgroonga-score.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
 [normalize]:../reference/functions/pgroonga-normalize.html
+[tokenize]:../reference/functions/pgroonga-tokenize.html
+[escape]:../reference/functions/pgroonga-escape.html
+[vacuum]:../reference/functions/pgroonga-vacuum.html
 
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html

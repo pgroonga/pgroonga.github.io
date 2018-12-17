@@ -19,11 +19,71 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.1.6: 2018-10-18 {#version-2-1-6}"
+msgid "## 2.1.7: 2018-12-17 {#version-2-1-7}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.9."
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 11."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_tokenize` function][tokenize]] Added a new function\n"
+"    that tokenizes the given text."
+msgstr ""
+
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]\n"
+"    Added support for token filter options."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_normalize` function][normalize]] Added support for\n"
+"    normalizer options."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_vacuum` function][vacuum]] Added a new function that\n"
+"    removes garbage in Groonga explicitly."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * Fixed a crash bug on error in `SELECT`."
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that needless records in `IndexStatuses` internal\n"
+"    Groonga table on `VACUUM`.\n"
+"    [Gitter#5c10aad7e4787d16e3833ffe][Reported by kwata]"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that wrong ctid may be returned in `SELECT`.\n"
+"    [GitHub#89][Reported by Daisuke Ando]"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_escape` function][escape]] Fixed a bug that\n"
+"    `pgroonga_escape(float4)` returns wrong result."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * kwata"
+msgstr ""
+
+msgid "  * Daisuke Ando"
+msgstr ""
+
+msgid "## 2.1.6: 2018-10-18 {#version-2-1-6}"
+msgstr ""
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.7."
 msgstr ""
@@ -36,16 +96,10 @@ msgid ""
 "    [groonga-dev,04684][Reported by Kawakami]"
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * Fixed a bug that streaming replication doesn't work.\n"
 "    [GitHub#84][Reported by tongsama]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * tongsama"
 msgstr ""
@@ -97,9 +151,6 @@ msgid ""
 msgstr ""
 
 msgid "## 2.1.2: 2018-08-23 {#version-2-1-2}"
-msgstr ""
-
-msgid "  * Added support for PostgreSQL 11."
 msgstr ""
 
 msgid "  * [[`pgroonga_score` function][score]] Added missing error checks."
@@ -1585,7 +1636,10 @@ msgid ""
 "[set-writable]:../reference/functions/pgroonga-set-writable.html\n"
 "[score]:../reference/functions/pgroonga-score.html\n"
 "[is-writable]:../reference/functions/pgroonga-is-writable.html\n"
-"[normalize]:../reference/functions/pgroonga-normalize.html"
+"[normalize]:../reference/functions/pgroonga-normalize.html\n"
+"[tokenize]:../reference/functions/pgroonga-tokenize.html\n"
+"[escape]:../reference/functions/pgroonga-escape.html\n"
+"[vacuum]:../reference/functions/pgroonga-vacuum.html"
 msgstr ""
 
 msgid ""

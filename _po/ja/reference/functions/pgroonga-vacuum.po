@@ -21,6 +21,9 @@ msgstr ""
 msgid "# `pgroonga_vacuum` function"
 msgstr "# `pgroonga_vacuum`関数"
 
+msgid "Since 2.1.7."
+msgstr "2.1.7で追加。"
+
 msgid "## Summary"
 msgstr "## 概要"
 

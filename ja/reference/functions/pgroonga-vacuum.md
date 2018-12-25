@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_vacuum`関数
 
+2.1.7で追加。
+
 ## 概要
 
 `pgroonga_vacuum`関数は内部的に不要になったGroongaのテーブル・カラム・レコードを削除します。PGroongaのものではなくGroongaのものであることに注意してください。通常、この関数を呼ぶ必要はありません。 なぜなら`VACUUM`時に同等の処理を実行するからです。

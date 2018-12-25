@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_vacuum` function
 
+Since 2.1.7.
+
 ## Summary
 
 `pgroonga_vacuum` function removes internal unused Groonga tables, columns and records. Note that it's not for PGroonga. It's for Groonga. Normally, you don't need to call this function because PGroonga does the same process on `VACUUM`.

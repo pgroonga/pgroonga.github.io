@@ -19,7 +19,7 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.1.7: 2018-12-17 {#version-2-1-7}"
+msgid "## 2.1.7: 2018-12-25 {#version-2-1-7}"
 msgstr ""
 
 msgid "### Improvements"

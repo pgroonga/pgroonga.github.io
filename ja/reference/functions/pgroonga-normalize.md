@@ -24,10 +24,10 @@ text pgroonga_normalize(target)
 この関数の別の構文は次の通りです。
 
 ```text
-text pgroonga_normalize(target, normalizerName)
+text pgroonga_normalize(target, normalizer)
 ```
 
-`normalizerName`は`text`型の値で、利用したいノーマライザーモジュールを指定します。
+`normalizer`は`text`型の値で、利用したいノーマライザーモジュールを指定します。
 
 ## 使い方
 
@@ -53,6 +53,16 @@ SELECT pgroonga_normalize('aBcDe 123', 'NormalizerMySQLGeneralCI');
 ```
 
 [groonga-normalizer-mysql][groonga-normalizer-mysql]を使うために`plugin_register normalizers/mysql`を実行しています。groonga-normalizer-mysqlはMySQL互換のノーマライザーを提供します。
+
+ノーマライザーのオプションも指定できます。
+
+```sql
+SELECT pgroonga_normalize('あア', 'NormalizerNFKC100("unify_kana", true)');
+--  pgroonga_normalize 
+-- --------------------
+--  ああ
+-- (1 row)
+```
 
 ## 参考
 

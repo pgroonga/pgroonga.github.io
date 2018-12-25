@@ -24,10 +24,10 @@ text pgroonga_normalize(target)
 Here is another syntax of this function:
 
 ```text
-text pgroonga_normalize(target, normalizerName)
+text pgroonga_normalize(target, normalizer)
 ```
 
-`normalizerName` is a `text` type value which specifies the normalizer module you want to use.
+`normalizer` is a `text` type value which specifies the normalizer module you want to use.
 
 ## Usage
 
@@ -53,6 +53,16 @@ SELECT pgroonga_normalize('aBcDe 123', 'NormalizerMySQLGeneralCI');
 ```
 
 `plugin_register normalizers/mysql` is needed to use [groonga-normalizer-mysql][groonga-normalizer-mysql]. It provides some MySQL compatible normalizers.
+
+You can also specify normalizer options:
+
+```sql
+SELECT pgroonga_normalize('あア', 'NormalizerNFKC100("unify_kana", true)');
+--  pgroonga_normalize 
+-- --------------------
+--  ああ
+-- (1 row)
+```
 
 ## See also
 

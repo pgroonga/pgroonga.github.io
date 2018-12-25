@@ -27,7 +27,7 @@ text pgroonga_normalize(target)
 text pgroonga_normalize(target, normalizer)
 ```
 
-`normalizer`は`text`型の値で、利用したいノーマライザーモジュールを指定します。
+`normalizer`は`text`型の値です。使用するノーマライザーモジュールを指定します。
 
 ## 使い方
 

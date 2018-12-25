@@ -285,7 +285,7 @@ SELECT jsonb_pretty(token::jsonb)
 
  * [Groonga document for normalizers][groonga-normalizers]
 
- * [Groonga document for tokenizers][groonga-tokenizesrs]
+ * [Groonga document for tokenizers][groonga-tokenizers]
 
  * [Groonga document for token filters][groonga-token-filters]
 

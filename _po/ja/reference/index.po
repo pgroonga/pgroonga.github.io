@@ -519,6 +519,12 @@ msgstr "  * [`pgroonga_snippet_html`関数][snippet-html]"
 msgid "  * [`pgroonga_table_name` function][table-name]"
 msgstr "  * [`pgroonga_table_name`関数][table-name]"
 
+msgid "  * [`pgroonga_tokenize` function][tokenize]"
+msgstr "  * [`pgroonga_tokenize`関数][tokenize]"
+
+msgid "  * [`pgroonga_vacuum` function][vacuum]"
+msgstr "  * [`pgroonga_vacuum`関数][vacuum]"
+
 msgid "  * [`pgroonga_wal_apply` function][wal-apply]"
 msgstr "  * [`pgroonga_wal_apply`関数][wal-apply]"
 
@@ -648,6 +654,8 @@ msgid ""
 "[score]:functions/pgroonga-score.html\n"
 "[snippet-html]:functions/pgroonga-snippet-html.html\n"
 "[table-name]:functions/pgroonga-table-name.html\n"
+"[tokenize]:functions/pgroonga-tokenize.html\n"
+"[vacuum]:functions/pgroonga-vacuum.html\n"
 "[wal-apply]:functions/pgroonga-wal-apply.html\n"
 "[wal-truncate]:functions/pgroonga-wal-truncate.html"
 msgstr ""

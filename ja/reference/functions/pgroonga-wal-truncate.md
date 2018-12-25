@@ -22,7 +22,7 @@ PGroongaのWALを使う場合、PGroongaのWALのディスク使用量につい�
 この関数の構文は次の通りです。
 
 ```text
-bitint pgroonga_wal_truncate(pgroonga_index_name)
+bigint pgroonga_wal_truncate(pgroonga_index_name)
 ```
 
 `pgroonga_index_name`は`text`型の値です。すべてのWALを削除したいPGroongaのインデックスの名前を指定します。

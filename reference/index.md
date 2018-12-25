@@ -506,6 +506,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_table_name` function][table-name]
 
+  * [`pgroonga_tokenize` function][tokenize]
+
+  * [`pgroonga_vacuum` function][vacuum]
+
   * [`pgroonga_wal_apply` function][wal-apply]
 
   * [`pgroonga_wal_truncate` function][wal-truncate]
@@ -591,6 +595,8 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [score]:functions/pgroonga-score.html
 [snippet-html]:functions/pgroonga-snippet-html.html
 [table-name]:functions/pgroonga-table-name.html
+[tokenize]:functions/pgroonga-tokenize.html
+[vacuum]:functions/pgroonga-vacuum.html
 [wal-apply]:functions/pgroonga-wal-apply.html
 [wal-truncate]:functions/pgroonga-wal-truncate.html
 

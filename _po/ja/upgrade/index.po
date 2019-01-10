@@ -31,6 +31,9 @@ msgstr ""
 msgid "Here is a list of compatibility:"
 msgstr "以下は互換性のリストです。"
 
+msgid "  * 2.1.7 -> 2.1.8: Compatible"
+msgstr "  * 2.1.7 -> 2.1.8: 互換"
+
 msgid "  * 2.1.6 -> 2.1.7: Compatible"
 msgstr "  * 2.1.6 -> 2.1.7: 互換"
 
@@ -249,6 +252,19 @@ msgid ""
 "```"
 msgstr ""
 
+msgid ""
+"If you're using [`pgroonga_database` module][pgroonga-database], you also need"
+" to run the following SQL to upgrade `pgroonga_database` module:"
+msgstr ""
+"もし[`pgroonga_database`モジュール][pgroonga-database]を使っているなら、次のSQLを実行して`pgroonga_da"
+"tabase`モジュールをアップグレードする必要があります。"
+
+msgid ""
+"```sql\n"
+"ALTER EXTENSION pgroonga_database UPDATE;\n"
+"```"
+msgstr ""
+
 msgid "## See also"
 msgstr "## 参考"
 
@@ -281,4 +297,7 @@ msgstr ""
 msgid ""
 "[text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search"
 "-ops-v2"
+msgstr ""
+
+msgid "[pgroonga-database]:../reference/modules/pgroonga-database.html"
 msgstr ""

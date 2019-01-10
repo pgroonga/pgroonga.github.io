@@ -4,6 +4,12 @@ title: おしらせ
 
 # おしらせ
 
+## 2.1.8: 2019-01-11 {#version-2-1-8}
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 8.1.0.
+
+  * [[`pgroonga_database`][pgroonga_database]: Added. It provides functions that manage PGroonga database. For now, [`pgroonga_database_remove` function] is only provided.
+
 ## 2.1.7: 2018-12-25 {#version-2-1-7}
 
 ### 改良
@@ -569,7 +575,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * Required Groonga 6.1.1 or later.
 
-  * [[`pgroonga_check`](../reference/modules/pgroonga-check.html)] Added. It checks PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database.
+  * [[`pgroonga_check`][pgroonga-check]] Added. It checks PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database.
 
   * Supported applying WAL on `INSERT`.
 
@@ -1165,8 +1171,12 @@ The first release!!!
 [tokenize]:../reference/functions/pgroonga-tokenize.html
 [escape]:../reference/functions/pgroonga-escape.html
 [vacuum]:../reference/functions/pgroonga-vacuum.html
+[database-remove]:../reference/functions/pgroonga-database-remove.html
 
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html
+
+[pgoronga-check]:../reference/modules/pgroonga-check.html
+[pgoronga-database]:../reference/modules/pgroonga-database.html
 
 [travis-ci]:../how-to/travis-ci.html

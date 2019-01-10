@@ -8,6 +8,8 @@ You can upgrade PGroonga without recreating PGroonga indexes when new version do
 
 Here is a list of compatibility:
 
+  * 2.1.7 -> 2.1.8: Compatible
+
   * 2.1.6 -> 2.1.7: Compatible
 
   * 2.1.4 -> 2.1.6: Compatible
@@ -150,6 +152,12 @@ Here is a SQL that upgrades PGroonga:
 ALTER EXTENSION pgroonga UPDATE;
 ```
 
+If you're using [`pgroonga_database` module][pgroonga-database], you also need to run the following SQL to upgrade `pgroonga_database` module:
+
+```sql
+ALTER EXTENSION pgroonga_database UPDATE;
+```
+
 ## See also
 
   * [`CREATE EXTENSION`]({{ site.postgresql_doc_base_url.en }}/sql-createextension.html)
@@ -161,3 +169,5 @@ ALTER EXTENSION pgroonga UPDATE;
   * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)
 
 [text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2
+
+[pgroonga-database]:../reference/modules/pgroonga-database.html

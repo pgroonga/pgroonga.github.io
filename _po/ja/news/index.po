@@ -19,6 +19,18 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.1.8: 2019-01-11 {#version-2-1-8}"
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.1.0."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_database`][pgroonga_database]: Added. It provides functions th"
+"at manage PGroonga database. For now, [`pgroonga_database_remove` function] is"
+" only provided."
+msgstr ""
+
 msgid "## 2.1.7: 2018-12-25 {#version-2-1-7}"
 msgstr ""
 
@@ -788,9 +800,9 @@ msgid "  * Required Groonga 6.1.1 or later."
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_check`](../reference/modules/pgroonga-check.html)] Added. It c"
-"hecks PGroonga database consistency on startup. If PGroonga database is broken"
-", it tries to recover the database."
+"  * [[`pgroonga_check`][pgroonga-check]] Added. It checks PGroonga database co"
+"nsistency on startup. If PGroonga database is broken, it tries to recover the "
+"database."
 msgstr ""
 
 msgid "  * Supported applying WAL on `INSERT`."
@@ -1639,13 +1651,19 @@ msgid ""
 "[normalize]:../reference/functions/pgroonga-normalize.html\n"
 "[tokenize]:../reference/functions/pgroonga-tokenize.html\n"
 "[escape]:../reference/functions/pgroonga-escape.html\n"
-"[vacuum]:../reference/functions/pgroonga-vacuum.html"
+"[vacuum]:../reference/functions/pgroonga-vacuum.html\n"
+"[database-remove]:../reference/functions/pgroonga-database-remove.html"
 msgstr ""
 
 msgid ""
 "[match-escalation-threshold]:../reference/parameters/match-escalation-threshol"
 "d.html\n"
 "[libgroonga-version]:../reference/parameters/libgroonga-version.html"
+msgstr ""
+
+msgid ""
+"[pgoronga-check]:../reference/modules/pgroonga-check.html\n"
+"[pgoronga-database]:../reference/modules/pgroonga-database.html"
 msgstr ""
 
 msgid "[travis-ci]:../how-to/travis-ci.html"

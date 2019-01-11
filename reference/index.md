@@ -482,6 +482,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_flush` function][flush]
 
+  * [`pgroonga_database_remove` function][database-remove]
+
   * [`pgroonga_highlight_html` function][highlight-html]
 
   * [`pgroonga_is_writable` function][is-writable]
@@ -534,7 +536,9 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
 ## Modules
 
-  * [`pgroonga_check` module](modules/pgroonga-check.html)
+  * [`pgroonga_check` module][pgroonga-check]
+
+  * [`pgroonga_database` module][pgroonga-database]
 
 ## Groonga functions
 
@@ -583,6 +587,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [command-escape-value]:functions/pgroonga-command-escape-value.html
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html
+[database-remove]:functions/pgroonga-database-remove.html
 [highlight-html]:functions/pgroonga-highlight-html.html
 [is-writable]:functions/pgroonga-is-writable.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
@@ -610,3 +615,6 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [log-type]:parameters/log-type.html
 [query-log-path]:parameters/query-log-path.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+
+[pgroonga-check]:modules/pgroonga-check.html
+[pgroonga-database]:modules/pgroonga-database.html

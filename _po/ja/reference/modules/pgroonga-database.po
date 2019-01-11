@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: pgroonga_database module\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: pgroonga_databaseモジュール\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga_database` module"
+msgstr "# `pgroonga_database`モジュール"
+
+msgid "Since 2.1.8."
+msgstr "2.1.8で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga_database` module provides functions that manage PGroonga database. N"
+"ormally, you don't need to use this module."
+msgstr "`pgroonga_database`モジュールはPGroongaのデータベースを管理する関数を提供します。通常、このモジュールを使う必要はありません。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "You just install `pgroonga_database` module as an extension:"
+msgstr "拡張機能として`pgroonga_database`モジュールをインストールすれば使えます。"
+
+msgid ""
+"```sql\n"
+"CREATE EXTENSION pgroonga_database;\n"
+"```"
+msgstr ""
+
+msgid "See [upgrade][upgrade] document for upgrading `pgroonga_database` module."
+msgstr "`pgroonga_database`のアップグレード方法は[アップグレード][upgrade]ドキュメントを参照してください。"
+
+msgid "## Functions"
+msgstr "## 関数"
+
+msgid "`pgroonga_database` module provides the following functions:"
+msgstr "`pgroonga_database`モジュールは次の関数を提供します。"
+
+msgid "  * [`pgroonga_database_remove` function][database-remove]"
+msgstr ""
+
+msgid "[database-remove]:functions/pgroonga-database-remove.html"
+msgstr ""
+
+msgid "[upgrade]:../../upgrade/"
+msgstr ""

@@ -482,6 +482,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_flush`関数][flush]
 
+  * [`pgroonga_database_remove`関数][database-remove]
+
   * [`pgroonga_highlight_html`関数][highlight-html]
 
   * [`pgroonga_is_writable`関数][is-writable]
@@ -535,7 +537,9 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 ## モジュール
 
 
-  * [`pgroonga_check`モジュール](modules/pgroonga-check.html)
+  * [`pgroonga_check`モジュール][pgroonga-check]
+
+  * [`pgroonga_database`モジュール][pgroonga-database]
 
 ## Groongaの関数
 
@@ -584,6 +588,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [command-escape-value]:functions/pgroonga-command-escape-value.html
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html
+[database-remove]:functions/pgroonga-database-remove.html
 [highlight-html]:functions/pgroonga-highlight-html.html
 [is-writable]:functions/pgroonga-is-writable.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
@@ -611,3 +616,6 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [log-type]:parameters/log-type.html
 [query-log-path]:parameters/query-log-path.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+
+[pgroonga-check]:modules/pgroonga-check.html
+[pgroonga-database]:modules/pgroonga-database.html

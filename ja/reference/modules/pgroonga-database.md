@@ -43,6 +43,6 @@ SELECT pgroonga_admin.pgoronga_database_remove();
 
   * [`pgroonga_database_remove`関数][database-remove]
 
-[database-remove]:functions/pgroonga-database-remove.html
+[database-remove]:../functions/pgroonga-database-remove.html
 
 [upgrade]:../../upgrade/

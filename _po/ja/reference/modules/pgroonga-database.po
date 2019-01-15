@@ -95,7 +95,7 @@ msgstr "`pgroonga_database`モジュールは次の関数を提供します。"
 msgid "  * [`pgroonga_database_remove` function][database-remove]"
 msgstr "  * [`pgroonga_database_remove`関数][database-remove]"
 
-msgid "[database-remove]:functions/pgroonga-database-remove.html"
+msgid "[database-remove]:../functions/pgroonga-database-remove.html"
 msgstr ""
 
 msgid "[upgrade]:../../upgrade/"

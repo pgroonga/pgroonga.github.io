@@ -43,6 +43,6 @@ See [upgrade][upgrade] document for upgrading `pgroonga_database` module.
 
   * [`pgroonga_database_remove` function][database-remove]
 
-[database-remove]:functions/pgroonga-database-remove.html
+[database-remove]:../functions/pgroonga-database-remove.html
 
 [upgrade]:../../upgrade/

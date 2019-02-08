@@ -73,4 +73,4 @@ Or
 
 [チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
 
-postgresql-apt:https://www.postgresql.org/download/linux/debian/
+[postgresql-apt]:https://www.postgresql.org/download/linux/debian/

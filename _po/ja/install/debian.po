@@ -138,5 +138,5 @@ msgstr "これで終わりです！"
 msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
 msgstr "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"
 
-msgid "postgresql-apt:https://www.postgresql.org/download/linux/debian/"
+msgid "[postgresql-apt]:https://www.postgresql.org/download/linux/debian/"
 msgstr ""

@@ -43,6 +43,8 @@ PostgreSQL supports full text search against languages that use only alphabet an
 
   * [Tutorial](tutorial/): It describes how to use PGroonga step by step.
 
+  * [FAQ](faq/): Frequently asked questions.
+
   * [How to](how-to/): It describes about useful information for specific situations.
 
   * [Reference](reference/): It describes details for each features such as options, functions and operators.

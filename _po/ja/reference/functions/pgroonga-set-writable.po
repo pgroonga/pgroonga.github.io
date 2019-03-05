@@ -49,7 +49,7 @@ msgid ""
 msgstr ""
 "  * PGroongaのインデックスを使っているテーブルは[オートバキューム][postgresql-autovacuum]を無効にします。該当テーブルだ"
 "けオートバキュームを無効にするために[`CREATE TABLE`][postgresql-create-table]の`autovacuum_enable"
-"d`ストレージパラメーターを使えます。オートバキュームを向こうにした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。"
+"d`ストレージパラメーターを使えます。オートバキュームを無効にした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。"
 
 msgid "  * You must enable PGroonga's WAL."
 msgstr "  * PGroongaのWALを有効にします。"

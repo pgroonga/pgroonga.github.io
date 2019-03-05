@@ -13,7 +13,7 @@ upper_level: ../
 
   * データを変更したあとは同一セッション内で必ず`SELECT pgroonga_command('io_flush', ARRAY['only_opened', 'yes'])`を実行します。
 
-  * PGroongaのインデックスを使っているテーブルは[オートバキューム][postgresql-autovacuum]を無効にします。該当テーブルだけオートバキュームを無効にするために[`CREATE TABLE`][postgresql-create-table]の`autovacuum_enabled`ストレージパラメーターを使えます。オートバキュームを向こうにした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。
+  * PGroongaのインデックスを使っているテーブルは[オートバキューム][postgresql-autovacuum]を無効にします。該当テーブルだけオートバキュームを無効にするために[`CREATE TABLE`][postgresql-create-table]の`autovacuum_enabled`ストレージパラメーターを使えます。オートバキュームを無効にした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。
 
   * PGroongaのWALを有効にします。
 

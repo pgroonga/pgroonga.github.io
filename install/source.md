@@ -87,9 +87,9 @@ Let's assume that PostgreSQL binaries are of type *postgresql_t* and PostgreSQL 
 module my-pgroonga 1.0;
 
 require {
-	type postgresql_t;
-	type postgresql_db_t;
-	class file map;
+    type postgresql_t;
+    type postgresql_db_t;
+    class file map;
 }
 
 allow postgresql_t postgresql_db_t:file map;

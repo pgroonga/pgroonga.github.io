@@ -76,7 +76,7 @@ Install PGroonga:
 If you use SELinux, you must create a policy package(.pp) and install it. PGroonga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is not allowed by default. First, install `policycoreutils` and `checkpolicy`.
 
 ```console
-% dnf install policycoreutils checkpolicy
+% sudo dnf install policycoreutils checkpolicy
 ```
 
 Let's assume that PostgreSQL binaries are of type *postgresql_t* and PostgreSQL data files are of type *postgresql_db_t*. Allow *postgresql_t* type to memory map files of type *postgresql_db_t*. Then compile it (.mod), package it (.pp) and install the resulting policy package.
@@ -97,7 +97,7 @@ EOF
 
 % checkmodule -M -m -o my-pgroonga.mod my-pgroonga.te
 % semodule_package -o my-pgroonga.pp -m my-pgroonga.mod
-% semodule -i my-pgroonga.pp
+% sudo semodule -i my-pgroonga.pp
 ```
 
 Create a database:

@@ -23,7 +23,7 @@ Install PostgreSQL.
 
 Extract PGroonga source:
 
-```text
+```console
 % wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz
 % tar xvf pgroonga-{{ site.pgroonga_version }}.tar.gz
 % cd pgroonga-{{ site.pgroonga_version }}
@@ -31,7 +31,7 @@ Extract PGroonga source:
 
 FYI: If you want to use the unreleased latest version, use the followings:
 
-```text
+```console
 % git clone --recursive https://github.com/pgroonga/pgroonga.git
 % cd pgroonga
 ```
@@ -42,13 +42,13 @@ Build PGroonga. There are some options:
 
 Use the following command line when you want to build with WAL support:
 
-```text
+```console
 % make HAVE_MSGPACK=1
 ```
 
 Use the following command line when you don't need WAL support:
 
-```text
+```console
 % make
 ```
 
@@ -63,26 +63,26 @@ If `pkg-config --list-all` doesn't include `groonga`, you may forget to install 
 
 Here is an example when you install Groonga with `--prefix=/usr/local`:
 
-```text
+```console
 % PKG_CONFIG_PATH=/usr/local/lib/pkg-config make
 ```
 
 Install PGroonga:
 
-```text
+```console
 % sudo make install
 ```
 
 If you use SELinux, you must create a policy package(.pp) and install it. PGroonga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is not allowed by default. First, install `policycoreutils` and `checkpolicy`.
 
-```
+```console
 % dnf install policycoreutils checkpolicy
 ```
 
 Let's assume that PostgreSQL binaries are of type *postgresql_t* and PostgreSQL data files are of type *postgresql_db_t*. Allow *postgresql_t* type to memory map files of type *postgresql_db_t*. Then compile it (.mod), package it (.pp) and install the resulting policy package.
 
 
-```
+```console
 % cat > my-pgroonga.te << EOF
 module my-pgroonga 1.0;
 
@@ -102,7 +102,7 @@ EOF
 
 Create a database:
 
-```text
+```console
 % psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
@@ -110,7 +110,7 @@ Create a database:
 
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
-```text
+```console
 % psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga;'
 ```
 

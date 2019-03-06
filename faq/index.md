@@ -2,7 +2,9 @@
 title: FAQ
 ---
 
-# PGroonga fails to initialize {#fail_init}
+# FAQ
+
+## PGroonga fails to initialize {#fail-initialize}
 
 These are reasons why PGroonga may failed to initialize:
 
@@ -10,7 +12,7 @@ These are reasons why PGroonga may failed to initialize:
 
 If the issue is fixed and PGroonga still returns `pgroonga: already tried to initialize and failed`, please restart PostgreSQL so failed/corrupt `<data dir>/pgrn*` files can be detected and removed.
 
-# SELinux support {#selinux}
+### SELinux support {#selinux}
 
 If you use SELinux then PGroonga needs a policy package. The section [building PGroonga from source](../install/source.html) shows how to create one.
 

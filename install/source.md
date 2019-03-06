@@ -79,7 +79,7 @@ If you use SELinux, you must create a policy package(.pp) and install it. PGroon
 % sudo dnf install policycoreutils checkpolicy
 ```
 
-Let's assume that PostgreSQL binaries are of type *postgresql_t* and PostgreSQL data files are of type *postgresql_db_t*. Allow *postgresql_t* type to memory map files of type *postgresql_db_t*. Then compile it (.mod), package it (.pp) and install the resulting policy package.
+Let's assume that PostgreSQL binaries are of type `postgresql_t` and PostgreSQL data files are of type `postgresql_db_t`. Allow `postgresql_t` type to memory map files of type `postgresql_db_t`. Then compile it (.mod), package it (.pp) and install the resulting policy package.
 
 
 ```console

@@ -16,6 +16,8 @@ Here are supported Ubuntu versions:
 
   * Ubuntu 18.04
 
+  * Ubuntu 18.10
+
 ## How to install
 
 You can use the following instruction to install PGroonga on Ubuntu.

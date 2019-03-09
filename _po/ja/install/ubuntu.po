@@ -37,6 +37,9 @@ msgstr ""
 msgid "  * Ubuntu 18.04"
 msgstr ""
 
+msgid "  * Ubuntu 18.10"
+msgstr ""
+
 msgid "## How to install"
 msgstr "## インストール方法"
 

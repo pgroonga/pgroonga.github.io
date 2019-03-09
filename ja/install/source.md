@@ -23,7 +23,7 @@ PostgreSQLをインストールします。
 
 PGroongaのソースを展開します。
 
-```text
+```console
 % wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz
 % tar xvf pgroonga-{{ site.pgroonga_version }}.tar.gz
 % cd pgroonga-{{ site.pgroonga_version }}
@@ -31,7 +31,7 @@ PGroongaのソースを展開します。
 
 参考：未リリースの最新版を使いたい場合は次のようにしてください。
 
-```text
+```console
 % git clone --recursive https://github.com/pgroonga/pgroonga.git
 % cd pgroonga
 ```
@@ -42,13 +42,13 @@ PGroongaをビルドします。いくつかオプションがあります。
 
 WALサポート付きでビルドしたい場合は次のコマンドラインを使います。
 
-```text
+```console
 % make HAVE_MSGPACK=1
 ```
 
 WALサポートが必要ない場合は次のコマンドラインを使います。
 
-```text
+```console
 % make
 ```
 
@@ -63,19 +63,46 @@ WALサポートが必要ない場合は次のコマンドラインを使いま�
 
 以下は`--prefix=/usr/local`オプション付きでGroongaをインストールした場合の例です。
 
-```text
+```console
 % PKG_CONFIG_PATH=/usr/local/lib/pkg-config make
 ```
 
 PGroongaをインストールします。
 
-```text
+```console
 % sudo make install
+```
+
+If you use SELinux, you must create a policy package(.pp) and install it. PGroonga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is not allowed by default. First, install `policycoreutils` and `checkpolicy`.
+
+```console
+% sudo dnf install policycoreutils checkpolicy
+```
+
+Let's assume that PostgreSQL binaries are of type `postgresql_t` and PostgreSQL data files are of type `postgresql_db_t`. Allow `postgresql_t` type to memory map files of type `postgresql_db_t`. Then compile it (.mod), package it (.pp) and install the resulting policy package.
+
+
+```console
+% cat > my-pgroonga.te << EOF
+module my-pgroonga 1.0;
+
+require {
+    type postgresql_t;
+    type postgresql_db_t;
+    class file map;
+}
+
+allow postgresql_t postgresql_db_t:file map;
+EOF
+
+% checkmodule -M -m -o my-pgroonga.mod my-pgroonga.te
+% semodule_package -o my-pgroonga.pp -m my-pgroonga.mod
+% sudo semodule -i my-pgroonga.pp
 ```
 
 データベースを作成します。
 
-```text
+```console
 % psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
@@ -83,7 +110,7 @@ PGroongaをインストールします。
 
 作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。
 
-```text
+```console
 % psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga;'
 ```
 

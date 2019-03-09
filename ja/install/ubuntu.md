@@ -16,6 +16,8 @@ title: Ubuntuにインストール
 
   * Ubuntu 18.04
 
+  * Ubuntu 18.10
+
 ## インストール方法
 
 UbuntuでPGroongaをインストールする手順は次の通りです。

@@ -35,7 +35,7 @@ msgstr "`pgroonga_database`モジュールはPGroongaのデータベースを管
 msgid ""
 "Note that this module provides dangerous functions. You should not enable this"
 " module until you need this module."
-msgstr "このモジュールは危険な関数をていんきょうするので気をつけてください。必要になるまでこのモジュールは有効にしないでください。"
+msgstr "このモジュールは危険な関数を提供するので気をつけてください。必要になるまでこのモジュールは有効にしないでください。"
 
 msgid "## Usage"
 msgstr "## 使い方"

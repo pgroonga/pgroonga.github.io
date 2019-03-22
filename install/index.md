@@ -10,7 +10,6 @@ There are separated documents for these platforms. And there is a document for b
 
 Here are supported PostgreSQL versions:
 
-  * 9.3
   * 9.4
   * 9.5
   * 9.6
@@ -25,8 +24,6 @@ See a document for your platform in the followings:
     * Stretch
 
   * [Ubuntu](ubuntu.html)
-
-    * 14.04
 
     * 16.04
 

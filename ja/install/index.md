@@ -32,6 +32,8 @@ title: インストール
 
     * 18.10
 
+    * 19.04
+
   * [CentOS](centos.html)
 
     * 6

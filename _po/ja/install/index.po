@@ -64,6 +64,9 @@ msgstr ""
 msgid "    * 18.10"
 msgstr ""
 
+msgid "    * 19.04"
+msgstr ""
+
 msgid "  * [CentOS](centos.html)"
 msgstr ""
 

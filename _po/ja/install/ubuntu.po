@@ -37,6 +37,9 @@ msgstr ""
 msgid "  * Ubuntu 18.10"
 msgstr ""
 
+msgid "  * Ubuntu 19.04"
+msgstr ""
+
 msgid "## How to install"
 msgstr "## インストール方法"
 
@@ -46,19 +49,24 @@ msgstr "UbuntuでPGroongaをインストールする手順は次の通りです�
 msgid "If you're using Ubuntu 16.04, install `postgresql-9.5-pgroonga` package."
 msgstr "Ubuntu 16.04を使っている場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。"
 
+msgid "If you're using Ubuntu 19.04, install `postgresql-11-pgroonga` package."
+msgstr "Ubuntu 19.04を使っている場合は`postgresql-11-pgroonga`パッケージをインストールしてください。"
+
 msgid "Otherwise, install `postgresql-10-pgroonga` package:"
 msgstr "それ以外の場合は`postgresql-10-pgroonga`パッケージをインストールしてください。"
 
 msgid ""
 "```text\n"
-"% sudo apt-get install -y software-properties-common\n"
+"% sudo apt install -y software-properties-common\n"
 "% sudo add-apt-repository -y universe\n"
 "% sudo add-apt-repository -y ppa:groonga/ppa\n"
 "% sudo apt-get update\n"
 "Ubuntu 16.04:\n"
-"% sudo apt-get install -y -V postgresql-9.5-pgroonga\n"
+"% sudo apt install -y -V postgresql-9.5-pgroonga\n"
+"Ubuntu 19.04:\n"
+"% sudo apt install -y -V postgresql-11-pgroonga\n"
 "Others:\n"
-"% sudo apt-get install -y -V postgresql-10-pgroonga\n"
+"% sudo apt install -y -V postgresql-10-pgroonga\n"
 "```"
 msgstr ""
 
@@ -71,7 +79,7 @@ msgstr ""
 
 msgid ""
 "```text\n"
-"% sudo apt-get install -y -V groonga-tokenizer-mecab\n"
+"% sudo apt install -y -V groonga-tokenizer-mecab\n"
 "```"
 msgstr ""
 

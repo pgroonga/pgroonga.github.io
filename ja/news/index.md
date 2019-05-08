@@ -4,6 +4,20 @@ title: おしらせ
 
 # おしらせ
 
+## 2.1.9: 2019-05-08 {#version-2-1-9}
+
+  * Added support for Groonga 9.0.2.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.2.
+
+  * [[Windows][windows]] Added Upgraded bundled Groonga to 9.0.2.
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 18.10.
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 19.04.
+
+  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 14.04.
+
 ## 2.1.8: 2019-01-11 {#version-2-1-8}
 
   * [[Windows][windows]] Upgraded bundled Groonga to 8.1.0.

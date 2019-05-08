@@ -50,9 +50,7 @@ See a document for your platform in the followings:
 
 {% for windows_postgresql_version in site.windows_postgresql_versions %}
 
-    * 32bit + PostgreSQL {{ windows_postgresql_version }}
-
-    * 64bit + PostgreSQL {{ windows_postgresql_version }}
+    * PostgreSQL {{ windows_postgresql_version }}
 
 {% endfor %}
 

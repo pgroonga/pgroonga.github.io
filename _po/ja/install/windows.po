@@ -53,6 +53,13 @@ msgid "{% for windows_postgresql_version in site.windows_postgresql_versions %}"
 msgstr ""
 
 msgid ""
+"{% assign windows_postgresql_major_version = windows_postgresql_version | spli"
+"t: \".\" | first %}\n"
+"{% if windows_postgresql_major_version == \"9\" or\n"
+"      windows_postgresql_major_version == \"10\" %}"
+msgstr ""
+
+msgid ""
 "  * [For PostgreSQL {{ windows_postgresql_version }} 32bit version](https://gi"
 "thub.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroo"
 "nga-{{ site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x8"
@@ -61,6 +68,9 @@ msgstr ""
 "  * [32bitバージョンのPostgreSQL {{ windows_postgresql_version }}用](https://github.c"
 "om/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{"
 " site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x86.zip)"
+
+msgid "{% endif %}"
+msgstr ""
 
 msgid ""
 "  * [For PostgreSQL {{ windows_postgresql_version }} 64bit version](https://gi"

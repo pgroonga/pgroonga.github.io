@@ -91,10 +91,7 @@ msgstr ""
 msgid "{% for windows_postgresql_version in site.windows_postgresql_versions %}"
 msgstr ""
 
-msgid "    * 32bit + PostgreSQL {{ windows_postgresql_version }}"
-msgstr ""
-
-msgid "    * 64bit + PostgreSQL {{ windows_postgresql_version }}"
+msgid "    * PostgreSQL {{ windows_postgresql_version }}"
 msgstr ""
 
 msgid "{% endfor %}"

@@ -4,13 +4,21 @@ title: おしらせ
 
 # おしらせ
 
+## 2.2.0: 2019-06-05 {#version-2-2-0}
+
+  * Added support for Groonga 9.0.3.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.3.
+
+  * Added operator class for `int4[]`. Normally, this isn't
+    useful. It's useful only when you want to access `int4[]` data by
+    [`pgroonga_command` function][command].
+
 ## 2.1.9: 2019-05-08 {#version-2-1-9}
 
   * Added support for Groonga 9.0.2.
 
   * [[Windows][windows]] Upgraded bundled Groonga to 9.0.2.
-
-  * [[Windows][windows]] Added Upgraded bundled Groonga to 9.0.2.
 
   * [[Ubuntu][ubuntu]] Added support for Ubuntu 18.10.
 

@@ -8,10 +8,10 @@ postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/11
   ja: https://www.postgresql.jp/document/11/html
 windows_postgresql_versions:
-  - 9.5.17-1
-  - 9.6.13-1
-  - 10.8-1
-  - 11.3-1
+  - 9.5
+  - 9.6
+  - 10
+  - 11
 freebsd_postgresql_version: 11
 development_postgresql_version: 11.1
 exclude:

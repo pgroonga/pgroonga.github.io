@@ -40,6 +40,10 @@ See a document for your platform in the followings:
 
     * 7
 
+  * [Amazon Linux](amazon-linux.html)
+
+    * 2
+
   * [FreeBSD](freebsd.html)
 
   * [macOS](macos.html)

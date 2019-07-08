@@ -2,7 +2,7 @@
 title: Install on CentOS
 ---
 
-# Install on CnetOS
+# Install on CentOS
 
 This document describes how to install PGroonga on CentOS.
 

@@ -16,8 +16,8 @@ msgstr ""
 "title: CentOSにインストール\n"
 "---"
 
-msgid "# Install on CnetOS"
-msgstr "# CnetOSにインストール"
+msgid "# Install on CentOS"
+msgstr "# CentOSにインストール"
 
 msgid "This document describes how to install PGroonga on CentOS."
 msgstr "このドキュメントはPGroongaをCentOSにインストールする方法を説明します。"

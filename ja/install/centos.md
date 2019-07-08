@@ -2,7 +2,7 @@
 title: CentOSにインストール
 ---
 
-# CnetOSにインストール
+# CentOSにインストール
 
 このドキュメントはPGroongaをCentOSにインストールする方法を説明します。
 

@@ -18,7 +18,7 @@ You can use the following instruction to install PGroonga on Amazon Linux 2.
 
 Install `postgresql10` package:
 
-```text
+```console
 % wget https://yum.postgresql.org/10/redhat/rhel-7-x86_64/postgresql10-server-10.9-1PGDG.rhel7.x86_64.rpm
 % wget https://yum.postgresql.org/10/redhat/rhel-7-x86_64/postgresql10-10.9-1PGDG.rhel7.x86_64.rpm
 % wget https://yum.postgresql.org/10/redhat/rhel-7-x86_64/postgresql10-libs-10.9-1PGDG.rhel7.x86_64.rpm
@@ -30,7 +30,7 @@ Install `postgresql10-pgroonga` package:
 
 We enable EPEL repository as below.
 
-```text
+```console
 % sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 % sudo yum install -y epel-release
 % sudo yum-config-manager --enable epel
@@ -38,7 +38,7 @@ We enable EPEL repository as below.
 
 We install yum repository for Groonga.
 
-```text
+```console
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
 ```
 
@@ -46,17 +46,19 @@ We install PGroonga
 
 ```
 % sudo -H yum install -y postgresql10-pgroonga
+```console
+% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version }}-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
-```text
+```console
 % sudo -H yum install -y groonga-tokenizer-mecab
 ```
 
 Run PostgreSQL:
 
-```text
+```console
 % sudo -H /usr/pgsql-10/bin/postgresql-10-setup initdb
 % sudo -H systemctl enable postgresql-10
 % sudo -H systemctl start postgresql-10
@@ -64,7 +66,7 @@ Run PostgreSQL:
 
 Create a database:
 
-```text
+```console
 % sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
@@ -72,7 +74,7 @@ Create a database:
 
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
-```text
+```console
 % sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 

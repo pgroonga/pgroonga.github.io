@@ -13,6 +13,7 @@ windows_postgresql_versions:
   - 10
   - 11
 freebsd_postgresql_version: 11
+amazon_linux_postgresql_version: 10
 development_postgresql_version: 11.1
 exclude:
   - "Rakefile"

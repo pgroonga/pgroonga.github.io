@@ -16,17 +16,17 @@ Here are supported Amazon Linux versions:
 
 You can use the following instruction to install PGroonga on Amazon Linux 2.
 
-Install `postgresql10` package:
+Install `postgresql{{ site.amazon_linux_postgresql_version }}` package:
 
 ```console
-% wget https://yum.postgresql.org/10/redhat/rhel-7-x86_64/postgresql10-server-10.9-1PGDG.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/10/redhat/rhel-7-x86_64/postgresql10-10.9-1PGDG.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/10/redhat/rhel-7-x86_64/postgresql10-libs-10.9-1PGDG.rhel7.x86_64.rpm
+% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-server-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
+% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
+% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-libs-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
 
-% sudo -H yum install -y postgresql10-*.rpm
+% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version }}-*.rpm
 ```
 
-Install `postgresql10-pgroonga` package:
+Install `postgresql{{ site.amazon_linux_postgresql_version }}-pgroonga` package:
 
 We enable EPEL repository as below.
 
@@ -44,8 +44,6 @@ We install yum repository for Groonga.
 
 We install PGroonga
 
-```
-% sudo -H yum install -y postgresql10-pgroonga
 ```console
 % sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version }}-pgroonga
 ```
@@ -59,9 +57,9 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 Run PostgreSQL:
 
 ```console
-% sudo -H /usr/pgsql-10/bin/postgresql-10-setup initdb
-% sudo -H systemctl enable postgresql-10
-% sudo -H systemctl start postgresql-10
+% sudo -H /usr/pgsql-{{ site.amazon_linux_postgresql_version }}/bin/postgresql-{{ site.amazon_linux_postgresql_version }}-setup initdb
+% sudo -H systemctl enable postgresql-{{ site.amazon_linux_postgresql_version }}
+% sudo -H systemctl start postgresql-{{ site.amazon_linux_postgresql_version }}
 ```
 
 Create a database:

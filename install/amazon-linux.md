@@ -36,8 +36,6 @@ We enable EPEL repository as below.
 
 ```console
 % sudo -H yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-% sudo yum install -y epel-release
-% sudo yum-config-manager --enable epel
 ```
 
 We install yum repository for Groonga.

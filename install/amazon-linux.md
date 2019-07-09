@@ -18,6 +18,10 @@ You can use the following instruction to install PGroonga on Amazon Linux 2.
 
 Install `postgresql{{ site.amazon_linux_postgresql_version }}` package:
 
+We can't use PostgreSQL's Yum repository because of PostgreSQL doesn't provide a package for Amazon Linux.
+
+Therefore, we install PostgreSQL's RPM directly as below.
+
 ```console
 % wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-server-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
 % wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm

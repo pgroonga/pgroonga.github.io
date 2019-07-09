@@ -360,9 +360,52 @@ A search of synonyms uses [`pgroonga_query_expand` function](../reference/functi
 
 For example, If we search synonyms of "window", we as below.
 
+First, we make a synonyms table.
+
 ```sql
-pgroonga_query_expand('synonyms', 'term', 'synonyms', 'window')
+CREATE TABLE synonyms (
+  term text PRIMARY KEY,
+  synonyms text[]
+);
+
+CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
 ```
+
+Second, we register synonyms into synonyms table.
+
+```sql
+INSERT INTO synonyms (term, synonyms) VALUES ('Window', ARRAY['Window', 'display', 'video display']);
+INSERT INTO synonyms (term, synonyms) VALUES ('display', ARRAY['display', 'Window', 'video display']);
+INSERT INTO synonyms (term, synonyms) VALUES ('video display', ARRAY['video display', 'Window', 'display']);
+```
+
+Third, we execute full-text-search with synonyms.
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+INSERT INTO memos VALUES (1, 'Window for PC is very low price!!!');
+INSERT INTO memos VALUES (2, 'Hight quality video display low price!');
+INSERT INTO memos VALUES (3, 'This is junk display.');
+
+CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
+
+SELECT * FROM memos
+  WHERE
+    content &@~
+      pgroonga_query_expand('synonyms', 'term', 'synonyms', 'Window');
+
+ id |                content                 
+----+----------------------------------------
+  1 | Window for PC is very low price!!!
+  2 | Hight quality video display low price!
+  3 | This is junk display.
+(3 rows)
+```
+
+We use [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) to use synonyms search.
 
 See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
 

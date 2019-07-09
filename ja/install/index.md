@@ -40,6 +40,10 @@ title: インストール
 
     * 7
 
+  * [Amazon Linux](amazon-linux.html)
+
+    * 2
+
   * [FreeBSD](freebsd.html)
 
   * [macOS](macos.html)

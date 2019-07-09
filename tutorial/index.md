@@ -361,7 +361,7 @@ A search of synonyms uses [`pgroonga_query_expand` function](../reference/functi
 For example, If we search synonyms of "window", we as below.
 
 ```sql
-pgroonga.query_expand('synonyms', 'term', 'synonyms', 'window')
+pgroonga_query_expand('synonyms', 'term', 'synonyms', 'window')
 ```
 
 See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.

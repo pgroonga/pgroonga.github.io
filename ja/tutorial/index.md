@@ -116,7 +116,8 @@ SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';
 -- (2 rows)
 ```
 
-クエリー構文はWeb検索エンジンの構文と似ています。たとえば、`OR`を使うと複数のキーワードでの全文検索結果をマージできます。上の例ではマージされた結果が返ってきています。`PGroonga`または`PostgreSQL`を含むレコードがマージされた結果になります。
+クエリーの構文はWeb検索エンジンで使われている構文と似ています。( `keyword1 OR keyword2`は`OR`検索で、`keyword1 keyword2`は`AND` 検索です)
+たとえば、`OR`を使うと複数のキーワードでの全文検索結果をマージできます。上の例ではマージされた結果が返ってきています。`PGroonga`または`PostgreSQL`を含むレコードがマージされた結果になります。
 
 クエリー構文の詳細は[Groongaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を参照してください。
 

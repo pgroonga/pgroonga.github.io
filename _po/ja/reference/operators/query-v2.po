@@ -35,8 +35,11 @@ msgstr "`&@~`演算子はクエリーを使って全文検索を実行します�
 
 msgid ""
 "Query's syntax is similar to syntax that is used in Web search engine. For exa"
-"mple, you can use OR search by `KEYWORD1 OR KEYWORD2` in query."
-msgstr "クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。"
+"mple, you can use OR search by `KEYWORD1 OR KEYWORD2` in query,\n"
+"and you can use AND search by `KEYWORD1 KEYWORD2` in query."
+msgstr ""
+"クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。\n"
+"クエリーで`キーワード1 キーワード2`と書くとAND検索できます。"
 
 msgid "## Syntax"
 msgstr "## 構文"

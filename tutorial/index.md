@@ -116,7 +116,8 @@ SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';
 -- (2 rows)
 ```
 
-Query syntax is similar to syntax of Web search engine. For example, you can use `OR` to merge result sets of performing full text search by two or more words. In the above example, you get a merged result set. The merged result set has records that includes `PGroonga` or `PostgreSQL`.
+Query syntax is similar to syntax of Web search engine ( `keyword1 OR keyword2` means `OR` search and `keyword1 keyword2` means `AND` search ).
+For example, you can use `OR` to merge result sets of performing full text search by two or more words. In the above example, you get a merged result set. The merged result set has records that includes `PGroonga` or `PostgreSQL`.
 
 See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for full query syntax.
 

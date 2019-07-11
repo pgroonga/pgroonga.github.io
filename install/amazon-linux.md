@@ -16,21 +16,21 @@ Here are supported Amazon Linux versions:
 
 You can use the following instruction to install PGroonga on Amazon Linux 2.
 
-Install `postgresql{{ site.amazon_linux_postgresql_version }}` package:
+Install `postgresql{{ site.amazon_linux_postgresql_version.major }}` package:
 
 We can't use PostgreSQL's Yum repository because of PostgreSQL doesn't provide a package for Amazon Linux.
 
 Therefore, we install PostgreSQL's RPM directly as below.
 
 ```console
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-server-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-libs-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
+% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version.major }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version.major }}-server-{{ site.amazon_linux_postgresql_version.package }}.rhel7.x86_64.rpm
+% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version.major }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version.major }}-{{ site.amazon_linux_postgresql_version.package }}.rhel7.x86_64.rpm
+% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version.major }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version.major }}-libs-{{ site.amazon_linux_postgresql_version.package }}.rhel7.x86_64.rpm
 
-% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version }}-*.rpm
+% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version.major }}-*.rpm
 ```
 
-Install `postgresql{{ site.amazon_linux_postgresql_version }}-pgroonga` package:
+Install `postgresql{{ site.amazon_linux_postgresql_version.major }}-pgroonga` package:
 
 We enable EPEL repository as below.
 
@@ -47,7 +47,7 @@ We install yum repository for Groonga.
 We install PGroonga
 
 ```console
-% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version }}-pgroonga
+% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version.major }}-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -59,9 +59,9 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 Run PostgreSQL:
 
 ```console
-% sudo -H /usr/pgsql-{{ site.amazon_linux_postgresql_version }}/bin/postgresql-{{ site.amazon_linux_postgresql_version }}-setup initdb
-% sudo -H systemctl enable postgresql-{{ site.amazon_linux_postgresql_version }}
-% sudo -H systemctl start postgresql-{{ site.amazon_linux_postgresql_version }}
+% sudo -H /usr/pgsql-{{ site.amazon_linux_postgresql_version.major }}/bin/postgresql-{{ site.amazon_linux_postgresql_version.major }}-setup initdb
+% sudo -H systemctl enable postgresql-{{ site.amazon_linux_postgresql_version.major }}
+% sudo -H systemctl start postgresql-{{ site.amazon_linux_postgresql_version.major }}
 ```
 
 Create a database:

@@ -25,6 +25,10 @@ If you have useful information that isn't listed in this page, please send a pul
 
   * [How to use on `jsonb` type column](jsonb.html)
 
+## How to synonyms search
+
+  * [How to synonyms search](synonyms.html)
+
 ## ...
 
   * ...

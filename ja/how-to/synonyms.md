@@ -96,6 +96,8 @@ DELETE synonyms WHERE term = 'ウィンドウ';
 
 同義語の検索には、[`pgroonga_query_expand`関数](../reference/functions/pgroonga-query-expand.html)を使います。
 
+詳細は[`pgroonga_query_expand`関数](../reference/functions/pgroonga-query-expand.html)を参照してください。
+
 例えば、「ウィンドウ」の同義語を検索する場合、以下のようにします。
 
 第一に、同義語テーブルを作成します。
@@ -143,6 +145,3 @@ SELECT * FROM memos
 (3 rows)
 ```
 
-同義語の検索には、[`pgroonga_query_expand`関数](../reference/functions/pgroonga-query-expand.html)を使います。
-
-詳細は[`pgroonga_query_expand`関数](../reference/functions/pgroonga-query-expand.html)を参照してください。

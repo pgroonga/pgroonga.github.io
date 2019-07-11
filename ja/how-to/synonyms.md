@@ -76,10 +76,8 @@ INSERT INTO synonyms (term, synonyms) VALUES ('偽物', ARRAY['偽物', 'コピ�
 既に存在するレコードを修正したい場合は、それらを更新します。例えば、「ウィンドウ」を「ウインドウ」に修正したい場合、以下のようにします。
 
 ```sql
-UPDATE synonyms SET synonyms = array_append(array_remove(synonyms, 'ウインドウ'), 'ウィンドウ') WHERE term = 'ディスプレイ';
-UPDATE synonyms SET synonyms = array_append(array_remove(synonyms, 'ウインドウ'), 'ウィンドウ') WHERE term = 'ビデオディスプレイ';
-UPDATE synonyms SET synonyms = array_append(array_remove(synonyms, 'ウインドウ'), 'ウィンドウ') WHERE term = 'ウインドウ';
-UPDATE synonyms SET synonyms = array_append(array_remove(term, 'ウインドウ'), 'ウィンドウ') WHERE term = 'ウインドウ';
+UPDATE synonyms SET synonyms = array_replace(synonyms, 'ウィンドウ', 'ウインドウ') WHERE term = 'ディスプレイ' OR term = 'ビデオディスプレイ' OR term = 'ウィンドウ';
+UPDATE synonyms SET term = 'ウィンドウ' WHERE term = 'ウインドウ';
 ```
 
 #### 同義語の削除
@@ -87,8 +85,7 @@ UPDATE synonyms SET synonyms = array_append(array_remove(term, 'ウインドウ'
 同義語を削除したい場合は、`synonyms`からレコードを削除します。例えば、synonymsから「ウィンドウ」を削除したい場合は、以下のようにします。
 
 ```sql
-UPDATE synonyms SET synonyms = array_remove(synonyms, 'ウィンドウ') WHERE term = 'ディスプレイ';
-UPDATE synonyms SET synonyms = array_remove(synonyms, 'ウィンドウ') WHERE term = 'ビデオディスプレイ';
+UPDATE synonyms SET synonyms = array_remove(synonyms, 'ウィンドウ');
 DELETE synonyms WHERE term = 'ウィンドウ';
 ```
 

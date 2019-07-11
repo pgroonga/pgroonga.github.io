@@ -82,10 +82,8 @@ If we want to modify an existing record, we update one.
 For example, if we want to modify "Windows" to "Window", we as below.
 
 ```sql
-UPDATE synonyms SET synonyms = array_append(array_remove(synonyms, 'Windows'), 'Window') WHERE term = 'display';
-UPDATE synonyms SET synonyms = array_append(array_remove(synonyms, 'Windows'), 'Window') WHERE term = 'video display';
-UPDATE synonyms SET synonyms = array_append(array_remove(synonyms, 'Windows'), 'Window') WHERE term = 'Windows';
-UPDATE synonyms SET synonyms = array_append(array_remove(term, 'Windows'), 'Window') WHERE term = 'Windows';
+UPDATE synonyms SET synonyms = array_replace(synonyms, 'Windows', 'Window') WHERE term = 'display' OR term = 'video display' OR term = 'Windows';
+UPDATE synonyms SET term = 'Window' WHERE term = 'Windows';
 ```
 
 #### Delete synonyms
@@ -94,14 +92,15 @@ If we want to delete synonyms, we can delete record from `synonyms`.
 For example, If we want to delete "Window" from synonyms, we as below.
 
 ```sql
-UPDATE synonyms SET synonyms = array_remove(synonyms, 'Window') WHERE term = 'display';
-UPDATE synonyms SET synonyms = array_remove(synonyms, 'Window') WHERE term = 'video display';
+UPDATE synonyms SET synonyms = array_remove(synonyms, 'Window');
 DELETE synonyms WHERE term = 'Window';
 ```
 
 ### How to search of synonyms
 
 A search of synonyms uses [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html).
+
+See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
 
 For example, If we search synonyms of "window", we as below.
 
@@ -150,6 +149,3 @@ SELECT * FROM memos
 (3 rows)
 ```
 
-We use [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) to use synonyms search.
-
-See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.

@@ -20,14 +20,12 @@ Install `postgresql{{ site.amazon_linux_postgresql_version.major }}` package:
 
 We can't use PostgreSQL's Yum repository because of PostgreSQL doesn't provide a package for Amazon Linux.
 
-Therefore, we install PostgreSQL's RPM directly as below.
+Therefore, we modify PostgreSQL's `.repo` file as below.
 
 ```console
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version.major }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version.major }}-server-{{ site.amazon_linux_postgresql_version.package }}.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version.major }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version.major }}-{{ site.amazon_linux_postgresql_version.package }}.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version.major }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version.major }}-libs-{{ site.amazon_linux_postgresql_version.package }}.rhel7.x86_64.rpm
-
-% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version.major }}-*.rpm
+% wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+% sudo rpm -Uvh --nodeps pgdg-redhat-repo-latest.noarch.rpm
+% sudo sed --in-place -e "s/\$releasever/7/g" /etc/yum.repos.d/pgdg-redhat-all.repo
 ```
 
 Install `postgresql{{ site.amazon_linux_postgresql_version.major }}-pgroonga` package:

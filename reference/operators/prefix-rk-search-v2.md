@@ -103,6 +103,8 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
 
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
+  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array of prefixes
+
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
 [groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix_rk_search.html
@@ -114,5 +116,7 @@ SELECT * FROM tag_readings WHERE katakana &^~ 'ピージー';
 [prefix-search-v2]:prefix-search-v2.html
 
 [prefix-search-in-v2]:prefix-search-in-v2.html
+
+[not-prefix-search-in-v2]:not-prefix-search-in-v2.html
 
 [prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html

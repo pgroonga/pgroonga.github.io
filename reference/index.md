@@ -110,6 +110,10 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.1. Use [`&^|` operator][prefix-search-in-v2] instead.
 
+  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array of prefixes
+
+    * Since 2.2.1.
+
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
   * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
@@ -573,6 +577,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html
 [prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
+[not-prefix-search-in-v2]:operators/not-prefix-search-in-v2.html
 [similar-search-v2]:operators/similar-search-v2.html
 [script-v2]:operators/script-v2.html
 [match-jsonb-v2]:operators/match-jsonb-v2.html

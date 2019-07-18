@@ -74,11 +74,14 @@ SELECT * FROM tags WHERE name &^ 'pg';
 
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
+  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array of prefixes
+
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
 [prefix-rk-search-v2]:prefix-rk-search-v2.html
 
 [prefix-search-in-v2]:prefix-search-in-v2.html
 
-[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html
+[not-prefix-search-in-v2]:not-prefix-search-in-v2.html
 
+[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html

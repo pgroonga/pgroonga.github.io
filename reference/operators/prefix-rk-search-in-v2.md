@@ -101,9 +101,11 @@ SELECT * FROM tags WHERE reading &^~| ARRAY['ピージー', 'ポス'];
 
   * [`&^` operator][prefix-search-v2]: Prefix search
 
+  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
+
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
-  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
+  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array of prefixes
 
 [groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix_rk_search.html
 
@@ -113,6 +115,8 @@ SELECT * FROM tags WHERE reading &^~| ARRAY['ピージー', 'ポス'];
 
 [prefix-search-v2]:prefix-search-v2.html
 
+[prefix-rk-search-v2]:prefix-rk-search-v2.html
+
 [prefix-search-in-v2]:prefix-search-in-v2.html
 
-[prefix-rk-search-v2]:prefix-rk-search-v2.html
+[not-prefix-search-in-v2]:not-prefix-search-in-v2.html

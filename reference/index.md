@@ -120,6 +120,10 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.1. Use [`&^~|` operator][prefix-rk-search-in-v2] instead.
 
+  * [`@>` operator][contain-array]: Return `true` only if the target value contains all elements of the query array
+
+    * Since 2.2.1.
+
 #### `pgroonga_text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
   * [`LIKE` operator][like]
@@ -215,6 +219,10 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
+
+  * [`@>` operator][contain-array]: Return `true` only if the target value contains all elements of the query array
+
+    * Since 2.2.1.
 
 #### `pgroonga_varchar_full_text_search_ops_v2` operator class {#varchar-full-text-search-ops-v2}
 
@@ -566,6 +574,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [query]:operators/query.html
 [regular-expression]:operators/regular-expression.html
 
+[contain-array]:operators/contain-array.html
 [match-v2]:operators/match-v2.html
 [query-v2]:operators/query-v2.html
 [match-in-v2]:operators/match-in-v2.html

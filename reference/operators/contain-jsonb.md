@@ -1,9 +1,9 @@
 ---
-title: "@> operator"
+title: "@> operator for jsonb type"
 upper_level: ../
 ---
 
-# `@>` operator
+# `@>` operator for `jsonb` type
 
 ## Summary
 

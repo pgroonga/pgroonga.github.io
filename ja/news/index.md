@@ -4,7 +4,33 @@ title: おしらせ
 
 # おしらせ
 
+## 2.2.1: 2019-07-19 {#version-2-2-1}
+
+### 改良
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.4.
+
+  * [[`&~|` operator][regular-expression-in-v2]] Added.
+
+  * [[`!&^|` operator][not-prefix-search-in-v2]] Added.
+
+  * Added support for [`@>` operator][contain-array] to the following
+    operator classes.
+
+    * [`pgroonga_text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]
+
+    * [`pgroonga_varchar_array_term_search_ops_v2` operator class][varchar-array-term-search-ops-v2]
+
+  * [[`pgroonga.query_expand` function][query-expand]] Added support
+    for synonyms only data.
+
+### 修正
+
+  * Fix a bug that index only scan is used for nullable column.
+
 ## 2.2.0: 2019-06-05 {#version-2-2-0}
+
+### 改良
 
   * Added support for Groonga 9.0.3.
 
@@ -15,6 +41,8 @@ title: おしらせ
     [`pgroonga_command` function][command].
 
 ## 2.1.9: 2019-05-08 {#version-2-1-9}
+
+### 改良
 
   * Added support for Groonga 9.0.2.
 
@@ -27,6 +55,8 @@ title: おしらせ
   * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 14.04.
 
 ## 2.1.8: 2019-01-11 {#version-2-1-8}
+
+### 改良
 
   * [[Windows][windows]] Upgraded bundled Groonga to 8.1.0.
 
@@ -1165,6 +1195,7 @@ The first release!!!
 [jsonb-ops-v2]:../reference/#jsonb-ops-v2
 [jsonb-full-text-search-ops-v2]:../reference/#jsonb-full-text-search-ops-v2
 
+[contain-array]:../reference/operators/contain-array.html
 [match-v2]:../reference/operators/match-v2.html
 [contain-term-v2]:../reference/operators/contain-term-v2.html
 [query-v2]:../reference/operators/query-v2.html
@@ -1175,10 +1206,12 @@ The first release!!!
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:../reference/operators/prefix-search-in-v2.html
 [prefix-rk-search-in-v2]:../reference/operators/prefix-rk-search-in-v2.html
+[not-prefix-search-in-v2]:../reference/operators/not-prefix-search-in-v2.html
 [match-jsonb-v2]:../reference/operators/match-jsonb-v2.html
 [query-jsonb-v2]:../reference/operators/query-jsonb-v2.html
 [script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
 [regular-expression-v2]:../reference/operators/regular-expression-v2.html
+[regular-expression-in-v2]:../reference/operators/regular-expression-in-v2.html
 
 [query-expand]:../reference/functions/pgroonga-query-expand.html
 [snippet-html]:../reference/functions/pgroonga-snippet-html.html

@@ -19,6 +19,47 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.2.1: 2019-07-19 {#version-2-2-1}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.4."
+msgstr ""
+
+msgid "  * [[`&~|` operator][regular-expression-in-v2]] Added."
+msgstr ""
+
+msgid "  * [[`!&^|` operator][not-prefix-search-in-v2]] Added."
+msgstr ""
+
+msgid ""
+"  * Added support for [`@>` operator][contain-array] to the following\n"
+"    operator classes."
+msgstr ""
+
+msgid ""
+"    * [`pgroonga_text_array_term_search_ops_v2` operator class][text-array-ter"
+"m-search-ops-v2]"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga_varchar_array_term_search_ops_v2` operator class][varchar-arr"
+"ay-term-search-ops-v2]"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.query_expand` function][query-expand]] Added support\n"
+"    for synonyms only data."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * Fix a bug that index only scan is used for nullable column."
+msgstr ""
+
 msgid "## 2.2.0: 2019-06-05 {#version-2-2-0}"
 msgstr ""
 
@@ -67,9 +108,6 @@ msgstr ""
 msgid "## 2.1.7: 2018-12-25 {#version-2-1-7}"
 msgstr ""
 
-msgid "### Improvements"
-msgstr "### 改良"
-
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.9."
 msgstr ""
 
@@ -95,9 +133,6 @@ msgid ""
 "  * [[`pgroonga_vacuum` function][vacuum]] Added a new function that\n"
 "    removes garbage in Groonga explicitly."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid "  * Fixed a crash bug on error in `SELECT`."
 msgstr ""
@@ -1655,6 +1690,7 @@ msgid ""
 msgstr ""
 
 msgid ""
+"[contain-array]:../reference/operators/contain-array.html\n"
 "[match-v2]:../reference/operators/match-v2.html\n"
 "[contain-term-v2]:../reference/operators/contain-term-v2.html\n"
 "[query-v2]:../reference/operators/query-v2.html\n"
@@ -1665,10 +1701,13 @@ msgid ""
 "[prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html\n"
 "[prefix-search-in-v2]:../reference/operators/prefix-search-in-v2.html\n"
 "[prefix-rk-search-in-v2]:../reference/operators/prefix-rk-search-in-v2.html\n"
+"[not-prefix-search-in-v2]:../reference/operators/not-prefix-search-in-v2.html\n"
 "[match-jsonb-v2]:../reference/operators/match-jsonb-v2.html\n"
 "[query-jsonb-v2]:../reference/operators/query-jsonb-v2.html\n"
 "[script-jsonb-v2]:../reference/operators/script-jsonb-v2.html\n"
-"[regular-expression-v2]:../reference/operators/regular-expression-v2.html"
+"[regular-expression-v2]:../reference/operators/regular-expression-v2.html\n"
+"[regular-expression-in-v2]:../reference/operators/regular-expression-in-v2.htm"
+"l"
 msgstr ""
 
 msgid ""

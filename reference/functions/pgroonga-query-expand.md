@@ -26,7 +26,7 @@ text pgroonga_query_expand(table_name,
 
 `table_name` is a `text` type value. It's an existing table name that stores synonyms.
 
-`term_column_name` is a `text` type value. It's an column name that stores term to be expanded in the `table_name` table. The column is `text` type value.
+`term_column_name` is a `text` type value. It's an column name that stores term to be expanded in the `table_name` table. The column is `text` type or `text[]` type value.
 
 `synonyms_column_name` is a `text` type value. It's an column name that stores synonyms of the `term` column. The column is `text[]` type value.
 
@@ -52,6 +52,14 @@ CREATE INDEX synonyms_term
 You can use all index access methods that support `=` for `text` type such as `btree`. But it's recommended that you use PGroonga. Because PGroonga supports value normalized `=` (including case insensitive comparison) for `text`. Value normalized `=` is useful for query expansion.
 
 ## Usage
+
+You can use the following styles:
+
+  * A term to multiple synonyms mapping
+
+  * Synonym groups
+
+### A term to multiple synonyms mapping
 
 Here are sample schema and data:
 
@@ -82,6 +90,40 @@ SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
 --                   query_expand                   
 -- -------------------------------------------------
 --  ((PGroonga) OR (Groonga PostgreSQL)) OR mroonga
+-- (1 row)
+```
+
+### Synonym groups
+
+Here are sample schema and data:
+
+```sql
+CREATE TABLE synonym_groups (
+  synonyms text[]
+);
+
+CREATE INDEX synonym_groups_synonyms
+          ON synonym_groups
+       USING pgroonga (synonyms pgroonga_text_array_term_search_ops_v2);
+
+INSERT INTO synonym_groups
+  VALUES (ARRAY['PGroonga', 'Groonga']);
+```
+
+In this sample, all of `"PGroonga"` and `"pgroonga"` in query are expanded because PGroonga index is used:
+
+```sql
+SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
+                             'PGroonga OR Mroonga') AS query_expand;
+--              query_expand             
+-- --------------------------------------
+--  ((PGroonga) OR (Groonga)) OR Mroonga
+-- (1 row)
+SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
+                             'pgroonga OR mroonga') AS query_expand;
+--              query_expand             
+-- --------------------------------------
+--  ((PGroonga) OR (Groonga)) OR mroonga
 -- (1 row)
 ```
 

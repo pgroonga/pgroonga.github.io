@@ -26,7 +26,7 @@ text pgroonga_query_expand(table_name,
 
 `table_name`は`text`型の値です。同義語を格納している既存のテーブルの名前を指定します。
 
-`term_column_name`は`text`型の値です。`table_name`テーブル内の展開対象の単語を格納しているカラムの名前を指定します。このカラムは`text`型のカラムです。
+`term_column_name`は`text`型の値です。`table_name`テーブル内の展開対象の単語を格納しているカラムの名前を指定します。このカラムは`text`型か`text[]`型のカラムです。
 
 `synonyms_column_name`は`text`型の値です。`term`カラムの同義語を格納しているカラム名を指定します。このカラムは`text[]`型のカラムです。
 
@@ -49,9 +49,17 @@ CREATE INDEX synonyms_term
 
 `pgroonga_query_escape`関数はインデックスなしでも動きますが、インデックスがあるとより高速に動きます。
 
-`btree`のように`text`型の`=`に対応しているインデックスアクセスメソッドであればどのインデックスアクセスメソッドでも使えます。しかし、PGroongaを使うことをオススメします。なぜなら、PGroongaは`text`の値を正規化した`=`（大文字小文字を無視した比較を含む）に対応しているからです。クエリー展開時は値を正規化した`=`が有用です。
+`btree`のように`text`型の`=`に対応しているインデックスアクセスメソッドであればどのインデックスアクセスメソッドでも使えます。しかし、PGroongaを使うことをオススメします。なぜなら、PGroongaは`text`の値を正規化した`=`（大文字小文字を無視した比較を含む）に対応しているからです。クエリー展開時は値を正規化した`=`は便利です。
 
 ## 使い方
+
+次のスタイルを使えます。
+
+  * 1単語を複数の同義語にマッピング
+
+  * 同義語グループ
+
+### 1単語を複数の同義語にマッピング
 
 サンプルスキーマとデータは次の通りです。
 
@@ -82,6 +90,40 @@ SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
 --                   query_expand                   
 -- -------------------------------------------------
 --  ((PGroonga) OR (Groonga PostgreSQL)) OR mroonga
+-- (1 row)
+```
+
+### 同義語グループ
+
+サンプルスキーマとデータは次の通りです。
+
+```sql
+CREATE TABLE synonym_groups (
+  synonyms text[]
+);
+
+CREATE INDEX synonym_groups_synonyms
+          ON synonym_groups
+       USING pgroonga (synonyms pgroonga_text_array_term_search_ops_v2);
+
+INSERT INTO synonym_groups
+  VALUES (ARRAY['PGroonga', 'Groonga']);
+```
+
+このサンプルではPGroongaインデックスを使っているのでクエリー中の`"PGroonga"`も`"pgroonga"`もすべて展開されます。
+
+```sql
+SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
+                             'PGroonga OR Mroonga') AS query_expand;
+--              query_expand             
+-- --------------------------------------
+--  ((PGroonga) OR (Groonga)) OR Mroonga
+-- (1 row)
+SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
+                             'pgroonga OR mroonga') AS query_expand;
+--              query_expand             
+-- --------------------------------------
+--  ((PGroonga) OR (Groonga)) OR mroonga
 -- (1 row)
 ```
 

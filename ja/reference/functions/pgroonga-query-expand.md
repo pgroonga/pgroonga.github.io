@@ -95,6 +95,8 @@ SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
 
 ### 同義語グループ
 
+2.2.1で追加。
+
 サンプルスキーマとデータは次の通りです。
 
 ```sql

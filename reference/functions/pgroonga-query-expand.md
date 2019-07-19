@@ -95,6 +95,8 @@ SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
 
 ### Synonym groups
 
+Since 2.2.1.
+
 Here are sample schema and data:
 
 ```sql

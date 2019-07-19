@@ -181,6 +181,9 @@ msgstr ""
 msgid "### Synonym groups"
 msgstr "### 同義語グループ"
 
+msgid "Since 2.2.1."
+msgstr "2.2.1で追加。"
+
 msgid ""
 "```sql\n"
 "CREATE TABLE synonym_groups (\n"

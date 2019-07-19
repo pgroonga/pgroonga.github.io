@@ -138,8 +138,8 @@ msgstr "  * 1単語を複数の同義語にマッピング"
 msgid "  * Synonym groups"
 msgstr "  * 同義語グループ"
 
-msgid "### A term to multiple synonyms mapping"
-msgstr "### 1単語を複数の同義語にマッピング"
+msgid "### A term to multiple synonyms mapping {#usage-term-to-synonyms}"
+msgstr "### 1単語を複数の同義語にマッピング {#usage-term-to-synonyms}"
 
 msgid "Here are sample schema and data:"
 msgstr "サンプルスキーマとデータは次の通りです。"
@@ -178,8 +178,8 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "### Synonym groups"
-msgstr "### 同義語グループ"
+msgid "### Synonym groups {#usage-synonym-groups}"
+msgstr "### 同義語グループ {#usage-synonym-groups}"
 
 msgid "Since 2.2.1."
 msgstr "2.2.1で追加。"

@@ -59,7 +59,7 @@ You can use the following styles:
 
   * Synonym groups
 
-### A term to multiple synonyms mapping
+### A term to multiple synonyms mapping {#usage-term-to-synonyms}
 
 Here are sample schema and data:
 
@@ -93,7 +93,7 @@ SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
 -- (1 row)
 ```
 
-### Synonym groups
+### Synonym groups {#usage-synonym-groups}
 
 Since 2.2.1.
 

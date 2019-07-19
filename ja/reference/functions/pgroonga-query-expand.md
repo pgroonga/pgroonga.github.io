@@ -59,7 +59,7 @@ CREATE INDEX synonyms_term
 
   * 同義語グループ
 
-### 1単語を複数の同義語にマッピング
+### 1単語を複数の同義語にマッピング {#usage-term-to-synonyms}
 
 サンプルスキーマとデータは次の通りです。
 
@@ -93,7 +93,7 @@ SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',
 -- (1 row)
 ```
 
-### 同義語グループ
+### 同義語グループ {#usage-synonym-groups}
 
 2.2.1で追加。
 

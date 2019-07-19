@@ -110,6 +110,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 1.2.1から非推奨です。代わりに[`&^|`演算子][prefix-search-in-v2]を使ってください。
 
+  * [`!&^|`演算子][not-prefix-search-in-v2]：プレフィックスの配列での否定前方一致検索
+
+    * 2.2.1で追加。
+
   * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
 
   * [`&^~>`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
@@ -127,6 +131,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`@~`演算子][regular-expression]：正規表現を使った検索
 
     * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
+
+  * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索
+
+    * 2.2.1で追加。
 
 ### `text[]`用
 
@@ -189,6 +197,11 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索
 
   * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
+
+  * [`@>`演算子][contain-array]：配列を使った包含検索
+
+
+    * 2.2.1で追加。
 
 ### `varchar`用
 
@@ -262,6 +275,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
 
+  * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索
+
+    * 2.2.1で追加。
+
 ### `varchar[]`用
 
 #### `pgroonga_varchar_array_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-array-term-search-ops-v2}
@@ -271,6 +288,11 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`%%`演算子][contain-term]：検索対象の単語の配列に指定した単語が含まれているかをチェック
 
     * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。
+
+  * [`@>`演算子][contain-array]：配列を使った包含検索
+
+
+    * 2.2.1で追加。
 
 ### 真偽値、数値、タイムスタンプ用
 
@@ -563,17 +585,20 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [query]:operators/query.html
 [regular-expression]:operators/regular-expression.html
 
+[contain-array]:operators/contain-array.html
 [match-v2]:operators/match-v2.html
 [query-v2]:operators/query-v2.html
 [match-in-v2]:operators/match-in-v2.html
 [query-in-v2]:operators/query-in-v2.html
 [regular-expression-v2]:operators/regular-expression-v2.html
+[regular-expression-in-v2]:operators/regular-expression-in-v2.html
 [contain-term-v2]:operators/contain-term-v2.html
 [contain-term]:operators/contain-term.html
 [prefix-search-v2]:operators/prefix-search-v2.html
 [prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html
 [prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
+[not-prefix-search-in-v2]:operators/not-prefix-search-in-v2.html
 [similar-search-v2]:operators/similar-search-v2.html
 [script-v2]:operators/script-v2.html
 [match-jsonb-v2]:operators/match-jsonb-v2.html

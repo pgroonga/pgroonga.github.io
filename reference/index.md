@@ -120,10 +120,6 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Deprecated since 1.2.1. Use [`&^~|` operator][prefix-rk-search-in-v2] instead.
 
-  * [`@>` operator][contain-array]: Return `true` only if the target value contains all elements of the query array
-
-    * Since 2.2.1.
-
 #### `pgroonga_text_regexp_ops_v2` operator class {#text-regexp-ops-v2}
 
   * [`LIKE` operator][like]
@@ -135,6 +131,10 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
   * [`@~` operator][regular-expression]: Search by a regular expression
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
+
+  * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular expressions
+
+    * Since 2.2.1.
 
 ### For `text[]`
 
@@ -198,6 +198,10 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
+  * [`@>` operator][contain-array]: Contained search by an array
+
+    * Since 2.2.1.
+
 ### For `varchar`
 
 #### `pgroonga_varchar_term_search_ops_v2` operator class (default) {#varchar-term-search-ops-v2}
@@ -219,10 +223,6 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
   * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes
 
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
-
-  * [`@>` operator][contain-array]: Return `true` only if the target value contains all elements of the query array
-
-    * Since 2.2.1.
 
 #### `pgroonga_varchar_full_text_search_ops_v2` operator class {#varchar-full-text-search-ops-v2}
 
@@ -274,6 +274,10 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
 
+  * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular expressions
+
+    * Since 2.2.1.
+
 ### For `varchar[]`
 
 #### `pgroonga_varchar_array_term_search_ops_v2` operator class (default) {#varchar-array-term-search-ops-v2}
@@ -283,6 +287,10 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
   * [`%%` operator][contain-term]: Check whether a term is included in an array of terms
 
     * Don't use this operator for newly written code. It's just for backward compatibility.
+
+  * [`@>` operator][contain-array]: Contained search by an array
+
+    * Since 2.2.1.
 
 ### For boolean, numbers and timestamps
 
@@ -580,6 +588,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [match-in-v2]:operators/match-in-v2.html
 [query-in-v2]:operators/query-in-v2.html
 [regular-expression-v2]:operators/regular-expression-v2.html
+[regular-expression-in-v2]:operators/regular-expression-in-v2.html
 [contain-term-v2]:operators/contain-term-v2.html
 [contain-term]:operators/contain-term.html
 [prefix-search-v2]:operators/prefix-search-v2.html

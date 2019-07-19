@@ -19,9 +19,9 @@ PostgreSQLは次のような組み込みの正規表現演算子を提供して�
 
 `SIMILAR TO`はSQL標準をベースにしています。「POSIX正規表現」はPOSIXをベースにしています。これらはそれぞれ違う正規表現の構文を使います。
 
-PGroongaの`@~`演算子はさらに別の正規表現の構文を使います。`@~`は[Ruby][ruby]で使われている構文を使います。なぜなら、PGroongaはRubyが使っている正規表現エンジンと同じエンジンを使っているからです。そのエンジンは[Onigmo][onigmo]です。完全な構文定義は[Onigmoのドキュメント][onigmo-document]を参照してください。
+この演算子はさらに別の正規表現の構文を使います。この演算子は[Ruby][ruby]で使われている構文を使います。なぜなら、PGroongaはRubyが使っている正規表現エンジンと同じエンジンを使っているからです。そのエンジンは[Onigmo][onigmo]です。完全な構文定義は[Onigmoのドキュメント][onigmo-document]を参照してください。
 
-PGroongaの`@~`演算子はマッチ前に対象文字列を正規化します。これは「POSIX正規表現」の`~*`演算子と似ています。`~*`演算子は大文字小文字の違いを無視してマッチしているかを判断します。
+この演算子はマッチ前に対象文字列を正規化します。これは「POSIX正規表現」の`~*`演算子と似ています。`~*`演算子は大文字小文字の違いを無視してマッチしているかを判断します。
 
 正規化と大文字小文字の違いを無視することは違います。通常、正規化のほうがよりパワフルです。
 
@@ -29,7 +29,7 @@ PGroongaの`@~`演算子はマッチ前に対象文字列を正規化します�
 
 例2：いわゆる全角カタカナも半角カタカナもどちらも全角カタカナに正規化されます。たとえば、「`ア`」（U+30A2 KATAKANA LETTER A）も「`ｱ`」（U+FF71 HALFWIDTH KATAKANA LETTER A）もどちらも「`ア`」（U+30A2 KATAKANA LETTER A）に正規化されます。
 
-`@~`演算子は正規表現パターンは正規化しないことに注意してください。マッチ対象のテキストだけを正規化します。これは正規表現パターンのなかでは正規化された文字だけを使うべきだということです。
+この演算子は正規表現パターンは正規化しないことに注意してください。マッチ対象のテキストだけを正規化します。これは正規表現パターンのなかでは正規化された文字だけを使うべきだということです。
 
 たとえば、パターンに「`Groonga`」を使ってはいけません。そうではなく、「`groonga`」を使うべきです。なぜなら、対象テキスト中の「`G`」は「`g`」に正規化されるからです。対象テキスト中に「`Groonga`」という文字列は決して現れません。
 
@@ -106,6 +106,8 @@ SELECT * FROM memos WHERE content @~ '\Apostgresql';
 
   * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
+  * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索
+
   * [Onigmoの正規表現構文のドキュメント][onigmo-document]
 
   * [Groongaの正規表現サポートに関するドキュメント][groonga-regular-expression]
@@ -124,3 +126,4 @@ SELECT * FROM memos WHERE content @~ '\Apostgresql';
 
 [groonga-regular-expression]:http://groonga.org/ja/docs/reference/regular_expression.html#regular-expression-index
 
+[regular-expression-in-v2]:regular-expression-in-v2.html

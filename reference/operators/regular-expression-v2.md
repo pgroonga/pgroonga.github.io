@@ -19,9 +19,9 @@ PostgreSQL provides the following built-in regular expression operators:
 
 `SIMILAR TO` is based on SQL standard. "POSIX Regular Expression" is based on POSIX. They use different regular expression syntax.
 
-PGroonga's `&~` operator uses another regular expression syntax. `&~` uses syntax that is used in [Ruby][ruby]. Because PGroonga uses the same regular expression engine that is used in Ruby. It's [Onigmo][onigmo]. See [Onigmo document][onigmo-document] for full syntax definition.
+This operator uses another regular expression syntax. This operator uses syntax that is used in [Ruby][ruby]. Because PGroonga uses the same regular expression engine that is used in Ruby. It's [Onigmo][onigmo]. See [Onigmo document][onigmo-document] for full syntax definition.
 
-PGroonga's `&~` operator normalizes target text before matching. It's similar to `~*` operator in "POSIX Regular Expression". It performs case insensitive match.
+This operator normalizes target text before matching. It's similar to `~*` operator in "POSIX Regular Expression". It performs case insensitive match.
 
 Normalization is different from case insensitive. Normally, normalization is more powerful.
 
@@ -29,7 +29,7 @@ Example1: All of "`A`", "`a`", "`Ａ`" (U+FF21 FULLWIDTH LATIN CAPITAL LETTER A)
 
 Example2: Both of full-width Katakana and half-width Katakana are normalized to full-width Katakana. For example, both of "`ア`" (U+30A2 KATAKANA LETTER A) and "`ｱ`" (U+FF71 HALFWIDTH KATAKANA LETTER A) are normalized to "`ア`" (U+30A2 KATAKANA LETTER A).
 
-Note that `&~` operator doesn't normalize regular expression pattern. It only normalizes target text. It means that you must use normalized characters in regular expression pattern.
+Note that this operator doesn't normalize regular expression pattern. It only normalizes target text. It means that you must use normalized characters in regular expression pattern.
 
 For example, you must not use "`Groonga`" as pattern. You must use "`groonga`" as pattern. Because "`G`" in target text is normalized to "`g`". "`Groonga`" is never appeared in target text.
 
@@ -98,11 +98,13 @@ SELECT * FROM memos WHERE content &~ '\Apostgresql';
 
 "`\A`" in "`\Apostgresql`" is a special notation in Ruby regular expression syntax. It means that the beginning of text. The pattern means that "`postgresql`" must be appeared in the beginning of text.
 
-Why is "`PostgreSQL is a ...`" record matched? Remember that `&~` operator normalizes target text before matching. It means that "`PostgreSQL is a ...`" text is normalized to "`postgresql is a ...`" text before matching. The normalized text is started with "`postgresql`". So "`\Apostgresql`" regular expression matches to the record.
+Why is "`PostgreSQL is a ...`" record matched? Remember that this operator normalizes target text before matching. It means that "`PostgreSQL is a ...`" text is normalized to "`postgresql is a ...`" text before matching. The normalized text is started with "`postgresql`". So "`\Apostgresql`" regular expression matches to the record.
 
 "`PGroonga is a PostgreSQL ...`" record isn't matched. It includes "`postgresql`" in normalized text but "`postgresql`" isn't appeared at the beginning of text. So it's not matched.
 
 ## See also
+
+  * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular expressions
 
   * [Onigmo's regular expression syntax document][onigmo-document]
 
@@ -119,3 +121,5 @@ Why is "`PostgreSQL is a ...`" record matched? Remember that `&~` operator norma
 [onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE
 
 [groonga-regular-expression]:http://groonga.org/docs/reference/regular_expression.html#regular-expression-index
+
+[regular-expression-in-v2]:regular-expression-in-v2.html

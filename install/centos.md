@@ -21,9 +21,9 @@ You can use the following instruction to install PGroonga on CentOS 6.
 Install `postgresql-pgroonga` package:
 
 ```text
-% sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
+% sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
-% sudo -H yum install -y postgresql10-pgroonga
+% sudo -H yum install -y postgresql{{ site.latest_postgresql_version }}-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -35,9 +35,9 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 Run PostgreSQL:
 
 ```text
-% sudo -H /sbin/service postgresql-10 initdb
-% sudo -H /sbin/chkconfig postgresql-10 on
-% sudo -H /sbin/service postgresql-10 start
+% sudo -H /sbin/service postgresql-{{ site.latest_postgresql_version }} initdb
+% sudo -H /sbin/chkconfig postgresql-{{ site.latest_postgresql_version }} on
+% sudo -H /sbin/service postgresql-{{ site.latest_postgresql_version }} start
 ```
 
 Create a database:
@@ -65,9 +65,9 @@ You can use the following instruction to install PGroonga on CentOS 7.
 Install `postgresql-pgroonga` package:
 
 ```text
-% sudo -H yum install -y http://yum.postgresql.org/10/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos10-10-2.noarch.rpm
+% sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
-% sudo -H yum install -y postgresql10-pgroonga
+% sudo -H yum install -y postgresql{{ site.latest_postgresql_version }}-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -79,9 +79,9 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 Run PostgreSQL:
 
 ```text
-% sudo -H /usr/pgsql-10/bin/postgresql-10-setup initdb
-% sudo -H systemctl enable postgresql-10
-% sudo -H systemctl start postgresql-10
+% sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
+% sudo -H systemctl enable postgresql-{{ site.latest_postgresql_version }}
+% sudo -H systemctl start postgresql-{{ site.latest_postgresql_version }}
 ```
 
 Create a database:

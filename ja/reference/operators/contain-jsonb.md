@@ -1,9 +1,9 @@
 ---
-title: "@>演算子"
+title: "jsonb型用の@>演算子"
 upper_level: ../
 ---
 
-# `@>`演算子
+# `jsonb`型用の`@>`演算子
 
 ## 概要
 
@@ -32,7 +32,7 @@ column @> query
 
   * `pgroonga_jsonb_ops_v2`：`jsonb`型のデフォルト
 
-  * `pgroonga_jsonb_ops`：`jsonb`用
+  * `pgroonga_jsonb_ops`：`jsonb`型用
 
 ## 使い方
 

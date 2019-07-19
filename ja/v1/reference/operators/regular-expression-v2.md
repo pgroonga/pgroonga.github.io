@@ -100,7 +100,7 @@ SELECT * FROM memos WHERE content &~ '\Apostgresql';
 
 どうして「`PostgreSQLは..`」レコードがマッチしているのでしょうか？`&~`演算子はマッチ前にマッチ対象のテキストを正規化することを思い出してください。つまり、「`PostgreSQLは...`」テキストはマッチ前に「`postgresqlは...`」と正規化されるということです。正規化されたテキストは「`postgresql`」で始まっています。そのため、「`\Apostgresql`」正規表現はこのレコードにマッチします。
 
-"`PGroongaはPostgreSQLの ...`"レコードはマッチしません。このレコードは正規化後のテキストに「`postgresql`」を含んでいますが、「`postgresql`」はテキストの先頭には現れていません。そのためマッチしません。
+「`PGroongaはPostgreSQLの...`」レコードはマッチしません。このレコードは正規化後のテキストに「`postgresql`」を含んでいますが、「`postgresql`」はテキストの先頭には現れていません。そのためマッチしません。
 
 ## 参考
 

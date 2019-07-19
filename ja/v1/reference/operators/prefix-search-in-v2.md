@@ -54,7 +54,7 @@ INSERT INTO tags VALUES ('PGroonga',   'pgrn');
 INSERT INTO tags VALUES ('Mroonga',    'mrn');
 ```
 
-You can perform prefix search with prefixes by `&^|` operator:
+`&^|`演算子でプレフィックスの配列を使った前方一致検索をできます。
 
 ```sql
 SELECT * FROM tags WHERE alias &^| ARRAY['pg', 'mrn'];

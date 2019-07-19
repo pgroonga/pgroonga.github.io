@@ -74,11 +74,14 @@ SELECT * FROM tags WHERE name &^ 'pg';
 
   * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索
 
+  * [`!&^|`演算子][not-prefix-search-in-v2]：プレフィックスの配列での否定前方一致検索
+
   * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
 
 [prefix-rk-search-v2]:prefix-rk-search-v2.html
 
 [prefix-search-in-v2]:prefix-search-in-v2.html
 
-[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html
+[not-prefix-search-in-v2]:not-prefix-search-in-v2.html
 
+[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html

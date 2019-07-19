@@ -165,13 +165,18 @@ msgstr "## 参考"
 msgid "  * [`&^` operator][prefix-search-v2]: Prefix search"
 msgstr "  * [`&^`演算子][prefix-search-v2]：前方一致検索"
 
+msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
+msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
+
 msgid ""
 "  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefix"
 "es"
 msgstr "  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
 
-msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
-msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
+msgid ""
+"  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array "
+"of prefixes"
+msgstr "  * [`!&^|`演算子][not-prefix-search-in-v2]：プレフィックスの配列での否定前方一致検索"
 
 msgid ""
 "[groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix"
@@ -191,8 +196,11 @@ msgstr "[wikipedia-katakana]:https://ja.wikipedia.org/wiki/%E7%89%87%E4%BB%AE%E5
 msgid "[prefix-search-v2]:prefix-search-v2.html"
 msgstr ""
 
+msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
+msgstr ""
+
 msgid "[prefix-search-in-v2]:prefix-search-in-v2.html"
 msgstr ""
 
-msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
+msgid "[not-prefix-search-in-v2]:not-prefix-search-in-v2.html"
 msgstr ""

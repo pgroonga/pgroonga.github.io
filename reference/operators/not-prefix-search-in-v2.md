@@ -70,6 +70,8 @@ SELECT * FROM tags WHERE alias !&^| ARRAY['pg', 'mrn'];
 
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
+[text-term-search-ops-v2]:../#text-term-search-ops-v2
+
 [prefix-search-v2]:prefix-search-v2.html
 
 [prefix-rk-search-v2]:prefix-rk-search-v2.html

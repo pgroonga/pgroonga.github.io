@@ -1,15 +1,15 @@
 ---
-title: "&~演算子"
+title: "&~|演算子"
 upper_level: ../
 ---
 
-# `&~`演算子
+# `&~|`演算子
 
-1.2.1で追加。
+2.2.1で追加。
 
 ## 概要
 
-`&~`演算子は正規表現検索をします。
+`&~|`演算子は正規表現の配列を使った正規表現検索をします。もし1つ以上の正規表現がマッチしたらそのレコードはマッチします。
 
 PostgreSQLは次のような組み込みの正規表現演算子を提供しています。
 
@@ -42,26 +42,22 @@ PostgreSQLは次のような組み込みの正規表現演算子を提供して�
 ## 構文
 
 ```sql
-column &~ regular_expression
+column &~| regular_expressions
 ```
 
 `column`は検索対象のカラムです。型は`text`型か`varchar`型です。
 
-`regular_expression`はパターンとして使う正規表現です。`column`の型が`text`型のときは`text`型です。`column`の型が`varchar`型のときは`varchar`型です。
+`regular_expressions`はパターンとして使う正規表現の配列です。`column`が`text`型の場合は`text[]`型です。`column`の型が`varchar`の場合`varchar[]`型です。
 
-`column`の値が`regular_expression`パターンにマッチしたら、その式は`true`を返します。
+`column`の値が`regular_expression`内の1つ以上のパターンにマッチしたらその式は`true`になります。
 
 ## 演算子クラス
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
-  * `pgroonga_text_regexp_ops_v2`：`text`用
+  * [`pgroonga_text_regexp_ops_v2`][text-regexp-ops-v2]：`text`型用
 
-  * `pgroonga_varchar_regexp_ops_v2`：`varchar`用
-
-  * `pgroonga_text_regexp_ops`：`text`用
-
-  * `pgroonga_varchar_regexp_ops`：`varchar`用
+  * [`pgroonga_varchar_regexp_ops_v2`][varchar-regexp-ops-v2]：`varchar`型用
 
 ## 使い方
 
@@ -80,31 +76,38 @@ CREATE INDEX pgroonga_content_index ON memos
 以下は例で使うデータです。
 
 ```sql
-INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');
-INSERT INTO memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。');
-INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
-INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');
+INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system');
+INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index');
+INSERT INTO memos VALUES (4, '*.pgn* files are used by PGroonga');
 ```
 
-`&~`演算子を使うと正規表現検索を実行できます。
+`&~|`演算子で正規表現の配列を使って正規表現検索をできます。
 
 ```sql
-SELECT * FROM memos WHERE content &~ '\Apostgresql';
---  id |                          content                           
--- ----+------------------------------------------------------------
---   1 | PostgreSQLはリレーショナル・データベース管理システムです。
--- (1 row)
+SELECT * FROM memos WHERE content &~| ARRAY['\Apostgresql', 'pgroonga\z'];
+--  id |                        content                        
+-- ----+-------------------------------------------------------
+--   1 | PostgreSQL is a relational database management system
+--   4 | *.pgn* files are used by PGroonga
+-- (2 rows)
 ```
 
 「`\Apostgresql`」の中の「`\A`」はRubyの正規表現構文では特別な記法です。これはテキストの最初という意味です。つまり、このパターンは「`postgresql`」がテキストの最初に現れること、という意味です。
+
+「`pgroonga\z`」の中の「`\z`」はRubyの正規表現構文では特別な記法です。これはテキストの最後という意味です。つまり、このパターンは「`pgroonga`」がテキストの最後に現れること、という意味です。
 
 どうして「`PostgreSQLは...`」レコードがマッチしているのでしょうか？この演算子はマッチ前にマッチ対象のテキストを正規化することを思い出してください。つまり、「`PostgreSQLは...`」テキストはマッチ前に「`postgresqlは...`」と正規化されるということです。正規化されたテキストは「`postgresql`」で始まっています。そのため、「`\Apostgresql`」正規表現はこのレコードにマッチします。
 
 「`PGroongaはPostgreSQLの...`」レコードはマッチしません。このレコードは正規化後のテキストに「`postgresql`」を含んでいますが、「`postgresql`」はテキストの先頭には現れていません。そのためマッチしません。
 
+どうして「`... used by PGroonga`」レコードがマッチしているのでしょうか？この演算子はマッチ前にマッチ対象のテキストを正規化することを思い出してください。つまり、「`... used by PGroonga`」テキストはマッチ前に「`... used by pgroonga`」と正規化されるということです。正規化されたテキストは「`pgroonga`」で終わっています。そのため、「`pgroonga\z`」正規表現はこのレコードにマッチします。
+
+「`PGroonga is a PostgreSQL ...`」レコードはマッチしません。このレコードは正規化後のテキストに「`pgroonga`」を含んでいますが、「`pgroonga`」はテキストの最後に現れていません。そのためマッチしません。
+
 ## 参考
 
-  * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
 
   * [Onigmoの正規表現構文のドキュメント][onigmo-document]
 
@@ -122,4 +125,8 @@ SELECT * FROM memos WHERE content &~ '\Apostgresql';
 
 [groonga-regular-expression]:http://groonga.org/ja/docs/reference/regular_expression.html#regular-expression-index
 
-[regular-expression-in-v2]:regular-expression-in-v2.html
+[regular-expression-v2]:regular-expression-v2.html
+
+[text-regexp-ops-v2]:../#text-regexp-ops-v2
+
+[varchar-regexp-ops-v2]:../#varchar-regexp-ops-v2

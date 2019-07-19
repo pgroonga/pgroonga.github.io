@@ -170,6 +170,11 @@ msgid ""
 msgstr "  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
 
 msgid ""
+"  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array "
+"of prefixes"
+msgstr "  * [`!&^|`演算子][not-prefix-search-in-v2]：プレフィックスの配列での否定前方一致検索"
+
+msgid ""
 "  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of"
 " prefixes"
 msgstr "  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
@@ -193,6 +198,9 @@ msgid "[prefix-search-v2]:prefix-search-v2.html"
 msgstr ""
 
 msgid "[prefix-search-in-v2]:prefix-search-in-v2.html"
+msgstr ""
+
+msgid "[not-prefix-search-in-v2]:not-prefix-search-in-v2.html"
 msgstr ""
 
 msgid "[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html"

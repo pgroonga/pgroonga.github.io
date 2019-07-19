@@ -1,15 +1,15 @@
 ---
-title: "@~ operator"
+title: "&~| operator"
 upper_level: ../
 ---
 
-# `@~` operator
+# `&~|` operator
+
+Since 2.2.1.
 
 ## Summary
 
-This operator is deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] instead.
-
-`@~` operator performs regular expression search.
+`&~|` operator performs regular expression search by an array of regular expressions. If one or more regular expressions are matched, the record is matched.
 
 PostgreSQL provides the following built-in regular expression operators:
 
@@ -33,7 +33,7 @@ Note that this operator doesn't normalize regular expression pattern. It only no
 
 For example, you must not use "`Groonga`" as pattern. You must use "`groonga`" as pattern. Because "`G`" in target text is normalized to "`g`". "`Groonga`" is never appeared in target text.
 
-Some simple regular expression patterns can be searched by index in Groonga. If index is used, the search is very fast. See [Groonga's regular expression document](http://groonga.org/docs/reference/regular_expression.html#regular-expression-index) for index searchable patterns.
+Some simple regular expression patterns can be searched by index in Groonga. If index is used, the search is very fast. See [Groonga's regular expression document][groonga-regular-expression] for index searchable patterns.
 
 If a regular expression pattern can't be searchable by index, it's searched by sequential scan in Groonga.
 
@@ -42,26 +42,22 @@ Note that Groonga may search with regular expression pattern by sequential scan 
 ## Syntax
 
 ```sql
-column @~ regular_expression
+column &~| regular_expressions
 ```
 
 `column` is a column to be searched. It's `text` type or `varchar` type.
 
-`regular_expression` is a regular expression to be used as pattern. It's `text` type for `text` type `column`. It's `varchar` type for `varchar` type `column`.
+`regular_expressions` is an array of regular expressions to be used as pattern. It's `text[]` type for `text` type `column`. It's `varchar[]` type for `varchar` type `column`.
 
-If `column` value is matched against `regular_expression` pattern, the expression returns `true`.
+If `column` value is matched against one or more patterns in `regular_expressions`, the expression returns `true`.
 
 ## Operator classes
 
 You need to specify one of the following operator classes to use this operator:
 
-  * `pgroonga_text_regexp_ops_v2`: For `text`
+  * [`pgroonga_text_regexp_ops_v2`][text-regexp-ops-v2]: For `text`
 
-  * `pgroonga_varchar_regexp_ops_v2`: For `varchar`
-
-  * `pgroonga_text_regexp_ops`: For `text`
-
-  * `pgroonga_varchar_regexp_ops`: For `varchar`
+  * [`pgroonga_varchar_regexp_ops_v2`][varchar-regexp-ops-v2]: For `varchar`
 
 ## Usage
 
@@ -80,39 +76,42 @@ CREATE INDEX pgroonga_content_index ON memos
 Here are data for examples:
 
 ```sql
-INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');
-INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');
-INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
-INSERT INTO memos VALUES (4, 'There is groonga command.');
+INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system');
+INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index');
+INSERT INTO memos VALUES (4, '*.pgn* files are used by PGroonga');
 ```
 
-You can perform regular expression search by `@~` operator:
+You can perform regular expression search with patterns by `&~|` operator:
 
 ```sql
-SELECT * FROM memos WHERE content @~ '\Apostgresql';
---  id |                        content                         
--- ----+--------------------------------------------------------
---   1 | PostgreSQL is a relational database management system.
--- (1 row)
+SELECT * FROM memos WHERE content &~| ARRAY['\Apostgresql', 'pgroonga\z'];
+--  id |                        content                        
+-- ----+-------------------------------------------------------
+--   1 | PostgreSQL is a relational database management system
+--   4 | *.pgn* files are used by PGroonga
+-- (2 rows)
 ```
 
 "`\A`" in "`\Apostgresql`" is a special notation in Ruby regular expression syntax. It means that the beginning of text. The pattern means that "`postgresql`" must be appeared in the beginning of text.
 
-Why is "`PostgreSQL is a ...`" record matched? Remember that `@~` operator normalizes target text before matching. It means that "`PostgreSQL is a ...`" text is normalized to "`postgresql is a ...`" text before matching. The normalized text is started with "`postgresql`". So "`\Apostgresql`" regular expression matches to the record.
+"`\z`" in "`pgroonga\z`" is a special notation in Ruby regular expression syntax. It means that the ending of text. The pattern means that "`pgroonga`" must be appeared in the ending of text.
+
+Why is "`PostgreSQL is a ...`" record matched? Remember that this operator normalizes target text before matching. It means that "`PostgreSQL is a ...`" text is normalized to "`postgresql is a ...`" text before matching. The normalized text is started with "`postgresql`". So "`\Apostgresql`" regular expression matches to the record.
 
 "`PGroonga is a PostgreSQL ...`" record isn't matched. It includes "`postgresql`" in normalized text but "`postgresql`" isn't appeared at the beginning of text. So it's not matched.
+
+Why is "`... used by PGroonga`" record matched? Remember that this operator normalizes target text before matching. It means that "`... used by PGroonga`" text is normalized to "`... used by pgroonga`" text before matching. The normalized text is ended with "`pgroonga`". So "`pgroonga\z`" regular expression matches to the record.
+
+"`PGroonga is a PostgreSQL ...`" record isn't matched. It includes "`pgroonga`" in normalized text but "`pgroonga`" isn't appeared at the ending of text. So it's not matched.
 
 ## See also
 
   * [`&~` operator][regular-expression-v2]: Search by a regular expression
 
-  * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular expressions
-
   * [Onigmo's regular expression syntax document][onigmo-document]
 
   * [Groonga's regular expression support document][groonga-regular-expression]
-
-[regular-expression-v2]:regular-expression-v2.html
 
 [postgresql-similar-to]:{{ site.postgresql_doc_base_url.en }}/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP
 
@@ -126,4 +125,8 @@ Why is "`PostgreSQL is a ...`" record matched? Remember that `@~` operator norma
 
 [groonga-regular-expression]:http://groonga.org/docs/reference/regular_expression.html#regular-expression-index
 
-[regular-expression-in-v2]:regular-expression-in-v2.html
+[regular-expression-v2]:regular-expression-v2.html
+
+[text-regexp-ops-v2]:../#text-regexp-ops-v2
+
+[varchar-regexp-ops-v2]:../#varchar-regexp-ops-v2

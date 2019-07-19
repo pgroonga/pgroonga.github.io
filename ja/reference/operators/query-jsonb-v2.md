@@ -33,7 +33,7 @@ column &@~ query
 
   * `pgroonga_jsonb_ops_v2`：`jsonb`型のデフォルト
 
-  * `pgroonga_jsonb_ops`：`jsonb`用
+  * `pgroonga_jsonb_ops`：`jsonb`型用
 
 ## 使い方
 

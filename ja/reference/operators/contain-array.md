@@ -9,7 +9,7 @@ upper_level: ../
 
 PGroongaは`@>`演算子の検索をインデックスを使って高速に実現できます。
 
-[`@>`演算子は組み込みのPostgreSQLの演算子][postgresql-functions-array]です。`@>`演算子は右辺の配列型の値がサ変の配列型の値のサブセットなら`true`を返します。
+[`@>`演算子は組み込みのPostgreSQLの演算子][postgresql-array-operators]です。`@>`演算子は右辺の配列型の値がサ変の配列型の値のサブセットなら`true`を返します。
 
 ## 構文
 
@@ -75,7 +75,7 @@ SELECT * FROM memos WHERE tags @> ARRAY['Mroonga', 'PGroonga'];
 -- (0 rows)
 ```
 
-[postgresql-array-operators]:{{ site.postgresql_doc_base_url.en }}/functions-array.html#ARRAY-OPERATORS-TABLE
+[postgresql-array-operators]:{{ site.postgresql_doc_base_url.ja }}/functions-array.html#ARRAY-OPERATORS-TABLE
 
 [text-array-term-search-ops-v2]:../#text-array-term-search-ops-v2
 

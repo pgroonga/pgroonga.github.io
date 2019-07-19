@@ -9,7 +9,7 @@ upper_level: ../
 
 PGroonga supports fast index search by `@>` operator.
 
-[`@>` operator is a built-in PostgreSQL operator][postgresql-functions-array]. `@>` operator returns `true` when the right hand side array type value is a subset of left hand side array type value.
+[`@>` operator is a built-in PostgreSQL operator][postgresql-array-operators]. `@>` operator returns `true` when the right hand side array type value is a subset of left hand side array type value.
 
 ## Syntax
 

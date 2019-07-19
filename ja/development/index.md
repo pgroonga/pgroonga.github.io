@@ -12,6 +12,8 @@ PostgreSQLもPGroonaもどちらもデバッグオプション付きでビルド
 
 Groongaもデバッグオプション（Groongaの`configure`には`--enable-debug`オプションがある）で[ビルド][groonga-build]した方が便利なことが多いです。[Groongaのパッケージ][groonga-install]を使う場合は、開発用パッケージをインストールする必要があります。Debian系のディストリビューションでは`libgroonga-dev`で、Red Hat系のディストリビューションでは`groonga-devel`です。
 
+すべてのテストを実行するためには`token_fitlers/stem`というGroongaのプラグインをインストールする必要があります。`groonga-token-filter-stem`パッケージをインストールするとインストールできます。
+
 ### PostgreSQLのビルド方法
 
 [PostgreSQLのサイト][postgresql-source-download]からソースをダウンロードします。以下はPostgreSQL {{ site.development_postgresql_version }}のソースをダウンロードして展開するコマンドラインです。

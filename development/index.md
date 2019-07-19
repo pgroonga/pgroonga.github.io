@@ -12,6 +12,8 @@ It's recommended that you build both PostgreSQL and PGroonga with debug options.
 
 It's better that you [build Groonga][groonga-build] with debug options (Groonga's `configure` provides `--enable-debug` option) too. If you use [packaged Groonga][groonga-install], you need to install development package. It's `libgroonga-dev` for Debian family distribution and `groonga-devel` for Red Hat family distribution.
 
+You need to install `token_fitlers/stem` Groonga plugin to run all tests. You can install it by `groonga-token-filter-stem` package.
+
 ### How to build PostgreSQL
 
 Download source from [the PostgreSQL site][postgresql-source-download]. Here are command lines to download the source of PostgreSQL {{ site.development_postgresql_version }} and extract it:

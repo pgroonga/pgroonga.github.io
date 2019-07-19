@@ -42,6 +42,13 @@ msgstr ""
 "必要があります。Debian系のディストリビューションでは`libgroonga-dev`で、Red Hat系のディストリビューションでは`groonga-"
 "devel`です。"
 
+msgid ""
+"You need to install `token_fitlers/stem` Groonga plugin to run all tests. You "
+"can install it by `groonga-token-filter-stem` package."
+msgstr ""
+"すべてのテストを実行するためには`token_fitlers/stem`というGroongaのプラグインをインストールする必要があります。`groonga-"
+"token-filter-stem`パッケージをインストールするとインストールできます。"
+
 msgid "### How to build PostgreSQL"
 msgstr "### PostgreSQLのビルド方法"
 

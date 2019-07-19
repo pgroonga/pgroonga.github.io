@@ -1,5 +1,6 @@
 ---
 title: Install
+upper_level: ../
 ---
 
 # Install

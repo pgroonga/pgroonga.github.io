@@ -1,5 +1,6 @@
 ---
 title: Reference manual
+upper_level: ../
 ---
 
 # Reference manual

@@ -1,5 +1,6 @@
 ---
 title: News
+upper_level: ../
 ---
 
 # News

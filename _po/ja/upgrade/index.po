@@ -10,10 +10,12 @@ msgstr ""
 msgid ""
 "---\n"
 "title: Upgrade\n"
+"upper_level: ../\n"
 "---"
 msgstr ""
 "---\n"
 "title: アップグレード\n"
+"upper_level: ../\n"
 "---"
 
 msgid "# Upgrade"
@@ -30,6 +32,9 @@ msgstr ""
 
 msgid "Here is a list of compatibility:"
 msgstr "以下は互換性のリストです。"
+
+msgid "  * 2.2.0 -> 2.2.1: Compatible"
+msgstr "  * 2.2.0 -> 2.2.1: 互換"
 
 msgid "  * 2.1.9 -> 2.2.0: Compatible"
 msgstr "  * 2.1.9 -> 2.2.0: 互換"

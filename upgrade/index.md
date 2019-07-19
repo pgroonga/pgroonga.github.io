@@ -1,5 +1,6 @@
 ---
 title: Upgrade
+upper_level: ../
 ---
 
 # Upgrade
@@ -7,6 +8,8 @@ title: Upgrade
 You can upgrade PGroonga without recreating PGroonga indexes when new version doesn't have any backward incompatible change. If new version has any backward incompatible change, you need to recreate all PGroonga indexes to upgrade PGroonga.
 
 Here is a list of compatibility:
+
+  * 2.2.0 -> 2.2.1: Compatible
 
   * 2.1.9 -> 2.2.0: Compatible
 

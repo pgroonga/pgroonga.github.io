@@ -428,11 +428,11 @@ SELECT *
 
 [groonga-normalizer-auto]:http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto
 
-[groonga-table-patricia-trie]:http://groonga.org/docs/ja/reference/tables.html#table-pat-key
+[groonga-table-patricia-trie]:http://groonga.org/ja/docs/reference/tables.html#table-pat-key
 
-[groonga-table-hash-table]:http://groonga.org/docs/ja/reference/tables.html#table-hash-key
+[groonga-table-hash-table]:http://groonga.org/ja/docs/reference/tables.html#table-hash-key
 
-[groonga-table-double-array-trie]:http://groonga.org/docs/ja/reference/tables.html#table-dat-key
+[groonga-table-double-array-trie]:http://groonga.org/ja/docs/reference/tables.html#table-dat-key
 
 [unicode-nfkc]:http://unicode.org/reports/tr15/
 

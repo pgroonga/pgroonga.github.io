@@ -32,14 +32,14 @@ deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages
 deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
 ```
 
-If you want to use PostgreSQL 10, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
+If you want to use PostgreSQL 10 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
 
 ```console
 % echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
 % wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
-Install `postgresql-9.6-pgroonga` or `postgresql-10-pgroonga` package:
+Install `postgresql-9.6-pgroonga`, `postgresql-10-pgroonga` or `postgresql-11-pgroonga` package:
 
 ```console
 % sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
@@ -47,6 +47,8 @@ Install `postgresql-9.6-pgroonga` or `postgresql-10-pgroonga` package:
 % sudo apt install -y -V postgresql-9.6-pgroonga
 Or
 % sudo apt install -y -V postgresql-10-pgroonga
+Or
+% sudo apt install -y -V postgresql-11-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:

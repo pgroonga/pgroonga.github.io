@@ -32,14 +32,14 @@ deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages
 deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
 ```
 
-PostgreSQL 10を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
+PostgreSQL 10以降を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
 
 ```console
 % echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
 % wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
-`postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`パッケージをインストールします。
+`postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`または`postgresql-11-pgroonga`パッケージをインストールします。
 
 ```console
 % sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
@@ -47,6 +47,8 @@ PostgreSQL 10を使いたい場合は[PostgreSQLが提供しているAPTリポ�
 % sudo apt install -y -V postgresql-9.6-pgroonga
 Or
 % sudo apt install -y -V postgresql-10-pgroonga
+Or
+% sudo apt install -y -V postgresql-11-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

@@ -78,6 +78,12 @@ msgstr ""
 msgid "    * 7"
 msgstr ""
 
+msgid "  * [Amazon Linux](amazon-linux.html)"
+msgstr ""
+
+msgid "    * 2"
+msgstr ""
+
 msgid "  * [FreeBSD](freebsd.html)"
 msgstr ""
 

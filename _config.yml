@@ -14,6 +14,9 @@ windows_postgresql_versions:
   - 11
 latest_postgresql_version: 11
 freebsd_postgresql_version: 11
+amazon_linux_postgresql_version:
+  major: 10
+  package: 10.9-1PGDG
 development_postgresql_version: 11.1
 exclude:
   - "Rakefile"

@@ -34,7 +34,7 @@ We can register multiple synonyms into `synonyms` because type of `synonyms` is 
 
 We can register synonyms by inserting data into `synonyms`.
 
-For example, if we want to register "Window", "display", and "video display" as synonyms, we insert these terms into the table that register synonyms as below.
+For example, if we want to register "Window", "display", and "video display" as synonyms, we can insert these terms into the table that register synonyms as below.
 
 ```sql
 INSERT INTO synonyms (term, synonyms) VALUES ('Window', ARRAY['Window', 'display', 'video display']);

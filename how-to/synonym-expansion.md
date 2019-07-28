@@ -23,7 +23,7 @@ CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term
 
 We can get a term that registered to `synonyms` by using a term that resitered to `term` as key.
 
-For example, If we want to also match "display" when specifying "window" as the search keyword, register "window" to `term` and register "window" and "display" to `synonyms`.
+For example, if we want to also match "display" when specifying "window" as the search keyword, register "window" to `term` and register "window" and "display" to `synonyms`.
 (We attention to need also register target synonym term to `synonyms`.)
 
 We set PGroonga's index to `term` for searching to fast and without uppercase and lowercase.
@@ -34,7 +34,7 @@ We can register multiple synonyms into `synonyms` because type of `synonyms` is 
 
 We can register synonyms by inserting data into `synonyms`.
 
-For example, If we want to register "Window", "display", and "video display" as synonyms, we insert these terms into the table that register synonyms as below.
+For example, if we want to register "Window", "display", and "video display" as synonyms, we insert these terms into the table that register synonyms as below.
 
 ```sql
 INSERT INTO synonyms (term, synonyms) VALUES ('Window', ARRAY['Window', 'display', 'video display']);
@@ -49,7 +49,7 @@ There are three patterns to add synonyms.
 #### Add new synonyms
 
 We can add synonyms in the same way as register synonyms.
-For example, If we want to add "copy", "replicate", and "simulate" as synonyms, we insert these terms into the table that register synonyms as below.
+For example, if we want to add "copy", "replicate", and "simulate" as synonyms, we insert these terms into the table that register synonyms as below.
 
 ```sql
 INSERT INTO synonyms (term, synonyms) VALUES ('copy', ARRAY['copy', 'replicate', 'simulate']);
@@ -60,7 +60,7 @@ INSERT INTO synonyms (term, synonyms) VALUES ('simulate', ARRAY['simulate', 'cop
 #### Add new synonyms in existing one
 
 If we want to add new synonyms in the existing one, we update the existing record.
-For example, If we also want to match "imitate" when we use "copy" as a search key word.
+For example, if we also want to match "imitate" when we use "copy" as a search key word.
 
 ```sql
 UPDATE synonyms SET synonyms = array_append(synonyms, 'imitate') WHERE term = 'copy';
@@ -68,7 +68,7 @@ UPDATE synonyms SET synonyms = array_append(synonyms, 'imitate') WHERE term = 'r
 UPDATE synonyms SET synonyms = array_append(synonyms, 'imitate') WHERE term = 'simulate';
 ```
 
-"imitate" is new synonym. Therefour we add record into `synonyms` by using `INSERT` as below.
+"imitate" is new synonym. Therefore we add record into `synonyms` by using `INSERT` as below.
 
 ```sql
 INSERT INTO synonyms (term, synonyms) VALUES ('imitate', ARRAY['imitate', 'copy', 'replicate', 'simulate']);
@@ -87,7 +87,7 @@ UPDATE synonyms SET term = 'Window' WHERE term = 'Windows';
 #### Delete synonyms
 
 If we want to delete synonyms, we can delete record from `synonyms`.
-For example, If we want to delete "Window" from synonyms, we as below.
+For example, if we want to delete "Window" from synonyms, we as below.
 
 ```sql
 UPDATE synonyms SET synonyms = array_remove(synonyms, 'Window');
@@ -100,7 +100,7 @@ A search of synonyms uses [`pgroonga_query_expand` function](../reference/functi
 
 See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
 
-For example, If we search synonyms of "window", we as below.
+For example, if we search synonyms of "window", we as below.
 
 First, we make a synonyms table.
 

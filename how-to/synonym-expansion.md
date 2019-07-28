@@ -21,7 +21,7 @@ CREATE TABLE synonyms (
 CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
 ```
 
-We can get a term that registered to `synonyms` by using a term that resitered to `term` as key.
+We can get a term that is registered in `synonyms` with a key that is registered in `term`. 
 
 For example, if we want to also match "display" when specifying "window" as the search keyword, register "window" to `term` and register "window" and "display" to `synonyms`.
 (We attention to need also register target synonym term to `synonyms`.)

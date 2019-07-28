@@ -28,8 +28,7 @@ For example, If we want to also match "display" when specifying "window" as the 
 
 We set PGroonga's index to `term` for searching to fast and without uppercase and lowercase.
 
-We can register multiple synonyms into `synonyms`.
-Because type of `synonyms` is `text[]`.
+We can register multiple synonyms into `synonyms` because type of `synonyms` is `text[]`.
 
 ### Register synonyms
 
@@ -45,8 +44,7 @@ INSERT INTO synonyms (term, synonyms) VALUES ('video display', ARRAY['video disp
 
 ### Add synonyms
 
-How to add synonyms has three patterns.
-We explain each method here.
+There are three patterns to add synonyms.
 
 #### Add new synonyms
 

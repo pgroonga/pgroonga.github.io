@@ -61,8 +61,8 @@ msgstr "  * [`jsonb`型のカラムで使う方法](jsonb.html)"
 msgid "## How to synonyms search"
 msgstr "## 同義語検索の方法"
 
-msgid "  * [How to synonyms search](synonyms.html)"
-msgstr "  * [同義語検索の方法](synonyms.html)"
+msgid "  * [How to synonyms search](synonym-expansion.html)"
+msgstr "  * [同義語検索の方法](synonym-expansion.html)"
 
 msgid "## ..."
 msgstr ""

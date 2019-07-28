@@ -27,7 +27,7 @@ title: ハウツー
 
 ## 同義語検索の方法
 
-  * [同義語検索の方法](synonyms.html)
+  * [同義語検索の方法](synonym-expansion.html)
 
 ## ...
 

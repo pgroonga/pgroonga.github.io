@@ -27,7 +27,7 @@ If you have useful information that isn't listed in this page, please send a pul
 
 ## How to synonyms search
 
-  * [How to synonyms search](synonyms.html)
+  * [How to synonyms search](synonym-expansion.html)
 
 ## ...
 

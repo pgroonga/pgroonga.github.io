@@ -1,10 +1,10 @@
 ---
-title: How to synonyms search
+title: How to use synonym expansion
 ---
 
-## How to synonym search
+## How to use synonym expansion
 
-We need to make a new table for register synonyms to search synonym.
+We need to make a new table for registering synonyms to search synonym.
 
 We explain how to register synonyms, delete synonyms, update synonyms, search synonyms, and make a table for register synonyms.
 
@@ -149,3 +149,4 @@ SELECT * FROM memos
 (3 rows)
 ```
 
+[synonym-expansion]:../install/windows.html

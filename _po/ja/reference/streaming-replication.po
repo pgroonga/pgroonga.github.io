@@ -12,9 +12,12 @@ msgid ""
 "title: Streaming replication\n"
 "---"
 msgstr ""
+"---\n"
+"title: ストリーミングレプリケーション\n"
+"---"
 
 msgid "# Streaming replication"
-msgstr ""
+msgstr "# ストリーミングレプリケーション"
 
 msgid ""
 "PGroonga supports PostgreSQL built-in [WAL based streaming replication]({{ sit"

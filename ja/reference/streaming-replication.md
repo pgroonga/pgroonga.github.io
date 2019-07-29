@@ -1,8 +1,8 @@
 ---
-title: Streaming replication
+title: ストリーミングレプリケーション
 ---
 
-# Streaming replication
+# ストリーミングレプリケーション
 
 PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能]({{ site.postgresql_doc_base_url.ja }}/warm-standby.html)をサポートしています。この機能を使うにはPostgreSQL 9.6以降が必要です。
 

@@ -305,6 +305,17 @@ SELECT * FROM entries;
  (3 rows)
 ```
 
+Now, we can search data replicated on subscriber by PGroonga index created on subscriber.
+
+```sql
+SET enable_seqscan TO off;
+SELECT * FROM entries WHERE body &@ 'Groonga';
+  title  |                                       body
+---------+----------------------------------------------------------------------------------
+ Groonga | Groonga is a full text search engine used by PGroonga. We did not know about it.
+(1 row)
+```
+
 [debian-stretch]:../install/debian.html#install-on-stretch
 
 [ubuntu]:../install/ubuntu.html

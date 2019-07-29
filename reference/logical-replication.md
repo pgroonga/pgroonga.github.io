@@ -315,13 +315,3 @@ SELECT * FROM entries WHERE body &@ 'Groonga';
  Groonga | Groonga is a full text search engine used by PGroonga. We did not know about it.
 (1 row)
 ```
-
-[debian-stretch]:../install/debian.html#install-on-stretch
-
-[ubuntu]:../install/ubuntu.html
-
-[centos-6]:../install/centos.html#install-on-6
-
-[centos-7]:../install/centos.html#install-on-7
-
-[windows]:../install/windows.html

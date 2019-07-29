@@ -76,7 +76,7 @@ INSERT INTO synonyms (term, synonyms) VALUES ('imitate', ARRAY['imitate', 'copy'
 
 #### Modify exist synonyms
 
-If we want to modify an existing record, we update one.
+If we want to modify an existing record, we can modify it with UPDATE statement.
 For example, if we want to modify "Windows" to "Window", we as below.
 
 ```sql

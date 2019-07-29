@@ -12,7 +12,7 @@ PGroongaは1.2.4からPostgreSQL組み込みのロジカルレプリケーショ
 
 そのため、ここでは、レプリケーション先にのみインデックスを設定します。
 
-## サマリー
+## 概要
 
 PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga用に設定する手順は次の通りです。「[通常]」タグは通常のロジカルレプリケーションの手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。
 
@@ -44,11 +44,11 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
     * IPアドレス: 172.16.0.1
 
-    * データベース名: `blog`
+    * データベース名： `blog`
 
-    * レプリケーションユーザー名: `replicator`
+    * レプリケーションユーザー名： `replicator`
 
-    * レプリケーションユーザーのパスワード: `passw0rd`
+    * レプリケーションユーザーのパスワード：`passw0rd`
 
   * サブスクライバー
 
@@ -56,7 +56,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
     * IPアドレス: 172.16.0.2
 
-    * データベース名: `blog`
+    * データベース名： `blog`
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
@@ -113,19 +113,19 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
   * `wal_level = logical`
 
-    * [PostgreSQL: Documentation: Write Ahead Log]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL) も参照してください。
+     * [ログ先行書き込み（WAL）]({{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html#guc-wal-level)も参照してください。.
 
   * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`. `* 2`は意図せず接続が切れた場合のため。)
 
-    * [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
+    * [レプリケーション]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
 
   * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`
 
-    * [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
+    * [レプリケーション]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
 
 `/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:
 
-変更前:
+変更前：
 
 ```text
 #listen_address = 'localhost'
@@ -135,7 +135,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 #max_replication_slots = 0
 ```
 
-変更後:
+変更後：
 
 ```text
 listen_address = '*'
@@ -151,7 +151,7 @@ max_replication_slots = 1
 
 `/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/pg_hba.conf`:
 
-変更前:
+変更前：
 
 ```text
 # "local" is for Unix domain socket connections only
@@ -167,7 +167,7 @@ host    replication     all        127.0.0.1/32            trust
 host    replication     all        ::1/128                 trust
 ```
 
-変更後:
+変更後：
 
 ```text
 # "local" is for Unix domain socket connections only
@@ -186,7 +186,7 @@ host    replication     all        ::1/128                 trust
 host    all             replicator       172.16.0.2/32         md5
 ```
 
-設定を適用するために、PostgreSQLを再起動します。
+この設定を反映するためにPostgreSQLを再起動します。
 
 ```console
 % sudo -H systemctl restart postgresql-{{ site.latest_postgresql_version }}
@@ -227,7 +227,7 @@ Enter it again: (passw0rd)
 % /usr/pgsql-{{ site.latest_postgresql_version }}/bin/psql blog -U ${USER}
 ```
 
-`entries` テーブルを作成します。:`
+`entries`テーブルを作成します。:`
 
 ```sql
 CREATE TABLE entries (
@@ -240,7 +240,7 @@ CREATE TABLE entries (
 
 これはPGroonga固有の手順です。
 
-データベースにPGrooongaをインストールします。スーパーユーザー権限が必要です。:
+このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。：
 
 サブスクライバー:
 
@@ -270,7 +270,7 @@ CREATE SUBSCRIPTION sub_srv2_blog CONNECTION 'dbname=blog hostaddr=172.16.0.2 po
 
 ## [通常] パブリッシャーにのみデータを挿入します。
 
-作成した `entries` テーブルにデータを挿入します。
+作成した `entries`テーブルにデータを挿入します。
 
 ```sql
 INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');

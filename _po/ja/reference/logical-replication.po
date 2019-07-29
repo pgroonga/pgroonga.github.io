@@ -43,7 +43,7 @@ msgid "Therefore, setting an index on only a destination of replication in here.
 msgstr "そのため、ここでは、レプリケーション先にのみインデックスを設定します。"
 
 msgid "## Summary"
-msgstr "## サマリー"
+msgstr "## 概要"
 
 msgid ""
 "Here are steps to configure PostgreSQL built-in logical replication for PGroon"
@@ -98,13 +98,13 @@ msgid "    * IP Address: 172.16.0.1"
 msgstr "    * IPアドレス: 172.16.0.1"
 
 msgid "    * Database name: `blog`"
-msgstr "    * データベース名: `blog`"
+msgstr "    * データベース名： `blog`"
 
 msgid "    * Replication user name: `replicator`"
-msgstr "    * レプリケーションユーザー名: `replicator`"
+msgstr "    * レプリケーションユーザー名： `replicator`"
 
-msgid "    * Replication user password: `passw0rd`"
-msgstr "    * レプリケーションユーザーのパスワード: `passw0rd`"
+msgid "    * Replication user password： `passw0rd`"
+msgstr "    * レプリケーションユーザーのパスワード： `passw0rd`"
 
 msgid "  * Subscriber:"
 msgstr "  * サブスクライバー"
@@ -202,8 +202,8 @@ msgid "  * `wal_level = logical`"
 msgstr ""
 
 msgid ""
-"     * See also [PostgreSQL: Documentation: Write Ahead Log]({{ site.postgresq"
-"l_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL)."
+"     * See also [ログ先行書き込み（WAL）]({{ site.postgresql_doc_base_url.en }}/runtime-"
+"config-wal.html#GUC-WAL-LEVEL)."
 msgstr ""
 "    * [PostgreSQL: Documentation: Write Ahead Log]({{ site.postgresql_doc_base"
 "_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL) も参照してください。"
@@ -217,8 +217,8 @@ msgid ""
 "     * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_do"
 "c_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)."
 msgstr ""
-"    * [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url"
-".en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。"
+"    * [レプリケーション]({{ site.postgresql_doc_base_url.en }}/runtime-config-replicat"
+"ion.html#GUC-MAX-WAL-SENDERS) も参照してください。"
 
 msgid "  * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`."
 msgstr "  * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`"
@@ -227,7 +227,7 @@ msgid "`/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf
 msgstr ""
 
 msgid "Before:"
-msgstr "変更前:"
+msgstr "変更前："
 
 msgid ""
 "```text\n"
@@ -242,7 +242,7 @@ msgid ""
 msgstr ""
 
 msgid "After:"
-msgstr "変更後:"
+msgstr "変更後："
 
 msgid ""
 "```text\n"
@@ -307,7 +307,7 @@ msgid ""
 msgstr ""
 
 msgid "Restart PostgreSQL to apply the configuration:"
-msgstr "設定を適用するために、PostgreSQLを再起動します。"
+msgstr "この設定を反映するためにPostgreSQLを再起動します。"
 
 msgid ""
 "```console\n"
@@ -364,7 +364,7 @@ msgid ""
 msgstr ""
 
 msgid "Create `entries` table:"
-msgstr "`entries` テーブルを作成します。:`"
+msgstr "`entries`テーブルを作成します。:`"
 
 msgid ""
 "```sql\n"
@@ -379,7 +379,7 @@ msgid "## [special] Create a PGroonga index on Subscriber"
 msgstr "## [固有] サブスクライバーにPGroongaのインデックスを作成します。"
 
 msgid "Install PGroonga to the database. It requires superuser privilege:"
-msgstr "データベースにPGrooongaをインストールします。スーパーユーザー権限が必要です。:"
+msgstr "このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。："
 
 msgid ""
 "```sql\n"
@@ -420,7 +420,7 @@ msgid "## [normal] Insert data on Publisher only:"
 msgstr "## [通常] パブリッシャーにのみデータを挿入します。"
 
 msgid "Insert data to the created `entries` table:"
-msgstr "作成した `entries` テーブルにデータを挿入します。"
+msgstr "作成した `entries`テーブルにデータを挿入します。"
 
 msgid ""
 "```sql\n"

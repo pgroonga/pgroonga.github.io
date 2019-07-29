@@ -6,9 +6,11 @@ title: Replication
 
 PGroonga supports PostgreSQL built-in [WAL based streaming replication]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) and [logical replication]({{ site.postgresql_doc_base_url.en }}/logical-replication.html)
 
-## [Streaming replication][streaming-replication]
+See the following pages for details:
 
-## [Logical replication][logical-replication]
+  * [Streaming replication][streaming-replication]
+
+  * [Logical replication][logical-replication]
 
 [streaming-replication]:./streaming-replication.html
 

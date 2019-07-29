@@ -24,7 +24,7 @@ CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term
 We can get a term that is registered in `synonyms` with a key that is registered in `term`. 
 
 For example, if we want to also match "display" when specifying "window" as the search keyword, register "window" to `term` and register "window" and "display" to `synonyms`.
-(We attention to need also register target synonym term to `synonyms`.)
+Note that we attention to need also register target synonym term to `synonyms`.
 
 We set PGroonga's index to `term` for searching to fast and without uppercase and lowercase.
 

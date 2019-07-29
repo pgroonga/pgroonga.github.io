@@ -25,7 +25,7 @@ CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term
 
 例えば、「ウィンドウ」を検索キーワードに指定した時に、「ディスプレイ」もマッチしてほしい場合、「ウィンドウ」を`term`に登録し、「ウィンドウ」と「ディスプレイ」を`synonyms`に登録します。(同義語対象の語も`synonyms`へ登録する必要があることに注意してください。)
 
-`term`は大文字、小文字を区別せず高速に検索できるようにするため、PGroongaのインデックスを設定しています。
+`term` は大文字、小文字を区別せず高速に検索できるようにするため、PGroongaのインデックスを設定しています。
 
 `synonyms`は`text[]`型のカラムなので、複数の同義語を登録できます。
 

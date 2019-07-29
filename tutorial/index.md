@@ -257,9 +257,7 @@ See [`pgroonga_snippet_html` function](../reference/functions/pgroonga-snippet-h
 
 ### Synonym {#synonym}
 
-TODO
-
-See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
+See [How to synonyms search](../how-to/synonyms.html) for more details.
 
 ## Regular expression {#regular-expression}
 

@@ -25,6 +25,10 @@ title: ハウツー
 
   * [`jsonb`型のカラムで使う方法](jsonb.html)
 
+## 同義語展開の使い方
+
+  * [同義語展開の使い方](synonym-expansion.html)
+
 ## ...
 
   * ...

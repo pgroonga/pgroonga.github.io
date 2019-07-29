@@ -96,9 +96,9 @@ DELETE synonyms WHERE term = 'Window';
 
 ### How to search of synonyms
 
-A search of synonyms uses [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html).
+A search of synonyms uses [`pgroonga_query_expand` function][pgroonga_query_expand].
 
-See [`pgroonga_query_expand` function](../reference/functions/pgroonga-query-expand.html) for more details.
+See [`pgroonga_query_expand` function][pgroonga_query_expand] for more details.
 
 For example, if we search synonyms of "window", we as below.
 
@@ -147,4 +147,4 @@ SELECT * FROM memos
 (3 rows)
 ```
 
-[synonym-expansion]:../install/windows.html
+[pgroonga_query_expand]:../reference/functions/pgroonga-query-expand.html

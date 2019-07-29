@@ -96,7 +96,7 @@ DELETE synonyms WHERE term = 'Window';
 
 ### How to search of synonyms
 
-To search of synonyms uses [`pgroonga_query_expand` function][pgroonga_query_expand].
+We can use [`pgroonga_query_expand` function][pgroonga_query_expand] to search of synonyms.
 
 See [`pgroonga_query_expand` function][pgroonga_query_expand] for more details.
 

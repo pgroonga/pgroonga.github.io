@@ -233,8 +233,8 @@ msgid "### How to search of synonyms"
 msgstr "### 同義語検索の方法"
 
 msgid ""
-"To search of synonyms uses [`pgroonga_query_expand` function][pgroonga_query_e"
-"xpand]."
+"We can use [`pgroonga_query_expand` function][pgroonga_query_expand] to search"
+" of synonyms."
 msgstr "同義語の検索には、[`pgroonga_query_expand`関数][pgroonga_query_expand]を使います。"
 
 msgid ""

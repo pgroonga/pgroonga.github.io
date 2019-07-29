@@ -58,11 +58,11 @@ msgstr "## `jsonb`型のカラムで使う方法"
 msgid "  * [How to use on `jsonb` type column](jsonb.html)"
 msgstr "  * [`jsonb`型のカラムで使う方法](jsonb.html)"
 
-msgid "## How to synonyms search"
-msgstr "## 同義語検索の方法"
+msgid "## How to use synonym expansion"
+msgstr "## 同義語展開の使い方"
 
-msgid "  * [How to synonyms search](synonym-expansion.html)"
-msgstr "  * [同義語検索の方法](synonym-expansion.html)"
+msgid "  * [How to use synonym expansion](synonym-expansion.html)"
+msgstr "  * [同義語展開の使い方](synonym-expansion.html)"
 
 msgid "## ..."
 msgstr ""

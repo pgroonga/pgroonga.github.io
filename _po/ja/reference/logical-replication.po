@@ -1,0 +1,472 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: Logical replication\n"
+"---"
+msgstr ""
+"---\n"
+"title: ロジカルレプリケーション\n"
+"---"
+
+msgid "# Logical replication"
+msgstr "# ロジカルレプリケーション"
+
+msgid ""
+"PGroonga supports PostgreSQL built-in logical replication since 1.2.4. It requ"
+"ires PostgreSQL 10 or later."
+msgstr ""
+"PGroongaは1.2.4からPostgreSQL組み込みのロジカルレプリケーションをサポートしています。ロジカルレプリケーションはPostgreSQL "
+"10以降が必要です。"
+
+msgid ""
+"This document describes how to configure PostgreSQL built-in logical replicati"
+"on for PGroonga. Most of steps are normal steps. There are some PGroonga speci"
+"fic steps."
+msgstr ""
+"このドキュメントではPostgreSQL組み込みのロジカルレプリケーション機能をPGroonga用に設定する方法を説明します。多くの手順は通常のロジカルレプ"
+"リケーションの設定手順です。いくつかPGroonga固有の手順があります。"
+
+msgid ""
+"It doesn't have to be have same schema for source of replication and\n"
+"destionation of replication for logical replication."
+msgstr "ロジカルレプリケーションはレプリケーション元とレプリケーション先で同じスキーマを持つ必要がありません。"
+
+msgid "Therefore, setting an index on only a destination of replication in here."
+msgstr "そのため、ここでは、レプリケーション先にのみインデックスを設定します。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"Here are steps to configure PostgreSQL built-in logical replication for PGroon"
+"ga. \"[normal]\" tag means that the step is a normal step for logical replicatio"
+"n. \"[special]\" tag means that the step is a PGroonga specific step."
+msgstr ""
+"PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga用に設定する手順は次の通りです。「[通常]」タグは通常のロジカルレプリケーション"
+"の手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。"
+
+msgid "  1. [normal] Install PostgreSQL on Publisher and Subscriber"
+msgstr "  1. [通常] パブリッシャーとサブスクライバーにPostgreSQLをインストールします。"
+
+msgid "  2. [special] Install PGroonga on Subscriber"
+msgstr "  2. [固有] サブスクライバーにPGroongaをインストールします。"
+
+msgid "  3. [normal] Initialize PostgreSQL database on Publisher and Subscriber"
+msgstr "  3. [通常] パブリッシャーとサブスクライバーのPostgreSQLデータベースを初期化します。"
+
+msgid ""
+"  4. [normal] Add some logical replication configurations to `postgresql.conf`"
+" and `pg_hba.conf` on Publisher"
+msgstr "  4. [通常] パブリッシャーの`postgresql.conf`と`pg_hba.conf`にロジカルレプリケーションの設定を追加します。"
+
+msgid "  5. [normal] Create table on Publisher and Subscriber"
+msgstr "  5. [通常] パブリッシャーとサブスクライバーにテーブルを作成します。"
+
+msgid "  6. [normal] Create publication on Publisher"
+msgstr "  6. [通常] パブリッシャーにパブリケーションを作成します。"
+
+msgid "  7. [normal] Create subscription on Subscriber"
+msgstr "  7. [通常] サブスクライバーにサブスクリプションを作成します。"
+
+msgid "  8. [special] Create a PGroonga index on Subscriber"
+msgstr "  8. [固有] サブスクライバーにPGroongaのインデックスを作成します。"
+
+msgid "  9. [normal] Insert data on Publisher"
+msgstr "  9. [通常] パブリッシャーにデータを挿入します。"
+
+msgid "## Example environment"
+msgstr "## 例で使う環境"
+
+msgid "This document uses the following environment:"
+msgstr "このドキュメントでは次の環境を使います。"
+
+msgid "  * Publisher:"
+msgstr "  * パブリッシャー:"
+
+msgid "    * OS: CentOS 7"
+msgstr "    * OS：CentOS 7"
+
+msgid "    * IP Address: 172.16.0.1"
+msgstr "    * IPアドレス: 172.16.0.1"
+
+msgid "    * Database name: `blog`"
+msgstr "    * データベース名： `blog`"
+
+msgid "    * Replication user name: `replicator`"
+msgstr "    * レプリケーションユーザー名： `replicator`"
+
+msgid "    * Replication user password: `passw0rd`"
+msgstr "    * レプリケーションユーザーのパスワード：`passw0rd`"
+
+msgid "  * Subscriber:"
+msgstr "  * サブスクライバー"
+
+msgid "    * IP Address: 172.16.0.2"
+msgstr "    * IPアドレス: 172.16.0.2"
+
+msgid ""
+"This document shows command lines for CentOS 7. If you're using other platform"
+"s, adjust command lines by yourself."
+msgstr "このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。"
+
+msgid "## [normal] Install PostgreSQL on Publisher and Subscriber"
+msgstr "## [通常] パブリッシャーとサブスクライバーにPostgreSQLをインストールする"
+
+msgid "This is a normal step."
+msgstr "これは通常の手順です。"
+
+msgid ""
+"Install PostgreSQL {{ site.latest_postgresql_version }} on Publisher and Subsc"
+"riber."
+msgstr "パブリッシャーとサブスクライバーに PostgreSQL {{ site.latest_postgresql_version }} をインストールします。"
+
+msgid "Publisher and Subscriber:"
+msgstr "パブリッシャーとサブスクライバー"
+
+msgid ""
+"```console\n"
+"% sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpm"
+"s/EL-$(rpm -qf --queryformat=\"%{VERSION}\" /etc/redhat-release)-$(rpm -qf --que"
+"ryformat=\"%{ARCH}\" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm\n"
+"% sudo yum install postgresql{{ site.latest_postgresql_version }}-server\n"
+"```"
+msgstr ""
+
+msgid "See also [PostgreSQL: Linux downloads (CentOS)][centos]."
+msgstr "[PostgreSQL: Linux downloads (CentOS)][centos]も参照してください。"
+
+msgid "## [special] Install PGroonga on Subscriber"
+msgstr "## [固有] サブスクライバーにPGroongaをインストールする"
+
+msgid "This is a PGroonga specific step."
+msgstr "これはPGroonga固有の手順です。"
+
+msgid "Install PGroonga on Subscriber."
+msgstr "サブスクライバーにPGroongaをインストールします。"
+
+msgid "Subscriber:"
+msgstr "サブスクライバー:"
+
+msgid ""
+"```console\n"
+"% sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpm"
+"s/EL-$(rpm -qf --queryformat=\"%{VERSION}\" /etc/redhat-release)-$(rpm -qf --que"
+"ryformat=\"%{ARCH}\" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm\n"
+"% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-l"
+"atest.noarch.rpm\n"
+"% sudo -H yum install -y postgresql{{ site.latest_postgresql_version}}-pgroong"
+"a\n"
+"```"
+msgstr ""
+
+msgid "## [normal] Initialize PostgreSQL database on Publisher and Subscriber"
+msgstr "## [通常] パブリッシャーとサブスクライバーのPostreSQLのデータベースを初期化する"
+
+msgid "Initialize PostgreSQL database on Publisher and Subscriber."
+msgstr "パブリッシャーとサブスクライバーのPostgreSQLのデータベースを初期化します。"
+
+msgid ""
+"```console\n"
+"% sudo /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site."
+"latest_postgresql_version }}-setup initdb\n"
+"% sudo systemctl enable --now postgresql-{{ site.latest_postgresql_version }}\n"
+"```"
+msgstr ""
+
+msgid ""
+"## [normal] Add some logical replication configurations to `postgresql.conf` o"
+"n Publisher"
+msgstr "## [通常] パブリッシャーの`postgresql.con`にロジカルレプリケーションの設定を追加する"
+
+msgid ""
+"Add the following logical replication configurations to `postgresql.conf` on o"
+"nly Publisher:"
+msgstr "パブリッシャーの `postresql.conf` にのみ、以下のロジカルレプリケーションの設定を追記します。"
+
+msgid "  * `wal_level = logical`"
+msgstr ""
+
+msgid "     * See also [PostgreSQL: Documentation: Write Ahead Log][wal]."
+msgstr "     * See also [ログ先行書き込み（WAL）][wal]も参考にしてください。"
+
+msgid ""
+"  * `max_wal_senders = 2` (`= 1 (The number of Subscribers) * 2`. `* 2` is for"
+" unexpected connection close.)"
+msgstr "  * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`。 `* 2`は意図せず接続が切れた場合のため。)"
+
+msgid "     * See also [PostgreSQL: Documentation: Replication][replication]."
+msgstr "     * [レプリケーション][replication]も参照してください。"
+
+msgid "  * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`)."
+msgstr "  * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`)"
+
+msgid "`/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:"
+msgstr ""
+
+msgid "Before:"
+msgstr "変更前："
+
+msgid ""
+"```text\n"
+"#listen_address = 'localhost'"
+msgstr ""
+
+msgid ""
+"#wal_level = minimal\n"
+"#max_wal_senders = 0\n"
+"#max_replication_slots = 0\n"
+"```"
+msgstr ""
+
+msgid "After:"
+msgstr "変更後："
+
+msgid ""
+"```text\n"
+"listen_address = '*'"
+msgstr ""
+
+msgid ""
+"wal_level = logical\n"
+"max_wal_senders = 2\n"
+"max_replication_slots = 1\n"
+"```"
+msgstr ""
+
+msgid ""
+"Add the following logical replication configurations to `pg_hba.conf` on only "
+"Publisher:"
+msgstr "パブリッシャーの `pg_hba.conf` にのみ、以下のロジカルレプリケーションの設定を追加します。"
+
+msgid ""
+"  * Accept replication connection by the replication user `replicator` from `1"
+"72.16.0.2/32`."
+msgstr "  * `172.16.0.2/32` から レプリケーションユーザー `replicator` による接続を許可します。"
+
+msgid "`/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/pg_hba.conf`:"
+msgstr ""
+
+msgid ""
+"```text\n"
+"# \"local\" is for Unix domain socket connections only\n"
+"local   all             all                                     trust\n"
+"# IPv4 local connections:\n"
+"host    all             all             127.0.0.1/32            trust\n"
+"# IPv6 local connections:\n"
+"host    all             all             ::1/128                 ident\n"
+"# Allow replication connections from localhost, by a user with the\n"
+"# replication privilege.\n"
+"local   replication     all                                trust\n"
+"host    replication     all        127.0.0.1/32            trust\n"
+"host    replication     all        ::1/128                 trust\n"
+"```"
+msgstr ""
+
+msgid ""
+"```text\n"
+"# \"local\" is for Unix domain socket connections only\n"
+"local   all             all                                     trust\n"
+"# IPv4 local connections:\n"
+"host    all             all             127.0.0.1/32            trust\n"
+"# IPv6 local connections:\n"
+"host    all             all             ::1/128                 ident\n"
+"# Allow replication connections from localhost, by a user with the\n"
+"# replication privilege.\n"
+"local   replication     all                                trust\n"
+"host    replication     all        127.0.0.1/32            trust\n"
+"host    replication     all        ::1/128                 trust"
+msgstr ""
+
+msgid ""
+"# IPv4 remote connections:\n"
+"host    all             replicator       172.16.0.2/32         md5\n"
+"```"
+msgstr ""
+
+msgid "Restart PostgreSQL to apply the configuration:"
+msgstr "この設定を反映するためにPostgreSQLを再起動します。"
+
+msgid ""
+"```console\n"
+"% sudo -H systemctl restart postgresql-{{ site.latest_postgresql_version }}\n"
+"```"
+msgstr ""
+
+msgid "Create the user for replication on only Publisher:"
+msgstr "パブリッシャーにのみレプリケーションのためのユーザーを作成します。"
+
+msgid ""
+"```console\n"
+"% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/createuser --pwprompt re"
+"plicator -U postgres\n"
+"Enter password for new role: (passw0rd)\n"
+"Enter it again: (passw0rd)\n"
+"```"
+msgstr ""
+
+msgid "## [normal] Create table on Publisher and Subscriber"
+msgstr "## [通常] パブリッシャーとサブスクライバーにテーブルを作成する"
+
+msgid "Create a normal user on Subscriber:"
+msgstr "サブスクライバーに通常ユーザーを作成します。"
+
+msgid ""
+"```console\n"
+"% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/createuser ${USER} -U po"
+"stgres\n"
+"```"
+msgstr ""
+
+msgid "Create a database on Publisher and Subscriber:"
+msgstr "パブリッシャーとサブスクライバーでデータベースを作成します。"
+
+msgid ""
+"```console\n"
+"% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/createdb --owner ${USER}"
+" blog -U postgres\n"
+"```"
+msgstr ""
+
+msgid ""
+"Create a table in the created database.\n"
+"Connect to the created `blog` database:"
+msgstr ""
+"作成されたデータベース内でテーブルを作成する。\n"
+"`blog` データベースへ接続する。"
+
+msgid ""
+"```console\n"
+"% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/psql blog -U ${USER}\n"
+"```"
+msgstr ""
+
+msgid "Create `entries` table:"
+msgstr "`entries`テーブルを作成します。`"
+
+msgid ""
+"```sql\n"
+"CREATE TABLE entries (\n"
+"  title text,\n"
+"  body text\n"
+");\n"
+"```"
+msgstr ""
+
+msgid "## [special] Create a PGroonga index on Subscriber"
+msgstr "## [固有] サブスクライバーにPGroongaのインデックスを作成する"
+
+msgid "Install PGroonga to the database. It requires superuser privilege:"
+msgstr "このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。"
+
+msgid ""
+"```sql\n"
+"CREATE EXTENSION pgroonga;\n"
+"```"
+msgstr ""
+
+msgid "Create a PGroonga index on Subscriber:"
+msgstr "サブスクライバーにPGroongaのインデックスを作成します。"
+
+msgid ""
+"```sql\n"
+"CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);"
+"\n"
+"```"
+msgstr ""
+
+msgid "Create a PUBLICATION on Publisher only:"
+msgstr "パブリッシャーにのみ、パブリケーションを作成します。"
+
+msgid ""
+"```sql\n"
+"CREATE PUBLICATION pub_srv1_blog FOR TABLE entries;\n"
+"```"
+msgstr ""
+
+msgid "Create a SUBSCRIPTION on Subscriber only:"
+msgstr "サブスクライバーにのみ、サブスクリプションを作成します。"
+
+msgid ""
+"```sql\n"
+"CREATE SUBSCRIPTION sub_srv2_blog CONNECTION 'dbname=blog hostaddr=172.16.0.2 "
+"port=5432 user=replicator password=passw0rd' PUBLICATION pub_srv1_blog;\n"
+"```"
+msgstr ""
+
+msgid "## [normal] Insert data on Publisher only:"
+msgstr "## [通常] パブリッシャーにのみデータを挿入する"
+
+msgid "Insert data to the created `entries` table:"
+msgstr "作成した `entries`テーブルにデータを挿入します。"
+
+msgid ""
+"```sql\n"
+"INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension fo"
+"r fast full text search that supports all languages. It will help us.');\n"
+"INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine u"
+"sed by PGroonga. We did not know about it.');\n"
+"INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 suppor"
+"ts WAL based streaming replication. We should try it!');\n"
+"```"
+msgstr ""
+
+msgid "Confirm replication:"
+msgstr "レプリケーションの確認:"
+
+msgid "Publisher:"
+msgstr "パブリッシャー:"
+
+msgid ""
+"```sql\n"
+"SELECT * FROM entries;\n"
+" title    |                                  body\n"
+" ---------+-------------------------------------------------------------------"
+"--------\n"
+" PGroonga | PGroonga is a PostgreSQL extension for fast full text search that "
+"supports all languages. It will help us.\n"
+" Groonga  | Groonga is a full text search engine used by PGroonga. We did not "
+"know about it.\n"
+" PGroonga and replication | PGroonga 1.1.6 supports WAL based streaming replic"
+"ation. We should try it!\n"
+" (3 rows)\n"
+"```"
+msgstr ""
+
+msgid ""
+"Now, we can search data replicated on subscriber by PGroonga index created on "
+"subscriber."
+msgstr "これで、サブスクライバーで作成したPGroongaのインデックスで、サブスクライバーで複製したデータを検索できます。"
+
+msgid ""
+"```sql\n"
+"SET enable_seqscan TO off;\n"
+"SELECT * FROM entries WHERE body &@ 'Groonga';\n"
+"  title  |                                       body\n"
+"---------+--------------------------------------------------------------------"
+"--------------\n"
+" Groonga | Groonga is a full text search engine used by PGroonga. We did not k"
+"now about it.\n"
+"(1 row)\n"
+"```"
+msgstr ""
+
+msgid ""
+"[wal]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LE"
+"VEL"
+msgstr ""
+
+msgid ""
+"[replication]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication"
+".html#GUC-MAX-WAL-SENDERS"
+msgstr ""
+
+msgid "[centos]:https://www.postgresql.org/download/linux/redhat/"
+msgstr ""

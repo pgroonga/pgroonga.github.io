@@ -73,7 +73,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 % sudo yum install postgresql{{ site.latest_postgresql_version }}-server
 ```
 
-[PostgreSQL: Linux downloads (CentOS)](https://www.postgresql.org/download/linux/redhat/) も参照してください。
+[PostgreSQL: Linux downloads (CentOS)][centos]も参照してください。
 
 ## [固有] サブスクライバーにPGroongaをインストールします。
 
@@ -110,15 +110,15 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
   * `wal_level = logical`
 
-     * [ログ先行書き込み（WAL）]({{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html#guc-wal-level)も参照してください。.
+     * See also [ログ先行書き込み（WAL）][wal]も参考にしてください。
 
   * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`. `* 2`は意図せず接続が切れた場合のため。)
 
-    * [レプリケーション]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
+     * [レプリケーション][replication]も参照してください。
 
   * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`
 
-    * [レプリケーション]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
+     * [レプリケーション][replication]も参照してください。
 
 `/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:
 
@@ -311,3 +311,9 @@ SELECT * FROM entries WHERE body &@ 'Groonga';
  Groonga | Groonga is a full text search engine used by PGroonga. We did not know about it.
 (1 row)
 ```
+
+[wal]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL
+
+[replication]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
+
+[centos]:https://www.postgresql.org/download/linux/redhat/

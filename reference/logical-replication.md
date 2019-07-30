@@ -74,7 +74,7 @@ Publisher and Subscriber:
 % sudo yum install postgresql{{ site.latest_postgresql_version }}-server
 ```
 
-See also [PostgreSQL: Linux downloads (CentOS)](https://www.postgresql.org/download/linux/redhat/).
+See also [PostgreSQL: Linux downloads (CentOS)][centos].
 
 ## [special] Install PGroonga on Subscriber
 
@@ -111,15 +111,15 @@ Add the following logical replication configurations to `postgresql.conf` on onl
 
   * `wal_level = logical`
 
-     * See also [PostgreSQL: Documentation: Write Ahead Log]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL).
+     * See also [PostgreSQL: Documentation: Write Ahead Log][wal].
 
   * `max_wal_senders = 2` (`= 1 (The number of Subscribers) * 2`. `* 2` is for unexpected connection close.)
 
-     * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
+     * See also [PostgreSQL: Documentation: Replication][replication].
 
   * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`.
 
-     * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
+     * See also [PostgreSQL: Documentation: Replication][replication].
 
 `/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:
 
@@ -312,3 +312,9 @@ SELECT * FROM entries WHERE body &@ 'Groonga';
  Groonga | Groonga is a full text search engine used by PGroonga. We did not know about it.
 (1 row)
 ```
+
+[wal]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL
+
+[replication]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
+
+[centos]:https://www.postgresql.org/download/linux/redhat/

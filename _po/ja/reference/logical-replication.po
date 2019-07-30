@@ -200,7 +200,7 @@ msgstr "     * See also [ログ先行書き込み（WAL）][wal]も参考にし�
 msgid ""
 "  * `max_wal_senders = 2` (`= 1 (The number of Subscribers) * 2`. `* 2` is for"
 " unexpected connection close.)"
-msgstr "  * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`. `* 2`は意図せず接続が切れた場合のため。)"
+msgstr "  * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`。 `* 2`は意図せず接続が切れた場合のため。)"
 
 msgid "     * See also [PostgreSQL: Documentation: Replication][replication]."
 msgstr "     * [レプリケーション][replication]も参照してください。"

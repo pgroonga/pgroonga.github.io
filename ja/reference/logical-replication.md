@@ -4,7 +4,7 @@ title: ロジカルレプリケーション
 
 # ロジカルレプリケーション
 
-PGroongaは1.2.4からPostgreSQL組み込みのロジカルレプリケーションをサポートしています。ロジカルレプリケーションはPostgreSQL10以降が必要です。
+PGroongaは1.2.4からPostgreSQL組み込みのロジカルレプリケーションをサポートしています。ロジカルレプリケーションはPostgreSQL 10以降が必要です。
 
 このドキュメントではPostgreSQL組み込みのロジカルレプリケーション機能をPGroonga用に設定する方法を説明します。多くの手順は通常のロジカルレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。
 
@@ -44,9 +44,9 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
     * IPアドレス: 172.16.0.1
 
-    * データベース名：`blog`
+    * データベース名： `blog`
 
-    * レプリケーションユーザ名：`replicator`
+    * レプリケーションユーザー名： `replicator`
 
     * レプリケーションユーザーのパスワード：`passw0rd`
 
@@ -56,7 +56,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
     * IPアドレス: 172.16.0.2
 
-    * データベース名：`blog`
+    * データベース名： `blog`
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
@@ -116,11 +116,11 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
   * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`. `* 2`は意図せず接続が切れた場合のため。)
 
-     * [レプリケーション]({{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#guc-max-wal-senders)も参照してください。
+    * [レプリケーション]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
 
   * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`
 
-     * [レプリケーション]({{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#guc-max-wal-senders)も参照してください。
+    * [レプリケーション]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS) も参照してください。
 
 `/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:
 
@@ -226,7 +226,7 @@ Enter it again: (passw0rd)
 % /usr/pgsql-{{ site.latest_postgresql_version }}/bin/psql blog -U ${USER}
 ```
 
-`entries`テーブルを作成します。
+`entries`テーブルを作成します。:`
 
 ```sql
 CREATE TABLE entries (
@@ -239,7 +239,7 @@ CREATE TABLE entries (
 
 これはPGroonga固有の手順です。
 
-このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。
+このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。：
 
 サブスクライバー:
 
@@ -269,7 +269,7 @@ CREATE SUBSCRIPTION sub_srv2_blog CONNECTION 'dbname=blog hostaddr=172.16.0.2 po
 
 ## [通常] パブリッシャーにのみデータを挿入します。
 
-作成した`entries`テーブルにデータを追加します。
+作成した `entries`テーブルにデータを挿入します。
 
 ```sql
 INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');

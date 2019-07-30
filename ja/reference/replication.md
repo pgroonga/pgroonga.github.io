@@ -4,7 +4,7 @@ title: レプリケーション
 
 # レプリケーション
 
-PGroongaは、PostgreSQL組み込みの [WALベースのストリーミングレプリケーション機能]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) と [ロジカルレプリケーション]({{ site.postgresql_doc_base_url.en }}/logical-replication.html) をサポートしています。
+PGroongaは、PostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]と[ロジカルレプリケーション][postgresql-logical-replication]をサポートしています。
 
 詳細は以下のページを参照してください:
 
@@ -12,6 +12,10 @@ PGroongaは、PostgreSQL組み込みの [WALベースのストリーミングレ
 
  * [ロジカルレプリケーション][logical-replication]
 
-[streaming-replication]:./streaming-replication.html
+[postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html
 
-[logical-replication]:./logical-replication.html
+[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.en }}/logical-replication.html
+
+[streaming-replication]:streaming-replication.html
+
+[logical-replication]:logical-replication.html

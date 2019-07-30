@@ -20,13 +20,11 @@ msgid "# Replication"
 msgstr "# レプリケーション"
 
 msgid ""
-"PGroonga supports PostgreSQL built-in [WAL based streaming replication]({{ sit"
-"e.postgresql_doc_base_url.en }}/warm-standby.html) and [logical replication]({"
-"{ site.postgresql_doc_base_url.en }}/logical-replication.html)"
+"PGroonga supports PostgreSQL's built-in [WAL based streaming replication][post"
+"gresql-wal] and [logical replication][postgresql-logical-replication]."
 msgstr ""
-"PGroongaは、PostgreSQL組み込みの [WALベースのストリーミングレプリケーション機能]({{ site.postgresql_doc_ba"
-"se_url.en }}/warm-standby.html) と [ロジカルレプリケーション]({{ site.postgresql_doc_base_u"
-"rl.en }}/logical-replication.html) をサポートしています。"
+"PGroongaは、PostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]と[ロジカルレプリケー"
+"ション][postgresql-logical-replication]をサポートしています。"
 
 msgid "See the following pages for details:"
 msgstr "詳細は以下のページを参照してください:"
@@ -37,8 +35,16 @@ msgstr " * [ストリーミングレプリケーション][streaming-replication
 msgid "  * [Logical replication][logical-replication]"
 msgstr " * [ロジカルレプリケーション][logical-replication]"
 
-msgid "[streaming-replication]:./streaming-replication.html"
+msgid "[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html"
 msgstr ""
 
-msgid "[logical-replication]:./logical-replication.html"
+msgid ""
+"[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.en }}/logical"
+"-replication.html"
+msgstr ""
+
+msgid "[streaming-replication]:streaming-replication.html"
+msgstr ""
+
+msgid "[logical-replication]:logical-replication.html"
 msgstr ""

@@ -73,7 +73,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 % sudo yum install postgresql{{ site.latest_postgresql_version }}-server
 ```
 
-[PostgreSQL: Linux downloads (CentOS)][centos]も参照してください。
+[PostgreSQL: Linux downloads (CentOS)][postgresql-centos]も参照してください。
 
 ## [固有] サブスクライバーにPGroongaをインストールする
 
@@ -110,15 +110,15 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
   * `wal_level = logical`
 
-     * See also [ログ先行書き込み（WAL）][wal]も参考にしてください。
+    * [PostgreSQL：ドキュメント：ログ先行書き込み（WAL）][postgresql-wal-level]も参考にしてください。
 
   * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`。 `* 2`は意図せず接続が切れた場合のため。)
 
-     * [レプリケーション][replication]も参照してください。
+    * [PostgreSQL：ドキュメント：レプリケーション][postgresql-max-wal-senders]も参照してください。
 
   * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`)
 
-     * [レプリケーション][replication]も参照してください。
+    * [PostgreSQL：ドキュメント：レプリケーション][postgresql-max-replication-slots]も参照してください。
 
 `/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:
 
@@ -312,8 +312,10 @@ SELECT * FROM entries WHERE body &@ 'Groonga';
 (1 row)
 ```
 
-[wal]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL
+[postgresql-wal-level]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html#GUC-WAL-LEVEL
 
-[replication]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
+[postgresql-max-wal-senders]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
 
-[centos]:https://www.postgresql.org/download/linux/redhat/
+[postgresql-max-replication-slots]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS
+
+[postgresql-centos]:https://www.postgresql.org/download/linux/redhat/

@@ -4,7 +4,7 @@ title: ストリーミングレプリケーション
 
 # ストリーミングレプリケーション
 
-PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能]({{ site.postgresql_doc_base_url.ja }}/warm-standby.html)をサポートしています。この機能を使うにはPostgreSQL 9.6以降が必要です。
+PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]をサポートしています。この機能を使うにはPostgreSQL 9.6以降が必要です。
 
 PostgreSQL 9.5以前を使っている場合は、PGroongaと一緒に使える別のストリーミングレプリケーションの実装を使ってください。
 
@@ -12,7 +12,7 @@ PostgreSQL 9.5以前を使っている場合は、PGroongaと一緒に使える�
 
   * [pg\_shard](https://github.com/citusdata/pg_shard)（pg\_shardは非推奨になりました。pg\_shardの後継プロジェクトの[Citus](https://github.com/citusdata/citus)もおそらくPGroongaと一緒に使えます。もし、CitusがPGroongaと一緒に使えることを確認したら、[報告](https://github.com/pgroonga/pgroonga/issues/new)してください。）
 
-WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)で作り直さなければいけません。
+WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。
 
 このドキュメントではPostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する方法を説明します。多くの手順は通常のストリーミングレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。
 
@@ -153,11 +153,11 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
   * `wal_level = replica`
 
-     * [ログ先行書き込み（WAL）]({{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html#guc-wal-level)も参照してください。.
+    * [PostgreSQL：ドキュメント：ログ先行書き込み（WAL）][postgresql-wal-level]も参考にしてください。
 
   * `max_wal_senders = 4`（`= 2（スレーブ数） * 2`。`* 2`は意図せず接続が切れた場合のため。)
 
-     * [レプリケーション]({{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#guc-max-wal-senders)も参照してください。
+    * [PostgreSQL：ドキュメント：レプリケーション][postgresql-max-wal-senders]も参照してください。
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
@@ -343,7 +343,7 @@ Password: (passw0rd)
 
   * `hot_standby = on`
 
-    * [レプリケーション]({{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#guc-hot-standby)も参照してください。
+    * [PostgreSQL：ドキュメント：レプリケーション][postgresql-hot-standby]も参照してください。
 
 スレーブ：
 
@@ -421,6 +421,16 @@ SELECT title FROM entries WHERE title %% 'replication';
 --  PostgreSQL 9.6 and replication
 -- (2 rows)
 ```
+
+[postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html
+
+[postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html
+
+[postgresql-wal-level]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html#GUC-WAL-LEVEL
+
+[postgresql-max-wal-senders]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
+
+[postgresql-hot-standby]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#GUC-HOT-STANDBY
 
 [debian-stretch]:../install/debian.html#install-on-stretch
 

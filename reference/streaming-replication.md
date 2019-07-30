@@ -4,7 +4,7 @@ title: Streaming replication
 
 # Streaming replication
 
-PGroonga supports PostgreSQL built-in [WAL based streaming replication]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) since 1.1.6. It requires PostgreSQL 9.6 or later.
+PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6. It requires PostgreSQL 9.6 or later.
 
 If you're using PostgreSQL 9.5 or earlier, you can use some alternative streaming replication implementations that can be used with PGroonga:
 
@@ -12,7 +12,7 @@ If you're using PostgreSQL 9.5 or earlier, you can use some alternative streamin
 
   * [pg\_shard](https://github.com/citusdata/pg_shard) (pg\_shard is deprecated. [Citus](https://github.com/citusdata/citus), the replacement of pg\_shard, may work with PGroonga. If you confirm that Citus can work with PGroonga, please [report it](https://github.com/pgroonga/pgroonga/issues/new).)
 
-Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html).
+Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`][postgresql-reindex].
 
 This document describes how to configure PostgreSQL built-in WAL based streaming replication for PGroonga. Most of steps are normal steps. There are some PGroonga specific steps.
 
@@ -153,11 +153,11 @@ Add the following streaming replication configurations to `postgresql.conf` on o
 
   * `wal_level = replica`
 
-     * See also [PostgreSQL: Documentation: Write Ahead Log]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL).
+    * See also [PostgreSQL: Documentation: Write Ahead Log][postgresql-wal-level].
 
   * `max_wal_senders = 4` (`= 2 (The number of slaves) * 2`. `* 2` is for unexpected connection close.)
 
-     * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
+    * See also [PostgreSQL: Documentation: Replication][postgresql-max-wal-senders].
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
@@ -343,7 +343,7 @@ Add the following replica configurations to `postgresql.conf` on only slaves:
 
   * `hot_standby = on`
 
-    * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-HOT-STANDBY).
+    * See also [PostgreSQL: Documentation: Replication][postgresql-hot-standby].
 
 Slaves:
 
@@ -421,6 +421,16 @@ SELECT title FROM entries WHERE title %% 'replication';
 --  PostgreSQL 9.6 and replication
 -- (2 rows)
 ```
+
+[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html
+
+[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html
+
+[postgresql-wal-level]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL
+
+[postgresql-max-wal-senders]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
+
+[postgresql-hot-standby]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-HOT-STANDBY
 
 [debian-stretch]:../install/debian.html#install-on-stretch
 

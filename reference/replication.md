@@ -4,7 +4,7 @@ title: Replication
 
 # Replication
 
-PGroonga supports PostgreSQL built-in [WAL based streaming replication]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) and [logical replication]({{ site.postgresql_doc_base_url.en }}/logical-replication.html)
+PGroonga supports PostgreSQL's built-in [WAL based streaming replication][postgresql-wal] and [logical replication][postgresql-logical-replication].
 
 See the following pages for details:
 
@@ -12,6 +12,10 @@ See the following pages for details:
 
   * [Logical replication][logical-replication]
 
-[streaming-replication]:./streaming-replication.html
+[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html
 
-[logical-replication]:./logical-replication.html
+[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.en }}/logical-replication.html
+
+[streaming-replication]:streaming-replication.html
+
+[logical-replication]:logical-replication.html

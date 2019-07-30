@@ -117,7 +117,7 @@ Add the following logical replication configurations to `postgresql.conf` on onl
 
      * See also [PostgreSQL: Documentation: Replication][replication].
 
-  * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`.
+  * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`).
 
      * See also [PostgreSQL: Documentation: Replication][replication].
 

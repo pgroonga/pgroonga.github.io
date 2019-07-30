@@ -205,8 +205,8 @@ msgstr "  * `max_wal_senders = 2` (`= 1 (サブスクライバー数) * 2`。 `*
 msgid "     * See also [PostgreSQL: Documentation: Replication][replication]."
 msgstr "     * [レプリケーション][replication]も参照してください。"
 
-msgid "  * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`."
-msgstr "  * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`"
+msgid "  * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`)."
+msgstr "  * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`)"
 
 msgid "`/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:"
 msgstr ""

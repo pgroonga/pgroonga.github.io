@@ -116,7 +116,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
      * [レプリケーション][replication]も参照してください。
 
-  * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`
+  * `max_replication_slots = 1` (`= 1 (サブスクライバーの数)`)
 
      * [レプリケーション][replication]も参照してください。
 

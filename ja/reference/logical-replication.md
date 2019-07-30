@@ -60,7 +60,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
-## [通常] パブリッシャーとサブスクライバーにPostgreSQLをインストールする。
+## [通常] パブリッシャーとサブスクライバーにPostgreSQLをインストールする
 
 これは通常の手順です。
 
@@ -75,7 +75,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
 [PostgreSQL: Linux downloads (CentOS)][centos]も参照してください。
 
-## [固有] サブスクライバーにPGroongaをインストールします。
+## [固有] サブスクライバーにPGroongaをインストールします
 
 これはPGroonga固有の手順です。
 
@@ -89,7 +89,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 % sudo -H yum install -y postgresql{{ site.latest_postgresql_version}}-pgroonga
 ```
 
-## [通常] パブリッシャーとサブスクライバーのPostreSQLのデータベースを初期化します。
+## [通常] パブリッシャーとサブスクライバーのPostreSQLのデータベースを初期化します
 
 これは通常の手順です。
 
@@ -102,7 +102,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 % sudo systemctl enable --now postgresql-{{ site.latest_postgresql_version }}
 ```
 
-## [通常] パブリッシャーの`postgresql.con`にロジカルレプリケーションの設定を追加します。
+## [通常] パブリッシャーの`postgresql.con`にロジカルレプリケーションの設定を追加します
 
 これは通常の手順です。
 
@@ -197,7 +197,7 @@ Enter password for new role: (passw0rd)
 Enter it again: (passw0rd)
 ```
 
-## [通常] パブリッシャーとサブスクライバーにテーブルを作成します。
+## [通常] パブリッシャーとサブスクライバーにテーブルを作成します
 
 これは通常の手順です。
 
@@ -233,7 +233,7 @@ CREATE TABLE entries (
 );
 ```
 
-## [固有] サブスクライバーにPGroongaのインデックスを作成します。
+## [固有] サブスクライバーにPGroongaのインデックスを作成します
 
 これはPGroonga固有の手順です。
 
@@ -265,7 +265,7 @@ CREATE PUBLICATION pub_srv1_blog FOR TABLE entries;
 CREATE SUBSCRIPTION sub_srv2_blog CONNECTION 'dbname=blog hostaddr=172.16.0.2 port=5432 user=replicator password=passw0rd' PUBLICATION pub_srv1_blog;
 ```
 
-## [通常] パブリッシャーにのみデータを挿入します。
+## [通常] パブリッシャーにのみデータを挿入します
 
 作成した `entries`テーブルにデータを挿入します。
 

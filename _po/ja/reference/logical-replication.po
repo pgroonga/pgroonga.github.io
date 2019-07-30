@@ -349,7 +349,7 @@ msgid ""
 msgstr ""
 
 msgid "Create `entries` table:"
-msgstr "`entries`テーブルを作成します。:`"
+msgstr "`entries`テーブルを作成します。`"
 
 msgid ""
 "```sql\n"
@@ -364,7 +364,7 @@ msgid "## [special] Create a PGroonga index on Subscriber"
 msgstr "## [固有] サブスクライバーにPGroongaのインデックスを作成します。"
 
 msgid "Install PGroonga to the database. It requires superuser privilege:"
-msgstr "このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。："
+msgstr "このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。"
 
 msgid ""
 "```sql\n"
@@ -373,7 +373,7 @@ msgid ""
 msgstr ""
 
 msgid "Create a PGroonga index on Subscriber:"
-msgstr "サブスクライバーにPGroongaのインデックスを作成します。:"
+msgstr "サブスクライバーにPGroongaのインデックスを作成します。"
 
 msgid ""
 "```sql\n"

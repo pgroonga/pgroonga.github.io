@@ -224,7 +224,7 @@ Enter it again: (passw0rd)
 % /usr/pgsql-{{ site.latest_postgresql_version }}/bin/psql blog -U ${USER}
 ```
 
-`entries`テーブルを作成します。:`
+`entries`テーブルを作成します。`
 
 ```sql
 CREATE TABLE entries (
@@ -237,7 +237,7 @@ CREATE TABLE entries (
 
 これはPGroonga固有の手順です。
 
-このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。：
+このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。
 
 サブスクライバー:
 
@@ -245,7 +245,7 @@ CREATE TABLE entries (
 CREATE EXTENSION pgroonga;
 ```
 
-サブスクライバーにPGroongaのインデックスを作成します。:
+サブスクライバーにPGroongaのインデックスを作成します。
 
 サブスクライバー:
 

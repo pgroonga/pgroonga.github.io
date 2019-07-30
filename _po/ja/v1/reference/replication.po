@@ -136,7 +136,7 @@ msgid "    * Database name: `blog`"
 msgstr "    * データベース名：`blog`"
 
 msgid "    * Replication user name: `replicator`"
-msgstr "    * レプリケーションユーザ名：`replicator`"
+msgstr "    * レプリケーションユーザー名：`replicator`"
 
 msgid "    * Replication user password: `passw0rd`"
 msgstr "    * レプリケーションユーザーのパスワード：`passw0rd`"

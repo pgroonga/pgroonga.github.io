@@ -83,7 +83,7 @@ msgid "  * `pgroonga_jsonb_ops_v2`: Default for `jsonb`"
 msgstr "  * `pgroonga_jsonb_ops_v2`：`jsonb`型のデフォルト"
 
 msgid "  * `pgroonga_jsonb_ops`: For `jsonb`"
-msgstr "  * `pgroonga_jsonb_ops`：`jsonb`用"
+msgstr "  * `pgroonga_jsonb_ops`：`jsonb`型用"
 
 msgid "## Usage"
 msgstr "## 使い方"

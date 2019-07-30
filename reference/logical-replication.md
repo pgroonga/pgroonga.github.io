@@ -102,8 +102,7 @@ Publisher and Subscriber:
 
 ```console
 % sudo /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
-% sudo systemctl enable postgresql-{{ site.latest_postgresql_version }}
-% sudo systemctl start postgresql-{{ site.latest_postgresql_version }}
+% sudo systemctl enable --now postgresql-{{ site.latest_postgresql_version }}
 ```
 
 ## [normal] Add some logical replication configurations to `postgresql.conf` on Publisher

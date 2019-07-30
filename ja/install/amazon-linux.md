@@ -16,21 +16,19 @@ title: Amazon Linux にインストール
 
 Amazon Linux 2にPGroongaをインストールする方法は次の通りです。
 
-`postgresql{{ site.amazon_linux_postgresql_version }}`パッケージをインストールします。
+`postgresql{{ site.amazon_linux_postgresql_version.major }}`パッケージをインストールします。
 
 PostgreSQLはAmazon Linux用のパッケージを提供していないため、PostgreSQLのYumリポジトリは使用できません。
 
-したがって、以下のようにPostgreSQLのRPMを直接インストールします。
+したがって、以下のようにPostgreSQLの`.repo`ファイルを変更します。
 
 ```console
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-server-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
-% wget https://yum.postgresql.org/{{ site.amazon_linux_postgresql_version }}/redhat/rhel-7-x86_64/postgresql{{ site.amazon_linux_postgresql_version }}-libs-{{ site.amazon_linux_postgresql_version }}.9-1PGDG.rhel7.x86_64.rpm
-
-% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version }}-*.rpm
+% wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+% sudo rpm -Uvh --nodeps pgdg-redhat-repo-latest.noarch.rpm
+% sudo sed --in-place -e "s/\$releasever/7/g" /etc/yum.repos.d/pgdg-redhat-all.repo
 ```
 
-`postgresql{{ site.amazon_linux_postgresql_version }}-pgroonga`パッケージをインストールしまうす。
+`postgresql{{ site.amazon_linux_postgresql_version.major }}-pgroonga`パッケージをインストールします。
 
 以下のようにEPELリポジトリを有効にします。
 
@@ -47,7 +45,7 @@ Groonga用のyumリポジトリをインストールします。
 PGroongaをインストールします。
 
 ```console
-% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version }}-pgroonga
+% sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version.major }}-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -59,9 +57,9 @@ PGroongaをインストールします。
 PostgreSQLを実行します。
 
 ```console
-% sudo -H /usr/pgsql-{{ site.amazon_linux_postgresql_version }}/bin/postgresql-{{ site.amazon_linux_postgresql_version }}-setup initdb
-% sudo -H systemctl enable postgresql-{{ site.amazon_linux_postgresql_version }}
-% sudo -H systemctl start postgresql-{{ site.amazon_linux_postgresql_version }}
+% sudo -H /usr/pgsql-{{ site.amazon_linux_postgresql_version.major }}/bin/postgresql-{{ site.amazon_linux_postgresql_version.major }}-setup initdb
+% sudo -H systemctl enable postgresql-{{ site.amazon_linux_postgresql_version.major }}
+% sudo -H systemctl start postgresql-{{ site.amazon_linux_postgresql_version.major }}
 ```
 
 データベースを作成します。

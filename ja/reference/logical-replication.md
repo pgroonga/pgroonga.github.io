@@ -44,9 +44,9 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
     * IPアドレス: 172.16.0.1
 
-    * データベース名： `blog`
+    * データベース名：`blog`
 
-    * レプリケーションユーザー名： `replicator`
+    * レプリケーションユーザー名：`replicator`
 
     * レプリケーションユーザーのパスワード：`passw0rd`
 
@@ -56,7 +56,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
     * IPアドレス: 172.16.0.2
 
-    * データベース名： `blog`
+    * データベース名：`blog`
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
@@ -224,7 +224,7 @@ Enter it again: (passw0rd)
 % /usr/pgsql-{{ site.latest_postgresql_version }}/bin/psql blog -U ${USER}
 ```
 
-`entries`テーブルを作成します。`
+`entries`テーブルを作成します。
 
 ```sql
 CREATE TABLE entries (
@@ -267,7 +267,7 @@ CREATE SUBSCRIPTION sub_srv2_blog CONNECTION 'dbname=blog hostaddr=172.16.0.2 po
 
 ## [通常] パブリッシャーにのみデータを挿入する
 
-作成した `entries`テーブルにデータを挿入します。
+作成した`entries`テーブルにデータを追加します。
 
 ```sql
 INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');

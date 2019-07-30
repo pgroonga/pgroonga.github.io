@@ -253,13 +253,13 @@ CREATE EXTENSION pgroonga;
 CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);
 ```
 
-パブリッシャーにのみ、PUBLICATION を作成します。
+パブリッシャーにのみ、パブリケーションを作成します。
 
 ```sql
 CREATE PUBLICATION pub_srv1_blog FOR TABLE entries;
 ```
 
-サブスクライバーにのみ、SUBSCRIPTION を作成します。
+サブスクライバーにのみ、サブスクリプションを作成します。
 
 ```sql
 CREATE SUBSCRIPTION sub_srv2_blog CONNECTION 'dbname=blog hostaddr=172.16.0.2 port=5432 user=replicator password=passw0rd' PUBLICATION pub_srv1_blog;

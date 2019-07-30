@@ -383,7 +383,7 @@ msgid ""
 msgstr ""
 
 msgid "Create a PUBLICATION on Publisher only:"
-msgstr "パブリッシャーにのみ、PUBLICATION を作成します。"
+msgstr "パブリッシャーにのみ、パブリケーションを作成します。"
 
 msgid ""
 "```sql\n"
@@ -392,7 +392,7 @@ msgid ""
 msgstr ""
 
 msgid "Create a SUBSCRIPTION on Subscriber only:"
-msgstr "サブスクライバーにのみ、SUBSCRIPTION を作成します。"
+msgstr "サブスクライバーにのみ、サブスクリプションを作成します。"
 
 msgid ""
 "```sql\n"

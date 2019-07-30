@@ -70,9 +70,7 @@ PostgreSQL組み込みのロジカルレプリケーション機能をPGroonga�
 
 ```console
 % sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
-% sudo yum install postgresql{{ site.latest_postgresql_version }}
 % sudo yum install postgresql{{ site.latest_postgresql_version }}-server
-% sudo yum install postgresql{{ site.latest_postgresql_version }}-libs
 ```
 
 [PostgreSQL: Linux downloads (CentOS)](https://www.postgresql.org/download/linux/redhat/) も参照してください。

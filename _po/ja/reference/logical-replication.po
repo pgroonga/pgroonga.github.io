@@ -144,7 +144,7 @@ msgid "See also [PostgreSQL: Linux downloads (CentOS)][centos]."
 msgstr "[PostgreSQL: Linux downloads (CentOS)][centos]も参照してください。"
 
 msgid "## [special] Install PGroonga on Subscriber"
-msgstr "## [固有] サブスクライバーにPGroongaをインストールします"
+msgstr "## [固有] サブスクライバーにPGroongaをインストールする"
 
 msgid "This is a PGroonga specific step."
 msgstr "これはPGroonga固有の手順です。"
@@ -168,7 +168,7 @@ msgid ""
 msgstr ""
 
 msgid "## [normal] Initialize PostgreSQL database on Publisher and Subscriber"
-msgstr "## [通常] パブリッシャーとサブスクライバーのPostreSQLのデータベースを初期化します"
+msgstr "## [通常] パブリッシャーとサブスクライバーのPostreSQLのデータベースを初期化する"
 
 msgid "Initialize PostgreSQL database on Publisher and Subscriber."
 msgstr "パブリッシャーとサブスクライバーのPostgreSQLのデータベースを初期化します。"
@@ -184,7 +184,7 @@ msgstr ""
 msgid ""
 "## [normal] Add some logical replication configurations to `postgresql.conf` o"
 "n Publisher"
-msgstr "## [通常] パブリッシャーの`postgresql.con`にロジカルレプリケーションの設定を追加します"
+msgstr "## [通常] パブリッシャーの`postgresql.con`にロジカルレプリケーションの設定を追加する"
 
 msgid ""
 "Add the following logical replication configurations to `postgresql.conf` on o"
@@ -313,7 +313,7 @@ msgid ""
 msgstr ""
 
 msgid "## [normal] Create table on Publisher and Subscriber"
-msgstr "## [通常] パブリッシャーとサブスクライバーにテーブルを作成します"
+msgstr "## [通常] パブリッシャーとサブスクライバーにテーブルを作成する"
 
 msgid "Create a normal user on Subscriber:"
 msgstr "サブスクライバーに通常ユーザーを作成します。"
@@ -361,7 +361,7 @@ msgid ""
 msgstr ""
 
 msgid "## [special] Create a PGroonga index on Subscriber"
-msgstr "## [固有] サブスクライバーにPGroongaのインデックスを作成します"
+msgstr "## [固有] サブスクライバーにPGroongaのインデックスを作成する"
 
 msgid "Install PGroonga to the database. It requires superuser privilege:"
 msgstr "このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。"
@@ -402,7 +402,7 @@ msgid ""
 msgstr ""
 
 msgid "## [normal] Insert data on Publisher only:"
-msgstr "## [通常] パブリッシャーにのみデータを挿入します"
+msgstr "## [通常] パブリッシャーにのみデータを挿入する"
 
 msgid "Insert data to the created `entries` table:"
 msgstr "作成した `entries`テーブルにデータを挿入します。"

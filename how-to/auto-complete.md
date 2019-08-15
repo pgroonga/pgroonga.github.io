@@ -8,8 +8,6 @@ Auto complete is useful feature for easy to use search box. PGroonga has feature
 
 You can implement auto complete by combining the following searches:
 
-  * Prefix search
-
   * Only for Japanese: Prefix RK search for auto complete by readings
 
   * Loose full text search
@@ -30,42 +28,14 @@ Auto complete candidate terms are stored into `term`. Readings of `term` are sto
 Here is the sample index definition:
 
 ```sql
-CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
-  (term pgroonga_text_term_search_ops_v2,
-   readings pgroonga_text_array_term_search_ops_v2);
-
 CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
-  (term)
+  (term, readings)
   WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
 ```
 
-The above indexes are required for prefix search and full text search.
+The above indexes are required for full text search.
 
 `TokenBigramSplitSymbolAlphaDigit` tokenizer is suitable for loose full text search.
-
-## Prefix search
-
-There is a simple way to implement auto complete feature. It is prefix search.
-
-PGroonga provides operator for it: [`&^` operator][prefix-search-v2]
-
-Here is the sample data for prefix search:
-
-```sql
-INSERT INTO terms (term) VALUES ('auto-complete');
-```
-
-Then, use `&^` against `term` for prefix search. Here is the result of it:
-
-```sql
-SELECT term FROM terms WHERE term &^ 'auto';
---      term      
--- ---------------
---  auto-complete
--- (1 rows)
-```
-
-The result contains `auto-complete` as auto complete candidate term.
 
 ## Only for Japanese: Prefix RK search for auto complete by readings
 
@@ -151,8 +121,6 @@ The result contains `auto-complete` as auto complete candidate term.
 [wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese
 
 [wikipedia-hiragana]:https://en.wikipedia.org/wiki/Hiragana
-
-[prefix-search-v2]:../reference/operators/prefix-search-v2.html
 
 [match-v2]:../reference/operators/match-v2.html
 

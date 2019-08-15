@@ -8,8 +8,6 @@ title: オートコンプリートの実装方法
 
 次の検索を組み合わせることでオートコンプリートを実現できます。
 
-  * 前方一致検索
-
   * 日本語のみ：ヨミガナでのオートコンプリート用に前方一致RK検索
 
   * 緩い全文検索
@@ -30,42 +28,14 @@ CREATE TABLE terms (
 サンプルのインデックス定義を示します。
 
 ```sql
-CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
-  (term pgroonga_text_term_search_ops_v2,
-   readings pgroonga_text_array_term_search_ops_v2);
-
 CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
-  (term)
+  (term, readings)
   WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
 ```
 
-上記のインデックス定義は前方一致検索と全文検索に必要です。
+上記のインデックス定義は全文検索に必要です。
 
 `TokenBigramSplitSymbolAlphaDigit`トークナイザーは緩い全文検索に向いています。
-
-## 前方一致検索
-
-オートコンプリート機能を実現するシンプルな方法は前方一致検索を使う方法です。
-
-PGroongaは前方一致検索用の演算子として[`&^`演算子][prefix-search-v2]を提供しています。
-
-前方一致検索をするためのサンプルデータを示します。
-
-```sql
-INSERT INTO terms (term) VALUES ('auto-complete');
-```
-
-データを挿入したら、`term`に対して`&^`を使って前方一致検索をします。結果は次の通りです。
-
-```sql
-SELECT term FROM terms WHERE term &^ 'auto';
---      term      
--- ---------------
---  auto-complete
--- (1 rows)
-```
-
-オートコンプリート候補の用語として`auto-complete`がヒットしています。
 
 ## 日本語のみ：ヨミガナでのオートコンプリート用に前方一致RK検索
 
@@ -151,8 +121,6 @@ SELECT term FROM terms WHERE term &@ 'mpl';
 [wikipedia-romaji]:https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%BC%E3%83%9E%E5%AD%97
 
 [wikipedia-hiragana]:https://ja.wikipedia.org/wiki/%E5%B9%B3%E4%BB%AE%E5%90%8D
-
-[prefix-search-v2]:../reference/operators/prefix-search-v2.html
 
 [match-v2]:../reference/operators/match-v2.html
 

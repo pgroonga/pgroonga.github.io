@@ -27,9 +27,6 @@ msgstr "オートコンプリートは使いやすい検索ボックスを作る
 msgid "You can implement auto complete by combining the following searches:"
 msgstr "次の検索を組み合わせることでオートコンプリートを実現できます。"
 
-msgid "  * Prefix search"
-msgstr "  * 前方一致検索"
-
 msgid "  * Only for Japanese: Prefix RK search for auto complete by readings"
 msgstr "  * 日本語のみ：ヨミガナでのオートコンプリート用に前方一致RK検索"
 
@@ -65,8 +62,7 @@ msgstr "サンプルのインデックス定義を示します。"
 msgid ""
 "```sql\n"
 "CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga\n"
-"  (term pgroonga_text_term_search_ops_v2,\n"
-"   readings pgroonga_text_array_term_search_ops_v2);"
+"  (readings pgroonga_text_array_term_search_ops_v2);"
 msgstr ""
 
 msgid ""
@@ -76,47 +72,13 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "The above indexes are required for prefix search and full text search."
-msgstr "上記のインデックス定義は前方一致検索と全文検索に必要です。"
+msgid "The above indexes are required for prefix RK search and full text search."
+msgstr "上記のインデックス定義は前方一致RK検索と全文検索に必要です。"
 
 msgid ""
 "`TokenBigramSplitSymbolAlphaDigit` tokenizer is suitable for loose full text s"
 "earch."
 msgstr "`TokenBigramSplitSymbolAlphaDigit`トークナイザーは緩い全文検索に向いています。"
-
-msgid "## Prefix search"
-msgstr "## 前方一致検索"
-
-msgid "There is a simple way to implement auto complete feature. It is prefix search."
-msgstr "オートコンプリート機能を実現するシンプルな方法は前方一致検索を使う方法です。"
-
-msgid "PGroonga provides operator for it: [`&^` operator][prefix-search-v2]"
-msgstr "PGroongaは前方一致検索用の演算子として[`&^`演算子][prefix-search-v2]を提供しています。"
-
-msgid "Here is the sample data for prefix search:"
-msgstr "前方一致検索をするためのサンプルデータを示します。"
-
-msgid ""
-"```sql\n"
-"INSERT INTO terms (term) VALUES ('auto-complete');\n"
-"```"
-msgstr ""
-
-msgid "Then, use `&^` against `term` for prefix search. Here is the result of it:"
-msgstr "データを挿入したら、`term`に対して`&^`を使って前方一致検索をします。結果は次の通りです。"
-
-msgid ""
-"```sql\n"
-"SELECT term FROM terms WHERE term &^ 'auto';\n"
-"--      term      \n"
-"-- ---------------\n"
-"--  auto-complete\n"
-"-- (1 rows)\n"
-"```"
-msgstr ""
-
-msgid "The result contains `auto-complete` as auto complete candidate term."
-msgstr "オートコンプリート候補の用語として`auto-complete`がヒットしています。"
 
 msgid "## Only for Japanese: Prefix RK search for auto complete by readings"
 msgstr "## 日本語のみ：ヨミガナでのオートコンプリート用に前方一致RK検索"
@@ -247,6 +209,9 @@ msgid ""
 "```"
 msgstr ""
 
+msgid "The result contains `auto-complete` as auto complete candidate term."
+msgstr "オートコンプリート候補の用語として`auto-complete`がヒットしています。"
+
 msgid ""
 "[groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix"
 "_rk_search.html"
@@ -264,9 +229,6 @@ msgstr ""
 
 msgid "[wikipedia-hiragana]:https://en.wikipedia.org/wiki/Hiragana"
 msgstr "[wikipedia-hiragana]:https://ja.wikipedia.org/wiki/%E5%B9%B3%E4%BB%AE%E5%90%8D"
-
-msgid "[prefix-search-v2]:../reference/operators/prefix-search-v2.html"
-msgstr ""
 
 msgid "[match-v2]:../reference/operators/match-v2.html"
 msgstr ""

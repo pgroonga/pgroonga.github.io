@@ -28,12 +28,15 @@ Auto complete candidate terms are stored into `term`. Readings of `term` are sto
 Here is the sample index definition:
 
 ```sql
+CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
+  (readings pgroonga_text_array_term_search_ops_v2);
+
 CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
-  (term, readings)
+  (term)
   WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
 ```
 
-The above indexes are required for full text search.
+The above indexes are required for prefix RK search and full text search.
 
 `TokenBigramSplitSymbolAlphaDigit` tokenizer is suitable for loose full text search.
 

@@ -28,12 +28,15 @@ CREATE TABLE terms (
 サンプルのインデックス定義を示します。
 
 ```sql
+CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
+  (readings pgroonga_text_array_term_search_ops_v2);
+
 CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
-  (term, readings)
+  (term)
   WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
 ```
 
-上記のインデックス定義は全文検索に必要です。
+上記のインデックス定義は前方一致RK検索と全文検索に必要です。
 
 `TokenBigramSplitSymbolAlphaDigit`トークナイザーは緩い全文検索に向いています。
 

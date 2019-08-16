@@ -61,14 +61,19 @@ msgstr "サンプルのインデックス定義を示します。"
 
 msgid ""
 "```sql\n"
+"CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga\n"
+"  (readings pgroonga_text_array_term_search_ops_v2);"
+msgstr ""
+
+msgid ""
 "CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga\n"
-"  (term, readings)\n"
+"  (term)\n"
 "  WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');\n"
 "```"
 msgstr ""
 
-msgid "The above indexes are required for full text search."
-msgstr "上記のインデックス定義は全文検索に必要です。"
+msgid "The above indexes are required for prefix RK search and full text search."
+msgstr "上記のインデックス定義は前方一致RK検索と全文検索に必要です。"
 
 msgid ""
 "`TokenBigramSplitSymbolAlphaDigit` tokenizer is suitable for loose full text s"

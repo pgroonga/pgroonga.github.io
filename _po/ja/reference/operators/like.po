@@ -50,6 +50,13 @@ msgstr ""
 "元の`LIKE`演算子は対象テキストに対して検索します。しかし、`%%`演算子は正規化したテキストに対して検索します。そのため、インデックスを使って`LIK"
 "E`演算子の検索を実行した場合は「再検査」が必要になります。"
 
+msgid ""
+"However, If the column type is `varchar`, `LIKE` or `ILIKE` are always sequent"
+"ial search. Because PGroonga can't use index against `varchar`."
+msgstr ""
+"ただし、カラムの型が `varchar` の場合、 `LIKE` または `ILIKE` は常にシーケンシャルサーチになります。PGroongaは `var"
+"char` に対してインデックスを使えないためです。"
+
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 

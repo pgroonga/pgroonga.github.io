@@ -48,7 +48,7 @@ msgstr ""
 msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 18.10."
 msgstr ""
 
-msgid "  * [[CentOS][centos]] Added support for CentOS 8 but Supported WAL."
+msgid "  * [[CentOS][centos]] Added support for CentOS 8 but WAL isn't enabled."
 msgstr ""
 
 msgid "  * Removed needless copyright holders."

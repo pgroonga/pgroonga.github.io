@@ -29,8 +29,8 @@ msgid "You can install PGroonga by Homebrew:"
 msgstr "Homebrewを使ってPGroongaをインストールできます。"
 
 msgid ""
-"```text\n"
-"% brew install pgroonga\n"
+"```console\n"
+"$ brew install pgroonga\n"
 "```"
 msgstr ""
 
@@ -42,8 +42,8 @@ msgstr ""
 "with-mecab`オプション付きでインストールし直す必要があります。"
 
 msgid ""
-"```text\n"
-"% brew reinstall groonga --with-mecab\n"
+"```console\n"
+"$ brew reinstall groonga --with-mecab\n"
 "```"
 msgstr ""
 
@@ -51,8 +51,8 @@ msgid "Create a database:"
 msgstr "データベースを作成します。"
 
 msgid ""
-"```text\n"
-"% psql --command 'CREATE DATABASE pgroonga_test'\n"
+"```console\n"
+"$ psql --command 'CREATE DATABASE pgroonga_test'\n"
 "```"
 msgstr ""
 
@@ -68,8 +68,8 @@ msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
 msgstr "作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。"
 
 msgid ""
-"```text\n"
-"% psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'\n"
+"```console\n"
+"$ psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'\n"
 "```"
 msgstr ""
 

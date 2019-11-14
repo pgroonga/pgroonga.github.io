@@ -21,8 +21,8 @@ You can use the following instruction to install PGroonga on Debian GNU/Linux st
 Install `apt-transport-https` package:
 
 ```console
-% sudo apt update
-% sudo apt install -y -V apt-transport-https gnupg wget
+$ sudo apt update
+$ sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 Add APT repository for Groonga:
@@ -37,34 +37,34 @@ deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://pack
 If you want to use PostgreSQL 10 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
 
 ```console
-% echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-% wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
 Install `postgresql-9.6-pgroonga`, `postgresql-10-pgroonga`, `postgresql-11-pgroonga` or `postgresql-12-pgroonga` package:
 
 ```console
-% sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
-% sudo apt update
-% sudo apt install -y -V postgresql-9.6-pgroonga
+$ sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
+$ sudo apt update
+$ sudo apt install -y -V postgresql-9.6-pgroonga
 Or
-% sudo apt install -y -V postgresql-10-pgroonga
+$ sudo apt install -y -V postgresql-10-pgroonga
 Or
-% sudo apt install -y -V postgresql-11-pgroonga
+$ sudo apt install -y -V postgresql-11-pgroonga
 Or
-% sudo apt install -y -V postgresql-12-pgroonga
+$ sudo apt install -y -V postgresql-12-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
 ```console
-% sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt-get install -y -V groonga-tokenizer-mecab
 ```
 
 Create a database:
 
 ```console
-% sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
+$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
 (Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)
@@ -72,7 +72,7 @@ Create a database:
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
 ```console
-% sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
+$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 
 That's all!
@@ -86,8 +86,8 @@ You can use the following instruction to install PGroonga on Debian GNU/Linux bu
 Install `apt-transport-https` package:
 
 ```console
-% sudo apt update
-% sudo apt install -y -V apt-transport-https gnupg wget
+$ sudo apt update
+$ sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 Add APT repository for Groonga:
@@ -102,30 +102,30 @@ deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://pack
 If you want to use PostgreSQL 12 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
 
 ```console
-% echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-% wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
 Install `postgresql-11-pgroonga` or `postgresql-12-pgroonga` package:
 
 ```console
-% sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
-% sudo apt update
-% sudo apt install -y -V postgresql-11-pgroonga
+$ sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
+$ sudo apt update
+$ sudo apt install -y -V postgresql-11-pgroonga
 Or
-% sudo apt install -y -V postgresql-12-pgroonga
+$ sudo apt install -y -V postgresql-12-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
 ```console
-% sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt-get install -y -V groonga-tokenizer-mecab
 ```
 
 Create a database:
 
 ```console
-% sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
+$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
 (Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)
@@ -133,7 +133,7 @@ Create a database:
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
 ```console
-% sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
+$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 
 That's all!

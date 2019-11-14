@@ -21,8 +21,8 @@ Debian GNU/Linux stretchにPGroongaをインストールする方法は次の通
 `apt-transport-https`パッケージをインストールします。
 
 ```console
-% sudo apt update
-% sudo apt install -y -V apt-transport-https gnupg wget
+$ sudo apt update
+$ sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 GroongaのAPTリポジトリーを追加します。
@@ -37,34 +37,34 @@ deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://pack
 PostgreSQL 10以降を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
 
 ```console
-% echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-% wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
 `postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`または`postgresql-11-pgroonga`または`postgresql-12-pgroonga`パッケージをインストールします。
 
 ```console
-% sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
-% sudo apt update
-% sudo apt install -y -V postgresql-9.6-pgroonga
+$ sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
+$ sudo apt update
+$ sudo apt install -y -V postgresql-9.6-pgroonga
 Or
-% sudo apt install -y -V postgresql-10-pgroonga
+$ sudo apt install -y -V postgresql-10-pgroonga
 Or
-% sudo apt install -y -V postgresql-11-pgroonga
+$ sudo apt install -y -V postgresql-11-pgroonga
 Or
-% sudo apt install -y -V postgresql-12-pgroonga
+$ sudo apt install -y -V postgresql-12-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
 ```console
-% sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt-get install -y -V groonga-tokenizer-mecab
 ```
 
 データベースを作成します。
 
 ```console
-% sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
+$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
 （通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）
@@ -72,7 +72,7 @@ Or
 作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。
 
 ```console
-% sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
+$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 
 これで終わりです！
@@ -86,8 +86,8 @@ Debian GNU/Linux busterにPGroongaをインストールする方法は次の通�
 `apt-transport-https`パッケージをインストールします。
 
 ```console
-% sudo apt update
-% sudo apt install -y -V apt-transport-https gnupg wget
+$ sudo apt update
+$ sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 GroongaのAPTリポジトリーを追加します。
@@ -102,30 +102,30 @@ deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://pack
 PostgreSQL 12以降を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
 
 ```console
-% echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-% wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
 `postgresql-11-pgroonga`または`postgresql-12-pgroonga`パッケージをインストールします。
 
 ```console
-% sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
-% sudo apt update
-% sudo apt install -y -V postgresql-11-pgroonga
+$ sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
+$ sudo apt update
+$ sudo apt install -y -V postgresql-11-pgroonga
 Or
-% sudo apt install -y -V postgresql-12-pgroonga
+$ sudo apt install -y -V postgresql-12-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
 ```console
-% sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt-get install -y -V groonga-tokenizer-mecab
 ```
 
 データベースを作成します。
 
 ```console
-% sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
+$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
 （通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）
@@ -133,7 +133,7 @@ Or
 作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。
 
 ```console
-% sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
+$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 
 これで終わりです！

@@ -11,11 +11,11 @@ There are separated documents for these platforms. And there is a document for b
 
 Here are supported PostgreSQL versions:
 
-  * 9.4
   * 9.5
   * 9.6
   * 10
   * 11
+  * 12
 
 If your PostgreSQL is older than them, you need to upgrade your PostgreSQL before you install PGroonga.
 
@@ -23,7 +23,9 @@ See a document for your platform in the followings:
 
   * [Debian GNU/Linux](debian.html)
 
-    * Stretch
+    * stretch
+
+    * buster
 
   * [Ubuntu](ubuntu.html)
 
@@ -31,15 +33,17 @@ See a document for your platform in the followings:
 
     * 18.04
 
-    * 18.10
-
     * 19.04
+
+    * 19.10
 
   * [CentOS](centos.html)
 
     * 6
 
     * 7
+
+    * 8
 
   * [Amazon Linux](amazon-linux.html)
 

@@ -112,22 +112,22 @@ Note that WAL support is disabled for now.
 
 Install `postgresql-pgroonga` package:
 
-```text
-% sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
+```console
+% sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
 % sudo -H dnf install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
-% sudo -H dnf module disable postgresql
+% sudo -H dnf module -y disable postgresql
 % sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
-```text
+```console
 % sudo -H dnf install -y groonga-tokenizer-mecab
 ```
 
 Run PostgreSQL:
 
-```text
+```console
 % sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
 % sudo -H systemctl enable postgresql-{{ site.latest_postgresql_version }}
 % sudo -H systemctl start postgresql-{{ site.latest_postgresql_version }}
@@ -135,7 +135,7 @@ Run PostgreSQL:
 
 Create a database:
 
-```text
+```console
 % sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
@@ -143,7 +143,7 @@ Create a database:
 
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
-```text
+```console
 % sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 

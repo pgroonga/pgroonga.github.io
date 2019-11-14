@@ -22,7 +22,7 @@ Debian GNU/Linux stretchにPGroongaをインストールする方法は次の通
 
 ```console
 % sudo apt update
-% sudo apt install -y -V apt-transport-https
+% sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 GroongaのAPTリポジトリーを追加します。
@@ -87,7 +87,7 @@ Debian GNU/Linux busterにPGroongaをインストールする方法は次の通�
 
 ```console
 % sudo apt update
-% sudo apt install -y -V apt-transport-https
+% sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 GroongaのAPTリポジトリーを追加します。
@@ -95,8 +95,8 @@ GroongaのAPTリポジトリーを追加します。
 `/etc/apt/sources.list.d/groonga.list`:
 
 ```text
-deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
-deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
+deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
+deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
 ```
 
 PostgreSQL 12以降を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。

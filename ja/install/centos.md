@@ -112,22 +112,22 @@ CentOS 8にPGroongaをインストールする方法は次の通りです。
 
 `postgresql-pgroonga`パッケージをインストールします。
 
-```text
-% sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
+```console
+% sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
 % sudo -H dnf install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
-% sudo -H dnf module disable postgresql
+% sudo -H dnf module -y disable postgresql
 % sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
-```text
+```console
 % sudo -H dnf install -y groonga-tokenizer-mecab
 ```
 
 PostgreSQLを実行します。
 
-```text
+```console
 % sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
 % sudo -H systemctl enable postgresql-{{ site.latest_postgresql_version }}
 % sudo -H systemctl start postgresql-{{ site.latest_postgresql_version }}
@@ -135,7 +135,7 @@ PostgreSQLを実行します。
 
 データベースを作成します。
 
-```text
+```console
 % sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
@@ -143,7 +143,7 @@ PostgreSQLを実行します。
 
 作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。
 
-```text
+```console
 % sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 

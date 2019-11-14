@@ -22,7 +22,7 @@ Install `apt-transport-https` package:
 
 ```console
 % sudo apt update
-% sudo apt install -y -V apt-transport-https
+% sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 Add APT repository for Groonga:
@@ -87,7 +87,7 @@ Install `apt-transport-https` package:
 
 ```console
 % sudo apt update
-% sudo apt install -y -V apt-transport-https
+% sudo apt install -y -V apt-transport-https gnupg wget
 ```
 
 Add APT repository for Groonga:
@@ -95,8 +95,8 @@ Add APT repository for Groonga:
 `/etc/apt/sources.list.d/groonga.list`:
 
 ```text
-deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
-deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
+deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
+deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
 ```
 
 If you want to use PostgreSQL 12 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:

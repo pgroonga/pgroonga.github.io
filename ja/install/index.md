@@ -11,11 +11,11 @@ upper_level: ../
 
 サポートしているPostgreSQLのバージョンは次の通りです。
 
-  * 9.4
   * 9.5
   * 9.6
   * 10
   * 11
+  * 12
 
 もし、これより古いPostgreSQLを使っているなら、PGroongaをインストールする前にPostgreSQLをアップグレードしてください。
 
@@ -23,7 +23,9 @@ upper_level: ../
 
   * [Debian GNU/Linux](debian.html)
 
-    * Stretch
+    * stretch
+
+    * buster
 
   * [Ubuntu](ubuntu.html)
 
@@ -31,15 +33,17 @@ upper_level: ../
 
     * 18.04
 
-    * 18.10
-
     * 19.04
+
+    * 19.10
 
   * [CentOS](centos.html)
 
     * 6
 
     * 7
+
+    * 8
 
   * [Amazon Linux](amazon-linux.html)
 

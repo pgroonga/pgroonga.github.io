@@ -23,6 +23,8 @@ upper_level: ../
 
   * [[Ubuntu][ubuntu]] Added support for Ubuntu 19.10.
 
+  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 18.10.
+
   * [[CentOS][centos]] Added support for CentOS 8 but Supported WAL.
 
   * Removed needless copyright holders.

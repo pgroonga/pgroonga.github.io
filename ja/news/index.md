@@ -5,6 +5,32 @@ upper_level: ../
 
 # おしらせ
 
+## 2.2.2: 2019-11-14 {#version-2-2-2}
+
+### 改良
+
+  * Added support for PostgreSQL 12.
+
+  * Dropped support for PostgreSQL 9.4.
+
+  * Dropped support for Greenplum.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.9.
+
+  * Upgrade bundled xxHash to 0.7.2 from 0.6.2.
+
+  * [[Debian][debian]] Added support for Debian GNU/Linux buster.
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 19.10.
+
+  * [[CentOS][centos]] Added support for CentOS 8 but Supported WAL.
+
+  * Removed needless copyright holders.
+
+### 修正
+
+  * Fix a build failure on CentOS 6.
+
 ## 2.2.1: 2019-07-19 {#version-2-2-1}
 
 ### 改良
@@ -1172,6 +1198,7 @@ CREATE EXTENSION pgroonga;
 
 The first release!!!
 
+[centos]:../install/centos.html
 [debian]:../install/debian.html
 [ubuntu]:../install/ubuntu.html
 [windows]:../install/windows.html

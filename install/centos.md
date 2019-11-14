@@ -14,6 +14,8 @@ Here are supported CentOS versions:
 
   * [CentOS 7](#install-on-7)
 
+  * [CentOS 8](#install-on-8)
+
 ## How to install on CentOS 6 {#install-on-6}
 
 You can use the following instruction to install PGroonga on CentOS 6.
@@ -74,6 +76,53 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 
 ```text
 % sudo -H yum install -y groonga-tokenizer-mecab
+```
+
+Run PostgreSQL:
+
+```text
+% sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
+% sudo -H systemctl enable postgresql-{{ site.latest_postgresql_version }}
+% sudo -H systemctl start postgresql-{{ site.latest_postgresql_version }}
+```
+
+Create a database:
+
+```text
+% sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
+```
+
+(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)
+
+Connect to the created database and execute `CREATE EXTENSION pgroonga`:
+
+```text
+% sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
+```
+
+That's all!
+
+Try [tutorial](../tutorial/). You can understand more about PGroonga.
+
+## How to install on CentOS 8 {#install-on-8}
+
+You can use the following instruction to install PGroonga on CentOS 8.
+
+Note that WAL support is disabled for now.
+
+Install `postgresql-pgroonga` package:
+
+```text
+% sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
+% sudo -H dnf install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
+% sudo -H dnf module disable postgresql
+% sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgroonga
+```
+
+If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
+
+```text
+% sudo -H dnf install -y groonga-tokenizer-mecab
 ```
 
 Run PostgreSQL:

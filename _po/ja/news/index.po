@@ -21,11 +21,44 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.2.1: 2019-07-19 {#version-2-2-1}"
+msgid "## 2.2.2: 2019-11-14 {#version-2-2-2}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Added support for PostgreSQL 12."
+msgstr ""
+
+msgid "  * Dropped support for PostgreSQL 9.4."
+msgstr ""
+
+msgid "  * Dropped support for Greenplum."
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.9."
+msgstr ""
+
+msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux buster."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 19.10."
+msgstr ""
+
+msgid "  * [[CentOS][centos]] Added support for CentOS 8 but Supported WAL."
+msgstr ""
+
+msgid "  * Removed needless copyright holders."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * Fix a build failure on CentOS 6."
+msgstr ""
+
+msgid "## 2.2.1: 2019-07-19 {#version-2-2-1}"
+msgstr ""
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.4."
 msgstr ""
@@ -55,9 +88,6 @@ msgid ""
 "  * [[`pgroonga.query_expand` function][query-expand]] Added support\n"
 "    for synonyms only data."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid "  * Fix a bug that index only scan is used for nullable column."
 msgstr ""
@@ -1657,6 +1687,7 @@ msgid "The first release!!!"
 msgstr ""
 
 msgid ""
+"[centos]:../install/centos.html\n"
 "[debian]:../install/debian.html\n"
 "[ubuntu]:../install/ubuntu.html\n"
 "[windows]:../install/windows.html"

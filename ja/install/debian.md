@@ -18,20 +18,13 @@ title: Debian GNU/Linuxにインストール
 
 Debian GNU/Linux stretchにPGroongaをインストールする方法は次の通りです。
 
-`apt-transport-https`パッケージをインストールします。
+`groonga-archive-keyring`パッケージをインストールします。
 
 ```console
 $ sudo apt update
-$ sudo apt install -y -V apt-transport-https gnupg wget
-```
-
-GroongaのAPTリポジトリーを追加します。
-
-`/etc/apt/sources.list.d/groonga.list`:
-
-```text
-deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
-deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
+$ sudo apt install -y -V wget
+$ wget https://packages.groonga.org/debian/groonga-archive-keyring-latest-stretch.deb
+$ sudo apt install -y -V ./groonga-archive-keyring-latest-stretch.deb
 ```
 
 PostgreSQL 10以降を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
@@ -44,7 +37,6 @@ $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo ap
 `postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`または`postgresql-11-pgroonga`または`postgresql-12-pgroonga`パッケージをインストールします。
 
 ```console
-$ sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
 $ sudo apt update
 $ sudo apt install -y -V postgresql-9.6-pgroonga
 Or
@@ -83,20 +75,12 @@ $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga
 
 Debian GNU/Linux busterにPGroongaをインストールする方法は次の通りです。
 
-`apt-transport-https`パッケージをインストールします。
+`groonga-archive-keyring`パッケージをインストールします。
 
 ```console
-$ sudo apt update
-$ sudo apt install -y -V apt-transport-https gnupg wget
-```
-
-GroongaのAPTリポジトリーを追加します。
-
-`/etc/apt/sources.list.d/groonga.list`:
-
-```text
-deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
-deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
+$ sudo apt install -y -V wget
+$ wget https://packages.groonga.org/debian/groonga-archive-keyring-latest-buster.deb
+$ sudo apt install -y -V ./groonga-archive-keyring-latest-buster.deb
 ```
 
 PostgreSQL 12以降を使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。

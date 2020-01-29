@@ -18,20 +18,13 @@ Here are supported Debian GNU/Linux versions:
 
 You can use the following instruction to install PGroonga on Debian GNU/Linux stretch.
 
-Install `apt-transport-https` package:
+Install `groonga-archive-keyring` package:
 
 ```console
 $ sudo apt update
-$ sudo apt install -y -V apt-transport-https gnupg wget
-```
-
-Add APT repository for Groonga:
-
-`/etc/apt/sources.list.d/groonga.list`:
-
-```text
-deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
-deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ stretch main
+$ sudo apt install -y -V wget
+$ wget https://packages.groonga.org/debian/groonga-archive-keyring-latest-stretch.deb
+$ sudo apt install -y -V ./groonga-archive-keyring-latest-stretch.deb
 ```
 
 If you want to use PostgreSQL 10 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
@@ -44,7 +37,6 @@ $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo ap
 Install `postgresql-9.6-pgroonga`, `postgresql-10-pgroonga`, `postgresql-11-pgroonga` or `postgresql-12-pgroonga` package:
 
 ```console
-$ sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
 $ sudo apt update
 $ sudo apt install -y -V postgresql-9.6-pgroonga
 Or
@@ -83,20 +75,12 @@ Try [tutorial](../tutorial/). You can understand more about PGroonga.
 
 You can use the following instruction to install PGroonga on Debian GNU/Linux buster.
 
-Install `apt-transport-https` package:
+Install `groonga-archive-keyring` package:
 
 ```console
-$ sudo apt update
-$ sudo apt install -y -V apt-transport-https gnupg wget
-```
-
-Add APT repository for Groonga:
-
-`/etc/apt/sources.list.d/groonga.list`:
-
-```text
-deb [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
-deb-src [signed-by=/usr/share/keyrings/groonga-archive-keyring.gpg] https://packages.groonga.org/debian/ buster main
+$ sudo apt install -y -V wget
+$ wget https://packages.groonga.org/debian/groonga-archive-keyring-latest-buster.deb
+$ sudo apt install -y -V ./groonga-archive-keyring-latest-buster.deb
 ```
 
 If you want to use PostgreSQL 12 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:

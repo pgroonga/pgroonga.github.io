@@ -73,13 +73,13 @@ PGroongaをインストールします。
 % sudo make install
 ```
 
-If you use SELinux, you must create a policy package(.pp) and install it. PGroonga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is not allowed by default. First, install `policycoreutils` and `checkpolicy`.
+もし、SELinuxを使っているなら、ポリシーパッケージ(.pp)を作成し、インストールしなければなりません。PGroongaは、 `<data dir>/pgrn*` ファイルをメモリー内にマップさせますが、これはデフォルトでは許可されていません。初めに、 `policycoreutils` と `checkpolicy` をインストールします。 
 
 ```console
 % sudo dnf install policycoreutils checkpolicy
 ```
 
-Let's assume that PostgreSQL binaries are of type `postgresql_t` and PostgreSQL data files are of type `postgresql_db_t`. Allow `postgresql_t` type to memory map files of type `postgresql_db_t`. Then compile it (.mod), package it (.pp) and install the resulting policy package.
+PostgreSQLのバイナリーのタイプを `postgresql_t` 、 PostgreSQｌのデータファイルのタイプを `postgresql_db_t` とします。 `postgresql_t` が `postgresql_db_t` のファイルをメモリーにマップすることを許可します。そして、それをコンパイル(.mod)、パッケージ(.pp)したポリシーパッケージをインストールします。
 
 
 ```console

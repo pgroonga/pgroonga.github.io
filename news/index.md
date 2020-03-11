@@ -5,6 +5,23 @@ upper_level: ../
 
 # News
 
+## 2.2.3: 2020-03-11 {#version-2-2-3}
+
+### Improvements
+
+  * Added support for CREATE TABLE, CREATE INDEX and TRUNCATE in the same transaction.
+
+  * Reduced the number of estimated size when too much estimated case.
+
+  * Increased operator cost to 300 from 200.
+
+  * [`jsonb`] Added support for count(*).
+
+### Fixes
+
+  * Fixed a bug that PGroonga occurred error on sequential search
+    when we set PGroonga's index with libgroonga 10.0.0 or later.
+
 ## 2.2.2: 2019-11-14 {#version-2-2-2}
 
 ### Improvements

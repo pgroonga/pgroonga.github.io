@@ -33,7 +33,7 @@ Run `configure` with `CFLAGS="-O0 -g3"` argument. It enables debug build. `--pre
 Build and install PostgreSQL:
 
 ```console
-% make -j8 > /dev/null
+% make -j$(nproc) > /dev/null
 % make install > /dev/null
 ```
 
@@ -62,7 +62,7 @@ The following one liner is useful to reset all PostgreSQL related data. You stor
 It's recommended that you use the latest PGroonga instead of released PGroonga. Here are command lines to clone the latest PGroonga source:
 
 ```console
-% git clone git@github.com:pgroonga/pgroonga.git
+% git clone --rerursive git@github.com:pgroonga/pgroonga.git
 % cd pgroonga
 ```
 

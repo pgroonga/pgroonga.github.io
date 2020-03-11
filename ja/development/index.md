@@ -33,7 +33,7 @@ Groongaもデバッグオプション（Groongaの`configure`には`--enable-deb
 PostgreSQLをビルドしてインストールします。
 
 ```console
-% make -j8 > /dev/null
+% make -j$(nproc) > /dev/null
 % make install > /dev/null
 ```
 
@@ -62,7 +62,7 @@ PostgreSQLを初期化して実行します。
 リリース版のPGroongaではなく最新のPGroongaを使うことをオススメします。以下は最新のPGroongaのソースをクローンするコマンドラインです。
 
 ```console
-% git clone git@github.com:pgroonga/pgroonga.git
+% git clone --rerursive git@github.com:pgroonga/pgroonga.git
 % cd pgroonga
 ```
 

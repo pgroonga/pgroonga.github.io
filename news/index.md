@@ -5,11 +5,26 @@ upper_level: ../
 
 # News
 
+## 2.2.4: 2020-03-12 {#version-2-2-4}
+
+### Fixes
+
+  * [[Debian][debian]] Fixed wrong PostgreSQL package name.
+
+  * [[Ubuntu][ubuntu]] Fixed wrong PostgreSQL package name.
+    [GitHub#128][Reported by Volo Zyko]
+
+### Thanks
+
+  * Volo Zyko
+
 ## 2.2.3: 2020-03-11 {#version-2-2-3}
 
 ### Improvements
 
-  * Added support for `CREATE TABLE`, `CREATE INDEX` and `TRUNCATE` in the same transaction.
+  * Added support for `CREATE TABLE`, `CREATE INDEX` and `TRUNCATE` in
+    the same transaction.
+    [GitHub#123][Reported by Alex Rudenko]
 
   * Reduced the number of estimated size when too much estimated case.
 
@@ -21,6 +36,10 @@ upper_level: ../
 
   * Fixed a bug that PGroonga occurred error on sequential search
     when we set PGroonga's index with libgroonga 10.0.0 or later.
+
+### Thanks
+
+  * Alex Rudenko
 
 ## 2.2.2: 2019-11-14 {#version-2-2-2}
 

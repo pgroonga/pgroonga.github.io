@@ -21,11 +21,57 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.2.2: 2019-11-14 {#version-2-2-2}"
+msgid "## 2.2.4: 2020-03-12 {#version-2-2-4}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * [[Debian][debian]] Fixed wrong PostgreSQL package name."
+msgstr ""
+
+msgid ""
+"  * [[Ubuntu][ubuntu]] Fixed wrong PostgreSQL package name.\n"
+"    [GitHub#128][Reported by Volo Zyko]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Volo Zyko"
+msgstr ""
+
+msgid "## 2.2.3: 2020-03-11 {#version-2-2-3}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * Added support for `CREATE TABLE`, `CREATE INDEX` and `TRUNCATE` in\n"
+"    the same transaction.\n"
+"    [GitHub#123][Reported by Alex Rudenko]"
+msgstr ""
+
+msgid "  * Reduced the number of estimated size when too much estimated case."
+msgstr ""
+
+msgid "  * Increased operator cost to 300 from 200."
+msgstr ""
+
+msgid "  * [`jsonb`] Added support for `count(*)`."
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that PGroonga occurred error on sequential search\n"
+"    when we set PGroonga's index with libgroonga 10.0.0 or later."
+msgstr ""
+
+msgid "  * Alex Rudenko"
+msgstr ""
+
+msgid "## 2.2.2: 2019-11-14 {#version-2-2-2}"
+msgstr ""
 
 msgid "  * Added support for PostgreSQL 12."
 msgstr ""
@@ -53,9 +99,6 @@ msgstr ""
 
 msgid "  * Removed needless copyright holders."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid "  * Fix a build failure on CentOS 6."
 msgstr ""
@@ -187,9 +230,6 @@ msgid ""
 "  * [[`pgroonga_escape` function][escape]] Fixed a bug that\n"
 "    `pgroonga_escape(float4)` returns wrong result."
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * kwata"
 msgstr ""

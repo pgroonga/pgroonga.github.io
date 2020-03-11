@@ -1,9 +1,9 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 2.2.2
-pgroonga_release_date: 2019-11-14
-copyright_year: 2015-2019
+pgroonga_version: 2.2.3
+pgroonga_release_date: 2020-03-11
+copyright_year: 2015-2020
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/12
   ja: https://www.postgresql.jp/document/11/html
@@ -17,7 +17,7 @@ freebsd_postgresql_version: 11
 amazon_linux_postgresql_version:
   major: 10
   package: 10.9-1PGDG
-development_postgresql_version: 12.0
+development_postgresql_version: 12.2
 exclude:
   - "Rakefile"
   - "Gemfile"

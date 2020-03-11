@@ -9,13 +9,13 @@ upper_level: ../
 
 ### Improvements
 
-  * Added support for CREATE TABLE, CREATE INDEX and TRUNCATE in the same transaction.
+  * Added support for `CREATE TABLE`, `CREATE INDEX` and `TRUNCATE` in the same transaction.
 
   * Reduced the number of estimated size when too much estimated case.
 
   * Increased operator cost to 300 from 200.
 
-  * [`jsonb`] Added support for count(*).
+  * [`jsonb`] Added support for `count(*)`.
 
 ### Fixes
 

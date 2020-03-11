@@ -34,7 +34,7 @@ Ubuntu 19.04または19.10を使っている場合は`postgresql-11-pgroonga`パ
 $ sudo apt install -y software-properties-common
 $ sudo add-apt-repository -y universe
 $ sudo add-apt-repository -y ppa:groonga/ppa
-$ sudo apt-get update
+$ sudo apt update
 Ubuntu 16.04:
 $ sudo apt install -y -V postgresql-9.5-pgroonga
 Ubuntu 19.04 or 19.10:

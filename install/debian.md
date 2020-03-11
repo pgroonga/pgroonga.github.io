@@ -50,7 +50,7 @@ $ sudo apt install -y -V postgresql-12-pgroonga
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
 ```console
-$ sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
 Create a database:
@@ -103,7 +103,7 @@ $ sudo apt install -y -V postgresql-12-pgroonga
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
 
 ```console
-$ sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
 Create a database:

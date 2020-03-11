@@ -98,7 +98,7 @@ msgstr ""
 
 msgid ""
 "```console\n"
-"$ sudo apt-get install -y -V groonga-tokenizer-mecab\n"
+"$ sudo apt install -y -V groonga-tokenizer-mecab\n"
 "```"
 msgstr ""
 

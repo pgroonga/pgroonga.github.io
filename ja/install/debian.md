@@ -50,7 +50,7 @@ $ sudo apt install -y -V postgresql-12-pgroonga
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
 ```console
-$ sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
 データベースを作成します。
@@ -103,7 +103,7 @@ $ sudo apt install -y -V postgresql-12-pgroonga
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
 
 ```console
-$ sudo apt-get install -y -V groonga-tokenizer-mecab
+$ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
 データベースを作成します。

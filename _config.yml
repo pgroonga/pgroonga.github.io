@@ -23,6 +23,7 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
   - "data"
+  - "vendor"
 description:
   en: Make PostgreSQL fast full text search platform for all languages!
   ja: PostgreSQLで高速日本語全文検索！

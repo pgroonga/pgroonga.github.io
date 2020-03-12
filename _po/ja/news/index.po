@@ -47,9 +47,10 @@ msgstr ""
 msgid "### Thanks"
 msgstr "### 感謝"
 
-msgid ""
-"  * Volo Zyko\n"
-"  * punchagan"
+msgid "  * Volo Zyko"
+msgstr ""
+
+msgid "  * punchagan"
 msgstr ""
 
 msgid "## 2.2.3: 2020-03-11 {#version-2-2-3}"

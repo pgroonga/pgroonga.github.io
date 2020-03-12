@@ -33,8 +33,6 @@ See a document for your platform in the followings:
 
     * 18.04
 
-    * 19.04
-
     * 19.10
 
   * [CentOS](centos.html)

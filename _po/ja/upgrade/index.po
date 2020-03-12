@@ -33,6 +33,9 @@ msgstr ""
 msgid "Here is a list of compatibility:"
 msgstr "以下は互換性のリストです。"
 
+msgid "  * 2.2.4 -> 2.2.5: Compatible"
+msgstr "  * 2.2.4 -> 2.2.5: 互換"
+
 msgid "  * 2.2.3 -> 2.2.4: Compatible"
 msgstr "  * 2.2.3 -> 2.2.4: 互換"
 

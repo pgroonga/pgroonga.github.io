@@ -9,6 +9,8 @@ You can upgrade PGroonga without recreating PGroonga indexes when new version do
 
 Here is a list of compatibility:
 
+  * 2.2.4 -> 2.2.5: Compatible
+
   * 2.2.3 -> 2.2.4: Compatible
 
   * 2.2.2 -> 2.2.3: Compatible

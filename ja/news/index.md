@@ -5,6 +5,14 @@ upper_level: ../
 
 # おしらせ
 
+## 2.2.5: 2020-03-12 {#version-2-2-5}
+
+### 修正
+
+  * Fixed a bug that failed update to version 2.2.4.
+
+  * [`jsonb`] Added a workaround for `SELECT COUNT(*)`.
+
 ## 2.2.4: 2020-03-12 {#version-2-2-4}
 
 ### 修正
@@ -12,11 +20,12 @@ upper_level: ../
   * [[Debian][debian]] Fixed wrong PostgreSQL package name.
 
   * [[Ubuntu][ubuntu]] Fixed wrong PostgreSQL package name.
-    [GitHub#128][Reported by Volo Zyko]
+    [GitHub#128][Reported by Volo Zyko] [Reported by punchagan]
 
 ### 感謝
 
   * Volo Zyko
+  * punchagan
 
 ## 2.2.3: 2020-03-11 {#version-2-2-3}
 
@@ -30,7 +39,7 @@ upper_level: ../
 
   * Increased operator cost to 300 from 200.
 
-  * [`jsonb`] Added support for `count(*)`.
+  * [`jsonb`] Added support for `SELECT COUNT(*)`.
 
 ### 修正
 

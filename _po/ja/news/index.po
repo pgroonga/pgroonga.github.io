@@ -21,24 +21,35 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.2.4: 2020-03-12 {#version-2-2-4}"
+msgid "## 2.2.5: 2020-03-12 {#version-2-2-5}"
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid "  * Fixed a bug that failed update to version 2.2.4."
+msgstr ""
+
+msgid "  * [`jsonb`] Added a workaround for `SELECT COUNT(*)`."
+msgstr ""
+
+msgid "## 2.2.4: 2020-03-12 {#version-2-2-4}"
+msgstr ""
 
 msgid "  * [[Debian][debian]] Fixed wrong PostgreSQL package name."
 msgstr ""
 
 msgid ""
 "  * [[Ubuntu][ubuntu]] Fixed wrong PostgreSQL package name.\n"
-"    [GitHub#128][Reported by Volo Zyko]"
+"    [GitHub#128][Reported by Volo Zyko] [Reported by punchagan]"
 msgstr ""
 
 msgid "### Thanks"
 msgstr "### 感謝"
 
-msgid "  * Volo Zyko"
+msgid ""
+"  * Volo Zyko\n"
+"  * punchagan"
 msgstr ""
 
 msgid "## 2.2.3: 2020-03-11 {#version-2-2-3}"
@@ -59,7 +70,7 @@ msgstr ""
 msgid "  * Increased operator cost to 300 from 200."
 msgstr ""
 
-msgid "  * [`jsonb`] Added support for `count(*)`."
+msgid "  * [`jsonb`] Added support for `SELECT COUNT(*)`."
 msgstr ""
 
 msgid ""

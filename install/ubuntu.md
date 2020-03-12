@@ -14,8 +14,6 @@ Here are supported Ubuntu versions:
 
   * Ubuntu 18.04
 
-  * Ubuntu 18.10
-
   * Ubuntu 19.10
 
 ## How to install

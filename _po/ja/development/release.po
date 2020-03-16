@@ -1,0 +1,367 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: How to release\n"
+"---"
+msgstr ""
+"---\n"
+"title: リリース方法\n"
+"---"
+
+msgid "# How to release"
+msgstr "# リリース方法"
+
+msgid "## Requestments"
+msgstr "## 必要なもの"
+
+msgid "Use the following enviroment values."
+msgstr "以下の環境変数を使います。"
+
+msgid "* APACHE_ARROW_REPOSITORY"
+msgstr ""
+
+msgid "* GITHUB_TOKEN"
+msgstr ""
+
+msgid "* GROONGA_REPOSITORY"
+msgstr ""
+
+msgid "* LAUNCHPAD_UPLOADER_PGP_KEY"
+msgstr ""
+
+msgid "We update GRUB option in the following steps for executing CentOS6 on Docker."
+msgstr "Docker上でCentOS6を実行するため、以下の手順でGRUBのオプションを更新します。"
+
+msgid "1. Make `/etc/default/grub.d/vsyscall-emulate.cfg` and write below content."
+msgstr "1. `/etc/default/grub.d/vsyscall-emulate.cfg` を作成して、以下の内容を書きます。"
+
+msgid ""
+"    ```\n"
+"    GRUB_CMDLINE_LINUX_DEFAULT=\"${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate"
+"\"\n"
+"    ```"
+msgstr ""
+
+msgid "2. Execute `update-grub`."
+msgstr "2. `update-grub` を実行します。"
+
+msgid "3. Execute `reboot`."
+msgstr "3. `reboot` を実行します。"
+
+msgid "## Bump version"
+msgstr "## バージョンをあげる"
+
+msgid ""
+"```shell\n"
+"% rake version:update NEW_VERSION=x.x.x\n"
+"```"
+msgstr ""
+
+msgid "## Update change log for Debian and CentOS packages"
+msgstr "## DebianとCentOSのパッケージの変更履歴を更新"
+
+msgid ""
+"```shell\n"
+"% cd package\n"
+"% rake package:version:update\n"
+"```"
+msgstr ""
+
+msgid "## Update PostgreSQL version for Appveyor"
+msgstr "## AppVeyorのPostgreSQLのバージョンを更新"
+
+msgid "We update PostgreSQL version for `appveyor.yml`."
+msgstr "`appveyor.yml` のPostgreSQLのバージョンを更新します。"
+
+msgid "## Check whether we can make packages or not"
+msgstr "## パッケージ作成可能かどうか確認"
+
+msgid "We confirm below CIs green or not."
+msgstr "以下のCIがグリーンかどうかを確認します。"
+
+msgid ""
+"* [GitHub Actions Workflow for Linux](https://github.com/pgroonga/pgroonga/act"
+"ions?query=workflow%3ALinux)"
+msgstr ""
+
+msgid "* [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgroonga)"
+msgstr ""
+
+msgid "## Tagging for the release"
+msgstr "## リリース用にタグを打つ"
+
+msgid ""
+"```shell\n"
+"% cd package\n"
+"% rake tag\n"
+"```"
+msgstr ""
+
+msgid "## Create and upload a archive file"
+msgstr "## アーカイブを作成・アップロード"
+
+msgid ""
+"```shell\n"
+"% cd package\n"
+"% rake package:source\n"
+"```"
+msgstr ""
+
+msgid "## Create packages for the release"
+msgstr "## リリース用パッケージを作成"
+
+msgid "### Debian"
+msgstr ""
+
+msgid ""
+"```shell\n"
+"% cd package\n"
+"% rake package:apt\n"
+"```"
+msgstr ""
+
+msgid "### Ubuntu"
+msgstr ""
+
+msgid "For Ubuntu, packages are provided by PPA on launchpad.net."
+msgstr "Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。"
+
+msgid ""
+"```shell\n"
+"% cd package\n"
+"% rake package:ubuntu\n"
+"```"
+msgstr ""
+
+msgid ""
+"When upload packages was succeeded, package build process is executed on launc"
+"hpad.net.\n"
+"Then build result is notified via E-mail. We can install packages via [Groonga"
+" PPA on launchpad.net](https://launchpad.net/~groonga/+archive/ubuntu/ppa)."
+msgstr ""
+"パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロードに成功するとメールで通知が届きます。ビルドが"
+"成功するとパッケージを[Groonga PPA](https://launchpad.net/~groonga/+archive/ubuntu/ppa)経由"
+"でインストールできます。"
+
+msgid "### CentOS"
+msgstr ""
+
+msgid ""
+"```shell\n"
+"% cd package\n"
+"% rake package:yum\n"
+"```"
+msgstr ""
+
+msgid "### Windows"
+msgstr ""
+
+msgid ""
+"For Windows packages, we use [AppVeyor CI](https://ci.appveyor.com/project/gro"
+"onga/pgroonga) artifacts files."
+msgstr ""
+"Windows向けには、 [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgroonga) の"
+"成果物を使っています。"
+
+msgid ""
+"```shell\n"
+"% cd package\n"
+"% rake package:windows:upload\n"
+"```"
+msgstr ""
+
+msgid "## Describe the changes"
+msgstr "## 変更点を記述"
+
+msgid "We describe to `news/index.md` summarize changes from before version."
+msgstr "`news/index.md` に前回のバージョンからの変更をまとめます。"
+
+msgid "We also update below items in `_config.yml`."
+msgstr "`_config.yml` の以下の項目も更新します。"
+
+msgid "* pgroonga_version:"
+msgstr ""
+
+msgid "  * PGroonga latest version."
+msgstr " * PGroongaの最新バージョン"
+
+msgid "* pgroonga_release_date:"
+msgstr ""
+
+msgid "  * Relase data for the latest version."
+msgstr " * 最新版のリリース日"
+
+msgid "* copyright_year:"
+msgstr ""
+
+msgid "  * Update if the year changes."
+msgstr " * 年が変わったら更新"
+
+msgid "* postgresql_doc_base_url:"
+msgstr ""
+
+msgid "  * Update if PostgreSQL version changes."
+msgstr " * PostgreSQLのバージョンが変わったら更新"
+
+msgid "* windows_postgresql_versions:"
+msgstr ""
+
+msgid "  * Update if PostgreSQL version for Windows changes."
+msgstr " * Windows版のPostgreSQLのバージョンが変わったら更新"
+
+msgid "* latest_postgresql_version:"
+msgstr ""
+
+msgid "  * PostgreSQL latest major version."
+msgstr " * POstgreSQLの最新のメジャーバージョン"
+
+msgid "* freebsd_postgresql_version:"
+msgstr ""
+
+msgid "  * PostgreSQL for FreeBSD latest version."
+msgstr " * FreeBSD版のPostgreSQLの最新バージョン"
+
+msgid "* amazon_linux_postgresql_version:"
+msgstr ""
+
+msgid "  * PostgreSQL for AmazonLinux latest version."
+msgstr " * AmazonLinux版のPostgreSQLの最新バージョン"
+
+msgid "* development_postgresql_version:"
+msgstr ""
+
+msgid "  * PostgreSQL latest version (include minor version)."
+msgstr " * マイナーバージョンを含むPostgreSQLの最新バージョン"
+
+msgid "## Update the repository"
+msgstr "## リポジトリーの更新"
+
+msgid "We update the repository in the following steps."
+msgstr "以下の手順でリポジトリーを更新します。"
+
+msgid ""
+"```shell\n"
+"# Clone packages.groonga.org repository\n"
+"% git clone git@github.com:groonga/packages.groonga.org.git"
+msgstr ""
+
+msgid ""
+"# Update repositories for Debian and CentOS.\n"
+"% cd packages.groonga.org\n"
+"% rake apt\n"
+"% rake yum\n"
+"```"
+msgstr ""
+
+msgid "## Announce release"
+msgstr "## リリースアナウンス"
+
+msgid "### Announce release for mailing list"
+msgstr "### メーリングリスト"
+
+msgid "We send release announce to below address."
+msgstr "以下のアドレスにリリースアナウンスを送信します。"
+
+msgid "* groonga-dev(Japanese) groonga-dev@lists.osdn.me."
+msgstr ""
+
+msgid "* groonga-talk(English) groonga-talk@lists.sourceforge.net."
+msgstr ""
+
+msgid "### Announce release for blog"
+msgstr "### ブログ"
+
+msgid ""
+"We make release announce in blogs that are published http://groonga.org/blog/ "
+"and http://groonga.org/blog/"
+msgstr ""
+"http://groonga.org/blog/ と http://groonga.org/blog/ に公開されているブログにリリースアナウンスを記載しま"
+"す。"
+
+msgid "We update blogs in the following steps."
+msgstr "以下の手順でブログを更新します。"
+
+msgid "1. Clone [blog source repository](https://github.com/groonga/groonga.org)."
+msgstr "1. [blog source repository](https://github.com/groonga/groonga.org) をクローン。"
+
+msgid ""
+"2. Make below files in [blog source repository](https://github.com/groonga/gro"
+"onga.org)."
+msgstr ""
+"2. [blog source repository](https://github.com/groonga/groonga.org) 内に以下のファイルを"
+"作成。"
+
+msgid "   * groonga.org/en/_post/(release-date)-pgroonga-(pgroonga-version).md"
+msgstr ""
+
+msgid "   * groonga.org/ja/_post/(release-date)-pgroonga-(pgroonga-version).md"
+msgstr ""
+
+msgid "3. Confirm blogs."
+msgstr "3. ブログを確認"
+
+msgid "  We can confirm blogs by the following steps."
+msgstr " 以下の手順でブログを確認できます。"
+
+msgid "  1. Install Jekyll."
+msgstr " 1. Jekyllのインストール"
+
+msgid ""
+"     ```shell\n"
+"     % sudo gem install jekyll jekyll-paginate RedCloth rdiscount therubyracer"
+"\n"
+"     ```"
+msgstr ""
+
+msgid "  2. Start web server"
+msgstr " 2. Webサーバーの開始"
+
+msgid ""
+"     ```shell\n"
+"     % jekyll serve --watch\n"
+"     ```"
+msgstr ""
+
+msgid "  3. We access http://localhost:4000 on our browser."
+msgstr " 3. http://localhost:4000 にブラウザーでアクセス"
+
+msgid "### Announce release for Facebook"
+msgstr "### Facebook"
+
+msgid ""
+"We have [Groonga group](https://www.facebook.com/groonga/) in Facebbok.\n"
+"If you into Groonga group as a member, you can post as a member of [Groonga gr"
+"oup](https://www.facebook.com/groonga/)."
+msgstr ""
+"Facebookに [Groongaグループ](https://www.facebook.com/groonga/) があります。Groongaグループのメ"
+"ンバーになると、個人のアカウントではなく、Groongaグループのメンバーとして投稿できます。"
+
+msgid "We post announce based on the blog and news."
+msgstr "ブログやニュースを元にアナウンスを投稿します。"
+
+msgid "### Announce release for twitter"
+msgstr "### Twitter"
+
+msgid ""
+"Click Tweet link in PGroonga blog entry.\n"
+"We can share tweet about latest release.\n"
+"If we use tweet link, title of release announce and URL is embedded into our t"
+"weet."
+msgstr ""
+"PGroongaのブログエントリには「リンクをあなたのフォロワーに共有する」ためのツイートボタンがあるので、そのボタンを使ってリリースアナウンスします。(画"
+"面下部に配置されている)このボタンを経由する場合、ツイート内容に自動的にリリースタイトルとリリースエントリのURLが挿入されます。"
+
+msgid ""
+"Execute sharing tweet in Japanese and English version of blog entry.\n"
+"Note that this tweet should be done when logged in by groonga account."
+msgstr ""
+"この作業はblogroongaの英語版、日本語版それぞれで行います。 あらかじめgroongaアカウントでログインしておくとアナウンスを円滑に行うことができ"
+"ます。"

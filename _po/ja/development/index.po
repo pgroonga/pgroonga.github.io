@@ -226,6 +226,9 @@ msgstr ""
 msgid "You should confirm the test is passed by updating `expected/.../XXX.out`:"
 msgstr "`expected/.../XXX.out`を更新してテストがパスするようになったかを確認してください。"
 
+msgid "## [How to relase](release.html)"
+msgstr "## [リリース方法](release.html)"
+
 msgid "[postgresql-source-download]:https://www.postgresql.org/ftp/source/"
 msgstr ""
 

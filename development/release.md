@@ -1,148 +1,149 @@
 ---
-title: How to release
+title: Release
 ---
 
-# How to release
+# Release
 
-## Requestments
+## Requirements
 
 Use the following enviroment values.
 
-* APACHE_ARROW_REPOSITORY
+* `GITHUB_TOKEN`
 
-* GITHUB_TOKEN
+* `GROONGA_REPOSITORY`
 
-* GROONGA_REPOSITORY
+* `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-* LAUNCHPAD_UPLOADER_PGP_KEY
+We update GRUB option in the following steps for executing CentOS 6 on Docker.
 
-We update GRUB option in the following steps for executing CentOS6 on Docker.
+Make `/etc/default/grub.d/vsyscall-emulate.cfg` and write below content:
 
-1. Make `/etc/default/grub.d/vsyscall-emulate.cfg` and write below content.
+```shell
+GRUB_CMDLINE_LINUX_DEFAULT="${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate"
+```
 
-    ```
-    GRUB_CMDLINE_LINUX_DEFAULT="${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate"
-    ```
+Update GRUB configuration:
 
-2. Execute `update-grub`.
+```console
+# update-grub
+```
 
-3. Execute `reboot`.
+Reboot your system:
+
+```console
+# reboot
+```
 
 ## Bump version
 
-```shell
-% rake version:update NEW_VERSION=x.x.x
+```console
+$ rake version:update NEW_VERSION=x.x.x
 ```
 
 ## Update change log for Debian and CentOS packages
 
-```shell
-% cd package
-% rake package:version:update
+```console
+$ rake package:version:update
 ```
 
-## Update PostgreSQL version for Appveyor
+## Update PostgreSQL version for AppVeyor
 
-We update PostgreSQL version for `appveyor.yml`.
+We update PostgreSQL versions in `appveyor.yml` to the latest PostgreSQL releases.
 
 ## Check whether we can make packages or not
 
 We confirm below CIs green or not.
 
-* [GitHub Actions Workflow for Linux](https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux)
+* [GitHub Actions Workflow for Linux][github-actions-workflow-linux]
 
-* [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgroonga)
+* [AppVeyor CI][appveyor-pgroonga]
 
 ## Tagging for the release
 
-```shell
-% cd package
-% rake tag
+```console
+$ rake tag
 ```
 
 ## Create and upload a archive file
 
-```shell
-% cd package
-% rake package:source
+```console
+$ rake package:source
 ```
 
 ## Create packages for the release
 
-### Debian
+### Debian GNU/Linux
 
-```shell
-% cd package
-% rake package:apt
+```console
+$ rake package:apt
 ```
 
 ### Ubuntu
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-```shell
-% cd package
-% rake package:ubuntu
+```console
+$ rake package:ubuntu
 ```
 
 When upload packages was succeeded, package build process is executed on launchpad.net.
-Then build result is notified via E-mail. We can install packages via [Groonga PPA on launchpad.net](https://launchpad.net/~groonga/+archive/ubuntu/ppa).
+Then build result is notified via E-mail. We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ### CentOS
 
-```shell
-% cd package
-% rake package:yum
+```console
+$ rake package:yum
 ```
 
 ### Windows
 
-For Windows packages, we use [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgroonga) artifacts files.
+For Windows packages, we use [AppVeyor CI][appveyor-pgroonga] artifacts files.
 
-```shell
-% cd package
-% rake package:windows:upload
+```console
+$ rake package:windows:upload
 ```
 
 ## Describe the changes
+
+We need to update https://github.com/pgroonga/pgroonga.github.io/ to announce the new release.
 
 We describe to `news/index.md` summarize changes from before version.
 
 We also update below items in `_config.yml`.
 
-* pgroonga_version:
+* `pgroonga_version`:
 
   * PGroonga latest version.
 
-* pgroonga_release_date:
+* `pgroonga_release_date`:
 
   * Relase data for the latest version.
 
-* copyright_year:
+* `copyright_year`:
 
   * Update if the year changes.
 
-* postgresql_doc_base_url:
+* `postgresql_doc_base_url`:
 
   * Update if PostgreSQL version changes.
 
-* windows_postgresql_versions:
+* `windows_postgresql_versions`:
 
   * Update if PostgreSQL version for Windows changes.
 
-* latest_postgresql_version:
+* `latest_postgresql_version`:
 
   * PostgreSQL latest major version.
 
-* freebsd_postgresql_version:
+* `freebsd_postgresql_version`:
 
   * PostgreSQL for FreeBSD latest version.
 
-* amazon_linux_postgresql_version:
+* `amazon_linux_postgresql_version`:
 
   * PostgreSQL for AmazonLinux latest version.
 
-* development_postgresql_version:
+* `development_postgresql_version`:
 
   * PostgreSQL latest version (include minor version).
 
@@ -150,14 +151,18 @@ We also update below items in `_config.yml`.
 
 We update the repository in the following steps.
 
-```shell
-# Clone packages.groonga.org repository
-% git clone git@github.com:groonga/packages.groonga.org.git
+Clone the packages.groonga.org repository:
 
-# Update repositories for Debian and CentOS.
-% cd packages.groonga.org
-% rake apt
-% rake yum
+```console
+$ git clone git@github.com:groonga/packages.groonga.org.git
+```
+
+Update repositories for Debian GNU/Linux and CentOS:
+
+```console
+$ cd packages.groonga.org
+$ rake apt
+$ rake yum
 ```
 
 ## Announce release
@@ -166,46 +171,44 @@ We update the repository in the following steps.
 
 We send release announce to below address.
 
-* groonga-dev(Japanese) groonga-dev@lists.osdn.me.
+* groonga-dev (Japanese) `groonga-dev@lists.osdn.me`
 
-* groonga-talk(English) groonga-talk@lists.sourceforge.net.
+* groonga-talk (English) `groonga-talk@lists.sourceforge.net`
 
 ### Announce release for blog
 
-We make release announce in blogs that are published http://groonga.org/blog/ and http://groonga.org/blog/
+We make release announce in blogs that are published https://groonga.org/blog/ and https://groonga.org/ja/blog/ .
 
 We update blogs in the following steps.
 
-1. Clone [blog source repository](https://github.com/groonga/groonga.org).
+Clone [blog source repository][groonga-org-repository].
 
-2. Make below files in [blog source repository](https://github.com/groonga/groonga.org).
+Make below files in [blog source repository][groonga-org-repository].
 
-   * groonga.org/en/_post/(release-date)-pgroonga-(pgroonga-version).md
+* `groonga.org/en/_post/(release-date)-pgroonga-(pgroonga-version).md`
 
-   * groonga.org/ja/_post/(release-date)-pgroonga-(pgroonga-version).md
+* `groonga.org/ja/_post/(release-date)-pgroonga-(pgroonga-version).md`
 
-3. Confirm blogs.
+We can confirm blogs by the following steps.
 
-  We can confirm blogs by the following steps.
+Install required libraries:
 
-  1. Install Jekyll.
+```console
+$ bundle update
+```
 
-     ```shell
-     % sudo gem install jekyll jekyll-paginate RedCloth rdiscount therubyracer
-     ```
+Start Web server:
 
-  2. Start web server
+```console
+$ jekyll serve --watch
+```
 
-     ```shell
-     % jekyll serve --watch
-     ```
-
-  3. We access http://localhost:4000 on our browser.
+We access http://localhost:4000 on our browser.
 
 ### Announce release for Facebook
 
-We have [Groonga group](https://www.facebook.com/groonga/) in Facebbok.
-If you into Groonga group as a member, you can post as a member of [Groonga group](https://www.facebook.com/groonga/).
+We have [Groonga group][facebook-groonga] in Facebbok.
+If you into Groonga group as a member, you can post as a member of [Groonga group][facebook-groonga].
 
 We post announce based on the blog and news.
 
@@ -217,3 +220,13 @@ If we use tweet link, title of release announce and URL is embedded into our twe
 
 Execute sharing tweet in Japanese and English version of blog entry.
 Note that this tweet should be done when logged in by groonga account.
+
+[github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
+
+[appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga
+
+[launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa
+
+[groonga-org-repository]:https://github.com/groonga/groonga.org
+
+[facebook-groonga]:https://www.facebook.com/groonga/

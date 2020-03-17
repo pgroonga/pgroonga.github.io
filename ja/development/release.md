@@ -1,147 +1,148 @@
 ---
-title: リリース方法
+title: リリース
 ---
 
-# リリース方法
+# リリース
 
 ## 必要なもの
 
 以下の環境変数を使います。
 
-* APACHE_ARROW_REPOSITORY
+* `GITHUB_TOKEN`
 
-* GITHUB_TOKEN
+* `GROONGA_REPOSITORY`
 
-* GROONGA_REPOSITORY
+* `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-* LAUNCHPAD_UPLOADER_PGP_KEY
+Docker上でCentOS 6を実行するため、以下の手順でGRUBのオプションを更新します。
 
-Docker上でCentOS6を実行するため、以下の手順でGRUBのオプションを更新します。
+`/etc/default/grub.d/vsyscall-emulate.cfg` を作成して、以下の内容を書きます。
 
-1. `/etc/default/grub.d/vsyscall-emulate.cfg` を作成して、以下の内容を書きます。
+```shell
+GRUB_CMDLINE_LINUX_DEFAULT="${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate"
+```
 
-    ```
-    GRUB_CMDLINE_LINUX_DEFAULT="${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate"
-    ```
+GRUBの設定を更新します。
 
-2. `update-grub` を実行します。
+```console
+# update-grub
+```
 
-3. `reboot` を実行します。
+システムを再起動します。
+
+```console
+# reboot
+```
 
 ## バージョンをあげる
 
-```shell
-% rake version:update NEW_VERSION=x.x.x
+```console
+$ rake version:update NEW_VERSION=x.x.x
 ```
 
 ## DebianとCentOSのパッケージの変更履歴を更新
 
-```shell
-% cd package
-% rake package:version:update
+```console
+$ rake package:version:update
 ```
 
 ## AppVeyorのPostgreSQLのバージョンを更新
 
-`appveyor.yml` のPostgreSQLのバージョンを更新します。
+`appveyor.yml` のPostgreSQLのバージョンを最新のPostgreSQLのリリースに更新します。
 
 ## パッケージ作成可能かどうか確認
 
 以下のCIがグリーンかどうかを確認します。
 
-* [GitHub Actions Workflow for Linux](https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux)
+* [GitHub Actions Workflow for Linux][github-actions-workflow-linux]
 
-* [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgroonga)
+* [AppVeyor CI][appveyor-pgroonga]
 
 ## リリース用にタグを打つ
 
-```shell
-% cd package
-% rake tag
+```console
+$ rake tag
 ```
 
 ## アーカイブを作成・アップロード
 
-```shell
-% cd package
-% rake package:source
+```console
+$ rake package:source
 ```
 
 ## リリース用パッケージを作成
 
-### Debian
+### Debian GNU/Linux
 
-```shell
-% cd package
-% rake package:apt
+```console
+$ rake package:apt
 ```
 
 ### Ubuntu
 
 Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
-```shell
-% cd package
-% rake package:ubuntu
+```console
+$ rake package:ubuntu
 ```
 
-パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロードに成功するとメールで通知が届きます。ビルドが成功するとパッケージを[Groonga PPA](https://launchpad.net/~groonga/+archive/ubuntu/ppa)経由でインストールできます。
+パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロードに成功するとメールで通知が届きます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
 
 ### CentOS
 
-```shell
-% cd package
-% rake package:yum
+```console
+$ rake package:yum
 ```
 
 ### Windows
 
-Windows向けには、 [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgroonga) の成果物を使っています。
+Windows向けには、 [AppVeyor CI][appveyor-pgroonga]の成果物を使っています。
 
-```shell
-% cd package
-% rake package:windows:upload
+```console
+$ rake package:windows:upload
 ```
 
 ## 変更点を記述
+
+新しいリリースをアナウンスするために https://github.com/pgroonga/pgroonga.github.io/ を更新する必要があります。
 
 `news/index.md` に前回のバージョンからの変更をまとめます。
 
 `_config.yml` の以下の項目も更新します。
 
-* pgroonga_version:
+* `pgroonga_version`:
 
  * PGroongaの最新バージョン
 
-* pgroonga_release_date:
+* `pgroonga_release_date`:
 
  * 最新版のリリース日
 
-* copyright_year:
+* `copyright_year`:
 
  * 年が変わったら更新
 
-* postgresql_doc_base_url:
+* `postgresql_doc_base_url`:
 
  * PostgreSQLのバージョンが変わったら更新
 
-* windows_postgresql_versions:
+* `windows_postgresql_versions`:
 
  * Windows版のPostgreSQLのバージョンが変わったら更新
 
-* latest_postgresql_version:
+* `latest_postgresql_version`:
 
  * POstgreSQLの最新のメジャーバージョン
 
-* freebsd_postgresql_version:
+* `freebsd_postgresql_version`:
 
  * FreeBSD版のPostgreSQLの最新バージョン
 
-* amazon_linux_postgresql_version:
+* `amazon_linux_postgresql_version`:
 
  * AmazonLinux版のPostgreSQLの最新バージョン
 
-* development_postgresql_version:
+* `development_postgresql_version`:
 
  * マイナーバージョンを含むPostgreSQLの最新バージョン
 
@@ -149,14 +150,18 @@ Windows向けには、 [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgr
 
 以下の手順でリポジトリーを更新します。
 
-```shell
-# Clone packages.groonga.org repository
-% git clone git@github.com:groonga/packages.groonga.org.git
+packages.groonga.orgリポジトリーをクローンします。
 
-# Update repositories for Debian and CentOS.
-% cd packages.groonga.org
-% rake apt
-% rake yum
+```console
+$ git clone git@github.com:groonga/packages.groonga.org.git
+```
+
+Debian GNU/LinuxとCentOS用にリポジトリーを更新します。
+
+```console
+$ cd packages.groonga.org
+$ rake apt
+$ rake yum
 ```
 
 ## リリースアナウンス
@@ -165,50 +170,58 @@ Windows向けには、 [AppVeyor CI](https://ci.appveyor.com/project/groonga/pgr
 
 以下のアドレスにリリースアナウンスを送信します。
 
-* groonga-dev(Japanese) groonga-dev@lists.osdn.me.
+* groonga-dev（日本語） `groonga-dev@lists.osdn.me`
 
-* groonga-talk(English) groonga-talk@lists.sourceforge.net.
+* groonga-talk（英語） `groonga-talk@lists.sourceforge.net`
 
 ### ブログ
 
-http://groonga.org/blog/ と http://groonga.org/blog/ に公開されているブログにリリースアナウンスを記載します。
+https://groonga.org/blog/ と https://groonga.org/ja/blog/ に公開されているブログにリリースアナウンスを記載します。
 
 以下の手順でブログを更新します。
 
-1. [blog source repository](https://github.com/groonga/groonga.org) をクローン。
+[ブログのソースリポジトリー][groonga-org-repository]をクローン。
 
-2. [blog source repository](https://github.com/groonga/groonga.org) 内に以下のファイルを作成。
+[ブログのソースリポジトリー][groonga-org-repository]内に以下のファイルを作成。
 
-   * groonga.org/en/_post/(release-date)-pgroonga-(pgroonga-version).md
+* `groonga.org/en/_post/(release-date)-pgroonga-(pgroonga-version).md`
 
-   * groonga.org/ja/_post/(release-date)-pgroonga-(pgroonga-version).md
+* `groonga.org/ja/_post/(release-date)-pgroonga-(pgroonga-version).md`
 
-3. ブログを確認
+以下の手順でブログを確認できます。
 
- 以下の手順でブログを確認できます。
+必要なライブラリーをインストールします。
 
- 1. Jekyllのインストール
+```console
+$ bundle update
+```
 
-     ```shell
-     % sudo gem install jekyll jekyll-paginate RedCloth rdiscount therubyracer
-     ```
+Webサーバーを起動します。
 
- 2. Webサーバーの開始
+```console
+$ jekyll serve --watch
+```
 
-     ```shell
-     % jekyll serve --watch
-     ```
+http://localhost:4000 にWebブラウザーでアクセスします。
 
- 3. http://localhost:4000 にブラウザーでアクセス
+### Facebookでリリースアナウンス
 
-### Facebook
-
-Facebookに [Groongaグループ](https://www.facebook.com/groonga/) があります。Groongaグループのメンバーになると、個人のアカウントではなく、Groongaグループのメンバーとして投稿できます。
+Facebookに [Groongaグループ][facebook-groonga] があります。[Groongaグループ][facebook-groonga]のメンバーになると、個人のアカウントではなく、Groongaグループのメンバーとして投稿できます。
 
 ブログやニュースを元にアナウンスを投稿します。
 
-### Twitter
+### Twitterでリリースアナウンス
 
 PGroongaのブログエントリには「リンクをあなたのフォロワーに共有する」ためのツイートボタンがあるので、そのボタンを使ってリリースアナウンスします。(画面下部に配置されている)このボタンを経由する場合、ツイート内容に自動的にリリースタイトルとリリースエントリのURLが挿入されます。
 
 この作業はblogroongaの英語版、日本語版それぞれで行います。 あらかじめgroongaアカウントでログインしておくとアナウンスを円滑に行うことができます。
+
+[github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
+
+[appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga
+
+[launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa
+
+[groonga-org-repository]:https://github.com/groonga/groonga.org
+
+[facebook-groonga]:https://www.facebook.com/groonga/

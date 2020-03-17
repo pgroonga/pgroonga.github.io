@@ -112,6 +112,8 @@ PGroongaのテストは2種類あります。
 % PATH=/tmp/local/bin:$PATH test/run-sql-test.sh sql/.../XXX.sql
 ```
 
+## [リリース方法](release.html)
+
 [postgresql-source-download]:https://www.postgresql.org/ftp/source/
 
 [groonga-build]:http://groonga.org/ja/docs/install/others.html

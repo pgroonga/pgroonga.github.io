@@ -112,6 +112,8 @@ You should confirm the test is passed by updating `expected/.../XXX.out`:
 % PATH=/tmp/local/bin:$PATH test/run-sql-test.sh sql/.../XXX.sql
 ```
 
+## [How to relase](release.html)
+
 [postgresql-source-download]:https://www.postgresql.org/ftp/source/
 
 [groonga-build]:http://groonga.org/docs/install/others.html

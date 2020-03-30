@@ -16,15 +16,19 @@ title: Ubuntuにインストール
 
   * Ubuntu 19.10
 
+  * Ubuntu 20.04
+
 ## インストール方法
 
 UbuntuでPGroongaをインストールする手順は次の通りです。
 
 Ubuntu 16.04を使っている場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。
 
+Ubuntu 18.04を使っている場合は`postgresql-10-pgroonga`パッケージをインストールしてください。
+
 Ubuntu 19.10を使っている場合は`postgresql-11-pgroonga`パッケージをインストールしてください。
 
-それ以外の場合は`postgresql-10-pgroonga`パッケージをインストールしてください。
+それ以外の場合は`postgresql-12-pgroonga`パッケージをインストールしてください。
 
 ```console
 $ sudo apt install -y software-properties-common
@@ -33,10 +37,12 @@ $ sudo add-apt-repository -y ppa:groonga/ppa
 $ sudo apt update
 Ubuntu 16.04:
 $ sudo apt install -y -V postgresql-9.5-pgroonga
+Ubuntu 18.04:
+$ sudo apt install -y -V postgresql-10-pgroonga
 Ubuntu 19.10:
 $ sudo apt install -y -V postgresql-11-pgroonga
 Others:
-$ sudo apt install -y -V postgresql-10-pgroonga
+$ sudo apt install -y -V postgresql-12-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

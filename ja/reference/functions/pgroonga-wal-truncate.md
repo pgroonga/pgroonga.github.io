@@ -101,7 +101,7 @@ SELECT * FROM memos WHERE content &@~ 'Groonga';
 -- ERROR:  pgroonga: object isn't found: <Sources555045>
 ```
 
-PGroongaのインデックスの名前は省力できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべてのWALを削除します。
+PGroongaのインデックスの名前は省略できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべてのWALを削除します。
 
 ```sql
 SELECT pgroonga_wal_truncate();

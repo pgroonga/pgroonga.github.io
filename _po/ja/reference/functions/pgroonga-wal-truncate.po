@@ -178,7 +178,7 @@ msgid ""
 "You can omit PGroonga index name. If you omit PGroonga index name, all WAL for"
 " all PGroonga indexes are truncated:"
 msgstr ""
-"PGroongaのインデックスの名前は省力できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべてのWAL"
+"PGroongaのインデックスの名前は省略できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべてのWAL"
 "を削除します。"
 
 msgid ""

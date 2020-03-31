@@ -127,7 +127,7 @@ msgstr "リリース版のPGroongaではなく最新のPGroongaを使うこと�
 
 msgid ""
 "```console\n"
-"% git clone --rerursive git@github.com:pgroonga/pgroonga.git\n"
+"% git clone --recursive git@github.com:pgroonga/pgroonga.git\n"
 "% cd pgroonga\n"
 "```"
 msgstr ""

@@ -58,7 +58,7 @@ PostgreSQLを初期化して実行します。
 リリース版のPGroongaではなく最新のPGroongaを使うことをオススメします。以下は最新のPGroongaのソースをクローンするコマンドラインです。
 
 ```console
-% git clone --rerursive git@github.com:pgroonga/pgroonga.git
+% git clone --recursive git@github.com:pgroonga/pgroonga.git
 % cd pgroonga
 ```
 

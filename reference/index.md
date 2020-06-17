@@ -507,6 +507,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_highlight_html` function][highlight-html]
 
+  * [`pgroonga_index_column_name` function][index-column-name]
+
   * [`pgroonga_is_writable` function][is-writable]
 
   * [`pgroonga_match_positions_byte` function][match-positions-byte]
@@ -613,6 +615,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [flush]:functions/pgroonga-flush.html
 [database-remove]:functions/pgroonga-database-remove.html
 [highlight-html]:functions/pgroonga-highlight-html.html
+[index-column-name]:functions/pgroonga-index-column-name.html
 [is-writable]:functions/pgroonga-is-writable.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
 [match-positions-character]:functions/pgroonga-match-positions-character.html

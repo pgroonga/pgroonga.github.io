@@ -21,11 +21,70 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.2.5: 2020-03-12 {#version-2-2-5}"
+msgid "## 2.2.6: 2020-07-01 {#version-2-2-6}"
+msgstr ""
+
+msgid ""
+"NOTE: If you have PGroonga index for `jsonb`, you need to reindex all\n"
+"your PGroonga indexes for `jsonb` after you upgrade to this\n"
+"version. This version has a fix for `jsonb`."
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 20.04."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 16.04."
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 13."
+msgstr ""
+
+msgid "  * Dropped support for PostgreSQL 9.5."
+msgstr ""
+
+msgid ""
+"  * Added support for Postgres-XL.\n"
+"    [GitHub#140][Reported by nateekarn-e]"
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.4."
+msgstr ""
+
+msgid ""
+"  * Suppressed assertions reported by debug build PostgreSQL.\n"
+"    [GitHub#135][Reported by Malt]"
+msgstr ""
+
+msgid "  * [[`pgroonga_index_name` function][index-column-name]] Added."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid ""
+"  * [`jsonb`] Fixed a bug that wrong paths are generated for nested\n"
+"    objects/array. You need to reindex all PGroonga indexes for\n"
+"    `jsonb` to apply this fix after you upgrade to PGroonga 2.2.6.\n"
+"    [GitHub#137][Reported by Zhanzhao (Deo) Liang]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Malt"
+msgstr ""
+
+msgid "  * Zhanzhao (Deo) Liang"
+msgstr ""
+
+msgid "  * nateekarn-e"
+msgstr ""
+
+msgid "## 2.2.5: 2020-03-12 {#version-2-2-5}"
+msgstr ""
 
 msgid "  * Fixed a bug that failed update to version 2.2.4."
 msgstr ""
@@ -44,9 +103,6 @@ msgid ""
 "    [GitHub#128][Reported by Volo Zyko] [Reported by punchagan]"
 msgstr ""
 
-msgid "### Thanks"
-msgstr "### 感謝"
-
 msgid "  * Volo Zyko"
 msgstr ""
 
@@ -55,9 +111,6 @@ msgstr ""
 
 msgid "## 2.2.3: 2020-03-11 {#version-2-2-3}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid ""
 "  * Added support for `CREATE TABLE`, `CREATE INDEX` and `TRUNCATE` in\n"
@@ -143,7 +196,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga.query_expand` function][query-expand]] Added support\n"
+"  * [[`pgroonga_query_expand` function][query-expand]] Added support\n"
 "    for synonyms only data."
 msgstr ""
 
@@ -1812,7 +1865,8 @@ msgid ""
 "[tokenize]:../reference/functions/pgroonga-tokenize.html\n"
 "[escape]:../reference/functions/pgroonga-escape.html\n"
 "[vacuum]:../reference/functions/pgroonga-vacuum.html\n"
-"[database-remove]:../reference/functions/pgroonga-database-remove.html"
+"[database-remove]:../reference/functions/pgroonga-database-remove.html\n"
+"[index-column-name]:../reference/functions/pgroonga-index-column-name.html"
 msgstr ""
 
 msgid ""

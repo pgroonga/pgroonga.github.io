@@ -5,6 +5,47 @@ upper_level: ../
 
 # おしらせ
 
+## 2.2.6: 2020-07-01 {#version-2-2-6}
+
+NOTE: If you have PGroonga index for `jsonb`, you need to reindex all
+your PGroonga indexes for `jsonb` after you upgrade to this
+version. This version has a fix for `jsonb`.
+
+### 改良
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 20.04.
+
+  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 16.04.
+
+  * Added support for PostgreSQL 13.
+
+  * Dropped support for PostgreSQL 9.5.
+
+  * Added support for Postgres-XL.
+    [GitHub#140][Reported by nateekarn-e]
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.4.
+
+  * Suppressed assertions reported by debug build PostgreSQL.
+    [GitHub#135][Reported by Malt]
+
+  * [[`pgroonga_index_name` function][index-column-name]] Added.
+
+### 修正
+
+  * [`jsonb`] Fixed a bug that wrong paths are generated for nested
+    objects/array. You need to reindex all PGroonga indexes for
+    `jsonb` to apply this fix after you upgrade to PGroonga 2.2.6.
+    [GitHub#137][Reported by Zhanzhao (Deo) Liang]
+
+### 感謝
+
+  * Malt
+
+  * Zhanzhao (Deo) Liang
+
+  * nateekarn-e
+
 ## 2.2.5: 2020-03-12 {#version-2-2-5}
 
 ### 修正
@@ -96,7 +137,7 @@ upper_level: ../
 
     * [`pgroonga_varchar_array_term_search_ops_v2` operator class][varchar-array-term-search-ops-v2]
 
-  * [[`pgroonga.query_expand` function][query-expand]] Added support
+  * [[`pgroonga_query_expand` function][query-expand]] Added support
     for synonyms only data.
 
 ### 修正
@@ -1303,6 +1344,7 @@ The first release!!!
 [escape]:../reference/functions/pgroonga-escape.html
 [vacuum]:../reference/functions/pgroonga-vacuum.html
 [database-remove]:../reference/functions/pgroonga-database-remove.html
+[index-column-name]:../reference/functions/pgroonga-index-column-name.html
 
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html

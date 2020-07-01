@@ -10,8 +10,6 @@ This document describes how to install PGroonga on Ubuntu.
 
 Here are supported Ubuntu versions:
 
-  * Ubuntu 16.04
-
   * Ubuntu 18.04
 
   * Ubuntu 19.10
@@ -21,8 +19,6 @@ Here are supported Ubuntu versions:
 ## How to install
 
 You can use the following instruction to install PGroonga on Ubuntu.
-
-If you're using Ubuntu 16.04, install `postgresql-9.5-pgroonga` package.
 
 If you're using Ubuntu 18.04, install `postgresql-10-pgroonga` package.
 
@@ -35,8 +31,6 @@ $ sudo apt install -y software-properties-common
 $ sudo add-apt-repository -y universe
 $ sudo add-apt-repository -y ppa:groonga/ppa
 $ sudo apt update
-Ubuntu 16.04:
-$ sudo apt install -y -V postgresql-9.5-pgroonga
 Ubuntu 18.04:
 $ sudo apt install -y -V postgresql-10-pgroonga
 Ubuntu 19.10:

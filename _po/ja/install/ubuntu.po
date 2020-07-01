@@ -28,9 +28,6 @@ msgstr "## サポートしているバージョン"
 msgid "Here are supported Ubuntu versions:"
 msgstr "サポートしているUbuntuのバージョンは次の通りです。"
 
-msgid "  * Ubuntu 16.04"
-msgstr ""
-
 msgid "  * Ubuntu 18.04"
 msgstr ""
 
@@ -45,9 +42,6 @@ msgstr "## インストール方法"
 
 msgid "You can use the following instruction to install PGroonga on Ubuntu."
 msgstr "UbuntuでPGroongaをインストールする手順は次の通りです。"
-
-msgid "If you're using Ubuntu 16.04, install `postgresql-9.5-pgroonga` package."
-msgstr "Ubuntu 16.04を使っている場合は`postgresql-9.5-pgroonga`パッケージをインストールしてください。"
 
 msgid "If you're using Ubuntu 18.04, install `postgresql-10-pgroonga` package."
 msgstr "Ubuntu 18.04を使っている場合は`postgresql-10-pgroonga`パッケージをインストールしてください。"
@@ -64,8 +58,6 @@ msgid ""
 "$ sudo add-apt-repository -y universe\n"
 "$ sudo add-apt-repository -y ppa:groonga/ppa\n"
 "$ sudo apt update\n"
-"Ubuntu 16.04:\n"
-"$ sudo apt install -y -V postgresql-9.5-pgroonga\n"
 "Ubuntu 18.04:\n"
 "$ sudo apt install -y -V postgresql-10-pgroonga\n"
 "Ubuntu 19.10:\n"

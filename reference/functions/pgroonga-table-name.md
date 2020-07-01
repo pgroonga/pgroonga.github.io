@@ -7,7 +7,7 @@ upper_level: ../
 
 ## Summary
 
-`pgroonga_table_name` function converts PGroonga index name to Groonga table name. Groonga table name is useful [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html) by [`pgroonga_command` function](pgroonga-command.html).
+`pgroonga_table_name` function converts PGroonga's index name to Groonga's table name. Groonga's table name is useful to use [`select` Groonga command][groonga-select] by [`pgroonga_command` function][command].
 
 You can use weight feature by `select` Groonga command.
 
@@ -19,7 +19,7 @@ Here is the syntax of this function:
 text pgroonga_table_name(pgroonga_index_name)
 ```
 
-`pgroonga_index_name` is a `text` type value. It's an index name to be converted to Groonga table name. The index should be created with `USING pgroonga`.
+`pgroonga_index_name` is a `text` type value. It's an index name to be converted to Groonga's table name. The index must be created with `USING pgroonga`.
 
 `pgroonga_table_name` returns Groonga table name for `pgroonga_index_name` as `text` type value. If `pgroonga_index_name` doesn't exist or isn't a PGroonga index, `pgroonga_table_name` raises an error.
 
@@ -102,6 +102,14 @@ SELECT *
 
 ## See also
 
-  * [`pgroonga_table_name` function description in tutorial](../../tutorial/#pgroonga-table-name)
+  * [`pgroonga_table_name` function description in tutorial][tutorial-pgroonga-table-name]
 
-  * [Attention when you use `select` Groonga command](pgroonga-command.html#attention)
+  * [Attention when you use `select` Groonga command][command-attention]
+
+[groonga-select]:https://groonga.org/docs/reference/commands/select.html
+
+[command]:pgroonga-command.html
+
+[tutorial-pgroonga-table-name]:../../tutorial/#pgroonga-table-name
+
+[command-attention]:pgroonga-command.html#attention

@@ -508,6 +508,9 @@ msgstr "  * [`pgroonga_database_remove`関数][database-remove]"
 msgid "  * [`pgroonga_highlight_html` function][highlight-html]"
 msgstr "  * [`pgroonga_highlight_html`関数][highlight-html]"
 
+msgid "  * [`pgroonga_index_column_name` function][index-column-name]"
+msgstr "  * [`pgroonga_index_column_name` 関数][index-column-name]"
+
 msgid "  * [`pgroonga_is_writable` function][is-writable]"
 msgstr "  * [`pgroonga_is_writable`関数][is-writable]"
 
@@ -672,6 +675,7 @@ msgid ""
 "[flush]:functions/pgroonga-flush.html\n"
 "[database-remove]:functions/pgroonga-database-remove.html\n"
 "[highlight-html]:functions/pgroonga-highlight-html.html\n"
+"[index-column-name]:functions/pgroonga-index-column-name.html\n"
 "[is-writable]:functions/pgroonga-is-writable.html\n"
 "[match-positions-byte]:functions/pgroonga-match-positions-byte.html\n"
 "[match-positions-character]:functions/pgroonga-match-positions-character.html\n"

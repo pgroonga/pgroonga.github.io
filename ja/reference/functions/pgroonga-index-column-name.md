@@ -5,52 +5,30 @@ upper_level: ../
 
 # `pgroonga_index_column_name` 関数
 
+2.2.6で追加。
+
 ## 概要
 
-PGroongaのインデックスは、PGroongaのバックエンドで動作しているGroongaのデータベースとして管理されています。
-この関数は、Groongaのデータベース上のPGroongaのインデックスの名前を出力します。
-
-これは、 `object_inspect` コマンドを使ってインデックスの詳細を確認したい時に便利です。
-
-通常、まず最初に `table_list` コマンドを使ってGroongaのデータベース上のテーブルの一覧を取得します。
-
-```sql
-SELECT jsonb_pretty(pgroonga_command('table_list')::jsonb);
-```
-
-このリストの中で、 `Lexicon` で始まるテーブルがインデックス用のテーブルです。
-このテーブルの名前を使って、 `object_inspect` を実行することで、インデックスの情報を取得できます。
-
-```sql
-SELECT * FROM jsonb_each(((pgroonga_command('object_inspect Lexicon17072_0.index')::jsonb)->1->'value'));
-```
-
-しかし、この方法では、特定のインデックスを持つテーブルを特定することは困難です。
-特に複数のPGroongaのインデックスがあるテーブルの場合、対象のインデックスを指定することは困難です。
-
-`pgroonga_index_column_name` を使えば、特定のインデックスを持つテーブルを簡単に特定できます。`pgroonga_index_column_name` は引数に対象のインデックスを指定できるため、 `table_list` コマンドを実行して、多くのテーブルから対象を特定する必要がありません。
+`pgroonga_index_column_name`関数はPGroongaのインデックス名をGroongaのインデックスカラム名に変換します。Groongaのインデックスカラム名は[`pgroonga_command`関数][command]で[`object_inspect` Groongaコマンド][groonga-object-inspect]を使うときに有用です。PGroongaのインデックスに対して`object_inspect` Groongaコマンドを使うときはGroongaのインデックスカラム名が必要です。
 
 ## 構文
 
-この関数の構文は以下の通りです。:
+この関数の構文は次の通りです。
 
 ```text
 text pgroonga_index_column_name(pgroonga_index_name, column_name)
 text pgroonga_index_column_name(pgroonga_index_name, column_index)
 ```
 
-`pgroonga_index_name` は `text` 型の値です。 PGroongaのインデックス名を指定します。
+`pgroonga_index_name`は`text`型の値です。これはGroongaのインデックスカラム名に変換したいインデックス名です。このインデックスは`USING pgroonga`付きで作られたインデックスでなければいけません。
 
-第二引数には、以下のように二つのパターンがあります。
+`column_name`は`text`型の値です。対象のPGroongaのインデックス内の対象のカラム名を指定します。
 
-* `column_name` は、 `text` 型の値です。 対象のPGroongaのインデックス名を指定します。
-
-* `column_index` は `int4` 型の値です。 対象のPGroongaのインデックスの位置を指定します。
-位置は、 `0` から始まります。
+`column_index`は`int4`型の値です。これは対象のPGroongaのインデックス内の対象カラムの位置です。最初のカラムの位置は0です。
 
 ## 使い方
 
-インデックスの位置を指定する場合のサンプルのスキーマとデータは以下の通りです。:
+以下はサンプルスキーマです。
 
 ```sql
 CREATE TABLE memos (
@@ -62,65 +40,171 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_index
           ON memos
        USING pgroonga (title, content, tag);
+```
+
+以下は`column_index`を使う例です。
+
+```sql
 SELECT pgroonga_index_column_name('pgroonga_index', 2);
-
- pgroonga_index_column_name 
-----------------------------
- Lexicon17765_2.index
-(1 row)
+--  pgroonga_index_column_name 
+-- ----------------------------
+--  Lexicon17780_2.index
+-- (1 row)
 ```
 
-インデックス名を指定する場合のサンプルのスキーマとデータは以下の通りです。:
+以下は`column_name`を使う例です。
 
 ```sql
-CREATE TABLE memos (
-  id integer,
-  title text,
-  content text,
-  tag text
-);
-CREATE INDEX pgroonga_index
-          ON memos
-       USING pgroonga (title, content, tag);
 SELECT pgroonga_index_column_name('pgroonga_index', 'tag');
-
- pgroonga_index_column_name 
-----------------------------
- Lexicon17765_2.index
-(1 row)
+--  pgroonga_index_column_name 
+-- ----------------------------
+--  Lexicon17780_2.index
+-- (1 row)
 ```
 
-`pgroonga_index_column_name` を使ってインデックスの情報を取得する場合のサンプルのスキーマとデータは以下の通りです。:
+以下は[`object_inspect` Groongaコマンド][object-inspect]用に`pgroonga_index_column_name()`を使う例です。
 
 ```sql
-CREATE TABLE memos (
-  id integer,
-  title text,
-  content text,
-  tag text
+SELECT jsonb_pretty(
+  pgroonga_command('object_inspect',
+                   ARRAY[
+                     'name', pgroonga_index_column_name('pgroonga_index', 'tag')
+                   ])::jsonb
 );
-CREATE INDEX pgroonga_index
-          ON memos
-       USING pgroonga (title, content, tag);
-SELECT * FROM jsonb_each(
-                          (
-                            (
-                              pgroonga_command(
-                                'object_inspect',
-                                ARRAY[
-                                  'name', pgroonga_index_column_name('pgroonga_index', 'tag')
-                                ]
-                              )::jsonb
-                            )->1->'value'
-                          )
-                        );
-    key     |    value
-------------+----------------------------------------------------------------------------------------------
- size       | "normal"
- type       | {"id": 263, "name": "Sources21220", "size": 4, "type": {"id": 48, "name": "table:hash_key"}}
- weight     | false
- section    | false
- position   | true
- statistics | {"max_section_id": 0, "n_array_segments": 0, "n_garbage_chunks": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "total_chunk_size": 0, "n_buffer_segments": 0, "n_garbage_segments": 0, "max_in_use_chunk_id": 0, "max_array_segment_id": 0, "n_unmanaged_segments": 0, "max_buffer_segment_id": 0, "max_n_physical_segments": 131072, "next_physical_segment_id": 0, "max_in_use_physical_segment_id": 0}
-(6 rows)
+                     jsonb_pretty                     
+------------------------------------------------------
+--  [                                                   +
+--      [                                               +
+--          0,                                          +
+--          1593478420.606223,                          +
+--          0.001304388046264648                        +
+--      ],                                              +
+--      {                                               +
+--          "id": 272,                                  +
+--          "name": "index",                            +
+--          "type": {                                   +
+--              "raw": {                                +
+--                  "id": 72,                           +
+--                  "name": "column:index"              +
+--              },                                      +
+--              "name": "index"                         +
+--          },                                          +
+--          "table": {                                  +
+--              "id": 270,                              +
+--              "key": {                                +
+--                  "type": {                           +
+--                      "id": 14,                       +
+--                      "name": "ShortText",            +
+--                      "size": 4096,                   +
+--                      "type": {                       +
+--                          "id": 32,                   +
+--                          "name": "type"              +
+--                      }                               +
+--                  },                                  +
+--                  "total_size": 0,                    +
+--                  "max_total_size": 4294967294        +
+--              },                                      +
+--              "name": "Lexicon17780_2",               +
+--              "type": {                               +
+--                  "id": 49,                           +
+--                  "name": "table:pat_key"             +
+--              },                                      +
+--              "value": {                              +
+--                  "type": null                        +
+--              },                                      +
+--              "n_records": 0,                         +
+--              "disk_usage": 4243456                   +
+--          },                                          +
+--          "value": {                                  +
+--              "size": "normal",                       +
+--              "type": {                               +
+--                  "id": 263,                          +
+--                  "name": "Sources17780",             +
+--                  "size": 4,                          +
+--                  "type": {                           +
+--                      "id": 48,                       +
+--                      "name": "table:hash_key"        +
+--                  }                                   +
+--              },                                      +
+--              "weight": false,                        +
+--              "section": false,                       +
+--              "position": true,                       +
+--              "statistics": {                         +
+--                  "max_section_id": 0,                +
+--                  "n_array_segments": 0,              +
+--                  "n_garbage_chunks": [               +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0,                              +
+--                      0                               +
+--                  ],                                  +
+--                  "total_chunk_size": 0,              +
+--                  "n_buffer_segments": 0,             +
+--                  "n_garbage_segments": 0,            +
+--                  "max_in_use_chunk_id": 0,           +
+--                  "max_array_segment_id": 0,          +
+--                  "n_unmanaged_segments": 0,          +
+--                  "max_buffer_segment_id": 0,         +
+--                  "max_n_physical_segments": 131072,  +
+--                  "next_physical_segment_id": 0,      +
+--                  "max_in_use_physical_segment_id": 0 +
+--              }                                       +
+--          },                                          +
+--          "sources": [                                +
+--              {                                       +
+--                  "id": 271,                          +
+--                  "name": "tag",                      +
+--                  "table": {                          +
+--                      "id": 263,                      +
+--                      "key": {                        +
+--                          "type": {                   +
+--                              "id": 11,               +
+--                              "name": "UInt64",       +
+--                              "size": 8,              +
+--                              "type": {               +
+--                                  "id": 32,           +
+--                                  "name": "type"      +
+--                              }                       +
+--                          },                          +
+--                          "total_size": 0,            +
+--                          "max_total_size": 4294967295+
+--                      },                              +
+--                      "name": "Sources17780",         +
+--                      "type": {                       +
+--                          "id": 48,                   +
+--                          "name": "table:hash_key"    +
+--                      },                              +
+--                      "value": {                      +
+--                          "type": null                +
+--                      },                              +
+--                      "n_records": 0,                 +
+--                      "disk_usage": 65536             +
+--                  },                                  +
+--                  "full_name": "Sources17780.tag"     +
+--              }                                       +
+--          ],                                          +
+--          "full_name": "Lexicon17780_2.index",        +
+--          "disk_usage": 565248                        +
+--      }                                               +
+--  ]
+-- (1 row)
 ```
+
+## 参考
+
+  * [`pgroonga_command`関数][command]
+
+[groonga-object-inspect]:https://groonga.org/ja/docs/reference/commands/object_inspect.html
+
+[command]:pgroonga-command.html

@@ -509,6 +509,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_highlight_html`関数][highlight-html]
 
+  * [`pgroonga_index_column_name` 関数][index-column-name]
+
   * [`pgroonga_is_writable`関数][is-writable]
 
   * [`pgroonga_match_positions_byte`関数][match-positions-byte]
@@ -616,6 +618,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [flush]:functions/pgroonga-flush.html
 [database-remove]:functions/pgroonga-database-remove.html
 [highlight-html]:functions/pgroonga-highlight-html.html
+[index-column-name]:functions/pgroonga-index-column-name.html
 [is-writable]:functions/pgroonga-is-writable.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
 [match-positions-character]:functions/pgroonga-match-positions-character.html

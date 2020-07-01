@@ -7,7 +7,7 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga_table_name`関数はPGroongaのインデックス名をGroongaのテーブル名に変換します。Groongaのテーブル名は[`pgroonga_command`関数](pgroonga-command.html)で[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)を使うときに便利です。
+`pgroonga_table_name`関数はPGroongaのインデックス名をGroongaのテーブル名に変換します。Groongaのテーブル名は[`pgroonga_command`関数][command]で[Groongaの`select`コマンド][groonga-select]を使うときに便利です。
 
 Groongaの`select`コマンドを使うと重み機能を使えます。
 
@@ -102,6 +102,14 @@ Groongaの`select`コマンドはSQLの`SELECT`分が遅いときの手段とし
 
 ## 参考
 
-  * [チュートリアルの`pgroonga.table_name`関数の説明](../../tutorial/#pgroonga-table-name)
+  * [チュートリアルの`pgroonga.table_name`関数の説明][tutorial-pgroonga-table-name]
 
-  * [Groongaの`select`コマンドを使う時の注意](pgroonga-command.html#attention)
+  * [Groongaの`select`コマンドを使う時の注意][command-attention]
+
+[groonga-select]:https://groonga.org/ja/docs/reference/commands/select.html
+
+[command]:pgroonga-command.html
+
+[tutorial-pgroonga-table-name]:../../tutorial/#pgroonga-table-name
+
+[command-attention]:pgroonga-command.html#attention

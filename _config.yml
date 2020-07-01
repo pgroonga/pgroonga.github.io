@@ -1,14 +1,13 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 2.2.5
-pgroonga_release_date: 2020-03-12
+pgroonga_version: 2.2.6
+pgroonga_release_date: 2020-07-01
 copyright_year: 2015-2020
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/12
-  ja: https://www.postgresql.jp/document/11/html
+  ja: https://www.postgresql.jp/document/12/html
 windows_postgresql_versions:
-  - 9.5
   - 9.6
   - 10
   - 11

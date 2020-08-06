@@ -34,7 +34,7 @@ $ echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" | sudo t
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
-`postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`または`postgresql-11-pgroonga`または`postgresql-12-pgroonga`パッケージをインストールします。
+`postgresql-9.6-pgroonga`または`postgresql-10-pgroonga`または`postgresql-11-pgroonga`パッケージをインストールします。
 
 ```console
 $ sudo apt update
@@ -43,8 +43,6 @@ Or
 $ sudo apt install -y -V postgresql-10-pgroonga
 Or
 $ sudo apt install -y -V postgresql-11-pgroonga
-Or
-$ sudo apt install -y -V postgresql-12-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -93,7 +91,6 @@ $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo ap
 `postgresql-11-pgroonga`または`postgresql-12-pgroonga`パッケージをインストールします。
 
 ```console
-$ sudo wget -O /usr/share/keyrings/groonga-archive-keyring.gpg https://packages.groonga.org/debian/groonga-archive-keyring.gpg
 $ sudo apt update
 $ sudo apt install -y -V postgresql-11-pgroonga
 Or

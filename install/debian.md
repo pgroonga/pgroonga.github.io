@@ -18,13 +18,13 @@ Here are supported Debian GNU/Linux versions:
 
 You can use the following instruction to install PGroonga on Debian GNU/Linux stretch.
 
-Install `groonga-archive-keyring` package:
+Install `groonga-apt-source` package:
 
 ```console
 $ sudo apt update
 $ sudo apt install -y -V wget
-$ wget https://packages.groonga.org/debian/groonga-archive-keyring-latest-stretch.deb
-$ sudo apt install -y -V ./groonga-archive-keyring-latest-stretch.deb
+$ wget https://packages.groonga.org/debian/groonga-apt-source-latest-stretch.deb
+$ sudo apt install -y -V ./groonga-apt-source-latest-stretch.deb
 ```
 
 If you want to use PostgreSQL 10 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
@@ -73,12 +73,12 @@ Try [tutorial](../tutorial/). You can understand more about PGroonga.
 
 You can use the following instruction to install PGroonga on Debian GNU/Linux buster.
 
-Install `groonga-archive-keyring` package:
+Install `groonga-apt-source` package:
 
 ```console
 $ sudo apt install -y -V wget
-$ wget https://packages.groonga.org/debian/groonga-archive-keyring-latest-buster.deb
-$ sudo apt install -y -V ./groonga-archive-keyring-latest-buster.deb
+$ wget https://packages.groonga.org/debian/groonga-apt-source-latest-buster.deb
+$ sudo apt install -y -V ./groonga-apt-source-latest-buster.deb
 ```
 
 If you want to use PostgreSQL 12 or later, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
@@ -88,13 +88,13 @@ $ echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | sudo te
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
-Install `postgresql-11-pgroonga` or `postgresql-12-pgroonga` package:
+Install `postgresql-11-pgroonga` or `postgresql-12-pgdg-pgroonga` package:
 
 ```console
 $ sudo apt update
 $ sudo apt install -y -V postgresql-11-pgroonga
 Or
-$ sudo apt install -y -V postgresql-12-pgroonga
+$ sudo apt install -y -V postgresql-12-pgdg-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:

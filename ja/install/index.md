@@ -31,8 +31,6 @@ upper_level: ../
 
     * 18.04
 
-    * 19.10
-
     * 20.04
 
   * [CentOS](centos.html)

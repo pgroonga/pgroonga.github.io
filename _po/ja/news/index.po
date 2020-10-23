@@ -21,6 +21,21 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.2.7: 2020-10-26 {#version-2-2-7}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * Provided the packages for PostgreSQL 13."
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.7"
+msgstr ""
+
+msgid "  * Added support for using system xxHash by HAVE_XXHASH"
+msgstr ""
+
 msgid "## 2.2.6: 2020-07-01 {#version-2-2-6}"
 msgstr ""
 
@@ -29,9 +44,6 @@ msgid ""
 "your PGroonga indexes for `jsonb` after you upgrade to this\n"
 "version. This version has a fix for `jsonb`."
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 20.04."
 msgstr ""

@@ -5,6 +5,16 @@ upper_level: ../
 
 # News
 
+## 2.2.7: 2020-10-26 {#version-2-2-7}
+
+### Improvements
+
+  * Provided the packages for PostgreSQL 13.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.7
+
+  * Added support for using system xxHash by HAVE_XXHASH
+
 ## 2.2.6: 2020-07-01 {#version-2-2-6}
 
 NOTE: If you have PGroonga index for `jsonb`, you need to reindex all

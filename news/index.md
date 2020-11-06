@@ -15,6 +15,10 @@ upper_level: ../
 
   * Added support for using system xxHash by HAVE_XXHASH
 
+### Fixes
+
+  * Fixed a bug that PGroonga might crash when PostgreSQL wrote WAL.
+
 ## 2.2.6: 2020-07-01 {#version-2-2-6}
 
 NOTE: If you have PGroonga index for `jsonb`, you need to reindex all

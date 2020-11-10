@@ -19,6 +19,14 @@ upper_level: ../
 
   * Fixed a bug that PGroonga might crash when PostgreSQL wrote WAL.
 
+  * [[Ubuntu][ubuntu]], [[Debian][debian]] Fixed a bug that WAL support was disabled. [GitHub#144][Reported by DeoLeung and zyp-rgb]
+
+### Thanks
+
+  * Zhanzhao (Deo) Liang
+
+  * zyp-rgb
+
 ## 2.2.6: 2020-07-01 {#version-2-2-6}
 
 NOTE: If you have PGroonga index for `jsonb`, you need to reindex all

@@ -36,6 +36,26 @@ msgstr ""
 msgid "  * Added support for using system xxHash by HAVE_XXHASH"
 msgstr ""
 
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * Fixed a bug that PGroonga might crash when PostgreSQL wrote WAL."
+msgstr ""
+
+msgid ""
+"  * [[Ubuntu][ubuntu]], [[Debian][debian]] Fixed a bug that WAL support was di"
+"sabled. [GitHub#144][Reported by DeoLeung and zyp-rgb]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Zhanzhao (Deo) Liang"
+msgstr ""
+
+msgid "  * zyp-rgb"
+msgstr ""
+
 msgid "## 2.2.6: 2020-07-01 {#version-2-2-6}"
 msgstr ""
 
@@ -73,9 +93,6 @@ msgstr ""
 msgid "  * [[`pgroonga_index_name` function][index-column-name]] Added."
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * [`jsonb`] Fixed a bug that wrong paths are generated for nested\n"
 "    objects/array. You need to reindex all PGroonga indexes for\n"
@@ -83,13 +100,7 @@ msgid ""
 "    [GitHub#137][Reported by Zhanzhao (Deo) Liang]"
 msgstr ""
 
-msgid "### Thanks"
-msgstr "### 感謝"
-
 msgid "  * Malt"
-msgstr ""
-
-msgid "  * Zhanzhao (Deo) Liang"
 msgstr ""
 
 msgid "  * nateekarn-e"

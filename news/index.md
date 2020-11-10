@@ -5,13 +5,13 @@ upper_level: ../
 
 # News
 
-## 2.2.7: 2020-10-26 {#version-2-2-7}
+## 2.2.7: 2020-11-10 {#version-2-2-7}
 
 ### Improvements
 
   * Provided the packages for PostgreSQL 13.
 
-  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.7
+  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.8
 
   * Added support for using system xxHash by HAVE_XXHASH
 

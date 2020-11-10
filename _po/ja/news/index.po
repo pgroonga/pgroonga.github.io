@@ -21,7 +21,7 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.2.7: 2020-10-26 {#version-2-2-7}"
+msgid "## 2.2.7: 2020-11-10 {#version-2-2-7}"
 msgstr ""
 
 msgid "### Improvements"
@@ -30,7 +30,7 @@ msgstr "### 改良"
 msgid "  * Provided the packages for PostgreSQL 13."
 msgstr ""
 
-msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.7"
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.8"
 msgstr ""
 
 msgid "  * Added support for using system xxHash by HAVE_XXHASH"

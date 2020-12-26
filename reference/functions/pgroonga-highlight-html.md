@@ -54,7 +54,7 @@ text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
 
 `index_name` can be `NULL`.
 
-If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. `pgroonga_highlight_html` uses `NormalizerAuto` normalizer by default. It may cause unexpected result.
+If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result.
 
 If you specify `index_name`, the specified PGroonga index must have `TokenNgram` tokenizer with `"report_source_location"` option.
 

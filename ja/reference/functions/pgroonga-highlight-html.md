@@ -54,7 +54,7 @@ text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
 
 `index_name`には`NULL`を指定できます。
 
-`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。`pgroonga_highlight_html`はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。
+`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。この関数はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。
 
 `index_name`を指定した場合は、指定したPGroongaのインデックスには`"report_source_location"`オプションを指定した`TokenNgram`トークナイザーを指定しないといけません。
 

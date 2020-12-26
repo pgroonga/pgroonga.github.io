@@ -15,7 +15,20 @@ If you want in byte version, see [`pgroonga_match_positions_byte`](pgroonga-matc
 
 ## Syntax
 
-Here is the syntax of this function:
+There are two signatures:
+
+```text
+integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...])
+integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...], index_name)
+```
+
+The first signature is simpler than others. The first signature is enough for most cases.
+
+The second signature is useful when you use custom normalizer.
+
+The second signature is available since 2.2.8.
+
+Here is the description of the first signature.
 
 ```text
 integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...])
@@ -24,6 +37,53 @@ integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2
 `target` is a text to be searched. It's `text` type.
 
 `keyword1`, `keyword2`, `...` are keywords to be found. They're an array of `text` type. You must specify one or more keywords.
+
+`pgroonga_match_positions_character` returns an array of positions.
+
+Position consists of offset and length. Offset is the start character from the beginning. Length is the number of characters of matched text. Length may be different size with the length of keyword. Because keyword and matched text are normalized.
+
+Here is the description of the second signature.
+
+```text
+integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...], index_name)
+```
+
+`target` is a text to be searched. It's `text` type.
+
+`keyword1`, `keyword2`, `...` are keywords to be found. They're an array of `text` type. You must specify one or more keywords.
+
+`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+
+`index_name` can be `NULL`.
+
+If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result.
+
+Here is an example:
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (normalizer='NormalizerNFKC121');
+```
+
+Now, you can use `pgroonga_content_index` as `index_name`:
+
+{% raw %}
+```sql
+SELECT pgroonga_match_positions_character('Reiwa: ㋿',
+                                          ARRAY['令和'],
+                                          'pgroonga_content_index');
+--  pgroonga_match_positions_character 
+-- ------------------------------------
+--  {{7,1}}
+-- (1 row)
+```
+{% endraw %}
 
 `pgroonga_match_positions_character` returns an array of positions.
 
@@ -88,10 +148,33 @@ Multibyte characters are also supported:
 {% raw %}
 ```sql
 SELECT pgroonga_match_positions_character('10㌖先にある100ｷﾛグラムの米',
-                                     ARRAY['キロ']) AS match_positions_character;
+                                          ARRAY['キロ']) AS match_positions_character;
 --  match_positions_character 
 -- ---------------------------
 --  {{2,1},{10,2}}
+-- (1 row)
+```
+{% endraw %}
+
+Custom normalizer can be used by specifying a PGroonga index name:
+
+{% raw %}
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (normalizer='NormalizerNFKC121');
+
+SELECT pgroonga_match_positions_character('Reiwa: ㋿',
+                                          ARRAY['令和'],
+                                          'pgroonga_content_index');
+--  pgroonga_match_positions_character 
+-- ------------------------------------
+--  {{7,1}}
 -- (1 row)
 ```
 {% endraw %}

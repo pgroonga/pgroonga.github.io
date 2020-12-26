@@ -23,8 +23,6 @@ See a document for your platform in the followings:
 
   * [Debian GNU/Linux](debian.html)
 
-    * stretch
-
     * buster
 
   * [Ubuntu](ubuntu.html)
@@ -33,9 +31,9 @@ See a document for your platform in the followings:
 
     * 20.04
 
-  * [CentOS](centos.html)
+    * 20.10
 
-    * 6
+  * [CentOS](centos.html)
 
     * 7
 

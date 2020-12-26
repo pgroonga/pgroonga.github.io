@@ -34,6 +34,9 @@ msgstr ""
 msgid "  * Ubuntu 20.04"
 msgstr ""
 
+msgid "  * Ubuntu 20.10"
+msgstr ""
+
 msgid "## How to install for system PostgreSQL {#install-for-system-postgresql}"
 msgstr "## システムのPostgreSQL用のインストール方法 {#install-for-system-postgresql}"
 
@@ -134,6 +137,6 @@ msgid ""
 "$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo "
 "apt-key add -\n"
 "$ sudo apt update\n"
-"$ sudo apt install -y -V postgresql-12-pgdg-pgroonga\n"
+"$ sudo apt install -y -V postgresql-13-pgdg-pgroonga\n"
 "```"
 msgstr ""

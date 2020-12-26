@@ -23,8 +23,6 @@ upper_level: ../
 
   * [Debian GNU/Linux](debian.html)
 
-    * stretch
-
     * buster
 
   * [Ubuntu](ubuntu.html)
@@ -33,9 +31,9 @@ upper_level: ../
 
     * 20.04
 
-  * [CentOS](centos.html)
+    * 20.10
 
-    * 6
+  * [CentOS](centos.html)
 
     * 7
 

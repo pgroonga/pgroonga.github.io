@@ -35,6 +35,9 @@ msgstr ""
 msgid "  * [[Debian][debian]] Dropped support for Debian GNU/Linux stretch."
 msgstr ""
 
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 20.10."
+msgstr ""
+
 msgid "  * [[CentOS][centos]] Dropped support for CentOS 6."
 msgstr ""
 

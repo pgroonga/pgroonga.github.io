@@ -14,6 +14,8 @@ Here are supported Ubuntu versions:
 
   * Ubuntu 20.04
 
+  * Ubuntu 20.10
+
 ## How to install for system PostgreSQL {#install-for-system-postgresql}
 
 You can use the following instruction to install PGroonga for system PostgreSQL on Ubuntu.
@@ -71,7 +73,7 @@ $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --
 $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 $ sudo apt update
-$ sudo apt install -y -V postgresql-12-pgdg-pgroonga
+$ sudo apt install -y -V postgresql-13-pgdg-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:

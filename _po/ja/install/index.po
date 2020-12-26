@@ -51,9 +51,6 @@ msgstr "次の中から自分のプラットフォーム用のドキュメント
 msgid "  * [Debian GNU/Linux](debian.html)"
 msgstr ""
 
-msgid "    * stretch"
-msgstr ""
-
 msgid "    * buster"
 msgstr ""
 
@@ -66,10 +63,10 @@ msgstr ""
 msgid "    * 20.04"
 msgstr ""
 
-msgid "  * [CentOS](centos.html)"
+msgid "    * 20.10"
 msgstr ""
 
-msgid "    * 6"
+msgid "  * [CentOS](centos.html)"
 msgstr ""
 
 msgid "    * 7"

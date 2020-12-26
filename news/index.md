@@ -14,6 +14,8 @@ upper_level: ../
 
   * [[Debian][debian]] Dropped support for Debian GNU/Linux stretch.
 
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 20.10.
+
   * [[CentOS][centos]] Dropped support for CentOS 6.
 
   * [[`pgroonga.force_match_escalation` parameter][force-match-escalation]]

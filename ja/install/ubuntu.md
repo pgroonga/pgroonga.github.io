@@ -14,6 +14,8 @@ title: Ubuntuにインストール
 
   * Ubuntu 20.04
 
+  * Ubuntu 20.10
+
 ## システムのPostgreSQL用のインストール方法 {#install-for-system-postgresql}
 
 UbuntuでシステムのPostgreSQL用にPGroongaをインストールする手順は次の通りです。
@@ -71,7 +73,7 @@ $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --
 $ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 $ sudo apt update
-$ sudo apt install -y -V postgresql-12-pgdg-pgroonga
+$ sudo apt install -y -V postgresql-13-pgdg-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

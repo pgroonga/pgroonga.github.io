@@ -5,6 +5,45 @@ upper_level: ../
 
 # News
 
+## 2.2.8: 2020-12-27 {#version-2-2-8}
+
+### Improvements
+
+  * [[Ubuntu][ubuntu]], [[Debian][debian]] Added packages for
+    PostgreSQL packages provided by PostgreSQL Global Developer Group.
+
+  * [[Debian][debian]] Dropped support for Debian GNU/Linux stretch.
+
+  * [[CentOS][centos]] Dropped support for CentOS 6.
+
+  * [[`pgroonga.force_match_escalation` parameter][force-match-escalation]]
+    Added. [GitHub#157][Reported by Hung Nguyen V.]
+
+  * Similar search functions: Increased cost to ensure using index
+    scan. [GitHub#163][Reported by oyhan]
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 10.1.0
+
+  * [[`pgroonga_match_positions_byte` function][match-positions-byte]]
+    Added support for custom normalizer.
+
+  * [[`pgroonga_match_positions_character` function][match-positions-character]]
+    Added support for custom normalizer.
+
+### Fixes
+
+  * [[`pgroonga_wal_truncate` function][wal-truncate]] Fixed a bug
+    that calling this after large update is failed. This bug was
+    introduced in 2.2.6. [GitHub#150][Reported by BiscuitsColonel]
+
+### Thanks
+
+  * Hung Nguyen V.
+
+  * oyhan
+
+  * BiscuitsColonel
+
 ## 2.2.7: 2020-11-10 {#version-2-2-7}
 
 ### Improvements
@@ -19,7 +58,9 @@ upper_level: ../
 
   * Fixed a bug that PGroonga might crash when PostgreSQL wrote WAL.
 
-  * [[Ubuntu][ubuntu]], [[Debian][debian]] Fixed a bug that WAL support was disabled. [GitHub#144][Reported by DeoLeung and zyp-rgb]
+  * [[Ubuntu][ubuntu]], [[Debian][debian]] Fixed a bug that WAL
+    support was disabled. [GitHub#144][Reported by DeoLeung and
+    zyp-rgb]
 
 ### Thanks
 
@@ -805,9 +846,9 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
     * [`pgroonga.highlight_html` function](../reference/functions/pgroonga-highlight-html.html)
 
-    * [`pgroonga.match_positions_byte` function](../reference/functions/pgroonga-match-positions-byte.html)
+    * [`pgroonga.match_positions_byte` function][match-positions-byte]
 
-    * [`pgroonga.match_positions_character` function](../reference/functions/pgroonga-match-positions-character.html)
+    * [`pgroonga.match_positions_character` function][match-positions-character]
 
     * [`pgroonga.query_extract_keywords` function](../reference/functions/pgroonga-query-extract-keywords.html)
 
@@ -955,7 +996,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * Updated bundled xxHash to 0.6.2.
 
-  * Added [`pgroonga.match_positions_character`](../reference/functions/pgroonga-match-positions-character.html) function that returns match positions in character.
+  * Added [`pgroonga.match_positions_character`][match-positions-character] function that returns match positions in character.
 
   * Added [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) function that flushes buffered changes in memory.
 
@@ -997,7 +1038,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
 ### Fixes
 
-  * Fixed a bug that [`pgroonga.match_positions_byte`](../reference/functions/pgroonga-match-positions-byte.html) function returns wrong positions when text has 17 or more keywords. [Reported by 张建春]
+  * Fixed a bug that [`pgroonga.match_positions_byte`][match-positions-byte] function returns wrong positions when text has 17 or more keywords. [Reported by 张建春]
 
 ### Thanks
 
@@ -1011,7 +1052,7 @@ This is the second major release! It's upgradable from 1.X! 2.X is backward comp
 
   * Added [`pgroonga.highlight_html`](../reference/functions/pgroonga-highlight-html.html) function that highlight the specified keywords in the specified text.
 
-  * Added [`pgroonga.match_positions_byte`](../reference/functions/pgroonga-match-positions-byte.html) function that returns match positions of the specified keywords in the specified text. The unit of position is byte.
+  * Added [`pgroonga.match_positions_byte`][match-positions-byte] function that returns match positions of the specified keywords in the specified text. The unit of position is byte.
 
   * Added [`pgroonga.query_extract_keywords`](../reference/functions/pgroonga-query-extract-keywords.html) function that returns keywords from the specified query.
 
@@ -1352,24 +1393,27 @@ The first release!!!
 [regular-expression-v2]:../reference/operators/regular-expression-v2.html
 [regular-expression-in-v2]:../reference/operators/regular-expression-in-v2.html
 
-[query-expand]:../reference/functions/pgroonga-query-expand.html
-[snippet-html]:../reference/functions/pgroonga-snippet-html.html
-[highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [command]:../reference/functions/pgroonga-command.html
+[database-remove]:../reference/functions/pgroonga-database-remove.html
+[escape]:../reference/functions/pgroonga-escape.html
+[highlight-html]:../reference/functions/pgroonga-highlight-html.html
+[index-column-name]:../reference/functions/pgroonga-index-column-name.html
+[is-writable]:../reference/functions/pgroonga-is-writable.html
+[match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html
+[match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
+[normalize]:../reference/functions/pgroonga-normalize.html
+[query-expand]:../reference/functions/pgroonga-query-expand.html
+[score]:../reference/functions/pgroonga-score.html
+[set-writable]:../reference/functions/pgroonga-set-writable.html
+[snippet-html]:../reference/functions/pgroonga-snippet-html.html
+[tokenize]:../reference/functions/pgroonga-tokenize.html
+[vacuum]:../reference/functions/pgroonga-vacuum.html
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
-[set-writable]:../reference/functions/pgroonga-set-writable.html
-[score]:../reference/functions/pgroonga-score.html
-[is-writable]:../reference/functions/pgroonga-is-writable.html
-[normalize]:../reference/functions/pgroonga-normalize.html
-[tokenize]:../reference/functions/pgroonga-tokenize.html
-[escape]:../reference/functions/pgroonga-escape.html
-[vacuum]:../reference/functions/pgroonga-vacuum.html
-[database-remove]:../reference/functions/pgroonga-database-remove.html
-[index-column-name]:../reference/functions/pgroonga-index-column-name.html
 
-[match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
+[force-match-escalation]:../reference/parameters/force-match-escalation.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html
+[match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
 
 [pgoronga-check]:../reference/modules/pgroonga-check.html
 [pgoronga-database]:../reference/modules/pgroonga-database.html

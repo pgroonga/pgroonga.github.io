@@ -50,6 +50,11 @@ msgid ""
 " for users."
 msgstr "通常、このパラメーターを変更する必要はありません。自動で条件のゆるい検索をするとユーザーは便利になるからです。"
 
+msgid ""
+"See also [`pgroonga.force_match_escalation` parameter][force-match-escalation]"
+"."
+msgstr "[`pgroonga.force_match_escalation`パラメーター][force-match-escalation]も参照してください。"
+
 msgid "## Syntax"
 msgstr "## 構文"
 
@@ -84,4 +89,13 @@ msgid ""
 "```sql\n"
 "SET pgroonga.match_escalation_threshold = -1;\n"
 "```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [`pgroonga.force_match_escalation` parameter][force-match-escalation]"
+msgstr "  * [`pgroonga.force_match_escalation`パラメーター][force-match-escalation]"
+
+msgid "[force-match-escalation]:force-match-escalation.html"
 msgstr ""

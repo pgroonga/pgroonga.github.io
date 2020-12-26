@@ -562,28 +562,31 @@ msgstr "## パラメーター"
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
-msgid "  * [`pgoronga.libgroonga_version` parameter][libgroonga-version]"
-msgstr "  * [`pgoronga.libgroonga_version`パラメーター][libgroonga-version]"
+msgid "  * [`pgroonga.force_match_escalation` parameter][force-match-escalation]"
+msgstr "  * [`pgroonga.force_match_escalation`パラメーター][force-match-escalation]"
 
-msgid "  * [`pgoronga.lock_timeout` parameter][lock-timeout]"
+msgid "  * [`pgroonga.libgroonga_version` parameter][libgroonga-version]"
+msgstr "  * [`pgroonga.libgroonga_version`パラメーター][libgroonga-version]"
+
+msgid "  * [`pgroonga.lock_timeout` parameter][lock-timeout]"
 msgstr "  * [`pgroonga.lock_timeout`パラメーター][lock-timeout]"
 
-msgid "  * [`pgoronga.log_level` parameter][log-level]"
+msgid "  * [`pgroonga.log_level` parameter][log-level]"
 msgstr "  * [`pgroonga.log_level`パラメーター][log-level]"
 
-msgid "  * [`pgoronga.log_path` parameter][log-path]"
+msgid "  * [`pgroonga.log_path` parameter][log-path]"
 msgstr "  * [`pgroonga.log_path`パラメーター][log-path]"
 
-msgid "  * [`pgoronga.log_type` parameter][log-type]"
+msgid "  * [`pgroonga.log_type` parameter][log-type]"
 msgstr "  * [`pgroonga.log_type`パラメーター][log-type]"
 
-msgid "  * [`pgoronga.query_log_path` parameter][query-log-path]"
-msgstr "  * [`pgroonga.query_log_path`パラメーター][query-log-path]"
-
 msgid ""
-"  * [`pgoronga.match_escalation_threshold` parameter][match-escalation-thresho"
+"  * [`pgroonga.match_escalation_threshold` parameter][match-escalation-thresho"
 "ld]"
 msgstr "  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]"
+
+msgid "  * [`pgroonga.query_log_path` parameter][query-log-path]"
+msgstr "  * [`pgroonga.query_log_path`パラメーター][query-log-path]"
 
 msgid "## Modules"
 msgstr ""
@@ -698,13 +701,14 @@ msgstr ""
 
 msgid ""
 "[enable-wal]:parameters/enable-wal.html\n"
+"[force-match-escalation]:parameters/force-match-escalation.html\n"
 "[libgroonga-version]:parameters/libgroonga-version.html\n"
 "[lock-timeout]:parameters/lock-timeout.html\n"
 "[log-level]:parameters/log-level.html\n"
 "[log-path]:parameters/log-path.html\n"
 "[log-type]:parameters/log-type.html\n"
-"[query-log-path]:parameters/query-log-path.html\n"
-"[match-escalation-threshold]:parameters/match-escalation-threshold.html"
+"[match-escalation-threshold]:parameters/match-escalation-threshold.html\n"
+"[query-log-path]:parameters/query-log-path.html"
 msgstr ""
 
 msgid ""

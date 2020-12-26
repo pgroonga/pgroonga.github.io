@@ -545,7 +545,9 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.enable_wal`パラメーター][enable-wal]
 
-  * [`pgoronga.libgroonga_version`パラメーター][libgroonga-version]
+  * [`pgroonga.force_match_escalation`パラメーター][force-match-escalation]
+
+  * [`pgroonga.libgroonga_version`パラメーター][libgroonga-version]
 
   * [`pgroonga.lock_timeout`パラメーター][lock-timeout]
 
@@ -555,9 +557,9 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.log_type`パラメーター][log-type]
 
-  * [`pgroonga.query_log_path`パラメーター][query-log-path]
-
   * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]
+
+  * [`pgroonga.query_log_path`パラメーター][query-log-path]
 
 ## モジュール
 
@@ -638,13 +640,14 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
 [enable-wal]:parameters/enable-wal.html
+[force-match-escalation]:parameters/force-match-escalation.html
 [libgroonga-version]:parameters/libgroonga-version.html
 [lock-timeout]:parameters/lock-timeout.html
 [log-level]:parameters/log-level.html
 [log-path]:parameters/log-path.html
 [log-type]:parameters/log-type.html
-[query-log-path]:parameters/query-log-path.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+[query-log-path]:parameters/query-log-path.html
 
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-database]:modules/pgroonga-database.html

@@ -17,6 +17,8 @@ upper_level: ../
 
 通常、このパラメーターを変更する必要はありません。自動で条件のゆるい検索をするとユーザーは便利になるからです。
 
+[`pgroonga.force_match_escalation`パラメーター][force-match-escalation]も参照してください。
+
 ## 構文
 
 SQLの場合：
@@ -40,3 +42,9 @@ pgroonga.match_escalation_threshold = threshold
 ```sql
 SET pgroonga.match_escalation_threshold = -1;
 ```
+
+## 参考
+
+  * [`pgroonga.force_match_escalation`パラメーター][force-match-escalation]
+
+[force-match-escalation]:force-match-escalation.html

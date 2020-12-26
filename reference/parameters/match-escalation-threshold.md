@@ -17,6 +17,8 @@ You can disable match escalation by specifying `-1`.
 
 Normally, you don't need to change this parameter. Auto loose search is useful for users.
 
+See also [`pgroonga.force_match_escalation` parameter][force-match-escalation].
+
 ## Syntax
 
 In SQL:
@@ -40,3 +42,9 @@ Here is an example to disable match escalation:
 ```sql
 SET pgroonga.match_escalation_threshold = -1;
 ```
+
+## See also
+
+  * [`pgroonga.force_match_escalation` parameter][force-match-escalation]
+
+[force-match-escalation]:force-match-escalation.html

@@ -21,9 +21,9 @@ CentOS 7にPGroongaをインストールする方法は次の通りです。
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```console
-$ sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
+$ sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
 $ sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
-$ sudo -H yum install -y postgresql{{ site.latest_postgresql_version }}-pgroonga
+$ sudo -H yum install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -67,10 +67,11 @@ CentOS 8にPGroongaをインストールする方法は次の通りです。
 `postgresql-pgroonga`パッケージをインストールします。
 
 ```console
-$ sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
+$ sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
+$ sudo -H dnf install -y epel-release || sudo -H dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1).noarch.rpm
 $ sudo -H dnf install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
 $ sudo -H dnf module -y disable postgresql
-$ sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgroonga
+$ sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

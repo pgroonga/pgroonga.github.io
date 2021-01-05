@@ -36,8 +36,7 @@ PostgreSQLを実行します。
 
 ```console
 $ sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
-$ sudo -H systemctl enable postgresql-{{ site.latest_postgresql_version }}
-$ sudo -H systemctl start postgresql-{{ site.latest_postgresql_version }}
+$ sudo -H systemctl enable --now postgresql-{{ site.latest_postgresql_version }}
 ```
 
 データベースを作成します。
@@ -84,8 +83,7 @@ PostgreSQLを実行します。
 
 ```console
 $ sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
-$ sudo -H systemctl enable postgresql-{{ site.latest_postgresql_version }}
-$ sudo -H systemctl start postgresql-{{ site.latest_postgresql_version }}
+$ sudo -H systemctl enable --now postgresql-{{ site.latest_postgresql_version }}
 ```
 
 データベースを作成します。

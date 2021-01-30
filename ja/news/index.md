@@ -1417,7 +1417,7 @@ The first release!!!
 [libgroonga-version]:../reference/parameters/libgroonga-version.html
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
 
-[pgoronga-check]:../reference/modules/pgroonga-check.html
-[pgoronga-database]:../reference/modules/pgroonga-database.html
+[pgroonga-check]:../reference/modules/pgroonga-check.html
+[pgroonga-database]:../reference/modules/pgroonga-database.html
 
 [travis-ci]:../how-to/travis-ci.html

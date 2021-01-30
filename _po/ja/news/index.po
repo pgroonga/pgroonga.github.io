@@ -1951,8 +1951,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"[pgoronga-check]:../reference/modules/pgroonga-check.html\n"
-"[pgoronga-database]:../reference/modules/pgroonga-database.html"
+"[pgroonga-check]:../reference/modules/pgroonga-check.html\n"
+"[pgroonga-database]:../reference/modules/pgroonga-database.html"
 msgstr ""
 
 msgid "[travis-ci]:../how-to/travis-ci.html"

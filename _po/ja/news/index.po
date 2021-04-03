@@ -21,11 +21,34 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.2.8: 2020-12-27 {#version-2-2-8}"
+msgid "## 2.2.9: 2021-04-04 {#version-2-2-9}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * [[Debian][debian]] Dropped support for Debian GNU/Linux buster i386."
+msgstr ""
+
+msgid "  * [[Debian][debian]] Added support for arm64."
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.1."
+msgstr ""
+
+msgid ""
+"  * Avoided `COUNT(*)` with large value.\n"
+"    [GitHub:clear-code/redmine_full_text_search#96][Reported by ryouma-nagare]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * ryouma-nagare"
+msgstr ""
+
+msgid "## 2.2.8: 2020-12-27 {#version-2-2-8}"
+msgstr ""
 
 msgid ""
 "  * [[Ubuntu][ubuntu]], [[Debian][debian]] Added packages for\n"
@@ -73,9 +96,6 @@ msgid ""
 "    that calling this after large update is failed. This bug was\n"
 "    introduced in 2.2.6. [GitHub#150][Reported by BiscuitsColonel]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Hung Nguyen V."
 msgstr ""

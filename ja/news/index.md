@@ -5,6 +5,23 @@ upper_level: ../
 
 # おしらせ
 
+## 2.2.9: 2021-04-04 {#version-2-2-9}
+
+### 改良
+
+  * [[Debian][debian]] Dropped support for Debian GNU/Linux buster i386.
+
+  * [[Debian][debian]] Added support for arm64.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.1.
+
+  * Avoided `COUNT(*)` with large value.
+    [GitHub:clear-code/redmine_full_text_search#96][Reported by ryouma-nagare]
+
+### 感謝
+
+  * ryouma-nagare
+
 ## 2.2.8: 2020-12-27 {#version-2-2-8}
 
 ### 改良

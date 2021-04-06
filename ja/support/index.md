@@ -6,7 +6,7 @@ title: サポート
 
 以下の企業は、PGroongaのサポートサービスを提供しています（五十音順）
 
-### 株式会社クリアコード
+## 株式会社クリアコード
 
 [![ClearCode logo](/images/support/ClearCode.svg)](https://www.clear-code.com/)
 

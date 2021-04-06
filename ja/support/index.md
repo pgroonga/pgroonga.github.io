@@ -4,7 +4,6 @@ title: サポート
 
 # サポート
 
-
 PGroongaは[コミュニティー](../community/)によるサポートの他にも商用サポートサービスがあります。
 
 以下の企業が、PGroongaのサポートサービスを提供しています（五十音順）
@@ -13,7 +12,7 @@ PGroongaは[コミュニティー](../community/)によるサポートの他に�
 
 [![ClearCode logo](/images/support/ClearCode.svg)](https://www.clear-code.com/)
 
-クリアコードは2008年からGroongaの開発に参加しています。PGroonga、[Groonga](https://groonga.org/ja/)、<a href='https://mroonga.org/ja/'>Mroonga</a>を採用したシステム開発、保守の支援を提供しています。
+クリアコードは2008年からGroongaの開発に参加しています。PGroonga、[Groonga](https://groonga.org/ja/)、[Mroonga](https://mroonga.org/ja/)を採用したシステム開発、保守の支援を提供しています。
 
 PGroongaの特徴を活かしたシステムの改善提案、システムの改善のためのPGroongaの機能拡張を得意としています。
 

@@ -1413,6 +1413,11 @@ msgid "  * Updated bundled xxHash to 0.6.2."
 msgstr "  * バンドルしているxxHashを0.6.2にアップデートしました。"
 
 msgid ""
+"  * Added [`pgroonga.match_positions_character`][match-positions-character] fu"
+"nction that returns match positions in character."
+msgstr ""
+
+msgid ""
 "  * Added [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) funct"
 "ion that flushes buffered changes in memory."
 msgstr ""

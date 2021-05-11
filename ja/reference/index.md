@@ -525,6 +525,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]
 
+  * [`pgroonga_result_to_recordset`関数][result-to-recordset]
+
   * [`pgroonga_set_writable`関数][set-writable]
 
   * [`pgroonga_score`関数][score]
@@ -628,6 +630,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [query-escape]:functions/pgroonga-query-escape.html
 [query-expand]:functions/pgroonga-query-expand.html
 [query-extract-keywords]:functions/pgroonga-query-extract-keywords.html
+[result-to-recordset]:functions/pgroonga-result-to-recordset.html
 [set-writable]:functions/pgroonga-set-writable.html
 [score]:functions/pgroonga-score.html
 [snippet-html]:functions/pgroonga-snippet-html.html

@@ -523,6 +523,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_query_extract_keywords` function][query-extract-keywords]
 
+  * [`pgroonga_result_to_recordset` function][result-to-recordset]
+
   * [`pgroonga_set_writable` function][set-writable]
 
   * [`pgroonga_score` function][score]
@@ -625,6 +627,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [query-escape]:functions/pgroonga-query-escape.html
 [query-expand]:functions/pgroonga-query-expand.html
 [query-extract-keywords]:functions/pgroonga-query-extract-keywords.html
+[result-to-recordset]:functions/pgroonga-result-to-recordset.html
 [set-writable]:functions/pgroonga-set-writable.html
 [score]:functions/pgroonga-score.html
 [snippet-html]:functions/pgroonga-snippet-html.html

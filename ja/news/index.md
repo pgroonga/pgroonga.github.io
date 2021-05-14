@@ -5,6 +5,28 @@ upper_level: ../
 
 # おしらせ
 
+## 2.3.0: 2021-05-14 {#version-2-3-0}
+
+### 改良
+
+  * [[Debian][debian]] Added support for Debian GNU/Linux bullseye.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.2.
+
+  * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added.
+
+  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]
+    Added.
+
+### 修正
+
+  * Fixed a bug that `NULL` `jsonb` data with partial index may not
+    return records of `NULL` value. [GitHub:#181][Reported by Artem]
+
+### 感謝
+
+  * Artem
+
 ## 2.2.9: 2021-04-04 {#version-2-2-9}
 
 ### 改良

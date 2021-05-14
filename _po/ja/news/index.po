@@ -21,11 +21,42 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.2.9: 2021-04-04 {#version-2-2-9}"
+msgid "## 2.3.0: 2021-05-14 {#version-2-3-0}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux bullseye."
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.2."
+msgstr ""
+
+msgid "  * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]\n"
+"    Added."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that `NULL` `jsonb` data with partial index may not\n"
+"    return records of `NULL` value. [GitHub:#181][Reported by Artem]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Artem"
+msgstr ""
+
+msgid "## 2.2.9: 2021-04-04 {#version-2-2-9}"
+msgstr ""
 
 msgid "  * [[Debian][debian]] Dropped support for Debian GNU/Linux buster i386."
 msgstr ""
@@ -40,9 +71,6 @@ msgid ""
 "  * Avoided `COUNT(*)` with large value.\n"
 "    [GitHub:clear-code/redmine_full_text_search#96][Reported by ryouma-nagare]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * ryouma-nagare"
 msgstr ""
@@ -87,9 +115,6 @@ msgid ""
 "]]\n"
 "    Added support for custom normalizer."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [[`pgroonga_wal_truncate` function][wal-truncate]] Fixed a bug\n"

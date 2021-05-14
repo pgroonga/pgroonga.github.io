@@ -1,8 +1,8 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 2.2.9
-pgroonga_release_date: 2021-04-04
+pgroonga_version: 2.3.0
+pgroonga_release_date: 2021-05-14
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/13
   ja: https://www.postgresql.jp/document/13/html

@@ -9,7 +9,9 @@ Since 2.3.0.
 
 ## Summary
 
-`pgroonga_result_to_recordset` function converts [`pgroonga_command` function][pgroonga-command]'s result JSON to set of `record` type. This is similar to PostgreSQL's [`jsonb_to_recordset` function][postgresql-jsonb-to-recordset]. Generally, set of `record` type is easier to handle rather than JSON data.
+`pgroonga_result_to_recordset` function is similar to [`pgroonga_result_to_jsonb_objects` function][pgroonga-result-to-jsonb-objects].
+
+`pgroonga_result_to_recordset` function converts [`pgroonga_command` function][pgroonga-command]'s result JSON to set of `record` type. This is similar to PostgreSQL's [`jsonb_to_recordset` function][postgresql-jsonb-to-recordset]. Generally, set of `record` type is easier to handle rather than the result JSON.
 
 This will support all result JSON formats of Groonga command but the following commands are only supported for now:
 
@@ -91,10 +93,13 @@ SELECT *
 
 ## See also
 
- * [`pgroonga_command` function][pgroonga-command]
+  * [`pgroonga_result_to_jsonb_objects` function][pgroonga-result-to-jsonb-objects]
 
- * [`pgroonga_table_name` function][pgroonga-table-name]
+  * [`pgroonga_command` function][pgroonga-command]
 
+  * [`pgroonga_table_name` function][pgroonga-table-name]
+
+[pgroonga-result-to-jsonb-objects]:pgroonga-result-to-jsonb-objects.html
 [pgroonga-command]:pgroonga-command.html
 [pgroonga-table-name]:pgroonga-table-name.html
 

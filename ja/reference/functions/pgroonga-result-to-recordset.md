@@ -9,7 +9,9 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga_result_to_recordset`関数は[`pgroonga_command`関数][pgroonga-command]の結果のJSONを`record`型の集合に変換します。この関数はPostgreSQLの[`jsonb_to_recordset`関数][postgresql-jsonb-to-recordset]に似ています。通常、`record`型の集合の方がJSONデータよりも扱いやすいです。
+`pgroonga_result_to_recordset` function is similar to [`pgroonga_result_to_jsonb_objects` function][pgroonga-result-to-jsonb-objects].
+
+`pgroonga_result_to_recordset`関数は[`pgroonga_command`関数][pgroonga-command]の結果のJSONを`record`型の集合に変換します。この関数はPostgreSQLの[`jsonb_to_recordset`関数][postgresql-jsonb-to-recordset]に似ています。通常、`record`型の集合の方が結果のJSONよりも扱いやすいです。
 
 将来的にはGroongaのコマンドのすべての結果JSONフォーマットをサポートする予定ですが、現時点では次のコマンドだけサポートしています。
 
@@ -91,10 +93,13 @@ SELECT *
 
 ## 参考
 
- * [`pgroonga_command`関数][pgroonga-command]
+  * [`pgroonga_result_to_jsonb_objects`関数][pgroonga-result-to-jsonb-objects]
 
- * [`pgroonga_table_name`関数][pgroonga-table-name]
+  * [`pgroonga_command`関数][pgroonga-command]
 
+  * [`pgroonga_table_name`関数][pgroonga-table-name]
+
+[pgroonga-result-to-jsonb-objects]:pgroonga-result-to-jsonb-objects.html
 [pgroonga-command]:pgroonga-command.html
 [pgroonga-table-name]:pgroonga-table-name.html
 

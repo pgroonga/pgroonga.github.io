@@ -532,6 +532,9 @@ msgstr "  * [`pgroonga_query_expand`関数][query-expand]"
 msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr "  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]"
 
+msgid "  * [`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]"
+msgstr "  * [`pgroonga_result_to_jsonb_objects`関数][result-to-jsonb-objects]"
+
 msgid "  * [`pgroonga_result_to_recordset` function][result-to-recordset]"
 msgstr "  * [`pgroonga_result_to_recordset`関数][result-to-recordset]"
 
@@ -689,6 +692,7 @@ msgid ""
 "[query-escape]:functions/pgroonga-query-escape.html\n"
 "[query-expand]:functions/pgroonga-query-expand.html\n"
 "[query-extract-keywords]:functions/pgroonga-query-extract-keywords.html\n"
+"[result-to-jsonb-objects]:functions/pgroonga-result-to-jsonb-objects.html\n"
 "[result-to-recordset]:functions/pgroonga-result-to-recordset.html\n"
 "[set-writable]:functions/pgroonga-set-writable.html\n"
 "[score]:functions/pgroonga-score.html\n"

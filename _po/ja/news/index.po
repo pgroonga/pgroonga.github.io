@@ -275,6 +275,9 @@ msgstr ""
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.9."
 msgstr ""
 
+msgid "  * Upgrade bundled xxHash to 0.7.2 from 0.6.2."
+msgstr ""
+
 msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux buster."
 msgstr ""
 

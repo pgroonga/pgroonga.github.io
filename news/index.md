@@ -1444,6 +1444,8 @@ The first release!!!
 [match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
 [normalize]:../reference/functions/pgroonga-normalize.html
 [query-expand]:../reference/functions/pgroonga-query-expand.html
+[result-to-jsonb-objects]:../reference/functions/pgroonga-result-to-jsonb-objects.html
+[result-to-recordset]:../reference/functions/pgroonga-result-to-recordset.html
 [score]:../reference/functions/pgroonga-score.html
 [set-writable]:../reference/functions/pgroonga-set-writable.html
 [snippet-html]:../reference/functions/pgroonga-snippet-html.html

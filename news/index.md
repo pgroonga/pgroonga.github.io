@@ -280,7 +280,10 @@ version. This version has a fix for `jsonb`.
 
   * [[Windows][windows]] Upgraded bundled Groonga to 8.1.0.
 
-  * [[`pgroonga_database`][pgroonga-database]: Added. It provides functions that manage PGroonga database. For now, [`pgroonga_database_remove` function] is only provided.
+  * [[`pgroonga_database`][pgroonga-database]]: Added. It provides
+    functions that manage PGroonga database. For now,
+    [`pgroonga_database_remove` function][database-remove] is only
+    provided.
 
 ## 2.1.7: 2018-12-25 {#version-2-1-7}
 

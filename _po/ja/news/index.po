@@ -371,9 +371,10 @@ msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.1.0."
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_database`][pgroonga-database]: Added. It provides functions th"
-"at manage PGroonga database. For now, [`pgroonga_database_remove` function] is"
-" only provided."
+"  * [[`pgroonga_database`][pgroonga-database]: Added. It provides\n"
+"    functions that manage PGroonga database. For now,\n"
+"    [`pgroonga_database_remove` function][database-remove] is only\n"
+"    provided."
 msgstr ""
 
 msgid "## 2.1.7: 2018-12-25 {#version-2-1-7}"

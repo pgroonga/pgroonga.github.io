@@ -24,13 +24,6 @@ msgstr "# `pgroonga.enable_wal`パラメーター"
 msgid "Since 1.1.6."
 msgstr "1.1.6で追加。"
 
-msgid ""
-"It's still an experimental feature. If you find a problem, please [report it]("
-"https://github.com/pgroonga/pgroonga/issues/new)."
-msgstr ""
-"これはまだ実験的な機能です。問題を見つけた場合は[報告](https://github.com/pgroonga/pgroonga/issues/new)し"
-"てください。（日本語で大丈夫です。）"
-
 msgid "## Summary"
 msgstr "## 概要"
 

@@ -7,8 +7,6 @@ upper_level: ../
 
 Since 1.1.6.
 
-It's still an experimental feature. If you find a problem, please [report it](https://github.com/pgroonga/pgroonga/issues/new).
-
 ## Summary
 
 `pgroonga.enable_wal` parameter controls whether [WAL]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html) is enabled or not.

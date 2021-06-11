@@ -55,11 +55,8 @@ msgstr "WALサポートを有効にすると更新性能が落ちるはずです
 
 msgid ""
 "The default value is `off`. It means that PGroonga doesn't generate WAL even w"
-"hen you're using PostgreSQL 9.6 or later. It'll be `on` by default when this f"
-"eature is marked as stable."
-msgstr ""
-"デフォルト値は`off`です。これは、PGroongaはPostgreSQL 9.6以降で使っている場合でもWALを生成しないということです。この機能が安定"
-"したらデフォルトで`on`になる予定です。"
+"hen you're using PostgreSQL 9.6 or later."
+msgstr "デフォルト値は`off`です。これは、PGroongaはPostgreSQL 9.6以降で使っている場合でもWALを生成しないということです。"
 
 msgid "## Syntax"
 msgstr "## 構文"

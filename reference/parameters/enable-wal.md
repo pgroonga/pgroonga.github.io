@@ -17,7 +17,7 @@ If you enable WAL support, you can use PostgreSQL's streaming replication featur
 
 If you enable WAL support, update performance will be decreased because some extra disk writes are needed.
 
-The default value is `off`. It means that PGroonga doesn't generate WAL even when you're using PostgreSQL 9.6 or later. It'll be `on` by default when this feature is marked as stable.
+The default value is `off`. It means that PGroonga doesn't generate WAL even when you're using PostgreSQL 9.6 or later.
 
 ## Syntax
 

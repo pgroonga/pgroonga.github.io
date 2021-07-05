@@ -118,10 +118,10 @@ msgstr ""
 
 msgid ""
 "Here is a sample to use `pgroonga_index_column_name()` for [`object_inspect` G"
-"roonga command][object-inspect]:"
+"roonga command][groonga-object-inspect]:"
 msgstr ""
-"以下は[`object_inspect` Groongaコマンド][object-inspect]用に`pgroonga_index_column_name"
-"()`を使う例です。"
+"以下は[`object_inspect` Groongaコマンド][groonga-object-inspect]用に`pgroonga_index_col"
+"umn_name()`を使う例です。"
 
 msgid ""
 "```sql\n"

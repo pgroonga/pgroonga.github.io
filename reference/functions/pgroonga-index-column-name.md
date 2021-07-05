@@ -62,7 +62,7 @@ SELECT pgroonga_index_column_name('pgroonga_index', 'tag');
 -- (1 row)
 ```
 
-Here is a sample to use `pgroonga_index_column_name()` for [`object_inspect` Groonga command][object-inspect]:
+Here is a sample to use `pgroonga_index_column_name()` for [`object_inspect` Groonga command][groonga-object-inspect]:
 
 ```sql
 SELECT jsonb_pretty(

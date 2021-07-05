@@ -62,7 +62,7 @@ SELECT pgroonga_index_column_name('pgroonga_index', 'tag');
 -- (1 row)
 ```
 
-以下は[`object_inspect` Groongaコマンド][object-inspect]用に`pgroonga_index_column_name()`を使う例です。
+以下は[`object_inspect` Groongaコマンド][groonga-object-inspect]用に`pgroonga_index_column_name()`を使う例です。
 
 ```sql
 SELECT jsonb_pretty(

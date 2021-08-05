@@ -33,16 +33,13 @@ msgid ""
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_normalize` function][normalize]] Add support for \"normalizers-"
-"mapping\" index option."
-msgstr ""
-
-msgid "    * This requires Groonga 11.0.5 (not released yet) or later."
+"  * [[`pgroonga_normalize` function][normalize]] Add support for `normalizers-"
+"mapping` index option."
 msgstr ""
 
 msgid ""
 "  * [[`pgroonga_normalize` function][normalize]] Added support for substitutin"
-"g '${table:INDEX_NAME}'."
+"g `${table:INDEX_NAME}`."
 msgstr ""
 
 msgid ""

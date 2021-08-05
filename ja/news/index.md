@@ -7,6 +7,8 @@ upper_level: ../
 
 ## 2.3.1: 2021-08-05 {#version-2-3-1}
 
+PGroonga requires Groonga 11.0.5 since this version.
+
 ### 改良
 
   * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages provided by PostgreSQL Global Developer Group.[GitHub:#184][Reported by Tim Abbott]
@@ -20,6 +22,8 @@ upper_level: ../
   * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]] Added support for term indexed column.
 
   * [[Ubuntu][ubuntu]] Dropped support Ubuntu 20.10.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.5.
 
 ### 感謝
 

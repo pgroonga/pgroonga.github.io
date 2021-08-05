@@ -11,9 +11,9 @@ upper_level: ../
 
   * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages provided by PostgreSQL Global Developer Group.[GitHub:#184][Reported by Tim Abbott]
 
-  * [[`pgroonga_normalize` function][normalize]] Add support for "normalizers-mapping" index option.
+  * [[`pgroonga_normalize` function][normalize]] Add support for `normalizers-mapping` index option.
 
-  * [[`pgroonga_normalize` function][normalize]] Added support for substituting '${table:INDEX_NAME}'.
+  * [[`pgroonga_normalize` function][normalize]] Added support for substituting `${table:INDEX_NAME}`.
 
   * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added support for term indexed column.
 

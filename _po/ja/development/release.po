@@ -34,36 +34,6 @@ msgstr ""
 msgid "* `LAUNCHPAD_UPLOADER_PGP_KEY`"
 msgstr ""
 
-msgid "We update GRUB option in the following steps for executing CentOS 6 on Docker."
-msgstr "Docker上でCentOS 6を実行するため、以下の手順でGRUBのオプションを更新します。"
-
-msgid "Make `/etc/default/grub.d/vsyscall-emulate.cfg` and write below content:"
-msgstr "`/etc/default/grub.d/vsyscall-emulate.cfg` を作成して、以下の内容を書きます。"
-
-msgid ""
-"```shell\n"
-"GRUB_CMDLINE_LINUX_DEFAULT=\"${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate\"\n"
-"```"
-msgstr ""
-
-msgid "Update GRUB configuration:"
-msgstr "GRUBの設定を更新します。"
-
-msgid ""
-"```console\n"
-"# update-grub\n"
-"```"
-msgstr ""
-
-msgid "Reboot your system:"
-msgstr "システムを再起動します。"
-
-msgid ""
-"```console\n"
-"# reboot\n"
-"```"
-msgstr ""
-
 msgid "## Bump version"
 msgstr "## バージョンをあげる"
 
@@ -82,24 +52,13 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## Update PostgreSQL version for AppVeyor"
-msgstr "## AppVeyorのPostgreSQLのバージョンを更新"
-
-msgid ""
-"We update PostgreSQL versions in `appveyor.yml` to the latest PostgreSQL relea"
-"ses."
-msgstr "`appveyor.yml` のPostgreSQLのバージョンを最新のPostgreSQLのリリースに更新します。"
-
 msgid "## Check whether we can make packages or not"
 msgstr "## パッケージ作成可能かどうか確認"
 
 msgid "We confirm below CIs green or not."
 msgstr "以下のCIがグリーンかどうかを確認します。"
 
-msgid "* [GitHub Actions Workflow for Linux][github-actions-workflow-linux]"
-msgstr ""
-
-msgid "* [AppVeyor CI][appveyor-pgroonga]"
+msgid "* [GitHub Actions][github-actions-pgroonga]"
 msgstr ""
 
 msgid "## Tagging for the release"
@@ -165,8 +124,10 @@ msgstr ""
 msgid "### Windows"
 msgstr ""
 
-msgid "For Windows packages, we use [AppVeyor CI][appveyor-pgroonga] artifacts files."
-msgstr "Windows向けには、 [AppVeyor CI][appveyor-pgroonga]の成果物を使っています。"
+msgid ""
+"For Windows packages, we use [GitHub Actions][github-actions-pgroonga] artifac"
+"ts files."
+msgstr "Windows向けには、 [GitHub Actions][github-actions-pgroonga]の成果物を使っています。"
 
 msgid ""
 "```console\n"
@@ -201,12 +162,6 @@ msgstr ""
 
 msgid "  * Relase data for the latest version."
 msgstr " * 最新版のリリース日"
-
-msgid "* `copyright_year`:"
-msgstr ""
-
-msgid "  * Update if the year changes."
-msgstr " * 年が変わったら更新"
 
 msgid "* `postgresql_doc_base_url`:"
 msgstr ""
@@ -373,6 +328,9 @@ msgid ""
 msgstr ""
 
 msgid "[appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga"
+msgstr ""
+
+msgid "[github-actions-pgroonga]:https://github.com/pgroonga/pgroonga/actions"
 msgstr ""
 
 msgid "[launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa"

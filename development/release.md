@@ -14,26 +14,6 @@ Use the following enviroment values.
 
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-We update GRUB option in the following steps for executing CentOS 6 on Docker.
-
-Make `/etc/default/grub.d/vsyscall-emulate.cfg` and write below content:
-
-```shell
-GRUB_CMDLINE_LINUX_DEFAULT="${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate"
-```
-
-Update GRUB configuration:
-
-```console
-# update-grub
-```
-
-Reboot your system:
-
-```console
-# reboot
-```
-
 ## Bump version
 
 ```console
@@ -46,17 +26,11 @@ $ rake version:update NEW_VERSION=x.x.x
 $ rake package:version:update
 ```
 
-## Update PostgreSQL version for AppVeyor
-
-We update PostgreSQL versions in `appveyor.yml` to the latest PostgreSQL releases.
-
 ## Check whether we can make packages or not
 
 We confirm below CIs green or not.
 
-* [GitHub Actions Workflow for Linux][github-actions-workflow-linux]
-
-* [AppVeyor CI][appveyor-pgroonga]
+* [GitHub Actions][github-actions-pgroonga]
 
 ## Tagging for the release
 
@@ -97,7 +71,7 @@ $ rake package:yum
 
 ### Windows
 
-For Windows packages, we use [AppVeyor CI][appveyor-pgroonga] artifacts files.
+For Windows packages, we use [GitHub Actions][github-actions-pgroonga] artifacts files.
 
 ```console
 $ rake package:windows:upload
@@ -118,10 +92,6 @@ We also update below items in `_config.yml`.
 * `pgroonga_release_date`:
 
   * Relase data for the latest version.
-
-* `copyright_year`:
-
-  * Update if the year changes.
 
 * `postgresql_doc_base_url`:
 
@@ -224,6 +194,8 @@ Note that this tweet should be done when logged in by groonga account.
 [github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
 
 [appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga
+
+[github-actions-pgroonga]:https://github.com/pgroonga/pgroonga/actions
 
 [launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa
 

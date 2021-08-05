@@ -14,26 +14,6 @@ title: リリース
 
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-Docker上でCentOS 6を実行するため、以下の手順でGRUBのオプションを更新します。
-
-`/etc/default/grub.d/vsyscall-emulate.cfg` を作成して、以下の内容を書きます。
-
-```shell
-GRUB_CMDLINE_LINUX_DEFAULT="${GRUB_CMDLINE_LINUX_DEFAULT} vsyscall=emulate"
-```
-
-GRUBの設定を更新します。
-
-```console
-# update-grub
-```
-
-システムを再起動します。
-
-```console
-# reboot
-```
-
 ## バージョンをあげる
 
 ```console
@@ -46,17 +26,11 @@ $ rake version:update NEW_VERSION=x.x.x
 $ rake package:version:update
 ```
 
-## AppVeyorのPostgreSQLのバージョンを更新
-
-`appveyor.yml` のPostgreSQLのバージョンを最新のPostgreSQLのリリースに更新します。
-
 ## パッケージ作成可能かどうか確認
 
 以下のCIがグリーンかどうかを確認します。
 
-* [GitHub Actions Workflow for Linux][github-actions-workflow-linux]
-
-* [AppVeyor CI][appveyor-pgroonga]
+* [GitHub Actions][github-actions-pgroonga]
 
 ## リリース用にタグを打つ
 
@@ -96,7 +70,7 @@ $ rake package:yum
 
 ### Windows
 
-Windows向けには、 [AppVeyor CI][appveyor-pgroonga]の成果物を使っています。
+Windows向けには、 [GitHub Actions][github-actions-pgroonga]の成果物を使っています。
 
 ```console
 $ rake package:windows:upload
@@ -117,10 +91,6 @@ $ rake package:windows:upload
 * `pgroonga_release_date`:
 
  * 最新版のリリース日
-
-* `copyright_year`:
-
- * 年が変わったら更新
 
 * `postgresql_doc_base_url`:
 
@@ -219,6 +189,8 @@ PGroongaのブログエントリには「リンクをあなたのフォロワー
 [github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
 
 [appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga
+
+[github-actions-pgroonga]:https://github.com/pgroonga/pgroonga/actions
 
 [launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa
 

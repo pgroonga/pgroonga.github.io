@@ -21,11 +21,51 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.3.0: 2021-05-14 {#version-2-3-0}"
+msgid "## 2.3.1: 2021-08-05 {#version-2-3-1}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages provided by P"
+"ostgreSQL Global Developer Group.[GitHub:#184][Reported by Tim Abbott]"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_normalize` function][normalize]] Add support for \"normalizers-"
+"mapping\" index option."
+msgstr ""
+
+msgid "    * This requires Groonga 11.0.5 (not released yet) or later."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_normalize` function][normalize]] Added support for substitutin"
+"g '${table:INDEX_NAME}'."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added sup"
+"port for term indexed column."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]] A"
+"dded support for term indexed column."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Dropped support Ubuntu 20.10."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Tim Abbott"
+msgstr ""
+
+msgid "## 2.3.0: 2021-05-14 {#version-2-3-0}"
+msgstr ""
 
 msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux bullseye."
 msgstr ""
@@ -48,9 +88,6 @@ msgid ""
 "  * Fixed a bug that `NULL` `jsonb` data with partial index may not\n"
 "    return records of `NULL` value. [GitHub:#181][Reported by Artem]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Artem"
 msgstr ""
@@ -1424,9 +1461,6 @@ msgstr ""
 msgid ""
 "  * Fixed a bug that PGroonga doesn't work with PostgreSQL 9.3. [GitHub#22][Re"
 "ported by Tim Abbott]"
-msgstr ""
-
-msgid "  * Tim Abbott"
 msgstr ""
 
 msgid "## 1.1.1: 2016-08-31 {#version-1-1-1}"

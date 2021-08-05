@@ -5,6 +5,28 @@ upper_level: ../
 
 # News
 
+## 2.3.1: 2021-08-05 {#version-2-3-1}
+
+### Improvements
+
+  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages provided by PostgreSQL Global Developer Group.[GitHub:#184][Reported by Tim Abbott]
+
+  * [[`pgroonga_normalize` function][normalize]] Add support for "normalizers-mapping" index option.
+
+    * This requires Groonga 11.0.5 (not released yet) or later.
+
+  * [[`pgroonga_normalize` function][normalize]] Added support for substituting '${table:INDEX_NAME}'.
+
+  * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added support for term indexed column.
+
+  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]] Added support for term indexed column.
+
+  * [[Ubuntu][ubuntu]] Dropped support Ubuntu 20.10.
+
+### Thanks
+
+  * Tim Abbott
+
 ## 2.3.0: 2021-05-14 {#version-2-3-0}
 
 ### Improvements

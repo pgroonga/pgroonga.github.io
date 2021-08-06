@@ -25,6 +25,8 @@ upper_level: ../
 
     * buster
 
+    * bullseye
+
   * [Ubuntu](ubuntu.html)
 
     * 18.04

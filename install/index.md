@@ -25,13 +25,13 @@ See a document for your platform in the followings:
 
     * buster
 
+    * bullseye
+
   * [Ubuntu](ubuntu.html)
 
     * 18.04
 
     * 20.04
-
-    * 20.10
 
   * [CentOS](centos.html)
 

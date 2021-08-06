@@ -54,6 +54,9 @@ msgstr ""
 msgid "    * buster"
 msgstr ""
 
+msgid "    * bullseye"
+msgstr ""
+
 msgid "  * [Ubuntu](ubuntu.html)"
 msgstr ""
 

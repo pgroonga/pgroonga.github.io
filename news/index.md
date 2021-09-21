@@ -29,7 +29,7 @@ PGroonga requires Groonga 11.0.5 since this version.
 
   * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages
     provided by PostgreSQL Global Developer Group.
-    [GitHub:#184][Reported by Tim Abbott]
+    [GitHub#184][Reported by Tim Abbott]
 
   * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]
     Added `normalizers` option that can be used to customize
@@ -73,7 +73,7 @@ PGroonga requires Groonga 11.0.5 since this version.
 ### Fixes
 
   * Fixed a bug that `NULL` `jsonb` data with partial index may not
-    return records of `NULL` value. [GitHub:#181][Reported by Artem]
+    return records of `NULL` value. [GitHub#181][Reported by Artem]
 
 ### Thanks
 
@@ -1319,7 +1319,7 @@ You can update to 0.8.0 from 0.7.0 by override install. You don't need to re-cre
   * `pgroonga.log_path`: Added a variable that changes path for Groonga log.
   * incompatible: Changed the path for Groonga log to the database directory by default. You can change it by `pgroonga.log_path`.
   * `pgroonga.log_type`: Added a variable that changes how to log.
-  * Supported `TRUNCATE`-ed table. [GitHub:#1] [Reported by Hiroki Nakamura]
+  * Supported `TRUNCATE`-ed table. [GitHub#1] [Reported by Hiroki Nakamura]
   * `pgroonga.snippet_html()`: Added a function that generates snippet HTML. [groonga-dev,03398] [Reported by Hiroki Nakamura]
   * Supported Ubuntu 14.04 LTS (Trusty Tahr). [Suggested by Yokoda Toshiaki]
   * `pgroonga.lock_timeout`: Added a variable that changes the number of lock retries. [groonga-dev,03419] [Suggested by Naoki Takami]

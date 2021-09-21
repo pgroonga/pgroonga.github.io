@@ -66,9 +66,6 @@ msgstr ""
 msgid "    * 20.04"
 msgstr ""
 
-msgid "    * 20.10"
-msgstr ""
-
 msgid "  * [CentOS](centos.html)"
 msgstr ""
 

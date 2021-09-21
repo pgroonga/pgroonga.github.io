@@ -21,41 +21,75 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.3.2: 2021-09-XX {#version-2-3-2}"
+msgstr ""
+
+msgid "PGroonga requires Groonga 11.0.6 since this version."
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * Added support for parallel scan."
+msgstr ""
+
+msgid "  * Added support for parallel scan against declarative partitioning."
+msgstr ""
+
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-index-"
+"flags]]\n"
+"    Added `index_flags_mapping` option that can be used to customize\n"
+"    index flags for each indexed target."
+msgstr ""
+
+msgid "  * [experimental] Added support for crash recovery."
+msgstr ""
+
 msgid "## 2.3.1: 2021-08-05 {#version-2-3-1}"
 msgstr ""
 
 msgid "PGroonga requires Groonga 11.0.5 since this version."
 msgstr ""
 
-msgid "### Improvements"
-msgstr "### 改良"
-
 msgid ""
-"  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages provided by P"
-"ostgreSQL Global Developer Group.[GitHub:#184][Reported by Tim Abbott]"
+"  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages\n"
+"    provided by PostgreSQL Global Developer Group.\n"
+"    [GitHub:#184][Reported by Tim Abbott]"
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_normalize` function][normalize]] Add support for `normalizers-"
-"mapping` index option."
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normal"
+"izer]]\n"
+"    Added `normalizers` option that can be used to customize\n"
+"    normalizers. `normalizer` option is deprecated."
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_normalize` function][normalize]] Added support for substitutin"
-"g `${table:INDEX_NAME}`."
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normal"
+"izer]]\n"
+"    Added `normalizers_mapping` option that can be used to customize\n"
+"    normalizer for each indexed target."
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added sup"
-"port for term indexed column."
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normal"
+"izer]]\n"
+"    Added support for `${table:INDEX_NAME}` substitution in normalizer\n"
+"    name."
 msgstr ""
 
 msgid ""
-"  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]] A"
-"dded support for term indexed column."
+"  * [[`pgroonga_result_to_recordset` function][result-to-recordset]]\n"
+"    Added support for term indexed column."
 msgstr ""
 
-msgid "  * [[Ubuntu][ubuntu]] Dropped support Ubuntu 20.10."
+msgid ""
+"  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]\n"
+"    Added support for term indexed column."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 20.10."
 msgstr ""
 
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.5."
@@ -1962,7 +1996,12 @@ msgid ""
 "[windows]:../install/windows.html"
 msgstr ""
 
-msgid "[create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html"
+msgid ""
+"[create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html\n"
+"[create-index-using-pgroonga-custom-normalizer]:../reference/create-index-usin"
+"g-pgroonga.html#custom-normalizer\n"
+"[create-index-using-pgroonga-custom-index-flags]:../reference/create-index-usi"
+"ng-pgroonga.html#custom-index-flags"
 msgstr ""
 
 msgid ""

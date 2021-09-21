@@ -5,23 +5,51 @@ upper_level: ../
 
 # News
 
+## 2.3.2: 2021-09-XX {#version-2-3-2}
+
+PGroonga requires Groonga 11.0.6 since this version.
+
+### Improvements
+
+  * Added support for parallel scan.
+
+  * Added support for parallel scan against declarative partitioning.
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-index-flags]]
+    Added `index_flags_mapping` option that can be used to customize
+    index flags for each indexed target.
+
+  * [experimental] Added support for crash recovery.
+
 ## 2.3.1: 2021-08-05 {#version-2-3-1}
 
 PGroonga requires Groonga 11.0.5 since this version.
 
 ### Improvements
 
-  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages provided by PostgreSQL Global Developer Group.[GitHub:#184][Reported by Tim Abbott]
+  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages
+    provided by PostgreSQL Global Developer Group.
+    [GitHub:#184][Reported by Tim Abbott]
 
-  * [[`pgroonga_normalize` function][normalize]] Add support for `normalizers-mapping` index option.
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]
+    Added `normalizers` option that can be used to customize
+    normalizers. `normalizer` option is deprecated.
 
-  * [[`pgroonga_normalize` function][normalize]] Added support for substituting `${table:INDEX_NAME}`.
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]
+    Added `normalizers_mapping` option that can be used to customize
+    normalizer for each indexed target.
 
-  * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added support for term indexed column.
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]
+    Added support for `${table:INDEX_NAME}` substitution in normalizer
+    name.
 
-  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]] Added support for term indexed column.
+  * [[`pgroonga_result_to_recordset` function][result-to-recordset]]
+    Added support for term indexed column.
 
-  * [[Ubuntu][ubuntu]] Dropped support Ubuntu 20.10.
+  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]
+    Added support for term indexed column.
+
+  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 20.10.
 
   * [[Windows][windows]] Upgraded bundled Groonga to 11.0.5.
 
@@ -1424,6 +1452,8 @@ The first release!!!
 [windows]:../install/windows.html
 
 [create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
+[create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer
+[create-index-using-pgroonga-custom-index-flags]:../reference/create-index-using-pgroonga.html#custom-index-flags
 
 [text-regexp-ops]:../reference/#text-regexp-ops
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops

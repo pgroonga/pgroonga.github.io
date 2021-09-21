@@ -148,9 +148,25 @@ CREATE INDEX pgroonga_tag_index
 
 #### ノーマライザーのカスタマイズ方法 {#custom-normalizer}
 
-ノーマライザーをカスタマイズするには`normalizer='${ノーマライザー名}'`を指定してください。通常はノーマライザーをカスタマイズする必要はありません。
+次のパラメーターを使ってノーマライザーをカスタマイズできます。通常、ノーマライザーをカスタマイズする必要はありません。
 
-`normalizer=''`を指定するとノーマライザーを無効にすることができます。ノーマライザーを無効にすると元のカラムの値そのものでだけ検索できます。もし、ノーマライザーを使うことで誤ヒットが増える場合は無効にした方がよいでしょう。
+  * `normalizers`：以下のどのパラメーターも使われなかったときに使われるデフォルトのノーマライザーです。
+
+    * 2.3.1で追加。
+
+  * `normalizer`：`normalizers`と同じです。2.3.1から非推奨になりました。
+
+  * `full_text_search_normalizer`：`normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる全文検索インデックス用のノーマライザーです。
+
+  * `regexp_search_normalizer``normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる正規表現検索インデックス用のノーマライザーです。
+
+  * `prefix_search_normalizer``normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる前方一致検索インデックス用のノーマライザーです。
+
+  * `normalizers_mapping`：指定したインデックス対象用のノーマライザーを指定できます。
+
+    * 2.3.1で追加。
+
+`normalizers=''`のように空の値を指定するとノーマライザーを無効にすることができます。ノーマライザーを無効にすると元のカラムの値そのものでだけ検索できます。もし、ノーマライザーを使うことで誤ヒットが増える場合は無効にした方がよいでしょう。
 
 ノーマライザーを無効にする方法は次の通りです。
 
@@ -166,7 +182,7 @@ CREATE INDEX pgroonga_tag_index
         WITH (normalizer='');
 ```
 
-`normalizer='${NORMALIZER_NAME}(...)'`という構文でノーマライザーのオプションを指定できます。
+`normalizers='${NORMALIZER_NAME}(...)'`という構文でノーマライザーのオプションを指定できます。
 
 2.0.6から使えます。
 
@@ -202,7 +218,7 @@ CREATE INDEX pgroonga_tag_index
 
   * 前方一致検索：`prefix_search_normalizer`
 
-これらのパラメーターを使っていない場合は`normalizer`パラメーターの値を使います。
+これらのパラメーターを使っていない場合は`normalizers`パラメーターの値を使います。
 
 以下は全文検索用のインデックスだけノーマライザーを無効にする例です。
 
@@ -214,12 +230,12 @@ CREATE TABLE memos (
   tag text
 );
 
-CREATE INDEX pgroonga_tag_index
+CREATE INDEX pgroonga_memos_index
           ON memos
        USING pgroonga (
-               title pgroonga_full_text_search_ops_v2,
-               content pgroonga_regexp_ops_v2,
-               tag pgroonga_term_search_ops_v2
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
              )
         WITH (full_text_search_normalizer='',
               normalizer='NormalizerAuto');
@@ -237,20 +253,20 @@ CREATE TABLE memos (
   tag text
 );
 
-CREATE INDEX pgroonga_tag_index
+CREATE INDEX pgroonga_memos_index
           ON memos
        USING pgroonga (
-               title pgroonga_full_text_search_ops_v2,
-               content pgroonga_regexp_ops_v2,
-               tag pgroonga_term_search_ops_v2
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
              )
         WITH (regexp_search_normalizer='',
-              normalizer='NormalizerAuto');
+              normalizers='NormalizerAuto');
 ```
 
-`content`のインデックスは正規表現検索用です。`regular_expression_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizer`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。
+`content`のインデックスは正規表現検索用です。`regular_expression_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizers`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。
 
-以下は前方一致検索用のインデックスだけノーマライザーを無効にする例です。<
+以下は前方一致検索用のインデックスだけノーマライザーを無効にする例です。
 
 ```sql
 CREATE TABLE memos (
@@ -260,18 +276,107 @@ CREATE TABLE memos (
   tag text
 );
 
-CREATE INDEX pgroonga_tag_index
+CREATE INDEX pgroonga_memos_index
           ON memos
        USING pgroonga (
-               title pgroonga_full_text_search_ops_v2,
-               content pgroonga_regexp_ops_v2,
-               tag pgroonga_term_search_ops_v2
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
              )
         WITH (prefix_search_normalizer='',
-              normalizer='NormalizerAuto');
+              normalizers='NormalizerAuto');
 ```
 
-`tag`のインデックスは単語検索用です。単語検索は前方一致検索も含んでいます。`prefix_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizer`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。<
+`tag`のインデックスは単語検索用です。単語検索は前方一致検索も含んでいます。`prefix_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizers`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。
+
+`normalizers_mapping='${MAPPING_IN_JSON}'`を使うと指定したインデックス対象用のノーマライザーを指定できます。
+
+2.3.1から使えます。
+
+以下は`normalizers_mapping`の値の構文です。
+
+```json
+{
+  "${index_target_name1}": "${normalizer1}",
+  "${index_target_name2}": "${normalizer2}",
+  ...
+}
+```
+
+以下の例では`title`に`NormalizerNFKC130("unify_kana", true)`ノーマライザー、`content`に`NormalizerNFKC130("unify_hyphen", true)`ノーマライザー、それ以外のカラムに`NormalizerAuto`を指定しています。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
+             )
+        WITH (normalizers_mapping='{
+                "title": "NormalizerNFKC130(\"unify_kana\", true)",
+                "content": "NormalizerNFKC130(\"unify_hyphen\", true)"
+              }',
+              normalizers='NormalizerAuto');
+```
+
+ノーマライザーを指定するテキスト中で`${table:PGROONGA_INDEX_NAME}`という構文を使えます。
+
+2.3.1から使えます。
+
+この値は`PGROONGA_INDEX_NAME`で指定したPGroongaのインデックスに対応するGroongaのテーブル名に置換されます。これは[`NormalizerTable`][groonga-normalizer-table]を使うときに便利です。`NormalizerTable`はGroongaのテーブル名・カラム名を使うからです。
+
+以下は`NormalizerNFKC130`ノーマライザーと`NormalizerTable`ノーマライザーを使う例です。
+
+```sql
+CREATE TABLE normalizations (
+  target text,
+  normalized text
+);
+
+CREATE INDEX pgrn_normalizations_index ON normalizations
+ USING pgroonga (target pgroonga_text_term_search_ops_v2,
+                 normalized);
+
+INSERT INTO normalizations VALUES ('o', '0');
+INSERT INTO normalizations VALUES ('ss', '55');
+
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (content)
+        WITH (normalizers='
+                NormalizerNFKC130,
+                NormalizerTable(
+                  "normalized", "${table:pgrn_normalizations_index}.normalized",
+                  "target", "target"
+                )
+             ');
+
+INSERT INTO memos VALUES (1, '0123455');
+INSERT INTO memos VALUES (2, 'o1234ss');
+
+SELECT * FROM memos WHERE content &@~ 'o123455';
+--  id | content 
+-- ----+---------
+--   1 | 0123455
+--   2 | o1234ss
+-- (2 rows)
+```
+
+`normalizations`テーブルを変更した後は`REINDEX INDEX pgroonga_memos_index`を実行しないといけないことに注意してください。なぜなら`normalizations`テーブルが変わるとノーマライズ結果も変わるからです。
+
 
 #### トークンフィルターのカスタマイズ方法 {#custom-token-filter}
 
@@ -445,6 +550,8 @@ SELECT *
 [groonga-tokenizers]:http://groonga.org/ja/docs/reference/tokenizers.html
 
 [groonga-normalizers]:http://groonga.org/ja/docs/reference/normalizers.html
+
+[groonga-normalizer-auto]:https://groonga.org/ja/docs/reference/normalizers/normalizer_table.html
 
 [groonga-token-filters]:http://groonga.org/ja/docs/reference/token_filters.html
 

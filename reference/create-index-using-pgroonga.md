@@ -147,9 +147,25 @@ See [Tokenizers][groonga-tokenizers] for other tokenizers.
 
 #### How to customize normalizer {#custom-normalizer}
 
-Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. Normally, you don't need to custom normalizer.
+You can use the following parameters to customize normalizer. Normally, you don't need to customize normalizer.
 
-You can disable normalizer by specifying `normalizer=''`. If you disable normalizer, you can search column value only by the original column value. If normalizer increases noise, it's useful.
+  * `normalizers`: The default normalizers that are used when the following parameters aren't used.
+
+    * Since 2.3.1.
+
+  * `normalizer`: Same as `normalizers`. This is deprecated since 2.3.1.
+
+  * `full_text_search_normalizer`: Normalizer that is used for full text search index when `normalizers_mapping` doesn't specify normalizer for the index target.
+
+  * `regexp_search_normalizer`: Normalizer that is used for regular expression search index when `normalizers_mapping` doesn't specify normalizer for the index target.
+
+  * `prefix_search_normalizer`: Normalizer that is used for prefix search index when `normalizers_mapping` doesn't specify normalizer for the index target.
+
+  * `normalizers_mapping`: You can specify normalizer for the specified index target.
+
+    * Since 2.3.1.
+
+You can disable normalizer by specifying empty value such as `normalizers=''`. If you disable normalizer, you can search column value only by the original column value. If normalizer increases noise, it's useful.
 
 Here is an example to disable normalizer:
 
@@ -165,7 +181,7 @@ CREATE INDEX pgroonga_tag_index
         WITH (normalizer='');
 ```
 
-You can specify normalizer options by `normalizer='${NORMALIZER_NAME}(...)'` syntax.
+You can specify normalizer options by `normalizers='${NORMALIZER_NAME}(...)'` syntax.
 
 It's available since 2.0.6.
 
@@ -201,7 +217,7 @@ You can use different normalizer for each search operations by the following par
 
   * Prefix search: `prefix_search_normalizer`
 
-If they aren't used, the `normalizer` parameter is used as fallback.
+If they aren't used, the `normalizers` parameter is used as fallback.
 
 Here is an example to disable normalizer only for full text search:
 
@@ -213,12 +229,12 @@ CREATE TABLE memos (
   tag text
 );
 
-CREATE INDEX pgroonga_tag_index
+CREATE INDEX pgroonga_memos_index
           ON memos
        USING pgroonga (
-               title pgroonga_full_text_search_ops_v2,
-               content pgroonga_regexp_ops_v2,
-               tag pgroonga_term_search_ops_v2
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
              )
         WITH (full_text_search_normalizer='',
               normalizer='NormalizerAuto');
@@ -236,18 +252,18 @@ CREATE TABLE memos (
   tag text
 );
 
-CREATE INDEX pgroonga_tag_index
+CREATE INDEX pgroonga_memos_index
           ON memos
        USING pgroonga (
-               title pgroonga_full_text_search_ops_v2,
-               content pgroonga_regexp_ops_v2,
-               tag pgroonga_term_search_ops_v2
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
              )
         WITH (regexp_search_normalizer='',
-              normalizer='NormalizerAuto');
+              normalizers='NormalizerAuto');
 ```
 
-The index for `content` is for regular expression search. It doesn't use normalizer because `regexp_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizer` is `'NormalizerAuto'`.
+The index for `content` is for regular expression search. It doesn't use normalizer because `regexp_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizers` is `'NormalizerAuto'`.
 
 Here is an example to disable normalizer only for prefix search:
 
@@ -259,18 +275,107 @@ CREATE TABLE memos (
   tag text
 );
 
-CREATE INDEX pgroonga_tag_index
+CREATE INDEX pgroonga_memos_index
           ON memos
        USING pgroonga (
-               title pgroonga_full_text_search_ops_v2,
-               content pgroonga_regexp_ops_v2,
-               tag pgroonga_term_search_ops_v2
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
              )
         WITH (prefix_search_normalizer='',
-              normalizer='NormalizerAuto');
+              normalizers='NormalizerAuto');
 ```
 
-The index for `tag` is for term search that includes prefix search. It doesn't use normalizer because `prefix_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizer` is `'NormalizerAuto'`.
+The index for `tag` is for term search that includes prefix search. It doesn't use normalizer because `prefix_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizers` is `'NormalizerAuto'`.
+
+You can use `normalizers_mapping='${MAPPING_IN_JSON}'` to specify normalizers for the specified index targets.
+
+It's available since 2.3.1.
+
+Here is syntax for `normalizers_mapping` value:
+
+```json
+{
+  "${index_target_name1}": "${normalizer1}",
+  "${index_target_name2}": "${normalizer2}",
+  ...
+}
+```
+
+Here is an example to use `NormalizerNFKC130("unify_kana", true)` normalizer for `title`, `NormalizerNFKC130("unify_hyphen", true)` normalizer for `content` and `NormalizerAuto` for other columns:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text,
+  tag text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (
+               title pgroonga_text_full_text_search_ops_v2,
+               content pgroonga_text_regexp_ops_v2,
+               tag pgroonga_text_term_search_ops_v2
+             )
+        WITH (normalizers_mapping='{
+                "title": "NormalizerNFKC130(\"unify_kana\", true)",
+                "content": "NormalizerNFKC130(\"unify_hyphen\", true)"
+              }',
+              normalizers='NormalizerAuto');
+```
+
+You can use `${table:PGROONGA_INDEX_NAME}` syntax in text that specifies normalizers.
+
+It's available since 2.3.1.
+
+It's substituted with table name in Groonga corresponding to the PGroonga's index specified as `PGROONGA_INDEX_NAME`. This is useful for [`NormalizerTable`][groonga-normalizer-table] that requires table and column names in Groonga.
+
+Here is an example to use `NormalizerNFKC130` normalizer and `NormalizerTable` normalizer:
+
+```sql
+CREATE TABLE normalizations (
+  target text,
+  normalized text
+);
+
+CREATE INDEX pgrn_normalizations_index ON normalizations
+ USING pgroonga (target pgroonga_text_term_search_ops_v2,
+                 normalized);
+
+INSERT INTO normalizations VALUES ('o', '0');
+INSERT INTO normalizations VALUES ('ss', '55');
+
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (content)
+        WITH (normalizers='
+                NormalizerNFKC130,
+                NormalizerTable(
+                  "normalized", "${table:pgrn_normalizations_index}.normalized",
+                  "target", "target"
+                )
+             ');
+
+INSERT INTO memos VALUES (1, '0123455');
+INSERT INTO memos VALUES (2, 'o1234ss');
+
+SELECT * FROM memos WHERE content &@~ 'o123455';
+--  id | content 
+-- ----+---------
+--   1 | 0123455
+--   2 | o1234ss
+-- (2 rows)
+```
+
+Note that you need to run `REINDEX INDEX pgroonga_memos_index` after you change `normalizations` table. Because normalization results are changed after `normalizations` table is changed.
+
 
 #### How to use token filters {#custom-token-filters}
 
@@ -444,6 +549,8 @@ See [Groonga's query syntax][groonga-query-syntax] for available operations.
 [groonga-tokenizers]:http://groonga.org/docs/reference/tokenizers.html
 
 [groonga-normalizers]:http://groonga.org/docs/reference/normalizers.html
+
+[groonga-normalizer-table]:https://groonga.org/docs/reference/normalizers/normalizer_table.html
 
 [groonga-token-filters]:http://groonga.org/docs/reference/token_filters.html
 

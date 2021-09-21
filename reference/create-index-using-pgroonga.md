@@ -178,7 +178,7 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_tag_index
           ON memos
        USING pgroonga (tag)
-        WITH (normalizer='');
+        WITH (normalizers='');
 ```
 
 You can specify normalizer options by `normalizers='${NORMALIZER_NAME}(...)'` syntax.
@@ -196,7 +196,28 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_tag_index
           ON memos
        USING pgroonga (tag)
-        WITH (normalizer='NormalizerNFKC100("unify_kana", true)');
+        WITH (normalizers='NormalizerNFKC100("unify_kana", true)');
+```
+
+You can specify multiple normalizers by `normalizers='${NORMALIZER_NAME1}(...), ${NORMALISER_NAME2(...), ...'` syntax.
+
+It's available since 2.3.1.
+
+Here is a useless example to use `NormalizerNFKC130` normalizer with `"unify_kana"` and `true` option and `NormalizerNFKC130` with `"unify_hyphen"` and `true` option:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (tag)
+        WITH (normalizers='
+                NormalizerNFKC130("unify_kana", true),
+                NormalizerNFKC130("unify_hyphen", true)
+              ');
 ```
 
 See [Normalizers][groonga-normalizers] for other normalizers.
@@ -237,7 +258,7 @@ CREATE INDEX pgroonga_memos_index
                tag pgroonga_text_term_search_ops_v2
              )
         WITH (full_text_search_normalizer='',
-              normalizer='NormalizerAuto');
+              normalizers='NormalizerAuto');
 ```
 
 The index for `title` is for full text search. It doesn't use normalizer because `full_text_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizer` is `'NormalizerAuto'`.

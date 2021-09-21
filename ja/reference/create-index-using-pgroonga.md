@@ -179,7 +179,7 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_tag_index
           ON memos
        USING pgroonga (tag)
-        WITH (normalizer='');
+        WITH (normalizers='');
 ```
 
 `normalizers='${NORMALIZER_NAME}(...)'`という構文でノーマライザーのオプションを指定できます。
@@ -197,7 +197,28 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_tag_index
           ON memos
        USING pgroonga (tag)
-        WITH (normalizer='NormalizerNFKC100("unify_kana", true)');
+        WITH (normalizers='NormalizerNFKC100("unify_kana", true)');
+```
+
+`normalizers='${NORMALIZER_NAME1}(...), ${NORMALISER_NAME2(...), ...'`という構文で複数のノーマライザーを指定できます。
+
+2.3.1から使えます。
+
+以下は`"unify_kana"`が`true`というオプション付きの`NormalizerNFKC130`ノーマライザーと`"unify_hyphen"`が`true`というオプション付きの`NormalizerNFKC130`ノーマライザーを使う実用的ではない例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  tag text
+);
+
+CREATE INDEX pgroonga_tag_index
+          ON memos
+       USING pgroonga (tag)
+        WITH (normalizers='
+                NormalizerNFKC130("unify_kana", true),
+                NormalizerNFKC130("unify_hyphen", true)
+              ');
 ```
 
 他のノーマライザーについては[ノーマライザー][groonga-normalizers]を参照してください。
@@ -238,7 +259,7 @@ CREATE INDEX pgroonga_memos_index
                tag pgroonga_text_term_search_ops_v2
              )
         WITH (full_text_search_normalizer='',
-              normalizer='NormalizerAuto');
+              normalizers='NormalizerAuto');
 ```
 
 `title`のインデックスは全文検索用です。`full_text_search_normalizer`が`''`なので、このインデックスはノーマライザーを使いません。`normalizer`が`'NormalizerAuto'`なので、他のインデックスは`NormalizerAuto`を使います。
@@ -599,7 +620,7 @@ CREATE INDEX pgroonga_content_index
 
 [groonga-normalizers]:http://groonga.org/ja/docs/reference/normalizers.html
 
-[groonga-normalizer-auto]:https://groonga.org/ja/docs/reference/normalizers/normalizer_table.html
+[groonga-normalizer-table]:https://groonga.org/ja/docs/reference/normalizers/normalizer_table.html
 
 [groonga-token-filters]:http://groonga.org/ja/docs/reference/token_filters.html
 

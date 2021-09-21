@@ -293,7 +293,7 @@ CREATE INDEX pgroonga_memos_index
 
 2.3.1から使えます。
 
-以下は`normalizers_mapping`の値の構文です。
+以下は`${MAPPING_IN_JSON}`の構文です。
 
 ```json
 {
@@ -405,7 +405,7 @@ CREATE INDEX pgroonga_content_index
 
 他のトークンフィルターについては[トークンフィルター][groonga-token-filters]を参照してください。
 
-#### テーブルスペースの変更方法 {#custom-tablespace}
+#### テーブルスペースのカスタマイズ方法 {#custom-tablespace}
 
 1.1.6で追加。
 
@@ -427,11 +427,11 @@ CREATE INDEX pgroonga_tag_index
   TABLESPACE fast;
 ```
 
-#### 語彙表の種類の変更方法 {#custom-lexicon-type}
+#### 語彙表の種類のカスタマイズ方法 {#custom-lexicon-type}
 
 2.0.6で追加。
 
-語彙表の種類を変更するには`lexicon_type='${LEXICON_TYPE}'`を指定します。
+語彙表の種類をカスタマイズするには`lexicon_type='${LEXICON_TYPE}'`を指定します。
 
 利用可能な語彙表の種類は次の通りです。
 
@@ -527,6 +527,54 @@ SELECT *
 
 使える演算は[Groongaのクエリー構文][groonga-query-syntax]を参照してください。
 
+#### インデックスカラムフラグのカスタマイズ方法 {#custom-index-flags}
+
+2.3.2で追加。
+
+指定したインデックス対象のインデックスカラムフラグをカスタマイズするには`index_flags_mappings='${MAPPING_IN_JSON}'`を指定します。
+
+以下は`${MAPPING_IN_JSON}`の構文です。
+
+```json
+{
+  "${index_target_name1}": "${flags1}",
+  "${index_target_name2}": "${flags2}",
+  ...
+}
+```
+
+以下は利用可能なインデックスカラムのフラグです。それぞれ[Groongaのフラグ][groonga-index-column-flags]に対応しています。
+
+  * `SMALL`: Groongaでの`INDEX_SMALL`
+
+  * `MEDIUM`: Groongaでの`INDEX_MEDIUM`
+
+  * `LARGE`: Groongaでの`INDEX_LARGE`
+
+  * `WITH_WEIGHT`: Groongaでの`WITH_WEIGHT`
+
+  * `WEIGHT_FLOAT32`: Groongaでの`WEIGHT_FLOAT32`
+
+`LARGE|WITH_WEIGHT`というように`|`で区切って複数のフラグを指定することができます。しかし、`SMALL|MEDIUM|LARGE`というように競合するフラグを同時に指定することはできません。
+
+通常、これをカスタマイズする必要はありません。なぜなら多くの場合はデフォルト値が適切だからです。
+
+以下は大量データのために大きいインデックスカラムを使う例です。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (index_flags_mapping='{
+                "content": "LARGE"
+              }');
+```
+
 [query-v2]:operators/query-v2.html
 
 [groonga-token-bigram]:http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram
@@ -564,3 +612,5 @@ SELECT *
 [text-term-search-ops-v2]:./#text-term-search-ops-v2
 
 [groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html
+
+[groonga-index-column-flags]:https://groonga.org/ja/docs/reference/commands/column_create.html#flags

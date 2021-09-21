@@ -502,8 +502,8 @@ msgstr "`normalizers_mapping='${MAPPING_IN_JSON}'`を使うと指定したイン
 msgid "It's available since 2.3.1."
 msgstr "2.3.1から使えます。"
 
-msgid "Here is syntax for `normalizers_mapping` value:"
-msgstr "以下は`normalizers_mapping`の値の構文です。"
+msgid "Here is the syntax of `${MAPPING_IN_JSON}`:"
+msgstr "以下は`${MAPPING_IN_JSON}`の構文です。"
 
 msgid ""
 "```json\n"
@@ -654,8 +654,8 @@ msgstr ""
 msgid "See [Token filters][groonga-token-filters] for other token filters."
 msgstr "他のトークンフィルターについては[トークンフィルター][groonga-token-filters]を参照してください。"
 
-msgid "#### How to change tablespace {#custom-tablespace}"
-msgstr "#### テーブルスペースの変更方法 {#custom-tablespace}"
+msgid "#### How to customize tablespace {#custom-tablespace}"
+msgstr "#### テーブルスペースのカスタマイズ方法 {#custom-tablespace}"
 
 msgid "Since 1.1.6."
 msgstr "1.1.6で追加。"
@@ -691,14 +691,14 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "#### How to change lexicon type {#custom-lexicon-type}"
-msgstr "#### 語彙表の種類の変更方法 {#custom-lexicon-type}"
+msgid "#### How to customize lexicon type {#custom-lexicon-type}"
+msgstr "#### 語彙表の種類のカスタマイズ方法 {#custom-lexicon-type}"
 
 msgid "Since 2.0.6."
 msgstr "2.0.6で追加。"
 
-msgid "Specify `lexicon_type='${LEXICON_TYPE}'` for changing lexicon type."
-msgstr "語彙表の種類を変更するには`lexicon_type='${LEXICON_TYPE}'`を指定します。"
+msgid "Specify `lexicon_type='${LEXICON_TYPE}'` for customizing lexicon type."
+msgstr "語彙表の種類をカスタマイズするには`lexicon_type='${LEXICON_TYPE}'`を指定します。"
 
 msgid "Here are available lexicon types:"
 msgstr "利用可能な語彙表の種類は次の通りです。"
@@ -852,6 +852,70 @@ msgstr ""
 msgid "See [Groonga's query syntax][groonga-query-syntax] for available operations."
 msgstr "使える演算は[Groongaのクエリー構文][groonga-query-syntax]を参照してください。"
 
+msgid "#### How to customize index column flags {#custom-index-flags}"
+msgstr "#### インデックスカラムフラグのカスタマイズ方法 {#custom-index-flags}"
+
+msgid "Since 2.3.2."
+msgstr "2.3.2で追加。"
+
+msgid ""
+"Specify `index_flags_mappings='${MAPPING_IN_JSON}'` for customizing index colu"
+"mn flags for the specified index target."
+msgstr ""
+"指定したインデックス対象のインデックスカラムフラグをカスタマイズするには`index_flags_mappings='${MAPPING_IN_JSON}'"
+"`を指定します。"
+
+msgid ""
+"```json\n"
+"{\n"
+"  \"${index_target_name1}\": \"${flags1}\",\n"
+"  \"${index_target_name2}\": \"${flags2}\",\n"
+"  ...\n"
+"}\n"
+"```"
+msgstr ""
+
+msgid ""
+"Here are available index column flags that are corresponding to [flags in Groo"
+"nga][groonga-index-column-flags]:"
+msgstr "以下は利用可能なインデックスカラムのフラグです。それぞれ[Groongaのフラグ][groonga-index-column-flags]に対応しています。"
+
+msgid "  * `SMALL`: `INDEX_SMALL` in Groonga"
+msgstr "  * `SMALL`: Groongaでの`INDEX_SMALL`"
+
+msgid "  * `MEDIUM`: `INDEX_MEDIUM` in Groonga"
+msgstr "  * `MEDIUM`: Groongaでの`INDEX_MEDIUM`"
+
+msgid "  * `LARGE`: `INDEX_LARGE` in Groonga"
+msgstr "  * `LARGE`: Groongaでの`INDEX_LARGE`"
+
+msgid "  * `WITH_WEIGHT`: `WITH_WEIGHT` in Groonga"
+msgstr "  * `WITH_WEIGHT`: Groongaでの`WITH_WEIGHT`"
+
+msgid "  * `WEIGHT_FLOAT32`: `WEIGHT_FLOAT32` in Groonga"
+msgstr "  * `WEIGHT_FLOAT32`: Groongaでの`WEIGHT_FLOAT32`"
+
+msgid ""
+"You can specify multiple flags by separating with `|` such as `LARGE|WITH_WEIG"
+"HT`. But you can't specify conflicted flags at once such as `SMALL|MEDIUM|LARG"
+"E`."
+msgstr ""
+"`LARGE|WITH_WEIGHT`というように`|`で区切って複数のフラグを指定することができます。しかし、`SMALL|MEDIUM|LARGE`とい"
+"うように競合するフラグを同時に指定することはできません。"
+
+msgid "Here is an example to use large index column for large data:"
+msgstr "以下は大量データのために大きいインデックスカラムを使う例です。"
+
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
+"          ON memos\n"
+"       USING pgroonga (content)\n"
+"        WITH (index_flags_mapping='{\n"
+"                \"content\": \"LARGE\"\n"
+"              }');\n"
+"```"
+msgstr ""
+
 msgid "[query-v2]:operators/query-v2.html"
 msgstr ""
 
@@ -950,3 +1014,10 @@ msgid ""
 msgstr ""
 "[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syn"
 "tax.html"
+
+msgid ""
+"[groonga-index-column-flags]:https://groonga.org/docs/reference/commands/colum"
+"n_create.html#flags"
+msgstr ""
+"[groonga-index-column-flags]:https://groonga.org/ja/docs/reference/commands/co"
+"lumn_create.html#flags"

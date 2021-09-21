@@ -292,7 +292,7 @@ You can use `normalizers_mapping='${MAPPING_IN_JSON}'` to specify normalizers fo
 
 It's available since 2.3.1.
 
-Here is syntax for `normalizers_mapping` value:
+Here is the syntax of `${MAPPING_IN_JSON}`:
 
 ```json
 {
@@ -404,7 +404,7 @@ Note that you must specify `plugins` before `token_filters`. These `CREATE INDEX
 
 See [Token filters][groonga-token-filters] for other token filters.
 
-#### How to change tablespace {#custom-tablespace}
+#### How to customize tablespace {#custom-tablespace}
 
 Since 1.1.6.
 
@@ -426,11 +426,11 @@ CREATE INDEX pgroonga_tag_index
   TABLESPACE fast;
 ```
 
-#### How to change lexicon type {#custom-lexicon-type}
+#### How to customize lexicon type {#custom-lexicon-type}
 
 Since 2.0.6.
 
-Specify `lexicon_type='${LEXICON_TYPE}'` for changing lexicon type.
+Specify `lexicon_type='${LEXICON_TYPE}'` for customizing lexicon type.
 
 Here are available lexicon types:
 
@@ -526,6 +526,54 @@ SELECT *
 
 See [Groonga's query syntax][groonga-query-syntax] for available operations.
 
+#### How to customize index column flags {#custom-index-flags}
+
+Since 2.3.2.
+
+Specify `index_flags_mappings='${MAPPING_IN_JSON}'` for customizing index column flags for the specified index target.
+
+Here is the syntax of `${MAPPING_IN_JSON}`:
+
+```json
+{
+  "${index_target_name1}": "${flags1}",
+  "${index_target_name2}": "${flags2}",
+  ...
+}
+```
+
+Here are available index column flags that are corresponding to [flags in Groonga][groonga-index-column-flags]:
+
+  * `SMALL`: `INDEX_SMALL` in Groonga
+
+  * `MEDIUM`: `INDEX_MEDIUM` in Groonga
+
+  * `LARGE`: `INDEX_LARGE` in Groonga
+
+  * `WITH_WEIGHT`: `WITH_WEIGHT` in Groonga
+
+  * `WEIGHT_FLOAT32`: `WEIGHT_FLOAT32` in Groonga
+
+You can specify multiple flags by separating with `|` such as `LARGE|WITH_WEIGHT`. But you can't specify conflicted flags at once such as `SMALL|MEDIUM|LARGE`.
+
+Normally, you don't need to customize this because the default value is suitable for most cases.
+
+Here is an example to use large index column for large data:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (index_flags_mapping='{
+                "content": "LARGE"
+              }');
+```
+
 [query-v2]:operators/query-v2.html
 
 [groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers.html#token-bigram
@@ -563,3 +611,5 @@ See [Groonga's query syntax][groonga-query-syntax] for available operations.
 [text-term-search-ops-v2]:./#text-term-search-ops-v2
 
 [groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html
+
+[groonga-index-column-flags]:https://groonga.org/docs/reference/commands/column_create.html#flags

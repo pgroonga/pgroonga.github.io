@@ -74,7 +74,7 @@ UPDATE synonyms SET synonyms = array_append(synonyms, 'imitate') WHERE term = 's
 INSERT INTO synonyms (term, synonyms) VALUES ('imitate', ARRAY['imitate', 'copy', 'replicate', 'simulate']);
 ```
 
-#### Modify exist synonyms
+#### Modify existing synonyms
 
 If we want to modify an existing record, we can modify it with UPDATE statement.
 For example, if we want to modify "Windows" to "Window", we do as below.

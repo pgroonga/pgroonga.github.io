@@ -29,6 +29,8 @@ If you have useful information that isn't listed in this page, please send a pul
 
   * [How to use synonym expansion](synonym-expansion.html)
 
+  * [How to use Sudachi dictionary for synonym expansion](sudachi-dictionary.html)
+
 ## ...
 
   * ...

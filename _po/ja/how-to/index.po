@@ -64,6 +64,11 @@ msgstr "## 同義語展開の使い方"
 msgid "  * [How to use synonym expansion](synonym-expansion.html)"
 msgstr "  * [同義語展開の使い方](synonym-expansion.html)"
 
+msgid ""
+"  * [How to use Sudachi dictionary for synonym expansion](sudachi-dictionary.h"
+"tml)"
+msgstr "  * [同義語展開にSudachiの辞書を使う方法](sudachi-dictionary.html)"
+
 msgid "## ..."
 msgstr ""
 

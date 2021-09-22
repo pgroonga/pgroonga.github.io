@@ -188,7 +188,7 @@ msgstr ""
 " 'シミュレート']);\n"
 "```"
 
-msgid "#### Modify exist synonyms"
+msgid "#### Modify existing synonyms"
 msgstr "#### 既にある同義語の修正"
 
 msgid ""

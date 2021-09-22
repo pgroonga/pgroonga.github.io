@@ -29,6 +29,8 @@ title: ハウツー
 
   * [同義語展開の使い方](synonym-expansion.html)
 
+  * [同義語展開にSudachiの辞書を使う方法](sudachi-dictionary.html)
+
 ## ...
 
   * ...

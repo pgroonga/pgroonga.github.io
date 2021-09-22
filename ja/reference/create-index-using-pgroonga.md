@@ -158,9 +158,9 @@ CREATE INDEX pgroonga_tag_index
 
   * `full_text_search_normalizer`：`normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる全文検索インデックス用のノーマライザーです。
 
-  * `regexp_search_normalizer``normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる正規表現検索インデックス用のノーマライザーです。
+  * `regexp_search_normalizer`: `normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる正規表現検索インデックス用のノーマライザーです。
 
-  * `prefix_search_normalizer``normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる前方一致検索インデックス用のノーマライザーです。
+  * `prefix_search_normalizer`: `normalizers_mapping`でインデックス対象のノーマライザーが指定されなかったときに使われる前方一致検索インデックス用のノーマライザーです。
 
   * `normalizers_mapping`：指定したインデックス対象用のノーマライザーを指定できます。
 

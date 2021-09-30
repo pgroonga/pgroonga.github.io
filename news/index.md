@@ -19,8 +19,6 @@ PGroonga requires Groonga 11.0.6 since this version.
     Added `index_flags_mapping` option that can be used to customize
     index flags for each indexed target.
 
-  * [experimental] Added support for crash recovery.
-
 ## 2.3.1: 2021-08-05 {#version-2-3-1}
 
 PGroonga requires Groonga 11.0.5 since this version.

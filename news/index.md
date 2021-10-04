@@ -5,9 +5,7 @@ upper_level: ../
 
 # News
 
-## 2.3.2: 2021-09-XX {#version-2-3-2}
-
-PGroonga requires Groonga 11.0.6 since this version.
+## 2.3.2: 2021-10-04 {#version-2-3-2}
 
 ### Improvements
 
@@ -18,6 +16,19 @@ PGroonga requires Groonga 11.0.6 since this version.
   * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-index-flags]]
     Added `index_flags_mapping` option that can be used to customize
     index flags for each indexed target.
+
+  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]
+    Added support for `${table:INDEX_NAME}` substitution in `normalizers_mapping`
+    option.
+
+  * Added support for PostgreSQL 14.
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.04.
+
+### Fixes
+
+  * [[`pgroonga_highlight_html` function][highlight-html]]
+    Fixed a bug that a lexicon may not update when we recreate the lexicon.
 
 ## 2.3.1: 2021-08-05 {#version-2-3-1}
 

@@ -21,10 +21,7 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.3.2: 2021-09-XX {#version-2-3-2}"
-msgstr ""
-
-msgid "PGroonga requires Groonga 11.0.6 since this version."
+msgid "## 2.3.2: 2021-10-04 {#version-2-3-2}"
 msgstr ""
 
 msgid "### Improvements"
@@ -43,7 +40,26 @@ msgid ""
 "    index flags for each indexed target."
 msgstr ""
 
-msgid "  * [experimental] Added support for crash recovery."
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normal"
+"izer]]\n"
+"    Added support for `${table:INDEX_NAME}` substitution in `normalizers_mappi"
+"ng`\n"
+"    option."
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 14."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.04."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * [[`pgroonga_highlight_html` function][highlight-html]]\n"
+"    Fixed a bug that a lexicon may not update when we recreate the lexicon."
 msgstr ""
 
 msgid "## 2.3.1: 2021-08-05 {#version-2-3-1}"
@@ -117,9 +133,6 @@ msgid ""
 "  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]\n"
 "    Added."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a bug that `NULL` `jsonb` data with partial index may not\n"

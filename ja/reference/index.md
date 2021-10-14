@@ -31,6 +31,12 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## 演算子
 
+### 行レベルセキュリティーサポート
+
+2.3.3で追加。
+
+すべてのv2演算子はPostgreSQLの[行レベルセキュリティー][postgresql-row-level-security]をサポートしています。
+
 ### `text`用
 
 #### `pgroonga_text_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-full-text-search-ops-v2}
@@ -587,6 +593,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [チューニング][groonga-tuning]
 
 [jsonb]:jsonb.html
+
+[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.ja }}/ddl-rowsecurity.html
 
 [like]:operators/like.html
 

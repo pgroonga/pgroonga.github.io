@@ -31,6 +31,12 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 ## Operators
 
+### Row level security support
+
+Since 2.3.3.
+
+All v2 operators supports PostgreSQL's [row level security][postgresql-row-level-security].
+
 ### For `text`
 
 #### `pgroonga_text_full_text_search_ops_v2` operator class (default) {#text-full-text-search-ops-v2}
@@ -584,6 +590,8 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
   * [Tuning][groonga-tuning]
 
 [jsonb]:jsonb.html
+
+[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rowsecurity.html
 
 [like]:operators/like.html
 

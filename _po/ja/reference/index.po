@@ -82,6 +82,17 @@ msgstr "  * [`jsonb`サポート][jsonb]"
 msgid "## Operators"
 msgstr "## 演算子"
 
+msgid "### Row level security support"
+msgstr "### 行レベルセキュリティーサポート"
+
+msgid "Since 2.3.3."
+msgstr "2.3.3で追加。"
+
+msgid ""
+"All v2 operators supports PostgreSQL's [row level security][postgresql-row-lev"
+"el-security]."
+msgstr "すべてのv2演算子はPostgreSQLの[行レベルセキュリティー][postgresql-row-level-security]をサポートしています。"
+
 msgid "### For `text`"
 msgstr "### `text`用"
 
@@ -640,6 +651,13 @@ msgstr "  * [チューニング][groonga-tuning]"
 
 msgid "[jsonb]:jsonb.html"
 msgstr ""
+
+msgid ""
+"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rows"
+"ecurity.html"
+msgstr ""
+"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.ja }}/ddl-rows"
+"ecurity.html"
 
 msgid "[like]:operators/like.html"
 msgstr ""

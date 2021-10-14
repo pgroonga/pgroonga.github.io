@@ -584,7 +584,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroongaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のGroongaのドキュメントを参照してください。
 
-  * [チューニング](http://groonga.org/ja/docs/reference/tuning.html)
+  * [チューニング][groonga-tuning]
 
 [jsonb]:jsonb.html
 
@@ -657,3 +657,5 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-database]:modules/pgroonga-database.html
+
+[groogna-tuning]:https://groonga.org/ja/docs/reference/tuning.html

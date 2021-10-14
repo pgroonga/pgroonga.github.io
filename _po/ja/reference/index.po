@@ -635,8 +635,8 @@ msgstr ""
 "ngaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のG"
 "roongaのドキュメントを参照してください。"
 
-msgid "  * [Tuning](http://groonga.org/docs/reference/tuning.html)"
-msgstr "  * [チューニング](http://groonga.org/ja/docs/reference/tuning.html)"
+msgid "  * [Tuning][groonga-tuning]"
+msgstr "  * [チューニング][groonga-tuning]"
 
 msgid "[jsonb]:jsonb.html"
 msgstr ""
@@ -723,3 +723,6 @@ msgid ""
 "[pgroonga-check]:modules/pgroonga-check.html\n"
 "[pgroonga-database]:modules/pgroonga-database.html"
 msgstr ""
+
+msgid "[groogna-tuning]:https://groonga.org/docs/reference/tuning.html"
+msgstr "[groogna-tuning]:https://groonga.org/ja/docs/reference/tuning.html"

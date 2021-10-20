@@ -16,6 +16,7 @@ Here are supported PostgreSQL versions:
   * 11
   * 12
   * 13
+  * 14
 
 If your PostgreSQL is older than them, you need to upgrade your PostgreSQL before you install PGroonga.
 

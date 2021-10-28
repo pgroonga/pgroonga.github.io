@@ -76,6 +76,9 @@ msgstr "  * [PGroonga対pg\\_bigm](pgroonga-versus-pg-bigm.html)"
 msgid "  * [Replication](replication.html)"
 msgstr "  * [レプリケーション](replication.html)"
 
+msgid "  * [Crash safe][crash-safe]"
+msgstr "  * [クラッシュセーフ][crash-safe]"
+
 msgid "  * [`jsonb` support][jsonb]"
 msgstr "  * [`jsonb`サポート][jsonb]"
 
@@ -605,12 +608,40 @@ msgstr "  * [`pgroonga.match_escalation_threshold`パラメーター][match-esca
 msgid "  * [`pgroonga.query_log_path` parameter][query-log-path]"
 msgstr "  * [`pgroonga.query_log_path`パラメーター][query-log-path]"
 
+msgid ""
+"  * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flus"
+"h-naptime]"
+msgstr ""
+"  * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-na"
+"ptime]"
+
+msgid ""
+"  * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-leve"
+"l]"
+msgstr "  * [`pgroonga_crash_safer.log_level`パラメーター][pgroonga-crash-safer-log-level]"
+
+msgid "  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]"
+msgstr "  * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]"
+
 msgid "## Modules"
 msgstr ""
 "## モジュール\n"
 
 msgid "  * [`pgroonga_check` module][pgroonga-check]"
 msgstr "  * [`pgroonga_check`モジュール][pgroonga-check]"
+
+msgid ""
+"    * Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-cra"
+"sh-safer] instead."
+msgstr ""
+"    * 2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使って"
+"ください。"
+
+msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
+msgstr "  * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]"
+
+msgid "    * Since 2.3.3."
+msgstr "    * 2.3.3で追加。"
 
 msgid "  * [`pgroonga_database` module][pgroonga-database]"
 msgstr "  * [`pgroonga_database`モジュール][pgroonga-database]"
@@ -648,6 +679,9 @@ msgstr ""
 
 msgid "  * [Tuning][groonga-tuning]"
 msgstr "  * [チューニング][groonga-tuning]"
+
+msgid "[crash-safe]:crash-safe.html"
+msgstr ""
 
 msgid "[jsonb]:jsonb.html"
 msgstr ""
@@ -738,9 +772,9 @@ msgid ""
 msgstr ""
 
 msgid ""
-"[pgroonga-check]:modules/pgroonga-check.html\n"
-"[pgroonga-database]:modules/pgroonga-database.html"
+"[pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-nap"
+"time.html\n"
+"[pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.htm"
+"l\n"
+"[pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html"
 msgstr ""
-
-msgid "[groogna-tuning]:https://groonga.org/docs/reference/tuning.html"
-msgstr "[groogna-tuning]:https://groonga.org/ja/docs/reference/tuning.html"

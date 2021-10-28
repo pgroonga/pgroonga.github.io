@@ -24,6 +24,11 @@ msgstr "# `pgroonga_database`モジュール"
 msgid "Since 2.1.8."
 msgstr "2.1.8で追加。"
 
+msgid ""
+"Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-saf"
+"er] instead."
+msgstr "2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。"
+
 msgid "## Summary"
 msgstr "## 概要"
 
@@ -94,6 +99,9 @@ msgstr "`pgroonga_database`モジュールは次の関数を提供します。"
 
 msgid "  * [`pgroonga_database_remove` function][database-remove]"
 msgstr "  * [`pgroonga_database_remove`関数][database-remove]"
+
+msgid "[pgroonga-crash-safer]:pgroonga-crash-safer.html"
+msgstr ""
 
 msgid "[database-remove]:../functions/pgroonga-database-remove.html"
 msgstr ""

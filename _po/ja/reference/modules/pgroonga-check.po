@@ -24,6 +24,11 @@ msgstr "# `pgroonga_check`モジュール"
 msgid "Since 1.2.0."
 msgstr "1.2.0で追加。"
 
+msgid ""
+"Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-saf"
+"er] instead."
+msgstr "2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。"
+
 msgid "## Summary"
 msgstr "## 概要"
 
@@ -75,3 +80,6 @@ msgstr ""
 "復旧に失敗した場合は該当PGroongaデータベースを自動で削除します。PGroongaのデータベース内には復旧不可能なデータはありません。手動で[`REI"
 "NDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)を実行することでPGroonga"
 "のデータベースを復旧できます。"
+
+msgid "[pgroonga-crash-safer]:pgroonga-crash-safer.html"
+msgstr ""

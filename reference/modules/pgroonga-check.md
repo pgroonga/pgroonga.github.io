@@ -7,6 +7,8 @@ upper_level: ../
 
 Since 1.2.0.
 
+Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-safer] instead.
+
 ## Summary
 
 `pgroonga_check` module checkes PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database.
@@ -26,3 +28,5 @@ You need to restart your PostgreSQL to apply the change.
 You don't do anything. `pgroonga_check` module checks all PGroonga databases on PostgreSQL startup. If `pgroonga_check` module finds any broken PGroonga databases, it tries to recover them automatically.
 
 If it can't recover, it removes all unrecoverable PGroonga databases automatically. There are no unrecoverable data in PGroonga databases. You can recover PGroonga databases by running [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html) manually.
+
+[pgroonga-crash-safer]:pgroonga-crash-safer.html

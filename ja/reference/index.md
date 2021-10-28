@@ -27,6 +27,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [レプリケーション](replication.html)
 
+  * [クラッシュセーフ][crash-safe]
+
   * [`jsonb`サポート][jsonb]
 
 ## 演算子
@@ -571,12 +573,26 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.query_log_path`パラメーター][query-log-path]
 
+  * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-naptime]
+
+  * [`pgroonga_crash_safer.log_level`パラメーター][pgroonga-crash-safer-log-level]
+
+  * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]
+
 ## モジュール
 
 
   * [`pgroonga_check`モジュール][pgroonga-check]
 
+    * 2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。
+
+  * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]
+
+    * 2.3.3で追加。
+
   * [`pgroonga_database`モジュール][pgroonga-database]
+
+    * 2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。
 
 ## Groongaの関数
 
@@ -591,6 +607,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroongaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のGroongaのドキュメントを参照してください。
 
   * [チューニング][groonga-tuning]
+
+[crash-safe]:crash-safe.html
 
 [jsonb]:jsonb.html
 
@@ -663,7 +681,11 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
 [query-log-path]:parameters/query-log-path.html
 
-[pgroonga-check]:modules/pgroonga-check.html
-[pgroonga-database]:modules/pgroonga-database.html
+[pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
+[pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
+[pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
 
-[groogna-tuning]:https://groonga.org/ja/docs/reference/tuning.html
+[pgroonga-check]:modules/pgroonga-check.html
+[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
+[pgroonga-database]:modules/pgroonga-database.html
+[groonga-tuning]:https://groonga.org/docs/reference/tuning.html

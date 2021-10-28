@@ -14,6 +14,8 @@ If you're using PostgreSQL 9.5 or earlier, you can use some alternative streamin
 
 Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`][postgresql-reindex].
 
+See also: [Crash safe][crash-safe]
+
 This document describes how to configure PostgreSQL built-in WAL based streaming replication for PGroonga. Most of steps are normal steps. There are some PGroonga specific steps.
 
 ## Summary
@@ -425,6 +427,8 @@ SELECT title FROM entries WHERE title %% 'replication';
 [postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html
 
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html
+
+[crash-safe]:crash-safe.html
 
 [postgresql-wal-level]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL
 

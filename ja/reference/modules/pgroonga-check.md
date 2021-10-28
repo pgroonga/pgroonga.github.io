@@ -7,6 +7,8 @@ upper_level: ../
 
 1.2.0で追加。
 
+2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。
+
 ## 概要
 
 `pgroonga_check`モジュールは起動時にPGroongaのデータベースの一貫性をチェックします。PGroongaのデータベースが壊れている場合は自動でそのデータベースを復旧します。
@@ -26,3 +28,5 @@ shared_preload_libraries = 'pgroonga_check'
 何もする必要はありません。`pgroonga_check`モジュールはPostgreSQL起動時にすべてのPGroongaのデータベースをチェックします。もし、`pgroonga_check`モジュールが壊れているPGroongaのデータベースを見つけたら、自動で復旧します。
 
 復旧に失敗した場合は該当PGroongaデータベースを自動で削除します。PGroongaのデータベース内には復旧不可能なデータはありません。手動で[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)を実行することでPGroongaのデータベースを復旧できます。
+
+[pgroonga-crash-safer]:pgroonga-crash-safer.html

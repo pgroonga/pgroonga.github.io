@@ -1,0 +1,88 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga_crash_safer.flush_naptime parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga_crash_safer.flush_naptimeパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga_crash_safer.flush_naptime` parameter"
+msgstr "# `pgroonga_crash_safer.flush_naptime`パラメーター"
+
+msgid "Since 2.3.3."
+msgstr "2.3.3で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga_crash_safer.flush_naptime` parameter controls flush interval by [`pg"
+"roonga_crash_safer` module][pgroonga-crash-safer]."
+msgstr ""
+"`pgroonga_crash_safer.flush_naptime`パラメーターは[`pgroonga_crash_safer`モジュール][pgroo"
+"nga-crash-safer]のフラッシュ間隔を制御します。"
+
+msgid "The larger value, the larger Groonga's WAL size."
+msgstr "値を大きくするほどGroongaのWALサイズが大きくなります。"
+
+msgid "The smaller value, the heavier IO load."
+msgstr "値を小さくするほどIO負荷が大きくなります。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.flush_naptime = internval\n"
+"```"
+msgstr ""
+
+msgid ""
+"`interval`'s default unit is second. You can change unit by specify suffix suc"
+"h as `min` for minutes."
+msgstr "`interval`のデフォルトの単位は秒です。分にしたい場合は`min`といった具合にサフィックスを指定すると単位を変えることができます。"
+
+msgid "The default is 60 seconds."
+msgstr "デフォルトは60秒です。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to specify 10 minutes:"
+msgstr "10分を指定する例です。"
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.flush_naptime = 10min\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
+msgstr "  * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]"
+
+msgid "  * [Crash safe][crash-safe]"
+msgstr "  * [クラッシュセーフ][crash-safe]"
+
+msgid "[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html"
+msgstr ""
+
+msgid "[crash-safe]:../crash-safe.html"
+msgstr ""

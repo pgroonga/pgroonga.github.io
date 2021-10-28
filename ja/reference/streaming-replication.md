@@ -14,6 +14,8 @@ PostgreSQL 9.5以前を使っている場合は、PGroongaと一緒に使える�
 
 WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。
 
+参考：[クラッシュセーフ][crash-safe]
+
 このドキュメントではPostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する方法を説明します。多くの手順は通常のストリーミングレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。
 
 ## 概要
@@ -425,6 +427,8 @@ SELECT title FROM entries WHERE title %% 'replication';
 [postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html
 
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html
+
+[crash-safe]:crash-safe.html
 
 [postgresql-wal-level]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html#GUC-WAL-LEVEL
 

@@ -27,6 +27,8 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
   * [Replication](replication.html)
 
+  * [Crash safe][crash-safe]
+
   * [`jsonb` support][jsonb]
 
 ## Operators
@@ -569,11 +571,25 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga.query_log_path` parameter][query-log-path]
 
+  * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]
+
+  * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-level]
+
+  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]
+
 ## Modules
 
   * [`pgroonga_check` module][pgroonga-check]
 
+    * Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-safer] instead.
+
+  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]
+
+    * Since 2.3.3.
+
   * [`pgroonga_database` module][pgroonga-database]
+
+    * Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-safer] instead.
 
 ## Groonga functions
 
@@ -588,6 +604,8 @@ Normally, you don't need to tune PGroonga because PGroonga works well by default
 But you need to tune PGroonga in some cases such as a case that you need to handle a very large database. PGroonga uses Groonga as backend. It means that you can apply tuning knowledge for Groonga to PGroonga. See the following Groonga document to tune PGroonga:
 
   * [Tuning][groonga-tuning]
+
+[crash-safe]:crash-safe.html
 
 [jsonb]:jsonb.html
 
@@ -660,7 +678,11 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
 [query-log-path]:parameters/query-log-path.html
 
-[pgroonga-check]:modules/pgroonga-check.html
-[pgroonga-database]:modules/pgroonga-database.html
+[pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
+[pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
+[pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
 
-[groogna-tuning]:https://groonga.org/docs/reference/tuning.html
+[pgroonga-check]:modules/pgroonga-check.html
+[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
+[pgroonga-database]:modules/pgroonga-database.html
+[groonga-tuning]:https://groonga.org/docs/reference/tuning.html

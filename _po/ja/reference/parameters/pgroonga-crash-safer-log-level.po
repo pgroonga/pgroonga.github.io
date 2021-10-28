@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga_crash_safer.log_level parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga_crash_safer.log_levelパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga_crash_safer.log_level` parameter"
+msgstr "# `pgroonga_crash_safer.log_level`パラメーター"
+
+msgid "Since 2.3.3."
+msgstr "2.3.3で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga_crash_safer.log_level` parameter controls which logs are recorded. T"
+"his is a [`pgroonga_crash_safer` module][pgroonga-crash-safer] version of [`pg"
+"roonga.log_level` parameter][log-level]."
+msgstr ""
+"`pgroonga_crash_safer.log_level`パラメーターはどのログを記録するかを制御します。これは[`pgroonga.log_leve"
+"l`パラメーター][log-level]の[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]バージョンで"
+"す。"
+
+msgid "See [`pgroonga.log_level` parameter][log-level] for details."
+msgstr "詳細は[`pgroonga.log_level`パラメーター][log-level]を参照してください。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.log_level = level\n"
+"```"
+msgstr ""
+
+msgid "See [`pgroonga.log_level` parameter][log-level] for available levels."
+msgstr "指定できるレベルは[`pgroonga.log_level`パラメーター][log-level]を参照してください。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to disable log:"
+msgstr "ログを無効にする例です。"
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.log_level = none\n"
+"```"
+msgstr ""
+
+msgid "Here is an example to enable almost log messages:"
+msgstr "ほとんどのログメッセージを有効にする例です。"
+
+msgid ""
+"```sql\n"
+"pgroonga_crash_safer.log_level = debug\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [`pgroonga.log_level` parameter][log-level]"
+msgstr "  * [`pgroonga.log_level`パラメーター][log-level]"
+
+msgid "  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]"
+msgstr "  * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]"
+
+msgid "[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html"
+msgstr ""
+
+msgid "[log-level]:log-level.html"
+msgstr ""
+
+msgid "[pgroonga-crash-safer-log-path]:pgroonga-crash-safer-log-path.html"
+msgstr ""

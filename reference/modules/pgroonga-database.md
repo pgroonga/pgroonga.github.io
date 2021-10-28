@@ -7,6 +7,8 @@ upper_level: ../
 
 Since 2.1.8.
 
+Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-safer] instead.
+
 ## Summary
 
 `pgroonga_database` module provides functions that manage PGroonga database. Normally, you don't need to use this module.
@@ -42,6 +44,9 @@ See [upgrade][upgrade] document for upgrading `pgroonga_database` module.
 `pgroonga_database` module provides the following functions:
 
   * [`pgroonga_database_remove` function][database-remove]
+
+
+[pgroonga-crash-safer]:pgroonga-crash-safer.html
 
 [database-remove]:../functions/pgroonga-database-remove.html
 

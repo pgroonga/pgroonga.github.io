@@ -55,6 +55,9 @@ msgstr ""
 "し、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし"
 "、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。"
 
+msgid "See also: [Crash safe][crash-safe]"
+msgstr ""
+
 msgid ""
 "This document describes how to configure PostgreSQL built-in WAL based streami"
 "ng replication for PGroonga. Most of steps are normal steps. There are some PG"
@@ -594,6 +597,9 @@ msgstr "[postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html
 
 msgid "[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html"
 msgstr "[postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html"
+
+msgid "[crash-safe]:crash-safe.html"
+msgstr ""
 
 msgid ""
 "[postgresql-wal-level]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wa"

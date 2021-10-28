@@ -7,6 +7,8 @@ upper_level: ../
 
 2.1.8で追加。
 
+2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。
+
 ## 概要
 
 `pgroonga_database`モジュールはPGroongaのデータベースを管理する関数を提供します。通常、このモジュールを使う必要はありません。
@@ -42,6 +44,9 @@ SELECT pgroonga_admin.pgoronga_database_remove();
 `pgroonga_database`モジュールは次の関数を提供します。
 
   * [`pgroonga_database_remove`関数][database-remove]
+
+
+[pgroonga-crash-safer]:pgroonga-crash-safer.html
 
 [database-remove]:../functions/pgroonga-database-remove.html
 

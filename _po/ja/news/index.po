@@ -21,11 +21,59 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.3.2: 2021-10-04 {#version-2-3-2}"
+msgid "## 2.3.3: 2021-10-29 {#version-2-3-3}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Added support for [row level security][postgresql-row-level-security]."
+msgstr ""
+
+msgid "  * Dropped support for PostgreSQL 9.6."
+msgstr ""
+
+msgid "  * Added support for limiting max WAL size:"
+msgstr ""
+
+msgid "    * [`pgroonga_wal_applier` module][pgroonga-wal-applier]"
+msgstr ""
+
+msgid "    * [`pgroonga_wal_applier.naptime` parameter][pgroonga-wal-applier-naptime]"
+msgstr ""
+
+msgid "    * [`pgroonga.max_wal_size` parameter][max-wal-size]"
+msgstr ""
+
+msgid "  * Added support for crash safe:"
+msgstr ""
+
+msgid "    * [Crash safe][crash-safe]"
+msgstr ""
+
+msgid "    * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-fl"
+"ush-naptime]"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-le"
+"vel]"
+msgstr ""
+
+msgid ""
+"    * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-pat"
+"h]"
+msgstr ""
+
+msgid "    * [`pgroonga.enable_crash_safe` parameter][enable-crash-safe]"
+msgstr ""
+
+msgid "## 2.3.2: 2021-10-04 {#version-2-3-2}"
+msgstr ""
 
 msgid "  * Added support for parallel scan."
 msgstr ""
@@ -2091,16 +2139,44 @@ msgid ""
 msgstr ""
 
 msgid ""
+"[enable-crash-safe]:../reference/parameters/enable-crash-safe.html\n"
 "[force-match-escalation]:../reference/parameters/force-match-escalation.html\n"
 "[libgroonga-version]:../reference/parameters/libgroonga-version.html\n"
 "[match-escalation-threshold]:../reference/parameters/match-escalation-threshol"
-"d.html"
+"d.html\n"
+"[max-wal-size]:../reference/parameters/max-wal-size.html"
+msgstr ""
+
+msgid ""
+"[pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-sa"
+"fer-flush-naptime.html\n"
+"[pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-"
+"log-level.html\n"
+"[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-l"
+"og-path.html"
+msgstr ""
+
+msgid ""
+"[pgroonga-wal-applier-naptime]:../reference/parameters/pgroonga-wal-applier-na"
+"ptime.html"
 msgstr ""
 
 msgid ""
 "[pgroonga-check]:../reference/modules/pgroonga-check.html\n"
-"[pgroonga-database]:../reference/modules/pgroonga-database.html"
+"[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html\n"
+"[pgroonga-database]:../reference/modules/pgroonga-database.html\n"
+"[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html"
 msgstr ""
 
 msgid "[travis-ci]:../how-to/travis-ci.html"
+msgstr ""
+
+msgid ""
+"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rows"
+"ecurity.html"
+msgstr ""
+"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.ja }}/ddl-rows"
+"ecurity.html"
+
+msgid "[crash-safe]:../reference/crash-safe.html"
 msgstr ""

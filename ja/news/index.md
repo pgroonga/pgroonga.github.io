@@ -5,6 +5,36 @@ upper_level: ../
 
 # おしらせ
 
+## 2.3.3: 2021-10-29 {#version-2-3-3}
+
+### 改良
+
+  * Added support for [row level security][postgresql-row-level-security].
+
+  * Dropped support for PostgreSQL 9.6.
+
+  * Added support for limiting max WAL size:
+
+    * [`pgroonga_wal_applier` module][pgroonga-wal-applier]
+
+    * [`pgroonga_wal_applier.naptime` parameter][pgroonga-wal-applier-naptime]
+
+    * [`pgroonga.max_wal_size` parameter][max-wal-size]
+
+  * Added support for crash safe:
+
+    * [Crash safe][crash-safe]
+
+    * [`pgroonga_crash_safer` module][pgroonga-crash-safer]
+
+    * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]
+
+    * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-level]
+
+    * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]
+
+    * [`pgroonga.enable_crash_safe` parameter][enable-crash-safe]
+
 ## 2.3.2: 2021-10-04 {#version-2-3-2}
 
 ### 改良
@@ -1520,11 +1550,25 @@ The first release!!!
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 
+[enable-crash-safe]:../reference/parameters/enable-crash-safe.html
 [force-match-escalation]:../reference/parameters/force-match-escalation.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
+[max-wal-size]:../reference/parameters/max-wal-size.html
+
+[pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html
+[pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html
+[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html
+
+[pgroonga-wal-applier-naptime]:../reference/parameters/pgroonga-wal-applier-naptime.html
 
 [pgroonga-check]:../reference/modules/pgroonga-check.html
+[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html
 [pgroonga-database]:../reference/modules/pgroonga-database.html
+[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
 
 [travis-ci]:../how-to/travis-ci.html
+
+[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.ja }}/ddl-rowsecurity.html
+
+[crash-safe]:../reference/crash-safe.html

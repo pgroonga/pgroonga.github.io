@@ -571,13 +571,23 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]
 
+  * [`pgroonga.max_wal_size`パラメーター][max-wal-size]
+
+    * 2.3.3で追加。
+
   * [`pgroonga.query_log_path`パラメーター][query-log-path]
 
   * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-naptime]
 
+    * 2.3.3で追加。
+
   * [`pgroonga_crash_safer.log_level`パラメーター][pgroonga-crash-safer-log-level]
 
+    * 2.3.3で追加。
+
   * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]
+
+    * 2.3.3で追加。
 
 ## モジュール
 
@@ -593,6 +603,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`pgroonga_database`モジュール][pgroonga-database]
 
     * 2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。
+
+  * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]
+
+    * 2.3.3で追加。
 
 ## Groongaの関数
 
@@ -679,6 +693,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [log-path]:parameters/log-path.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+[max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
@@ -688,4 +703,6 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
-[groonga-tuning]:https://groonga.org/docs/reference/tuning.html
+[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
+
+[groonga-tuning]:https://groonga.org/ja/docs/reference/tuning.html

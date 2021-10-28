@@ -30,7 +30,7 @@ pgroonga.enable_crash_safe = boolean
 以下はクラッシュセーフ機能を有効にする設定の例です。
 
 ```sql
-shared_preload_libraries = 'pgroonga_crash_safers'
+shared_preload_libraries = 'pgroonga_crash_safer'
 pgroonga.enable_crash_safe = on
 ```
 

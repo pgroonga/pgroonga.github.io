@@ -69,7 +69,7 @@ msgstr "以下はクラッシュセーフ機能を有効にする設定の例で
 
 msgid ""
 "```sql\n"
-"shared_preload_libraries = 'pgroonga_crash_safers'\n"
+"shared_preload_libraries = 'pgroonga_crash_safer'\n"
 "pgroonga.enable_crash_safe = on\n"
 "```"
 msgstr ""

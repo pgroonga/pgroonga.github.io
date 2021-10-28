@@ -4,13 +4,7 @@ title: Streaming replication
 
 # Streaming replication
 
-PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6. It requires PostgreSQL 9.6 or later.
-
-If you're using PostgreSQL 9.5 or earlier, you can use some alternative streaming replication implementations that can be used with PGroonga:
-
-  * [pglogical](https://2ndquadrant.com/en/resources/pglogical/)
-
-  * [pg\_shard](https://github.com/citusdata/pg_shard) (pg\_shard is deprecated. [Citus](https://github.com/citusdata/citus), the replacement of pg\_shard, may work with PGroonga. If you confirm that Citus can work with PGroonga, please [report it](https://github.com/pgroonga/pgroonga/issues/new).)
+PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6.
 
 Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`][postgresql-reindex].
 
@@ -22,33 +16,35 @@ This document describes how to configure PostgreSQL built-in WAL based streaming
 
 Here are steps to configure PostgreSQL built-in WAL based streaming replication for PGroonga. "[normal]" tag means that the step is a normal step for streaming replication. "[special]" tag means that the step is a PGroonga specific step.
 
-  1. [normal] Install PostgreSQL on master and slaves
+  1. [normal] Install PostgreSQL on primary and standbys
 
-  2. [special] Install PGroonga on master and slaves
+  2. [special] Install PGroonga on primary and standbys
 
-  3. [normal] Initialize PostgreSQL database on master
+  3. [normal] Initialize PostgreSQL database on primary
 
-  4. [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on master
+  4. [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on primary
 
-  5. [special] Add some PGroonga related configurations to `postgresql.conf` on master
+  5. [special] Add some PGroonga related configurations to `postgresql.conf` on primary
 
-  6. [normal] Insert data on master
+  6. [normal] Insert data on primary
 
-  7. [special] Create a PGroonga index on master
+  7. [special] Create a PGroonga index on primary
 
-  8. [special] Flush PGroonga related data on master
+  8. [special] Flush PGroonga related data on primary
 
-  9. [normal] Run `pg_basebackup` on slaves
+  9. [normal] Run `pg_basebackup` on standbys
 
-  10. [normal] Add some streaming replication configurations to `postgresql.conf` on slaves
+  10. [normal] Add some streaming replication configurations to `postgresql.conf` on standbys
 
-  11. [normal] Start PostgreSQL on slaves
+  11. [special] Add some PGroonga's WAL configurations to `postgresql.conf` on standbys
+
+  12. [normal] Start PostgreSQL on standbys
 
 ## Example environment
 
 This document uses the following environment:
 
-  * Master:
+  * Primary:
 
     * OS: CentOS 7
 
@@ -60,13 +56,13 @@ This document uses the following environment:
 
     * Replication user password: `passw0rd`
 
-  * Slave1:
+  * Standby1:
 
     * OS: CentOS 7
 
     * IP address: 192.168.0.31
 
-  * Slave2:
+  * Standby2:
 
     * OS: CentOS 7
 
@@ -74,25 +70,13 @@ This document uses the following environment:
 
 This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself.
 
-For now (2017-07-03), the following official PGroonga packages support WAL. Because WAL support requires MessagePack and PostgreSQL 9.6 or later. Packages for other platforms don't satisfy one of them. If you build PGroonga from source, see [Install from source](../install/source.html). It describes about how to build with MessagePack.
-
-  * [Debian GNU/Linux Stretch][debian-stretch]
-
-  * [Ubuntu 17.04][ubuntu]
-
-  * [CentOS 6][centos-6]
-
-  * [CentOS 7][centos-7]
-
-  * [Windows][windows]
-
-## [normal] Install PostgreSQL on master and slaves
+## [normal] Install PostgreSQL on primary and standbys
 
 This is a normal step.
 
-Install PostgreSQL 9.6 on master and slaves.
+Install PostgreSQL 9.6 on primary and standbys.
 
-Master:
+Primary:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
@@ -100,7 +84,7 @@ Master:
 % sudo -H systemctl enable postgresql-9.6
 ```
 
-Slaves:
+Standbys:
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
@@ -110,20 +94,20 @@ Slaves:
 
 See also [PostgreSQL: Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/#yum).
 
-## [special] Install PGroonga on master and slaves
+## [special] Install PGroonga on primary and standbys
 
 This is a PGroonga specific step.
 
-Install PGroonga on master and slaves.
+Install PGroonga on primary and standbys.
 
-Master:
+Primary:
 
 ```text
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 
-Slaves:
+Standbys:
 
 ```text
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
@@ -133,23 +117,23 @@ Slaves:
 
 See also [Install on CentOS](/../install/centos.html#install-on-7).
 
-## [normal] Initialize PostgreSQL database on master
+## [normal] Initialize PostgreSQL database on primary
 
 This is a normal step.
 
-Initialize PostgreSQL database on only master. You don't need to initialize PostgreSQL database on slaves.
+Initialize PostgreSQL database on only primary. You don't need to initialize PostgreSQL database on standbys.
 
-Master:
+Primary:
 
 ```text
 % sudo -H env PGSETUP_INITDB_OPTIONS="--locale C --encoding UTF-8" /usr/pgsql-9.6/bin/postgresql96-setup initdb
 ```
 
-## [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on master
+## [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on primary
 
 This is a normal step.
 
-Add the following streaming replication configurations to `postgresql.conf` on only master:
+Add the following streaming replication configurations to `postgresql.conf` on only primary:
 
   * `listen_address = '*'`
 
@@ -157,7 +141,7 @@ Add the following streaming replication configurations to `postgresql.conf` on o
 
     * See also [PostgreSQL: Documentation: Write Ahead Log][postgresql-wal-level].
 
-  * `max_wal_senders = 4` (`= 2 (The number of slaves) * 2`. `* 2` is for unexpected connection close.)
+  * `max_wal_senders = 4` (`= 2 (The number of standbys) * 2`. `* 2` is for unexpected connection close.)
 
     * See also [PostgreSQL: Documentation: Replication][postgresql-max-wal-senders].
 
@@ -179,7 +163,7 @@ wal_level = replica
 max_wal_senders = 4
 ```
 
-Add the following streaming replication configurations to `pg_hba.conf` on only master:
+Add the following streaming replication configurations to `pg_hba.conf` on only primary:
 
   * Accept replication connection by the replication user `replicator` from `192.168.0.0/24`.
 
@@ -199,7 +183,7 @@ After:
 host    replication     replicator       192.168.0.0/24         md5
 ```
 
-Create the user for replication on only master:
+Create the user for replication on only primary:
 
 ```text
 % sudo -H systemctl start postgresql-9.6
@@ -208,16 +192,18 @@ Enter password for new role: (passw0rd)
 Enter it again: (passw0rd)
 ```
 
-## [special] Add some PGroonga related configurations to `postgresql.conf` on master
+## [special] Add some PGroonga related configurations to `postgresql.conf` on primary
 
 This is a PGroonga specific step.
 
-Add [`pgronga.enable_wal` parameter](parameters/enable-wal.html) configuration to `postgresql.conf` on only master:
+Add [`pgronga.enable_wal` parameter][enable-wal] and [`pgroonga.max_wal_size` parameter][max-wal-size] configurations to `postgresql.conf` on only primary:
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
 ```text
 pgroonga.enable_wal = on
+# You may need more large size
+pgroonga.max_wal_size = 100MB
 ```
 
 Restart PostgreSQL to apply the configuration:
@@ -226,23 +212,23 @@ Restart PostgreSQL to apply the configuration:
 % sudo -H systemctl restart postgresql-9.6
 ```
 
-## [normal] Insert data on master
+## [normal] Insert data on primary
 
 This is a normal step.
 
-Create a normal user on only master:
+Create a normal user on only primary:
 
 ```text
 % sudo -u postgres -H createuser ${USER}
 ```
 
-Create a database on only master:
+Create a database on only primary:
 
 ```text
 % sudo -u postgres -H createdb --locale C --encoding UTF-8 --owner ${USER} blog
 ```
 
-Create a table in the created database on only master.
+Create a table in the created database on only primary.
 
 Connect to the created `blog` database:
 
@@ -267,7 +253,7 @@ INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine use
 INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');
 ```
 
-## [special] Create a PGroonga index on master
+## [special] Create a PGroonga index on primary
 
 This is a PGroonga specific step.
 
@@ -284,7 +270,7 @@ Connect to PostgreSQL by a normal user again:
 % psql blog
 ```
 
-Create a PGroonga index on only master:
+Create a PGroonga index on only primary:
 
 ```sql
 CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);
@@ -301,11 +287,11 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (1 row)
 ```
 
-## [special] Flush PGroonga related data on master
+## [special] Flush PGroonga related data on primary
 
 This is a PGroonga specific step.
 
-Ensure writing PGroonga related data on memory to disk on only master. You can choose one of them:
+Ensure writing PGroonga related data on memory to disk on only primary. You can choose one of them:
 
   1. Run `SELECT pgroonga_command('io_flush');`
 
@@ -321,15 +307,15 @@ SELECT pgroonga_command('io_flush') AS command;
 -- (1 row)
 ```
 
-You must not change tables that use PGroonga indexes on master until the next `pg_basebackup` step is finished.
+You must not change tables that use PGroonga indexes on primary until the next `pg_basebackup` step is finished.
 
-## [normal] Run `pg_basebackup` on slaves
+## [normal] Run `pg_basebackup` on standbys
 
 This is a normal step.
 
-Run `pg_basebackup` on only slaves. It copies the current database from master.
+Run `pg_basebackup` on only standbys. It copies the current database from primary.
 
-Slaves:
+Standbys:
 
 ```text
 % sudo -u postgres -H pg_basebackup --host 192.168.0.30 --pgdata /var/lib/pgsql/9.6/data --xlog --progress --username replicator --password --write-recovery-conf
@@ -337,17 +323,17 @@ Password: (passw0rd)
 149261/149261 kB (100%), 1/1 tablespace
 ```
 
-## [normal] Add some streaming replication configurations to `postgresql.conf` on slaves
+## [normal] Add some streaming replication configurations to `postgresql.conf` on standbys
 
 This is a normal step.
 
-Add the following replica configurations to `postgresql.conf` on only slaves:
+Add the following replica configurations to `postgresql.conf` on only standbys:
 
   * `hot_standby = on`
 
     * See also [PostgreSQL: Documentation: Replication][postgresql-hot-standby].
 
-Slaves:
+Standbys:
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
@@ -363,19 +349,43 @@ After:
 hot_standby = on
 ```
 
-## [normal] Start PostgreSQL on slaves
+## [special] Add some PGroonga's WAL configurations to `postgresql.conf` on standbys
+
+This is a PGroonga specific step.
+
+Since 2.3.3.
+
+Add [`pgroonga_wal_applier` module][pgroonga-wal-applier] to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]:
+
+Standbys:
+
+`/var/lib/pgsql/9.6/data/postgresql.conf`:
+
+Before:
+
+```text
+#shared_preload_libraries = ''
+```
+
+After:
+
+```text
+shared_preload_libraries = 'pgroonga_wal_applier'
+```
+
+## [normal] Start PostgreSQL on standbys
 
 This is a normal step.
 
-Start PostgreSQL on slaves:
+Start PostgreSQL on standbys:
 
 ```text
 % sudo -H systemctl start postgresql-9.6
 ```
 
-Now, you can search data inserted on master by PGroonga index created on master.
+Now, you can search data inserted on primary by PGroonga index created on primary.
 
-Slave1:
+Standby1:
 
 ```text
 % psql blog
@@ -390,15 +400,15 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (1 row)
 ```
 
-You can also search data inserted on master after `pg_basebackup`.
+You can also search data inserted on primary after `pg_basebackup`.
 
-Master:
+Primary:
 
 ```sql
 INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL supports generic WAL since 9.6. It is required for replication for PGroonga.');
 ```
 
-Slave1:
+Standby1:
 
 ```sql
 SELECT title FROM entries WHERE title %% 'replication';
@@ -409,7 +419,7 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (2 rows)
 ```
 
-Slave2:
+Standby2:
 
 ```text
 % psql blog
@@ -434,14 +444,11 @@ SELECT title FROM entries WHERE title %% 'replication';
 
 [postgresql-max-wal-senders]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
 
+[enable-wal]:parameters/enable-wal.html
+[max-wal-size]:parameters/max-wal-size.html
+
+[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
+
+[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES
+
 [postgresql-hot-standby]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-HOT-STANDBY
-
-[debian-stretch]:../install/debian.html#install-on-stretch
-
-[ubuntu]:../install/ubuntu.html
-
-[centos-6]:../install/centos.html#install-on-6
-
-[centos-7]:../install/centos.html#install-on-7
-
-[windows]:../install/windows.html

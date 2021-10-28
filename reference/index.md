@@ -569,13 +569,23 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]
 
+  * [`pgroonga.max_wal_size` parameter][max-wal-size]
+
+    * Since 2.3.3.
+
   * [`pgroonga.query_log_path` parameter][query-log-path]
 
   * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]
 
+    * Since 2.3.3.
+
   * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-level]
 
+    * Since 2.3.3.
+
   * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]
+
+    * Since 2.3.3.
 
 ## Modules
 
@@ -590,6 +600,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
   * [`pgroonga_database` module][pgroonga-database]
 
     * Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-safer] instead.
+
+  * [`pgroonga_wal_applier` module][pgroonga-wal-applier]
+
+    * Since 2.3.3.
 
 ## Groonga functions
 
@@ -676,6 +690,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [log-path]:parameters/log-path.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+[max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
@@ -685,4 +700,6 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
+[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
+
 [groonga-tuning]:https://groonga.org/docs/reference/tuning.html

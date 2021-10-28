@@ -605,6 +605,12 @@ msgid ""
 "ld]"
 msgstr "  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]"
 
+msgid "  * [`pgroonga.max_wal_size` parameter][max-wal-size]"
+msgstr "  * [`pgroonga.max_wal_size`パラメーター][max-wal-size]"
+
+msgid "    * Since 2.3.3."
+msgstr "    * 2.3.3で追加。"
+
 msgid "  * [`pgroonga.query_log_path` parameter][query-log-path]"
 msgstr "  * [`pgroonga.query_log_path`パラメーター][query-log-path]"
 
@@ -640,11 +646,11 @@ msgstr ""
 msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
 msgstr "  * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]"
 
-msgid "    * Since 2.3.3."
-msgstr "    * 2.3.3で追加。"
-
 msgid "  * [`pgroonga_database` module][pgroonga-database]"
 msgstr "  * [`pgroonga_database`モジュール][pgroonga-database]"
+
+msgid "  * [`pgroonga_wal_applier` module][pgroonga-wal-applier]"
+msgstr "  * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]"
 
 msgid "## Groonga functions"
 msgstr "## Groongaの関数"
@@ -768,6 +774,7 @@ msgid ""
 "[log-path]:parameters/log-path.html\n"
 "[log-type]:parameters/log-type.html\n"
 "[match-escalation-threshold]:parameters/match-escalation-threshold.html\n"
+"[max-wal-size]:parameters/max-wal-size.html\n"
 "[query-log-path]:parameters/query-log-path.html"
 msgstr ""
 
@@ -778,3 +785,13 @@ msgid ""
 "l\n"
 "[pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html"
 msgstr ""
+
+msgid ""
+"[pgroonga-check]:modules/pgroonga-check.html\n"
+"[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html\n"
+"[pgroonga-database]:modules/pgroonga-database.html\n"
+"[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html"
+msgstr ""
+
+msgid "[groonga-tuning]:https://groonga.org/docs/reference/tuning.html"
+msgstr "[groonga-tuning]:https://groonga.org/ja/docs/reference/tuning.html"

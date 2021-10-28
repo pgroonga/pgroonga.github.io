@@ -4,13 +4,7 @@ title: ストリーミングレプリケーション
 
 # ストリーミングレプリケーション
 
-PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]をサポートしています。この機能を使うにはPostgreSQL 9.6以降が必要です。
-
-PostgreSQL 9.5以前を使っている場合は、PGroongaと一緒に使える別のストリーミングレプリケーションの実装を使ってください。
-
-  * [pglogical](https://2ndquadrant.com/en/resources/pglogical/)
-
-  * [pg\_shard](https://github.com/citusdata/pg_shard)（pg\_shardは非推奨になりました。pg\_shardの後継プロジェクトの[Citus](https://github.com/citusdata/citus)もおそらくPGroongaと一緒に使えます。もし、CitusがPGroongaと一緒に使えることを確認したら、[報告](https://github.com/pgroonga/pgroonga/issues/new)してください。）
+PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]をサポートしています。
 
 WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。
 
@@ -22,33 +16,35 @@ WALをサポートしているといってもクラッシュセーフではな�
 
 PostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する手順は次の通りです。「[通常]」タグは通常のストリーミングレプリケーション用の手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。
 
-  1. [通常] マスターとスレーブでPostgreSQLをインストールする
+  1. [通常] プライマリーとスタンバイでPostgreSQLをインストールする
 
-  2. [固有] マスターとスレーブでPGroongaをインストールする
+  2. [固有] プライマリーとスタンバイでPGroongaをインストールする
 
-  3. [通常] マスターでPostgreSQLのデータベース初期化する
+  3. [通常] プライマリーでPostgreSQLのデータベース初期化する
 
-  4. [通常] マスターで`postgresql.conf`と`pg_hba.conf`にストリーミングレプリケーション用の設定を追加する
+  4. [通常] プライマリーで`postgresql.conf`と`pg_hba.conf`にストリーミングレプリケーション用の設定を追加する
 
-  5. [固有] マスターで`postgresql.conf`にPGroonga関連の設定を追加する
+  5. [固有] プライマリーで`postgresql.conf`にPGroonga関連の設定を追加する
 
-  6. [通常] マスターでデータを投入する
+  6. [通常] プライマリーでデータを投入する
 
-  7. [固有] マスターでPGroongaのインデックスを作成する
+  7. [固有] プライマリーでPGroongaのインデックスを作成する
 
-  8. [固有] マスターでPGroonga関連のデータをフラッシュする
+  8. [固有] プライマリーでPGroonga関連のデータをフラッシュする
 
-  9. [通常] スレーブで`pg_basebackup`を実行する
+  9. [通常] スタンバイで`pg_basebackup`を実行する
 
-  10. [通常] スレーブで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する
+  10. [通常] スタンバイで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する
 
-  11. [通常] スレーブでPostgreSQLを起動する
+  11. [固有] スタンバイで`postgresql.conf`にPGroongaのWAL関連の設定を追加する
+
+  12. [通常] スタンバイでPostgreSQLを起動する
 
 ## 例で使う環境
 
 このドキュメントでは次の環境を使います。
 
-  * マスター：
+  * プライマリー：
 
     * OS：CentOS 7
 
@@ -60,13 +56,13 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
     * レプリケーションユーザーのパスワード：`passw0rd`
 
-  * スレーブ1：
+  * スタンバイ1：
 
     * OS：CentOS 7
 
     * IPアドレス：192.168.0.31
 
-  * スレーブ2：
+  * スタンバイ2：
 
     * OS：CentOS 7
 
@@ -74,25 +70,13 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
-2017年7月03日現在、WALをサポートしている公式のPGroongaパッケージは次の通りです。これはWALサポートにはMessagePackとPostgreSQL 9.6以降が必要だからです。他のプラットフォームはこれら2つの条件を満たしていません。PGroongaをソースからビルドする場合は、[ソースからインストール](../install/source.html)を読んでください。MessagePackと一緒にビルドする方法が書いています。
-
-  * [Debian GNU/Linux Stretch][debian-stretch]
-
-  * [Ubuntu 17.04][ubuntu]
-
-  * [CentOS 6][centos-6]
-
-  * [CentOS 7][centos-7]
-
-  * [Windows][windows]
-
-## [通常] マスターとスレーブでPostgreSQLをインストールする
+## [通常] プライマリーとスタンバイでPostgreSQLをインストールする
 
 これは通常の手順です。
 
-マスターとスレーブでPostgreSQL 9.6をインストールします。
+プライマリーとスタンバイでPostgreSQL 9.6をインストールします。
 
-マスター：
+プライマリー：
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
@@ -100,7 +84,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 % sudo -H systemctl enable postgresql-9.6
 ```
 
-スレーブ：
+スタンバイ：
 
 ```text
 % sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
@@ -110,20 +94,20 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
 [PostgreSQL: Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/#yum)も参照してください。
 
-## [固有] マスターとスレーブでPGroongaをインストールする
+## [固有] プライマリーとスタンバイでPGroongaをインストールする
 
 これはPGroonga固有の手順です。
 
-マスターとスレーブでPGroongaをインストールします。
+プライマリーとスタンバイでPGroongaをインストールします。
 
-マスター：
+プライマリー：
 
 ```text
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
 % sudo -H yum install -y postgresql96-pgroonga
 ```
 
-スレーブ：
+スタンバイ：
 
 ```text
 % sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
@@ -133,23 +117,23 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
 [CentOSにインストール](/../install/centos.html#install-on-7)も参照してください。
 
-## [通常] マスターでPostgreSQLのデータベースを初期化する
+## [通常] プライマリーでPostgreSQLのデータベースを初期化する
 
 これは通常の手順です。
 
-マスターでだけPostgreSQLのデータベースを初期化します。スレーブではPostgreSQLのデータベースを初期化する必要はありません。
+プライマリーでだけPostgreSQLのデータベースを初期化します。スタンバイではPostgreSQLのデータベースを初期化する必要はありません。
 
-マスター：
+プライマリー：
 
 ```text
 % sudo -H env PGSETUP_INITDB_OPTIONS="--locale C --encoding UTF-8" /usr/pgsql-9.6/bin/postgresql96-setup initdb
 ```
 
-## [通常] マスターで`postgresql.conf`と`pg_hba.conf`にストリーミングレプリケーション用の設定を追加する
+## [通常] プライマリーで`postgresql.conf`と`pg_hba.conf`にストリーミングレプリケーション用の設定を追加する
 
 これは通常の手順です。
 
-マスターでだけ次のストリーミングレプリケーション用の設定を`postgresql.conf`に追加します。
+プライマリーでだけ次のストリーミングレプリケーション用の設定を`postgresql.conf`に追加します。
 
   * `listen_address = '*'`
 
@@ -157,7 +141,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
     * [PostgreSQL：ドキュメント：ログ先行書き込み（WAL）][postgresql-wal-level]も参考にしてください。
 
-  * `max_wal_senders = 4`（`= 2（スレーブ数） * 2`。`* 2`は意図せず接続が切れた場合のため。)
+  * `max_wal_senders = 4`（`= 2（スタンバイ数） * 2`。`* 2`は意図せず接続が切れた場合のため。)
 
     * [PostgreSQL：ドキュメント：レプリケーション][postgresql-max-wal-senders]も参照してください。
 
@@ -179,7 +163,7 @@ wal_level = replica
 max_wal_senders = 4
 ```
 
-マスターでだけ以下のストリーミングレプリケーション用の設定を`pg_hba.conf`に追加します。
+プライマリーでだけ以下のストリーミングレプリケーション用の設定を`pg_hba.conf`に追加します。
 
   * `192.168.0.0/24`からのレプリケーションユーザー`replicator`でのレプリケーション接続を許可します。
 
@@ -199,7 +183,7 @@ max_wal_senders = 4
 host    replication     replicator       192.168.0.0/24         md5
 ```
 
-マスターでだけレプリケーションユーザーを作成します。
+プライマリーでだけレプリケーションユーザーを作成します。
 
 ```text
 % sudo -H systemctl start postgresql-9.6
@@ -208,16 +192,18 @@ Enter password for new role: (passw0rd)
 Enter it again: (passw0rd)
 ```
 
-## [固有] マスターで`postgresql.conf`にPGroonga関連の設定を追加する
+## [固有] プライマリーで`postgresql.conf`にPGroonga関連の設定を追加する
 
 これはPGroonga固有の手順です。
 
-マスターでだけ[`pgronga.enable_wal`パラメーター](parameters/enable-wal.html)の設定を`postgresql.conf`に追加します。
+プライマリーでだけ[`pgronga.enable_wal`パラメーター][enable-wal]と[`pgroonga.max_wal_size`パラメーター][max-wal-size]の設定を`postgresql.conf`に追加します。
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
 ```text
 pgroonga.enable_wal = on
+# You may need more large size
+pgroonga.max_wal_size = 100MB
 ```
 
 この設定を反映するためにPostgreSQLを再起動します。
@@ -226,23 +212,23 @@ pgroonga.enable_wal = on
 % sudo -H systemctl restart postgresql-9.6
 ```
 
-## [通常] マスターでデータを挿入する
+## [通常] プライマリーでデータを挿入する
 
 これは通常の手順です。
 
-マスターでだけ一般ユーザーを作成します。
+プライマリーでだけ一般ユーザーを作成します。
 
 ```text
 % sudo -u postgres -H createuser ${USER}
 ```
 
-マスターでだけデータベースを作成します。
+プライマリーでだけデータベースを作成します。
 
 ```text
 % sudo -u postgres -H createdb --locale C --encoding UTF-8 --owner ${USER} blog
 ```
 
-マスターでだけ作成したデータベースにテーブルを追加します。
+プライマリーでだけ作成したデータベースにテーブルを追加します。
 
 作成した`blog`データベースに接続します。
 
@@ -267,7 +253,7 @@ INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine use
 INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');
 ```
 
-## [固有] マスターでPGroongaのインデックスを作成する
+## [固有] プライマリーでPGroongaのインデックスを作成する
 
 これはPGroonga固有の手順です。
 
@@ -284,7 +270,7 @@ INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports
 % psql blog
 ```
 
-マスターでだけPGroongaのインデックスを作成します。
+プライマリーでだけPGroongaのインデックスを作成します。
 
 ```sql
 CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);
@@ -301,11 +287,11 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (1 row)
 ```
 
-## [固有] マスターでだけPGroonga関連のデータをフラッシュする
+## [固有] プライマリーでだけPGroonga関連のデータをフラッシュする
 
 これはPGroonga固有の手順です。
 
-マスターでだけメモリー上にあるPGroonga関連のデータを確実にディスクに書き出します。以下のどれかの方法を使います。
+プライマリーでだけメモリー上にあるPGroonga関連のデータを確実にディスクに書き出します。以下のどれかの方法を使います。
 
   1. `SELECT pgroonga_command('io_flush');`を実行する
 
@@ -321,15 +307,15 @@ SELECT pgroonga_command('io_flush') AS command;
 -- (1 row)
 ```
 
-マスターでは、次の`pg_basebackup`の手順が終わるまではPGroongaのインデックスを使っているテーブルを変更してはいけません。
+プライマリーでは、次の`pg_basebackup`の手順が終わるまではPGroongaのインデックスを使っているテーブルを変更してはいけません。
 
-## [通常] スレーブで`pg_basebackup`を実行する
+## [通常] スタンバイで`pg_basebackup`を実行する
 
 これは通常の手順です。
 
-スレーブでだけ`pg_basebackup`を実行します。`pg_basebackup`はマスターから現在のデータベースをコピーします。
+スタンバイでだけ`pg_basebackup`を実行します。`pg_basebackup`はプライマリーから現在のデータベースをコピーします。
 
-スレーブ：
+スタンバイ：
 
 ```text
 % sudo -u postgres -H pg_basebackup --host 192.168.0.30 --pgdata /var/lib/pgsql/9.6/data --xlog --progress --username replicator --password --write-recovery-conf
@@ -337,17 +323,17 @@ Password: (passw0rd)
 149261/149261 kB (100%), 1/1 tablespace
 ```
 
-## [通常] スレーブで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する
+## [通常] スタンバイで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する
 
 これは通常の手順です。
 
-スレーブでだけ次のレプリカ用の設定を`postgresql.conf`に追加します。
+スタンバイでだけ次のレプリカ用の設定を`postgresql.conf`に追加します。
 
   * `hot_standby = on`
 
     * [PostgreSQL：ドキュメント：レプリケーション][postgresql-hot-standby]も参照してください。
 
-スレーブ：
+スタンバイ：
 
 `/var/lib/pgsql/9.6/data/postgresql.conf`:
 
@@ -363,19 +349,43 @@ Password: (passw0rd)
 hot_standby = on
 ```
 
-## [通常] スレーブでPostgreSQLを起動する
+## [固有] スタンバイで`postgresql.conf`にPGroongaのWAL関連の設定を追加する
+
+これはPGroonga固有の手順です。
+
+2.3.3で追加。
+
+[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に[`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]を追加します。
+
+スタンバイ：
+
+`/var/lib/pgsql/9.6/data/postgresql.conf`:
+
+変更前：
+
+```text
+#shared_preload_libraries = ''
+```
+
+変更後：
+
+```text
+shared_preload_libraries = 'pgroonga_wal_applier'
+```
+
+## [通常] スタンバイでPostgreSQLを起動する
 
 これは通常の手順です。
 
-スレーブでPostgreSQLを起動します。
+スタンバイでPostgreSQLを起動します。
 
 ```text
 % sudo -H systemctl start postgresql-9.6
 ```
 
-これで、masterで挿入したデータをmasterで作成したPGroongaのインデックスで検索できます。
+これで、プライマリーで挿入したデータをプライマリーで作成したPGroongaのインデックスで検索できます。
 
-スレーブ1：
+スタンバイ1：
 
 ```text
 % psql blog
@@ -390,15 +400,15 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (1 row)
 ```
 
-`pg_basebacup`以降にマスターで追加したデータも検索できます。
+`pg_basebacup`以降にプライマリーで追加したデータも検索できます。
 
-マスター：
+プライマリー：
 
 ```sql
 INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL supports generic WAL since 9.6. It is required for replication for PGroonga.');
 ```
 
-スレーブ1：
+スタンバイ1：
 
 ```sql
 SELECT title FROM entries WHERE title %% 'replication';
@@ -409,7 +419,7 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (2 rows)
 ```
 
-スレーブ2：
+スタンバイ2：
 
 ```text
 % psql blog
@@ -434,14 +444,11 @@ SELECT title FROM entries WHERE title %% 'replication';
 
 [postgresql-max-wal-senders]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS
 
+[enable-wal]:parameters/enable-wal.html
+[max-wal-size]:parameters/max-wal-size.html
+
+[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
+
+[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES
+
 [postgresql-hot-standby]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html#GUC-HOT-STANDBY
-
-[debian-stretch]:../install/debian.html#install-on-stretch
-
-[ubuntu]:../install/ubuntu.html
-
-[centos-6]:../install/centos.html#install-on-6
-
-[centos-7]:../install/centos.html#install-on-7
-
-[windows]:../install/windows.html

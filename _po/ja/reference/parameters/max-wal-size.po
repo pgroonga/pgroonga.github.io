@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga.max_wal_size parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga.max_wal_sizeパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga.max_wal_size` parameter"
+msgstr "# `pgroonga.max_wal_size`パラメーター"
+
+msgid "Since 2.3.3."
+msgstr "2.3.3で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid "`pgroonga.max_wal_size` parameter controls the max PGroonga's WAL size."
+msgstr "`pgroonga.max_wal_size`パラメーターはPGroongaのWALの最大サイズを制御します。"
+
+msgid ""
+"You must use `pgroonga.max_wal_size` parameter with [`pgroonga_wal_applier` mo"
+"dule][pgroonga-wal-applier]. You set `pgroonga_max_wal_size` parameter in prim"
+"ary server and enable [`pgroonga_wal_applier` module][pgroonga-wal-applier] in"
+" standby servers."
+msgstr ""
+"`pgroonga_max_wal_size`パラメーターは[`pgroonga_wal_applier`モジュール][pgroonga-wal-appli"
+"er]と一緒に使います。プライマリーサーバーで`pgroonga_max_wal_size`パラメーターを指定して、スタンバイサーバーで[`pgroonga"
+"_wal_applier`モジュール][pgroonga-wal-applier]を有効にします。"
+
+msgid ""
+"`pgroonga.max_wal_size` parameter value must be enough large for ensuring appl"
+"ying WAL on standby servers. If `pgroonga.max_wal_size` parameter value is sma"
+"ll, data on standby servers are broken."
+msgstr ""
+"`pgroonga.max_wal_size`パラメーターの値はスタンバイサーバーでWALを適用できるくらい十分大きくする必要があります。もし、`pgroo"
+"nga.max_wal_size`パラメーターの値が小さいとスタンバイサーバーのデータが壊れます。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In SQL:"
+msgstr "SQLの場合："
+
+msgid ""
+"```sql\n"
+"SET pgroonga.max_wal_size = size;\n"
+"```"
+msgstr ""
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga.max_wal_size = size\n"
+"```"
+msgstr ""
+
+msgid ""
+"`size` is a size value. The default unit is KiB. You can change unit by specif"
+"y suffix such as `MB` for MiB."
+msgstr ""
+"`size`はサイズです。デフォルトの単位はKiBです。サフィックスを指定することで単位を変更できます。たとえば、MiBを使いたい場合は`MB`を指定します"
+"。"
+
+msgid "The default is `0`. It means that no size limit."
+msgstr "デフォルトは`0`です。これはサイズ制限がないということです。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to specify 10 MiB:"
+msgstr "以下は10MiBを指定する例です。"
+
+msgid ""
+"```text\n"
+"pgroonga.max_wal_size = 10MB\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [`pgroonga_wal_applier` module][pgroonga-wal-applier]"
+msgstr "  * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]"
+
+msgid "  * [Streaming replication][streaming-replication]"
+msgstr " * [ストリーミングレプリケーション][streaming-replication]"
+
+msgid "[pgroonga-wal-applier]:../modules/pgroonga-wal-applier.html"
+msgstr ""
+
+msgid "[streaming-replication]:../streaming-replication.html"
+msgstr ""

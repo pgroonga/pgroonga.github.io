@@ -1,19 +1,19 @@
 ---
-title: "pgroonga_wal_applier.naptime parameter"
+title: "pgroonga_wal_applier.naptimeパラメーター"
 upper_level: ../
 ---
 
-# `pgroonga_wal_applier.naptime` parameter
+# `pgroonga_wal_applier.naptime`パラメーター
 
 2.3.3で追加。
 
 ## 概要
 
-`pgroonga_wal_applier.naptime` parameter controls application interval by [`pgroonga_wal_applier` module][pgroonga-wal-applier].
+`pgroonga_wal_applier.naptime`パラメーターは[`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]がWALを適用する間隔を制御します。
 
-The larger value, the larger [`pgroonga.max_wal_size` parameter][max-wal-size] value is required.
+値を大きくするほど[`pgroonga.max_wal_size`パラメーター][max-wal-size]の値も大きくする必要があります。
 
-The smaller value, the more needless CPU load.
+値を小さくするほどムダなCPU実行時間が増えます。
 
 ## 構文
 
@@ -44,3 +44,5 @@ pgroonga_wal_applier.naptime = 10min
 [pgroonga-wal-applier]:../modules/pgroonga-wal-applier.html
 
 [streaming-replication]:../streaming-replication.html
+
+[max-wal-size]:max-wal-size.html

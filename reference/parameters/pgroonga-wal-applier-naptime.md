@@ -9,7 +9,7 @@ Since 2.3.3.
 
 ## Summary
 
-`pgroonga_wal_applier.naptime` parameter controls application interval by [`pgroonga_wal_applier` module][pgroonga-wal-applier].
+`pgroonga_wal_applier.naptime` parameter controls WAL application interval by [`pgroonga_wal_applier` module][pgroonga-wal-applier].
 
 The larger value, the larger [`pgroonga.max_wal_size` parameter][max-wal-size] value is required.
 
@@ -44,3 +44,5 @@ pgroonga_wal_applier.naptime = 10min
 [pgroonga-wal-applier]:../modules/pgroonga-wal-applier.html
 
 [streaming-replication]:../streaming-replication.html
+
+[max-wal-size]:max-wal-size.html

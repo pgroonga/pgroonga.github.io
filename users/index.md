@@ -6,11 +6,11 @@ title: Users
 
 Here are PGroonga users.
 
-## Zulip
+## Zulip {#zulip}
 
 [Zulip](https://zulip.org/) is a powerful open source group chat. It uses PGroonga to implement all languages support full text search. Because [PostgreSQL built-in full text search feature]({{ site.postgresql_doc_base_url.en }}/textsearch.html) supports only one language at the same time. PGroonga can support all languages at the same time.
 
-## waja
+## waja {#waja}
 
 [waja](https://www.waja.co.jp/) is an EC for fashion items. It uses PGroonga to implement full text search by keywords.
 
@@ -26,7 +26,7 @@ PGroonga also supports query expansion and auto complete. Their precision can be
 
 See also [the blog post by the developer](https://www.waja.co.jp/corp/6359). (Japanese)
 
-## Web portfolio search at Top Studio
+## Web portfolio search at Top Studio {#topstudio}
 
 Our company, [Top Studio Corporation](https://www.topstudio.co.jp/), is a production company working mainly for the publisher's production like translation, writing, editing, proof reading, design, digital publishing, and etc.
 

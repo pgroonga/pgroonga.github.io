@@ -6,11 +6,11 @@ title: ユーザー
 
 以下はPGroongaユーザーです。
 
-## Zulip
+## Zulip {#zulip}
 
 [Zulip](https://zulip.org/)はパワフルなオープンソースのグループチャットアプリケーションです。全言語対応の全文検索機能を実現するためにPGroongaを使っています。なぜなら、[PostgreSQL組み込みの全文検索機能]({{ site.postgresql_doc_base_url.ja }}/textsearch.html)は同時に1つの言語しかサポートできないからです。PGroongaは同時にすべての言語をサポートできます。
 
-## waja
+## waja {#waja}
 
 ECサイト[waja](https://www.waja.co.jp/)のキーワード検索エンジンに採用しました。
 
@@ -26,7 +26,7 @@ PGroongaを採用した主な理由は次の通りです。
 
 [開発者のブログ](https://www.waja.co.jp/corp/6359)も読んでみてください。
 
-## トップスタジオの実績紹介検索
+## トップスタジオの実績紹介検索 {#topstudio}
 
 当社[株式会社トップスタジオ](https://www.topstudio.co.jp/)は、各出版社さまの刊行物の制作（翻訳・執筆・編集・校閲・デザイン・DTPなど）をお手伝いする制作プロダクションです。
 

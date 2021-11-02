@@ -22,7 +22,7 @@ msgstr "# ユーザー"
 msgid "Here are PGroonga users."
 msgstr "以下はPGroongaユーザーです。"
 
-msgid "## Zulip"
+msgid "## Zulip {#zulip}"
 msgstr ""
 
 msgid ""
@@ -36,7 +36,7 @@ msgstr ""
 "めにPGroongaを使っています。なぜなら、[PostgreSQL組み込みの全文検索機能]({{ site.postgresql_doc_base_url"
 ".ja }}/textsearch.html)は同時に1つの言語しかサポートできないからです。PGroongaは同時にすべての言語をサポートできます。"
 
-msgid "## waja"
+msgid "## waja {#waja}"
 msgstr ""
 
 msgid ""
@@ -68,8 +68,8 @@ msgid ""
 "Japanese)"
 msgstr "[開発者のブログ](https://www.waja.co.jp/corp/6359)も読んでみてください。"
 
-msgid "## Web portfolio search at Top Studio"
-msgstr "## トップスタジオの実績紹介検索"
+msgid "## Web portfolio search at Top Studio {#topstudio}"
+msgstr "## トップスタジオの実績紹介検索 {#topstudio}"
 
 msgid ""
 "Our company, [Top Studio Corporation](https://www.topstudio.co.jp/), is a prod"

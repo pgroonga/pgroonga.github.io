@@ -21,7 +21,7 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.3.3: 2021-10-29 {#version-2-3-3}"
+msgid "## 2.3.3: 2021-11-05 {#version-2-3-3}"
 msgstr ""
 
 msgid "### Improvements"

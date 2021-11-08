@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 2.3.3: 2021-10-29 {#version-2-3-3}
+## 2.3.3: 2021-11-05 {#version-2-3-3}
 
 ### Improvements
 

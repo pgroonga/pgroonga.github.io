@@ -21,6 +21,15 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.3.4: 2021-11-09 {#version-2-3-4}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "  * Fixed a crash bug when we execute `EXPLAIN ANALYZE` on sequential search."
+msgstr ""
+
 msgid "## 2.3.3: 2021-11-05 {#version-2-3-3}"
 msgstr ""
 
@@ -101,9 +110,6 @@ msgstr ""
 
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.04."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [[`pgroonga_highlight_html` function][highlight-html]]\n"

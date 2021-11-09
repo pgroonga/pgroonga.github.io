@@ -5,6 +5,12 @@ upper_level: ../
 
 # おしらせ
 
+## 2.3.4: 2021-11-09 {#version-2-3-4}
+
+### 修正
+
+  * Fixed a crash bug when we execute `EXPLAIN ANALYZE` on sequential search.
+
 ## 2.3.3: 2021-11-05 {#version-2-3-3}
 
 ### 改良

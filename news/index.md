@@ -7,6 +7,10 @@ upper_level: ../
 
 ## 2.3.4: 2021-11-09 {#version-2-3-4}
 
+### Improvements
+
+  * [[AlmaLinux][almalinux]] Added support for AlmaLinux 8.
+
 ### Fixes
 
   * Fixed a crash bug when we execute `EXPLAIN ANALYZE` on sequential search.
@@ -1492,6 +1496,7 @@ CREATE EXTENSION pgroonga;
 The first release!!!
 
 [centos]:../install/centos.html
+[almalinux]:../install/almalinux.html
 [debian]:../install/debian.html
 [ubuntu]:../install/ubuntu.html
 [windows]:../install/windows.html

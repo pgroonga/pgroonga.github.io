@@ -24,6 +24,12 @@ msgstr "# おしらせ"
 msgid "## 2.3.4: 2021-11-09 {#version-2-3-4}"
 msgstr ""
 
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * [[AlmaLinux][almalinux]] Added support for AlmaLinux 8."
+msgstr ""
+
 msgid "### Fixes"
 msgstr "### 修正"
 
@@ -32,9 +38,6 @@ msgstr ""
 
 msgid "## 2.3.3: 2021-11-05 {#version-2-3-3}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * Added support for [row level security][postgresql-row-level-security]."
 msgstr ""
@@ -2058,6 +2061,7 @@ msgstr ""
 
 msgid ""
 "[centos]:../install/centos.html\n"
+"[almalinux]:../install/almalinux.html\n"
 "[debian]:../install/debian.html\n"
 "[ubuntu]:../install/ubuntu.html\n"
 "[windows]:../install/windows.html"

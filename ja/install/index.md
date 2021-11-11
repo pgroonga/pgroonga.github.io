@@ -40,6 +40,10 @@ upper_level: ../
 
     * 8
 
+  * [AlmaLinux](almalinux.html)
+
+    * 8
+
   * [Amazon Linux](amazon-linux.html)
 
     * 2

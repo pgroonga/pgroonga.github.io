@@ -1,0 +1,112 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: Install on AlmaLinux\n"
+"---"
+msgstr ""
+
+msgid "# Install on AlmaLinux"
+msgstr "# AlmaLinuxにインストール"
+
+msgid "This document describes how to install PGroonga on AlmaLinux."
+msgstr "このドキュメントは、PGroongaをAlmaLinuxにインストールする方法を説明します。"
+
+msgid "## Supported versions"
+msgstr "## サポートしているバージョン"
+
+msgid "Here are supported AlmaLinux versions:"
+msgstr "サポートしているバージョンは次の通りです。"
+
+msgid "  * [AlmaLinux 8](#install-on-8)"
+msgstr ""
+
+msgid "## How to install on AlmaLinux 8 {#install-on-8}"
+msgstr "## AlmaLinux 8にインストールする方法 {#install-on-8}"
+
+msgid "You can use the following instruction to install PGroonga on AlmaLinux 8."
+msgstr "AlmaLinux 8にPGroongaをインストールする方法は次の通りです。"
+
+msgid "Install `postgresql-pgroonga` package:"
+msgstr "`postgresql-pgroonga`パッケージをインストールします。"
+
+msgid ""
+"```console\n"
+"$ sudo -H dnf module -y disable postgresql\n"
+"$ sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpm"
+"s/EL-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)-$(arch)/pgdg-redhat-"
+"repo-latest.noarch.rpm\n"
+"$ sudo -H dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-la"
+"test-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1).noarch.rpm\n"
+"$ sudo -H dnf config-manager --set-enabled powertools || :\n"
+"$ sudo -H dnf install -y https://packages.groonga.org/centos/groonga-release-l"
+"atest.noarch.rpm\n"
+"$ sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgdg-p"
+"groonga\n"
+"```"
+msgstr ""
+
+msgid ""
+"If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, y"
+"ou also need to install `groonga-tokenizer-mecab` package:"
+msgstr ""
+"[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer"
+"-mecab`パッケージもインストールする必要があります。"
+
+msgid ""
+"```console\n"
+"$ sudo -H dnf install -y groonga-tokenizer-mecab\n"
+"```"
+msgstr ""
+
+msgid "Run PostgreSQL:"
+msgstr "PostgreSQLを実行します。"
+
+msgid ""
+"```console\n"
+"$ sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ si"
+"te.latest_postgresql_version }}-setup initdb\n"
+"$ sudo -H systemctl enable --now postgresql-{{ site.latest_postgresql_version "
+"}}\n"
+"```"
+msgstr ""
+
+msgid "Create a database:"
+msgstr "データベースを作成します。"
+
+msgid ""
+"```console\n"
+"$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'\n"
+"```"
+msgstr ""
+
+msgid ""
+"(Normally, you should create a user for `pgroonga_test` database and use the u"
+"ser. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema"
+"-pgroonga.html) for details.)"
+msgstr ""
+"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pg"
+"roonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）"
+
+msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+msgstr "作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。"
+
+msgid ""
+"```console\n"
+"$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroon"
+"ga'\n"
+"```"
+msgstr ""
+
+msgid "That's all!"
+msgstr "これで終わりです！"
+
+msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"

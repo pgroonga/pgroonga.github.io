@@ -24,10 +24,8 @@ msgstr "PGroongaは2.3.3からクラッシュセーフ機能に対応してい�
 
 msgid ""
 "This is still an experimental feature. If you find a problem, please report it"
-" to https://github.com/pgroonga/pgrgoonga/issues ."
-msgstr ""
-"この機能はまだ実験的です。もし問題を見つけたら https://github.com/pgroonga/pgrgoonga/issues に報告してください"
-"。"
+" to [PGroonga Issues][pgroonga-issues]."
+msgstr "この機能はまだ実験的です。もし問題を見つけたら [PGroonga Issues][pgroonga-issues] に報告してください。"
 
 msgid "This document describes the followings:"
 msgstr "このドキュメントは次のことを説明します。"
@@ -179,4 +177,7 @@ msgstr ""
 msgid ""
 "[pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-nap"
 "time.html"
+msgstr ""
+
+msgid "[pgroonga-issues]:https://github.com/pgroonga/pgroonga/issues"
 msgstr ""

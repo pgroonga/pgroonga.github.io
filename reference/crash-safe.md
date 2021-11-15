@@ -6,7 +6,7 @@ title: Crash safe
 
 PGroonga supports crash safe feature since 2.3.3.
 
-This is still an experimental feature. If you find a problem, please report it to https://github.com/pgroonga/pgrgoonga/issues .
+This is still an experimental feature. If you find a problem, please report it to [PGroonga Issues][pgroonga-issues].
 
 This document describes the followings:
 
@@ -67,3 +67,5 @@ Groonga's WAL files are moved when periodical flush by primary process. So Groon
 [postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
+
+[pgroonga-issues]:https://github.com/pgroonga/pgroonga/issues

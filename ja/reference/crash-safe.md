@@ -6,7 +6,7 @@ title: クラッシュセーフ
 
 PGroongaは2.3.3からクラッシュセーフ機能に対応しています。
 
-この機能はまだ実験的です。もし問題を見つけたら https://github.com/pgroonga/pgrgoonga/issues に報告してください。
+この機能はまだ実験的です。もし問題を見つけたら [PGroonga Issues][pgroonga-issues] に報告してください。
 
 このドキュメントは次のことを説明します。
 
@@ -67,3 +67,5 @@ PGroongaの機能を使う接続用のプロセスを「セカンダリープロ
 [postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
+
+[pgroonga-issues]:https://github.com/pgroonga/pgroonga/issues

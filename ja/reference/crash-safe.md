@@ -20,7 +20,7 @@ PGroonga用のクラッシュセーフ機能はGroongaのクラッシュセー�
 
 メリット：
 
-  * PostgreSQLのプロセスがクラッシュしたとき、PGroonga'sのインデックスが自動で復旧する
+  * PostgreSQLのプロセスがクラッシュしたとき、PGroongaのインデックスが自動で復旧する
 
     * 手動で[`REINDEX`][postgresql-reindex]を実行する必要はない
 

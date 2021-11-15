@@ -52,7 +52,7 @@ msgstr "メリット："
 msgid ""
 "  * PGroonga's indexes are recovered automatically when a PostgreSQL process i"
 "s crashed"
-msgstr "  * PostgreSQLのプロセスがクラッシュしたとき、PGroonga'sのインデックスが自動で復旧する"
+msgstr "  * PostgreSQLのプロセスがクラッシュしたとき、PGroongaのインデックスが自動で復旧する"
 
 msgid "    * You don't need to execute [`REINDEX`][postgresql-reindex] manually"
 msgstr "    * 手動で[`REINDEX`][postgresql-reindex]を実行する必要はない"

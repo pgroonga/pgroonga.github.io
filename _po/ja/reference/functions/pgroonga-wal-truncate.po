@@ -56,6 +56,13 @@ msgid ""
 "d at the next `VACUUM`."
 msgstr "  2. 定期的にPGroongaのインデックスを再作成する。PGroongaのWALは次の`VACUUM`時に削除される。"
 
+msgid ""
+"  3. Configure [`pgroonga_wal_applier` module][wal-applier] and [`pgroonga.max"
+"_wal_size` parameter][max-wal-size]."
+msgstr ""
+"  3. [`pgroonga_wal_applier`モジュール][wal-applier]と[`pgroonga.max_wal_size`パラメーター"
+"][max-wal-size]を設定する。"
+
 msgid "## Syntax"
 msgstr "## 構文"
 
@@ -289,6 +296,12 @@ msgstr "  * [`pgroonga_wal_apply`関数][wal-apply]"
 
 msgid "  * [`pgroonga_set_writable` function][set-writable]"
 msgstr "  * [`pgroonga_set_writable`関数][set-writable]"
+
+msgid "[wal-applier]:../modules/pgroonga-wal-applier.html"
+msgstr ""
+
+msgid "[max-wal-size]:../parameters/max-wal-size.html"
+msgstr ""
 
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""

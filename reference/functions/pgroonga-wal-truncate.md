@@ -17,6 +17,8 @@ If you use PGroonga's WAL, you should consider about disk usage of PGroonga's WA
 
   2. You recreate PGroonga indexes periodically. PGroonga's WAL will be deleted at the next `VACUUM`.
 
+  3. Configure [`pgroonga_wal_applier` module][wal-applier] and [`pgroonga.max_wal_size` parameter][max-wal-size].
+
 ## Syntax
 
 Here is the syntax of this function:
@@ -174,6 +176,10 @@ systemctl restart postgresql-10
   * [`pgroonga_wal_apply` function][wal-apply]
 
   * [`pgroonga_set_writable` function][set-writable]
+
+[wal-applier]:../modules/pgroonga-wal-applier.html
+
+[max-wal-size]:../parameters/max-wal-size.html
 
 [enable-wal]:../parameters/enable-wal.html
 

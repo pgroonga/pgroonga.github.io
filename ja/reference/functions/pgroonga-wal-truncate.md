@@ -17,6 +17,8 @@ PGroongaのWALを使う場合、PGroongaのWALのディスク使用量につい�
 
   2. 定期的にPGroongaのインデックスを再作成する。PGroongaのWALは次の`VACUUM`時に削除される。
 
+  3. [`pgroonga_wal_applier`モジュール][wal-applier]と[`pgroonga.max_wal_size`パラメーター][max-wal-size]を設定する。
+
 ## 構文
 
 この関数の構文は次の通りです。
@@ -174,6 +176,10 @@ systemctl restart postgresql-10
   * [`pgroonga_wal_apply`関数][wal-apply]
 
   * [`pgroonga_set_writable`関数][set-writable]
+
+[wal-applier]:../modules/pgroonga-wal-applier.html
+
+[max-wal-size]:../parameters/max-wal-size.html
 
 [enable-wal]:../parameters/enable-wal.html
 

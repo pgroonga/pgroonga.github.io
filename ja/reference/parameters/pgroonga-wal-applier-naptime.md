@@ -20,7 +20,7 @@ upper_level: ../
 `postgresql.conf`の場合：
 
 ```text
-pgroonga_wal_applier.naptime = internval
+pgroonga_wal_applier.naptime = interval
 ```
 
 `interval`のデフォルトの単位は秒です。分にしたい場合は`min`といった具合にサフィックスを指定すると単位を変えることができます。

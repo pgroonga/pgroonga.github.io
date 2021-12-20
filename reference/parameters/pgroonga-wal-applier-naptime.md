@@ -20,7 +20,7 @@ The smaller value, the more needless CPU load.
 In `postgresql.conf`:
 
 ```text
-pgroonga_wal_applier.naptime = internval
+pgroonga_wal_applier.naptime = interval
 ```
 
 `interval`'s default unit is second. You can change unit by specify suffix such as `min` for minutes.

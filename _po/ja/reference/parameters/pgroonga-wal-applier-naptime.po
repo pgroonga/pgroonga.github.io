@@ -50,7 +50,7 @@ msgstr "`postgresql.conf`の場合："
 
 msgid ""
 "```text\n"
-"pgroonga_wal_applier.naptime = internval\n"
+"pgroonga_wal_applier.naptime = interval\n"
 "```"
 msgstr ""
 

@@ -85,6 +85,9 @@ msgid ""
 "for the case."
 msgstr "この場合は`pgroonga_varchar_full_text_search_ops_v2`オペレータークラスを指定する必要があります。"
 
+msgid "You can also use `INCLUDE` since 2.3.5."
+msgstr "2.3.5から`INCLUDE`も使えます。"
+
 msgid "### Customization {#customization}"
 msgstr "### カスタマイズ {#customization}"
 

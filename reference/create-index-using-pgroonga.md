@@ -36,6 +36,8 @@ CREATE INDEX ${INDEX_NAME}
 
 You need to specify `pgroonga_varchar_full_text_search_ops_v2` operator class for the case.
 
+You can also use `INCLUDE` since 2.3.5.
+
 ### Customization {#customization}
 
 You can customize the followings by `WITH` option of `CREATE INDEX`:

@@ -18,7 +18,7 @@ title: CentOSにインストール
 
 CentOS 7にPGroongaをインストールする方法は次の通りです。
 
-`postgresql-pgroonga`パッケージをインストールします。
+`postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga`パッケージをインストールします。
 
 ```console
 $ sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm

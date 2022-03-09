@@ -16,7 +16,7 @@ title: Install on AlmaLinux
 
 AlmaLinux 8にPGroongaをインストールする方法は次の通りです。
 
-`postgresql-pgroonga`パッケージをインストールします。
+`postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga`パッケージをインストールします。
 
 ```console
 $ sudo -H dnf module -y disable postgresql

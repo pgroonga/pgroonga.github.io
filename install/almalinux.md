@@ -16,7 +16,7 @@ Here are supported AlmaLinux versions:
 
 You can use the following instruction to install PGroonga on AlmaLinux 8.
 
-Install `postgresql-pgroonga` package:
+Install `postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga` package:
 
 ```console
 $ sudo -H dnf module -y disable postgresql

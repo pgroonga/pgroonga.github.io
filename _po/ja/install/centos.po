@@ -40,8 +40,10 @@ msgstr "## CentOS 7にインストールする方法 {#install-on-7}"
 msgid "You can use the following instruction to install PGroonga on CentOS 7."
 msgstr "CentOS 7にPGroongaをインストールする方法は次の通りです。"
 
-msgid "Install `postgresql-pgroonga` package:"
-msgstr "`postgresql-pgroonga`パッケージをインストールします。"
+msgid ""
+"Install `postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga` package"
+":"
+msgstr "`postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga`パッケージをインストールします。"
 
 msgid ""
 "```console\n"

@@ -13,10 +13,8 @@ windows_postgresql_versions:
   - 13
   - 14
 latest_postgresql_version: 14
+latest_amazon_linux_postgresql_version: 13
 freebsd_postgresql_version: 14
-amazon_linux_postgresql_version:
-  major: 10
-  package: 10.9-1PGDG
 development_postgresql_version: 14.0
 exclude:
   - "Rakefile"

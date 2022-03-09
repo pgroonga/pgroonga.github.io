@@ -16,36 +16,13 @@ title: Amazon Linux にインストール
 
 Amazon Linux 2にPGroongaをインストールする方法は次の通りです。
 
-`postgresql{{ site.amazon_linux_postgresql_version.major }}`パッケージをインストールします。
-
-PostgreSQLはAmazon Linux用のパッケージを提供していないため、PostgreSQLのYumリポジトリは使用できません。
-
-したがって、以下のようにPostgreSQLの`.repo`ファイルを変更します。
+`postgresql{{ site.latest_amazon_linux_postgresql_version.major }}`パッケージをインストールします。
 
 ```console
-$ wget https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-$ sudo rpm -Uvh --nodeps pgdg-redhat-repo-latest.noarch.rpm
-$ sudo sed --in-place -e "s/\$releasever/7/g" /etc/yum.repos.d/pgdg-redhat-all.repo
-```
-
-`postgresql{{ site.amazon_linux_postgresql_version.major }}-pgroonga`パッケージをインストールします。
-
-以下のようにEPELリポジトリを有効にします。
-
-```console
-$ sudo -H yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-```
-
-Groonga用のyumリポジトリをインストールします。
-
-```console
-$ sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
-```
-
-PGroongaをインストールします。
-
-```console
-$ sudo -H yum install -y postgresql{{ site.amazon_linux_postgresql_version.major }}-pgroonga
+$ sudo -H amazon-linux-extras install -y epel postgresql{{ site.latest_amazon_linux_postgresql_version }}
+$ sudo -H yum install -y ca-certificates
+$ sudo -H yum install -y https://packages.groonga.org/amazon-linux/2/groonga-release-latest.noarch.rpm
+$ sudo -H yum install -y postgresql{{ site.latest_amazon_linux_postgresql_version }}-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -57,9 +34,8 @@ $ sudo -H yum install -y groonga-tokenizer-mecab
 PostgreSQLを実行します。
 
 ```console
-$ sudo -H /usr/pgsql-{{ site.amazon_linux_postgresql_version.major }}/bin/postgresql-{{ site.amazon_linux_postgresql_version.major }}-setup initdb
-$ sudo -H systemctl enable postgresql-{{ site.amazon_linux_postgresql_version.major }}
-$ sudo -H systemctl start postgresql-{{ site.amazon_linux_postgresql_version.major }}
+$ sudo -H postgresql-setup initdb
+$ sudo -H systemctl enable --now postgresql
 ```
 
 データベースを作成します。

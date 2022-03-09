@@ -21,17 +21,70 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.3.4: 2021-11-09 {#version-2-3-4}"
+msgid "## 2.3.5: 2022-03-09 {#version-2-3-5}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
 
-msgid "  * [[AlmaLinux][almalinux]] Added support for AlmaLinux 8."
+msgid "  * [[CentOS][centos]] Dropped support for CentOS 8."
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 15."
+msgstr ""
+
+msgid "  * [[Crash safe][crash-safe]] Improved performance."
+msgstr ""
+
+msgid "  * Added support for parallel vacuum."
+msgstr ""
+
+msgid "  * Added support for `INCLUDE` in `CREATE INDEX`."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_text_term_search_ops_v2` operator class][text-term-search-ops-"
+"v2]] Ignored empty terms with warning.\n"
+"    [Gitter#6204a9bfced11857f9a1852d](https://gitter.im/groonga/en?at=6204a9bf"
+"ced11857f9a1852d)[Reported by Zhanzhao (Deo) Liang]"
+msgstr ""
+
+msgid ""
+"  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]\n"
+"    Added support for logging backtrace on crash."
+msgstr ""
+
+msgid ""
+"  * [[Amazon Linux][amazon-linux]] Changed to use PostgreSQL package provided "
+"by Amazon Linux not PostgreSQL."
+msgstr ""
+
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 12.0.1."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 21.04."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.10."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid "  * Fixed a bug that index only scan may return `NULL` unexpectedly."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Zhanzhao (Deo) Liang"
+msgstr ""
+
+msgid "## 2.3.4: 2021-11-09 {#version-2-3-4}"
+msgstr ""
+
+msgid "  * [[AlmaLinux][almalinux]] Added support for AlmaLinux 8."
+msgstr ""
 
 msgid "  * Fixed a crash bug when we execute `EXPLAIN ANALYZE` on sequential search."
 msgstr ""
@@ -168,9 +221,6 @@ msgstr ""
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.5."
 msgstr ""
 
-msgid "### Thanks"
-msgstr "### 感謝"
-
 msgid "  * Tim Abbott"
 msgstr ""
 
@@ -294,9 +344,6 @@ msgid ""
 "  * [[Ubuntu][ubuntu]], [[Debian][debian]] Fixed a bug that WAL\n"
 "    support was disabled. [GitHub#144][Reported by DeoLeung and\n"
 "    zyp-rgb]"
-msgstr ""
-
-msgid "  * Zhanzhao (Deo) Liang"
 msgstr ""
 
 msgid "  * zyp-rgb"
@@ -2062,6 +2109,7 @@ msgstr ""
 msgid ""
 "[centos]:../install/centos.html\n"
 "[almalinux]:../install/almalinux.html\n"
+"[amazon-linux]:../install/amazon-linux.html\n"
 "[debian]:../install/debian.html\n"
 "[ubuntu]:../install/ubuntu.html\n"
 "[windows]:../install/windows.html"

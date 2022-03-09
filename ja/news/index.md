@@ -5,6 +5,44 @@ upper_level: ../
 
 # おしらせ
 
+## 2.3.5: 2022-03-09 {#version-2-3-5}
+
+### 改良
+
+  * [[CentOS][centos]] Dropped support for CentOS 8.
+
+  * Added support for PostgreSQL 15.
+
+  * [[Crash safe][crash-safe]] Improved performance.
+
+  * Added support for parallel vacuum.
+
+  * Added support for `INCLUDE` in `CREATE INDEX`.
+
+  * Added support for `INCLUDE` in `CREATE INDEX`.
+
+  * [[`pgroonga_text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Ignored empty terms with warning.
+    [Gitter#6204a9bfced11857f9a1852d](https://gitter.im/groonga/en?at=6204a9bfced11857f9a1852d)[Reported by Zhanzhao (Deo) Liang]
+
+  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]
+    Added support for logging backtrace on crash.
+
+  * [[Amazon Linux][amazon-linux]] Changed to use PostgreSQL package provided by Amazon Linux not PostgreSQL.
+
+  * [[Windows][windows]] Upgraded bundled Groonga to 12.0.1.
+
+  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 21.04.
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.10.
+
+### 修正
+
+  * Fixed a bug that index only scan may return `NULL` unexpectedly.
+
+### 感謝
+
+  * Zhanzhao (Deo) Liang
+
 ## 2.3.4: 2021-11-09 {#version-2-3-4}
 
 ### 改良
@@ -1497,6 +1535,7 @@ The first release!!!
 
 [centos]:../install/centos.html
 [almalinux]:../install/almalinux.html
+[amazon-linux]:../install/amazon-linux.html
 [debian]:../install/debian.html
 [ubuntu]:../install/ubuntu.html
 [windows]:../install/windows.html

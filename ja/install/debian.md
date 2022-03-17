@@ -89,11 +89,11 @@ $ echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" | sudo 
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ```
 
-`postgresql-14-pgroonga`または`postgresql-*-pgdg-pgroonga`パッケージをインストールします。
+`postgresql-*-pgdg-pgroonga`パッケージをインストールします。
 
 ```console
 $ sudo apt update
-$ sudo apt install -y -V postgresql-14-pgroonga
+$ sudo apt install -y -V postgresql-14-pgdg-pgroonga
 Or
 $ sudo apt install -y -V postgresql-12-pgdg-pgroonga
 Or

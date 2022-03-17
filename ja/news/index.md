@@ -5,6 +5,18 @@ upper_level: ../
 
 # おしらせ
 
+## 2.3.6: 2022-03-17 {#version-2-3-6}
+
+  * [[Crash safe][crash-safe]] Improved reindex order.
+
+    * PGroonga also became able to reindex against indexes that have dependencies by this improvement.
+
+  * Added support for PostgreSQL 12.5.
+
+### 修正
+
+  * [[Crash safe][crash-safe]] Fixed a bug that `REINDEX` failed even if `REINDEX` succeed actually.
+
 ## 2.3.5: 2022-03-09 {#version-2-3-5}
 
 ### 改良

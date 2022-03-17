@@ -21,6 +21,28 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.3.6: 2022-03-17 {#version-2-3-6}"
+msgstr ""
+
+msgid "  * [[Crash safe][crash-safe]] Improved reindex order."
+msgstr ""
+
+msgid ""
+"    * PGroonga also became able to reindex against indexes that have dependenc"
+"ies by this improvement."
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 12.5."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * [[Crash safe][crash-safe]] Fixed a bug that `REINDEX` failed even if `REIN"
+"DEX` succeed actually."
+msgstr ""
+
 msgid "## 2.3.5: 2022-03-09 {#version-2-3-5}"
 msgstr ""
 
@@ -67,9 +89,6 @@ msgstr ""
 
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.10."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid "  * Fixed a bug that index only scan may return `NULL` unexpectedly."
 msgstr ""

@@ -21,6 +21,15 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.3.7: 2022-06-07 {#version-2-3-7}"
+msgstr ""
+
+msgid "  * Add support for `pg_stat_progress_create_index`."
+msgstr ""
+
+msgid "    We can get the progress for creating an index of PGroonga."
+msgstr ""
+
 msgid "## 2.3.6: 2022-03-17 {#version-2-3-6}"
 msgstr ""
 

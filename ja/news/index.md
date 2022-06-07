@@ -5,6 +5,12 @@ upper_level: ../
 
 # おしらせ
 
+## 2.3.7: 2022-06-07 {#version-2-3-7}
+
+  * Add support for `pg_stat_progress_create_index`.
+
+    We can get the progress for creating an index of PGroonga.
+
 ## 2.3.6: 2022-03-17 {#version-2-3-6}
 
   * [[Crash safe][crash-safe]] Improved reindex order.

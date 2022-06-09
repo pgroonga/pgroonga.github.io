@@ -11,6 +11,10 @@ upper_level: ../
 
     We can get the progress for creating an index of PGroonga.
 
+  * [[Windows][windows]] Upgraded bundled Groonga to 12.0.4.
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 22.04.
+
 ## 2.3.6: 2022-03-17 {#version-2-3-6}
 
   * [[Crash safe][crash-safe]] Improved reindex order.

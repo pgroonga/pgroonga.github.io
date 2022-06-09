@@ -30,6 +30,12 @@ msgstr ""
 msgid "    We can get the progress for creating an index of PGroonga."
 msgstr ""
 
+msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 12.0.4."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 22.04."
+msgstr ""
+
 msgid "## 2.3.6: 2022-03-17 {#version-2-3-6}"
 msgstr ""
 

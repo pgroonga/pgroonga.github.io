@@ -129,6 +129,63 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 -- (1 row)
 ```
 
+### 同義語を使った検索の応用例
+
+人名テーブルの中から同じ読み方で漢字の異なる人を探すサンプルです。（例：斉藤, 齊藤, 斎藤, 齋藤）
+
+サンプルとなるスキーマとデータは次の通りです。
+
+- 人名テーブル
+
+```sql
+CREATE TABLE names (
+  name varchar(255)
+);
+
+CREATE INDEX pgroonga_names_index
+          ON names
+       USING pgroonga (name pgroonga_varchar_full_text_search_ops_v2);
+
+INSERT INTO names
+  (name)
+  VALUES ('斉藤'),('齊藤'),('斎藤'),('鈴木'),('田中'),('佐藤');
+```
+
+- 同義語テーブル
+
+```sql
+CREATE TABLE synonym_groups (
+  synonyms text[]
+);
+
+CREATE INDEX synonym_groups_synonyms
+          ON synonym_groups
+       USING pgroonga (synonyms pgroonga_text_array_term_search_ops_v2);
+
+INSERT INTO synonym_groups
+  VALUES (ARRAY['斉藤', '齊藤', '斎藤', '齋藤']);
+```
+
+このサンプルでは「斉藤」で検索することでnamesテーブル内データの`"斉藤"`も`"齊藤"`も`"斎藤"`もすべて展開されます。検索対象のカラムがtext型の場合は不要ですが、今回のように対象カラムにvarchar型が含まれている時は検索結果向上のために pgroonga_query_expand::varchar を使用してください。
+
+```sql
+SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
+                             '斉藤') AS query_expand;
+--              query_expand             
+-- --------------------------------------
+--   ((斉藤) OR (齊藤) OR (斎藤) OR (齋藤))
+-- (1 row)
+
+SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
+                             'synonym_groups', 'synonyms', 'synonyms','斉藤')::varchar;
+--  synonym_names             
+-- -----------------
+--      斉藤
+--      齊藤
+--      斎藤
+--(3 rows)
+```
+
 ## 参考
 
   * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索

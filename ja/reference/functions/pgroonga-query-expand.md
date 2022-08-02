@@ -151,7 +151,7 @@ INSERT INTO names
   VALUES ('斉藤'),('齊藤'),('斎藤'),('鈴木'),('田中'),('佐藤');
 ```
 
-- 同義語テーブル
+#### 同義語テーブル
 
 ```sql
 CREATE TABLE synonym_groups (

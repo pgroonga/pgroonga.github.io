@@ -135,7 +135,7 @@ Sometimes you may want to search similar names like (Timothy or Tim), (William o
 
 Here are sample schema and data for solving this problem using Synonym groups.
 
-- Name Table
+#### Name Table
 
 ```sql
 CREATE TABLE names (

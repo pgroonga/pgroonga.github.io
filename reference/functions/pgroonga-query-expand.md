@@ -129,6 +129,64 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 -- (1 row)
 ```
 
+### Practical Example Using Synonym groups
+
+Sometimes you may want to search similar names like (Timothy or Tim), (William or Bill), (Stephen, Steven or Steve).
+
+Here are sample schema and data for solving this problem using Synonym groups.
+
+- Name Table
+
+```sql
+CREATE TABLE names (
+  name varchar(255)
+);
+
+CREATE INDEX pgroonga_names_index
+          ON names
+       USING pgroonga (name pgroonga_varchar_full_text_search_ops_v2);
+
+INSERT INTO names
+  (name)
+  VALUES ('William Gates'),('Steven Paul Jobs'),('Timothy Donald Cook');
+```
+
+- Synonym groups Table
+
+```sql
+CREATE TABLE synonym_groups (
+  synonyms text[]
+);
+
+CREATE INDEX synonym_groups_synonyms
+          ON synonym_groups
+       USING pgroonga (synonyms pgroonga_text_array_term_search_ops_v2);
+
+INSERT INTO synonym_groups
+  VALUES (ARRAY['Stephen', 'Steven', 'Steve']);
+```
+
+When you search "Steve" in this example, all of `"Stephen"`, `"Steven"` and `"Steve"` in query are expanded because PGroonga index is used.
+
+```sql
+SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
+                             'Steve') AS query_expand;
+--              query_expand             
+-- --------------------------------------
+--   ((Stephen) OR (Steven) OR (Steve))
+-- (1 row)
+
+SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
+                             'synonym_groups', 'synonyms', 'synonyms','Steve')::varchar;
+--   synonym_names              
+-- -----------------
+--  Steven Paul Jobs
+--(1 rows)
+```
+
+Note: If you search multiple columns with not only text charactor type but also varchar character type, make sure you use pgroonga_query_expand::varchar like example above in order to gain some performance boost.
+
+
 ## See also
 
   * [`&@~` operator][query-v2]: Full text search by easy to use query language

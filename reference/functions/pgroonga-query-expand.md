@@ -151,7 +151,7 @@ INSERT INTO names
   VALUES ('William Gates'),('Steven Paul Jobs'),('Timothy Donald Cook');
 ```
 
-- Synonym groups Table
+#### Synonym groups Table
 
 ```sql
 CREATE TABLE synonym_groups (

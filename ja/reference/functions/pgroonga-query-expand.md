@@ -135,7 +135,7 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 
 サンプルとなるスキーマとデータは次の通りです。
 
-- 人名テーブル
+#### 人名テーブル
 
 ```sql
 CREATE TABLE names (

@@ -166,7 +166,7 @@ INSERT INTO synonym_groups
   VALUES (ARRAY['斉藤', '齊藤', '斎藤', '齋藤']);
 ```
 
-このサンプルでは「斉藤」で検索することでnamesテーブル内データの`"斉藤"`も`"齊藤"`も`"斎藤"`もすべて展開されます。検索対象のカラムがtext型の場合は不要ですが、今回のように対象カラムにvarchar型が含まれている時は検索結果向上のために pgroonga_query_expand::varchar を使用してください。
+このサンプルでは「斉藤」で検索することでnamesテーブル内データの`"斉藤"`も`"齊藤"`も`"斎藤"`もすべて以下のように展開されます。
 
 ```sql
 SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
@@ -175,7 +175,14 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 -- --------------------------------------
 --   ((斉藤) OR (齊藤) OR (斎藤) OR (齋藤))
 -- (1 row)
+```
+この例では、人名テーブルの検索をするので以下のように検索します。
 
+下記の例では、検索対象のカラムが`varchar`型なので、`pgroonga_query_expand(...)::varchar`として`pgroonga_query_expand`の結果を明示的にキャストする必要があります。(`pgroonga_query_expand()`の戻り値の型は`text`型なので、検索対象のカラムが`text`型の場合はキャストは不要です。)
+
+このようにキャストしないと、検索対象のカラムと`pgroonga_query_expand()`の型が異なりシーケンシャルサーチになるため、パフォーマンスが出ません。
+
+```sql
 SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
                              'synonym_groups', 'synonyms', 'synonyms','斉藤')::varchar;
 --  synonym_names             

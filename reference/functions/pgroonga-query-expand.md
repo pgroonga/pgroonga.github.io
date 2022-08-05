@@ -131,7 +131,7 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 
 ### Practical Example Using Synonym groups
 
-Sometimes you may want to search similar names like (Timothy or Tim), (William or Bill), (Stephen, Steven or Steve).
+This is for when you want to search similar names like (Timothy or Tim), (William,Bill or Billy), (Stephen,Steven or Steve).
 
 Here are sample schema and data for solving this problem using Synonym groups.
 

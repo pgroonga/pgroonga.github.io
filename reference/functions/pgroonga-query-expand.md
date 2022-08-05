@@ -182,7 +182,7 @@ An example down below is Name Table Search Example with pgroonga_query_expand.
 
 Note: Name Table "name" column is `varchar` character type, so that you need to specifically type cast `pgroonga_query_expand` as `pgroonga_query_expand(...)::varchar` (BTW return type of `pgroonga_query_expand()` is `text` charactor type. You do not need to type cast `pgroonga_query_expand()` as varchar when you search on `text` charactor columns.)
 
-Witouht type casting, PostgreSQL uses sequential search when your search column type differs from `pgroonga_query_expand()` type so that you may experience some performance issues.
+Without type casting, PostgreSQL uses sequential search when your search column type differs from `pgroonga_query_expand()` type so that you may experience some performance issues.
 
 ```sql
 SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(

@@ -180,7 +180,7 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 
 An example down below is Name Table Search Example with pgroonga_query_expand.
 
-Note: Name Table "name" column is `varchar` character type. so that you need to specify type such as `pgroonga_query_expand(...)::varchar` (However, you do not need to type cast `pgroonga_query_expand()` as varchar when you search on `text` character columns. Because return type of pgroonga_query_expand()` is `text` character type.)
+Note: Name Table "name" column is `varchar` character type. so that you need specifically to cast  result of  `pgroonga_query_expand` as `pgroonga_query_expand(...)::varchar`.  (You do not need to cast `pgroonga_query_expand()` as varchar when you search on `text` character columns. Because return type of `pgroonga_query_expand()` is `text` character type.)
 
 Without type casting, PostgreSQL uses sequential search when your search column type differs from `pgroonga_query_expand()` type so that you may experience some performance issues.
 

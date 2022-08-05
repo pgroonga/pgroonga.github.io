@@ -166,7 +166,7 @@ INSERT INTO synonym_groups
   VALUES (ARRAY['Stephen', 'Steven', 'Steve']);
 ```
 
-When you search "Steve" in this example, all of `"Stephen"`, `"Steven"` and `"Steve"` in the query are expanded because PGroonga index is used.
+In this example, all of `"Stephen"`, `"Steven"` and `"Steve"` in the query will be shown because the value "Steve"  is expanded within PGroonga index used.
 
 ```sql
 SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',

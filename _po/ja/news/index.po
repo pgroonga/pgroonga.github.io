@@ -24,6 +24,9 @@ msgstr "# おしらせ"
 msgid "## 2.3.8: 2022-08-08 {#version-2-3-8}"
 msgstr ""
 
+msgid "### Improvements"
+msgstr "### 改良"
+
 msgid "  * Added support for Unlogged Table. [GitHub#95][Reported by kurita0]"
 msgstr ""
 
@@ -46,6 +49,14 @@ msgid ""
 "  * [[pgroonga-query-expand][query-expand]] Added document for an example of h"
 "ow to search keywords using synonym groups. [GitHub:pgroonga/pgroonga.github.i"
 "o#71][GitHub:pgroonga/pgroonga.github.io#72][Patched by askdkc]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid ""
+"* kurita0\n"
+"* askdkc"
 msgstr ""
 
 msgid "## 2.3.7: 2022-06-07 {#version-2-3-7}"
@@ -87,9 +98,6 @@ msgstr ""
 
 msgid "## 2.3.5: 2022-03-09 {#version-2-3-5}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * [[CentOS][centos]] Dropped support for CentOS 8."
 msgstr ""
@@ -134,9 +142,6 @@ msgstr ""
 
 msgid "  * Fixed a bug that index only scan may return `NULL` unexpectedly."
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Zhanzhao (Deo) Liang"
 msgstr ""

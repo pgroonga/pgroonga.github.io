@@ -129,6 +129,71 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 -- (1 row)
 ```
 
+### Practical Example Using Synonym groups
+
+This is for when you want to search similar names like (Timothy or Tim), (William,Bill or Billy), (Stephen,Steven or Steve).
+
+Here are sample schema and data for solving this problem using Synonym groups.
+
+#### Name Table
+
+```sql
+CREATE TABLE names (
+  name varchar(255)
+);
+
+CREATE INDEX pgroonga_names_index
+          ON names
+       USING pgroonga (name pgroonga_varchar_full_text_search_ops_v2);
+
+INSERT INTO names
+  (name)
+  VALUES ('William Gates'),('Steven Paul Jobs'),('Timothy Donald Cook');
+```
+
+#### Synonym groups Table
+
+```sql
+CREATE TABLE synonym_groups (
+  synonyms text[]
+);
+
+CREATE INDEX synonym_groups_synonyms
+          ON synonym_groups
+       USING pgroonga (synonyms pgroonga_text_array_term_search_ops_v2);
+
+INSERT INTO synonym_groups
+  VALUES (ARRAY['Stephen', 'Steven', 'Steve']);
+```
+
+In this example, all of `"Stephen"`, `"Steven"` and `"Steve"` in the query will be shown because the value "Steve"  is expanded within PGroonga index used.
+
+```sql
+SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
+                             'Steve') AS query_expand;
+--              query_expand             
+-- --------------------------------------
+--   ((Stephen) OR (Steven) OR (Steve))
+-- (1 row)
+```
+
+
+An example down below is Name Table Search Example with pgroonga_query_expand.
+
+Note: Name Table "name" column is `varchar` character type. so that you need specifically to cast  result of  `pgroonga_query_expand` as `pgroonga_query_expand(...)::varchar`.  (You do not need to cast `pgroonga_query_expand()` as varchar when you search on `text` character columns. Because return type of `pgroonga_query_expand()` is `text` character type.)
+
+Without type casting, PostgreSQL uses sequential search when your search column type differs from `pgroonga_query_expand()` type so that you may experience some performance issues.
+
+```sql
+SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
+                             'synonym_groups', 'synonyms', 'synonyms','Steve')::varchar;
+--   synonym_names              
+-- -----------------
+--  Steven Paul Jobs
+--(1 rows)
+```
+
+
 ## See also
 
   * [`&@~` operator][query-v2]: Full text search by easy to use query language

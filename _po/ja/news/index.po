@@ -21,6 +21,33 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.3.8: 2022-08-08 {#version-2-3-8}"
+msgstr ""
+
+msgid "  * Added support for Unlogged Table. [GitHub#95][Reported by kurita0]"
+msgstr ""
+
+msgid "    We can create a index of PGroonga on Unlogged Table."
+msgstr ""
+
+msgid "  * [[Debian][debian]] Dropped support for Debian 10 (buster)."
+msgstr ""
+
+msgid "    Because Debian 10 (buster) reaches EOL in August 2022."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Dropped ssupport for Ubuntu 21.10 (Impish Indri)."
+msgstr ""
+
+msgid "    Because Ubuntu 21.10 reached EOL in July 2022."
+msgstr ""
+
+msgid ""
+"  * [[pgroonga-query-expand][query-expand]] Added document for an example of h"
+"ow to search keywords using synonym groups. [GitHub:pgroonga/pgroonga.github.i"
+"o#71][GitHub:pgroonga/pgroonga.github.io#72][Patched by askdkc]"
+msgstr ""
+
 msgid "## 2.3.7: 2022-06-07 {#version-2-3-7}"
 msgstr ""
 

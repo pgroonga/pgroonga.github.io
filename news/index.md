@@ -5,6 +5,22 @@ upper_level: ../
 
 # News
 
+## 2.3.8: 2022-08-08 {#version-2-3-8}
+
+  * Added support for Unlogged Table. [GitHub#95][Reported by kurita0]
+
+    We can create a index of PGroonga on Unlogged Table.
+
+  * [[Debian][debian]] Dropped support for Debian 10 (buster).
+
+    Because Debian 10 (buster) reaches EOL in August 2022.
+
+  * [[Ubuntu][ubuntu]] Dropped ssupport for Ubuntu 21.10 (Impish Indri).
+
+    Because Ubuntu 21.10 reached EOL in July 2022.
+
+  * [[pgroonga-query-expand][query-expand]] Added document for an example of how to search keywords using synonym groups. [GitHub:pgroonga/pgroonga.github.io#71][GitHub:pgroonga/pgroonga.github.io#72][Patched by askdkc]
+
 ## 2.3.7: 2022-06-07 {#version-2-3-7}
 
   * Add support for `pg_stat_progress_create_index`.

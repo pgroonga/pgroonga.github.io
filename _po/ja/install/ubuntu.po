@@ -34,7 +34,7 @@ msgstr ""
 msgid "  * Ubuntu 20.04"
 msgstr ""
 
-msgid "  * Ubuntu 20.10"
+msgid "  * Ubuntu 22.04"
 msgstr ""
 
 msgid "## How to install for system PostgreSQL {#install-for-system-postgresql}"

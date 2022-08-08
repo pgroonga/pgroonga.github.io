@@ -14,7 +14,7 @@ title: Ubuntuにインストール
 
   * Ubuntu 20.04
 
-  * Ubuntu 20.10
+  * Ubuntu 22.04
 
 ## システムのPostgreSQL用のインストール方法 {#install-for-system-postgresql}
 

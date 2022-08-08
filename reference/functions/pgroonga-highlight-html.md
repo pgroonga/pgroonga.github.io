@@ -180,7 +180,6 @@ SELECT pgroonga_highlight_html('one two three four five',
 -- (1 row)
 ```
 
-
 ## Practical Example: Keyword Search and Highlight
 
 Here is an example of implementing keyword search feature with `pgroonga_highlight_html`.

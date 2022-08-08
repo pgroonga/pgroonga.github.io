@@ -129,7 +129,7 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 -- (1 row)
 ```
 
-### 同義語を使った検索の応用例
+### 同義語グループを使った検索の具体例
 
 人名テーブルの中から同じ読み方で漢字の異なる人を探すサンプルです。（例：斉藤, 齊藤, 斎藤, 齋藤）
 
@@ -176,9 +176,11 @@ SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',
 --   ((斉藤) OR (齊藤) OR (斎藤) OR (齋藤))
 -- (1 row)
 ```
+
+
 この例では、人名テーブルの検索をするので以下のように検索します。
 
-下記の例では、検索対象のカラムが`varchar`型なので、`pgroonga_query_expand(...)::varchar`として`pgroonga_query_expand`の結果を明示的にキャストする必要があります。(`pgroonga_query_expand()`の戻り値の型は`text`型なので、検索対象のカラムが`text`型の場合はキャストは不要です。)
+注意： 下記の例では、検索対象のカラムが`varchar`型なので、`pgroonga_query_expand(...)::varchar`として`pgroonga_query_expand`の結果を明示的にキャストする必要があります。(`pgroonga_query_expand()`の戻り値の型は`text`型なので、検索対象のカラムが`text`型の場合はキャストは不要です。)
 
 このようにキャストしないと、検索対象のカラムと`pgroonga_query_expand()`の型が異なりシーケンシャルサーチになるため、パフォーマンスが出ません。
 
@@ -192,6 +194,7 @@ SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
 --      斎藤
 --(3 rows)
 ```
+
 
 ## 参考
 

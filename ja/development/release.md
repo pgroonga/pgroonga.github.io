@@ -102,7 +102,7 @@ $ rake package:windows:upload
 
 * `latest_postgresql_version`:
 
- * POstgreSQLの最新のメジャーバージョン
+ * PostgreSQLの最新のメジャーバージョン
 
 * `freebsd_postgresql_version`:
 

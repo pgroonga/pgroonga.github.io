@@ -179,7 +179,7 @@ msgid "* `latest_postgresql_version`:"
 msgstr ""
 
 msgid "  * PostgreSQL latest major version."
-msgstr " * POstgreSQLの最新のメジャーバージョン"
+msgstr " * PostgreSQLの最新のメジャーバージョン"
 
 msgid "* `freebsd_postgresql_version`:"
 msgstr ""

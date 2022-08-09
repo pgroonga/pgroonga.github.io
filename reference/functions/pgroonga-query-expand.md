@@ -191,6 +191,34 @@ SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
 -- -----------------
 --  Steven Paul Jobs
 --(1 rows)
+
+-- Sample of EXPLAIN ANALYZE with / without type cast
+-- Without type casting varchar (it uses sequential scan):
+EXPLAIN ANALYZE VERBOSE SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
+                             'synonym_groups', 'synonyms', 'synonyms','Steve');
+--                                                                QUERY PLAN                                                               
+-- ----------------------------------------------------------------------------------------------------------------------------------------
+--  Seq Scan on public.names  (cost=0.00..124.38 rows=1 width=516) (actual time=3.959..4.338 rows=1 loops=1)
+--    Output: name
+--    Filter: ((names.name)::text &@~ pgroonga_query_expand('synonym_groups'::cstring, 'synonyms'::text, 'synonyms'::text, 'Steve'::text))
+--    Rows Removed by Filter: 2
+--  Planning Time: 0.167 ms
+--  Execution Time: 4.484 ms
+-- (6 rows)
+
+
+-- With type casting varchar (it uses index scan): 
+EXPLAIN ANALYZE VERBOSE SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
+                             'synonym_groups', 'synonyms', 'synonyms','Steve')::varchar;
+--                                                                        QUERY PLAN                                                                        
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+--  Index Scan using pgroonga_names_index on public.names  (cost=0.00..40.50 rows=1 width=516) (actual time=1.311..1.315 rows=1 loops=1)
+--    Output: name
+--    Index Cond: (names.name &@~ (pgroonga_query_expand('synonym_groups'::cstring, 'synonyms'::text, 'synonyms'::text, 'Steve'::text))::character varying)
+--  Planning Time: 3.379 ms
+--  Execution Time: 1.384 ms
+-- (5 rows)
+
 ```
 
 

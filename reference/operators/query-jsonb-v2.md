@@ -200,6 +200,7 @@ Because of the nature of unstructured data, like json/jsonb data in this case, i
 In that case, you should use  `` &` ``  operator that can still use “pgroonga_jsonb_ops_v2 “ index without specifying which key values should be indexed.
 
 Let’s see an example:
+
 ```sql
 CREATE TABLE logs (
   record jsonb

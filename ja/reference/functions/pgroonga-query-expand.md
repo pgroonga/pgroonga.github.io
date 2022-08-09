@@ -193,6 +193,36 @@ SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
 --      齊藤
 --      斎藤
 --(3 rows)
+
+-- varcharでのキャストが無い時のEXPLAIN ANALYZE結果（シーケンシャルサーチが使われる）：
+EXPLAIN ANALYZE VERBOSE SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
+                             'synonym_groups', 'synonyms', 'synonyms','斉藤');
+--                                                               QUERY PLAN                                                               
+-- ---------------------------------------------------------------------------------------------------------------------------------------
+--  Seq Scan on public.names  (cost=0.00..124.38 rows=1 width=516) (actual time=66.684..67.619 rows=3 loops=1)
+--    Output: name
+--    Filter: ((names.name)::text &@~ pgroonga_query_expand('synonym_groups'::cstring, 'synonyms'::text, 'synonyms'::text, '斉藤'::text))
+--    Rows Removed by Filter: 3
+--  Planning Time: 0.420 ms
+--  Execution Time: 67.750 ms
+-- (6 rows)
+
+
+-- varcharでキャスト時のEXPLAIN ANALYZE結果（インデックス利用に注目）：
+EXPLAIN ANALYZE VERBOSE SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(
+                             'synonym_groups', 'synonyms', 'synonyms','斉藤')::varchar;
+--                                                                           QUERY PLAN                                                                          
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------------
+--  Bitmap Heap Scan on public.names  (cost=0.00..29.06 rows=1 width=516) (actual time=2.212..2.214 rows=3 loops=1)
+--    Output: name
+--    Recheck Cond: (names.name &@~ (pgroonga_query_expand('synonym_groups'::cstring, 'synonyms'::text, 'synonyms'::text, '斉藤'::text))::character varying)
+--    Heap Blocks: exact=1
+--    ->  Bitmap Index Scan on pgroonga_names_index  (cost=0.00..0.00 rows=25 width=0) (actual time=2.197..2.198 rows=3 loops=1)
+--          Index Cond: (names.name &@~ (pgroonga_query_expand('synonym_groups'::cstring, 'synonyms'::text, 'synonyms'::text, '斉藤'::text))::character varying)
+--  Planning Time: 3.855 ms
+--  Execution Time: 2.447 ms
+-- (8 rows)
+
 ```
 
 

@@ -256,7 +256,6 @@ EXPLAIN ANALYZE VERBOSE SELECT * FROM logs WHERE record &` '(paths @ "message") 
 
 Hope all these examples help you to create some great applications 😄
 
-
 ## See also
 
   * [`jsonb` support][jsonb]

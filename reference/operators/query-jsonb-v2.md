@@ -171,6 +171,7 @@ EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'mes
 ```
 
 Now let's create an index of “message” key value in your record jsonb column: 
+
 ```sql
 -- Create "message" key value index for your record jsonb column
 CREATE INDEX pgroonga_message_index ON logs USING pgroonga ((record->'message'));

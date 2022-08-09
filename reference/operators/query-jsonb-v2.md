@@ -196,6 +196,7 @@ EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'mes
 
 
 ## If you don’t know which jsonb key value should be indexed beforehand, then you should use `` &` `` operator instead
+
 Because of the nature of unstructured data, like json/jsonb data in this case, it is sometimes difficult to specify which key values to be indexed beforehand. (Say you need to store some user’s input which you don’t know what kind of data structure they use, and later user requests you to implement a search feature for that data.)
 In that case, you should use  `` &` ``  operator that can still use “pgroonga_jsonb_ops_v2 “ index without specifying which key values should be indexed.
 

@@ -222,6 +222,7 @@ SELECT
 If you have a lot of data to search through and return the result with pagination, it is not wise to use `pgroonga_highlight_html()` on that query. Because `pgroonga_highlight_html()` only works in sequentially, the more number of records for processing in `pgroonga_highlight_html()`  you have, slower it gets in performance.
 
 To avoid this problem, in the following example, we reduce the number of records for processing in `pgroonga_highlight_html()` by using `pgroonga_highlight_html()`  on the result of your keyword search instead.
+
 ```sql
 -- Good Performance
 SELECT

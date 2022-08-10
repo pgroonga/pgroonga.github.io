@@ -180,6 +180,65 @@ SELECT pgroonga_highlight_html('one two three four five',
 -- (1 row)
 ```
 
+## Practical Example: Keyword Search and Highlight
+
+Here is an example of implementing keyword search feature with `pgroonga_highlight_html`.
+Imagine you are building a blog, and for simplicity, this blog’s post model only has 'id', 'title' and 'body' fields.
+
+```sql
+CREATE TABLE posts (
+  id SERIAL NOT NULL,
+  title varchar(255),
+  body text
+);
+
+-- Create PGroonga Index 
+CREATE INDEX pgroonga_posts_index
+          ON posts
+       USING pgroonga (title, body);
+
+-- Insert some sample data
+INSERT INTO posts VALUES (1, 'Quote of the day one', 'Design is not just what it looks like and feels like. Design is how it works.');
+INSERT INTO posts VALUES (2, 'Quote of the day two', 'If everyone is busy making everything, how can any one perfect anything?');
+INSERT INTO posts VALUES (3, 'Quote of the day three', 'There are a thousand no''s, for every yes.');
+```
+
+
+Then you may use `pgroonga_highlight_html` function to search through your blog posts, and get the result with keywords highlighted like this:
+
+```sql
+SELECT
+   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('thousand')) AS highlighted_title,
+   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('thousand')) AS highlighted_body
+   from posts where title &@~ 'thousand' or body &@~ 'thousand';
+
+--    highlighted_title    |                            highlighted_body                            
+-- ------------------------+------------------------------------------------------------------------
+--  Quote of the day three | There are a <span class="keyword">thousand</span> no's, for every yes.
+--  (1 row)
+
+```
+
+If you have a lot of data to search through and return the result with pagination, it is not wise to use `pgroonga_highlight_html()` on that query. Because `pgroonga_highlight_html()` only works in sequentially, the more number of records for processing in `pgroonga_highlight_html()`  you have, slower it gets in performance.
+
+To avoid this problem, in the following example, we reduce the number of records for processing in `pgroonga_highlight_html()` by using `pgroonga_highlight_html()`  on the result of your keyword search instead.
+
+```sql
+-- Good Performance
+SELECT
+   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('Search Words')) AS highlighted_title,
+   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('Search Words')) AS highlighted_body
+   from posts where id IN 
+   (SELECT id FROM posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100);
+
+-- Do not do this. You may experience some performance issue.
+SELECT
+   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('Search Words')) AS highlighted_title,
+   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('Search Words')) AS highlighted_body
+   from posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100;
+```
+
+
 ## See also
 
   * [`pgroonga_query_extract_keywords` function][query-extract-keywords]

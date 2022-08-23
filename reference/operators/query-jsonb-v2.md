@@ -107,7 +107,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';
 
 When you use `&@~` operator to search through specific key values in your jsonb column, not just the entire jsonb column like the previous examples, then you need to index each of these keys. Without creating these indexes, `&@~` operator only uses sequential search and the query performance will be slow.
 
-Here is a demo, using previous “logs” table example:
+Here is a demo, using the previous `logs` table examples:
 
 ```sql
 -- This query uses pgroonga index so that performance is great

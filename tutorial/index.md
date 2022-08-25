@@ -206,7 +206,7 @@ See [`pgroonga_score` function](../reference/functions/pgroonga-score.html) for 
 
 ### Highlight {#highlight}
 
-You can use `pgroonga_highlight_html` function to get your search keywords highlighted easily.
+You can use `pgroonga_highlight_html` function to get your specified search keywords highlighted easily in the results.
 
 Here is a sample schema:
 

@@ -300,7 +300,7 @@ See [`pgroonga_snippet_html` function](../reference/functions/pgroonga-snippet-h
 
 ### Synonym {#synonym}
 
-See [How to synonyms search](../how-to/synonyms.html) for more details.
+See [How to synonyms search](../how-to/synonym-expansion.html) for more details.
 
 ## Regular expression {#regular-expression}
 

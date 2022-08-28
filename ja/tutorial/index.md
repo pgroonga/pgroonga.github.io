@@ -257,7 +257,7 @@ SELECT unnest(pgroonga_snippet_html(
 
 ### 同義語 {#synonym}
 
-詳細は[同義語検索の方法](../how-to/synonyms.html)を参照してください。
+詳細は[同義語展開の使い方](../how-to/synonym-expansion.html)を参照してください。
 
 ## 正規表現 {#regular-expression}
 

@@ -548,8 +548,10 @@ msgstr ""
 msgid "### Synonym {#synonym}"
 msgstr "### 同義語 {#synonym}"
 
-msgid "See [How to synonyms search](../how-to/synonyms.html) for more details."
-msgstr "詳細は[同義語検索の方法](../how-to/synonyms.html)を参照してください。"
+msgid ""
+"See [How to use synonym expansion](../how-to/synonym-expansion.html) for more "
+"details."
+msgstr "詳細は[同義語展開の使い方](../how-to/synonym-expansion.html)を参照してください。"
 
 msgid "## Regular expression {#regular-expression}"
 msgstr "## 正規表現 {#regular-expression}"

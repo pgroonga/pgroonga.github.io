@@ -5,6 +5,16 @@ upper_level: ../
 
 # News
 
+## 2.3.9: 2022-09-14 {#version-2-3-9}
+
+### Fixes
+
+  * Fixed a bug that PGroonga crash when an append node that had "never executed" statue existed in a query plan.
+
+    For example, this bug occurred in a following condition.
+
+      * If PostgreSQL narrow down child nodes by "Partition pruning" function.
+
 ## 2.3.8: 2022-08-08 {#version-2-3-8}
 
 ### Improvements

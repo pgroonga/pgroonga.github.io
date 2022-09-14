@@ -21,6 +21,23 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.3.9: 2022-09-14 {#version-2-3-9}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that PGroonga crash when an append node that had \"never execut"
+"ed\" statue existed in a query plan."
+msgstr ""
+
+msgid "    For example, this bug occurred in a following condition."
+msgstr ""
+
+msgid "      * If PostgreSQL narrow down child nodes by \"Partition pruning\" function."
+msgstr ""
+
 msgid "## 2.3.8: 2022-08-08 {#version-2-3-8}"
 msgstr ""
 
@@ -87,9 +104,6 @@ msgstr ""
 
 msgid "  * Added support for PostgreSQL 12.5."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [[Crash safe][crash-safe]] Fixed a bug that `REINDEX` failed even if `REIN"

@@ -24,8 +24,6 @@ See a document for your platform in the followings:
 
   * [Debian GNU/Linux](debian.html)
 
-    * buster
-
     * bullseye
 
   * [Ubuntu](ubuntu.html)
@@ -37,8 +35,6 @@ See a document for your platform in the followings:
   * [CentOS](centos.html)
 
     * 7
-
-    * 8
 
   * [AlmaLinux](almalinux.html)
 

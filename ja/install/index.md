@@ -24,8 +24,6 @@ upper_level: ../
 
   * [Debian GNU/Linux](debian.html)
 
-    * buster
-
     * bullseye
 
   * [Ubuntu](ubuntu.html)
@@ -37,8 +35,6 @@ upper_level: ../
   * [CentOS](centos.html)
 
     * 7
-
-    * 8
 
   * [AlmaLinux](almalinux.html)
 

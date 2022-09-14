@@ -52,9 +52,6 @@ msgstr "次の中から自分のプラットフォーム用のドキュメント
 msgid "  * [Debian GNU/Linux](debian.html)"
 msgstr ""
 
-msgid "    * buster"
-msgstr ""
-
 msgid "    * bullseye"
 msgstr ""
 
@@ -73,10 +70,10 @@ msgstr ""
 msgid "    * 7"
 msgstr ""
 
-msgid "    * 8"
+msgid "  * [AlmaLinux](almalinux.html)"
 msgstr ""
 
-msgid "  * [AlmaLinux](almalinux.html)"
+msgid "    * 8"
 msgstr ""
 
 msgid "  * [Amazon Linux](amazon-linux.html)"

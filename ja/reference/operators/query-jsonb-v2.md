@@ -190,7 +190,6 @@ EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'mes
 --  Planning Time: 0.201 ms
 --  Execution Time: 2.496 ms
 -- (5 rows)
-
 ```
 
 ## もし事前に検索対象となるjsonbカラム内のキーが分からない場合には、代わりに `` &` `` 演算子を使いましょう

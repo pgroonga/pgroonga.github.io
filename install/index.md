@@ -32,6 +32,8 @@ See a document for your platform in the followings:
 
     * 20.04
 
+    * 22.04
+
   * [CentOS](centos.html)
 
     * 7

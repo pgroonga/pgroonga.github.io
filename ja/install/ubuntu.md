@@ -22,7 +22,9 @@ UbuntuでシステムのPostgreSQL用にPGroongaをインストールする手�
 
 Ubuntu 18.04を使っている場合は`postgresql-10-pgroonga`パッケージをインストールしてください。
 
-それ以外の場合は`postgresql-12-pgroonga`パッケージをインストールしてください。
+Ubuntu 20.04を使っている場合は`postgresql-12-pgroonga`パッケージをインストールしてください。
+
+Ubuntu 22.04を使っている場合は`postgresql-14-pgroonga`パッケージをインストールしてください。
 
 ```console
 $ sudo apt install -y software-properties-common
@@ -31,8 +33,10 @@ $ sudo add-apt-repository -y ppa:groonga/ppa
 $ sudo apt update
 Ubuntu 18.04:
 $ sudo apt install -y -V postgresql-10-pgroonga
-Others:
+Ubuntu 20.04:
 $ sudo apt install -y -V postgresql-12-pgroonga
+Ubuntu 22.04:
+$ sudo apt install -y -V postgresql-14-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

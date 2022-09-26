@@ -32,6 +32,8 @@ upper_level: ../
 
     * 20.04
 
+    * 22.04
+
   * [CentOS](centos.html)
 
     * 7

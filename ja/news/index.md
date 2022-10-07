@@ -5,6 +5,12 @@ upper_level: ../
 
 # おしらせ
 
+## 2.4.0: 2022-10-07 {#version-2-4-0}
+
+### 改良
+
+  * [[Ubuntu][ubuntu]] Added support for PoatgreSQL 10, 11, 12, 13, and 14 for PGDG packages on Ubuntu 22.04.
+
 ## 2.3.9: 2022-09-14 {#version-2-3-9}
 
 ### 修正

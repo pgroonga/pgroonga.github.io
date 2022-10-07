@@ -21,6 +21,17 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.4.0: 2022-10-07 {#version-2-4-0}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid ""
+"  * [[Ubuntu][ubuntu]] Added support for PoatgreSQL 10, 11, 12, 13, and 14 for"
+" PGDG packages on Ubuntu 22.04."
+msgstr ""
+
 msgid "## 2.3.9: 2022-09-14 {#version-2-3-9}"
 msgstr ""
 
@@ -40,9 +51,6 @@ msgstr ""
 
 msgid "## 2.3.8: 2022-08-08 {#version-2-3-8}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * Added support for Unlogged Table. [GitHub#95][Reported by kurita0]"
 msgstr ""

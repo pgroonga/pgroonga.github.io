@@ -5,6 +5,16 @@ upper_level: ../
 
 # News
 
+## 2.4.1: 2022-10-28 {#version-2-4-1}
+
+### Improvements
+
+  * Added support for PostgreSQL 15.
+  
+  * Dropped support for PostgreSQL 10.
+
+    Because PostgreSQL 10 will reach EOL on November 2022.
+
 ## 2.4.0: 2022-10-07 {#version-2-4-0}
 
 ### Improvements

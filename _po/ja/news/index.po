@@ -21,11 +21,23 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.4.0: 2022-10-07 {#version-2-4-0}"
+msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Added support for PostgreSQL 15."
+msgstr ""
+
+msgid "  * Dropped support for PostgreSQL 10."
+msgstr ""
+
+msgid "    Because PostgreSQL 10 will reach EOL on November 2022."
+msgstr ""
+
+msgid "## 2.4.0: 2022-10-07 {#version-2-4-0}"
+msgstr ""
 
 msgid ""
 "  * [[Ubuntu][ubuntu]] Added support for PoatgreSQL 10, 11, 12, 13, and 14 for"
@@ -125,9 +137,6 @@ msgid "## 2.3.5: 2022-03-09 {#version-2-3-5}"
 msgstr ""
 
 msgid "  * [[CentOS][centos]] Dropped support for CentOS 8."
-msgstr ""
-
-msgid "  * Added support for PostgreSQL 15."
 msgstr ""
 
 msgid "  * [[Crash safe][crash-safe]] Improved performance."

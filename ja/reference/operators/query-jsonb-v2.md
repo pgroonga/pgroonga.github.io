@@ -103,6 +103,156 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';
 -- (2 rows)
 ```
 
+## pgroongaのパフォーマンス向上のための注意事項: jsonbカラム内にある特定のキーの値を検索したい場合、検索対象となる全てのキーに対してインデックスを作成する必要があります
+
+`&@~`演算子を用いてjsonbカラム内にある特定のキーの値を検索する時には、先の例で実施されてるようなjsonbカラム全体をインデックス対象にするのではなく、検索対象のそれぞれのキーに対してインデックスを作成する必要があります。それらのインデックスが存在しない場合は  `&@~`演算子はシーケンシャル検索のみを実行するため、パフォーマンスは極めて低速となります。
+
+こちらに前例の`logs`テーブルを用いたサンプルデモを記載します:
+
+```sql
+-- このクエリはpgroongaのインデックスを使うのでパフォーマンスは最高です
+SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';
+--           jsonb_pretty          
+-- --------------------------------
+--  {                             +
+--      "code": 200,              +
+--      "host": "www.example.com",+
+--      "tags": [                 +
+--          "web",                +
+--          "example.com"         +
+--      ],                        +
+--      "message": "GET /"        +
+--  }
+-- (1 row)
+
+
+-- このクエリはpgroongaインデックスを使用しないので、単なるシーケンシャル検索になります(遅いです)
+SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';
+--           jsonb_pretty          
+-- --------------------------------
+--  {                             +
+--      "code": 200,              +
+--      "host": "www.example.com",+
+--      "tags": [                 +
+--          "web",                +
+--          "example.com"         +
+--      ],                        +
+--      "message": "GET /"        +
+--  }
+-- (1 row)
+
+-- EXPLAIN ANALYZEを実行して、ご自身でパフォーマンスを比較してみてください
+-- jsonbカラム全体を検索する時はインデックスが使われます
+EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';
+--                                                          QUERY PLAN                                                          
+-- -----------------------------------------------------------------------------------------------------------------------------
+--  Bitmap Heap Scan on public.logs  (cost=0.00..21.03 rows=1 width=32) (actual time=1.577..1.578 rows=1 loops=1)
+--    Output: jsonb_pretty(record)
+--    Recheck Cond: (logs.record &@~ 'get'::text)
+--    Heap Blocks: exact=1
+--    ->  Bitmap Index Scan on pgroonga_logs_index  (cost=0.00..0.00 rows=14 width=0) (actual time=1.566..1.566 rows=1 loops=1)
+--          Index Cond: (logs.record &@~ 'get'::text)
+--  Planning Time: 0.680 ms
+--  Execution Time: 1.631 ms
+-- (8 rows)
+
+
+-- しかし、jsonbカラム内の特定のキーの値を検索する際には、インデックスは使われません
+EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';
+--                                                QUERY PLAN                                                
+-- ---------------------------------------------------------------------------------------------------------
+--  Seq Scan on public.logs  (cost=0.00..1047.00 rows=1 width=32) (actual time=0.422..0.566 rows=1 loops=1)
+--    Output: jsonb_pretty(record)
+--    Filter: ((logs.record -> 'message'::text) &@~ 'get'::text)
+--    Rows Removed by Filter: 2
+--  Planning Time: 0.035 ms
+--  Execution Time: 0.576 ms
+-- (6 rows)
+```
+
+さて、ここでjsonbカラム内にある“message”キーのインデックスを作成するとどうなるでしょう: 
+
+```sql
+-- jsonbカラム内の"message"キーのインデックスを作成します
+CREATE INDEX pgroonga_message_index ON logs USING pgroonga ((record->'message'));
+
+-- EXPLAIN ANALYZEを実行前にpgroongaが確実にインデックスを利用するようシーケンシャルスキャンをOFFにします
+-- 注意: 本番環境では SET enable_seqscan = off を実施しないようにしてください
+SET enable_seqscan = off;
+
+-- クエリーを分析すると確実にインデックスが使われているのが分かります
+EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';
+--                                                               QUERY PLAN                                                               
+-- ---------------------------------------------------------------------------------------------------------------------------------------
+--  Index Scan using pgroonga_message_index on public.logs  (cost=0.00..4.01 rows=1 width=32) (actual time=2.389..2.393 rows=1 loops=1)
+--    Output: jsonb_pretty(record)
+--    Index Cond: ((logs.record -> 'message'::text) &@~ 'get'::text)
+--  Planning Time: 0.201 ms
+--  Execution Time: 2.496 ms
+-- (5 rows)
+```
+
+## もし事前に検索対象となるjsonbカラム内のキーが分からない場合には、代わりに `` &` `` 演算子を使いましょう
+
+未定義のデータを格納するようなjson/jsonbカラムを利用する際の常として、検索対象となる項目が事前に分からないことが時々発生します。（例えばユーザから様々なデータを保存しておく場所が欲しいと頼まれ、jsonbで格納場所を準備したものの、後日それらのデータを検索対象にしたいと言われることもあります）。
+そうしたケースにおいて `` &` `` 演算子を用いることで、事前にjsonbカラム内のキーをインデックス対象に含めていなくとも`pgroonga_jsonb_ops_v2` インデックスを使って高速な検索を実現することができます。
+
+具体的な例を見てみましょう:
+
+```sql
+CREATE TABLE logs (
+  record jsonb
+);
+
+-- jsonbカラム全体にインデックスを作成します(特定のキーに対してではりません)
+CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);
+
+INSERT INTO logs
+     VALUES ('{
+                "message": "Server is started.",
+                "host":    "www.example.com",
+                "tags": [
+                  "web",
+                  "example.com"
+                ]
+              }');
+INSERT INTO logs
+     VALUES ('{
+                "message": "GET /",
+                "host":    "www.example.com",
+                "code":    200,
+                "tags": [
+                  "web",
+                  "example.com"
+                ]
+              }');
+INSERT INTO logs
+     VALUES ('{
+                "message": "Send to <info@example.com>.",
+                "host":    "mail.example.net",
+                "tags": [
+                  "mail",
+                  "example.net"
+                ]
+              }');
+
+-- &` 演算子を用いることで、特定のキーにインデックスを作成せずともpgroongaの高性能さを利用することができます
+EXPLAIN ANALYZE VERBOSE SELECT * FROM logs WHERE record &` '(paths @ "message") && query("string", "get")';
+--                                                          QUERY PLAN                                                          
+-- -----------------------------------------------------------------------------------------------------------------------------
+--  Bitmap Heap Scan on public.logs  (cost=0.00..21.03 rows=1 width=32) (actual time=1.020..1.022 rows=1 loops=1)
+--    Output: record
+--    Recheck Cond: (logs.record &` '(paths @ "message") && query("string","get")'::text)
+--    Heap Blocks: exact=1
+--    ->  Bitmap Index Scan on pgroonga_logs_index  (cost=0.00..0.00 rows=14 width=0) (actual time=1.012..1.013 rows=1 loops=1)
+--          Index Cond: (logs.record &` '(paths @ "message") && query("string","get")'::text)
+--  Planning Time: 0.379 ms
+--  Execution Time: 1.077 ms
+-- (8 rows)
+```
+
+これらの説明や使用例が、皆さんの素晴らしいアプリケーションを作る手助けになれれば幸いです 😄
+
 ## 参考
 
   * [`jsonb`サポート][jsonb]

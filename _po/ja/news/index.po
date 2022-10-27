@@ -42,6 +42,12 @@ msgid ""
 "    [GitHub:pgroonga/pgroonga.github.io#83][Patched by askdkc]"
 msgstr ""
 
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * askdkc"
+msgstr ""
+
 msgid "## 2.4.0: 2022-10-07 {#version-2-4-0}"
 msgstr ""
 
@@ -49,9 +55,6 @@ msgid ""
 "  * [[Ubuntu][ubuntu]] Added support for PoatgreSQL 10, 11, 12, 13, and 14 for"
 " PGDG packages on Ubuntu 22.04. [GitHub#228][Reported by sousuke0422]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * sousuke0422"
 msgstr ""

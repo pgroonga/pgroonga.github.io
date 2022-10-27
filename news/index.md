@@ -5,6 +5,23 @@ upper_level: ../
 
 # News
 
+## 2.4.1: 2022-10-28 {#version-2-4-1}
+
+### Improvements
+
+  * Added support for PostgreSQL 15.
+  
+  * Dropped support for PostgreSQL 10.
+
+    Because PostgreSQL 10 will reach EOL on November 2022.
+
+  * [[`` &? `` operator for jsonb type][query-jsonb-v2]] Added translation about how to perform full text search with indexes against jsonb type values. 
+    [GitHub:pgroonga/pgroonga.github.io#83][Patched by askdkc]
+
+### Thanks
+
+  * askdkc
+
 ## 2.4.0: 2022-10-07 {#version-2-4-0}
 
 ### Improvements

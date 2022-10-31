@@ -37,8 +37,8 @@ msgid "    Because PostgreSQL 10 will reach EOL on November 2022."
 msgstr ""
 
 msgid ""
-"  * [[`` &? `` operator for jsonb type][query-jsonb-v2]] Added translation abo"
-"ut how to perform full text search with indexes against jsonb type values. \n"
+"  * [[`` &@~ `` operator for jsonb type][query-jsonb-v2]] Added translation ab"
+"out how to perform full text search with indexes against jsonb type values. \n"
 "    [GitHub:pgroonga/pgroonga.github.io#83][Patched by askdkc]"
 msgstr ""
 

@@ -306,13 +306,13 @@ See [How to use synonym expansion](../how-to/synonym-expansion.html) for more de
 
 TODO
 
-See [`&~` operator](../reference/operations/regular-expression-v2.html) for more details.
+See [`&~` operator](../reference/operators/regular-expression-v2.html) for more details.
 
 ## Similar search {#similar-search}
 
 TODO
 
-See [`&@*` operator](../reference/operations/similar-search-v2.html) for more details.
+See [`&@*` operator](../reference/operators/similar-search-v2.html) for more details.
 
 ## Equality condition and comparison conditions {#equal}
 

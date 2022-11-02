@@ -1,21 +1,22 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 2.4.0
-pgroonga_release_date: 2022-10-07
+pgroonga_version: 2.4.1
+pgroonga_release_date: 2022-10-31
 postgresql_doc_base_url:
-  en: https://www.postgresql.org/docs/14
-  ja: https://www.postgresql.jp/document/13/html
+  en: https://www.postgresql.org/docs/15
+  ja: https://www.postgresql.jp/document/14/html
 windows_postgresql_versions:
   - 10
   - 11
   - 12
   - 13
   - 14
-latest_postgresql_version: 14
-latest_amazon_linux_postgresql_version: 13
-freebsd_postgresql_version: 14
-development_postgresql_version: 14.5
+  - 15
+latest_postgresql_version: 15
+latest_amazon_linux_postgresql_version: 14
+freebsd_postgresql_version: 15
+development_postgresql_version: 15.0
 exclude:
   - "Rakefile"
   - "Gemfile"

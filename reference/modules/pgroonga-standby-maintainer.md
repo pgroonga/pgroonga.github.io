@@ -37,12 +37,6 @@ For example:
 shared_preload_libraries = 'pgroonga_standby_maintainer'
 ```
 
-We may need to increase [`max_worker_processes` parameter][postgresql-max-worker-processes] value. `pgroonga_standby_maintainer` module always runs 1 worker process. And `pgroonga_standby_maintainer` module runs 1 worker processes per database that uses PGroonga. For example, if we have 3 databases that use PGroonga, `pgroonga_standby_maintainer` module runs up to 3 worker processes:
-
-```text
-max_worker_processes = 11 # 8 (the default) + 3 (for pgroonga_standby_maintainer)
-```
-
 ## Parameters
 
   * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintainer-naptime]

@@ -10,7 +10,7 @@ Use the following enviroment values.
 
 * `GROONGA_REPOSITORY`
 
-  Specifies a path for a latest Groonga repository.
+  Specify a path for a latest Groonga repository.
 
   If you have not cloned the Groonga repository.
 
@@ -24,7 +24,7 @@ Use the following enviroment values.
 
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-  Specifies a key for PPA of Groonga.
+  Specify a key for PPA of Groonga.
 
   Please refer https://groonga.org/docs/contribution/development/release.html#ppa about the key for PPA.
 

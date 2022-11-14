@@ -7,6 +7,8 @@ upper_level: ../
 
 Since 2.3.3.
 
+The `pgroonga_wal_applier` module is deprecated since 2.4.2. Use [the `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] instead.
+
 ## Summary
 
 `pgroonga_wal_applier` module applies pending WAL periodically by [`pgroonga_wal_apply` function][pgroonga-wal-apply].
@@ -32,6 +34,9 @@ shared_preload_libraries = 'pgroonga_wal_applier'
 ## See also
 
   * [Streaming replication][streaming-replication]
+  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]
+
+[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html
 
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
 

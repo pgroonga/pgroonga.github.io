@@ -587,6 +587,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
     * Since 2.3.3.
 
+  * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintainer-naptime]
+
+    * Since 2.4.2.
+
 ## Modules
 
   * [`pgroonga_check` module][pgroonga-check]
@@ -604,6 +608,11 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
   * [`pgroonga_wal_applier` module][pgroonga-wal-applier]
 
     * Since 2.3.3.
+    * Deprecated since 2.4.2. Use [the `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] instead.
+
+  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]
+
+    * Since 2.4.2.
 
 ## Groonga functions
 
@@ -697,9 +706,12 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
 
+[pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
+
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
+[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
 
 [groonga-tuning]:https://groonga.org/docs/reference/tuning.html

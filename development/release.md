@@ -56,7 +56,7 @@ We have [nightly][launchpad-groonga-nightly].
 
 We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
 
-* Create a source archive for test on local.
+* Create a archive file for test on local.
 
   ```console
   $ rake dist
@@ -87,7 +87,9 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 
 * Check the build result
 
-  [Groonga nightly on launchpad.net][launchpad-groonga-nightly].
+  When uploading packages into the `nightly` reposigoty was succeeded, 
+  a package build process is executed on launchpad.net.
+  Then build result is notified via E-mail.
 
 ## Tagging for the release
 
@@ -95,7 +97,20 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 $ rake tag
 ```
 
-## Create and upload a archive file
+## Download or create a archive file
+
+Donwload the archive file (`pgroonga-{version}.tar.gz`) from the 
+(GitHub relase page)[https://github.com/pgroonga/pgroonga/releases/latest]
+and distribute it to the top of the PGroonga repository.
+
+If the archive file doesn't exist on the GitHub relase page, 
+you can create it on local by the following command.
+
+```console
+$ rake dist
+```
+
+## Upload a archive file
 
 ```console
 $ rake package:source
@@ -113,12 +128,31 @@ $ rake package:apt
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
+* Change `~/.dput.cf` in order to upload the `ppa` repository.
+
+  Change the `[groonga-ppa]` entry as below.
+  `incoming = ~groonga/ubuntu/ppa` is important.
+
+  ```console
+  $ vi ~/.dput.cf
+  [groonga-ppa]
+  fqdn = ppa.launchpad.net
+  method = ftp
+  incoming = ~groonga/ubuntu/nightly
+  login = anonymous
+  allow_unsigned_uploads = 0
+  ```
+
+* Upload to the `ppa` repository.
+
 ```console
 $ rake package:ubuntu
 ```
 
-When upload packages was succeeded, package build process is executed on launchpad.net.
-Then build result is notified via E-mail. We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
+* Check the build result
+
+  When upload packages was succeeded, package build process is executed on launchpad.net.
+  Then build result is notified via E-mail. We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ### CentOS
 
@@ -196,7 +230,7 @@ $ rake yum
 
 We send release announce to PostgreSQL mailing list if we have big news.
 
-Your PostgreSQL account should belong to `PGroonga project` for announcement.
+Your PostgreSQL account must belong to `PGroonga project` for announcement.
 Please contact other release personnel to belong to `PGroonga project`.
 
 * https://www.postgresql.org/list/

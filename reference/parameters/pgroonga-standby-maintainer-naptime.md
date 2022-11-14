@@ -11,7 +11,7 @@ Since 2.4.2.
 
 `pgroonga_standby_maintainer.naptime` parameter controls execution of [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] interval by [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer].
 
-The larger value, more increasing not applicable PGroonga's WAL and more increasing internal unused Groonga tables, columns and records.
+The larger value, more increasing not applicable PGroonga's WAL and more increasing internal unused Groonga tables, columns and records in a standby database.
 
 The smaller value, the heavier IO load.
 
@@ -23,7 +23,7 @@ In `postgresql.conf`:
 pgroonga_standby_maintainer.naptime = internval
 ```
 
-`interval`'s default unit is second. We can change unit by specify suffix such as `min` for minutes.
+`interval`'s default unit is second. We can change unit to minutes by specify suffix `min` for minutes.
 
 The default is 60 seconds.
 

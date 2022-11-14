@@ -24,6 +24,13 @@ msgstr "# `pgroonga_wal_applier`モジュール"
 msgid "Since 2.3.3."
 msgstr "2.3.3で追加。"
 
+msgid ""
+"The `pgroonga_wal_applier` module is deprecated since 2.4.2. Use [the `pgroong"
+"a_standby_maintainer` module][pgroonga-standby-maintainer] instead."
+msgstr ""
+"`pgroonga_wal_applier` モジュールは、2.4.2から非推奨です。代わりに [`pgroonga_standby_maintainer`"
+" モジュール][pgroonga-standby-maintainer] を使ってください。"
+
 msgid "## Summary"
 msgstr "## 概要"
 
@@ -79,6 +86,12 @@ msgstr "## 参考"
 
 msgid "  * [Streaming replication][streaming-replication]"
 msgstr " * [ストリーミングレプリケーション][streaming-replication]"
+
+msgid "  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
+msgstr "  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]"
+
+msgid "[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
+msgstr ""
 
 msgid "[pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html"
 msgstr ""

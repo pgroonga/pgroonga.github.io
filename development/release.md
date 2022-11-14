@@ -8,11 +8,25 @@ title: Release
 
 Use the following enviroment values.
 
-* `GITHUB_TOKEN`
-
 * `GROONGA_REPOSITORY`
 
+  Specifies a path for a latest Groonga repository.
+
+  If you have not cloned the Groonga repository.
+
+  ```console
+  $ mkdir -p ~/work/groonga
+  $ git clone --recursive git@github.com:groonga/groonga.git ~/work/groonga/groonga.clean
+  $ export GROONGA_REPOSITORY=$HOME/work/groonga/groonga.clean
+  ```
+
+  If you have already cloned the Groonga repository, execute `git pull` beforehand.
+
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
+
+  Specifies a key for PPA of Groonga.
+
+  Please refer https://groonga.org/docs/contribution/development/release.html#ppa about the key for PPA.
 
 ## Bump version
 
@@ -31,6 +45,49 @@ $ rake package:version:update
 We confirm below CIs green or not.
 
 * [GitHub Actions][github-actions-pgroonga]
+
+## Check whether we can build packages on `nightly` repository of launchpad.net
+
+For Ubuntu, packages are provided by PPA on launchpad.net.
+
+We have [nightly][launchpad-groonga-nightly].
+ repository and [ppa][launchpad-groonga-nightly] repository on launchpad.net.
+`nightly` is for testing and `ppa` is for distributing.
+
+We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
+
+* Create a source archive for test on local.
+
+  ```console
+  $ rake dist
+  ```
+
+* Change `~/.dput.cf` in order to upload the `nightly` repository.
+
+  Add or change a `[groonga-ppa]` entry as below.
+  `incoming = ~groonga/ubuntu/nightly` is important.
+
+  If you don't have `~/.dput.cf`, please manually create it.
+
+  ```console
+  $ vi ~/.dput.cf
+  [groonga-ppa]
+  fqdn = ppa.launchpad.net
+  method = ftp
+  incoming = ~groonga/ubuntu/nightly
+  login = anonymous
+  allow_unsigned_uploads = 0
+  ```
+
+* Upload to the `nightly` repository.
+
+  ```console
+  $ rake package:ubuntu
+  ```
+
+* Check the build result
+
+  [Groonga nightly on launchpad.net][launchpad-groonga-nightly].
 
 ## Tagging for the release
 
@@ -71,11 +128,9 @@ $ rake package:yum
 
 ### Windows
 
-For Windows packages, we use [GitHub Actions][github-actions-pgroonga] artifacts files.
+For Windows packages, we don't need to execute anything.
 
-```console
-$ rake package:windows:upload
-```
+Windows packages are uploaded automatically on Actions of [GitHub Actions][github-actions-pgroonga].
 
 ## Describe the changes
 
@@ -139,11 +194,19 @@ $ rake yum
 
 ### Announce release for mailing list
 
-We send release announce to below address.
+We send release announce to PostgreSQL mailing list if we have big news.
 
-* groonga-dev (Japanese) `groonga-dev@lists.osdn.me`
+Your PostgreSQL account should belong to `PGroonga project` for announcement.
+Please contact other release personnel to belong to `PGroonga project`.
 
-* groonga-talk (English) `groonga-talk@lists.sourceforge.net`
+* https://www.postgresql.org/list/
+* https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga (Archives for PGroonga announcements)
+
+### Announce release for GitHub Discuttions
+
+We make release announce in GitHub Discussions.
+
+https://github.com/pgroonga/pgroonga/discussions/categories/releases
 
 ### Announce release for blog
 
@@ -198,6 +261,8 @@ Note that this tweet should be done when logged in by groonga account.
 [github-actions-pgroonga]:https://github.com/pgroonga/pgroonga/actions
 
 [launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa
+
+[launchpad-groonga-nightly]:https://launchpad.net/~groonga/+archive/ubuntu/nightly
 
 [groonga-org-repository]:https://github.com/groonga/groonga.org
 

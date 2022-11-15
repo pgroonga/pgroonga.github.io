@@ -611,7 +611,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]
 
     * 2.3.3で追加。
-    * 2.4.2から非推奨です。 代わりに [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer] を使ってください。
+
+    * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier] は、2.4.2から非推奨です。代わりに [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer] を使ってください。
 
   * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]
 

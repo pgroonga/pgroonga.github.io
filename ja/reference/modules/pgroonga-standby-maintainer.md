@@ -14,8 +14,9 @@ upper_level: ../
 `pgroonga_standby_maintainer` モジュールは、 [`pgroonga_wal_apply()` 関数][pgroonga-wal-apply] と [`pgroonga_vacuum()` 関数][pgroonga-vacuum] をスタンバイのデータベース上で自動的に実行します。
 
 通常、PGroongaとストリーミングレプリケーションを一緒に使っている場合、PGroongaのWALはスタンバイのデータベースには適用されません。
+
 したがって、例えば、スタンバイのデータベースをプライマリーのデータベースに切り替えた後の最初の"SELECT"は遅い可能性があります。
-未適用のPGroongaのWALを適用する時間があるためです。
+切り替わった後のプライマリーのデータベースに未適用のPGroongaのWALを適用する時間があるためです。
 
 また、スタンバイのデータベース上で定期的に [`pgroonga_vacuum()` 関数][pgroonga-vacuum] を使って不要なGroongaの内部テーブル、カラム、レコードを削除する必要があります。 スタンバイのデータベースでは、 `VACUUM` が実行されないためです。
 

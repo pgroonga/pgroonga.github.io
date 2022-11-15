@@ -608,7 +608,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
   * [`pgroonga_wal_applier` module][pgroonga-wal-applier]
 
     * Since 2.3.3.
-    * Deprecated since 2.4.2. Use [the `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] instead.
+
+    * [`pgroonga_wal_applier` module][pgroonga-wal-applier] is deprecated since 2.4.2. We use [the `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] instead.
 
   * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]
 

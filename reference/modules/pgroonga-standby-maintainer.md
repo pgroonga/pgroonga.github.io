@@ -11,7 +11,7 @@ This is still an experimental feature.
 
 ## Summary
 
-The `pgroonga_standby_maintainer` module provides executing [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] automatically on stadnby database.
+The `pgroonga_standby_maintainer` module automatically executes [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] on a stadnby database.
 
 Normally, if we use PGroonga with streaming replication, PGroonga's WAL doesn't apply on the standby database.
 Therefore, for example, a first "SELECT" after we switch the standby database to primary database may become slow.

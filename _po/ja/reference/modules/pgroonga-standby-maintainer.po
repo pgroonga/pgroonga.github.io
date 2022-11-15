@@ -44,7 +44,7 @@ msgid ""
 msgstr ""
 "通常、PGroongaとストリーミングレプリケーションを一緒に使っている場合、PGroongaのWALはスタンバイのデータベースには適用されません。\n"
 "したがって、例えば、スタンバイのデータベースをプライマリーのデータベースに切り替えた後の最初の\"SELECT\"は遅い可能性があります。\n"
-"未適用のPGroongaのWALを適用する時間があるためです。"
+"切り替わった後のプライマリーのデータベースに未適用のPGroongaのWALを適用する時間があるためです。"
 
 msgid ""
 "In addition, we need to remove internal unused Groonga tables, columns and rec"

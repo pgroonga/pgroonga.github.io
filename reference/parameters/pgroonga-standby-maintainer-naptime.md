@@ -11,7 +11,7 @@ Since 2.4.2.
 
 The `pgroonga_standby_maintainer.naptime` parameter controls execution of [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] interval by [the `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer].
 
-The larger value, more increasing not applicable PGroonga's WAL and more increasing internal unused Groonga tables, columns and records in a standby database.
+The larger value becomes, the more not applicable PGroonga's WAL and internal unused Groonga tables, columns and records in the standby database increase.
 
 The smaller value, the heavier IO load.
 

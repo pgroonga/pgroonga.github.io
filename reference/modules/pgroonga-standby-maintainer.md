@@ -15,10 +15,10 @@ The `pgroonga_standby_maintainer` module automatically executes [the `pgroonga_w
 
 Normally PGroonga's WAL doesn't t apply on a standby database.
 If we use PGroonga with streaming replication.
-Therefore, for example, a first "SELECT" after we switch the standby database to primary database may become slow.
-Because there is time to apply not applicable PGroonga's WAL to the new primary database.
 
-In addition, we need to remove internal unused Groonga tables, columns and records with [the `pgroonga_vacuum()` function][pgroonga-vacuum] periodically on the standby database. Because `VACUUM` isn't run in the standby database.
+Therefore, for example, a first \"SELECT\" on a primary database may become slower after we switch from a standby database. Because it takes time to apply PGroonga's WAL to the primary database.
+
+In addition, we need to remove internal unused Groonga tables, columns and records periodically from the standby database with [the `pgroonga_vacuum()` function][pgroonga-vacuum]. Because `VACUUM` isn't run on the standby database.
 
 In the formaer case, we can apply PGroonga's WAL into the standby database automatically with [the `pgroonga_wal_applier` module][pgroonga-wal-applier]. However, in the latter case, we can't execute [the `pgroonga_vacuum()` funtion][pgroonga-vacuum] automatically into the standby database.
 

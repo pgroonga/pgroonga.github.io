@@ -13,17 +13,17 @@ This is still an experimental feature.
 
 The `pgroonga_standby_maintainer` module provides executing [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] automatically on stadnby database.
 
-Normally, if we use PGroonga with streaming replication, PGroonga's WAL doesn't apply on a standby database.
-Therefore, for example, a first "SELECT" after we switch standby database to primary database may become slow.
-Because a time for applying not applicable PGroonga's WAL exist.
+Normally, if we use PGroonga with streaming replication, PGroonga's WAL doesn't apply on the standby database.
+Therefore, for example, a first "SELECT" after we switch the standby database to primary database may become slow.
+Because there is time to apply not applicable PGroonga's WAL to the new primary database.
 
-In addition, we need to remove internal unused Groonga tables, columns and records with [the `pgroonga_vacuum()` function][pgroonga-vacuum] periodically on a standby database. Because `VACUUM` isn't run in a standby database.
+In addition, we need to remove internal unused Groonga tables, columns and records with [the `pgroonga_vacuum()` function][pgroonga-vacuum] periodically on the standby database. Because `VACUUM` isn't run in the standby database.
 
-In the formaer case, we can apply PGroonga's WAL into a standby database automatically with [the `pgroonga_wal_applier` module][pgroonga-wal-applier]. However, in the latter case, we can't execute [the `pgroonga_vacuum()` funtion][pgroonga-vacuum] automatically into a standby database.
+In the formaer case, we can apply PGroonga's WAL into the standby database automatically with [the `pgroonga_wal_applier` module][pgroonga-wal-applier]. However, in the latter case, we can't execute [the `pgroonga_vacuum()` funtion][pgroonga-vacuum] automatically into the standby database.
 
-We can execute [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] automatically into a standby database with the `pgroonga_standby_maintainer` module.
+We can execute [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] automatically into the standby database with the `pgroonga_standby_maintainer` module.
 
-Therefore, if we use the `pgroonga_standby_maintainer` module, we don't need to use [the `pgroonga_wal_applier` module][pgroonga-wal-applier] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] on a standby database.
+Therefore, if we use the `pgroonga_standby_maintainer` module, we don't need to use [the `pgroonga_wal_applier` module][pgroonga-wal-applier] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] on the standby database.
 
 ## Usage
 

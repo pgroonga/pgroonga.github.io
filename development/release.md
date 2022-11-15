@@ -26,7 +26,7 @@ Use the following enviroment values.
 
   Specify a key for PPA of Groonga.
 
-  Please refer https://groonga.org/docs/contribution/development/release.html#ppa about the key for PPA.
+  Please refer the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
 
 ## Bump version
 
@@ -50,8 +50,7 @@ We confirm below CIs green or not.
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-We have [nightly][launchpad-groonga-nightly].
- repository and [ppa][launchpad-groonga-nightly] repository on launchpad.net.
+We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-nightly] repositories on launchpad.net.
 `nightly` is for testing and `ppa` is for distributing.
 
 We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
@@ -87,7 +86,7 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 
 * Check the build result
 
-  When uploading packages into the `nightly` reposigoty was succeeded, 
+  When upload packages into the `nightly` reposigoty succeeded, 
   a package build process is executed on launchpad.net.
   Then build result is notified via E-mail.
 
@@ -99,8 +98,8 @@ $ rake tag
 
 ## Download or create a archive file
 
-Donwload the archive file (`pgroonga-{version}.tar.gz`) from the 
-(GitHub relase page)[https://github.com/pgroonga/pgroonga/releases/latest]
+Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the 
+[GitHub relase page](https://github.com/pgroonga/pgroonga/releases/latest)
 and distribute it to the top of the PGroonga repository.
 
 If the archive file doesn't exist on the GitHub relase page, 
@@ -138,20 +137,20 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
   [groonga-ppa]
   fqdn = ppa.launchpad.net
   method = ftp
-  incoming = ~groonga/ubuntu/nightly
+  incoming = ~groonga/ubuntu/ppa
   login = anonymous
   allow_unsigned_uploads = 0
   ```
 
 * Upload to the `ppa` repository.
 
-```console
-$ rake package:ubuntu
-```
+  ```console
+  $ rake package:ubuntu
+  ```
 
 * Check the build result
 
-  When upload packages was succeeded, package build process is executed on launchpad.net.
+  When upload packages succeeded, a package build process is executed on launchpad.net.
   Then build result is notified via E-mail. We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ### CentOS
@@ -164,7 +163,7 @@ $ rake package:yum
 
 For Windows packages, we don't need to execute anything.
 
-Windows packages are uploaded automatically on Actions of [GitHub Actions][github-actions-pgroonga].
+Windows packages are uploaded automatically by actions of [GitHub Actions][github-actions-pgroonga].
 
 ## Describe the changes
 

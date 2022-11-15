@@ -20,9 +20,9 @@ Therefore, for example, a first \"SELECT\" on a primary database may become slow
 
 In addition, we need to remove internal unused Groonga tables, columns and records periodically from the standby database with [the `pgroonga_vacuum()` function][pgroonga-vacuum]. Because `VACUUM` isn't run on the standby database.
 
-In the former case, we can apply PGroonga's WAL into the standby database automatically with [the `pgroonga_wal_applier` module][pgroonga-wal-applier]. However, in the latter case, we can't execute [the `pgroonga_vacuum()` funtion][pgroonga-vacuum] automatically into the standby database.
+In the former case, we can apply PGroonga's WAL into the standby database automatically with [the `pgroonga_wal_applier` module][pgroonga-wal-applier]. However, in the latter case, we can't execute automatically [the `pgroonga_vacuum()` funtion][pgroonga-vacuum] into the standby database.
 
-We can execute [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] automatically into the standby database with the `pgroonga_standby_maintainer` module.
+We can execute automatically [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] into the standby database with the `pgroonga_standby_maintainer` module.
 
 Therefore, if we use the `pgroonga_standby_maintainer` module, we don't need to use [the `pgroonga_wal_applier` module][pgroonga-wal-applier] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] on the standby database.
 

@@ -32,7 +32,7 @@ We must configure the following parameters to use `pgroonga_standby_maintainer` 
 
   * [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]
 
-For example:
+An example:
 
 ```text
 shared_preload_libraries = 'pgroonga_standby_maintainer'

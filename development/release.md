@@ -237,7 +237,7 @@ Please contact other release personnel to belong to `PGroonga project`.
 
 ### Announce release for GitHub Discussions
 
-We make release announce in GitHub Discussions.
+We make release announcement in GitHub Discussions.
 
 https://github.com/pgroonga/pgroonga/discussions/categories/releases
 

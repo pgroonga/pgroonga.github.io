@@ -51,7 +51,7 @@ We confirm below CIs green or not.
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
 We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-nightly] repositories on launchpad.net.
-`nightly` is for testing and `ppa` is for distributing.
+`nightly` is for testing, and `ppa` is for distributing.
 
 We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
 

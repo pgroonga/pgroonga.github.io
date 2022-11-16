@@ -102,7 +102,7 @@ Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the
 [GitHub relase page](https://github.com/pgroonga/pgroonga/releases/latest)
 and distribute it to the top of the PGroonga repository.
 
-If the archive file doesn't exist on the GitHub relase page, 
+If the archive file doesn't exist on the GitHub release page, 
 you can create it on local by the following command.
 
 ```console

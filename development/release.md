@@ -227,7 +227,7 @@ $ rake yum
 
 ### Announce release for mailing list
 
-We send release announce to PostgreSQL mailing list if we have big news.
+We send release announcement to PostgreSQL mailing list if we have big news.
 
 Your PostgreSQL account must belong to `PGroonga project` for announcement.
 Please contact other release personnel to belong to `PGroonga project`.

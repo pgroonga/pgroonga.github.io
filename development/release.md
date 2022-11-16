@@ -66,7 +66,7 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
   Add or change a `[groonga-ppa]` entry as below.
   `incoming = ~groonga/ubuntu/nightly` is important.
 
-  If you don't have `~/.dput.cf`, please manually create it.
+  If you don't have `~/.dput.cf`, create it manually.
 
   ```console
   $ vi ~/.dput.cf

@@ -86,7 +86,7 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 
 * Check the build result
 
-  When upload packages into the `nightly` reposigoty succeeded, 
+ When uploading packages into the `nightly` repository is succeeded, 
   a package build process is executed on launchpad.net.
   Then build result is notified via E-mail.
 

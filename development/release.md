@@ -235,7 +235,7 @@ Please contact other release personnel to belong to `PGroonga project`.
 * https://www.postgresql.org/list/
 * https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga (Archives for PGroonga announcements)
 
-### Announce release for GitHub Discuttions
+### Announce release for GitHub Discussions
 
 We make release announce in GitHub Discussions.
 

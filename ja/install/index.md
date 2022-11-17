@@ -16,6 +16,7 @@ upper_level: ../
   * 12
   * 13
   * 14
+  * 15 (ただし、Windows版のPostgreSQL 15はまだサポートしていません。)
 
 もし、これより古いPostgreSQLを使っているなら、PGroongaをインストールする前にPostgreSQLをアップグレードしてください。
 

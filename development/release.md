@@ -26,7 +26,7 @@ Use the following enviroment values.
 
   Specify a key for PPA of Groonga.
 
-  Please refer the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
+  Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
 
 ## Bump version
 

@@ -12,15 +12,16 @@ Use the following enviroment values.
 
   Specify a path for a latest Groonga repository.
 
-  If you have not cloned the Groonga repository.
+  It is better to clone the Groonga repository for each releases.
+
+  Here is an example to specify `$HOME/work/groonga/groonga.clean` to `GROONGA_REPOSITORY`.
 
   ```console
   $ mkdir -p ~/work/groonga
+  $ rm -rf ~/work/groonga/groonga.clean
   $ git clone --recursive git@github.com:groonga/groonga.git ~/work/groonga/groonga.clean
   $ export GROONGA_REPOSITORY=$HOME/work/groonga/groonga.clean
   ```
-
-  If you have already cloned the Groonga repository, execute `git pull` beforehand.
 
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
 
@@ -64,9 +65,6 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 * Change `~/.dput.cf` in order to upload the `nightly` repository.
 
   Add or change a `[groonga-ppa]` entry as below.
-  `incoming = ~groonga/ubuntu/nightly` is important.
-
-  If you don't have `~/.dput.cf`, create it manually.
 
   ```console
   $ vi ~/.dput.cf
@@ -78,6 +76,10 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
   allow_unsigned_uploads = 0
   ```
 
+  `incoming = ~groonga/ubuntu/nightly` is important.
+
+  If you don't have `~/.dput.cf`, create it manually.
+
 * Upload to the `nightly` repository.
 
   ```console
@@ -87,8 +89,8 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 * Check the build result
 
  When uploading packages into the `nightly` repository is succeeded, 
-  a package build process is executed on launchpad.net.
-  Then build result is notified via E-mail.
+ a package build process is executed on launchpad.net.
+ Then build result is notified via E-mail if the build fails.
 
 ## Tagging for the release
 
@@ -151,7 +153,8 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
 * Check the build result
 
   When upload packages succeeded, a package build process is executed on launchpad.net.
-  Then build result is notified via E-mail. We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
+  Then build result is notified via E-mail if the build fails.
+  We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ### CentOS
 

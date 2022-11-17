@@ -101,8 +101,8 @@ $ rake tag
 ## Download or create a archive file
 
 Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the 
-[GitHub relase page](https://github.com/pgroonga/pgroonga/releases/latest)
-and distribute it to the top of the PGroonga repository.
+[GitHub release page](https://github.com/pgroonga/pgroonga/releases/latest)
+and move it to the top of your local PGroonga repository.
 
 If the archive file doesn't exist on the GitHub release page, 
 you can create it on local by the following command.
@@ -110,6 +110,8 @@ you can create it on local by the following command.
 ```console
 $ rake dist
 ```
+
+It is created to the top of your local PGroonga repository.
 
 ## Upload a archive file
 
@@ -132,7 +134,6 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
 * Change `~/.dput.cf` in order to upload the `ppa` repository.
 
   Change the `[groonga-ppa]` entry as below.
-  `incoming = ~groonga/ubuntu/ppa` is important.
 
   ```console
   $ vi ~/.dput.cf
@@ -143,6 +144,8 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
   login = anonymous
   allow_unsigned_uploads = 0
   ```
+
+  `incoming = ~groonga/ubuntu/ppa` is important.
 
 * Upload to the `ppa` repository.
 
@@ -290,6 +293,27 @@ If we use tweet link, title of release announce and URL is embedded into our twe
 Execute sharing tweet in Japanese and English version of blog entry.
 Note that this tweet should be done when logged in by groonga account.
 
+### Update Docker images
+
+clone [Pgroonga Docker repository][pgroonga-docker-repository] and update Dockerfiles.
+
+Here is an example for the case that the PGroonga version is `2.4.1`,
+and the Groonga version is `12.0.9`.
+
+```
+$ mkdir -p ~/work/pgroonga
+$ rm -rf ~/work/pgroonga/docker.clean
+$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
+$ cd ~/work/pgroonga/docker.clean
+$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
+$ git push
+```
+
+You have to specify the latest versions.
+
+[GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker] automatically update Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+
+
 [github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
 
 [appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga
@@ -303,3 +327,9 @@ Note that this tweet should be done when logged in by groonga account.
 [groonga-org-repository]:https://github.com/groonga/groonga.org
 
 [facebook-groonga]:https://www.facebook.com/groonga/
+
+[pgroonga-docker-repository]:https://github.com/pgroonga/docker
+
+[github-actions-pgroonga-docker]:https://github.com/pgroonga/docker/actions
+
+[pgroonga-docker-hub]:https://hub.docker.com/r/groonga/pgroonga

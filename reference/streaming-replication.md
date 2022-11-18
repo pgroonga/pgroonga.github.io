@@ -212,6 +212,12 @@ Restart PostgreSQL to apply the configuration:
 % sudo -H systemctl restart postgresql-9.6
 ```
 
+You can confirm whether you set the above parameters or not with the following SQL:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name LIKE '%pgroonga%';
+```
+
 ## [normal] Insert data on primary
 
 This is a normal step.
@@ -371,6 +377,12 @@ After:
 
 ```text
 shared_preload_libraries = 'pgroonga_wal_applier'
+```
+
+You can confirm whether you set [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] or not with the following SQL:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name = 'shared_preload_libraries';
 ```
 
 ## [normal] Start PostgreSQL on standbys

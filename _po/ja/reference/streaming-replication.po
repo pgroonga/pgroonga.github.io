@@ -341,6 +341,17 @@ msgid ""
 "```"
 msgstr ""
 
+msgid ""
+"You can confirm whether you set the above parameters or not with the following"
+" SQL:"
+msgstr "上記のパラメターを設定したかどうかは、以下のSQLで確認できます:"
+
+msgid ""
+"```sql\n"
+"SELECT name,setting FROM pg_settings WHERE name LIKE '%pgroonga%';\n"
+"```"
+msgstr ""
+
 msgid "## [normal] Insert data on primary"
 msgstr "## [通常] プライマリーでデータを挿入する"
 
@@ -546,6 +557,19 @@ msgstr ""
 msgid ""
 "```text\n"
 "shared_preload_libraries = 'pgroonga_wal_applier'\n"
+"```"
+msgstr ""
+
+msgid ""
+"You can confirm whether you set [`shared_preload_libraries` parameter][postgre"
+"sql-shared-preload-libraries] or not with the following SQL:"
+msgstr ""
+"[`shared_preload_libraries` パラメータ][postgresql-shared-preload-libraries] を設定したか"
+"どうかは、以下のSQLで確認できます:"
+
+msgid ""
+"```sql\n"
+"SELECT name,setting FROM pg_settings WHERE name = 'shared_preload_libraries';\n"
 "```"
 msgstr ""
 

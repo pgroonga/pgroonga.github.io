@@ -212,6 +212,12 @@ pgroonga.max_wal_size = 100MB
 % sudo -H systemctl restart postgresql-9.6
 ```
 
+上記のパラメターを設定したかどうかは、以下のSQLで確認できます:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name LIKE '%pgroonga%';
+```
+
 ## [通常] プライマリーでデータを挿入する
 
 これは通常の手順です。
@@ -371,6 +377,12 @@ hot_standby = on
 
 ```text
 shared_preload_libraries = 'pgroonga_wal_applier'
+```
+
+[`shared_preload_libraries` パラメータ][postgresql-shared-preload-libraries] を設定したかどうかは、以下のSQLで確認できます:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name = 'shared_preload_libraries';
 ```
 
 ## [通常] スタンバイでPostgreSQLを起動する

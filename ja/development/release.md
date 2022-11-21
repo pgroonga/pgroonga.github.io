@@ -88,8 +88,8 @@ launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa
 
 * ビルド結果の確認
 
- `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド がlaunchpad.net上で実行されます。
- パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。
+  `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド がlaunchpad.net上で実行されます。
+  パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。
 
 ## リリース用にタグを打つ
 
@@ -99,7 +99,7 @@ $ rake tag
 
 ## アーカイブファイルのダウンロード
 
-アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を [GitHub release page](https://github.com/pgroonga/pgroonga/releases/latest)からダウンロードし、それをローカルのPGroongaのリポジトリーのワーキングディレクトリーに移動します。
+アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を[GitHub Releases ページ][pgroonga-releases-page]からダウンロードし、それをローカルのPGroongaのリポジトリーのワーキングディレクトリーに移動します。
 
 ## アーカイブファイルのアップロード
 
@@ -143,7 +143,7 @@ Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
 * ビルド結果の確認
 
-パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
+  パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
 
 ### CentOS
 
@@ -215,11 +215,11 @@ $ rake apt
 $ rake yum
 ```
 
-### Dockerイメージ
+### Dockerイメージの更新
 
-[Docker Hub][pgroonga-docker-hub] のDockerイメージを更新します。
+[Docker Hub][pgroonga-docker-hub]のDockerイメージを更新します。
 
-[Pgroonga Docker repository][pgroonga-docker-repository] をクローンし、Dockerfileを更新します。
+[Dockerリポジトリー][pgroonga-docker-repository]をクローンし、Dockerfileを更新します。
 
 以下は、PGroongaのバージョンが `2.4.1` 、Groongaのバージョンが `12.0.9` の場合の例です。
 
@@ -234,7 +234,7 @@ $ git push
 
 作業時には最新のバージョンを指定してください。
 
-変更をpushすると、 [GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker]が [Docker Hub][pgroonga-docker-hub] のDockerイメージを自動で更新します。
+変更をpushすると、[DockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が[Docker Hub][pgroonga-docker-hub]のDockerイメージを自動で更新します。
 
 ## リリースアナウンス
 
@@ -250,9 +250,7 @@ $ git push
 
 ## GitHub Discussions
 
-GitHub Discussionsにリリースアナウンスを作成します。
-
-https://github.com/pgroonga/pgroonga/discussions/categories/releases
+[GitHub Discussions][pgroonga-github-discussions-releases]にリリースアナウンスを作成します。
 
 ### ブログ
 
@@ -315,3 +313,7 @@ PGroongaのブログエントリには「リンクをあなたのフォロワー
 [github-actions-pgroonga-docker]:https://github.com/pgroonga/docker/actions
 
 [pgroonga-docker-hub]:https://hub.docker.com/r/groonga/pgroonga
+
+[pgroonga-releases-page]:https://github.com/pgroonga/pgroonga/releases/latest
+
+[pgroonga-github-discussions-releases]:https://github.com/pgroonga/pgroonga/discussions/categories/releases

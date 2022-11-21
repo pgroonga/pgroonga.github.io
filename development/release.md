@@ -101,7 +101,7 @@ $ rake tag
 ## Download an archive file
 
 Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the 
-[GitHub release page](https://github.com/pgroonga/pgroonga/releases/latest)
+[GitHub Releases page][pgroonga-releases-page]
 and move it to a working directory of your local PGroonga repository.
 
 ## Upload a archive file
@@ -224,7 +224,7 @@ $ rake yum
 
 We update Docker images of [Docker Hub][pgroonga-docker-hub].
 
-Clone [Pgroonga Docker repository][pgroonga-docker-repository] and update Dockerfiles.
+Clone [Docker repository][pgroonga-docker-repository] and update Dockerfiles.
 
 Here is an example for the case that the PGroonga version is `2.4.1`, and the Groonga version is `12.0.9`.
 
@@ -239,7 +239,7 @@ $ git push
 
 You have to specify the latest versions.
 
-[GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker] automatically update the Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+[GitHub Actions of Docker repository][github-actions-pgroonga-docker] automatically update the Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
 
 ## Announce release
 
@@ -255,9 +255,7 @@ Please contact a project member in order to join `PGroonga project`.
 
 ### Announce release for GitHub Discussions
 
-We make release announcement in GitHub Discussions.
-
-https://github.com/pgroonga/pgroonga/discussions/categories/releases
+We make release announcement in [GitHub Discussions][pgroonga-github-discussions-releases].
 
 ### Announce release for blog
 
@@ -324,3 +322,7 @@ Note that this tweet should be done when logged in by groonga account.
 [github-actions-pgroonga-docker]:https://github.com/pgroonga/docker/actions
 
 [pgroonga-docker-hub]:https://hub.docker.com/r/groonga/pgroonga
+
+[pgroonga-releases-page]:https://github.com/pgroonga/pgroonga/releases/latest
+
+[pgroonga-github-discussions-releases]:https://github.com/pgroonga/pgroonga/discussions/categories/releases

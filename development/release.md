@@ -88,9 +88,9 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 
 * Check the build result
 
- When uploading packages into the `nightly` repository is succeeded, 
- a package build process is executed on launchpad.net.
- Then build result is notified via E-mail if the build fails.
+  When uploading packages into the `nightly` repository is succeeded, 
+  a package build process is executed on launchpad.net.
+  Then the build result is notified via E-mail if the build fails.
 
 ## Tagging for the release
 
@@ -156,7 +156,7 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
 * Check the build result
 
   When upload packages succeeded, a package build process is executed on launchpad.net.
-  Then build result is notified via E-mail if the build fails.
+  Then the build result is notified via E-mail if the build fails.
   We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ### CentOS

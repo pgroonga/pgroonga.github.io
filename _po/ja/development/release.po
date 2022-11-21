@@ -403,10 +403,10 @@ msgstr "大きなニュースがある場合、PostgreSQLのメーリングリ�
 
 msgid ""
 "Your PostgreSQL account must belong to `PGroonga project` for announcement.\n"
-"Please contact other release personnel in order to join `PGroonga project`."
+"Please contact a project member in order to join `PGroonga project`."
 msgstr ""
 "アナウンスするにはPostgreSQLのアカウントが `PGroonga project` に所属している必要があります。\n"
-"`PGroonga project` に入るには、他のリリース担当者に連絡してください。"
+"`PGroonga project` への入り方は、プロジェクトメンバーに確認してください。"
 
 msgid ""
 "* https://www.postgresql.org/list/\n"

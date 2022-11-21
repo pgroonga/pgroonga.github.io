@@ -241,7 +241,7 @@ $ git push
 大きなニュースがある場合、PostgreSQLのメーリングリストにアナウンスします。
 
 アナウンスするにはPostgreSQLのアカウントが `PGroonga project` に所属している必要があります。
-`PGroonga project` に入るには、他のリリース担当者に連絡してください。
+`PGroonga project` への入り方は、プロジェクトメンバーに確認してください。
 
 * https://www.postgresql.org/list/
 * https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga (PGroongaのアナウンスのアーカイブ)

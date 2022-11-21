@@ -246,7 +246,7 @@ You have to specify the latest versions.
 We send release announcement to PostgreSQL mailing list if we have big news.
 
 Your PostgreSQL account must belong to `PGroonga project` for announcement.
-Please contact other release personnel in order to join `PGroonga project`.
+Please contact a project member in order to join `PGroonga project`.
 
 * https://www.postgresql.org/list/
 * https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga (Archives for PGroonga announcements)

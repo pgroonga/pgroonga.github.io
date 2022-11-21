@@ -8,11 +8,26 @@ title: リリース
 
 以下の環境変数を使います。
 
-* `GITHUB_TOKEN`
-
 * `GROONGA_REPOSITORY`
 
+最新のGroongaのリポジトリーへのパスを指定します。
+
+リリースごとにGroongaのリポジトリーをcloneすることを推奨します。
+
+以下は、 `$HOME/work/groonga/groonga.clean` を `GROONGA_REPOSITORY` に指定する例です。
+
+  ```console
+  $ mkdir -p ~/work/groonga
+  $ rm -rf ~/work/groonga/groonga.clean
+  $ git clone --recursive git@github.com:groonga/groonga.git ~/work/groonga/groonga.clean
+  $ export GROONGA_REPOSITORY=$HOME/work/groonga/groonga.clean
+  ```
+
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
+
+GroongaのPPAのキーを指定します。
+
+[Groonga release document about PPA](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
 
 ## バージョンをあげる
 
@@ -32,13 +47,72 @@ $ rake package:version:update
 
 * [GitHub Actions][github-actions-pgroonga]
 
+## aunchpad.netの `nightly` リポジトリーでビルドができるか確認
+
+Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
+
+launchpad.net. には [nightly][launchpad-groonga-nightly] と [ppa][launchpad-groonga-nightly] リポジトリーがあります。
+`nightly` はテスト用で、 `ppa` は配布用です。
+
+タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
+
+* テスト用のアーカイブファイルをローカルで作成します。
+
+  ```console
+  $ rake dist
+  ```
+
+* `~/.dput.cf` を `nightly` リポジトリーにアップロードするように変更
+
+  以下のように `[groonga-ppa]` エントリーを変更または追加します。
+
+  ```console
+  $ vi ~/.dput.cf
+  [groonga-ppa]
+  fqdn = ppa.launchpad.net
+  method = ftp
+  incoming = ~groonga/ubuntu/nightly
+  login = anonymous
+  allow_unsigned_uploads = 0
+  ```
+
+  `incoming = ~groonga/ubuntu/nightly` が重要な部分です。
+
+  もし、 `~/.dput.cf` がなければ手動で作成してください。
+
+* `nightly` リポジトリーにアップロード
+
+  ```console
+  $ rake package:ubuntu
+  ```
+
+* ビルド結果の確認
+
+ `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド 
+ がlaunchpad.net上で実行されます。
+ パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。
+
 ## リリース用にタグを打つ
 
 ```console
 $ rake tag
 ```
 
-## アーカイブを作成・アップロード
+## アーカイブファイルのダウンロードまたは作成
+
+アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を [GitHub release page](https://github.com/pgroonga/pgroonga/releases/latest)
+からダウンロードし、それをローカルのPGroongaのリポジトリーのトップに移動します。
+
+GitHub release page にアーカイブファイルが存在しない場合、 
+以下のコマンドでローカルで作成することも可能です。
+
+```console
+$ rake dist
+```
+
+ローカルのPGroongaのリポジトリのトップに作成されます。
+
+## アーカイブファイルのアップロード
 
 ```console
 $ rake package:source
@@ -56,11 +130,31 @@ $ rake package:apt
 
 Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
-```console
-$ rake package:ubuntu
-```
+* `~/.dput.cf` を `ppa` リポジトリーにアップロードするように変更
 
-パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロードに成功するとメールで通知が届きます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
+  以下のように `[groonga-ppa]` エントリーを変更します。
+
+  ```console
+  $ vi ~/.dput.cf
+  [groonga-ppa]
+  fqdn = ppa.launchpad.net
+  method = ftp
+  incoming = ~groonga/ubuntu/ppa
+  login = anonymous
+  allow_unsigned_uploads = 0
+  ```
+
+  `incoming = ~groonga/ubuntu/ppa` が重要な部分です。
+
+* `ppa` リポジトリーにアップロード
+
+  ```console
+  $ rake package:ubuntu
+  ```
+
+* ビルド結果の確認
+
+パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
 
 ### CentOS
 
@@ -70,11 +164,9 @@ $ rake package:yum
 
 ### Windows
 
-Windows向けには、 [GitHub Actions][github-actions-pgroonga]の成果物を使っています。
+Windowsパッケージについては、何もする必要はありません。
 
-```console
-$ rake package:windows:upload
-```
+Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクションで自動でアップロードされます。
 
 ## 変更点を記述
 
@@ -138,11 +230,19 @@ $ rake yum
 
 ### メーリングリスト
 
-以下のアドレスにリリースアナウンスを送信します。
+大きなニュースがある場合、PostgreSQLのメーリングリストにアナウンスします。
 
-* groonga-dev（日本語） `groonga-dev@lists.osdn.me`
+アナウンスするにはPostgreSQLのアカウントが `PGroonga project` に所属している必要があります。
+`PGroonga project` に入るには、他のリリース担当者に連絡してください。
 
-* groonga-talk（英語） `groonga-talk@lists.sourceforge.net`
+* https://www.postgresql.org/list/
+* https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga (PGroongaのアナウンスのアーカイブ)
+
+## GitHub Discussions
+
+GitHub Discussionsにリリースアナウンスを作成します。
+
+https://github.com/pgroonga/pgroonga/discussions/categories/releases
 
 ### ブログ
 
@@ -186,6 +286,27 @@ PGroongaのブログエントリには「リンクをあなたのフォロワー
 
 この作業はblogroongaの英語版、日本語版それぞれで行います。 あらかじめgroongaアカウントでログインしておくとアナウンスを円滑に行うことができます。
 
+Dockerイメージ
+
+[Pgroonga Docker repository][pgroonga-docker-repository] をクローンし、Dockerfileを更新します。
+
+Here is an example for the case that the PGroonga version is `2.4.1`,
+and the Groonga version is `12.0.9`.
+
+```
+$ mkdir -p ~/work/pgroonga
+$ rm -rf ~/work/pgroonga/docker.clean
+$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
+$ cd ~/work/pgroonga/docker.clean
+$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
+$ git push
+```
+
+作業時には最新のバージョンを指定してください。
+
+変更をpushすると、 [GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker]が [Docker Hub][pgroonga-docker-hub] のDockerイメージを自動で更新します。
+
+
 [github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
 
 [appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga
@@ -194,6 +315,14 @@ PGroongaのブログエントリには「リンクをあなたのフォロワー
 
 [launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa
 
+[launchpad-groonga-nightly]:https://launchpad.net/~groonga/+archive/ubuntu/nightly
+
 [groonga-org-repository]:https://github.com/groonga/groonga.org
 
 [facebook-groonga]:https://www.facebook.com/groonga/
+
+[pgroonga-docker-repository]:https://github.com/pgroonga/docker
+
+[github-actions-pgroonga-docker]:https://github.com/pgroonga/docker/actions
+
+[pgroonga-docker-hub]:https://hub.docker.com/r/groonga/pgroonga

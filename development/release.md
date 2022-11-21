@@ -222,7 +222,9 @@ $ rake yum
 
 ### Update Docker images
 
-clone [Pgroonga Docker repository][pgroonga-docker-repository] and update Dockerfiles.
+We update Docker images of [Docker Hub][pgroonga-docker-hub].
+
+Clone [Pgroonga Docker repository][pgroonga-docker-repository] and update Dockerfiles.
 
 Here is an example for the case that the PGroonga version is `2.4.1`, and the Groonga version is `12.0.9`.
 
@@ -237,7 +239,7 @@ $ git push
 
 You have to specify the latest versions.
 
-[GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker] automatically update Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+[GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker] automatically update the Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
 
 ## Announce release
 

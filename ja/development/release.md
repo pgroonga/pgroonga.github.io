@@ -51,7 +51,7 @@ $ rake package:version:update
 
 Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
-launchpad.net. には [nightly][launchpad-groonga-nightly] と [ppa][launchpad-groonga-nightly] リポジトリーがあります。
+launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa][launchpad-groonga-nightly]リポジトリーがあります。
 `nightly` はテスト用で、 `ppa` は配布用です。
 
 タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
@@ -216,6 +216,8 @@ $ rake yum
 ```
 
 ### Dockerイメージ
+
+[Docker Hub][pgroonga-docker-hub] のDockerイメージを更新します。
 
 [Pgroonga Docker repository][pgroonga-docker-repository] をクローンし、Dockerfileを更新します。
 

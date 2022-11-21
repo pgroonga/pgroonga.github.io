@@ -98,20 +98,11 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 $ rake tag
 ```
 
-## Download or create a archive file
+## Download an archive file
 
 Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the 
 [GitHub release page](https://github.com/pgroonga/pgroonga/releases/latest)
-and move it to the top of your local PGroonga repository.
-
-If the archive file doesn't exist on the GitHub release page, 
-you can create it on local by the following command.
-
-```console
-$ rake dist
-```
-
-It is created to the top of your local PGroonga repository.
+and move it to a working directory of your local PGroonga repository.
 
 ## Upload a archive file
 
@@ -229,6 +220,25 @@ $ rake apt
 $ rake yum
 ```
 
+### Update Docker images
+
+clone [Pgroonga Docker repository][pgroonga-docker-repository] and update Dockerfiles.
+
+Here is an example for the case that the PGroonga version is `2.4.1`, and the Groonga version is `12.0.9`.
+
+```
+$ mkdir -p ~/work/pgroonga
+$ rm -rf ~/work/pgroonga/docker.clean
+$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
+$ cd ~/work/pgroonga/docker.clean
+$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
+$ git push
+```
+
+You have to specify the latest versions.
+
+[GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker] automatically update Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+
 ## Announce release
 
 ### Announce release for mailing list
@@ -292,27 +302,6 @@ If we use tweet link, title of release announce and URL is embedded into our twe
 
 Execute sharing tweet in Japanese and English version of blog entry.
 Note that this tweet should be done when logged in by groonga account.
-
-### Update Docker images
-
-clone [Pgroonga Docker repository][pgroonga-docker-repository] and update Dockerfiles.
-
-Here is an example for the case that the PGroonga version is `2.4.1`,
-and the Groonga version is `12.0.9`.
-
-```
-$ mkdir -p ~/work/pgroonga
-$ rm -rf ~/work/pgroonga/docker.clean
-$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
-$ cd ~/work/pgroonga/docker.clean
-$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
-$ git push
-```
-
-You have to specify the latest versions.
-
-[GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker] automatically update Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
-
 
 [github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
 

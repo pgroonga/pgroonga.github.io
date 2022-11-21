@@ -88,8 +88,7 @@ launchpad.net. には [nightly][launchpad-groonga-nightly] と [ppa][launchpad-g
 
 * ビルド結果の確認
 
- `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド 
- がlaunchpad.net上で実行されます。
+ `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド がlaunchpad.net上で実行されます。
  パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。
 
 ## リリース用にタグを打つ
@@ -98,19 +97,9 @@ launchpad.net. には [nightly][launchpad-groonga-nightly] と [ppa][launchpad-g
 $ rake tag
 ```
 
-## アーカイブファイルのダウンロードまたは作成
+## アーカイブファイルのダウンロード
 
-アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を [GitHub release page](https://github.com/pgroonga/pgroonga/releases/latest)
-からダウンロードし、それをローカルのPGroongaのリポジトリーのトップに移動します。
-
-GitHub release page にアーカイブファイルが存在しない場合、 
-以下のコマンドでローカルで作成することも可能です。
-
-```console
-$ rake dist
-```
-
-ローカルのPGroongaのリポジトリのトップに作成されます。
+アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を [GitHub release page](https://github.com/pgroonga/pgroonga/releases/latest)からダウンロードし、それをローカルのPGroongaのリポジトリーのワーキングディレクトリーに移動します。
 
 ## アーカイブファイルのアップロード
 
@@ -226,6 +215,25 @@ $ rake apt
 $ rake yum
 ```
 
+### Dockerイメージ
+
+[Pgroonga Docker repository][pgroonga-docker-repository] をクローンし、Dockerfileを更新します。
+
+以下は、PGroongaのバージョンが `2.4.1` 、Groongaのバージョンが `12.0.9` の場合の例です。
+
+```
+$ mkdir -p ~/work/pgroonga
+$ rm -rf ~/work/pgroonga/docker.clean
+$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
+$ cd ~/work/pgroonga/docker.clean
+$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
+$ git push
+```
+
+作業時には最新のバージョンを指定してください。
+
+変更をpushすると、 [GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker]が [Docker Hub][pgroonga-docker-hub] のDockerイメージを自動で更新します。
+
 ## リリースアナウンス
 
 ### メーリングリスト
@@ -285,27 +293,6 @@ Facebookに [Groongaグループ][facebook-groonga] があります。[Groonga�
 PGroongaのブログエントリには「リンクをあなたのフォロワーに共有する」ためのツイートボタンがあるので、そのボタンを使ってリリースアナウンスします。(画面下部に配置されている)このボタンを経由する場合、ツイート内容に自動的にリリースタイトルとリリースエントリのURLが挿入されます。
 
 この作業はblogroongaの英語版、日本語版それぞれで行います。 あらかじめgroongaアカウントでログインしておくとアナウンスを円滑に行うことができます。
-
-Dockerイメージ
-
-[Pgroonga Docker repository][pgroonga-docker-repository] をクローンし、Dockerfileを更新します。
-
-Here is an example for the case that the PGroonga version is `2.4.1`,
-and the Groonga version is `12.0.9`.
-
-```
-$ mkdir -p ~/work/pgroonga
-$ rm -rf ~/work/pgroonga/docker.clean
-$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
-$ cd ~/work/pgroonga/docker.clean
-$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
-$ git push
-```
-
-作業時には最新のバージョンを指定してください。
-
-変更をpushすると、 [GitHub Actions of Pgroonga Docker repository][github-actions-pgroonga-docker]が [Docker Hub][pgroonga-docker-hub] のDockerイメージを自動で更新します。
-
 
 [github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux
 

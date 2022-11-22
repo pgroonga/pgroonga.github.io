@@ -27,7 +27,7 @@ title: リリース
 
 GroongaのPPAのキーを指定します。
 
-[Groonga release document about PPA](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
+[Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
 
 ## バージョンをあげる
 

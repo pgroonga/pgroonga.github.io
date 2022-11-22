@@ -250,7 +250,7 @@ We send release announcement to PostgreSQL mailing list if we have big news.
 Your PostgreSQL account must belong to `PGroonga project` for announcement.
 Please contact a project member in order to join `PGroonga project`.
 
-* https://www.postgresql.org/list/
+* [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
 * [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)
 
 ### Announce release for GitHub Discussions

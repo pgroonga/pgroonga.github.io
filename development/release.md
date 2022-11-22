@@ -239,7 +239,7 @@ $ git push
 
 You have to specify the latest versions.
 
-[GitHub Actions of Docker repository][github-actions-pgroonga-docker] automatically update the Docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+[GitHub Actions of PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the docker images of [PGroonga's Docker Hub][pgroonga-docker-hub] after you push the change.
 
 ## Announce release
 

@@ -47,11 +47,11 @@ $ rake package:version:update
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## aunchpad.netの `nightly` リポジトリーでビルドができるか確認
+## launchpad.netの `nightly` リポジトリーでビルドができるか確認
 
 Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
-launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa][launchpad-groonga-nightly]リポジトリーがあります。
+launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa][launchpad-groonga-ppa]リポジトリーがあります。
 `nightly` はテスト用で、 `ppa` は配布用です。
 
 タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
@@ -217,9 +217,9 @@ $ rake yum
 
 ### Dockerイメージの更新
 
-[Docker Hub][pgroonga-docker-hub]のDockerイメージを更新します。
+[Docker Hub][pgroonga-docker-hub]のPGroongaのDockerイメージを更新します。
 
-[Dockerリポジトリー][pgroonga-docker-repository]をクローンし、Dockerfileを更新します。
+[PGroongaのDockerリポジトリー][pgroonga-docker-repository]をクローンし、リポジトリーの中のDockerfileを更新します。
 
 以下は、PGroongaのバージョンが `2.4.1` 、Groongaのバージョンが `12.0.9` の場合の例です。
 
@@ -234,7 +234,7 @@ $ git push
 
 作業時には最新のバージョンを指定してください。
 
-変更をpushすると、[DockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が[Docker Hub][pgroonga-docker-hub]のDockerイメージを自動で更新します。
+変更をpushすると、[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が[Docker Hub][pgroonga-docker-hub]のPGroongaのDockerイメージを自動で更新します。
 
 ## リリースアナウンス
 
@@ -245,8 +245,8 @@ $ git push
 アナウンスするにはPostgreSQLのアカウントが `PGroonga project` に所属している必要があります。
 `PGroonga project` への入り方は、プロジェクトメンバーに確認してください。
 
-* https://www.postgresql.org/list/
-* https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga (PGroongaのアナウンスのアーカイブ)
+* [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
+* [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)
 
 ## GitHub Discussions
 

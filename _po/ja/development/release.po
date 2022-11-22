@@ -111,8 +111,8 @@ msgid ""
 "itory before tagging."
 msgstr "タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。"
 
-msgid "* Create a archive file for test on local."
-msgstr "* テスト用のアーカイブファイルをローカルで作成します。"
+msgid "* Create an archive file for test on local"
+msgstr "* テスト用のアーカイブファイルをローカルで作成"
 
 msgid ""
 "  ```console\n"
@@ -120,7 +120,7 @@ msgid ""
 "  ```"
 msgstr ""
 
-msgid "* Change `~/.dput.cf` in order to upload the `nightly` repository."
+msgid "* Change `~/.dput.cf` in order to upload the `nightly` repository"
 msgstr "* `~/.dput.cf` を `nightly` リポジトリーにアップロードするように変更"
 
 msgid "  Add or change a `[groonga-ppa]` entry as below."
@@ -144,7 +144,7 @@ msgstr "  `incoming = ~groonga/ubuntu/nightly` が重要な部分です。"
 msgid "  If you don't have `~/.dput.cf`, create it manually."
 msgstr "  もし、 `~/.dput.cf` がなければ手動で作成してください。"
 
-msgid "* Upload to the `nightly` repository."
+msgid "* Upload to the `nightly` repository"
 msgstr "* `nightly` リポジトリーにアップロード"
 
 msgid ""
@@ -184,7 +184,7 @@ msgstr ""
 "アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を[GitHub Releases ページ][pgroonga-releases-p"
 "age]からダウンロードし、それをローカルのPGroongaのリポジトリーのワーキングディレクトリーに移動します。"
 
-msgid "## Upload a archive file"
+msgid "## Upload an archive file"
 msgstr "## アーカイブファイルのアップロード"
 
 msgid ""
@@ -208,7 +208,7 @@ msgstr ""
 msgid "### Ubuntu"
 msgstr ""
 
-msgid "* Change `~/.dput.cf` in order to upload the `ppa` repository."
+msgid "* Change `~/.dput.cf` in order to upload the `ppa` repository"
 msgstr "* `~/.dput.cf` を `ppa` リポジトリーにアップロードするように変更"
 
 msgid "  Change the `[groonga-ppa]` entry as below."
@@ -229,7 +229,7 @@ msgstr ""
 msgid "  `incoming = ~groonga/ubuntu/ppa` is important."
 msgstr "  `incoming = ~groonga/ubuntu/ppa` が重要な部分です。"
 
-msgid "* Upload to the `ppa` repository."
+msgid "* Upload to the `ppa` repository"
 msgstr "* `ppa` リポジトリーにアップロード"
 
 msgid ""

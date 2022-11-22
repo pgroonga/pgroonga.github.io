@@ -56,7 +56,7 @@ launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa
 
 タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
 
-* テスト用のアーカイブファイルをローカルで作成します。
+* テスト用のアーカイブファイルをローカルで作成
 
   ```console
   $ rake dist

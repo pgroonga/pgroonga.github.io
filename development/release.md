@@ -56,13 +56,13 @@ We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-nightly
 
 We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
 
-* Create a archive file for test on local.
+* Create an archive file for test on local
 
   ```console
   $ rake dist
   ```
 
-* Change `~/.dput.cf` in order to upload the `nightly` repository.
+* Change `~/.dput.cf` in order to upload the `nightly` repository
 
   Add or change a `[groonga-ppa]` entry as below.
 
@@ -80,7 +80,7 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 
   If you don't have `~/.dput.cf`, create it manually.
 
-* Upload to the `nightly` repository.
+* Upload to the `nightly` repository
 
   ```console
   $ rake package:ubuntu
@@ -104,7 +104,7 @@ Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the
 [GitHub Releases page][pgroonga-releases-page]
 and move it to a working directory of your local PGroonga repository.
 
-## Upload a archive file
+## Upload an archive file
 
 ```console
 $ rake package:source
@@ -122,7 +122,7 @@ $ rake package:apt
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-* Change `~/.dput.cf` in order to upload the `ppa` repository.
+* Change `~/.dput.cf` in order to upload the `ppa` repository
 
   Change the `[groonga-ppa]` entry as below.
 
@@ -138,7 +138,7 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
 
   `incoming = ~groonga/ubuntu/ppa` is important.
 
-* Upload to the `ppa` repository.
+* Upload to the `ppa` repository
 
   ```console
   $ rake package:ubuntu

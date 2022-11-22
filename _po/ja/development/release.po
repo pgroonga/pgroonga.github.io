@@ -92,7 +92,7 @@ msgstr ""
 msgid ""
 "## Check whether we can build packages on `nightly` repository of launchpad.ne"
 "t"
-msgstr "## aunchpad.netの `nightly` リポジトリーでビルドができるか確認"
+msgstr "## launchpad.netの `nightly` リポジトリーでビルドができるか確認"
 
 msgid "For Ubuntu, packages are provided by PPA on launchpad.net."
 msgstr "Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。"

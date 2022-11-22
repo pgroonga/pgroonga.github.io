@@ -222,7 +222,7 @@ $ rake yum
 
 ### Update Docker images
 
-We update Docker images of [Docker Hub][pgroonga-docker-hub].
+We update PGroonga's Docker images of [Docker Hub][pgroonga-docker-hub].
 
 Clone [Docker repository][pgroonga-docker-repository] and update Dockerfiles.
 

@@ -246,7 +246,7 @@ $ git push
 `PGroonga project` への入り方は、プロジェクトメンバーに確認してください。
 
 * [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
-* [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)
+* [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (PGroongaのアナウンスのアーカイブ)
 
 ## GitHub Discussions
 

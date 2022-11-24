@@ -5,12 +5,30 @@ upper_level: ../
 
 # おしらせ
 
+## 2.4.2: 2022-11-29 {#version-2-4-2}
+
+### 改良
+
+  * Added support for PostgreSQL 15 for Windows.[GitHub#256][Reported by Raif Atef]
+
+  * Added support for PostgreSQL 15 on Ubuntu 22.04.
+
+  * Added a new module ``pgroonga_standby_maintainer`` for executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
+
+  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument for specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
+
+### 感謝
+
+  * askdkc
+
+  * Raif Atef
+
 ## 2.4.1: 2022-10-28 {#version-2-4-1}
 
 ### 改良
 
   * Added support for PostgreSQL 15.
-  
+
   * Dropped support for PostgreSQL 10.
 
     Because PostgreSQL 10 will reach EOL on November 2022.

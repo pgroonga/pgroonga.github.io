@@ -259,7 +259,7 @@ We make release announcement in [GitHub Discussions][pgroonga-github-discussions
 
 ### Announce release for blog
 
-We make release announce in blogs that are published https://groonga.org/blog/ and https://groonga.org/ja/blog/ .
+We make release announce in blogs that are published [https://groonga.org/blog/](https://groonga.org/blog/) and [https://groonga.org/ja/blog/](https://groonga.org/ja/blog/) .
 
 We update blogs in the following steps.
 

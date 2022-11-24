@@ -254,7 +254,7 @@ $ git push
 
 ### ブログ
 
-https://groonga.org/blog/ と https://groonga.org/ja/blog/ に公開されているブログにリリースアナウンスを記載します。
+[https://groonga.org/blog/](https://groonga.org/blog/) と [https://groonga.org/ja/blog/](https://groonga.org/ja/blog/) に公開されているブログにリリースアナウンスを記載します。
 
 以下の手順でブログを更新します。
 

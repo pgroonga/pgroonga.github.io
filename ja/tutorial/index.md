@@ -251,7 +251,7 @@ WHERE
 -- (1 row)
 ```
 
-詳細は [`pgroonga_highlight_html` function](../reference/functions/pgroonga-highlight-html.html) と [`pgroonga_query_extract_keywords` function](../reference/functions/pgroonga-query-extract-keywords.html) を参照してください。
+詳細は [`pgroonga_highlight_html` 関数](../reference/functions/pgroonga-highlight-html.html) と [`pgroonga_query_extract_keywords` 関数](../reference/functions/pgroonga-query-extract-keywords.html) を参照してください。
 
 ### スニペット（KWIC、keyword in context） {#snippet}
 

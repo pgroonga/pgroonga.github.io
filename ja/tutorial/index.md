@@ -208,7 +208,7 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 
 `pgroonga_highlight_html`関数を使うことで検索結果の中身を手軽に検索キーワードでハイライトすることができます。
 
-以下にサンプルスキーマの例を記載します:
+使用例を以下に記載します:
 
 ```sql
 -- PGroonga Extensionが既にあるかをチェックし、無ければ追加
@@ -225,7 +225,7 @@ CREATE INDEX pgroonga_sample_content_index
        USING pgroonga (content);
 ```
 
-サンプルデータをテーブルにインサートします。
+サンプルデータをテーブルに挿入します。
 
 ```sql
 INSERT INTO sample_texts VALUES (1, 'PostgreSQL is a relational database management system.');

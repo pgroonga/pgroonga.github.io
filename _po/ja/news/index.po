@@ -46,6 +46,14 @@ msgid ""
 "55][Patched by askdkc]"
 msgstr ""
 
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub"
+"#252][Reported by Raif Atef]"
+msgstr ""
+
 msgid "### Thanks"
 msgstr "### 感謝"
 
@@ -86,9 +94,6 @@ msgstr ""
 
 msgid "## 2.3.9: 2022-09-14 {#version-2-3-9}"
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a bug that PGroonga crash when an append node that had \"never execut"

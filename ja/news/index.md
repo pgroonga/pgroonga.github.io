@@ -17,6 +17,10 @@ upper_level: ../
 
   * [`pgroonga_snippet_html` function][snippet-html] Added a new argument for specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
 
+### 修正
+
+  * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub#252][Reported by Raif Atef]
+
 ### 感謝
 
   * askdkc

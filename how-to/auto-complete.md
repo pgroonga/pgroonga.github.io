@@ -107,6 +107,10 @@ SELECT term FROM terms WHERE readings &^~ 'mi';
 Use [`&@`][match-v2] against `term` for loose full text search. Here is the result of it:
 
 ```sql
+INSERT INTO terms (term, readings) VALUES ('auto-complete', ARRAY['オートコンプリート']);
+```
+
+```sql
 SELECT term FROM terms WHERE term &@ 'mpl';
 --      term      
 -- ---------------

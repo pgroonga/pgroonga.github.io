@@ -139,12 +139,12 @@ SELECT * FROM memos
     content &@~
       pgroonga_query_expand('synonyms', 'term', 'synonyms', 'Window');
 
- id |                content                 
-----+----------------------------------------
-  1 | Window for PC is very low price!!!
-  2 | Hight quality video display low price!
-  3 | This is junk display.
-(3 rows)
+-- id |                content                 
+-- ----+----------------------------------------
+--   1 | Window for PC is very low price!!!
+--   2 | Hight quality video display low price!
+--   3 | This is junk display.
+-- (3 rows)
 ```
 
 [pgroonga_query_expand]:../reference/functions/pgroonga-query-expand.html

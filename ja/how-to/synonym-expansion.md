@@ -86,7 +86,7 @@ UPDATE synonyms SET term = 'ウィンドウ' WHERE term = 'ウインドウ';
 
 ```sql
 UPDATE synonyms SET synonyms = array_remove(synonyms, 'ウィンドウ');
-DELETE synonyms WHERE term = 'ウィンドウ';
+DELETE FROM synonyms WHERE term = 'ウィンドウ';
 ```
 
 ### 同義語検索の方法
@@ -132,7 +132,7 @@ CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 SELECT * FROM memos
   WHERE
     content &@~
-      pgroonga_query_expand('synonyms', 'term', 'synonyms', 'Window');
+      pgroonga_query_expand('synonyms', 'term', 'synonyms', 'ウィンドウ');
 
  id |                content                 
 ----+----------------------------------------

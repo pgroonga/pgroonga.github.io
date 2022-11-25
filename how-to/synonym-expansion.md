@@ -91,7 +91,7 @@ For example, if we want to delete "Window" from synonyms, we as below.
 
 ```sql
 UPDATE synonyms SET synonyms = array_remove(synonyms, 'Window');
-DELETE synonyms WHERE term = 'Window';
+DELETE FROM synonyms WHERE term = 'Window';
 ```
 
 ### How to search of synonyms

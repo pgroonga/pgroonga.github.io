@@ -54,6 +54,14 @@ msgid ""
 "#252][Reported by Raif Atef]"
 msgstr ""
 
+msgid "### Known issues"
+msgstr "### 既知の問題"
+
+msgid ""
+"  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub"
+"#269][Reported by Raif Atef]"
+msgstr ""
+
 msgid "### Thanks"
 msgstr "### 感謝"
 

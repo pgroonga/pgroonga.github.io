@@ -21,6 +21,10 @@ upper_level: ../
 
   * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub#252][Reported by Raif Atef]
 
+### Known issues
+
+  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub#269][Reported by Raif Atef]
+
 ### Thanks
 
   * askdkc

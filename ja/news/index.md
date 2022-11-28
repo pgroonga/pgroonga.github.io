@@ -9,13 +9,13 @@ upper_level: ../
 
 ### 改良
 
-  * Added support for PostgreSQL 15 for Windows.[GitHub#256][Reported by Raif Atef]
+  * Added support for PostgreSQL 15 on Windows.[GitHub#256][Reported by Raif Atef]
 
   * Added support for PostgreSQL 15 on Ubuntu 22.04.
 
-  * Added a new module ``pgroonga_standby_maintainer`` for executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
+  * Added a new module ``pgroonga_standby_maintainer`` executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
 
-  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument for specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
+  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
 
 ### 修正
 

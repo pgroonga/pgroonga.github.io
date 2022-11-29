@@ -13,7 +13,7 @@ upper_level: ../
 
   * Added support for PostgreSQL 15 on Ubuntu 22.04.
 
-  * Added a new module ``pgroonga_standby_maintainer`` executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
+  * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
 
   * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
 
@@ -1724,6 +1724,7 @@ The first release!!!
 [pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
+[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
 
 [travis-ci]:../how-to/travis-ci.html
 

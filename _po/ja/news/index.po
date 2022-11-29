@@ -21,11 +21,59 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"
+msgid "## 2.4.2: 2022-11-29 {#version-2-4-2}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * Added support for PostgreSQL 15 on Windows.[GitHub#256][Reported by Raif A"
+"tef]"
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 15 on Ubuntu 22.04."
+msgstr ""
+
+msgid ""
+"  * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby"
+"-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` auto"
+"matically on a standby database."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``p"
+"groonga_snippet_html``, specifing snippet length dynamically.[GitHub#253][Repo"
+"rted by askdkc][GitHub#255][Patched by askdkc]"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub"
+"#252][Reported by Raif Atef]"
+msgstr ""
+
+msgid "### Known issues"
+msgstr "### 既知の問題"
+
+msgid ""
+"  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub"
+"#269][Reported by Raif Atef]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * askdkc"
+msgstr ""
+
+msgid "  * Raif Atef"
+msgstr ""
+
+msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"
+msgstr ""
 
 msgid "  * Added support for PostgreSQL 15."
 msgstr ""
@@ -42,12 +90,6 @@ msgid ""
 "    [GitHub:pgroonga/pgroonga.github.io#83][Patched by askdkc]"
 msgstr ""
 
-msgid "### Thanks"
-msgstr "### 感謝"
-
-msgid "  * askdkc"
-msgstr ""
-
 msgid "## 2.4.0: 2022-10-07 {#version-2-4-0}"
 msgstr ""
 
@@ -61,9 +103,6 @@ msgstr ""
 
 msgid "## 2.3.9: 2022-09-14 {#version-2-3-9}"
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a bug that PGroonga crash when an append node that had \"never execut"
@@ -2332,7 +2371,9 @@ msgid ""
 "[pgroonga-check]:../reference/modules/pgroonga-check.html\n"
 "[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html\n"
 "[pgroonga-database]:../reference/modules/pgroonga-database.html\n"
-"[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html"
+"[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html\n"
+"[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer"
+".html"
 msgstr ""
 
 msgid "[travis-ci]:../how-to/travis-ci.html"

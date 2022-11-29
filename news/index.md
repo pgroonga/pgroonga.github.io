@@ -5,12 +5,38 @@ upper_level: ../
 
 # News
 
+## 2.4.2: 2022-11-29 {#version-2-4-2}
+
+### Improvements
+
+  * Added support for PostgreSQL 15 on Windows.[GitHub#256][Reported by Raif Atef]
+
+  * Added support for PostgreSQL 15 on Ubuntu 22.04.
+
+  * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
+
+  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
+
+### Fixes
+
+  * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub#252][Reported by Raif Atef]
+
+### Known issues
+
+  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub#269][Reported by Raif Atef]
+
+### Thanks
+
+  * askdkc
+
+  * Raif Atef
+
 ## 2.4.1: 2022-10-28 {#version-2-4-1}
 
 ### Improvements
 
   * Added support for PostgreSQL 15.
-  
+
   * Dropped support for PostgreSQL 10.
 
     Because PostgreSQL 10 will reach EOL on November 2022.
@@ -1698,6 +1724,7 @@ The first release!!!
 [pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
+[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
 
 [travis-ci]:../how-to/travis-ci.html
 

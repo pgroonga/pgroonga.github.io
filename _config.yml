@@ -1,8 +1,8 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 2.4.1
-pgroonga_release_date: 2022-10-31
+pgroonga_version: 2.4.2
+pgroonga_release_date: 2022-11-29
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/15
   ja: https://www.postgresql.jp/document/14/html
@@ -12,13 +12,14 @@ windows_postgresql_versions:
   - 12
   - 13
   - 14
+  - 15
 latest_postgresql_version: 15
 latest_amazon_linux_postgresql_version: 14
 # This must be synchronized with PGSQL_DEFAULT in
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/bsd.default-versions.mk
 # .
 freebsd_postgresql_version: 13
-development_postgresql_version: 15.0
+development_postgresql_version: 15.1
 exclude:
   - "Rakefile"
   - "Gemfile"

@@ -3,7 +3,7 @@ title: pgroonga_standby_maintainer module
 upper_level: ../
 ---
 
-# `pgroonga_standby_maintainer` module
+# `pgroonga_standby_maintainer` モジュール
 
 2.4.2で追加。
 

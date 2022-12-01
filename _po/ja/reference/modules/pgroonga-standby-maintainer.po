@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 
 msgid "# `pgroonga_standby_maintainer` module"
-msgstr ""
+msgstr "# `pgroonga_standby_maintainer` モジュール"
 
 msgid "Since 2.4.2."
 msgstr "2.4.2で追加。"

@@ -56,33 +56,13 @@ launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa
 
 タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
 
-* テスト用のアーカイブファイルをローカルで作成
+アーカイブファイルの作成、 `nightly` リポジトリーへのアップロード
 
   ```console
+  $ export DPUT_CONFIGURATION_NAME=groonga-ppa-nightly
+  $ export DPUT_INCOMING="~groonga/ubuntu/nightly"
+  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   $ rake dist
-  ```
-
-* `~/.dput.cf` を `nightly` リポジトリーにアップロードするように変更
-
-  以下のように `[groonga-ppa]` エントリーを変更または追加します。
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/nightly
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/nightly` が重要な部分です。
-
-  もし、 `~/.dput.cf` がなければ手動で作成してください。
-
-* `nightly` リポジトリーにアップロード
-
-  ```console
   $ rake package:ubuntu
   ```
 
@@ -119,25 +99,12 @@ $ rake package:apt
 
 Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
-* `~/.dput.cf` を `ppa` リポジトリーにアップロードするように変更
-
-  以下のように `[groonga-ppa]` エントリーを変更します。
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/ppa
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/ppa` が重要な部分です。
-
 * `ppa` リポジトリーにアップロード
 
   ```console
+  $ export DPUT_CONFIGURATION_NAME=groonga-ppa
+  $ export DPUT_INCOMING="~groonga/ubuntu/ppa"
+  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   $ rake package:ubuntu
   ```
 

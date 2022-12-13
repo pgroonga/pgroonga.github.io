@@ -56,33 +56,13 @@ We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-ppa] re
 
 We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
 
-* Create an archive file for test on local
+* Create archive file and upload to the `nightly` repository
 
   ```console
+  $ export DPUT_CONFIGURATION_NAME=groonga-ppa-nightly
+  $ export DPUT_INCOMING="~groonga/ubuntu/nightly"
+  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   $ rake dist
-  ```
-
-* Change `~/.dput.cf` in order to upload the `nightly` repository
-
-  Add or change a `[groonga-ppa]` entry as below.
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/nightly
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/nightly` is important.
-
-  If you don't have `~/.dput.cf`, create it manually.
-
-* Upload to the `nightly` repository
-
-  ```console
   $ rake package:ubuntu
   ```
 
@@ -122,25 +102,12 @@ $ rake package:apt
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-* Change `~/.dput.cf` in order to upload the `ppa` repository
-
-  Change the `[groonga-ppa]` entry as below.
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/ppa
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/ppa` is important.
-
 * Upload to the `ppa` repository
 
   ```console
+  $ export DPUT_CONFIGURATION_NAME=groonga-ppa
+  $ export DPUT_INCOMING="~groonga/ubuntu/ppa"
+  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   $ rake package:ubuntu
   ```
 

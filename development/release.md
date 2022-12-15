@@ -206,7 +206,7 @@ $ git push
 
 You have to specify the latest versions.
 
-After you check [GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] is succeeded, push tag to remote.
+After you check [GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] are succeeded, push tag to remote.
 
 ```
 $ git push --tags

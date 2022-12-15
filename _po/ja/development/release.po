@@ -347,7 +347,7 @@ msgstr "作業時には最新のバージョンを指定してください。"
 
 msgid ""
 "After you check [GitHub Actions of the PGroonga's Docker repository][github-ac"
-"tions-pgroonga-docker] is succeeded, push tag to remote."
+"tions-pgroonga-docker] are succeeded, push tag to remote."
 msgstr ""
 "[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が成功しているの"
 "を確認したら、タグをpushします。"

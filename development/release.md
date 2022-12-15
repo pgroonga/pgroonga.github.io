@@ -206,7 +206,13 @@ $ git push
 
 You have to specify the latest versions.
 
-[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+After you check [GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] is succeeded, push tag to remote.
+
+```
+$ git push --tags
+```
+
+[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the tag.
 
 ## Announce release
 

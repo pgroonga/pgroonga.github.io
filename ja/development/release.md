@@ -201,7 +201,13 @@ $ git push
 
 作業時には最新のバージョンを指定してください。
 
-変更をpushすると、[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が[Docker Hub][pgroonga-docker-hub]のPGroongaのDockerイメージを自動で更新します。
+[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が成功しているのを確認したら、タグをpushします。
+
+```
+$ git push --tags
+```
+
+タグをpushすると、[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が[Docker Hub][pgroonga-docker-hub]のPGroongaのDockerイメージを自動で更新します。
 
 ## リリースアナウンス
 

@@ -5,41 +5,41 @@ upper_level: ../
 
 # おしらせ
 
-## PGroonga is supported on Supabase {#supabase-supports-pgroonga}
+## SupabaseがPGroongaをサポートしました！ {#supabase-supports-pgroonga}
 
-[Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features such as a Postgres database.
+[Supabase](https://supabase.com/)は、認証やデータベースなどのプロダクト開発のバックエンドのサービスを提供してくれるオープンソースのサービスです。
 
-Now, PGroonga is happy to announce that it works natively on Supabase!
+この度、Supabaseが提供しているPostgreSQLのデータベースサービスで[PGroonga](https://pgroonga.github.io/)が使えるようになりました！
 
 [https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
 
-Until now, PGroonga could not be used in managed service. Supabase let you use PGroonga, a fast full text search for all languages, on a managed PostgreSQL.
-Supabase has the free basic plan is available to start. For people who couldn't use PGroonga because of PostgreSQL operation cost, it is a great chance to give a try!
+今まで、PGroongaはマネージドサービスでは使用できませんでしたが、Supabaseを利用することでマネージドなPostgreSQLでも高速な全言語対応の全文検索ができるようになりました！
+Supabaseは、PGroonga以外にも40以上のPostgreSQL拡張機能に対応していて、一部サービスを無料で提供しています。PostgreSQLの運用が負担でPGroongaの使用をためらっていた人は、この機会にPGroongaを使ってみてください！
 
-There are other plan that has less limitation. Please check [Supabase website](https://supabase.com/pricing) for more information. 
+制限などがなくなる有料のプランもあります。詳しくは[Supabaseさんのウェブサイト](https://supabase.com/pricing)を見てみてください。 
 
-Supabase contacted PGronnga about adding PGroonga to their native extensions because PGroonga would be great option for multi language users.
+Supabaseさんは、PGroongaの機能が日本を含む多くの言語を扱うお客さんに役立つものであるとして自社のサービスに組み込んで提供してよいかと連絡をくれました。
 
-Supabase values PostgreSQL License and the idea of OSS ecosystem. Supabase make great contributions to OSS by providing services with those OSS licenses such as PostgreSQL Licens, BSD License, and MIT License.
+Supabaseさんは、PGroongaがPostgreSQL Licenseで提供されているソフトウェアであるという点に魅力を感じてくれました。Supabaseさんも、PostgreSQL LicenseやBSD License、MIT Licenseのソフトウェアを採用してサービスを提供しオープンソースソフトウェアへ貢献しています。
 
-Also Supabase give financial contributions to various OSS including PGroonga via [Open Collective](https://opencollective.com/), a fundraising + legal status + money management platform.
+また、オープンソースソフトウェアのエコシステムの概念を実践して、PGroongaを含めた様々なオープンソースソフトウェアに対しての[Open Collective](https://opencollective.com/)というサービスをつかった資金サポートもしています。
 
 * [Supabase Open Collective Page](https://opencollective.com/supabase)
 * [PGroonga Open Collective Page](https://opencollective.com/pgroonga)
 
-It is a great thing for our community that OSS contribution leads this cooperation.
+このように、オープンソースへの貢献を通じてコラボレーションできるのは素晴らしいことですね！
 
 ## 2.4.3: 2022-12-21 {#version-2-4-3}
 
 ### 改良
 
-  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the ``text[]`` type for ``target``.
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type for `target`.
 
-    `pgroonga_highlight_html` only supported the ``text`` type for ``target``.
+    `pgroonga_highlight_html` only supported the `text` type for `target`.
 
-    We can now specify the ``text[]`` type for ``target`` from this version.
+    We can now specify the `text[]` type for `target`.
 
-    A type of a returned value is also ``text[]`` when we specify the ``text[]`` type for ``target``.
+    A type of a returned value is also `text[]` when we specify the `text[]` type for `target`.
 
     ```
     SELECT pgroonga_highlight_html(
@@ -55,7 +55,7 @@ It is a great thing for our community that OSS contribution leads this cooperati
 
   * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga)
 
-    We have not published Docker images since 2.3.9.
+    We had not published Docker images since 2.3.9.
 
 ### 既知の問題
 

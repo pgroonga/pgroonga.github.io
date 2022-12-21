@@ -33,13 +33,13 @@ It is a great thing for our community that OSS contribution leads this cooperati
 
 ### Improvements
 
-  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the ``text[]`` type for ``target``.
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type for `target`.
 
-    `pgroonga_highlight_html` only supported the ``text`` type for ``target``.
+    `pgroonga_highlight_html` only supported the `text` type for `target`.
 
-    We can now specify the ``text[]`` type for ``target`` from this version.
+    We can now specify the `text[]` type for `target`.
 
-    A type of a returned value is also ``text[]`` when we specify the ``text[]`` type for ``target``.
+    A type of a returned value is also `text[]` when we specify the `text[]` type for `target`.
 
     ```
     SELECT pgroonga_highlight_html(
@@ -55,7 +55,7 @@ It is a great thing for our community that OSS contribution leads this cooperati
 
   * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga)
 
-    We have not published Docker images since 2.3.9.
+    We had not published Docker images since 2.3.9.
 
 ### Known issues
 

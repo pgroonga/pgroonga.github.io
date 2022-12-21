@@ -638,18 +638,8 @@ msgstr "## 正規表現 {#regular-expression}"
 msgid "TODO"
 msgstr ""
 
-msgid ""
-"See [`&~` operator](../reference/operators/regular-expression-v2.html) for mor"
-"e details."
-msgstr "詳細は[`&~`演算子](../reference/operators/regular-expression-v2.html)を参照してください。"
-
 msgid "## Similar search {#similar-search}"
 msgstr "## 類似文書検索 {#similar-search}"
-
-msgid ""
-"See [`&@*` operator](../reference/operators/similar-search-v2.html) for more d"
-"etails."
-msgstr "詳細は[`&@*`演算子](../reference/operators/similar-search-v2.html)を参照してください。"
 
 msgid "## Equality condition and comparison conditions {#equal}"
 msgstr "## 等価条件と比較条件 {#equal}"

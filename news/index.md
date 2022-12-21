@@ -41,7 +41,7 @@ It is a great thing for our community that OSS contribution leads this cooperati
 
     A type of a returned value is also `text[]` when we specify the `text[]` type for `target`.
 
-    ```
+    ```sql
     SELECT pgroonga_highlight_html(
       ARRAY['one two three', NULL, 'five', 'six three'],
       ARRAY['two', 'six']);

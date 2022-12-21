@@ -118,7 +118,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"    ```\n"
+"    ```sql\n"
 "    SELECT pgroonga_highlight_html(\n"
 "      ARRAY['one two three', NULL, 'five', 'six three'],\n"
 "      ARRAY['two', 'six']);\n"

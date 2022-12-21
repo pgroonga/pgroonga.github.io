@@ -41,7 +41,7 @@ Supabaseさんは、PGroongaがPostgreSQL Licenseで提供されているソフ�
 
     A type of a returned value is also `text[]` when we specify the `text[]` type for `target`.
 
-    ```
+    ```sql
     SELECT pgroonga_highlight_html(
       ARRAY['one two three', NULL, 'five', 'six three'],
       ARRAY['two', 'six']);

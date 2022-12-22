@@ -6,6 +6,28 @@ title: ユーザー
 
 以下はPGroongaユーザーです。
 
+## Supabase {#supabase}
+
+[Supabase](https://supabase.com/)は、認証やPostgreSQLデータベースなどのプロダクト開発のバックエンドのサービスを提供してくれるオープンソースのサービスです。
+
+PGroonga works natively on Supabase.
+
+[https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
+
+PGroongaはマネージドサービスでは使用できませんでしたが、Supabaseを利用することでマネージドなPostgreSQLでも高速な全言語対応の全文検索ができます！
+Supabaseは、PGroonga以外にも40以上のPostgreSQL拡張機能に対応していて、一部サービスを無料で提供しています。PostgreSQLの運用が負担でPGroongaの使用をためらっていた人は、SupabaseでPGroongaを使ってみてください！
+
+その他のプランやより詳しい情報は、[Supabaseさんのウェブサイト](https://supabase.com/pricing)を見てみてください。 
+
+Supabaseさんは、PGroongaの機能が日本を含む多くの言語を扱うお客さんに役立つものであるとして自社のサービスに組み込んで提供してよいかと連絡をくれました。
+
+Supabaseさんは、PGroongaがPostgreSQL Licenseで提供されているソフトウェアであるという点に魅力を感じてくれました。Supabaseさんも、PostgreSQL LicenseやBSD License、MIT Licenseのソフトウェアを採用してサービスを提供しオープンソースソフトウェアへ貢献しています。
+
+また、オープンソースソフトウェアのエコシステムの概念を実践して、PGroongaを含めた様々なオープンソースソフトウェアに対しての[Open Collective](https://opencollective.com/)というサービスをつかった資金サポートもしています。
+
+* [Supabase Open Collective Page](https://opencollective.com/supabase)
+* [PGroonga Open Collective Page](https://opencollective.com/pgroonga)
+
 ## Zulip {#zulip}
 
 [Zulip](https://zulip.org/)はパワフルなオープンソースのグループチャットアプリケーションです。全言語対応の全文検索機能を実現するためにPGroongaを使っています。なぜなら、[PostgreSQL組み込みの全文検索機能]({{ site.postgresql_doc_base_url.ja }}/textsearch.html)は同時に1つの言語しかサポートできないからです。PGroongaは同時にすべての言語をサポートできます。

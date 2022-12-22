@@ -34,7 +34,7 @@ upper_level: ../
 
 ### 既知の問題
 
-  * PGroonga may fail to create index while we execute 2 phases commit. [GitHub#269][Reported by Raif Atef]
+  * PGroonga may fail to create index while we execute Two-pahse commit. [GitHub#269][Reported by Raif Atef]
 
 ## 2.4.2: 2022-11-29 {#version-2-4-2}
 
@@ -50,11 +50,11 @@ upper_level: ../
 
 ### 修正
 
-  * Fixed a bug that ``VACUUM`` fails while we execute 2 phases commit. [GitHub#252][Reported by Raif Atef]
+  * Fixed a bug that ``VACUUM`` fails while we execute Two-pahse commit. [GitHub#252][Reported by Raif Atef]
 
 ### 既知の問題
 
-  * PGroonga may fail to create index while we execute 2 phases commit. [GitHub#269][Reported by Raif Atef]
+  * PGroonga may fail to create index while we execute Two-pahse commit. [GitHub#269][Reported by Raif Atef]
 
 ### 感謝
 

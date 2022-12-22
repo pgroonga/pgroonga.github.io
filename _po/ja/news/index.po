@@ -75,8 +75,8 @@ msgid "### Known issues"
 msgstr "### 既知の問題"
 
 msgid ""
-"  * PGroonga may fail to create index while we execute 2 phases commit. [GitHu"
-"b#269][Reported by Raif Atef]"
+"  * PGroonga may fail to create index while we execute Two-pahse commit. [GitH"
+"ub#269][Reported by Raif Atef]"
 msgstr ""
 
 msgid "## 2.4.2: 2022-11-29 {#version-2-4-2}"
@@ -103,8 +103,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"  * Fixed a bug that ``VACUUM`` fails while we execute 2 phases commit. [GitHu"
-"b#252][Reported by Raif Atef]"
+"  * Fixed a bug that ``VACUUM`` fails while we execute Two-pahse commit. [GitH"
+"ub#252][Reported by Raif Atef]"
 msgstr ""
 
 msgid "### Thanks"

@@ -103,14 +103,14 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';
 -- (2 rows)
 ```
 
-## pgroongaのパフォーマンス向上のための注意事項: jsonbカラム内にある特定のキーの値を検索したい場合、検索対象となる全てのキーに対してインデックスを作成する必要があります
+## PGroongaのパフォーマンス向上のための注意事項: jsonbカラム内にある特定のキーの値を検索したい場合、検索対象となるすべてのキーに対してインデックス作成が必要
 
 `&@~`演算子を用いてjsonbカラム内にある特定のキーの値を検索する時には、先の例で実施されてるようなjsonbカラム全体をインデックス対象にするのではなく、検索対象のそれぞれのキーに対してインデックスを作成する必要があります。それらのインデックスが存在しない場合は  `&@~`演算子はシーケンシャル検索のみを実行するため、パフォーマンスは極めて低速となります。
 
 こちらに前例の`logs`テーブルを用いたサンプルデモを記載します:
 
 ```sql
--- このクエリはpgroongaのインデックスを使うのでパフォーマンスは最高です
+-- このクエリはPGroongaのインデックスを使うのでパフォーマンスは最高です
 SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';
 --           jsonb_pretty          
 -- --------------------------------
@@ -126,7 +126,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';
 -- (1 row)
 
 
--- このクエリはpgroongaインデックスを使用しないので、単なるシーケンシャル検索になります(遅いです)
+-- このクエリはPGroongaインデックスを使用しないので、単なるシーケンシャル検索になります(遅いです)
 SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';
 --           jsonb_pretty          
 -- --------------------------------
@@ -170,13 +170,13 @@ EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'mes
 -- (6 rows)
 ```
 
-さて、ここでjsonbカラム内にある“message”キーのインデックスを作成するとどうなるでしょう: 
+さて、ここでjsonbカラム内にある`message`キーのインデックスを作成するとどうなるでしょう:
 
 ```sql
 -- jsonbカラム内の"message"キーのインデックスを作成します
 CREATE INDEX pgroonga_message_index ON logs USING pgroonga ((record->'message'));
 
--- EXPLAIN ANALYZEを実行前にpgroongaが確実にインデックスを利用するようシーケンシャルスキャンをOFFにします
+-- EXPLAIN ANALYZEを実行前にPGroongaが確実にインデックスを利用するようシーケンシャルスキャンをOFFにします
 -- 注意: 本番環境では SET enable_seqscan = off を実施しないようにしてください
 SET enable_seqscan = off;
 
@@ -190,7 +190,9 @@ EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'mes
 --  Planning Time: 0.201 ms
 --  Execution Time: 2.496 ms
 -- (5 rows)
+
 ```
+
 
 ## もし事前に検索対象となるjsonbカラム内のキーが分からない場合には、代わりに `` &` `` 演算子を使いましょう
 
@@ -204,7 +206,7 @@ CREATE TABLE logs (
   record jsonb
 );
 
--- jsonbカラム全体にインデックスを作成します(特定のキーに対してではりません)
+-- jsonbカラム全体にインデックスを作成します(特定のキーに対してではありません)
 CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);
 
 INSERT INTO logs
@@ -236,7 +238,7 @@ INSERT INTO logs
                 ]
               }');
 
--- &` 演算子を用いることで、特定のキーにインデックスを作成せずともpgroongaの高性能さを利用することができます
+-- &` 演算子を用いることで、特定のキーにインデックスを作成せずともPGroongaの高性能さを利用することができます
 EXPLAIN ANALYZE VERBOSE SELECT * FROM logs WHERE record &` '(paths @ "message") && query("string", "get")';
 --                                                          QUERY PLAN                                                          
 -- -----------------------------------------------------------------------------------------------------------------------------

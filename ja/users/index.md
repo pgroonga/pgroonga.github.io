@@ -10,7 +10,7 @@ title: ユーザー
 
 [Supabase](https://supabase.com/)は、認証やPostgreSQLデータベースなどのプロダクト開発のバックエンドのサービスを提供してくれるオープンソースのサービスです。
 
-PGroonga works natively on Supabase.
+Supabase上でPGroongaがネイティブに動作します。
 
 [https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
 

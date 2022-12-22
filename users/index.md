@@ -21,7 +21,7 @@ For other plan and more information, please check [Supabase website](https://sup
 
 Supabase contacted PGronnga about adding PGroonga to their native extensions because PGroonga would be great option for multi language users.
 
-Supabase values PostgreSQL License and the idea of OSS ecosystem. Supabase makes great contributions to OSS by providing services with those OSS licenses such as PostgreSQL Licens, BSD License, and MIT License.
+Supabase values PostgreSQL License and the idea of OSS ecosystem. Supabase makes great contributions to OSS community by providing services with those OSS licenses such as PostgreSQL Licens, BSD License, and MIT License.
 
 Also Supabase give financial contributions to various OSS including PGroonga via [Open Collective](https://opencollective.com/), a fundraising + legal status + money management platform.
 

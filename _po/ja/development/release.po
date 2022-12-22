@@ -116,11 +116,9 @@ msgstr "アーカイブファイルの作成、 `nightly` リポジトリーへ�
 
 msgid ""
 "  ```console\n"
-"  $ export DPUT_CONFIGURATION_NAME=groonga-ppa-nightly\n"
-"  $ export DPUT_INCOMING=\"~groonga/ubuntu/nightly\"\n"
-"  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
 "  $ rake dist\n"
-"  $ rake package:ubuntu\n"
+"  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOM"
+"ING=\"~groonga/ubuntu/nightly\" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
 "  ```"
 msgstr ""
 
@@ -184,10 +182,7 @@ msgstr "* `ppa` リポジトリーにアップロード"
 
 msgid ""
 "  ```console\n"
-"  $ export DPUT_CONFIGURATION_NAME=groonga-ppa\n"
-"  $ export DPUT_INCOMING=\"~groonga/ubuntu/ppa\"\n"
-"  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
-"  $ rake package:ubuntu\n"
+"  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
 "  ```"
 msgstr ""
 

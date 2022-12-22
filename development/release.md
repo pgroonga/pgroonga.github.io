@@ -59,11 +59,8 @@ We should test whether we can build packages for Ubuntu on the `nightly` reposit
 * Create archive file and upload to the `nightly` repository
 
   ```console
-  $ export DPUT_CONFIGURATION_NAME=groonga-ppa-nightly
-  $ export DPUT_INCOMING="~groonga/ubuntu/nightly"
-  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   $ rake dist
-  $ rake package:ubuntu
+  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING="~groonga/ubuntu/nightly" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   ```
 
 * Check the build result
@@ -105,10 +102,7 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
 * Upload to the `ppa` repository
 
   ```console
-  $ export DPUT_CONFIGURATION_NAME=groonga-ppa
-  $ export DPUT_INCOMING="~groonga/ubuntu/ppa"
-  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
-  $ rake package:ubuntu
+  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   ```
 
 * Check the build result

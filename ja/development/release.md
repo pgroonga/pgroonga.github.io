@@ -59,11 +59,8 @@ launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa
 アーカイブファイルの作成、 `nightly` リポジトリーへのアップロード
 
   ```console
-  $ export DPUT_CONFIGURATION_NAME=groonga-ppa-nightly
-  $ export DPUT_INCOMING="~groonga/ubuntu/nightly"
-  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   $ rake dist
-  $ rake package:ubuntu
+  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING="~groonga/ubuntu/nightly" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   ```
 
 * ビルド結果の確認
@@ -102,10 +99,7 @@ Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 * `ppa` リポジトリーにアップロード
 
   ```console
-  $ export DPUT_CONFIGURATION_NAME=groonga-ppa
-  $ export DPUT_INCOMING="~groonga/ubuntu/ppa"
-  $ export LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
-  $ rake package:ubuntu
+  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   ```
 
 * ビルド結果の確認

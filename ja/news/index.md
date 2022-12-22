@@ -16,7 +16,7 @@ upper_level: ../
 今まで、PGroongaはマネージドサービスでは使用できませんでしたが、Supabaseを利用することでマネージドなPostgreSQLでも高速な全言語対応の全文検索ができるようになりました！
 Supabaseは、PGroonga以外にも40以上のPostgreSQL拡張機能に対応していて、一部サービスを無料で提供しています。PostgreSQLの運用が負担でPGroongaの使用をためらっていた人は、この機会にPGroongaを使ってみてください！
 
-制限などがなくなる有料のプランもあります。詳しくは[Supabaseさんのウェブサイト](https://supabase.com/pricing)を見てみてください。 
+その他のプランやより詳しい情報は、[Supabaseさんのウェブサイト](https://supabase.com/pricing)を見てみてください。 
 
 Supabaseさんは、PGroongaの機能が日本を含む多くの言語を扱うお客さんに役立つものであるとして自社のサービスに組み込んで提供してよいかと連絡をくれました。
 
@@ -33,13 +33,12 @@ Supabaseさんは、PGroongaがPostgreSQL Licenseで提供されているソフ�
 
 ### 改良
 
-  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type for `target`.
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type as `target`.
 
-    `pgroonga_highlight_html` only supported the `text` type for `target`.
+    We can now specify the `text[]` type as `target` with `pgroonga_highlight_html`.
+    It only supported the `text` type for `target` before.
 
-    We can now specify the `text[]` type for `target`.
-
-    A type of a returned value is also `text[]` when we specify the `text[]` type for `target`.
+    A type of a returned value is also `text[]` when we specify the `text[]` type as `target`.
 
     ```sql
     SELECT pgroonga_highlight_html(
@@ -53,13 +52,13 @@ Supabaseさんは、PGroongaがPostgreSQL Licenseで提供されているソフ�
 
 ### 修正
 
-  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga)
+  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga).
 
-    We had not published Docker images since 2.3.9.
+    The matched Docker images were not published between 2.3.9 and the current version.
 
 ### 既知の問題
 
-  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub#269][Reported by Raif Atef]
+  * PGroonga may fail to create index while we execute 2 phases commit. [GitHub#269][Reported by Raif Atef]
 
 ## 2.4.2: 2022-11-29 {#version-2-4-2}
 
@@ -71,15 +70,15 @@ Supabaseさんは、PGroongaがPostgreSQL Licenseで提供されているソフ�
 
   * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
 
-  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
+  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifying snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
 
 ### 修正
 
-  * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub#252][Reported by Raif Atef]
+  * Fixed a bug that ``VACUUM`` fails while we execute 2 phases commit. [GitHub#252][Reported by Raif Atef]
 
 ### 既知の問題
 
-  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub#269][Reported by Raif Atef]
+  * PGroonga may fail to create index while we execute 2 phases commit. [GitHub#269][Reported by Raif Atef]
 
 ### 感謝
 

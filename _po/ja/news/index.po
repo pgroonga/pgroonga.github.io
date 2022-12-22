@@ -75,7 +75,7 @@ msgid "### Known issues"
 msgstr "### 既知の問題"
 
 msgid ""
-"  * PGroonga may fail to create index while we execute Two-pahse commit. [GitH"
+"  * PGroonga may fail to create index while we execute two-phase commit. [GitH"
 "ub#269][Reported by Raif Atef]"
 msgstr ""
 
@@ -103,7 +103,7 @@ msgid ""
 msgstr ""
 
 msgid ""
-"  * Fixed a bug that ``VACUUM`` fails while we execute Two-pahse commit. [GitH"
+"  * Fixed a bug that ``VACUUM`` fails while we execute two-phase commit. [GitH"
 "ub#252][Reported by Raif Atef]"
 msgstr ""
 

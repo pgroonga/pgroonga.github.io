@@ -302,5 +302,6 @@ msgstr ""
 "--   2 | 高品質なビデオディスプレイが安い！\n"
 "--   3 | これは、ジャンク品のディスプレイです。\n"
 "-- (3 rows)\n"
+
 msgid "[pgroonga_query_expand]:../reference/functions/pgroonga-query-expand.html"
 msgstr ""

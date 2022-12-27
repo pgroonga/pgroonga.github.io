@@ -28,13 +28,15 @@ upper_level: ../
 
 ### 修正
 
+  * Fix a but that PGroonga fails to create an index during executing two-phase commit. [GitHub#269][Reported by Raif Atef]
+
   * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga).
 
     The matched Docker images were not published between 2.3.9 and the current version.
 
-### 既知の問題
+### 感謝
 
-  * PGroonga may fail to create index while we execute two-phase commit. [GitHub#269][Reported by Raif Atef]
+  * Raif Atef
 
 ## 2.4.2: 2022-11-29 {#version-2-4-2}
 

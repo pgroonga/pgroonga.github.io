@@ -62,6 +62,11 @@ msgid "### Fixes"
 msgstr "### 修正"
 
 msgid ""
+"  * Fix a but that PGroonga fails to create an index during executing two-phas"
+"e commit. [GitHub#269][Reported by Raif Atef]"
+msgstr ""
+
+msgid ""
 "  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroo"
 "nga)."
 msgstr ""
@@ -71,12 +76,10 @@ msgid ""
 " version."
 msgstr ""
 
-msgid "### Known issues"
-msgstr "### 既知の問題"
+msgid "### Thanks"
+msgstr "### 感謝"
 
-msgid ""
-"  * PGroonga may fail to create index while we execute two-phase commit. [GitH"
-"ub#269][Reported by Raif Atef]"
+msgid "  * Raif Atef"
 msgstr ""
 
 msgid "## 2.4.2: 2022-11-29 {#version-2-4-2}"
@@ -107,13 +110,15 @@ msgid ""
 "ub#252][Reported by Raif Atef]"
 msgstr ""
 
-msgid "### Thanks"
-msgstr "### 感謝"
+msgid "### Known issues"
+msgstr "### 既知の問題"
 
-msgid "  * askdkc"
+msgid ""
+"  * PGroonga may fail to create index while we execute two-phase commit. [GitH"
+"ub#269][Reported by Raif Atef]"
 msgstr ""
 
-msgid "  * Raif Atef"
+msgid "  * askdkc"
 msgstr ""
 
 msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"

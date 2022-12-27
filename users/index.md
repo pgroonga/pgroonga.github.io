@@ -8,9 +8,7 @@ Here are PGroonga users.
 
 ## Supabase {#supabase}
 
-[Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features such as a Postgres database.
-
-PGroonga works natively on Supabase.
+[Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features developers need to build a product: a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage. Postgres is the core of Supabase, it works natively with more than 40 Postgres extensions, including PGroonga.
 
 [https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
 

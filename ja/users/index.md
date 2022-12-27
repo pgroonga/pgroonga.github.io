@@ -8,14 +8,12 @@ title: ユーザー
 
 ## Supabase {#supabase}
 
-[Supabase](https://supabase.com/)は、認証やPostgreSQLデータベースなどのプロダクト開発のバックエンドのサービスを提供してくれるオープンソースのサービスです。
-
-Supabase上でPGroongaがネイティブに動作します。
+Supabaseは、Firebaseに代わるオープンソースのサービスです。PostgreSQLデータベース、認証システム、API機能、エッジファンクション、リアルタイムサブスクリプションやストレージなど開発者がプロダクトを作るのに必要なバックエンドの全ての機能を提供します。PosgresSQLはSupabaseの中核をなしており、PGroongaを含めて40以上の拡張機能とともにネイティブに動作しています。
 
 [https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
 
 PGroongaはマネージドサービスでは使用できませんでしたが、Supabaseを利用することでマネージドなPostgreSQLでも高速な全言語対応の全文検索ができます！
-Supabaseは、PGroonga以外にも40以上のPostgreSQL拡張機能に対応していて、一部サービスを無料で提供しています。PostgreSQLの運用が負担でPGroongaの使用をためらっていた人は、SupabaseでPGroongaを使ってみてください！
+Supabaseは無料のサービスプランを提供しています。PostgreSQLの運用が負担でPGroongaの使用をためらっていた人は、SupabaseでPGroongaを使ってみてください！
 
 その他のプランやより詳しい情報は、[Supabaseさんのウェブサイト](https://supabase.com/pricing)を見てみてください。 
 

@@ -8,7 +8,7 @@ title: ユーザー
 
 ## Supabase {#supabase}
 
-Supabaseは、Firebaseに代わるオープンソースのサービスです。PostgreSQLデータベース、認証システム、API機能、エッジファンクション、リアルタイムサブスクリプションやストレージなど開発者がプロダクトを作るのに必要なバックエンドの全ての機能を提供します。PosgresSQLはSupabaseの中核をなしており、PGroongaを含めて40以上の拡張機能とともにネイティブに動作しています。
+Supabaseは、Firebaseに代わるオープンソースのサービスです。PostgreSQLデータベース、認証システム、API機能、エッジファンクション、リアルタイムサブスクリプションやストレージなど、開発者がプロダクトを作るのに必要なバックエンドの全ての機能を提供します。PosgresSQLはSupabaseの中核をなしており、PGroongaを含めて40以上の拡張機能とともにネイティブに動作しています。
 
 [https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
 

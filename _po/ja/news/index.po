@@ -62,8 +62,8 @@ msgid "### Fixes"
 msgstr "### 修正"
 
 msgid ""
-"  * Fix a but that PGroonga fails to create an index during executing two-phas"
-"e commit. [GitHub#269][Reported by Raif Atef]"
+"  * Fixed a but that PGroonga failed to create an index during executing two-p"
+"hase commit. [GitHub#269][Reported by Raif Atef]"
 msgstr ""
 
 msgid ""

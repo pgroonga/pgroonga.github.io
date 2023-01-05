@@ -21,11 +21,69 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.4.2: 2022-11-29 {#version-2-4-2}"
+msgid "## 2.4.3: 2023-01-06 {#version-2-4-3}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for t"
+"he `text[]` type as `target`."
+msgstr ""
+
+msgid ""
+"    We can now specify the `text[]` type as `target` with `pgroonga_highlight_"
+"html`.\n"
+"    It only supported the `text` type for `target` before."
+msgstr ""
+
+msgid ""
+"    A type of a returned value is also `text[]` when we specify the `text[]` t"
+"ype as `target`."
+msgstr ""
+
+msgid ""
+"    ```sql\n"
+"    SELECT pgroonga_highlight_html(\n"
+"      ARRAY['one two three', NULL, 'five', 'six three'],\n"
+"      ARRAY['two', 'six']);\n"
+"    --                                     pgroonga_highlight_html            "
+"                            \n"
+"    -- -----------------------------------------------------------------------"
+"--------------------------------\n"
+"    -- {\"one <span class=\\\"keyword\\\">two</span> three\",NULL,five,\"<span class="
+"\\\"keyword\\\">six</span> three\"}\n"
+"    -- (1 row)\n"
+"    ```"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a but that PGroonga failed to create an index during executing two-p"
+"hase commit. [GitHub#269][Reported by Raif Atef]"
+msgstr ""
+
+msgid ""
+"  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroo"
+"nga)."
+msgstr ""
+
+msgid ""
+"    The matched Docker images were not published between 2.3.9 and the current"
+" version."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Raif Atef"
+msgstr ""
+
+msgid "## 2.4.2: 2022-11-29 {#version-2-4-2}"
+msgstr ""
 
 msgid ""
 "  * Added support for PostgreSQL 15 on Windows.[GitHub#256][Reported by Raif A"
@@ -43,33 +101,24 @@ msgstr ""
 
 msgid ""
 "  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``p"
-"groonga_snippet_html``, specifing snippet length dynamically.[GitHub#253][Repo"
-"rted by askdkc][GitHub#255][Patched by askdkc]"
+"groonga_snippet_html``, specifying snippet length dynamically.[GitHub#253][Rep"
+"orted by askdkc][GitHub#255][Patched by askdkc]"
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
-"  * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub"
-"#252][Reported by Raif Atef]"
+"  * Fixed a bug that ``VACUUM`` fails while we execute two-phase commit. [GitH"
+"ub#252][Reported by Raif Atef]"
 msgstr ""
 
 msgid "### Known issues"
 msgstr "### 既知の問題"
 
 msgid ""
-"  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub"
-"#269][Reported by Raif Atef]"
+"  * PGroonga may fail to create index while we execute two-phase commit. [GitH"
+"ub#269][Reported by Raif Atef]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * askdkc"
-msgstr ""
-
-msgid "  * Raif Atef"
 msgstr ""
 
 msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"

@@ -5,6 +5,39 @@ upper_level: ../
 
 # おしらせ
 
+## 2.4.3: 2023-01-06 {#version-2-4-3}
+
+### 改良
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type as `target`.
+
+    We can now specify the `text[]` type as `target` with `pgroonga_highlight_html`.
+    It only supported the `text` type for `target` before.
+
+    A type of a returned value is also `text[]` when we specify the `text[]` type as `target`.
+
+    ```sql
+    SELECT pgroonga_highlight_html(
+      ARRAY['one two three', NULL, 'five', 'six three'],
+      ARRAY['two', 'six']);
+    --                                     pgroonga_highlight_html                                        
+    -- -------------------------------------------------------------------------------------------------------
+    -- {"one <span class=\"keyword\">two</span> three",NULL,five,"<span class=\"keyword\">six</span> three"}
+    -- (1 row)
+    ```
+
+### 修正
+
+  * Fixed a but that PGroonga failed to create an index during executing two-phase commit. [GitHub#269][Reported by Raif Atef]
+
+  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga).
+
+    The matched Docker images were not published between 2.3.9 and the current version.
+
+### 感謝
+
+  * Raif Atef
+
 ## 2.4.2: 2022-11-29 {#version-2-4-2}
 
 ### 改良
@@ -15,15 +48,15 @@ upper_level: ../
 
   * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
 
-  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifing snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
+  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifying snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
 
 ### 修正
 
-  * Fixed a bug that ``VACUUM`` fails while we execute 2 phase commit. [GitHub#252][Reported by Raif Atef]
+  * Fixed a bug that ``VACUUM`` fails while we execute two-phase commit. [GitHub#252][Reported by Raif Atef]
 
 ### 既知の問題
 
-  * PGroonga may fail to create index while we execute 2 phase commit. [GitHub#269][Reported by Raif Atef]
+  * PGroonga may fail to create index while we execute two-phase commit. [GitHub#269][Reported by Raif Atef]
 
 ### 感謝
 

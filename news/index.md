@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 2.4.3: 2022-12-21 {#version-2-4-3}
+## 2.4.3: 2023-01-06 {#version-2-4-3}
 
 ### Improvements
 

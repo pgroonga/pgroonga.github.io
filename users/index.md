@@ -6,6 +6,26 @@ title: Users
 
 Here are PGroonga users.
 
+## Supabase {#supabase}
+
+[Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features developers need to build a product: a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage. Postgres is the core of Supabase, it works natively with more than 40 Postgres extensions, including PGroonga.
+
+[https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
+
+PGroonga could not be used in any managed service. Supabase let you use PGroonga, a fast full text search for all languages, on a managed PostgreSQL.
+Supabase has the free basic plan is available to start. For people who couldn't use PGroonga because of PostgreSQL operation cost, it is a great chance to give a try!
+
+For other plan and more information, please check [Supabase website](https://supabase.com/pricing). 
+
+Supabase contacted PGronnga about adding PGroonga to their native extensions because PGroonga would be great option for multi language users.
+
+Supabase values PostgreSQL License and the idea of OSS ecosystem. Supabase makes great contributions to OSS community by providing services with those OSS licenses such as PostgreSQL Licens, BSD License, and MIT License.
+
+Also Supabase give financial contributions to various OSS including PGroonga via [Open Collective](https://opencollective.com/), a fundraising + legal status + money management platform.
+
+* [Supabase Open Collective Page](https://opencollective.com/supabase)
+* [PGroonga Open Collective Page](https://opencollective.com/pgroonga)
+
 ## Zulip {#zulip}
 
 [Zulip](https://zulip.org/) is a powerful open source group chat. It uses PGroonga to implement all languages support full text search. Because [PostgreSQL built-in full text search feature]({{ site.postgresql_doc_base_url.en }}/textsearch.html) supports only one language at the same time. PGroonga can support all languages at the same time.

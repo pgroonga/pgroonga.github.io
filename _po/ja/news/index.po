@@ -29,7 +29,7 @@ msgstr "### 改良"
 
 msgid ""
 "  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for t"
-"he `text[]` type as `target`."
+"he `text[]` type as `target`. [GitHub#219][Reported by Kentaro Hayashi]"
 msgstr ""
 
 msgid ""
@@ -78,6 +78,9 @@ msgstr ""
 
 msgid "### Thanks"
 msgstr "### 感謝"
+
+msgid "  * Kentaro Hayashi"
+msgstr ""
 
 msgid "  * Raif Atef"
 msgstr ""

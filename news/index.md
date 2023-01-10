@@ -9,7 +9,7 @@ upper_level: ../
 
 ### Improvements
 
-  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type as `target`.
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type as `target`. [GitHub#219][Reported by Kentaro Hayashi] 
 
     We can now specify the `text[]` type as `target` with `pgroonga_highlight_html`.
     It only supported the `text` type for `target` before.
@@ -35,6 +35,8 @@ upper_level: ../
     The matched Docker images were not published between 2.3.9 and the current version.
 
 ### Thanks
+
+  * Kentaro Hayashi
 
   * Raif Atef
 

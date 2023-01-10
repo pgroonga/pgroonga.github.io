@@ -28,7 +28,7 @@ upper_level: ../
 
 ### 修正
 
-  * Fixed a but that PGroonga failed to create an index during executing two-phase commit. [GitHub#269][Reported by Raif Atef]
+  * Fixed a bug that PGroonga failed to create an index during executing two-phase commit. [GitHub#269][Reported by Raif Atef]
 
   * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga).
 

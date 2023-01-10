@@ -62,7 +62,7 @@ msgid "### Fixes"
 msgstr "### 修正"
 
 msgid ""
-"  * Fixed a but that PGroonga failed to create an index during executing two-p"
+"  * Fixed a bug that PGroonga failed to create an index during executing two-p"
 "hase commit. [GitHub#269][Reported by Raif Atef]"
 msgstr ""
 

@@ -17,11 +17,11 @@ Supabase has the free basic plan to start. For people who couldn't use PGroonga 
 
 For other plan and more information, please check [Supabase website](https://supabase.com/pricing). 
 
-We added PGroonga to our native extensions because PGroonga would be great option for multi language users.
+Supabase added PGroonga to our native extensions because PGroonga would be great option for multi language users.
 
-We value PostgreSQL License and the idea of OSS ecosystem because we make contributions to OSS community by providing services with those OSS licenses such as PostgreSQL License, BSD License, and MIT License.
+Supabase values PostgreSQL License and the idea of OSS ecosystem because we make contributions to OSS community by providing services with those OSS licenses such as PostgreSQL License, BSD License, and MIT License.
 
-Also we give financial contributions to various OSS including PGroonga via [Open Collective](https://opencollective.com/), a fundraising + legal status + money management platform.
+Also Supabase gives financial contributions to various OSS including PGroonga via [Open Collective](https://opencollective.com/), a fundraising + legal status + money management platform.
 
 * [Supabase Open Collective Page](https://opencollective.com/supabase)
 * [PGroonga Open Collective Page](https://opencollective.com/pgroonga)

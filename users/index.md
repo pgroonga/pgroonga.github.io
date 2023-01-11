@@ -13,7 +13,7 @@ Here are PGroonga users.
 [https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)
 
 PGroonga could not be used in any managed service. Supabase let you use PGroonga, a fast full text search for all languages, on a managed PostgreSQL.
-Supabase has the free basic plan is available to start. For people who couldn't use PGroonga because of PostgreSQL operation cost, it is a great chance to give a try!
+Supabase has the free basic plan to start. For people who couldn't use PGroonga because of PostgreSQL operation cost, it is a great chance to give a try!
 
 For other plan and more information, please check [Supabase website](https://supabase.com/pricing). 
 

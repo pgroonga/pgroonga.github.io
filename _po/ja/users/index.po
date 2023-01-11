@@ -65,7 +65,7 @@ msgstr "SupabaseにPGroongaを組み込んだのは、PGroongaの機能が日本
 msgid ""
 "We value PostgreSQL License and the idea of OSS ecosystem because we make cont"
 "ributions to OSS community by providing services with those OSS licenses such "
-"as PostgreSQL Licens, BSD License, and MIT License."
+"as PostgreSQL License, BSD License, and MIT License."
 msgstr ""
 "また、PGroongaがPostgreSQL Licenseで提供されているソフトウェアであるという点に魅力を感じています。Supabaseでは、Postg"
 "reSQL LicenseやBSD License、MIT Licenseのソフトウェアを採用してサービスを提供しオープンソースソフトウェアへ貢献しているた"

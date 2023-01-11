@@ -19,7 +19,7 @@ For other plan and more information, please check [Supabase website](https://sup
 
 We added PGroonga to our native extensions because PGroonga would be great option for multi language users.
 
-We value PostgreSQL License and the idea of OSS ecosystem because we make contributions to OSS community by providing services with those OSS licenses such as PostgreSQL Licens, BSD License, and MIT License.
+We value PostgreSQL License and the idea of OSS ecosystem because we make contributions to OSS community by providing services with those OSS licenses such as PostgreSQL License, BSD License, and MIT License.
 
 Also we give financial contributions to various OSS including PGroonga via [Open Collective](https://opencollective.com/), a fundraising + legal status + money management platform.
 

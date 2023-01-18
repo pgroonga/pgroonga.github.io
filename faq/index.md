@@ -20,7 +20,7 @@ Before installing the policy package, perhaps your PGroonga installation had fai
 
 ## PGroonga on the managed service
 
-If you want to use Groonga on the managed service to develop web applications, please check [Supabase](https://supabase.com/).
+If you want to use PGroonga on the managed service to develop web applications, please check [Supabase](https://supabase.com/).
 
 ### Supabase 
 

@@ -18,7 +18,7 @@ If you use SELinux then PGroonga needs a policy package. The section [building P
 
 Before installing the policy package, perhaps your PGroonga installation had failed due to incorrect SELinux permissions. In this case, you must restart PostgreSQL to clean PGroonga failed/corrupt files.
 
-## Managed service including PGroonga 
+## Managed service including PGroonga {#managed-pgroonga}
 
 If you want to use PGroonga as the managed service to develop web applications, please check [Supabase](https://supabase.com/).
 

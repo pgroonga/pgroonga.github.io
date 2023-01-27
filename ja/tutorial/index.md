@@ -56,7 +56,6 @@ CREATE TABLE memos (
 まだpgroonga拡張を読み込んでない場合は、`CREATE EXTENSION pgroonga;` を実行してから以下のSQLを実行してください。
 
 ```
-CREATE EXTENSION pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 

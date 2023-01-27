@@ -55,6 +55,7 @@ CREATE TABLE memos (
 Create a `pgroonga` index against the column:
 
 ```
+CREATE EXTENSION pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 

@@ -58,6 +58,7 @@ Create a `pgroonga` index against the column:
 > If you haven't add PGroonga Extension to your database, please run `CREATE EXTENSION pgroonga;` first before continuing.
 
 ```
+CREATE EXTENSION IF NOT EXISTS pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 

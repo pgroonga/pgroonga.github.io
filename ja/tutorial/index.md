@@ -53,7 +53,6 @@ CREATE TABLE memos (
 `memos.content`カラムが全文検索対象のカラムです。
 
 このカラムに対して`pgroonga`インデックスを作ります。
-まだpgroonga拡張を読み込んでない場合は、`CREATE EXTENSION pgroonga;` を実行してから以下のSQLを実行してください。
 
 ```
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);

@@ -21,11 +21,24 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.4.3: 2023-01-06 {#version-2-4-3}"
+msgid "## 2.4.4: 2023-01-29 {#version-2-4-4}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga_wal_apply` function][wal-apply]] add target index information "
+"to error logs"
+msgstr ""
+
+msgid ""
+"    We can find indexes that failed to apply WAL records of PGroonga by this m"
+"odification."
+msgstr ""
+
+msgid "## 2.4.3: 2023-01-06 {#version-2-4-3}"
+msgstr ""
 
 msgid ""
 "  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for t"

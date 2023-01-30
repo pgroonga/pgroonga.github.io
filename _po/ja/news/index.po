@@ -33,8 +33,8 @@ msgid ""
 msgstr ""
 
 msgid ""
-"    We can find a index that failed apply a PGroonga's WAL by this modificatio"
-"n."
+"    We can find indexes that failed to apply WAL records of PGroonga by this m"
+"odification."
 msgstr ""
 
 msgid "## 2.4.3: 2023-01-06 {#version-2-4-3}"

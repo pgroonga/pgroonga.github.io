@@ -11,7 +11,7 @@ upper_level: ../
 
   * [[`pgroonga_wal_apply` function][wal-apply]] add target index information to error logs
 
-    We can find indexes that failed to apply PGroonga's WAL by this modification.
+    We can find indexes that failed to apply WAL records of PGroonga by this modification.
 
 ## 2.4.3: 2023-01-06 {#version-2-4-3}
 

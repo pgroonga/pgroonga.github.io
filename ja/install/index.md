@@ -62,6 +62,13 @@ upper_level: ../
 
 もし、このリストの中に自分のプラットフォームがない場合は、[ソースからビルドしてインストールする](source.html)か[issue](https://github.com/pgroonga/pgroonga/issues/new)にリクエストを送ってください。
 
+## チューニング
+通常、PGroongaはデフォルトで高速に動くため、特別にPGroongaをチューニングする必要はありません。
+
+しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroongaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のGroongaのドキュメントを参照してください。
+
+[チューニング](https://groonga.org/ja/docs/reference/tuning.html)
+
 ## 参考
 
   * [アンインストール][uninstall]

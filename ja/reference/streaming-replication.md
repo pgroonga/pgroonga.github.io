@@ -16,29 +16,24 @@ WALをサポートしているといってもクラッシュセーフではな�
 
 PostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する手順は次の通りです。「[通常]」タグは通常のストリーミングレプリケーション用の手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。
 
-  1. [通常] プライマリーとスタンバイでPostgreSQLをインストールする
+  1. [通常][固有] [プライマリーとスタンバイでPostgreSQLとPGroongaをインストールする](#通常固有-プライマリーとスタンバイでpostgresqlとpgroongaをインストールする)
 
-  2. [固有] プライマリーとスタンバイでPGroongaをインストールする
+  2. [通常] [プライマリーで`postgresql.conf`と`pg_hba.conf`にストリーミングレプリケーション用の設定を追加する](#通常-プライマリーでpostgresqlconfとpg_hbaconfにストリーミングレプリケーション用の設定を追加する)
 
-  3. [通常] プライマリーでPostgreSQLのデータベース初期化する
+  3. [固有] [プライマリーで`postgresql.conf`にPGroonga関連の設定を追加する](#固有-プライマリーでpostgresqlconfにpgroonga関連の設定を追加する)
 
-  4. [通常] プライマリーで`postgresql.conf`と`pg_hba.conf`にストリーミングレプリケーション用の設定を追加する
+  4. [通常] [スタンバイで`pg_basebackup`を実行する](#通常-スタンバイでpg_basebackupを実行する)
 
-  5. [固有] プライマリーで`postgresql.conf`にPGroonga関連の設定を追加する
+  5. [通常] [スタンバイで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する](#通常-スタンバイでpostgresqlconfにストリーミングレプリケーション用の設定を追加する)
 
-  6. [通常] プライマリーでデータを投入する
+  6. [通常] [スタンバイでPostgreSQLを再起動する](#通常-スタンバイでpostgresqlを再起動する)
 
-  7. [固有] プライマリーでPGroongaのインデックスを作成する
+  7. [通常] [プライマリーでデータを挿入する](#通常-プライマリーでデータを挿入する)
 
-  8. [固有] プライマリーでPGroonga関連のデータをフラッシュする
+  8. [固有] [プライマリーでPGroongaのインデックスを作成し、スタンバイから動作を確認する](#固有-プライマリーでpgroongaのインデックスを作成しスタンバイから動作を確認する)
 
-  9. [通常] スタンバイで`pg_basebackup`を実行する
 
-  10. [通常] スタンバイで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する
-
-  11. [固有] スタンバイで`postgresql.conf`にPGroongaのWAL関連の設定を追加する
-
-  12. [通常] スタンバイでPostgreSQLを起動する
+  プライマリーでPGroongaのインデックスを作成し、スタンバイから動作を確認する
 
 ## 例で使う環境
 
@@ -46,7 +41,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
   * プライマリー：
 
-    * OS：CentOS 7
+    * OS：Ubuntu 22.04
 
     * IPアドレス：192.168.0.30
 
@@ -54,79 +49,62 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
     * レプリケーションユーザー名：`replicator`
 
-    * レプリケーションユーザーのパスワード：`passw0rd`
-
   * スタンバイ1：
 
-    * OS：CentOS 7
+    * OS：Ubuntu 22.04
 
     * IPアドレス：192.168.0.31
 
   * スタンバイ2：
 
-    * OS：CentOS 7
+    * OS：Ubuntu 22.04
 
-    * IPアドレス：192.168.0.31
+    * IPアドレス：192.168.0.32
 
 このドキュメントではCentOS 7用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。
 
-## [通常] プライマリーとスタンバイでPostgreSQLをインストールする
+## [通常][固有] プライマリーとスタンバイでPostgreSQLとPGroongaをインストールする
 
-これは通常の手順です。
-
-プライマリーとスタンバイでPostgreSQL 9.6をインストールします。
+プライマリーとスタンバイでPostgreSQL 15をインストールします。
 
 プライマリー：
 
-```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
-% sudo -H yum install -y postgresql96-server
-% sudo -H systemctl enable postgresql-9.6
+```bash
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+sudo apt update
+sudo apt install -y postgresql-15 postgresql-contrib-15
+
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y ppa:groonga/ppa
+sudo apt install -y wget lsb-release
+wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update
+sudo apt install -y -V postgresql-15-pgdg-pgroonga
 ```
 
 スタンバイ：
 
-```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
-% sudo -H yum install -y postgresql96-server
-% sudo -H systemctl enable postgresql-9.6
-```
+```bash
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+sudo apt update
+sudo apt install -y postgresql-15 postgresql-contrib-15
 
-[PostgreSQL: Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/#yum)も参照してください。
-
-## [固有] プライマリーとスタンバイでPGroongaをインストールする
-
-これはPGroonga固有の手順です。
-
-プライマリーとスタンバイでPGroongaをインストールします。
-
-プライマリー：
-
-```text
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
-% sudo -H yum install -y postgresql96-pgroonga
-```
-
-スタンバイ：
-
-```text
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
-% sudo -H yum install -y epel-release
-% sudo -H yum install -y postgresql96-pgroonga
-```
-
-[CentOSにインストール](/../install/centos.html#install-on-7)も参照してください。
-
-## [通常] プライマリーでPostgreSQLのデータベースを初期化する
-
-これは通常の手順です。
-
-プライマリーでだけPostgreSQLのデータベースを初期化します。スタンバイではPostgreSQLのデータベースを初期化する必要はありません。
-
-プライマリー：
-
-```text
-% sudo -H env PGSETUP_INITDB_OPTIONS="--locale C --encoding UTF-8" /usr/pgsql-9.6/bin/postgresql96-setup initdb
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y ppa:groonga/ppa
+sudo apt install -y wget lsb-release
+wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update
+sudo apt install -y -V postgresql-15-pgdg-pgroonga
 ```
 
 ## [通常] プライマリーで`postgresql.conf`と`pg_hba.conf`にストリーミングレプリケーション用の設定を追加する
@@ -145,11 +123,11 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
     * [PostgreSQL：ドキュメント：レプリケーション][postgresql-max-wal-senders]も参照してください。
 
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
+`/etc/postgresql/15/main/postgresql.conf`:
 
 変更前：
 
-```text
+```vim
 #listen_address = 'localhost'
 #wal_level = minimal
 #max_wal_senders = 0
@@ -157,7 +135,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
 変更後：
 
-```text
+```vim
 listen_address = '*'
 wal_level = replica
 max_wal_senders = 4
@@ -167,11 +145,11 @@ max_wal_senders = 4
 
   * `192.168.0.0/24`からのレプリケーションユーザー`replicator`でのレプリケーション接続を許可します。
 
-`/var/lib/pgsql/9.6/data/pg_hba.conf`:
+`/etc/postgresql/15/main/pg_hba.conf`:
 
 変更前：
 
-```text
+```vim
 #local   replication     postgres                                peer
 #host    replication     postgres        127.0.0.1/32            ident
 #host    replication     postgres        ::1/128                 ident
@@ -179,17 +157,17 @@ max_wal_senders = 4
 
 変更後：
 
-```text
-host    replication     replicator       192.168.0.0/24         md5
+```vim
+host    replication     replicator       192.168.0.0/24         trust
 ```
 
 プライマリーでだけレプリケーションユーザーを作成します。
 
-```text
-% sudo -H systemctl start postgresql-9.6
-% sudo -u postgres -H createuser --pwprompt --replication replicator
-Enter password for new role: (passw0rd)
-Enter it again: (passw0rd)
+```bash
+sudo su - postgres
+
+psql postgres
+CREATE USER replicator WITH REPLICATION;
 ```
 
 ## [固有] プライマリーで`postgresql.conf`にPGroonga関連の設定を追加する
@@ -198,9 +176,10 @@ Enter it again: (passw0rd)
 
 プライマリーでだけ[`pgronga.enable_wal`パラメーター][enable-wal]と[`pgroonga.max_wal_size`パラメーター][max-wal-size]の設定を`postgresql.conf`に追加します。
 
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
+`/etc/postgresql/15/main/postgresql.conf`:
 
-```text
+```vim
+# 末尾に追加します
 pgroonga.enable_wal = on
 # You may need more large size
 pgroonga.max_wal_size = 100MB
@@ -208,32 +187,115 @@ pgroonga.max_wal_size = 100MB
 
 この設定を反映するためにPostgreSQLを再起動します。
 
-```text
-% sudo -H systemctl restart postgresql-9.6
+```bash
+sudo -H systemctl restart postgresql
 ```
+
+## [通常] スタンバイで`pg_basebackup`を実行する
+
+これは通常の手順です。
+
+スタンバイでだけ`pg_basebackup`を実行します。`pg_basebackup`はプライマリーから現在のデータベースをコピーします。
+
+スタンバイ：
+
+```bash
+sudo -u postgres -H pg_basebackup --host 192.168.0.30 -D /var/lib/postgresql/15/data --progress -U replicator -R
+
+149261/149261 kB (100%), 1/1 tablespace
+```
+
+## [通常] スタンバイで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する
+
+これは通常の手順です。
+
+スタンバイでだけ次のレプリカ用の設定を`postgresql.conf`に追加します。
+
+  * `hot_standby = on`
+
+    * [PostgreSQL：ドキュメント：レプリケーション][postgresql-hot-standby]も参照してください。
+
+スタンバイ：
+
+`/etc/postgresql/15/main/postgresql.conf`:
+
+変更前：
+
+```vim
+data_directory = '/var/lib/postgresql/15/main'
+
+#hot_standby = off
+```
+
+変更後：
+
+```vim
+data_directory = '/var/lib/postgresql/15/data'
+
+hot_standby = on
+```
+
+## [固有] スタンバイで`postgresql.conf`にPGroongaのWAL関連の設定を追加する
+
+これはPGroonga固有の手順です。
+
+2.3.3で追加。
+
+[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に[`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]を追加します。
+
+スタンバイ：
+
+`/etc/postgresql/15/main/postgresql.conf`:
+
+変更前：
+
+```vim
+#shared_preload_libraries = ''
+```
+
+変更後：
+
+```vim
+shared_preload_libraries = 'pgroonga_wal_applier'
+
+# 末尾にプライマリ同様下記を追加
+pgroonga.enable_wal = on
+# You may need more large size
+pgroonga.max_wal_size = 100MB
+```
+
+## [通常] スタンバイでPostgreSQLを再起動する
+
+これは通常の手順です。
+
+スタンバイでPostgreSQLを再起動sします。
+
+```bash
+% sudo -H systemctl restart postgresql
+```
+
+これで、セカンダリーサーバでもプライマリーで挿入したデータをPGroongaのインデックスを利用して検索できます。
 
 ## [通常] プライマリーでデータを挿入する
 
 これは通常の手順です。
 
-プライマリーでだけ一般ユーザーを作成します。
+プライマリーでデータベースを作成します。
 
-```text
-% sudo -u postgres -H createuser ${USER}
-```
+```bash
+sudo su - postgres
 
-プライマリーでだけデータベースを作成します。
-
-```text
-% sudo -u postgres -H createdb --locale C --encoding UTF-8 --owner ${USER} blog
+createdb blog
 ```
 
 プライマリーでだけ作成したデータベースにテーブルを追加します。
 
 作成した`blog`データベースに接続します。
 
-```text
-% psql blog
+```bash
+sudo su - postgres
+
+psql blog
 ```
 
 `entries`テーブルを作成します。
@@ -253,26 +315,22 @@ INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine use
 INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');
 ```
 
-## [固有] プライマリーでPGroongaのインデックスを作成する
+## [固有] プライマリーでPGroongaのインデックスを作成し、スタンバイから動作を確認する
 
 これはPGroonga固有の手順です。
 
 このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。
 
-```text
-% sudo -u postgres -H psql blog --command "CREATE EXTENSION pgroonga;"
-% sudo -u postgres -H psql blog --command "GRANT USAGE ON SCHEMA pgroonga TO ${USER};"
-```
+```bash
+sudo su - postgres
 
-再度一般ユーザーでPostgreSQLに接続します。
-
-```text
-% psql blog
+psql blog
 ```
 
 プライマリーでだけPGroongaのインデックスを作成します。
 
 ```sql
+CREATE EXTENSION pgroonga;
 CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);
 ```
 
@@ -287,112 +345,14 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (1 row)
 ```
 
-## [固有] プライマリーでだけPGroonga関連のデータをフラッシュする
+スタンバイ1側でレプリケーションされてるデータの確認：
 
-これはPGroonga固有の手順です。
-
-プライマリーでだけメモリー上にあるPGroonga関連のデータを確実にディスクに書き出します。以下のどれかの方法を使います。
-
-  1. `SELECT pgroonga_command('io_flush');`を実行する
-
-  2. すべての接続を切断する
-
-`pgroonga_command('io_flush')`を使う場合は次のようになります。
-
-```sql
-SELECT pgroonga_command('io_flush') AS command;
---                     command                    
--- -----------------------------------------------
---  [[0,1478446349.2241,0.1413860321044922],true]
--- (1 row)
-```
-
-プライマリーでは、次の`pg_basebackup`の手順が終わるまではPGroongaのインデックスを使っているテーブルを変更してはいけません。
-
-## [通常] スタンバイで`pg_basebackup`を実行する
-
-これは通常の手順です。
-
-スタンバイでだけ`pg_basebackup`を実行します。`pg_basebackup`はプライマリーから現在のデータベースをコピーします。
-
-スタンバイ：
-
-```text
-% sudo -u postgres -H pg_basebackup --host 192.168.0.30 --pgdata /var/lib/pgsql/9.6/data --xlog --progress --username replicator --password --write-recovery-conf
-Password: (passw0rd)
-149261/149261 kB (100%), 1/1 tablespace
-```
-
-## [通常] スタンバイで`postgresql.conf`にストリーミングレプリケーション用の設定を追加する
-
-これは通常の手順です。
-
-スタンバイでだけ次のレプリカ用の設定を`postgresql.conf`に追加します。
-
-  * `hot_standby = on`
-
-    * [PostgreSQL：ドキュメント：レプリケーション][postgresql-hot-standby]も参照してください。
-
-スタンバイ：
-
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
-
-変更前：
-
-```text
-#hot_standby = off
-```
-
-変更後：
-
-```text
-hot_standby = on
-```
-
-## [固有] スタンバイで`postgresql.conf`にPGroongaのWAL関連の設定を追加する
-
-これはPGroonga固有の手順です。
-
-2.3.3で追加。
-
-[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に[`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]を追加します。
-
-スタンバイ：
-
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
-
-変更前：
-
-```text
-#shared_preload_libraries = ''
-```
-
-変更後：
-
-```text
-shared_preload_libraries = 'pgroonga_wal_applier'
-```
-
-## [通常] スタンバイでPostgreSQLを起動する
-
-これは通常の手順です。
-
-スタンバイでPostgreSQLを起動します。
-
-```text
-% sudo -H systemctl start postgresql-9.6
-```
-
-これで、プライマリーで挿入したデータをプライマリーで作成したPGroongaのインデックスで検索できます。
-
-スタンバイ1：
-
-```text
-% psql blog
+```bash
+sudo su - postgres
+psql blog
 ```
 
 ```sql
-SET enable_seqscan TO off;
 SELECT title FROM entries WHERE title %% 'replication';
 --           title           
 -- --------------------------
@@ -400,38 +360,20 @@ SELECT title FROM entries WHERE title %% 'replication';
 -- (1 row)
 ```
 
-`pg_basebacup`以降にプライマリーで追加したデータも検索できます。
 
-プライマリー：
+スタンバイ2側でレプリケーションされてるデータの確認：
 
-```sql
-INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL supports generic WAL since 9.6. It is required for replication for PGroonga.');
-```
-
-スタンバイ1：
-
-```sql
-SELECT title FROM entries WHERE title %% 'replication';
---              title              
--- --------------------------------
---  PGroonga and replication
---  PostgreSQL 9.6 and replication
--- (2 rows)
-```
-
-スタンバイ2：
-
-```text
-% psql blog
+```bash
+sudo su - postgres
+psql blog
 ```
 
 ```sql
 SELECT title FROM entries WHERE title %% 'replication';
---              title              
--- --------------------------------
+--           title           
+-- --------------------------
 --  PGroonga and replication
---  PostgreSQL 9.6 and replication
--- (2 rows)
+-- (1 row)
 ```
 
 [postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html

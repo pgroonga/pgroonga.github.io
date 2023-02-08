@@ -48,8 +48,11 @@ msgstr "UbuntuでシステムのPostgreSQL用にPGroongaをインストールす
 msgid "If you're using Ubuntu 18.04, install `postgresql-10-pgroonga` package."
 msgstr "Ubuntu 18.04を使っている場合は`postgresql-10-pgroonga`パッケージをインストールしてください。"
 
-msgid "Otherwise, install `postgresql-12-pgroonga` package:"
-msgstr "それ以外の場合は`postgresql-12-pgroonga`パッケージをインストールしてください。"
+msgid "If you're using Ubuntu 20.04, install `postgresql-12-pgroonga` package."
+msgstr "Ubuntu 20.04を使っている場合は`postgresql-12-pgroonga`パッケージをインストールしてください。"
+
+msgid "If you're using Ubuntu 22.04, install `postgresql-14-pgroonga` package:"
+msgstr "Ubuntu 22.04を使っている場合は`postgresql-14-pgroonga`パッケージをインストールしてください。"
 
 msgid ""
 "```console\n"
@@ -59,8 +62,10 @@ msgid ""
 "$ sudo apt update\n"
 "Ubuntu 18.04:\n"
 "$ sudo apt install -y -V postgresql-10-pgroonga\n"
-"Others:\n"
+"Ubuntu 20.04:\n"
 "$ sudo apt install -y -V postgresql-12-pgroonga\n"
+"Ubuntu 22.04:\n"
+"$ sudo apt install -y -V postgresql-14-pgroonga\n"
 "```"
 msgstr ""
 

@@ -55,6 +55,7 @@ CREATE TABLE memos (
 このカラムに対して`pgroonga`インデックスを作ります。
 
 ```
+CREATE EXTENSION IF NOT EXISTS pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 
@@ -206,9 +207,52 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 
 ### ハイライト {#highlight}
 
-TODO
+`pgroonga_highlight_html` 関数を使うことで検索結果の中身を手軽に検索キーワードでハイライトすることができます。
 
-詳細は[`pgroonga_highlight_html`関数](../reference/functions/pgroonga-highlight-html.html)を参照してください。
+サンプルスキーマは以下の通りです:
+
+```sql
+-- PGroonga Extensionが既にあるかをチェックし、無ければ追加
+CREATE EXTENSION IF NOT EXISTS pgroonga;
+
+-- サンプルテーブル作成
+CREATE TABLE sample_texts (
+  id integer PRIMARY KEY,
+  content text
+);
+
+CREATE INDEX pgroonga_sample_content_index
+          ON sample_texts
+       USING pgroonga (content);
+```
+
+サンプルデータを挿入します。
+
+```sql
+INSERT INTO sample_texts VALUES (1, 'PostgreSQL is a relational database management system.');
+INSERT INTO sample_texts VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');
+INSERT INTO sample_texts VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
+INSERT INTO sample_texts VALUES (4, 'There is groonga command.');
+```
+
+全文検索を実施し、検索キーワード（この例では’PostgreSQL’と’database’ですね）をハイライト表示させます。
+
+```sql
+SELECT
+	pgroonga_highlight_html (content,
+		pgroonga_query_extract_keywords ('PostgreSQL database')) AS highlighted_content
+FROM
+	sample_texts
+WHERE
+	CONTENT &@~ 'PostgreSQL database';
+ 
+--                                                highlighted_content                                                
+-- ------------------------------------------------------------------------------------------------------------------
+--  <span class="keyword">PostgreSQL</span> is a relational <span class="keyword">database</span> management system.
+-- (1 row)
+```
+
+詳細は [`pgroonga_highlight_html` 関数](../reference/functions/pgroonga-highlight-html.html) と [`pgroonga_query_extract_keywords` 関数](../reference/functions/pgroonga-query-extract-keywords.html) を参照してください。
 
 ### スニペット（KWIC、keyword in context） {#snippet}
 
@@ -257,7 +301,7 @@ SELECT unnest(pgroonga_snippet_html(
 
 ### 同義語 {#synonym}
 
-詳細は[同義語検索の方法](../how-to/synonyms.html)を参照してください。
+詳細は[同義語展開の使い方](../how-to/synonym-expansion.html)を参照してください。
 
 ## 正規表現 {#regular-expression}
 

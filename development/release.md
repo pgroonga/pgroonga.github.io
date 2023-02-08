@@ -8,11 +8,26 @@ title: Release
 
 Use the following enviroment values.
 
-* `GITHUB_TOKEN`
-
 * `GROONGA_REPOSITORY`
 
+  Specify a path for a latest Groonga repository.
+
+  It is better to clone the Groonga repository for each releases.
+
+  Here is an example to specify `$HOME/work/groonga/groonga.clean` to `GROONGA_REPOSITORY`.
+
+  ```console
+  $ mkdir -p ~/work/groonga
+  $ rm -rf ~/work/groonga/groonga.clean
+  $ git clone --recursive git@github.com:groonga/groonga.git ~/work/groonga/groonga.clean
+  $ export GROONGA_REPOSITORY=$HOME/work/groonga/groonga.clean
+  ```
+
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
+
+  Specify a key for PPA of Groonga.
+
+  Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
 
 ## Bump version
 
@@ -32,13 +47,64 @@ We confirm below CIs green or not.
 
 * [GitHub Actions][github-actions-pgroonga]
 
+## Check whether we can build packages on `nightly` repository of launchpad.net
+
+For Ubuntu, packages are provided by PPA on launchpad.net.
+
+We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-ppa] repositories on launchpad.net.
+`nightly` is for testing, and `ppa` is for distributing.
+
+We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
+
+* Create an archive file for test on local
+
+  ```console
+  $ rake dist
+  ```
+
+* Change `~/.dput.cf` in order to upload the `nightly` repository
+
+  Add or change a `[groonga-ppa]` entry as below.
+
+  ```console
+  $ vi ~/.dput.cf
+  [groonga-ppa]
+  fqdn = ppa.launchpad.net
+  method = ftp
+  incoming = ~groonga/ubuntu/nightly
+  login = anonymous
+  allow_unsigned_uploads = 0
+  ```
+
+  `incoming = ~groonga/ubuntu/nightly` is important.
+
+  If you don't have `~/.dput.cf`, create it manually.
+
+* Upload to the `nightly` repository
+
+  ```console
+  $ rake package:ubuntu
+  ```
+
+* Check the build result
+
+  When uploading packages into the `nightly` repository is succeeded, 
+  a package build process is executed on launchpad.net.
+  Then the build result is notified via E-mail if the build fails.
+
 ## Tagging for the release
 
 ```console
 $ rake tag
 ```
 
-## Create and upload a archive file
+## Download an archive file
+
+Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the 
+[GitHub Releases page][pgroonga-releases-page]
+and move it to a working directory of your local PGroonga repository.
+
+## Upload an archive file
 
 ```console
 $ rake package:source
@@ -56,12 +122,33 @@ $ rake package:apt
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-```console
-$ rake package:ubuntu
-```
+* Change `~/.dput.cf` in order to upload the `ppa` repository
 
-When upload packages was succeeded, package build process is executed on launchpad.net.
-Then build result is notified via E-mail. We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
+  Change the `[groonga-ppa]` entry as below.
+
+  ```console
+  $ vi ~/.dput.cf
+  [groonga-ppa]
+  fqdn = ppa.launchpad.net
+  method = ftp
+  incoming = ~groonga/ubuntu/ppa
+  login = anonymous
+  allow_unsigned_uploads = 0
+  ```
+
+  `incoming = ~groonga/ubuntu/ppa` is important.
+
+* Upload to the `ppa` repository
+
+  ```console
+  $ rake package:ubuntu
+  ```
+
+* Check the build result
+
+  When upload packages succeeded, a package build process is executed on launchpad.net.
+  Then the build result is notified via E-mail if the build fails.
+  We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ### CentOS
 
@@ -71,11 +158,9 @@ $ rake package:yum
 
 ### Windows
 
-For Windows packages, we use [GitHub Actions][github-actions-pgroonga] artifacts files.
+For Windows packages, we don't need to execute anything.
 
-```console
-$ rake package:windows:upload
-```
+Windows packages are uploaded automatically by actions of [GitHub Actions][github-actions-pgroonga].
 
 ## Describe the changes
 
@@ -135,19 +220,46 @@ $ rake apt
 $ rake yum
 ```
 
+### Update Docker images
+
+We update PGroonga's Docker images of [Docker Hub][pgroonga-docker-hub].
+
+Clone [PGroonga's Docker repository][pgroonga-docker-repository] and update Dockerfiles in tha repository.
+
+Here is an example for the case that the PGroonga version is `2.4.1`, and the Groonga version is `12.0.9`.
+
+```
+$ mkdir -p ~/work/pgroonga
+$ rm -rf ~/work/pgroonga/docker.clean
+$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
+$ cd ~/work/pgroonga/docker.clean
+$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
+$ git push
+```
+
+You have to specify the latest versions.
+
+[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+
 ## Announce release
 
 ### Announce release for mailing list
 
-We send release announce to below address.
+We send release announcement to PostgreSQL mailing list if we have big news.
 
-* groonga-dev (Japanese) `groonga-dev@lists.osdn.me`
+Your PostgreSQL account must belong to `PGroonga project` for announcement.
+Please contact a project member in order to join `PGroonga project`.
 
-* groonga-talk (English) `groonga-talk@lists.sourceforge.net`
+* [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
+* [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)
+
+### Announce release for GitHub Discussions
+
+We make release announcement in [GitHub Discussions][pgroonga-github-discussions-releases].
 
 ### Announce release for blog
 
-We make release announce in blogs that are published https://groonga.org/blog/ and https://groonga.org/ja/blog/ .
+We make release announce in blogs that are published [https://groonga.org/blog/](https://groonga.org/blog/) and [https://groonga.org/ja/blog/](https://groonga.org/ja/blog/) .
 
 We update blogs in the following steps.
 
@@ -199,6 +311,18 @@ Note that this tweet should be done when logged in by groonga account.
 
 [launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa
 
+[launchpad-groonga-nightly]:https://launchpad.net/~groonga/+archive/ubuntu/nightly
+
 [groonga-org-repository]:https://github.com/groonga/groonga.org
 
 [facebook-groonga]:https://www.facebook.com/groonga/
+
+[pgroonga-docker-repository]:https://github.com/pgroonga/docker
+
+[github-actions-pgroonga-docker]:https://github.com/pgroonga/docker/actions
+
+[pgroonga-docker-hub]:https://hub.docker.com/r/groonga/pgroonga
+
+[pgroonga-releases-page]:https://github.com/pgroonga/pgroonga/releases/latest
+
+[pgroonga-github-discussions-releases]:https://github.com/pgroonga/pgroonga/discussions/categories/releases

@@ -21,11 +21,167 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 2.3.8: 2022-08-08 {#version-2-3-8}"
+msgid "## 2.4.4: 2023-01-29 {#version-2-4-4}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga_wal_apply` function][wal-apply]] add target index information "
+"to error logs"
+msgstr ""
+
+msgid ""
+"    We can find indexes that failed to apply WAL records of PGroonga by this m"
+"odification."
+msgstr ""
+
+msgid "## 2.4.3: 2023-01-06 {#version-2-4-3}"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for t"
+"he `text[]` type as `target`. [GitHub#219][Reported by Kentaro Hayashi]"
+msgstr ""
+
+msgid ""
+"    We can now specify the `text[]` type as `target` with `pgroonga_highlight_"
+"html`.\n"
+"    It only supported the `text` type for `target` before."
+msgstr ""
+
+msgid ""
+"    A type of a returned value is also `text[]` when we specify the `text[]` t"
+"ype as `target`."
+msgstr ""
+
+msgid ""
+"    ```sql\n"
+"    SELECT pgroonga_highlight_html(\n"
+"      ARRAY['one two three', NULL, 'five', 'six three'],\n"
+"      ARRAY['two', 'six']);\n"
+"    --                                     pgroonga_highlight_html            "
+"                            \n"
+"    -- -----------------------------------------------------------------------"
+"--------------------------------\n"
+"    -- {\"one <span class=\\\"keyword\\\">two</span> three\",NULL,five,\"<span class="
+"\\\"keyword\\\">six</span> three\"}\n"
+"    -- (1 row)\n"
+"    ```"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that PGroonga failed to create an index during executing two-p"
+"hase commit. [GitHub#269][Reported by Raif Atef]"
+msgstr ""
+
+msgid ""
+"  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroo"
+"nga)."
+msgstr ""
+
+msgid ""
+"    The matched Docker images were not published between 2.3.9 and the current"
+" version."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * Kentaro Hayashi"
+msgstr ""
+
+msgid "  * Raif Atef"
+msgstr ""
+
+msgid "## 2.4.2: 2022-11-29 {#version-2-4-2}"
+msgstr ""
+
+msgid ""
+"  * Added support for PostgreSQL 15 on Windows.[GitHub#256][Reported by Raif A"
+"tef]"
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 15 on Ubuntu 22.04."
+msgstr ""
+
+msgid ""
+"  * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby"
+"-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` auto"
+"matically on a standby database."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``p"
+"groonga_snippet_html``, specifying snippet length dynamically.[GitHub#253][Rep"
+"orted by askdkc][GitHub#255][Patched by askdkc]"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that ``VACUUM`` fails while we execute two-phase commit. [GitH"
+"ub#252][Reported by Raif Atef]"
+msgstr ""
+
+msgid "### Known issues"
+msgstr "### 既知の問題"
+
+msgid ""
+"  * PGroonga may fail to create index while we execute two-phase commit. [GitH"
+"ub#269][Reported by Raif Atef]"
+msgstr ""
+
+msgid "  * askdkc"
+msgstr ""
+
+msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 15."
+msgstr ""
+
+msgid "  * Dropped support for PostgreSQL 10."
+msgstr ""
+
+msgid "    Because PostgreSQL 10 will reach EOL on November 2022."
+msgstr ""
+
+msgid ""
+"  * [[`` &@~ `` operator for jsonb type][query-jsonb-v2]] Added translation ab"
+"out how to perform full text search with indexes against jsonb type values. \n"
+"    [GitHub:pgroonga/pgroonga.github.io#83][Patched by askdkc]"
+msgstr ""
+
+msgid "## 2.4.0: 2022-10-07 {#version-2-4-0}"
+msgstr ""
+
+msgid ""
+"  * [[Ubuntu][ubuntu]] Added support for PoatgreSQL 10, 11, 12, 13, and 14 for"
+" PGDG packages on Ubuntu 22.04. [GitHub#228][Reported by sousuke0422]"
+msgstr ""
+
+msgid "  * sousuke0422"
+msgstr ""
+
+msgid "## 2.3.9: 2022-09-14 {#version-2-3-9}"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that PGroonga crash when an append node that had \"never execut"
+"ed\" statue existed in a query plan."
+msgstr ""
+
+msgid "    For example, this bug occurred in a following condition."
+msgstr ""
+
+msgid "      * If PostgreSQL narrow down child nodes by \"Partition pruning\" function."
+msgstr ""
+
+msgid "## 2.3.8: 2022-08-08 {#version-2-3-8}"
+msgstr ""
 
 msgid "  * Added support for Unlogged Table. [GitHub#95][Reported by kurita0]"
 msgstr ""
@@ -50,9 +206,6 @@ msgid ""
 "ow to search keywords using synonym groups. [GitHub:pgroonga/pgroonga.github.i"
 "o#71][GitHub:pgroonga/pgroonga.github.io#72][Patched by askdkc]"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid ""
 "* kurita0\n"
@@ -88,9 +241,6 @@ msgstr ""
 msgid "  * Added support for PostgreSQL 12.5."
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * [[Crash safe][crash-safe]] Fixed a bug that `REINDEX` failed even if `REIN"
 "DEX` succeed actually."
@@ -100,9 +250,6 @@ msgid "## 2.3.5: 2022-03-09 {#version-2-3-5}"
 msgstr ""
 
 msgid "  * [[CentOS][centos]] Dropped support for CentOS 8."
-msgstr ""
-
-msgid "  * Added support for PostgreSQL 15."
 msgstr ""
 
 msgid "  * [[Crash safe][crash-safe]] Improved performance."
@@ -2289,7 +2436,9 @@ msgid ""
 "[pgroonga-check]:../reference/modules/pgroonga-check.html\n"
 "[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html\n"
 "[pgroonga-database]:../reference/modules/pgroonga-database.html\n"
-"[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html"
+"[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html\n"
+"[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer"
+".html"
 msgstr ""
 
 msgid "[travis-ci]:../how-to/travis-ci.html"

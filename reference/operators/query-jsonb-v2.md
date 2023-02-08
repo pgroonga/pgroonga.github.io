@@ -103,14 +103,14 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';
 -- (2 rows)
 ```
 
-## Important note for better pgroonga performance: If you want to search on specific key values in your jsonb column, you need to create indexes on all of your json keys that you want to search
+## Important note for better PGroonga performance: If you want to search on specific key values in your jsonb column, you need to create indexes on all of your json keys that you want to search
 
 When you use the `&@~` operator to search through specific key values in your jsonb column, not just the entire jsonb column like the previous examples, then you need to index each of these keys. Without creating these indexes, the `&@~` operator only uses sequential search and the query performance will be slow.
 
 Here is a demo, using the previous `logs` table examples:
 
 ```sql
--- This query uses pgroonga index so that performance is great
+-- This query uses PGroonga index so that performance is great
 SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';
 --           jsonb_pretty          
 -- --------------------------------
@@ -126,7 +126,7 @@ SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';
 -- (1 row)
 
 
--- This query does not use pgroonga index, just sequential search (slow)
+-- This query does not use PGroonga index, just sequential search (slow)
 SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';
 --           jsonb_pretty          
 -- --------------------------------
@@ -157,7 +157,7 @@ EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record &@~ '
 -- (8 rows)
 
 
--- But when you search on specific key value in jsonb column, it DOES NOT USE Index 
+-- But when you search on specific key value in jsonb column, it DOES NOT USE Index
 EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';
 --                                                QUERY PLAN                                                
 -- ---------------------------------------------------------------------------------------------------------
@@ -170,18 +170,18 @@ EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'mes
 -- (6 rows)
 ```
 
-Now let's create an index of “message” key value in your record jsonb column: 
+Now let's create an index of `message` key value in your record jsonb column:
 
 ```sql
 -- Create "message" key value index for your record jsonb column
 CREATE INDEX pgroonga_message_index ON logs USING pgroonga ((record->'message'));
 
 -- Before you execute EXPLAIN ANALYZE, you need to set sequential scan off
--- to make sure it uses pgroonga index.
+-- to make sure it uses PGroonga index.
 -- Note: Do not set enable_seqscan = off on production environment
 SET enable_seqscan = off;
 
--- Analyze the query: Now it uses pgroonga index
+-- Analyze the query: Now it uses PGroonga index
 EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';
 --                                                               QUERY PLAN                                                               
 -- ---------------------------------------------------------------------------------------------------------------------------------------
@@ -239,7 +239,7 @@ INSERT INTO logs
                 ]
               }');
 
--- Now without creating any key values indexes, you can still use pgroonga index with &` operator to fully enjoy pgroonga performance
+-- Now without creating any key values indexes, you can still use PGroonga index with &` operator to fully enjoy PGroonga performance
 EXPLAIN ANALYZE VERBOSE SELECT * FROM logs WHERE record &` '(paths @ "message") && query("string", "get")';
 --                                                          QUERY PLAN                                                          
 -- -----------------------------------------------------------------------------------------------------------------------------

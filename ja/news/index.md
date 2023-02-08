@@ -5,6 +5,112 @@ upper_level: ../
 
 # おしらせ
 
+## 2.4.4: 2023-01-29 {#version-2-4-4}
+
+### 改良
+
+  * [[`pgroonga_wal_apply` function][wal-apply]] add target index information to error logs
+
+    We can find indexes that failed to apply WAL records of PGroonga by this modification.
+
+## 2.4.3: 2023-01-06 {#version-2-4-3}
+
+### 改良
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type as `target`. [GitHub#219][Reported by Kentaro Hayashi] 
+
+    We can now specify the `text[]` type as `target` with `pgroonga_highlight_html`.
+    It only supported the `text` type for `target` before.
+
+    A type of a returned value is also `text[]` when we specify the `text[]` type as `target`.
+
+    ```sql
+    SELECT pgroonga_highlight_html(
+      ARRAY['one two three', NULL, 'five', 'six three'],
+      ARRAY['two', 'six']);
+    --                                     pgroonga_highlight_html                                        
+    -- -------------------------------------------------------------------------------------------------------
+    -- {"one <span class=\"keyword\">two</span> three",NULL,five,"<span class=\"keyword\">six</span> three"}
+    -- (1 row)
+    ```
+
+### 修正
+
+  * Fixed a bug that PGroonga failed to create an index during executing two-phase commit. [GitHub#269][Reported by Raif Atef]
+
+  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga).
+
+    The matched Docker images were not published between 2.3.9 and the current version.
+
+### 感謝
+
+  * Kentaro Hayashi
+
+  * Raif Atef
+
+## 2.4.2: 2022-11-29 {#version-2-4-2}
+
+### 改良
+
+  * Added support for PostgreSQL 15 on Windows.[GitHub#256][Reported by Raif Atef]
+
+  * Added support for PostgreSQL 15 on Ubuntu 22.04.
+
+  * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database.
+
+  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifying snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]
+
+### 修正
+
+  * Fixed a bug that ``VACUUM`` fails while we execute two-phase commit. [GitHub#252][Reported by Raif Atef]
+
+### 既知の問題
+
+  * PGroonga may fail to create index while we execute two-phase commit. [GitHub#269][Reported by Raif Atef]
+
+### 感謝
+
+  * askdkc
+
+  * Raif Atef
+
+## 2.4.1: 2022-10-28 {#version-2-4-1}
+
+### 改良
+
+  * Added support for PostgreSQL 15.
+
+  * Dropped support for PostgreSQL 10.
+
+    Because PostgreSQL 10 will reach EOL on November 2022.
+
+  * [[`` &@~ `` operator for jsonb type][query-jsonb-v2]] Added translation about how to perform full text search with indexes against jsonb type values. 
+    [GitHub:pgroonga/pgroonga.github.io#83][Patched by askdkc]
+
+### 感謝
+
+  * askdkc
+
+## 2.4.0: 2022-10-07 {#version-2-4-0}
+
+### 改良
+
+  * [[Ubuntu][ubuntu]] Added support for PoatgreSQL 10, 11, 12, 13, and 14 for PGDG packages on Ubuntu 22.04. [GitHub#228][Reported by sousuke0422]
+
+### 感謝
+
+  * sousuke0422
+
+## 2.3.9: 2022-09-14 {#version-2-3-9}
+
+### 修正
+
+  * Fixed a bug that PGroonga crash when an append node that had "never executed" statue existed in a query plan.
+
+    For example, this bug occurred in a following condition.
+
+      * If PostgreSQL narrow down child nodes by "Partition pruning" function.
+
 ## 2.3.8: 2022-08-08 {#version-2-3-8}
 
 ### 改良
@@ -1661,6 +1767,7 @@ The first release!!!
 [pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
+[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
 
 [travis-ci]:../how-to/travis-ci.html
 

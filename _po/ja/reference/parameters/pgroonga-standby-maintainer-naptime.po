@@ -1,0 +1,99 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga_standby_maintainer.naptime parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga_standby_maintainer.naptime パラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga_standby_maintainer.naptime` parameter"
+msgstr "# `pgroonga_standby_maintainer.naptime` パラメーター"
+
+msgid "Since 2.4.2."
+msgstr "2.4.2で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"The `pgroonga_standby_maintainer.naptime` parameter controls execution of [the"
+" `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuu"
+"m()` function][pgroonga-vacuum] interval by [the `pgroonga_standby_maintainer`"
+" module][pgroonga-standby-maintainer]."
+msgstr ""
+"`pgroonga_standby_maintainer.naptime` パラメーターは [`pgroonga_standby_maintainer` モ"
+"ジュール][pgroonga-standby-maintainer]による、[`pgroonga_wal_apply()` 関数][pgroonga-wal"
+"-apply] と [`pgroonga_vacuum()` 関数][pgroonga-vacuum] の実行間隔を制御します。"
+
+msgid ""
+"The larger value becomes, the more not applicable PGroonga's WAL and internal "
+"unused Groonga tables, columns and records in the standby database increase."
+msgstr "値を大きくするほど、スタンバイのデータベースで未適用のPGroongaのWALと、使われていないGroongaのテーブルやカラム、レコードが増加します。"
+
+msgid "The smaller value, the heavier IO load."
+msgstr "値を小さくするほどIO負荷が大きくなります。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga_standby_maintainer.naptime = internval\n"
+"```"
+msgstr ""
+
+msgid ""
+"`interval`'s default unit is second. We can change unit to minutes by specify "
+"suffix `min` for minutes."
+msgstr "`interval` のデフォルトの単位は秒です。サフィックスを `min` に指定することで単位を分に変えることができます。"
+
+msgid "The default is 60 seconds."
+msgstr "デフォルトは60秒です。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to specify 10 minutes:"
+msgstr "10分を指定する例です。"
+
+msgid ""
+"```text\n"
+"pgroonga_standby_maintainer.naptime = 10min\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid ""
+"  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]\n"
+"  * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]\n"
+"  * [The `pgroonga_vacuum()` function][pgroonga-vacuum]"
+msgstr ""
+"  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]\n"
+"  * [`pgroonga_wal_apply()` 関数][pgroonga-wal-apply]\n"
+"  * [`pgroonga_vacuum()` 関数][pgroonga-vacuum]"
+
+msgid "[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
+msgstr ""
+
+msgid "[pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html"
+msgstr ""
+
+msgid "[pgroonga-vacuum]:../functions/pgroonga-vacuum.html"
+msgstr ""

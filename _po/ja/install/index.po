@@ -33,12 +33,12 @@ msgid "Here are supported PostgreSQL versions:"
 msgstr "サポートしているPostgreSQLのバージョンは次の通りです。"
 
 msgid ""
-"  * 9.6\n"
 "  * 10\n"
 "  * 11\n"
 "  * 12\n"
 "  * 13\n"
-"  * 14"
+"  * 14\n"
+"  * 15"
 msgstr ""
 
 msgid ""
@@ -50,9 +50,6 @@ msgid "See a document for your platform in the followings:"
 msgstr "次の中から自分のプラットフォーム用のドキュメントを選んで参照してください。"
 
 msgid "  * [Debian GNU/Linux](debian.html)"
-msgstr ""
-
-msgid "    * buster"
 msgstr ""
 
 msgid "    * bullseye"
@@ -67,16 +64,19 @@ msgstr ""
 msgid "    * 20.04"
 msgstr ""
 
+msgid "    * 22.04"
+msgstr ""
+
 msgid "  * [CentOS](centos.html)"
 msgstr ""
 
 msgid "    * 7"
 msgstr ""
 
-msgid "    * 8"
+msgid "  * [AlmaLinux](almalinux.html)"
 msgstr ""
 
-msgid "  * [AlmaLinux](almalinux.html)"
+msgid "    * 8"
 msgstr ""
 
 msgid "  * [Amazon Linux](amazon-linux.html)"

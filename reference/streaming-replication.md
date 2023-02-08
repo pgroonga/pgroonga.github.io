@@ -184,6 +184,11 @@ pgroonga.enable_wal = on
 pgroonga.max_wal_size = 100MB
 ```
 
+You can confirm whether you set the above parameters or not with the following SQL:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name LIKE '%pgroonga%';
+
 Restart PostgreSQL to apply the configuration:
 
 ```bash
@@ -263,6 +268,12 @@ pgroonga.enable_wal = on
 pgroonga.max_wal_size = 100MB
 ```
 
+You can confirm whether you set [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] or not with the following SQL:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name = 'shared_preload_libraries';
+```
+
 ## [normal] Restart PostgreSQL on standbys
 
 This is a normal step.
@@ -312,6 +323,7 @@ INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for 
 INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine used by PGroonga. We did not know about it.');
 INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');
 ```
+
 
 ## [special] Create a PGroonga index on primary
 

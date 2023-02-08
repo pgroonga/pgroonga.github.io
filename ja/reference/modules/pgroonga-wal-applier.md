@@ -7,6 +7,8 @@ upper_level: ../
 
 2.3.3で追加。
 
+`pgroonga_wal_applier` モジュールは、2.4.2から非推奨です。代わりに [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer] を使ってください。
+
 ## 概要
 
 `pgroonga_wal_applier`モジュールは[`pgroonga_wal_apply`関数][pgroonga-wal-apply]で未適用のWALを定期的に適用します。
@@ -32,6 +34,10 @@ shared_preload_libraries = 'pgroonga_wal_applier'
 ## 参考
 
  * [ストリーミングレプリケーション][streaming-replication]
+
+  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]
+
+[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html
 
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
 

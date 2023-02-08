@@ -18,6 +18,10 @@ There are two signatures:
 ```text
 text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
 text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...])
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...], index_name)
 ```
 
 The first signature is simpler than others. The first signature is enough for most cases.
@@ -25,6 +29,10 @@ The first signature is simpler than others. The first signature is enough for mo
 The second signature is useful when you use custom normalizer.
 
 The second signature is available since 2.0.7.
+
+The third and fourth signatures are `text[]` versions of the first and second signatures.
+
+The third and fourth signatures are available since 2.4.3.
 
 Here is the description of the first signature.
 
@@ -89,6 +97,60 @@ SELECT pgroonga_highlight_html('one two three four five',
 The keywords are surrounded with `<span class="keyword">` and `</span>`. `<`, `>`, `&` and `"` in `target` is HTML escaped.
 
 It's available since 2.0.7.
+
+Here is the description of the third signature.
+
+```text
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...])
+```
+
+`target1`, `target2`, `...` are texts to be highlighted. They're an array of `text` type.
+
+`keyword1`, `keyword2`, `...` are keywords to be highlighted. They're an array of `text` type. You must specify one or more keywords.
+
+`pgroonga_highlight_html` markups the keywords in for each `target`. `pgroonga_highlight_html` returns an array of `text` type. If a `target` is `NULL`, corresponding element in the returned array is also `NULL`.
+
+The keywords are surrounded with `<span class="keyword">` and `</span>`. `<`, `>`, `&` and `"` in `target` is HTML escaped.
+
+```sql
+SELECT pgroonga_highlight_html(ARRAY['one two three', NULL, 'five', 'six three'],
+                               ARRAY['two three', 'six']);
+--                                         pgroonga_highlight_html                                        
+-- -------------------------------------------------------------------------------------------------------
+--  {"one<span class=\"keyword\"> two three</span>",NULL,five,"<span class=\"keyword\">six</span> three"}
+-- (1 row)
+```
+
+It's available since 2.4.2.
+
+Here is the description of the fourth signature.
+
+```text
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...],
+                               index_name)
+```
+
+`target1`, `target2`, `...` are texts to be highlighted. They're an array of `text` type.
+
+`keyword1`, `keyword2`, `...` are keywords to be highlighted. They're an array of `text` type. You must specify one or more keywords.
+
+`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+
+`index_name` can be `NULL`.
+
+If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result.
+
+If you specify `index_name`, the specified PGroonga index must have `TokenNgram` tokenizer with `"report_source_location"` option.
+
+`pgroonga_highlight_html` markups the keywords in for each `target`. `pgroonga_highlight_html` returns an array of `text` type. If a `target` is `NULL`, corresponding element in the returned array is also `NULL`.
+
+The keywords are surrounded with `<span class="keyword">` and `</span>`. `<`, `>`, `&` and `"` in `target` is HTML escaped.
+
+See also the example of the second signature and the third signature.
+
+It's available since 2.4.2.
 
 ## Usage
 

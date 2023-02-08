@@ -18,7 +18,7 @@ CREATE TABLE synonyms (
   synonyms text[]
 );
 
-CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
+CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga_text_term_search_ops_v2);
 ```
 
 `term`に登録した語をキーに、`synonyms`に登録した語を取得します。 
@@ -55,7 +55,7 @@ INSERT INTO synonyms (term, synonyms) VALUES ('レプリカ', ARRAY['レプリ�
 INSERT INTO synonyms (term, synonyms) VALUES ('シミュレート', ARRAY['シミュレート', 'コピー', 'レプリカ']);
 ```
 
-### 既に存在する同義語に新たに同義語を追加する
+#### 既に存在する同義語に新たに同義語を追加する
 
 既に存在する同義語に新たな同義語を追加したい場合は、既存のレコードを更新します。例えば、検索キーワードに「コピー」を使った時に、「偽物」もマッチしてほしい場合。
 
@@ -86,7 +86,7 @@ UPDATE synonyms SET term = 'ウィンドウ' WHERE term = 'ウインドウ';
 
 ```sql
 UPDATE synonyms SET synonyms = array_remove(synonyms, 'ウィンドウ');
-DELETE synonyms WHERE term = 'ウィンドウ';
+DELETE FROM synonyms WHERE term = 'ウィンドウ';
 ```
 
 ### 同義語検索の方法
@@ -105,7 +105,7 @@ CREATE TABLE synonyms (
   synonyms text[]
 );
 
-CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
+CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga_text_term_search_ops_v2);
 ```
 
 第二に、同義語を同義語テーブルへ登録します。
@@ -132,14 +132,14 @@ CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 SELECT * FROM memos
   WHERE
     content &@~
-      pgroonga_query_expand('synonyms', 'term', 'synonyms', 'Window');
+      pgroonga_query_expand('synonyms', 'term', 'synonyms', 'ウィンドウ');
 
- id |                content                 
-----+----------------------------------------
-  1 | PC用のウィンドウがとても安い！
-  2 | 高品質なビデオディスプレイが安い！
-  3 | これは、ジャンク品のディスプレイです。
-(3 rows)
+-- id |                content                 
+-- ----+----------------------------------------
+--   1 | PC用のウィンドウがとても安い！
+--   2 | 高品質なビデオディスプレイが安い！
+--   3 | これは、ジャンク品のディスプレイです。
+-- (3 rows)
 ```
 
 [pgroonga_query_expand]:../reference/functions/pgroonga-query-expand.html

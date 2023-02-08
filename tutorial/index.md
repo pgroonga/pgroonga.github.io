@@ -55,6 +55,7 @@ CREATE TABLE memos (
 Create a `pgroonga` index against the column:
 
 ```
+CREATE EXTENSION IF NOT EXISTS pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 
@@ -206,9 +207,52 @@ See [`pgroonga_score` function](../reference/functions/pgroonga-score.html) for 
 
 ### Highlight {#highlight}
 
-TODO
+You can use `pgroonga_highlight_html` function to get your specified search keywords highlighted easily in the results.
 
-See [`pgroonga_highlight_html` function](../reference/functions/pgroonga-highlight-html.html) for more details.
+Here is a sample schema:
+
+```sql
+-- Just make sure you already enabled PGroonga Extension
+CREATE EXTENSION IF NOT EXISTS pgroonga;
+
+-- Create sample table
+CREATE TABLE sample_texts (
+  id integer PRIMARY KEY,
+  content text
+);
+
+CREATE INDEX pgroonga_sample_content_index
+          ON sample_texts
+       USING pgroonga (content);
+```
+
+Insert sample data:
+
+```sql
+INSERT INTO sample_texts VALUES (1, 'PostgreSQL is a relational database management system.');
+INSERT INTO sample_texts VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');
+INSERT INTO sample_texts VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
+INSERT INTO sample_texts VALUES (4, 'There is groonga command.');
+```
+
+Perform full text search and get your search keywords ('PostgreSQL' and 'database' in this example) highlighted.
+
+```sql
+SELECT
+	pgroonga_highlight_html (content,
+		pgroonga_query_extract_keywords ('PostgreSQL database')) AS highlighted_content
+FROM
+	sample_texts
+WHERE
+	CONTENT &@~ 'PostgreSQL database';
+ 
+--                                                highlighted_content                                                
+-- ------------------------------------------------------------------------------------------------------------------
+--  <span class="keyword">PostgreSQL</span> is a relational <span class="keyword">database</span> management system.
+-- (1 row)
+```
+
+See [`pgroonga_highlight_html` function](../reference/functions/pgroonga-highlight-html.html) and [`pgroonga_query_extract_keywords` function](../reference/functions/pgroonga-query-extract-keywords.html) for more details.
 
 ### Snippet (KWIC, keyword in context) {#snippet}
 
@@ -257,19 +301,19 @@ See [`pgroonga_snippet_html` function](../reference/functions/pgroonga-snippet-h
 
 ### Synonym {#synonym}
 
-See [How to synonyms search](../how-to/synonyms.html) for more details.
+See [How to use synonym expansion](../how-to/synonym-expansion.html) for more details.
 
 ## Regular expression {#regular-expression}
 
 TODO
 
-See [`&~` operator](../reference/operations/regular-expression-v2.html) for more details.
+See [`&~` operator](../reference/operators/regular-expression-v2.html) for more details.
 
 ## Similar search {#similar-search}
 
 TODO
 
-See [`&@*` operator](../reference/operations/similar-search-v2.html) for more details.
+See [`&@*` operator](../reference/operators/similar-search-v2.html) for more details.
 
 ## Equality condition and comparison conditions {#equal}
 

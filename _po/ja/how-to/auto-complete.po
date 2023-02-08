@@ -201,6 +201,13 @@ msgstr "緩い全文検索をするために`term`に対して[`&@`][match-v2]�
 
 msgid ""
 "```sql\n"
+"INSERT INTO terms (term, readings) VALUES ('auto-complete', ARRAY['オートコンプリート']"
+");\n"
+"```"
+msgstr ""
+
+msgid ""
+"```sql\n"
 "SELECT term FROM terms WHERE term &@ 'mpl';\n"
 "--      term      \n"
 "-- ---------------\n"

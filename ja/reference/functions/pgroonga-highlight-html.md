@@ -18,6 +18,10 @@ upper_level: ../
 ```text
 text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])
 text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...])
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...], index_name)
 ```
 
 1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。
@@ -25,6 +29,10 @@ text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)
 2つ目の使い方はノーマライザーを変更しているときに便利です。
 
 2つ目の使い方は2.0.7から使えます。
+
+3つ目と4つ目の使い方は1つ目と2つ目の使い方の`text[]`バージョンです。
+
+3つ目と4つ目の使い方は2.4.3から使えます。
 
 以下は1つ目の使い方の説明です。
 
@@ -89,6 +97,60 @@ SELECT pgroonga_highlight_html('one two three four five',
 キーワードは`<span class="keyword">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
 
 2.0.7から使えます。
+
+以下は3つ目の使い方の説明です。
+
+```text
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...])
+```
+
+`target1`、`target2`、`...`はハイライト対象のテキストです。型は`text`の配列です。
+
+キーワードは`<span class="keyword">`と`</span>`で囲まれています。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+
+`pgroonga_highlight_html`は各`target`中のキーワードをマークアップします。`pgroonga_highlight_html`は`text`型の配列を返します。もし、ある`target`が`NULL`の場合は返ってくる配列の中の対応する要素も`NULL`になります。
+
+キーワードは`<span class="keyword">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+
+```sql
+SELECT pgroonga_highlight_html(ARRAY['one two three', NULL, 'five', 'six three'],
+                               ARRAY['two three', 'six']);
+--                                         pgroonga_highlight_html                                        
+-- -------------------------------------------------------------------------------------------------------
+--  {"one<span class=\"keyword\"> two three</span>",NULL,five,"<span class=\"keyword\">six</span> three"}
+-- (1 row)
+```
+
+2.4.2から使えます。
+
+以下は4つ目の使い方の説明です。
+
+```text
+text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],
+                               ARRAY[keyword1, keyword2, ...],
+                               index_name)
+```
+
+`target1`、`target2`、`...`はハイライト対象のテキストです。型は`text`の配列です。
+
+キーワードは`<span class="keyword">`と`</span>`で囲まれています。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+
+`index_name`は対応するPGroongaのインデックス名です。`text`型です。
+
+`index_name`には`NULL`を指定できます。
+
+`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。この関数はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。
+
+`index_name`を指定した場合は、指定したPGroongaのインデックスには`"report_source_location"`オプションを指定した`TokenNgram`トークナイザーを指定しないといけません。
+
+`pgroonga_highlight_html`は各`target`中のキーワードをマークアップします。`pgroonga_highlight_html`は`text`型の配列を返します。もし、ある`target`が`NULL`の場合は返ってくる配列の中の対応する要素も`NULL`になります。
+
+キーワードは`<span class="keyword">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`"`はHTMLエスケープされます。
+
+2つ目の使い方の例と3つ目の使い方の例も見てください。
+
+2.4.2から使えます。
 
 ## 使い方
 
@@ -179,6 +241,65 @@ SELECT pgroonga_highlight_html('one two three four five',
 --  one<span class="keyword"> two three</span> four<span class="keyword"> five</span>
 -- (1 row)
 ```
+
+## Practical Example: Keyword Search and Highlight
+
+Here is an example of implementing keyword search feature with `pgroonga_highlight_html`.
+Imagine you are building a blog, and for simplicity, this blog’s post model only has 'id', 'title' and 'body' fields.
+
+```sql
+CREATE TABLE posts (
+  id SERIAL NOT NULL,
+  title varchar(255),
+  body text
+);
+
+-- Create PGroonga Index 
+CREATE INDEX pgroonga_posts_index
+          ON posts
+       USING pgroonga (title, body);
+
+-- Insert some sample data
+INSERT INTO posts VALUES (1, 'Quote of the day one', 'Design is not just what it looks like and feels like. Design is how it works.');
+INSERT INTO posts VALUES (2, 'Quote of the day two', 'If everyone is busy making everything, how can any one perfect anything?');
+INSERT INTO posts VALUES (3, 'Quote of the day three', 'There are a thousand no''s, for every yes.');
+```
+
+
+Then you may use `pgroonga_highlight_html` function to search through your blog posts, and get the result with keywords highlighted like this:
+
+```sql
+SELECT
+   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('thousand')) AS highlighted_title,
+   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('thousand')) AS highlighted_body
+   from posts where title &@~ 'thousand' or body &@~ 'thousand';
+
+--    highlighted_title    |                            highlighted_body                            
+-- ------------------------+------------------------------------------------------------------------
+--  Quote of the day three | There are a <span class="keyword">thousand</span> no's, for every yes.
+--  (1 row)
+
+```
+
+If you have a lot of data to search through and return the result with pagination, it is not wise to use `pgroonga_highlight_html()` on that query. Because `pgroonga_highlight_html()` only works in sequentially, the more number of records for processing in `pgroonga_highlight_html()`  you have, slower it gets in performance.
+
+To avoid this problem, in the following example, we reduce the number of records for processing in `pgroonga_highlight_html()` by using `pgroonga_highlight_html()`  on the result of your keyword search instead.
+
+```sql
+-- Good Performance
+SELECT
+   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('Search Words')) AS highlighted_title,
+   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('Search Words')) AS highlighted_body
+   from posts where id IN 
+   (SELECT id FROM posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100);
+
+-- Do not do this. You may experience some performance issue.
+SELECT
+   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('Search Words')) AS highlighted_title,
+   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('Search Words')) AS highlighted_body
+   from posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100;
+```
+
 
 ## 参考
 

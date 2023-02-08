@@ -629,6 +629,16 @@ msgstr "  * [`pgroonga_crash_safer.log_level`パラメーター][pgroonga-crash-
 msgid "  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]"
 msgstr "  * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]"
 
+msgid ""
+"  * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintai"
+"ner-naptime]"
+msgstr ""
+"  * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-maintainer"
+"-naptime]"
+
+msgid "    * Since 2.4.2."
+msgstr "    * 2.4.2で追加。"
+
 msgid "## Modules"
 msgstr ""
 "## モジュール\n"
@@ -651,6 +661,17 @@ msgstr "  * [`pgroonga_database`モジュール][pgroonga-database]"
 
 msgid "  * [`pgroonga_wal_applier` module][pgroonga-wal-applier]"
 msgstr "  * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]"
+
+msgid ""
+"    * [`pgroonga_wal_applier` module][pgroonga-wal-applier] is deprecated sinc"
+"e 2.4.2. We use [the `pgroonga_standby_maintainer` module][pgroonga-standby-ma"
+"intainer] instead."
+msgstr ""
+"    * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier] は、2.4.2から非推奨です。代わりに "
+"[`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer] を使ってください。"
+
+msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
+msgstr "  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]"
 
 msgid "## Groonga functions"
 msgstr "## Groongaの関数"
@@ -787,10 +808,16 @@ msgid ""
 msgstr ""
 
 msgid ""
+"[pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-n"
+"aptime.html"
+msgstr ""
+
+msgid ""
 "[pgroonga-check]:modules/pgroonga-check.html\n"
 "[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html\n"
 "[pgroonga-database]:modules/pgroonga-database.html\n"
-"[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html"
+"[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html\n"
+"[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html"
 msgstr ""
 
 msgid "[groonga-tuning]:https://groonga.org/docs/reference/tuning.html"

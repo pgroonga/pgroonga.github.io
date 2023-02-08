@@ -191,6 +191,12 @@ pgroonga.max_wal_size = 100MB
 sudo -H systemctl restart postgresql
 ```
 
+上記のパラメターを設定したかどうかは、以下のSQLで確認できます:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name LIKE '%pgroonga%';
+```
+
 ## [通常] スタンバイで`pg_basebackup`を実行する
 
 これは通常の手順です。
@@ -264,6 +270,12 @@ pgroonga.enable_wal = on
 pgroonga.max_wal_size = 100MB
 ```
 
+[`shared_preload_libraries` パラメータ][postgresql-shared-preload-libraries] を設定したかどうかは、以下のSQLで確認できます:
+
+```sql
+SELECT name,setting FROM pg_settings WHERE name = 'shared_preload_libraries';
+```
+
 ## [通常] スタンバイでPostgreSQLを再起動する
 
 これは通常の手順です。
@@ -314,6 +326,7 @@ INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for 
 INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine used by PGroonga. We did not know about it.');
 INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');
 ```
+
 
 ## [固有] プライマリーでPGroongaのインデックスを作成し、スタンバイから動作を確認する
 

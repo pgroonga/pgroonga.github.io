@@ -107,6 +107,10 @@ SELECT term FROM terms WHERE readings &^~ 'mi';
 緩い全文検索をするために`term`に対して[`&@`][match-v2]を使います。結果は次の通りです。
 
 ```sql
+INSERT INTO terms (term, readings) VALUES ('auto-complete', ARRAY['オートコンプリート']);
+```
+
+```sql
 SELECT term FROM terms WHERE term &@ 'mpl';
 --      term      
 -- ---------------

@@ -589,6 +589,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 2.3.3で追加。
 
+  * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-maintainer-naptime]
+
+    * 2.4.2で追加。
+
 ## モジュール
 
 
@@ -607,6 +611,12 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]
 
     * 2.3.3で追加。
+
+    * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier] は、2.4.2から非推奨です。代わりに [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer] を使ってください。
+
+  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]
+
+    * 2.4.2で追加。
 
 ## Groongaの関数
 
@@ -700,9 +710,12 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
 
+[pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
+
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
+[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
 
 [groonga-tuning]:https://groonga.org/ja/docs/reference/tuning.html

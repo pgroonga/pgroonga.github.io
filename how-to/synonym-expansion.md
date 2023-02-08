@@ -18,7 +18,7 @@ CREATE TABLE synonyms (
   synonyms text[]
 );
 
-CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
+CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga_text_term_search_ops_v2);
 ```
 
 We can get a term that is registered in `synonyms` with a key that is registered in `term`. 
@@ -91,7 +91,7 @@ For example, if we want to delete "Window" from synonyms, we as below.
 
 ```sql
 UPDATE synonyms SET synonyms = array_remove(synonyms, 'Window');
-DELETE synonyms WHERE term = 'Window';
+DELETE FROM synonyms WHERE term = 'Window';
 ```
 
 ### How to search of synonyms
@@ -110,7 +110,7 @@ CREATE TABLE synonyms (
   synonyms text[]
 );
 
-CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
+CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga_text_term_search_ops_v2);
 ```
 
 Second, we register synonyms into synonyms table.
@@ -139,12 +139,12 @@ SELECT * FROM memos
     content &@~
       pgroonga_query_expand('synonyms', 'term', 'synonyms', 'Window');
 
- id |                content                 
-----+----------------------------------------
-  1 | Window for PC is very low price!!!
-  2 | Hight quality video display low price!
-  3 | This is junk display.
-(3 rows)
+-- id |                content                 
+-- ----+----------------------------------------
+--   1 | Window for PC is very low price!!!
+--   2 | Hight quality video display low price!
+--   3 | This is junk display.
+-- (3 rows)
 ```
 
 [pgroonga_query_expand]:../reference/functions/pgroonga-query-expand.html

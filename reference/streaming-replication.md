@@ -16,29 +16,23 @@ This document describes how to configure PostgreSQL built-in WAL based streaming
 
 Here are steps to configure PostgreSQL built-in WAL based streaming replication for PGroonga. "[normal]" tag means that the step is a normal step for streaming replication. "[special]" tag means that the step is a PGroonga specific step.
 
-  1. [normal] Install PostgreSQL on primary and standbys
+  1. [normal][special] [Install PostgreSQL and PGroonga on both primary and standbys](#normalspecial-install-postgresql-and-pgroonga-on-both-primary-and-standbys)
 
-  2. [special] Install PGroonga on primary and standbys
+  2. [normal] [Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on primary](#normal-add-some-streaming-replication-configurations-to-postgresqlconf-and-pg_hbaconf-on-primary)
 
-  3. [normal] Initialize PostgreSQL database on primary
+  3. [special] [Add some PGroonga related configurations to `postgresql.conf` on primary](#special-add-some-pgroonga-related-configurations-to-postgresqlconf-on-primary)
 
-  4. [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on primary
+  4. [normal] [Run `pg_basebackup` on standbys](#normal-run-pg_basebackup-on-standbys)
 
-  5. [special] Add some PGroonga related configurations to `postgresql.conf` on primary
+  5. [normal] [Add some streaming replication configurations to `postgresql.conf` on standbys](#normal-add-some-streaming-replication-configurations-to-postgresqlconf-on-standbys)
 
-  6. [normal] Insert data on primary
+  6. [special] [Add some PGroonga's WAL configurations to `postgresql.conf` on standbys](#special-add-some-pgroongas-wal-configurations-to-postgresqlconf-on-standbys)
 
-  7. [special] Create a PGroonga index on primary
+  7. [normal] [Restart PostgreSQL on standbys](#normal-restart-postgresql-on-standbys)
 
-  8. [special] Flush PGroonga related data on primary
+  8. [normal] [Insert data on primary](#normal-insert-data-on-primary)
 
-  9. [normal] Run `pg_basebackup` on standbys
-
-  10. [normal] Add some streaming replication configurations to `postgresql.conf` on standbys
-
-  11. [special] Add some PGroonga's WAL configurations to `postgresql.conf` on standbys
-
-  12. [normal] Start PostgreSQL on standbys
+  9. [special] [Create a PGroonga index on primary](#special-create-a-pgroonga-index-on-primary)
 
 ## Example environment
 
@@ -46,7 +40,7 @@ This document uses the following environment:
 
   * Primary:
 
-    * OS: CentOS 7
+    * OS: Ubuntu 22.04
 
     * IP address: 192.168.0.30
 
@@ -54,79 +48,62 @@ This document uses the following environment:
 
     * Replication user name: `replicator`
 
-    * Replication user password: `passw0rd`
-
   * Standby1:
 
-    * OS: CentOS 7
+    * OS: Ubuntu 22.04
 
     * IP address: 192.168.0.31
 
   * Standby2:
 
-    * OS: CentOS 7
+    * OS: Ubuntu 22.04
 
-    * IP address: 192.168.0.31
+    * IP address: 192.168.0.32
 
 This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself.
 
-## [normal] Install PostgreSQL on primary and standbys
+## [normal][special] Install PostgreSQL and PGroonga on both primary and standbys
 
-This is a normal step.
-
-Install PostgreSQL 9.6 on primary and standbys.
+Install PostgreSQL 15 on both primary and standbys.
 
 Primary:
 
-```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
-% sudo -H yum install -y postgresql96-server
-% sudo -H systemctl enable postgresql-9.6
+```bash
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+sudo apt update
+sudo apt install -y postgresql-15 postgresql-contrib-15
+
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y ppa:groonga/ppa
+sudo apt install -y wget lsb-release
+wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update
+sudo apt install -y -V postgresql-15-pgdg-pgroonga
 ```
 
 Standbys:
 
-```text
-% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat="%{VERSION}" /etc/redhat-release)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm
-% sudo -H yum install -y postgresql96-server
-% sudo -H systemctl enable postgresql-9.6
-```
+```bash
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+sudo apt update
+sudo apt install -y postgresql-15 postgresql-contrib-15
 
-See also [PostgreSQL: Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/#yum).
-
-## [special] Install PGroonga on primary and standbys
-
-This is a PGroonga specific step.
-
-Install PGroonga on primary and standbys.
-
-Primary:
-
-```text
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
-% sudo -H yum install -y postgresql96-pgroonga
-```
-
-Standbys:
-
-```text
-% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-{{ site.centos_groonga_release_version }}.noarch.rpm
-% sudo -H yum install -y epel-release
-% sudo -H yum install -y postgresql96-pgroonga
-```
-
-See also [Install on CentOS](/../install/centos.html#install-on-7).
-
-## [normal] Initialize PostgreSQL database on primary
-
-This is a normal step.
-
-Initialize PostgreSQL database on only primary. You don't need to initialize PostgreSQL database on standbys.
-
-Primary:
-
-```text
-% sudo -H env PGSETUP_INITDB_OPTIONS="--locale C --encoding UTF-8" /usr/pgsql-9.6/bin/postgresql96-setup initdb
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y universe
+sudo add-apt-repository -y ppa:groonga/ppa
+sudo apt install -y wget lsb-release
+wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update
+sudo apt install -y -V postgresql-15-pgdg-pgroonga
 ```
 
 ## [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on primary
@@ -145,11 +122,11 @@ Add the following streaming replication configurations to `postgresql.conf` on o
 
     * See also [PostgreSQL: Documentation: Replication][postgresql-max-wal-senders].
 
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
+`/etc/postgresql/15/main/pg_hba.conf`:
 
 Before:
 
-```text
+```vim
 #listen_address = 'localhost'
 #wal_level = minimal
 #max_wal_senders = 0
@@ -157,7 +134,7 @@ Before:
 
 After:
 
-```text
+```vim
 listen_address = '*'
 wal_level = replica
 max_wal_senders = 4
@@ -167,11 +144,11 @@ Add the following streaming replication configurations to `pg_hba.conf` on only 
 
   * Accept replication connection by the replication user `replicator` from `192.168.0.0/24`.
 
-`/var/lib/pgsql/9.6/data/pg_hba.conf`:
+`/etc/postgresql/15/main/pg_hba.conf`:
 
 Before:
 
-```text
+```vim
 #local   replication     postgres                                peer
 #host    replication     postgres        127.0.0.1/32            ident
 #host    replication     postgres        ::1/128                 ident
@@ -179,17 +156,17 @@ Before:
 
 After:
 
-```text
-host    replication     replicator       192.168.0.0/24         md5
+```vim
+host    replication     replicator       192.168.0.0/24         trust
 ```
 
 Create the user for replication on only primary:
 
-```text
-% sudo -H systemctl start postgresql-9.6
-% sudo -u postgres -H createuser --pwprompt --replication replicator
-Enter password for new role: (passw0rd)
-Enter it again: (passw0rd)
+```bash
+sudo su - postgres
+
+psql postgres
+CREATE USER replicator WITH REPLICATION;
 ```
 
 ## [special] Add some PGroonga related configurations to `postgresql.conf` on primary
@@ -198,9 +175,10 @@ This is a PGroonga specific step.
 
 Add [`pgronga.enable_wal` parameter][enable-wal] and [`pgroonga.max_wal_size` parameter][max-wal-size] configurations to `postgresql.conf` on only primary:
 
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
+`/etc/postgresql/15/main/postgresql.conf`:
 
-```text
+```vim
+# Probably add to the bottom of psotgresql.cong
 pgroonga.enable_wal = on
 # You may need more large size
 pgroonga.max_wal_size = 100MB
@@ -208,32 +186,114 @@ pgroonga.max_wal_size = 100MB
 
 Restart PostgreSQL to apply the configuration:
 
-```text
-% sudo -H systemctl restart postgresql-9.6
+```bash
+sudo -H systemctl restart postgresql
 ```
+
+## [normal] Run `pg_basebackup` on standbys
+
+This is a normal step.
+
+Run `pg_basebackup` on only standbys. It copies the current database from primary.
+
+Standbys:
+
+```bash
+sudo -u postgres -H pg_basebackup --host 192.168.0.30 -D /var/lib/postgresql/15/data --progress -U replicator -R
+
+149261/149261 kB (100%), 1/1 tablespace
+```
+
+## [normal] Add some streaming replication configurations to `postgresql.conf` on standbys
+
+This is a normal step.
+
+Add the following replica configurations to `postgresql.conf` on only standbys:
+
+  * `hot_standby = on`
+
+    * See also [PostgreSQL: Documentation: Replication][postgresql-hot-standby].
+
+Standbys:
+
+`/etc/postgresql/15/main/postgresql.conf`:
+
+Before:
+
+```vim
+data_directory = '/var/lib/postgresql/15/main'
+
+#hot_standby = off
+```
+
+After:
+
+```vim
+data_directory = '/var/lib/postgresql/15/data'
+
+hot_standby = on
+```
+
+## [special] Add some PGroonga's WAL configurations to `postgresql.conf` on standbys
+
+This is a PGroonga specific step.
+
+Since 2.3.3.
+
+Add [`pgroonga_wal_applier` module][pgroonga-wal-applier] to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]:
+
+Standbys:
+
+`/etc/postgresql/15/main/postgresql.conf`:
+
+Before:
+
+```vim
+#shared_preload_libraries = ''
+```
+
+After:
+
+```vim
+shared_preload_libraries = 'pgroonga_wal_applier'
+
+# Probably add to the bottom of psotgresql.cong
+pgroonga.enable_wal = on
+# You may need more large size
+pgroonga.max_wal_size = 100MB
+```
+
+## [normal] Restart PostgreSQL on standbys
+
+This is a normal step.
+
+Restart PostgreSQL on standbys:
+
+```bash
+% sudo -H systemctl restart postgresql
+```
+
 
 ## [normal] Insert data on primary
 
 This is a normal step.
 
-Create a normal user on only primary:
-
-```text
-% sudo -u postgres -H createuser ${USER}
-```
-
 Create a database on only primary:
 
-```text
-% sudo -u postgres -H createdb --locale C --encoding UTF-8 --owner ${USER} blog
+```bash
+sudo su - postgres
+
+createdb blog
 ```
 
 Create a table in the created database on only primary.
 
 Connect to the created `blog` database:
 
-```text
-% psql blog
+```bash
+sudo su - postgres
+
+psql blog
 ```
 
 Create `entries` table:
@@ -259,15 +319,10 @@ This is a PGroonga specific step.
 
 Install PGroonga to the database. It requires superuser privilege:
 
-```text
-% sudo -u postgres -H psql blog --command "CREATE EXTENSION pgroonga;"
-% sudo -u postgres -H psql blog --command "GRANT USAGE ON SCHEMA pgroonga TO ${USER};"
-```
+```bash
+sudo su - postgres
 
-Connect to PostgreSQL by a normal user again:
-
-```text
-% psql blog
+psql blog
 ```
 
 Create a PGroonga index on only primary:
@@ -280,158 +335,35 @@ Confirm the index:
 
 ```sql
 SET enable_seqscan TO off;
-SELECT title FROM entries WHERE title %% 'replication';
+SELECT title FROM entries WHERE title &@~ 'replication';
 --           title           
 -- --------------------------
 --  PGroonga and replication
 -- (1 row)
 ```
 
-## [special] Flush PGroonga related data on primary
-
-This is a PGroonga specific step.
-
-Ensure writing PGroonga related data on memory to disk on only primary. You can choose one of them:
-
-  1. Run `SELECT pgroonga_command('io_flush');`
-
-  2. Disconnect all connections
-
-Here is an example to use `pgroonga_command('io_flush')`:
+Confirm replicated data on Standby1:
 
 ```sql
-SELECT pgroonga_command('io_flush') AS command;
---                     command                    
--- -----------------------------------------------
---  [[0,1478446349.2241,0.1413860321044922],true]
--- (1 row)
-```
-
-You must not change tables that use PGroonga indexes on primary until the next `pg_basebackup` step is finished.
-
-## [normal] Run `pg_basebackup` on standbys
-
-This is a normal step.
-
-Run `pg_basebackup` on only standbys. It copies the current database from primary.
-
-Standbys:
-
-```text
-% sudo -u postgres -H pg_basebackup --host 192.168.0.30 --pgdata /var/lib/pgsql/9.6/data --xlog --progress --username replicator --password --write-recovery-conf
-Password: (passw0rd)
-149261/149261 kB (100%), 1/1 tablespace
-```
-
-## [normal] Add some streaming replication configurations to `postgresql.conf` on standbys
-
-This is a normal step.
-
-Add the following replica configurations to `postgresql.conf` on only standbys:
-
-  * `hot_standby = on`
-
-    * See also [PostgreSQL: Documentation: Replication][postgresql-hot-standby].
-
-Standbys:
-
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
-
-Before:
-
-```text
-#hot_standby = off
-```
-
-After:
-
-```text
-hot_standby = on
-```
-
-## [special] Add some PGroonga's WAL configurations to `postgresql.conf` on standbys
-
-This is a PGroonga specific step.
-
-Since 2.3.3.
-
-Add [`pgroonga_wal_applier` module][pgroonga-wal-applier] to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]:
-
-Standbys:
-
-`/var/lib/pgsql/9.6/data/postgresql.conf`:
-
-Before:
-
-```text
-#shared_preload_libraries = ''
-```
-
-After:
-
-```text
-shared_preload_libraries = 'pgroonga_wal_applier'
-```
-
-## [normal] Start PostgreSQL on standbys
-
-This is a normal step.
-
-Start PostgreSQL on standbys:
-
-```text
-% sudo -H systemctl start postgresql-9.6
-```
-
-Now, you can search data inserted on primary by PGroonga index created on primary.
-
-Standby1:
-
-```text
-% psql blog
-```
-
-```sql
-SET enable_seqscan TO off;
-SELECT title FROM entries WHERE title %% 'replication';
+SELECT title FROM entries WHERE title &@~ 'replication';
 --           title           
 -- --------------------------
 --  PGroonga and replication
 -- (1 row)
 ```
 
-You can also search data inserted on primary after `pg_basebackup`.
-
-Primary:
-
-```sql
-INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL supports generic WAL since 9.6. It is required for replication for PGroonga.');
-```
-
-Standby1:
-
-```sql
-SELECT title FROM entries WHERE title %% 'replication';
---              title              
--- --------------------------------
---  PGroonga and replication
---  PostgreSQL 9.6 and replication
--- (2 rows)
-```
-
-Standby2:
+Confirm replicated data on Standby2:
 
 ```text
 % psql blog
 ```
 
 ```sql
-SELECT title FROM entries WHERE title %% 'replication';
---              title              
--- --------------------------------
+SELECT title FROM entries WHERE title &@~ 'replication';
+--           title           
+-- --------------------------
 --  PGroonga and replication
---  PostgreSQL 9.6 and replication
--- (2 rows)
+-- (1 row)
 ```
 
 [postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html

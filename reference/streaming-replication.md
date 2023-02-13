@@ -69,17 +69,18 @@ Install PostgreSQL 15 on both primary and standbys.
 Primary:
 
 ```bash
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --no-default-keyring --keyring /usr/share/keyrings/pdgd-keyring.gpg --import -
-echo "deb [signed-by=/usr/share/keyrings/pdgd-keyring.gpg] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-sudo apt update
-sudo apt install -y postgresql-15 postgresql-contrib-15
-
 sudo apt install -y software-properties-common
 sudo add-apt-repository -y universe
 sudo add-apt-repository -y ppa:groonga/ppa
 sudo apt install -y wget lsb-release
 wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --no-default-keyring --keyring /usr/share/keyrings/pdgd-keyring.gpg --import -
+echo "deb [signed-by=/usr/share/keyrings/pdgd-keyring.gpg] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+sudo apt update
+sudo apt install -y postgresql-15 postgresql-contrib-15
+
 sudo apt update
 sudo apt install -y -V postgresql-15-pgdg-pgroonga
 ```
@@ -87,19 +88,18 @@ sudo apt install -y -V postgresql-15-pgdg-pgroonga
 Standbys:
 
 ```bash
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-sudo apt update
-sudo apt install -y postgresql-15 postgresql-contrib-15
-
 sudo apt install -y software-properties-common
 sudo add-apt-repository -y universe
 sudo add-apt-repository -y ppa:groonga/ppa
 sudo apt install -y wget lsb-release
 wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
-echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --no-default-keyring --keyring /usr/share/keyrings/pdgd-keyring.gpg --import -
+echo "deb [signed-by=/usr/share/keyrings/pdgd-keyring.gpg] http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+sudo apt update
+sudo apt install -y postgresql-15 postgresql-contrib-15
+
 sudo apt update
 sudo apt install -y -V postgresql-15-pgdg-pgroonga
 ```
@@ -264,11 +264,6 @@ pgroonga.enable_wal = on
 pgroonga.max_wal_size = 100MB
 ```
 
-You can confirm whether you set [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] or not with the following SQL:
-
-```sql
-SELECT name,setting FROM pg_settings WHERE name = 'shared_preload_libraries';
-```
 
 ## [normal] Start PostgreSQL on standbys
 

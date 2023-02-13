@@ -258,7 +258,7 @@ After:
 ```vim
 shared_preload_libraries = 'pgroonga_wal_applier'
 
-# Probably add to the bottom of psotgresql.cong
+# Probably add to the bottom of postgresql.conf
 pgroonga.enable_wal = on
 # You may need more large size
 pgroonga.max_wal_size = 100MB

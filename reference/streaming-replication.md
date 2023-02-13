@@ -128,8 +128,6 @@ Before:
 
 ```vim
 #listen_address = 'localhost'
-#wal_level = minimal
-#max_wal_senders = 0
 ```
 
 After:

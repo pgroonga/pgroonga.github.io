@@ -62,7 +62,7 @@ This document uses the following environment:
 
 This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself.
 
-## [normal][special] Install PostgreSQL and PGroonga on both primary and standbys
+## [normal][special] Install PostgreSQL and PGroonga on both primary and standbys {#install-postgresql-pgroonga}
 
 Install PostgreSQL 15 on both primary and standbys.
 

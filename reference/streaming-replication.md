@@ -270,7 +270,7 @@ You can confirm whether you set [`shared_preload_libraries` parameter][postgresq
 SELECT name,setting FROM pg_settings WHERE name = 'shared_preload_libraries';
 ```
 
-## [normal] Restart PostgreSQL on standbys
+## [normal] Start PostgreSQL on standbys
 
 This is a normal step.
 

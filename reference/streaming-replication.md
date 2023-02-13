@@ -298,9 +298,7 @@ Create a table in the created database on only primary.
 Connect to the created `blog` database:
 
 ```bash
-sudo su - postgres
-
-psql blog
+sudo -u postgres -H psql blog
 ```
 
 Create `entries` table:

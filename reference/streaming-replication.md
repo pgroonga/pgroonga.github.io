@@ -283,9 +283,7 @@ This is a normal step.
 Create a database on only primary:
 
 ```bash
-sudo su - postgres
-
-createdb blog
+sudo -u postgres -H createdb blog
 ```
 
 Create a table in the created database on only primary.

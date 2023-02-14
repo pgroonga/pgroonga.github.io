@@ -17,7 +17,7 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 ## `pgroonga` index
 
-  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)
+  * [`CREATE INDEX USING pgroonga` explained in detail](create-index-using-pgroonga.html)
 
   * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)
 

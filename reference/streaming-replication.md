@@ -174,7 +174,7 @@ Add [`pgronga.enable_wal` parameter][enable-wal] and [`pgroonga.max_wal_size` pa
 `/etc/postgresql/15/main/postgresql.conf`:
 
 ```vim
-# Probably add to the bottom of psotgresql.cong
+# Probably add to the bottom of postgresql.conf
 pgroonga.enable_wal = on
 # You may need more large size
 pgroonga.max_wal_size = 100MB

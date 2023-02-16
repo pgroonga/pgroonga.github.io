@@ -223,8 +223,6 @@ Standbys:
 Before:
 
 ```vim
-data_directory = '/var/lib/postgresql/15/main'
-
 #hot_standby = off
 ```
 

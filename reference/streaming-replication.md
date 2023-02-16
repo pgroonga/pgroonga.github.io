@@ -60,7 +60,7 @@ This document uses the following environment:
 
     * IP address: 192.168.0.32
 
-This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself.
+This document shows command lines for Ubuntu 22.04. If you're using other platforms, adjust command lines by yourself.
 
 ## [normal][special] Install PostgreSQL and PGroonga on both primary and standbys {#install-postgresql-pgroonga}
 
@@ -218,15 +218,13 @@ Standbys:
 
 Before:
 
-```vim
-#hot_standby = off
+```text
+#hot_standby = on
 ```
 
 After:
 
-```vim
-data_directory = '/var/lib/postgresql/15/data'
-
+```text
 hot_standby = on
 ```
 

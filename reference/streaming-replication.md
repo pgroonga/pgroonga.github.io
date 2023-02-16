@@ -199,11 +199,12 @@ Run `pg_basebackup` on only standbys. It copies the current database from primar
 
 Standbys:
 
-```bash
-sudo -u postgres -H pg_basebackup --host 192.168.0.30 -D /var/lib/postgresql/15/data --progress -U replicator -R
-
-149261/149261 kB (100%), 1/1 tablespace
-```
+```console
+$ sudo -H systemctl stop postgresql
+$ sudo -u postgres -H rm -rf /var/lib/postgresql/15/main
+$ sudo -u postgres -H pg_basebackup --host 192.168.0.30 -D /var/lib/postgresql/15/main --progress -U replicator -R
+Password: (passw0rd)
+22987/22987 kB (100%), 1/1 tablespace
 
 ## [normal] Add some streaming replication configurations to `postgresql.conf` on standbys
 

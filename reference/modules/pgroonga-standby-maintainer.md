@@ -7,8 +7,6 @@ upper_level: ../
 
 Since 2.4.2.
 
-This is still an experimental feature.
-
 ## Summary
 
 The `pgroonga_standby_maintainer` module automatically executes [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] on a stadnby database.

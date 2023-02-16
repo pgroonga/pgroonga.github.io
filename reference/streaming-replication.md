@@ -155,11 +155,10 @@ host    replication     all             192.168.0.0/24                 scram-sha
 
 Create the user for replication on only primary:
 
-```bash
-sudo su - postgres
-
-psql postgres
-CREATE USER replicator WITH REPLICATION;
+```console
+$ sudo -u postgres -H createuser --pwprompt --replication replicator
+Enter password for new role: (passw0rd)
+Enter it again: (passw0rd)
 ```
 
 ## [special] Add some PGroonga related configurations to `postgresql.conf` on primary

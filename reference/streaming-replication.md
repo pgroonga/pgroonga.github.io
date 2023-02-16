@@ -145,9 +145,6 @@ Add the following streaming replication configurations to `pg_hba.conf` on only 
 Before:
 
 ```vim
-#local   replication     postgres                                peer
-#host    replication     postgres        127.0.0.1/32            ident
-#host    replication     postgres        ::1/128                 ident
 ```
 
 After:

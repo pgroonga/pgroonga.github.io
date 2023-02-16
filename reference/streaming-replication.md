@@ -120,7 +120,7 @@ Add the following streaming replication configurations to `postgresql.conf` on o
 
     * See also [PostgreSQL: Documentation: Replication][postgresql-max-wal-senders].
 
-`/etc/postgresql/15/main/pg_hba.conf`:
+`/etc/postgresql/15/main/postgresql.conf`:
 
 Before:
 

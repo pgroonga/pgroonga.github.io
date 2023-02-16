@@ -255,7 +255,7 @@ Before:
 After:
 
 ```vim
-shared_preload_libraries = 'pgroonga_wal_applier'
+shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 # Probably add to the bottom of postgresql.conf
 pgroonga.enable_wal = on

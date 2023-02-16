@@ -150,7 +150,7 @@ Before:
 After:
 
 ```vim
-host    replication     replicator       192.168.0.0/24         trust
+host    replication     all             192.168.0.0/24                 scram-sha-256
 ```
 
 Create the user for replication on only primary:

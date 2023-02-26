@@ -18,7 +18,7 @@ You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index 
     - [How to customize index column flags](#how-to-customize-index-column-flags-custom-index-flags)
 
 
-## Syntax
+## Syntax {#syntax}
 
 This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [`CREATE INDEX` document by PostgreSQL]({{ site.postgresql_doc_base_url.en }}/sql-createindex.html) for full `CREATE INDEX` syntax.
 

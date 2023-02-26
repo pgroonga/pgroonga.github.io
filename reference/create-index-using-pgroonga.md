@@ -11,7 +11,7 @@ You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index 
   - [Customization](#customization)
     - [How to register plugins](#custom-plugins)
     - [How to customize normalizer](#custom-normalizer)
-    - [How to use `NormalizerTable`](#normalizer-table)
+      - [How to use `NormalizerTable`](#normalizer-table)
     - [How to use token filters](#custom-token-filters)
     - [How to customize lexicon type](#custom-lexicon-type)
     - [How to use column:... syntax in query](#query-allow-column)
@@ -361,7 +361,7 @@ CREATE INDEX pgroonga_memos_index
               normalizers='NormalizerAuto');
 ```
 
-#### How to use `NormalizerTable` {#normalizer-table}
+##### How to use `NormalizerTable` {#normalizer-table}
 
 You can use `${table:PGROONGA_INDEX_NAME}` syntax in text that specifies normalizers.
 

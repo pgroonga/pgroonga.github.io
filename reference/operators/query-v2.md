@@ -13,8 +13,7 @@ Since 1.2.2.
 
 `&@~` operator performs full text search with query.
 
-Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query,
-and you can use AND search by `KEYWORD1 KEYWORD2` in query.
+Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query, AND search by `KEYWORD1 KEYWORD2` in query and NOT search by `KEYWORD1 -KEYWORD2` in query.
 
 ## Syntax
 

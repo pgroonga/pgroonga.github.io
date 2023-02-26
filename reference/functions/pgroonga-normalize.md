@@ -67,15 +67,15 @@ SELECT pgroonga_normalize('あア', 'NormalizerNFKC130("unify_kana", true)');
 You may also specify multiple normalizer options:
 
 ```sql
-SELECT pgroonga_normalize('あア', 
+SELECT pgroonga_normalize('あー-ア', 
   '
     NormalizerNFKC130("unify_kana", true),
-    NormalizerNFKC130("unify_hyphen", true)
+    NormalizerNFKC130("unify_hyphen_and_prolonged_sound_mark", true)
   '
 );
 --  pgroonga_normalize 
 -- --------------------
---  ああ
+--  あ--あ
 -- (1 row)
 ```
 

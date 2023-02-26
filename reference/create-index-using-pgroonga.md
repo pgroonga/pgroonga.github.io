@@ -361,7 +361,7 @@ CREATE INDEX pgroonga_memos_index
               normalizers='NormalizerAuto');
 ```
 
-#### How to use custom NormalizerTable
+#### How to use `NormalizerTable` {#normalizer-table}
 
 You can use `${table:PGROONGA_INDEX_NAME}` syntax in text that specifies normalizers.
 

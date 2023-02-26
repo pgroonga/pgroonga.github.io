@@ -8,14 +8,14 @@ You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index 
 
 ## About Creating Index
 - [Syntax](#syntax)
-  - [Customization](#customization-customization)
-    - [How to register plugins](#how-to-register-plugins-custom-plugins)
-    - [How to customize normalizer](#how-to-customize-normalizer-custom-normalizer)
-    - [How to use custom NormalizerTable](#how-to-use-custom-normalizertable)
-    - [How to use token filters](#how-to-use-token-filters-custom-token-filters)
-    - [How to customize lexicon type](#how-to-customize-lexicon-type-custom-lexicon-type)
-    - [How to use column:... syntax in query](#how-to-use-column-syntax-in-query-query-allow-column)
-    - [How to customize index column flags](#how-to-customize-index-column-flags-custom-index-flags)
+  - [Customization](#customization)
+    - [How to register plugins](#custom-plugins)
+    - [How to customize normalizer](#custom-normalizer)
+    - [How to use `NormalizerTable`](#normalizer-table)
+    - [How to use token filters](#custom-token-filters)
+    - [How to customize lexicon type](#custom-lexicon-type)
+    - [How to use column:... syntax in query](#query-allow-column)
+    - [How to customize index column flags](#custom-index-flags)
 
 
 ## Syntax {#syntax}

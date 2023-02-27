@@ -57,10 +57,25 @@ SELECT pgroonga_normalize('aBcDe 123', 'NormalizerMySQLGeneralCI');
 You can also specify normalizer options:
 
 ```sql
-SELECT pgroonga_normalize('あア', 'NormalizerNFKC100("unify_kana", true)');
+SELECT pgroonga_normalize('あア', 'NormalizerNFKC130("unify_kana", true)');
 --  pgroonga_normalize 
 -- --------------------
 --  ああ
+-- (1 row)
+```
+
+You may also specify multiple normalizers. Here is an useless example:
+
+```sql
+SELECT pgroonga_normalize('あー-ア', 
+  '
+    NormalizerNFKC130("unify_kana", true),
+    NormalizerNFKC130("unify_hyphen_and_prolonged_sound_mark", true)
+  '
+);
+--  pgroonga_normalize 
+-- --------------------
+--  あ--あ
 -- (1 row)
 ```
 

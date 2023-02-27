@@ -64,7 +64,7 @@ SELECT pgroonga_normalize('あア', 'NormalizerNFKC130("unify_kana", true)');
 -- (1 row)
 ```
 
-You may also specify multiple normalizer options. Here is a useless example :
+You may also specify multiple normalizers. Here is an useless example:
 
 ```sql
 SELECT pgroonga_normalize('あー-ア', 

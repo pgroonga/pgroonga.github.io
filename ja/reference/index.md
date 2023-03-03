@@ -17,7 +17,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## `pgroonga`インデックス
 
-  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)
+  * [`CREATE INDEX USING pgroonga`の詳細な説明](create-index-using-pgroonga.html)
 
   * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)
 

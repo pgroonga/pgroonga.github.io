@@ -57,8 +57,10 @@ msgstr ""
 msgid "## `pgroonga` index"
 msgstr "## `pgroonga`インデックス"
 
-msgid "  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)"
-msgstr ""
+msgid ""
+"  * [`CREATE INDEX USING pgroonga` explained in detail](create-index-using-pgr"
+"oonga.html)"
+msgstr "  * [`CREATE INDEX USING pgroonga`の詳細な説明](create-index-using-pgroonga.html)"
 
 msgid "  * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)"
 msgstr "  * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)"

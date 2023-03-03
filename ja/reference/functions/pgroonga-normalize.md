@@ -27,7 +27,7 @@ text pgroonga_normalize(target)
 text pgroonga_normalize(target, normalizer)
 ```
 
-`normalizer`は`text`型の値です。使用するノーマライザーモジュールを指定します。
+`normalizer`は`text`型の値です。利用したいノーマライザーモジュールを指定します。
 
 ## 使い方
 
@@ -57,10 +57,26 @@ SELECT pgroonga_normalize('aBcDe 123', 'NormalizerMySQLGeneralCI');
 ノーマライザーのオプションも指定できます。
 
 ```sql
-SELECT pgroonga_normalize('あア', 'NormalizerNFKC100("unify_kana", true)');
+SELECT pgroonga_normalize('あア', 'NormalizerNFKC130("unify_kana", true)');
 --  pgroonga_normalize 
 -- --------------------
 --  ああ
+-- (1 row)
+```
+
+複数のノーマライザーを指定することもできます。以下は実用的ではない例です。
+
+
+```sql
+SELECT pgroonga_normalize('あー-ア', 
+  '
+    NormalizerNFKC130("unify_kana", true),
+    NormalizerNFKC130("unify_hyphen_and_prolonged_sound_mark", true)
+  '
+);
+--  pgroonga_normalize 
+-- --------------------
+--  あ--あ
 -- (1 row)
 ```
 

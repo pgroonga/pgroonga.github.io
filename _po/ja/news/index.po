@@ -21,6 +21,27 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.4.5: 2023-03-06 {#version-2-4-5}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * [[`pgroonga_text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Fixed"
+" a bug that TokenRegexp isn't used with options. [GitHub#293][Reported by askd"
+"kc]"
+msgstr ""
+
+msgid "  * [[Crash safe][crash-safe]] Fixed a bug that e-index recovery doesn't work."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * askdkc"
+msgstr ""
+
 msgid "## 2.4.4: 2023-01-29 {#version-2-4-4}"
 msgstr ""
 
@@ -71,9 +92,6 @@ msgid ""
 "    ```"
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * Fixed a bug that PGroonga failed to create an index during executing two-p"
 "hase commit. [GitHub#269][Reported by Raif Atef]"
@@ -88,9 +106,6 @@ msgid ""
 "    The matched Docker images were not published between 2.3.9 and the current"
 " version."
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Kentaro Hayashi"
 msgstr ""
@@ -132,9 +147,6 @@ msgstr "### 既知の問題"
 msgid ""
 "  * PGroonga may fail to create index while we execute two-phase commit. [GitH"
 "ub#269][Reported by Raif Atef]"
-msgstr ""
-
-msgid "  * askdkc"
 msgstr ""
 
 msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"

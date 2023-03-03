@@ -5,6 +5,18 @@ upper_level: ../
 
 # News
 
+## 2.4.5: 2023-03-06 {#version-2-4-5}
+
+### Fixes
+
+  * [[`pgroonga_text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Fixed a bug that TokenRegexp isn't used with options. [GitHub#293][Reported by askdkc]
+
+  * [[Crash safe][crash-safe]] Fixed a bug that e-index recovery doesn't work.
+
+### Thanks
+
+  * askdkc
+
 ## 2.4.4: 2023-01-29 {#version-2-4-4}
 
 ### Improvements

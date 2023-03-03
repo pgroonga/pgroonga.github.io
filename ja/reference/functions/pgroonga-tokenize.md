@@ -58,7 +58,7 @@ SELECT pgroonga_tokenize('text');
 
 `tokenizer`は`text`型の値です。使用するトークナイザーモジュールを指定します。
 
-`normalizer`は`text`型の値です。使用するノーマライザーモジュールを指定します。
+`normalizer`は`text`型の値です。利用したいノーマライザーモジュールを指定します。
 
 `token_filters`は`text`型の値です。使用するトークンフィルター（複数可）を指定します。
 

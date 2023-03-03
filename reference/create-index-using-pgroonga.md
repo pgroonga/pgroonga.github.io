@@ -1,22 +1,11 @@
 ---
 title: CREATE INDEX USING pgroonga
+toc: true
 ---
 
 # `CREATE INDEX USING pgroonga`
 
 You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index method. This section describes about `pgroonga` index method.
-
-## About Creating Index
-- [Syntax](#syntax)
-  - [Customization](#customization)
-    - [How to register plugins](#custom-plugins)
-    - [How to customize normalizer](#custom-normalizer)
-      - [How to use `NormalizerTable`](#normalizer-table)
-    - [How to use token filters](#custom-token-filters)
-    - [How to customize lexicon type](#custom-lexicon-type)
-    - [How to use column:... syntax in query](#query-allow-column)
-    - [How to customize index column flags](#custom-index-flags)
-
 
 ## Syntax {#syntax}
 

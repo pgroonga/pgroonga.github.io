@@ -64,6 +64,9 @@
       {% elsif page.url contains "/how-to/" %}
         {% include v2-content-header.html %}
       {% endif %}
+      {% if page.toc %}
+        {% include toc.html html=content %}
+      {% endif %}
       {{ content }}
     </div>
 

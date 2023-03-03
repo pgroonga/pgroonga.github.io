@@ -1,12 +1,13 @@
 ---
 title: CREATE INDEX USING pgroonga
+toc: true
 ---
 
 # `CREATE INDEX USING pgroonga`
 
 インデックスメソッドとしてPGroongaを使うためには`CREATE INDEX`に`USING pgroonga`を指定します。このセクションでは`pgroonga`インデックスメソッドについて説明します。
 
-## 構文
+## 構文 {#syntax}
 
 このセクションでは`pgroonga`インデックスメソッド関連の`CREATE INDEX`の構文だけ説明します。完全な`CREATE INDEX`の構文は[PostgreSQLの`CREATE INDEX`のドキュメント]({{ site.postgresql_doc_base_url.ja }}/sql-createindex.html)を参照してください。
 
@@ -349,6 +350,8 @@ CREATE INDEX pgroonga_memos_index
               }',
               normalizers='NormalizerAuto');
 ```
+
+##### `NormalizerTable`の使い方 {#normalizer-table}
 
 ノーマライザーを指定するテキスト中で`${table:PGROONGA_INDEX_NAME}`という構文を使えます。
 

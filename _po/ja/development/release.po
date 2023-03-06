@@ -379,7 +379,7 @@ msgid ""
 "$ cd ~/work/pgroonga/docker.clean\n"
 "$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit change"
 "s and create a tag.\n"
-"$ git push\n"
+"$ git push --tags\n"
 "```"
 msgstr ""
 

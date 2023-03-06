@@ -234,7 +234,7 @@ $ rm -rf ~/work/pgroonga/docker.clean
 $ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
 $ cd ~/work/pgroonga/docker.clean
 $ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
-$ git push
+$ git push --tags
 ```
 
 You have to specify the latest versions.

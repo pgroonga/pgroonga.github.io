@@ -33,7 +33,9 @@ msgid ""
 "kc]"
 msgstr ""
 
-msgid "  * [[Crash safe][crash-safe]] Fixed a bug that e-index recovery doesn't work."
+msgid ""
+"  * [[Crash safe][crash-safe]] Fixed a bug that re-index recovery doesn't work"
+"."
 msgstr ""
 
 msgid "### Thanks"

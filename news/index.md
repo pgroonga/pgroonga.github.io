@@ -11,7 +11,7 @@ upper_level: ../
 
   * [[`pgroonga_text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Fixed a bug that TokenRegexp isn't used with options. [GitHub#293][Reported by askdkc]
 
-  * [[Crash safe][crash-safe]] Fixed a bug that e-index recovery doesn't work.
+  * [[Crash safe][crash-safe]] Fixed a bug that re-index recovery doesn't work.
 
 ### Thanks
 

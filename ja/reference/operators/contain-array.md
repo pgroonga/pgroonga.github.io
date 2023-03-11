@@ -9,7 +9,7 @@ upper_level: ../
 
 PGroongaは`@>`演算子の検索をインデックスを使って高速に実現できます。
 
-[`@>`演算子は組み込みのPostgreSQLの演算子][postgresql-array-operators]です。`@>`演算子は右辺の配列型の値がサ変の配列型の値のサブセットなら`true`を返します。
+[`@>`演算子は組み込みのPostgreSQLの演算子][postgresql-array-operators]です。`@>`演算子は右辺の配列型の値が左辺の配列型の値のサブセットなら`true`を返します。
 
 ## 構文
 

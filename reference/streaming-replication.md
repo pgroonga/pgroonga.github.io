@@ -249,14 +249,20 @@ Before:
 After:
 
 ```vim
-shared_preload_libraries = 'pgroonga_standby_maintainer'
+shared_preload_libraries = 'pgroonga_standby_maintainer,pgroonga_crash_safer'
 
 # Probably add to the bottom of postgresql.conf
 pgroonga.enable_wal = on
+
 # You may need more large size
 pgroonga.max_wal_size = 100MB
-```
 
+# This is Recomended but may reduce update performance a little bit 
+pgroonga.enable_crash_safe = on
+```
+> **NOTE**
+> 
+> When PGroonga crushed for some reason and PGroonga Index got broken, your database is not able to work properly. In order to prevent this, using `pgroonga_crash_safer` is recommended so that PGroonga automatically fix broken indexes when crushed. The trade off is, it will slightly slowing down update performance for your data. If inserting and updating performances are really critical for your application, you might consider turning this off.
 
 ## [normal] Start PostgreSQL on standbys
 

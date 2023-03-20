@@ -19,8 +19,8 @@ You can use the following instruction to install PGroonga on CentOS 7.
 Install `postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga` package:
 
 ```console
-$ sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
-$ sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
+$ sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
+$ sudo -H yum install -y https://packages.groonga.org/centos/7/groonga-release-latest.noarch.rpm
 $ sudo -H yum install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```
 

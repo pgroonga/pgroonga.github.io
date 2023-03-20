@@ -444,7 +444,7 @@ msgid "Connect to PostgreSQL by a normal user again:"
 msgstr "再度一般ユーザーでPostgreSQLに接続します。"
 
 msgid "Create a PGroonga index on only primary:"
-msgstr "プライマリーでだけ一般ユーザーを作成します。"
+msgstr "プライマリーでPGroongaのインデックスを作成します。"
 
 msgid ""
 "```sql\n"

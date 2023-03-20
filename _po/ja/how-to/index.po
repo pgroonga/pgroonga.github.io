@@ -30,6 +30,12 @@ msgstr ""
 "このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgro"
 "onga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！"
 
+msgid "## How to tune PGroonga"
+msgstr "## PGroongaのチューニング方法"
+
+msgid "  * [How to tune PGroonga](tuning.html)"
+msgstr "  * [PGroongaのチューニング方法](tuning.html)"
+
 msgid "## How to implement auto complete feature"
 msgstr "## オートコンプリートの実装方法"
 

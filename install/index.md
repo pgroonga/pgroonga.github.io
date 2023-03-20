@@ -62,12 +62,12 @@ See a document for your platform in the followings:
 
 If you can't find your platform in the above list, [build and install from source](source.html) or send a request as an [issue](https://github.com/pgroonga/pgroonga/issues/new).
 
-## Tuning
-
-Please refer to [Tuning](../how-to/tuning.md) section in How-Tos.
-
 ## See also
 
   * [Uninstall][uninstall]
 
+  * [Tuning][tuning]
+
 [uninstall]:../uninstall/
+
+[tuning]:../how-to/tuning.html

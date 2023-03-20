@@ -62,12 +62,12 @@ upper_level: ../
 
 もし、このリストの中に自分のプラットフォームがない場合は、[ソースからビルドしてインストールする](source.html)か[issue](https://github.com/pgroonga/pgroonga/issues/new)にリクエストを送ってください。
 
-## チューニング
-
-How Toにある[チューニング](../how-to/tuning.md)セクションをご確認願います
-
 ## 参考
 
   * [アンインストール][uninstall]
 
+  * [チューニング][tuning]
+
 [uninstall]:../uninstall/
+
+[tuning]:../how-to/tuning.html

@@ -8,6 +8,10 @@ title: ハウツー
 
 このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！
 
+## PGroongaのチューニング方法
+
+  * [PGroongaのチューニング方法](tuning.html)
+
 ## オートコンプリートの実装方法
 
   * [オートコンプリートの実装方法](auto-complete.html)

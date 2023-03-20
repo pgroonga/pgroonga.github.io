@@ -673,7 +673,7 @@ msgstr ""
 "[`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer] を使ってください。"
 
 msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
-msgstr "  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]"
+msgstr "  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]"
 
 msgid "## Groonga functions"
 msgstr "## Groongaの関数"

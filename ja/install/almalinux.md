@@ -21,7 +21,6 @@ AlmaLinux 8にPGroongaをインストールする方法は次の通りです。
 ```console
 $ sudo -H dnf module -y disable postgresql
 $ sudo -H dnf install -y epel-release || sudo -H dnf install -y oracle-epel-release-el$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1) || sudo -H dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1).noarch.rpm
-$ sudo -H dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1).noarch.rpm
 $ sudo -H dnf config-manager --set-enabled powertools || :
 $ sudo -H dnf install -y https://packages.groonga.org/almalinux/8/groonga-release-latest.noarch.rpm
 $ sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga

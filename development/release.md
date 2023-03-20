@@ -202,7 +202,7 @@ You have to specify the latest versions.
 
 After you check [GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] are succeeded, push tag to remote.
 
-```
+```console
 $ git push --tags
 ```
 

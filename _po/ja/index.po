@@ -98,7 +98,7 @@ msgid "  * [Tutorial](tutorial/): It describes how to use PGroonga step by step.
 msgstr "  * [チュートリアル](tutorial/): PGroongaの使い方を順に説明。"
 
 msgid "  * [FAQ](faq/): Frequently asked questions."
-msgstr "  * [FAQ](faq/): よくあるお問い合わせ。"
+msgstr "  * [FAQ](faq/): よくある質問。"
 
 msgid ""
 "  * [How to](how-to/): It describes about useful information for specific situ"

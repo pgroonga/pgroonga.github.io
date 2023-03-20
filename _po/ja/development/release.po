@@ -348,7 +348,7 @@ msgstr ""
 "を確認したら、タグをpushします。"
 
 msgid ""
-"```\n"
+"```console\n"
 "$ git push --tags\n"
 "```"
 msgstr ""

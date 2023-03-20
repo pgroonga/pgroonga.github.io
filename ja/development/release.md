@@ -197,7 +197,7 @@ $ git push --tags
 
 [PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が成功しているのを確認したら、タグをpushします。
 
-```
+```console
 $ git push --tags
 ```
 

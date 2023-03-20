@@ -256,7 +256,7 @@ sudo -u postgres -H psql blog --command "GRANT USAGE ON SCHEMA pgroonga TO ${USE
 psql blog
 ```
 
-プライマリーでだけ一般ユーザーを作成します。
+プライマリーでPGroongaのインデックスを作成します。
 
 ```sql
 CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);

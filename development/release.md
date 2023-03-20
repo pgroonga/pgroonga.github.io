@@ -56,34 +56,11 @@ We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-ppa] re
 
 We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
 
-* Create an archive file for test on local
+* Create archive file and upload to the `nightly` repository
 
   ```console
   $ rake dist
-  ```
-
-* Change `~/.dput.cf` in order to upload the `nightly` repository
-
-  Add or change a `[groonga-ppa]` entry as below.
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/nightly
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/nightly` is important.
-
-  If you don't have `~/.dput.cf`, create it manually.
-
-* Upload to the `nightly` repository
-
-  ```console
-  $ rake package:ubuntu
+  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING="~groonga/ubuntu/nightly" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   ```
 
 * Check the build result
@@ -122,26 +99,10 @@ $ rake package:apt
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-* Change `~/.dput.cf` in order to upload the `ppa` repository
-
-  Change the `[groonga-ppa]` entry as below.
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/ppa
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/ppa` is important.
-
 * Upload to the `ppa` repository
 
   ```console
-  $ rake package:ubuntu
+  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
   ```
 
 * Check the build result
@@ -239,7 +200,13 @@ $ git push --tags
 
 You have to specify the latest versions.
 
-[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+After you check [GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] are succeeded, push tag to remote.
+
+```console
+$ git push --tags
+```
+
+[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the tag.
 
 ## Announce release
 

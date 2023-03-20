@@ -66,4 +66,8 @@ upper_level: ../
 
   * [アンインストール][uninstall]
 
+  * [チューニング][tuning]
+
 [uninstall]:../uninstall/
+
+[tuning]:../how-to/tuning.html

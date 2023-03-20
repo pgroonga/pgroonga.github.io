@@ -66,4 +66,8 @@ If you can't find your platform in the above list, [build and install from sourc
 
   * [Uninstall][uninstall]
 
+  * [Tuning][tuning]
+
 [uninstall]:../uninstall/
+
+[tuning]:../how-to/tuning.html

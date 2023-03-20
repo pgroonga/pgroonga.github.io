@@ -120,5 +120,11 @@ msgstr "## 参考"
 msgid "  * [Uninstall][uninstall]"
 msgstr "  * [アンインストール][uninstall]"
 
+msgid "  * [Tuning][tuning]"
+msgstr "  * [チューニング][tuning]"
+
 msgid "[uninstall]:../uninstall/"
+msgstr ""
+
+msgid "[tuning]:../how-to/tuning.html"
 msgstr ""

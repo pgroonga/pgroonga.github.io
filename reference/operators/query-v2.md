@@ -59,6 +59,12 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 
 `weights` is importance factors of each value. It's `int[]` type. If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
 
+> **Note:** In order to use this feature, you need to create array index like this:
+> ```sql
+> CREATE INDEX pgroonga_index_name ON tablename USING pgroonga ARRAY(([column1, column2]));
+> ```
+> Please refer to [Usage](#usage) section also.
+
 `weights` can be `NULL`. Elements of `weights` can also be `NULL`. If the corresponding importance factor is `NULL`, the importance factor is `1`.
 
 If importance factor is `0`, the value is ignored. For example, `ARRAY[1, 0, 1]` means the second value isn't search target.

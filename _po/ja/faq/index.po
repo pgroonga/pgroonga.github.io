@@ -55,7 +55,7 @@ msgid "## Managed service including PGroonga {#managed-pgroonga}"
 msgstr "## PGroongaを含むマネージドサービス {#managed-pgroonga}"
 
 msgid "There is a DBaaS that includes PGroonga:"
-msgstr ""
+msgstr "PGroongaを含むDBaaSがあります。"
 
 msgid "### Supabase"
 msgstr ""

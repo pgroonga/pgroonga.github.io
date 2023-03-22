@@ -21,7 +21,7 @@ SELinuxを使っている場合はPGroongaのポリシーパッケージが必�
 
 ## PGroongaを含むマネージドサービス {#managed-pgroonga}
 
-There is a DBaaS that includes PGroonga:
+PGroongaを含むDBaaSがあります。
 
 ### Supabase
 

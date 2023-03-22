@@ -15,6 +15,11 @@ Since 1.2.2.
 
 Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query, AND search by `KEYWORD1 KEYWORD2` in query and NOT search by `KEYWORD1 -KEYWORD2` in query.
 
+### Important Note
+In order for some of these features to work properly, it is necessary to create specific indexes for specific columns.
+If things are not working properly, it is often due to incorrect indexes. Please ensure that you use the appropriate PGroonga index type for each data type: `varchar`, `text`, and `text[]`.
+Please review [Operator classes](#operator-classes) and [Usage](#usage) section.
+
 ## Syntax
 
 There are three signatures:
@@ -58,12 +63,6 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 `query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
 `weights` is importance factors of each value. It's `int[]` type. If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
-
-> **Note:** In order to use this feature, you need to create array index like this:
-> ```sql
-> CREATE INDEX pgroonga_index_name ON tablename USING pgroonga ARRAY(([column1, column2]));
-> ```
-> Please refer to [Usage](#usage) section also.
 
 `weights` can be `NULL`. Elements of `weights` can also be `NULL`. If the corresponding importance factor is `NULL`, the importance factor is `1`.
 

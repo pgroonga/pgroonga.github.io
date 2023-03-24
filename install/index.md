@@ -11,7 +11,6 @@ There are separated documents for these platforms. And there is a document for b
 
 Here are supported PostgreSQL versions:
 
-  * 10
   * 11
   * 12
   * 13

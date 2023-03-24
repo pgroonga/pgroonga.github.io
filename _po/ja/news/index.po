@@ -21,6 +21,52 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 2.4.6: 2023-03-24 {#version-2-4-6}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid ""
+"  * [`&^` operator][prefix-search-v2] Added support for ``pgroonga_full_text_s"
+"earch_condition``."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_highlight_html` function][highlight-html]] Added support prefi"
+"x search."
+msgstr ""
+
+msgid "  * [`&=` operator] Added a newly operator `&=`."
+msgstr ""
+
+msgid ""
+"    We can use custom normalizers with this in exact match search even if PGro"
+"onga's index is used or not."
+msgstr ""
+
+msgid "  * Added support for UUID type. [GitHub#302][Reported by ghevge]"
+msgstr ""
+
+msgid ""
+"  * [tuning] Added a newly documentation for PGroonga's tunung. [GitHub:pgroon"
+"ga/pgroonga.github.io#99][Patched by askdkc]"
+msgstr ""
+
+msgid ""
+"  * [streaming-replication] Update replication example to use Ubuntu 22.04 and"
+" the latest PostgreSQL. [GitHub:pgroonga/pgroonga.github.io#100][Patched by as"
+"kdkc]"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid ""
+"  * askdkc\n"
+"  * ghevge"
+msgstr ""
+
 msgid "## 2.4.5: 2023-03-06 {#version-2-4-5}"
 msgstr ""
 
@@ -38,17 +84,11 @@ msgid ""
 "."
 msgstr ""
 
-msgid "### Thanks"
-msgstr "### 感謝"
-
 msgid "  * askdkc"
 msgstr ""
 
 msgid "## 2.4.4: 2023-01-29 {#version-2-4-4}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid ""
 "  * [[`pgroonga_wal_apply` function][wal-apply]] add target index information "
@@ -2455,7 +2495,13 @@ msgid ""
 ".html"
 msgstr ""
 
+msgid "[streaming-replication]:../reference/streaming-replication.html"
+msgstr ""
+
 msgid "[travis-ci]:../how-to/travis-ci.html"
+msgstr ""
+
+msgid "[tuning]:../how-to/tuning.html"
 msgstr ""
 
 msgid ""

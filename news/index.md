@@ -5,6 +5,29 @@ upper_level: ../
 
 # News
 
+## 2.4.6: 2023-03-24 {#version-2-4-6}
+
+### Improvements
+
+  * [`&^` operator][prefix-search-v2] Added support for ``pgroonga_full_text_search_condition``.
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support prefix search.
+
+  * [`&=` operator] Added a newly operator `&=`.
+
+    We can use custom normalizers with this in exact match search even if PGroonga's index is used or not.
+
+  * Added support for UUID type. [GitHub#302][Reported by ghevge]
+
+  * [tuning] Added a newly documentation for PGroonga's tunung. [GitHub:pgroonga/pgroonga.github.io#99][Patched by askdkc]
+
+  * [streaming-replication] Update replication example to use Ubuntu 22.04 and the latest PostgreSQL. [GitHub:pgroonga/pgroonga.github.io#100][Patched by askdkc]
+
+### Thanks
+
+  * askdkc
+  * ghevge
+
 ## 2.4.5: 2023-03-06 {#version-2-4-5}
 
 ### Fixes
@@ -1781,7 +1804,11 @@ The first release!!!
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
 
+[streaming-replication]:../reference/streaming-replication.html
+
 [travis-ci]:../how-to/travis-ci.html
+
+[tuning]:../how-to/tuning.html
 
 [postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rowsecurity.html
 

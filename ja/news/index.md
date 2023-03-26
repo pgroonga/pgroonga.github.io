@@ -5,6 +5,24 @@ upper_level: ../
 
 # おしらせ
 
+## 2.4.7: 2023-03-27 {#version-2-4-7}
+
+### 改良
+
+  * Added a newly support for AlmaLinux 9.
+
+  * Dropped support for Ubuntu 18.04.
+
+    Because Ubuntu 18.04 will reache EOL in April 2023.
+
+### 修正
+
+  * Fixed a bug that PGroonga crashed when we execute ``CREATE INDEX`` against a column of UUID type. [GitHub:GH-305][Reported by ghevge]
+
+### 感謝
+
+  * ghevge
+
 ## 2.4.6: 2023-03-24 {#version-2-4-6}
 
 ### 改良

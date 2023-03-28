@@ -109,6 +109,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 1.2.2で追加。
 
+  * [`&=` 演算子][exact-match-search]: 完全一致検索
+
+    * 2.4.6で追加。
+
   * [`&^`演算子][prefix-search-v2]：前方一致検索
 
   * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索
@@ -225,6 +229,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * `>=`
 
   * `>`
+
+  * [`&=` 演算子][exact-match-search]: 完全一致検索
+
+    * 2.4.6で追加。
 
   * [`&^`演算子][prefix-search-v2]：前方一致検索
 
@@ -653,6 +661,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [regular-expression-in-v2]:operators/regular-expression-in-v2.html
 [contain-term-v2]:operators/contain-term-v2.html
 [contain-term]:operators/contain-term.html
+[exact-match-search]:operators/exact-match-search.html
 [prefix-search-v2]:operators/prefix-search-v2.html
 [prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html

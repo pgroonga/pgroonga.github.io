@@ -49,7 +49,7 @@ column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
 
 `prefix` is a prefix to be found. It's `text` type.
 
-The second argument is set only NULL. Because this signature is not for optimizing search score.
+The second argument is set only NULL. Because this syntax is not for optimizing search score.
 
 `index_name` is an index name of the corresponding PGroonga index. It's text type.
 

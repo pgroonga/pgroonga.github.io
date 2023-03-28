@@ -57,9 +57,6 @@ msgstr ""
 msgid "  * [Ubuntu](ubuntu.html)"
 msgstr ""
 
-msgid "    * 18.04"
-msgstr ""
-
 msgid "    * 20.04"
 msgstr ""
 

@@ -27,8 +27,6 @@ See a document for your platform in the followings:
 
   * [Ubuntu](ubuntu.html)
 
-    * 18.04
-
     * 20.04
 
     * 22.04

@@ -27,8 +27,6 @@ upper_level: ../
 
   * [Ubuntu](ubuntu.html)
 
-    * 18.04
-
     * 20.04
 
     * 22.04

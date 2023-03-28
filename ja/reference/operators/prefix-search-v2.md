@@ -51,7 +51,7 @@ column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
 
 2つ目の引数はNULLのみ設定されます。この構文は検索スコアーの最適化をするためのものでは無いためです。
 
-`index_name` は対応するPGroongaのインデックス名です。text型です。
+`index_name`は対応するPGroongaのインデックス名です。`text`型です。
 
 これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
 
@@ -96,7 +96,7 @@ SELECT * FROM tags WHERE name &^ 'pg';
 -- (2 rows)
 ```
 
-前方一致検索でカスタマイズしたノーマライザーを使う場合。
+以下のように前方一致検索でカスタマイズしたノーマライザーを使えます。
 
 ```sql
 CREATE TABLE tags (

@@ -19,6 +19,18 @@ Prefix search is useful for implementing input completion.
 
 ```sql
 column &^ prefix
+column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+```
+
+The first signature is enough for most cases.
+
+The second signature is for using custom normalizer even if PGroonga's index is used or not.
+The second signature is available since 2.4.6.
+
+Here is the description of the first signature.
+
+```sql
+column &^ prefix
 ```
 
 `column` is a column to be searched. It's `text` type or `text[]` type.
@@ -26,6 +38,23 @@ column &^ prefix
 `prefix` is a prefix to be found. It's `text` type.
 
 The operator returns `true` when the `column` value starts with `prefix`.
+
+Here is the description of the second signature.
+
+```sql
+column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+```
+
+`column` is a column to be searched. It's `text` type or `varchar` type.
+
+`prefix` is a prefix to be found. It's `text` type.
+
+The second argument is set only NULL.
+The second argument is set only NULL. Because this signature is not for optimizing search score.
+
+index_name is an index name of the corresponding PGroonga index. It's text type.
+
+It's for using the same search options specified in PGroonga index in sequential search.
 
 ## Operator classes
 
@@ -66,6 +95,51 @@ SELECT * FROM tags WHERE name &^ 'pg';
 --  PGroonga
 --  pglogical
 -- (2 rows)
+```
+
+If you use custom normalizer in prefix search.
+
+```sql
+CREATE TABLE tags (
+  name text
+);
+
+CREATE INDEX pgroonga_tag_name_index ON tags
+  USING pgroonga (name pgroonga_text_term_search_ops_v2)
+  WITH (normalizers='NormalizerNFKC150("remove_symbol", true)');
+```
+
+```sql
+INSERT INTO tags VALUES ('PostgreSQL');
+INSERT INTO tags VALUES ('Groonga');
+INSERT INTO tags VALUES ('PGroonga');
+INSERT INTO tags VALUES ('pglogical');
+```
+
+You can prefix search with custom normalizer even if PGroonga's index is not used.
+
+```sql
+SET enable_seqscan = on;
+SET enable_indexscan = off;
+SET enable_bitmapscan = off;
+
+EXPLAIN (COSTS OFF)
+SELECT name
+  FROM tags
+ WHERE name &^ ('-p_G', NULL, 'pgrn_index')::pgroonga_full_text_search_condition;
+QUERY PLAN
+Seq Scan on tags
+  Filter: (name &^ '(-p_G,,pgrn_index)'::pgroonga_full_text_search_condition)
+(2 rows)
+
+SELECT name
+  FROM tags
+ WHERE name &^ ('-p_G', NULL, 'pgrn_index')::pgroonga_full_text_search_condition;
+   name    
+-----------
+ PGroonga
+ pglogical
+(2 rows)
 ```
 
 ## See also

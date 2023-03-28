@@ -96,7 +96,7 @@ SELECT * FROM tags WHERE name &^ 'pg';
 -- (2 rows)
 ```
 
-If you use custom normalizer in prefix search.
+You can use custom normalizer in prefix search as below.
 
 ```sql
 CREATE TABLE tags (

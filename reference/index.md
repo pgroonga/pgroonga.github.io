@@ -109,6 +109,10 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
 
     * Since 1.2.2.
 
+  * [`&=` operator][exact-match-search]: Exact match search
+
+    * Since 2.4.6.
+
   * [`&^` operator][prefix-search-v2]: Prefix search
 
   * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
@@ -224,6 +228,10 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
   * `>=`
 
   * `>`
+
+  * [`&=` operator][exact-match-search]: Exact match search
+
+    * Since 2.4.6.
 
   * [`&^` operator][prefix-search-v2]: Prefix search
 
@@ -650,6 +658,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [regular-expression-in-v2]:operators/regular-expression-in-v2.html
 [contain-term-v2]:operators/contain-term-v2.html
 [contain-term]:operators/contain-term.html
+[exact-match-search]:operators/exact-match-search.html
 [prefix-search-v2]:operators/prefix-search-v2.html
 [prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html

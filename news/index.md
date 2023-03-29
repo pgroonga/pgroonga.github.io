@@ -31,7 +31,7 @@ upper_level: ../
 
   * [[`pgroonga_highlight_html` function][highlight-html]] Added support prefix search.
 
-  * [`&=` operator] Added a newly operator `&=`.
+  * [`&=` operator][exact-match-search] Added a newly operator `&=`.
 
     We can use custom normalizers with this in exact match search even if PGroonga's index is used or not.
 
@@ -1773,6 +1773,7 @@ The first release!!!
 [query-in-v2]:../reference/operators/query-in-v2.html
 [script-v2]:../reference/operators/script-v2.html
 [similar-search-v2]:../reference/operators/similar-search-v2.html
+[exact-match-search]:../reference/operators/exact-match-search.html
 [prefix-search-v2]:../reference/operators/prefix-search-v2.html
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:../reference/operators/prefix-search-in-v2.html

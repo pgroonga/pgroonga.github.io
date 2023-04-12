@@ -6,6 +6,19 @@ title: ストリーミングレプリケーション
 
 PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]をサポートしています。
 
+PGroongaのWALは以下のようにスタンバイのサーバーへ送信されます。
+
+```mermaid
+sequenceDiagram
+    User->>+PostgreSQL backend:INSERT/UPDATE/DELETE
+    PostgreSQL backend->>+Primary Table:INSERT/UPDATE/DELETE
+    PostgreSQL backend->>+Primary PGroonga WAL:WAL Write
+    PostgreSQL backend->>+WAL Sender:Notify write WAL
+    WAL Sender->>+Primary PGroonga WAL:Read WAL
+    WAL Sender->>+WAL Reciver:Send WAL
+    WAL Reciver->>+Standby PGroonga WAL:Write
+```
+
 WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。
 
 参考：[クラッシュセーフ][crash-safe]

@@ -39,6 +39,8 @@ upper_level: ../
 
     * 8
 
+    * 9
+
   * [Amazon Linux](amazon-linux.html)
 
     * 2

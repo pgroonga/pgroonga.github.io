@@ -39,6 +39,8 @@ See a document for your platform in the followings:
 
     * 8
 
+    * 9
+
   * [Amazon Linux](amazon-linux.html)
 
     * 2

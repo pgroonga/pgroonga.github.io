@@ -75,6 +75,9 @@ msgstr ""
 msgid "    * 8"
 msgstr ""
 
+msgid "    * 9"
+msgstr ""
+
 msgid "  * [Amazon Linux](amazon-linux.html)"
 msgstr ""
 

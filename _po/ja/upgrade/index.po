@@ -30,134 +30,144 @@ msgstr ""
 "新しいバージョンのPGroongaが非互換の変更を含んでいない場合はPGroongaのインデックスを再作成せずにアップグレードできます。新しいバージョンが1"
 "つでも非互換の変更を含んでいればPGroongaをアップグレードする際にすべてのPGroongaのインデックスを再作成する必要があります。"
 
-msgid "Here is a list of compatibility:"
-msgstr "以下は互換性のリストです。"
+msgid ""
+"Here is a list of compatibility (\"o\" means \"compatible\" and \"x\" means \"incompa"
+"tible\"):"
+msgstr "以下は互換性のリストです。「o」は「互換」、「x」は「非互換」という意味です。"
 
-msgid "  * 2.4.6 -> 2.4.7: Compatible"
-msgstr "  * 2.4.6 -> 2.4.7 : 互換"
+msgid "  * 2.4.7 -> 3.0.0: x"
+msgstr ""
 
-msgid "  * 2.4.5 -> 2.4.6: Compatible"
-msgstr "  * 2.4.5 -> 2.4.6: 互換"
+msgid ""
+"    * If you don't use v1 API, 2.4.7 -> 3.0.0 is compatible. So most users mus"
+"t be compatible."
+msgstr "    * v1 APIを使っていない場合は2.4.7 -> 3.0.0は互換です。つまり、多くのユーザーは互換なはずです。"
 
-msgid "  * 2.4.4 -> 2.4.5: Compatible"
-msgstr "  * 2.4.4 -> 2.4.5: 互換"
+msgid "  * 2.4.6 -> 2.4.7: o"
+msgstr ""
 
-msgid "  * 2.4.3 -> 2.4.4: Compatible"
-msgstr "  * 2.4.3 -> 2.4.4: 互換"
+msgid "  * 2.4.5 -> 2.4.6: o"
+msgstr ""
 
-msgid "  * 2.4.2 -> 2.4.3: Compatible"
-msgstr "  * 2.4.2 -> 2.4.3: 互換"
+msgid "  * 2.4.4 -> 2.4.5: o"
+msgstr ""
 
-msgid "  * 2.4.1 -> 2.4.2: Compatible"
-msgstr "  * 2.4.1 -> 2.4.2: 互換"
+msgid "  * 2.4.3 -> 2.4.4: o"
+msgstr ""
 
-msgid "  * 2.4.0 -> 2.4.1: Compatible"
-msgstr "  * 2.4.0 -> 2.4.1: 互換"
+msgid "  * 2.4.2 -> 2.4.3: o"
+msgstr ""
 
-msgid "  * 2.3.9 -> 2.4.0: Compatible"
-msgstr "  * 2.3.9 -> 2.4.0: 互換"
+msgid "  * 2.4.1 -> 2.4.2: o"
+msgstr ""
 
-msgid "  * 2.3.8 -> 2.3.9: Compatible"
-msgstr "  * 2.3.8 -> 2.3.9: 互換"
+msgid "  * 2.4.0 -> 2.4.1: o"
+msgstr ""
 
-msgid "  * 2.3.7 -> 2.3.8: Compatible"
-msgstr "  * 2.3.7 -> 2.3.8: 互換"
+msgid "  * 2.3.9 -> 2.4.0: o"
+msgstr ""
 
-msgid "  * 2.3.6 -> 2.3.7: Compatible"
-msgstr "  * 2.3.6 -> 2.3.7: 互換"
+msgid "  * 2.3.8 -> 2.3.9: o"
+msgstr ""
 
-msgid "  * 2.3.5 -> 2.3.6: Compatible"
-msgstr "  * 2.3.5 -> 2.3.6: 互換"
+msgid "  * 2.3.7 -> 2.3.8: o"
+msgstr ""
 
-msgid "  * 2.3.4 -> 2.3.5: Compatible"
-msgstr "  * 2.3.4 -> 2.3.5: 互換"
+msgid "  * 2.3.6 -> 2.3.7: o"
+msgstr ""
 
-msgid "  * 2.3.3 -> 2.3.4: Compatible"
-msgstr "  * 2.3.3 -> 2.3.4: 互換"
+msgid "  * 2.3.5 -> 2.3.6: o"
+msgstr ""
 
-msgid "  * 2.3.2 -> 2.3.3: Compatible"
-msgstr "  * 2.3.2 -> 2.3.3: 互換"
+msgid "  * 2.3.4 -> 2.3.5: o"
+msgstr ""
 
-msgid "  * 2.3.1 -> 2.3.2: Compatible"
-msgstr "  * 2.3.1 -> 2.3.2: 互換"
+msgid "  * 2.3.3 -> 2.3.4: o"
+msgstr ""
 
-msgid "  * 2.3.0 -> 2.3.1: Compatible"
-msgstr "  * 2.3.0 -> 2.3.1: 互換"
+msgid "  * 2.3.2 -> 2.3.3: o"
+msgstr ""
 
-msgid "  * 2.2.9 -> 2.3.0: Compatible"
-msgstr "  * 2.2.9 -> 2.3.0: 互換"
+msgid "  * 2.3.1 -> 2.3.2: o"
+msgstr ""
 
-msgid "  * 2.2.8 -> 2.2.9: Compatible"
-msgstr "  * 2.2.8 -> 2.2.9: 互換"
+msgid "  * 2.3.0 -> 2.3.1: o"
+msgstr ""
 
-msgid "  * 2.2.7 -> 2.2.8: Compatible"
-msgstr "  * 2.2.7 -> 2.2.8: 互換"
+msgid "  * 2.2.9 -> 2.3.0: o"
+msgstr ""
 
-msgid "  * 2.2.6 -> 2.2.7: Compatible"
-msgstr "  * 2.2.6 -> 2.2.7: 互換"
+msgid "  * 2.2.8 -> 2.2.9: o"
+msgstr ""
 
-msgid "  * 2.2.5 -> 2.2.6: Compatible"
-msgstr "  * 2.2.5 -> 2.2.6: 互換"
+msgid "  * 2.2.7 -> 2.2.8: o"
+msgstr ""
+
+msgid "  * 2.2.6 -> 2.2.7: o"
+msgstr ""
+
+msgid "  * 2.2.5 -> 2.2.6: o"
+msgstr ""
 
 msgid "    * But you need to recreate your PGroonga indexes that use `jsonb`."
 msgstr "    * ただし、`jsonb`を使ったPGroongaのインデックスがある場合は再作成する必要があります。"
 
-msgid "  * 2.2.4 -> 2.2.5: Compatible"
-msgstr "  * 2.2.4 -> 2.2.5: 互換"
+msgid "  * 2.2.4 -> 2.2.5: o"
+msgstr ""
 
-msgid "  * 2.2.3 -> 2.2.4: Compatible"
-msgstr "  * 2.2.3 -> 2.2.4: 互換"
+msgid "  * 2.2.3 -> 2.2.4: o"
+msgstr ""
 
-msgid "  * 2.2.2 -> 2.2.3: Compatible"
-msgstr "  * 2.2.2 -> 2.2.3: 互換"
+msgid "  * 2.2.2 -> 2.2.3: o"
+msgstr ""
 
-msgid "  * 2.2.1 -> 2.2.2: Compatible"
-msgstr "  * 2.2.1 -> 2.2.2: 互換"
+msgid "  * 2.2.1 -> 2.2.2: o"
+msgstr ""
 
-msgid "  * 2.2.0 -> 2.2.1: Compatible"
-msgstr "  * 2.2.0 -> 2.2.1: 互換"
+msgid "  * 2.2.0 -> 2.2.1: o"
+msgstr ""
 
-msgid "  * 2.1.9 -> 2.2.0: Compatible"
-msgstr "  * 2.1.9 -> 2.2.0: 互換"
+msgid "  * 2.1.9 -> 2.2.0: o"
+msgstr ""
 
-msgid "  * 2.1.8 -> 2.1.9: Compatible"
-msgstr "  * 2.1.8 -> 2.1.9: 互換"
+msgid "  * 2.1.8 -> 2.1.9: o"
+msgstr ""
 
-msgid "  * 2.1.7 -> 2.1.8: Compatible"
-msgstr "  * 2.1.7 -> 2.1.8: 互換"
+msgid "  * 2.1.7 -> 2.1.8: o"
+msgstr ""
 
-msgid "  * 2.1.6 -> 2.1.7: Compatible"
-msgstr "  * 2.1.6 -> 2.1.7: 互換"
+msgid "  * 2.1.6 -> 2.1.7: o"
+msgstr ""
 
-msgid "  * 2.1.4 -> 2.1.6: Compatible"
-msgstr "  * 2.1.4 -> 2.1.6: 互換"
+msgid "  * 2.1.4 -> 2.1.6: o"
+msgstr ""
 
-msgid "  * 2.1.3 -> 2.1.4: Compatible"
-msgstr "  * 2.1.3 -> 2.1.4: 互換"
+msgid "  * 2.1.3 -> 2.1.4: o"
+msgstr ""
 
-msgid "  * 2.1.2 -> 2.1.3: Compatible"
-msgstr "  * 2.1.2 -> 2.1.3: 互換"
+msgid "  * 2.1.2 -> 2.1.3: o"
+msgstr ""
 
-msgid "  * 2.1.1 -> 2.1.2: Compatible"
-msgstr "  * 2.1.1 -> 2.1.2: 互換"
+msgid "  * 2.1.1 -> 2.1.2: o"
+msgstr ""
 
-msgid "  * 2.1.0 -> 2.1.1: Compatible"
-msgstr "  * 2.1.0 -> 2.1.1: 互換"
+msgid "  * 2.1.0 -> 2.1.1: o"
+msgstr ""
 
-msgid "  * 2.0.9 -> 2.1.0: Compatible"
-msgstr "  * 2.0.9 -> 2.1.0: 互換"
+msgid "  * 2.0.9 -> 2.1.0: o"
+msgstr ""
 
-msgid "  * 2.0.8 -> 2.0.9: Compatible"
-msgstr "  * 2.0.8 -> 2.0.9: 互換"
+msgid "  * 2.0.8 -> 2.0.9: o"
+msgstr ""
 
-msgid "  * 2.0.7 -> 2.0.8: Compatible"
-msgstr "  * 2.0.7 -> 2.0.8: 互換"
+msgid "  * 2.0.7 -> 2.0.8: o"
+msgstr ""
 
-msgid "  * 2.0.6 -> 2.0.7: Compatible"
-msgstr "  * 2.0.6 -> 2.0.7: 互換"
+msgid "  * 2.0.6 -> 2.0.7: o"
+msgstr ""
 
-msgid "  * 2.0.5 -> 2.0.6: Compatible"
-msgstr "  * 2.0.5 -> 2.0.6: 互換"
+msgid "  * 2.0.5 -> 2.0.6: o"
+msgstr ""
 
 msgid ""
 "    * But you need to recreate your PGroonga indexes that use `timestamp (with"
@@ -166,14 +176,14 @@ msgstr ""
 "    * ただし、`timestamp (without time zone)`を使ったPGroongaのインデックスがある場合は再作成する必要があります"
 "。"
 
-msgid "  * 2.0.4 -> 2.0.5: Compatible"
-msgstr "  * 2.0.4 -> 2.0.5: 互換"
+msgid "  * 2.0.4 -> 2.0.5: o"
+msgstr ""
 
-msgid "  * 2.0.3 -> 2.0.4: Compatible"
-msgstr "  * 2.0.3 -> 2.0.4: 互換"
+msgid "  * 2.0.3 -> 2.0.4: o"
+msgstr ""
 
-msgid "  * 2.0.2 -> 2.0.3: Compatible"
-msgstr "  * 2.0.2 -> 2.0.3: 互換"
+msgid "  * 2.0.2 -> 2.0.3: o"
+msgstr ""
 
 msgid ""
 "    * But you need to recreate your PGroonga indexes that use [`pgroonga_text_"
@@ -183,92 +193,92 @@ msgstr ""
 "    * ただし、[`pgroonga_text_array_full_text_search_ops_v2`演算子クラス][text-array-ful"
 "l-text-search-ops-v2]を使ったPGroongaのインデックスがある場合は再作成する必要があります。"
 
-msgid "  * 2.0.1 -> 2.0.2: Compatible"
-msgstr "  * 2.0.1 -> 2.0.2: 互換"
+msgid "  * 2.0.1 -> 2.0.2: o"
+msgstr ""
 
-msgid "  * 2.0.0 -> 2.0.1: Compatible"
-msgstr "  * 2.0.0 -> 2.0.1: 互換"
+msgid "  * 2.0.0 -> 2.0.1: o"
+msgstr ""
 
-msgid "  * 1.2.3 -> 2.0.0: Compatible"
-msgstr "  * 1.2.3 -> 2.0.0: 互換"
+msgid "  * 1.2.3 -> 2.0.0: o"
+msgstr ""
 
-msgid "  * 1.2.2 -> 1.2.3: Compatible"
-msgstr "  * 1.2.2 -> 1.2.3: 互換"
+msgid "  * 1.2.2 -> 1.2.3: o"
+msgstr ""
 
-msgid "  * 1.2.1 -> 1.2.2: Compatible"
-msgstr "  * 1.2.1 -> 1.2.2: 互換"
+msgid "  * 1.2.1 -> 1.2.2: o"
+msgstr ""
 
-msgid "  * 1.2.0 -> 1.2.1: Compatible"
-msgstr "  * 1.2.0 -> 1.2.1: 互換"
+msgid "  * 1.2.0 -> 1.2.1: o"
+msgstr ""
 
-msgid "  * 1.1.9 -> 1.2.0: Compatible"
-msgstr "  * 1.1.9 -> 1.2.0: 互換"
+msgid "  * 1.1.9 -> 1.2.0: o"
+msgstr ""
 
-msgid "  * 1.1.8 -> 1.1.9: Compatible"
-msgstr "  * 1.1.8 -> 1.1.9: 互換"
+msgid "  * 1.1.8 -> 1.1.9: o"
+msgstr ""
 
-msgid "  * 1.1.7 -> 1.1.8: Compatible"
-msgstr "  * 1.1.7 -> 1.1.8: 互換"
+msgid "  * 1.1.7 -> 1.1.8: o"
+msgstr ""
 
-msgid "  * 1.1.6 -> 1.1.7: Compatible"
-msgstr "  * 1.1.6 -> 1.1.7: 互換"
+msgid "  * 1.1.6 -> 1.1.7: o"
+msgstr ""
 
-msgid "  * 1.1.5 -> 1.1.6: Compatible"
-msgstr "  * 1.1.5 -> 1.1.6: 互換"
+msgid "  * 1.1.5 -> 1.1.6: o"
+msgstr ""
 
-msgid "  * 1.1.4 -> 1.1.5: Compatible"
-msgstr "  * 1.1.4 -> 1.1.5: 互換"
+msgid "  * 1.1.4 -> 1.1.5: o"
+msgstr ""
 
-msgid "  * 1.1.3 -> 1.1.4: Compatible"
-msgstr "  * 1.1.3 -> 1.1.4: 互換"
+msgid "  * 1.1.3 -> 1.1.4: o"
+msgstr ""
 
-msgid "  * 1.1.2 -> 1.1.3: Compatible"
-msgstr "  * 1.1.2 -> 1.1.3: 互換"
+msgid "  * 1.1.2 -> 1.1.3: o"
+msgstr ""
 
-msgid "  * 1.1.1 -> 1.1.2: Compatible"
-msgstr "  * 1.1.1 -> 1.1.2: 互換"
+msgid "  * 1.1.1 -> 1.1.2: o"
+msgstr ""
 
-msgid "  * 1.1.0 -> 1.1.1: Compatible"
-msgstr "  * 1.1.0 -> 1.1.1: 互換"
+msgid "  * 1.1.0 -> 1.1.1: o"
+msgstr ""
 
-msgid "  * 1.0.9 -> 1.1.0: Compatible"
-msgstr "  * 1.0.9 -> 1.1.0: 互換"
+msgid "  * 1.0.9 -> 1.1.0: o"
+msgstr ""
 
-msgid "  * 1.0.8 -> 1.0.9: Compatible"
-msgstr "  * 1.0.8 -> 1.0.9: 互換"
+msgid "  * 1.0.8 -> 1.0.9: o"
+msgstr ""
 
-msgid "  * 1.0.7 -> 1.0.8: Compatible"
-msgstr "  * 1.0.7 -> 1.0.8: 互換"
+msgid "  * 1.0.7 -> 1.0.8: o"
+msgstr ""
 
-msgid "  * 1.0.6 -> 1.0.7: Compatible"
-msgstr "  * 1.0.6 -> 1.0.7: 互換"
+msgid "  * 1.0.6 -> 1.0.7: o"
+msgstr ""
 
-msgid "  * 1.0.5 -> 1.0.6: Compatible"
-msgstr "  * 1.0.5 -> 1.0.6: 互換"
+msgid "  * 1.0.5 -> 1.0.6: o"
+msgstr ""
 
-msgid "  * 1.0.4 -> 1.0.5: Compatible"
-msgstr "  * 1.0.4 -> 1.0.5: 互換"
+msgid "  * 1.0.4 -> 1.0.5: o"
+msgstr ""
 
-msgid "  * 1.0.3 -> 1.0.4: Compatible"
-msgstr "  * 1.0.3 -> 1.0.4: 互換"
+msgid "  * 1.0.3 -> 1.0.4: o"
+msgstr ""
 
-msgid "  * 1.0.2 -> 1.0.3: Compatible"
-msgstr "  * 1.0.2 -> 1.0.3: 互換"
+msgid "  * 1.0.2 -> 1.0.3: o"
+msgstr ""
 
-msgid "  * 1.0.1 -> 1.0.2: Compatible"
-msgstr "  * 1.0.1 -> 1.0.2: 互換"
+msgid "  * 1.0.1 -> 1.0.2: o"
+msgstr ""
 
-msgid "  * 1.0 -> 1.0.1: Compatible"
-msgstr "  * 1.0 -> 1.0.1: 互換"
+msgid "  * 1.0 -> 1.0.1: o"
+msgstr ""
 
-msgid "  * 0.9 -> 1.0: Incompatible"
-msgstr "  * 0.9 -> 1.0: 非互換"
+msgid "  * 0.9 -> 1.0: x"
+msgstr ""
 
-msgid "  * 0.8 -> 0.9: Compatible"
-msgstr "  * 0.8 -> 0.9: 互換"
+msgid "  * 0.8 -> 0.9: o"
+msgstr ""
 
-msgid "  * 0.7 -> 0.8: Incompatible"
-msgstr "  * 0.7 -> 0.8: 非互換"
+msgid "  * 0.7 -> 0.8: x"
+msgstr ""
 
 msgid "## Incompatible case {#incompatible-case}"
 msgstr "## 非互換の場合 {#incompatible-case}"

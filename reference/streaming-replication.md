@@ -6,6 +6,19 @@ title: Streaming replication
 
 PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6.
 
+PGroonga's WAL send to standby server from primary server as below.
+
+```mermaid
+sequenceDiagram
+    User->>+PostgreSQL backend:INSERT/UPDATE/DELETE
+    PostgreSQL backend->>+Primary Table:INSERT/UPDATE/DELETE
+    PostgreSQL backend->>+Primary PGroonga WAL:WAL Write
+    PostgreSQL backend->>+WAL Sender:Notify write WAL
+    WAL Sender->>+Primary PGroonga WAL:Read WAL
+    WAL Sender->>+WAL Reciver:Send WAL
+    WAL Reciver->>+Standby PGroonga WAL:Write
+```
+
 Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`][postgresql-reindex].
 
 See also: [Crash safe][crash-safe]

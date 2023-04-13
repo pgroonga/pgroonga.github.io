@@ -1,0 +1,140 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"&=~ operator\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"&=~演算子\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `&=~` operator"
+msgstr "# `&=~`演算子"
+
+msgid "Since 3.0.0."
+msgstr "3.0.0で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid "`&=~` operator performs equal search with query."
+msgstr "`&=~`演算子はクエリーを使って等価検索を実行します。"
+
+msgid ""
+"Query's syntax is similar to syntax that is used in Web search engine. For exa"
+"mple, you can use OR search by `KEYWORD1 OR KEYWORD2` in query, AND search by "
+"`KEYWORD1 KEYWORD2` in query and NOT search by `KEYWORD1 -KEYWORD2` in query."
+msgstr ""
+"クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。`キーワ"
+"ード1 キーワード2`と書くとAND検索できます。`キーワード1 -キーワード2`と書くとNOT検索できます。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "There is one signature:"
+msgstr "使い方は1つです。"
+
+msgid ""
+"```sql\n"
+"column &=~ query\n"
+"```"
+msgstr ""
+
+msgid "`column` is a column to be searched. It's `text[]` type or `varchar[]` type."
+msgstr "`column`は検索対象のカラムです。`text[]`型か`varchar[]`型です。"
+
+msgid "`query` is a query for equal search. It's `text` type."
+msgstr "`query`は等価検索のクエリーです。`text`型です。"
+
+msgid "[Groonga's query syntax][groonga-query-syntax] is used in `query`."
+msgstr "`qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。"
+
+msgid "## Operator classes"
+msgstr "## 演算子クラス"
+
+msgid ""
+"You need to specify one of the following operator classes to use this operator"
+":"
+msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
+
+msgid "  * `pgroonga_text_array_term_search_ops_v2`: Default for `text[]`"
+msgstr ""
+
+msgid "  * `pgroonga_varchar_array_term_search_ops_v2`: Default for `carchar[]`"
+msgstr ""
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here are sample schema and data for examples:"
+msgstr "例に使うサンプルスキーマとデータは次の通りです。"
+
+msgid ""
+"```sql\n"
+"CREATE TABLE tags (\n"
+"  id integer,\n"
+"  names text[]\n"
+");"
+msgstr ""
+
+msgid ""
+"CREATE INDEX pgroonga_tag_names_index ON tags\n"
+" USING pgroonga (names pgroonga_text_array_term_search_ops_v2);\n"
+"```"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"INSERT INTO tags VALUES (1, ARRAY['PostgreSQL', 'PG']);\n"
+"INSERT INTO tags VALUES (2, ARRAY['Groonga', 'grn', 'groonga']);\n"
+"INSERT INTO tags VALUES (3, ARRAY['PGroonga', 'pgrn', 'SQL']);\n"
+"```"
+msgstr ""
+
+msgid ""
+"You can perform equal search with multiple keywords by `&=~` operator like `KE"
+"YWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:"
+msgstr ""
+"`&=~`演算子を使うと`キーワード1 キーワード2`のように複数のキーワードを指定して等価できます。`キーワード1 OR キーワード2`のようにOR検索す"
+"ることもできます。"
+
+msgid ""
+"```sql\n"
+"SELECT * FROM tags WHERE names &=~ 'grn OR sql';\n"
+"--  id |         names         \n"
+"-- ----+-----------------------\n"
+"--   2 | {Groonga,grn,groonga}\n"
+"--   3 | {PGroonga,pgrn,SQL}\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [`@>` operator][contain-array]: Contained search by an array"
+msgstr ""
+"  * [`@>`演算子][contain-array]：配列を使った包含検索\n"
+
+msgid "  * [Groonga's query syntax][groonga-query-syntax]"
+msgstr "  * [Groongaのクエリーの構文][groonga-query-syntax]"
+
+msgid "[contain-array]:contain-array.html"
+msgstr ""
+
+msgid ""
+"[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax"
+".html"
+msgstr ""
+"[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syn"
+"tax.html"

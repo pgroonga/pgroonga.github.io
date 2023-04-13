@@ -216,6 +216,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 2.2.1で追加。
 
+  * [`&=~`演算子][equal-query-v2]：便利なクエリー言語を使った等価検索
+
+    * 3.0.0で追加。
+
 ### `varchar`用
 
 #### `pgroonga_varchar_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-term-search-ops-v2}
@@ -310,6 +314,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 
     * 2.2.1で追加。
+
+  * [`&=~`演算子][equal-query-v2]：便利なクエリー言語を使った等価検索
+
+    * 3.0.0で追加。
 
 ### 真偽値、数値、タイムスタンプ用
 
@@ -653,27 +661,28 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [regular-expression]:operators/regular-expression.html
 
 [contain-array]:operators/contain-array.html
-[match-v2]:operators/match-v2.html
-[query-v2]:operators/query-v2.html
-[match-in-v2]:operators/match-in-v2.html
-[query-in-v2]:operators/query-in-v2.html
-[regular-expression-v2]:operators/regular-expression-v2.html
-[regular-expression-in-v2]:operators/regular-expression-in-v2.html
+[contain-jsonb]:operators/contain-jsonb.html
 [contain-term-v2]:operators/contain-term-v2.html
 [contain-term]:operators/contain-term.html
+[equal-query-v2]:operators/equal-query-v2.html
 [exact-match-search]:operators/exact-match-search.html
-[prefix-search-v2]:operators/prefix-search-v2.html
+[match-in-v2]:operators/match-in-v2.html
+[match-jsonb-v2]:operators/match-jsonb-v2.html
+[match-v2]:operators/match-v2.html
+[not-prefix-search-in-v2]:operators/not-prefix-search-in-v2.html
+[prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
 [prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html
-[prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
-[not-prefix-search-in-v2]:operators/not-prefix-search-in-v2.html
-[similar-search-v2]:operators/similar-search-v2.html
-[script-v2]:operators/script-v2.html
-[match-jsonb-v2]:operators/match-jsonb-v2.html
+[prefix-search-v2]:operators/prefix-search-v2.html
+[query-in-v2]:operators/query-in-v2.html
 [query-jsonb-v2]:operators/query-jsonb-v2.html
+[query-v2]:operators/query-v2.html
+[regular-expression-in-v2]:operators/regular-expression-in-v2.html
+[regular-expression-v2]:operators/regular-expression-v2.html
 [script-jsonb-v2]:operators/script-jsonb-v2.html
 [script-jsonb]:operators/script-jsonb.html
-[contain-jsonb]:operators/contain-jsonb.html
+[script-v2]:operators/script-v2.html
+[similar-search-v2]:operators/similar-search-v2.html
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
 

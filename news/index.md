@@ -5,6 +5,24 @@ upper_level: ../
 
 # News
 
+## 3.0.0: 2023-04-13 {#version-3-0-0}
+
+### Improvements
+
+  * [GH-291][gh-291]: Stopped defining v1 compatible operators to the `public` schema. Now, you can install PGroonga to non-`public` schema (Supabase uses `extensions` schema by default) and work without any tricky SQL.
+
+    This is a backward incompatible change but most users will not be affected because PGroonga 2.0.0 was released 6 years ago. Most users must not use v1 compatible operators.
+
+  * [GH-308][gh-308]: [[`pgroonga_query_extract_keywords` function][query-extract-keywords]] Added support for `query_allow_column=true` by specifying index name.
+    [Reported by yodhcn]
+
+  * [GH-317][gh-317]: [[`&=~` operator][equal-query-v2]] Added support for query syntax for `text[]` and `varchar[]`.
+    [Reported by yodhcn]
+
+### Thanks
+
+  * yodhcn
+
 ## 2.4.7: 2023-03-27 {#version-2-4-7}
 
 ### Improvements
@@ -1767,23 +1785,24 @@ The first release!!!
 [jsonb-full-text-search-ops-v2]:../reference/#jsonb-full-text-search-ops-v2
 
 [contain-array]:../reference/operators/contain-array.html
-[match-v2]:../reference/operators/match-v2.html
 [contain-term-v2]:../reference/operators/contain-term-v2.html
-[query-v2]:../reference/operators/query-v2.html
-[query-in-v2]:../reference/operators/query-in-v2.html
-[script-v2]:../reference/operators/script-v2.html
-[similar-search-v2]:../reference/operators/similar-search-v2.html
+[equal-query-v2]:../reference/operators/equal-query-v2.html
 [exact-match-search]:../reference/operators/exact-match-search.html
-[prefix-search-v2]:../reference/operators/prefix-search-v2.html
+[match-jsonb-v2]:../reference/operators/match-jsonb-v2.html
+[match-v2]:../reference/operators/match-v2.html
+[not-prefix-search-in-v2]:../reference/operators/not-prefix-search-in-v2.html
+[prefix-rk-search-in-v2]:../reference/operators/prefix-rk-search-in-v2.html
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:../reference/operators/prefix-search-in-v2.html
-[prefix-rk-search-in-v2]:../reference/operators/prefix-rk-search-in-v2.html
-[not-prefix-search-in-v2]:../reference/operators/not-prefix-search-in-v2.html
-[match-jsonb-v2]:../reference/operators/match-jsonb-v2.html
+[prefix-search-v2]:../reference/operators/prefix-search-v2.html
+[query-in-v2]:../reference/operators/query-in-v2.html
 [query-jsonb-v2]:../reference/operators/query-jsonb-v2.html
-[script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
-[regular-expression-v2]:../reference/operators/regular-expression-v2.html
+[query-v2]:../reference/operators/query-v2.html
 [regular-expression-in-v2]:../reference/operators/regular-expression-in-v2.html
+[regular-expression-v2]:../reference/operators/regular-expression-v2.html
+[script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
+[script-v2]:../reference/operators/script-v2.html
+[similar-search-v2]:../reference/operators/similar-search-v2.html
 
 [command]:../reference/functions/pgroonga-command.html
 [database-remove]:../reference/functions/pgroonga-database-remove.html
@@ -1795,6 +1814,7 @@ The first release!!!
 [match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
 [normalize]:../reference/functions/pgroonga-normalize.html
 [query-expand]:../reference/functions/pgroonga-query-expand.html
+[query-extract-keywords]:../reference/functions/pgroonga-query-extract-keywords.html
 [result-to-jsonb-objects]:../reference/functions/pgroonga-result-to-jsonb-objects.html
 [result-to-recordset]:../reference/functions/pgroonga-result-to-recordset.html
 [score]:../reference/functions/pgroonga-score.html
@@ -1832,3 +1852,7 @@ The first release!!!
 [postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rowsecurity.html
 
 [crash-safe]:../reference/crash-safe.html
+
+[gh-291]:https://github.com/pgroonga/pgroonga/issues/291
+[gh-308]:https://github.com/pgroonga/pgroonga/issues/308
+[gh-317]:https://github.com/pgroonga/pgroonga/issues/308

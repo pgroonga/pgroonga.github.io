@@ -12,7 +12,7 @@ title: Windowsにインストール
 
 ## インストール方法
 
-PostgreSQL（対応バージョン：{{ site.windows_postgresql_versions | join: "、" }}）をインストールします。[インストーラーバージョン](http://www.enterprisedb.com/products-services-training/pgdownload)か[zipバージョン](http://www.enterprisedb.com/products-services-training/pgbindownload)を選んでください。
+PostgreSQL（対応バージョン：{{ site.windows_postgresql_versions | join: "、" }}）をインストールします。[インストーラーバージョン][windows-postgresql-download-installer]か[zipバージョン][windows-postgresql-download-zip]を選んでください。
 
 PGroongaのパッケージをダウンロードします。
 
@@ -54,3 +54,6 @@ pgroonga_test=# CREATE EXTENSION pgroonga;
 これで終わりです！
 
 [チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
+
+[windows-postgresql-download-installer]: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+[windows-postgresql-download-zip]: https://www.enterprisedb.com/download-postgresql-binaries

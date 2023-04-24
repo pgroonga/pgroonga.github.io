@@ -65,7 +65,7 @@ msgstr ""
 msgid ""
 "`normalizer` is a `text` type value which specifies the normalizer module you "
 "want to use."
-msgstr "`normalizer`は`text`型の値です。利用したいノーマライザーモジュールを指定します。"
+msgstr "`normalizer`は`text`型の値です。使用するノーマライザーモジュールを指定します。"
 
 msgid "## Usage"
 msgstr "## 使い方"

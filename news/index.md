@@ -5,6 +5,23 @@ upper_level: ../
 
 # News
 
+## 3.0.1: 2023-04-27 {#version-3-0-1}
+
+### Improvements
+
+### Fixes
+
+  * Fixed a bug that dead lock occures when we execute ``UPDATE`` or ``INSERT`` while we execute ``REINDEX INDEX ... CONCURRENTLY``.
+
+  * Fixed a bug that if we repeated ``REINDEX`` and ``VACUUM``, PGroonga may return incorrect results and fail ``INSERT``.
+
+    For example, if this problem is occurred when INSERT, the following error is raised:
+
+    ERROR:  pgroonga: [insert] failed to add a record: <75300883>:
+    [table][add][hash] failed to add:
+     #<key "\u0013\u0000}\u0004\u0000\u0000\u0000\u0000"
+       table:#<hash Sources17192 key:ShortText>>
+
 ## 3.0.0: 2023-04-13 {#version-3-0-0}
 
 ### Improvements

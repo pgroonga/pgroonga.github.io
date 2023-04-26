@@ -9,11 +9,20 @@ upper_level: ../
 
 ### Improvements
 
+  * [[`pgroonga_wal_status` function][wal-status]] Added a newly function ``pgroonga_wal_status()``.
+
+    This function display a status of applying PGroonga's WAL.
+    The maximum size of PGroonga's WAL is limited by ``pgroonga.max_wal_size``.
+    If we execute many modification before PGroonga doesn't apply PGroonga's WAL, not applied PGroonga's WAL may lost.
+    Because PGroonga's WAL is over writed from the head of it when the size of modification over ``pgroonga.max_wal_size``
+
+    We understand the size of applied PGroonga's WAL by this function. Therefore we can prevent lost for not applied PGroonga's WAL.
+
 ### Fixes
 
   * Fixed a bug that dead lock occures when we execute ``UPDATE`` or ``INSERT`` while we execute ``REINDEX INDEX ... CONCURRENTLY``.
 
-  * Fixed a bug that if we repeated ``REINDEX`` and ``VACUUM``, PGroonga may return incorrect results and fail ``INSERT``.
+  * [GH-90][gh-90], [GH-117][gh-117]: Fixed a bug that if we repeated ``REINDEX`` and ``VACUUM``, PGroonga may return incorrect results and fail ``INSERT``.
 
     For example, if this problem is occurred when INSERT, the following error is raised:
 
@@ -21,6 +30,11 @@ upper_level: ../
     [table][add][hash] failed to add:
      #<key "\u0013\u0000}\u0004\u0000\u0000\u0000\u0000"
        table:#<hash Sources17192 key:ShortText>>
+
+### Thanks
+
+  * Daisuke Ando
+  * Raphael Gaschignard
 
 ## 3.0.0: 2023-04-13 {#version-3-0-0}
 

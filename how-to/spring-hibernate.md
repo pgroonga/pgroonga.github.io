@@ -18,8 +18,9 @@ com.whonome.ec.lib.PgFunctionContributor
 ```
 
 ## Register Functions with Hibernate
-Below is a simple use case is for selected operations of pgroonga, and did not to leverage lower level commands. As such, I only needed to create a simple registration of the operations to Hibernate as custom functions.
-Hibernate document on FunctionContributor: https://docs.jboss.org/hibernate/orm/current/javadocs/org/hibernate/boot/model/FunctionContributor.html
+
+Below is a simple use case is for selected operations of pgroonga, and did not to leverage lower level commands. As such, I only needed to create a simple registration of the operations to Hibernate as custom functions. [Hibernate document on FunctionContributor](https://docs.jboss.org/hibernate/orm/current/javadocs/org/hibernate/boot/model/FunctionContributor.html)
+
 The FunctionContributor is effectively a contract to register new functions which when encountered in HQL will be translated. 
 There is a prebuilt tool for Pattern based substitution. The PatternFunction provides simple string replacement for the named function. The params passed into the function are sequentially numbered and prefixed by a question mark '*?*'.
 

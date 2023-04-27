@@ -1856,6 +1856,7 @@ The first release!!!
 [tokenize]:../reference/functions/pgroonga-tokenize.html
 [vacuum]:../reference/functions/pgroonga-vacuum.html
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
+[wal-status]:../reference/functions/pgroonga-wal-status.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 
 [enable-crash-safe]:../reference/parameters/enable-crash-safe.html

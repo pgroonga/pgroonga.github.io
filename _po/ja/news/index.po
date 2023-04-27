@@ -2567,6 +2567,7 @@ msgid ""
 "[tokenize]:../reference/functions/pgroonga-tokenize.html\n"
 "[vacuum]:../reference/functions/pgroonga-vacuum.html\n"
 "[wal-apply]:../reference/functions/pgroonga-wal-aplly.html\n"
+"[wal-status]:../reference/functions/pgroonga-wal-status.html\n"
 "[wal-truncate]:../reference/functions/pgroonga-wal-truncate.html"
 msgstr ""
 

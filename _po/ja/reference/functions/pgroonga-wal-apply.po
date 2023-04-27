@@ -40,7 +40,7 @@ msgstr "この関数の構文は次の通りです。"
 
 msgid ""
 "```text\n"
-"bitint pgroonga_wal_apply(pgroonga_index_name)\n"
+"bigint pgroonga_wal_apply(pgroonga_index_name)\n"
 "```"
 msgstr ""
 

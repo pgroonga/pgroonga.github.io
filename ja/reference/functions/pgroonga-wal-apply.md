@@ -14,7 +14,7 @@ upper_level: ../
 この関数の構文は次の通りです。
 
 ```text
-bitint pgroonga_wal_apply(pgroonga_index_name)
+bigint pgroonga_wal_apply(pgroonga_index_name)
 ```
 
 `pgroonga_index_name`は`text`型の値です。未適用のWALを適用したいPGroognaのインデックスの名前を指定します。

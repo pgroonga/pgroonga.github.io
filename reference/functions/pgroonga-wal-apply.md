@@ -14,7 +14,7 @@ upper_level: ../
 Here is the syntax of this function:
 
 ```text
-bitint pgroonga_wal_apply(pgroonga_index_name)
+bigint pgroonga_wal_apply(pgroonga_index_name)
 ```
 
 `pgroonga_index_name` is a `text` type value. It's a PGroonga index name to be applied pending WAL.

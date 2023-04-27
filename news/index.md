@@ -1886,6 +1886,8 @@ The first release!!!
 
 [crash-safe]:../reference/crash-safe.html
 
+[gh-90]:https://github.com/pgroonga/pgroonga/issues/90
+[gh-117]:https://github.com/pgroonga/pgroonga/issues/117
 [gh-291]:https://github.com/pgroonga/pgroonga/issues/291
 [gh-308]:https://github.com/pgroonga/pgroonga/issues/308
 [gh-317]:https://github.com/pgroonga/pgroonga/issues/308

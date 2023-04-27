@@ -565,6 +565,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_wal_apply` function][wal-apply]
 
+  * [`pgroonga_wal_status` function][wal-status]
+
   * [`pgroonga_wal_truncate` function][wal-truncate]
 
 ## Parameters
@@ -706,6 +708,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [tokenize]:functions/pgroonga-tokenize.html
 [vacuum]:functions/pgroonga-vacuum.html
 [wal-apply]:functions/pgroonga-wal-apply.html
+[wal-status]:functions/pgroonga-wal-status.html
 [wal-truncate]:functions/pgroonga-wal-truncate.html
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html

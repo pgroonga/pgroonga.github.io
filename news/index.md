@@ -13,6 +13,7 @@ upper_level: ../
 
     This function display a status of applying PGroonga's WAL.
     The maximum size of PGroonga's WAL is limited by ``pgroonga.max_wal_size``.
+
     If we execute many modification before PGroonga doesn't apply PGroonga's WAL, not applied PGroonga's WAL may lost.
     Because PGroonga's WAL is over writed from the head of it when the size of modification over ``pgroonga.max_wal_size``
 

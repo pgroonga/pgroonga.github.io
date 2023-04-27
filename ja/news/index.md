@@ -26,10 +26,12 @@ upper_level: ../
 
     For example, if this problem is occurred when INSERT, the following error is raised:
 
+    ```
     ERROR:  pgroonga: [insert] failed to add a record: <75300883>:
     [table][add][hash] failed to add:
      #<key "\u0013\u0000}\u0004\u0000\u0000\u0000\u0000"
        table:#<hash Sources17192 key:ShortText>>
+    ```
 
 ### 感謝
 
@@ -1884,6 +1886,8 @@ The first release!!!
 
 [crash-safe]:../reference/crash-safe.html
 
+[gh-90]:https://github.com/pgroonga/pgroonga/issues/90
+[gh-117]:https://github.com/pgroonga/pgroonga/issues/117
 [gh-291]:https://github.com/pgroonga/pgroonga/issues/291
 [gh-308]:https://github.com/pgroonga/pgroonga/issues/308
 [gh-317]:https://github.com/pgroonga/pgroonga/issues/308

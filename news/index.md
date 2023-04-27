@@ -26,10 +26,12 @@ upper_level: ../
 
     For example, if this problem is occurred when INSERT, the following error is raised:
 
+    ```
     ERROR:  pgroonga: [insert] failed to add a record: <75300883>:
     [table][add][hash] failed to add:
      #<key "\u0013\u0000}\u0004\u0000\u0000\u0000\u0000"
        table:#<hash Sources17192 key:ShortText>>
+    ```
 
 ### Thanks
 

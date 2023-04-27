@@ -5,6 +5,40 @@ upper_level: ../
 
 # News
 
+## 3.0.1: 2023-04-27 {#version-3-0-1}
+
+### Improvements
+
+  * [[`pgroonga_wal_status` function][wal-status]] Added a newly function ``pgroonga_wal_status()``.
+
+    This function display a status of applying PGroonga's WAL.
+    The maximum size of PGroonga's WAL is limited by ``pgroonga.max_wal_size``.
+
+    If we execute many modification before PGroonga doesn't apply PGroonga's WAL, not applied PGroonga's WAL may lost.
+    Because PGroonga's WAL is over writed from the head of it when the size of modification over ``pgroonga.max_wal_size``
+
+    We understand the size of applied PGroonga's WAL by this function. Therefore we can prevent lost for not applied PGroonga's WAL.
+
+### Fixes
+
+  * Fixed a bug that dead lock occures when we execute ``UPDATE`` or ``INSERT`` while we execute ``REINDEX INDEX ... CONCURRENTLY``.
+
+  * [GH-90][gh-90], [GH-117][gh-117]: Fixed a bug that if we repeated ``REINDEX`` and ``VACUUM``, PGroonga may return incorrect results and fail ``INSERT``.
+
+    For example, if this problem is occurred when INSERT, the following error is raised:
+
+    ```
+    ERROR:  pgroonga: [insert] failed to add a record: <75300883>:
+    [table][add][hash] failed to add:
+     #<key "\u0013\u0000}\u0004\u0000\u0000\u0000\u0000"
+       table:#<hash Sources17192 key:ShortText>>
+    ```
+
+### Thanks
+
+  * Daisuke Ando
+  * Raphael Gaschignard
+
 ## 3.0.0: 2023-04-13 {#version-3-0-0}
 
 ### Improvements
@@ -1823,6 +1857,7 @@ The first release!!!
 [tokenize]:../reference/functions/pgroonga-tokenize.html
 [vacuum]:../reference/functions/pgroonga-vacuum.html
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
+[wal-status]:../reference/functions/pgroonga-wal-status.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 
 [enable-crash-safe]:../reference/parameters/enable-crash-safe.html
@@ -1853,6 +1888,8 @@ The first release!!!
 
 [crash-safe]:../reference/crash-safe.html
 
+[gh-90]:https://github.com/pgroonga/pgroonga/issues/90
+[gh-117]:https://github.com/pgroonga/pgroonga/issues/117
 [gh-291]:https://github.com/pgroonga/pgroonga/issues/291
 [gh-308]:https://github.com/pgroonga/pgroonga/issues/308
 [gh-317]:https://github.com/pgroonga/pgroonga/issues/308

@@ -21,11 +21,72 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.0.0: 2023-04-13 {#version-3-0-0}"
+msgid "## 3.0.1: 2023-04-27 {#version-3-0-1}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga_wal_status` function][wal-status]] Added a newly function ``pg"
+"roonga_wal_status()``."
+msgstr ""
+
+msgid ""
+"    This function display a status of applying PGroonga's WAL.\n"
+"    The maximum size of PGroonga's WAL is limited by ``pgroonga.max_wal_size``"
+"."
+msgstr ""
+
+msgid ""
+"    If we execute many modification before PGroonga doesn't apply PGroonga's W"
+"AL, not applied PGroonga's WAL may lost.\n"
+"    Because PGroonga's WAL is over writed from the head of it when the size of"
+" modification over ``pgroonga.max_wal_size``"
+msgstr ""
+
+msgid ""
+"    We understand the size of applied PGroonga's WAL by this function. Therefo"
+"re we can prevent lost for not applied PGroonga's WAL."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that dead lock occures when we execute ``UPDATE`` or ``INSERT`"
+"` while we execute ``REINDEX INDEX ... CONCURRENTLY``."
+msgstr ""
+
+msgid ""
+"  * [GH-90][gh-90], [GH-117][gh-117]: Fixed a bug that if we repeated ``REINDE"
+"X`` and ``VACUUM``, PGroonga may return incorrect results and fail ``INSERT``."
+msgstr ""
+
+msgid ""
+"    For example, if this problem is occurred when INSERT, the following error "
+"is raised:"
+msgstr ""
+
+msgid ""
+"    ```\n"
+"    ERROR:  pgroonga: [insert] failed to add a record: <75300883>:\n"
+"    [table][add][hash] failed to add:\n"
+"     #<key \"\\u0013\\u0000}\\u0004\\u0000\\u0000\\u0000\\u0000\"\n"
+"       table:#<hash Sources17192 key:ShortText>>\n"
+"    ```"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid ""
+"  * Daisuke Ando\n"
+"  * Raphael Gaschignard"
+msgstr ""
+
+msgid "## 3.0.0: 2023-04-13 {#version-3-0-0}"
+msgstr ""
 
 msgid ""
 "  * [GH-291][gh-291]: Stopped defining v1 compatible operators to the `public`"
@@ -52,9 +113,6 @@ msgid ""
 "    [Reported by yodhcn]"
 msgstr ""
 
-msgid "### Thanks"
-msgstr "### 感謝"
-
 msgid "  * yodhcn"
 msgstr ""
 
@@ -69,9 +127,6 @@ msgstr ""
 
 msgid "    Because Ubuntu 18.04 will reache EOL in April 2023."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a bug that PGroonga crashed when we execute ``CREATE INDEX`` against"
@@ -2515,6 +2570,7 @@ msgid ""
 "[tokenize]:../reference/functions/pgroonga-tokenize.html\n"
 "[vacuum]:../reference/functions/pgroonga-vacuum.html\n"
 "[wal-apply]:../reference/functions/pgroonga-wal-aplly.html\n"
+"[wal-status]:../reference/functions/pgroonga-wal-status.html\n"
 "[wal-truncate]:../reference/functions/pgroonga-wal-truncate.html"
 msgstr ""
 
@@ -2570,6 +2626,8 @@ msgid "[crash-safe]:../reference/crash-safe.html"
 msgstr ""
 
 msgid ""
+"[gh-90]:https://github.com/pgroonga/pgroonga/issues/90\n"
+"[gh-117]:https://github.com/pgroonga/pgroonga/issues/117\n"
 "[gh-291]:https://github.com/pgroonga/pgroonga/issues/291\n"
 "[gh-308]:https://github.com/pgroonga/pgroonga/issues/308\n"
 "[gh-317]:https://github.com/pgroonga/pgroonga/issues/308"

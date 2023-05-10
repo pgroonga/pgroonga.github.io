@@ -21,6 +21,37 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 3.0.2: 2023-05-11 {#version-3-0-2}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a bug that PGroonga may crashe when we used ``pgroonga_query_expand("
+")``."
+msgstr ""
+
+msgid "    However, probably, this problem rarely occur."
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that ``SELECT`` using PGroonga's index may fail after PostgreS"
+"QL crashed while execution ``INSERT``."
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that many compile errors rised when we did not not define ``HA"
+"VE_MSGPACK`` in ``src/pgrn-wal.c``. [GitHub:GH-331][Reported by OBATA Akio]\n"
+"    This problem only occures when we build PGroonga from sources."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * OBATA Akio"
+msgstr ""
+
 msgid "## 3.0.1: 2023-04-27 {#version-3-0-1}"
 msgstr ""
 
@@ -50,9 +81,6 @@ msgid ""
 "re we can prevent lost for not applied PGroonga's WAL."
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * Fixed a bug that dead lock occures when we execute ``UPDATE`` or ``INSERT`"
 "` while we execute ``REINDEX INDEX ... CONCURRENTLY``."
@@ -76,9 +104,6 @@ msgid ""
 "       table:#<hash Sources17192 key:ShortText>>\n"
 "    ```"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid ""
 "  * Daisuke Ando\n"

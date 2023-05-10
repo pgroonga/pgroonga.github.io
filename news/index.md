@@ -5,6 +5,25 @@ upper_level: ../
 
 # News
 
+## 3.0.2: 2023-05-11 {#version-3-0-2}
+
+### Fixes
+
+  * Fixed a bug that PGroonga may crashe when we used ``pgroonga_query_expand()``.
+
+    However, probably, this problem rarely occur.
+
+  * Fixed a bug that ``SELECT`` using PGroonga's index may fail after PostgreSQL crashed while execution ``INSERT``.
+
+    However, probably, this problem rarely occur.
+
+  * Fixed a bug that many compile errors rised when we did not not define ``HAVE_MSGPACK`` in ``src/pgrn-wal.c``. [GitHub:GH-331][Reported by OBATA Akio]
+    This problem only occures when we build PGroonga from sources.
+
+### Thanks
+
+  * OBATA Akio
+
 ## 3.0.1: 2023-04-27 {#version-3-0-1}
 
 ### Improvements

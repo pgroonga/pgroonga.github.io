@@ -17,7 +17,8 @@ upper_level: ../
 
     However, probably, this problem rarely occur.
 
-  * Fixed a bug that many compile errors rised when we did not not define ``HAVE_MSGPACK`` in ``src/pgrn-wal.c``. [GitHub:GH-331][Reported by OBATA Akio]
+  * [GH-331][gh-331]:Fixed a bug that many compile errors rised when we did not not define ``HAVE_MSGPACK`` in ``src/pgrn-wal.c``. [Reported by OBATA Akio]
+
     This problem only occures when we build PGroonga from sources.
 
 ### 感謝
@@ -1912,3 +1913,4 @@ The first release!!!
 [gh-291]:https://github.com/pgroonga/pgroonga/issues/291
 [gh-308]:https://github.com/pgroonga/pgroonga/issues/308
 [gh-317]:https://github.com/pgroonga/pgroonga/issues/308
+[gh-331]:https://github.com/pgroonga/pgroonga/issues/331

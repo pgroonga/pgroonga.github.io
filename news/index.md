@@ -5,6 +5,28 @@ upper_level: ../
 
 # News
 
+## 3.0.3: 2023-05-18 {#version-3-0-3}
+
+### Fixes
+
+  * Fixed a bug that PGroonga may have crashed when PGroonga writed PGroonga's WAL.
+
+  * [GH-336][gh-336]: Fixed a bug that PGroonga crashed if we specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file. [Reported by askdkc and Rui Chen]
+
+    PGroonga doesn't  crash even if we specify ``shared_preload_libraries = 'pgroonga'`` by this modification.
+
+    However, if we specify ``shared_preload_libraries = 'pgroonga'``, PGroonga doesn't work well.
+    For example, ``CREATE INDEX USING pgroonga`` is failed.
+    However, probabry, old PGroonga also has not worked well with ``shared_preload_libraries = 'pgroonga'``.
+    Because we don't have a timing that initializes Groonga's DB.
+
+    Therefore, we don't specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file.
+
+### Thanks
+
+  * askdkc
+  * Rui Chen
+
 ## 3.0.2: 2023-05-11 {#version-3-0-2}
 
 ### Fixes
@@ -17,7 +39,7 @@ upper_level: ../
 
     However, probably, this problem rarely occur.
 
-  * [GH-331][gh-331]:Fixed a bug that many compile errors rised when we did not not define ``HAVE_MSGPACK`` in ``src/pgrn-wal.c``. [Reported by OBATA Akio]
+  * [GH-331][gh-331]: Fixed a bug that many compile errors rised when we did not not define ``HAVE_MSGPACK`` in ``src/pgrn-wal.c``. [Reported by OBATA Akio]
 
     This problem only occures when we build PGroonga from sources.
 
@@ -1914,3 +1936,4 @@ The first release!!!
 [gh-308]:https://github.com/pgroonga/pgroonga/issues/308
 [gh-317]:https://github.com/pgroonga/pgroonga/issues/308
 [gh-331]:https://github.com/pgroonga/pgroonga/issues/331
+[gh-336]:https://github.com/pgroonga/pgroonga/issues/336

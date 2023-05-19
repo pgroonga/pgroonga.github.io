@@ -11,6 +11,10 @@ Here is a list of compatibility ("o" means "compatible" and "x" means "incompati
 
   * 3.0.2 -> 3.0.3: o
 
+  * 3.0.1 -> 3.0.2: o
+
+  * 3.0.0 -> 3.0.1: o
+
   * 2.4.7 -> 3.0.0: x
 
     * If you don't use v1 API, 2.4.7 -> 3.0.0 is compatible. So most users must be compatible.

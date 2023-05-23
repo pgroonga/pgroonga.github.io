@@ -5,7 +5,7 @@ pgroonga_version: 3.0.3
 pgroonga_release_date: 2023-05-18
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/15
-  ja: https://www.postgresql.jp/document/14/html
+  ja: https://www.postgresql.jp/document/15/html
 windows_postgresql_versions:
   - 11
   - 12

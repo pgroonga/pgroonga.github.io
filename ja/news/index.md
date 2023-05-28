@@ -13,11 +13,11 @@ upper_level: ../
 
   * [GH-336][gh-336]: Fixed a bug that PGroonga crashed if we specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file. [Reported by askdkc and Rui Chen]
 
-    PGroonga doesn't  crash even if we specify ``shared_preload_libraries = 'pgroonga'`` by this modification.
+    PGroonga doesn't crash even if we specify ``shared_preload_libraries = 'pgroonga'`` by this modification.
 
     However, if we specify ``shared_preload_libraries = 'pgroonga'``, PGroonga doesn't work well.
     For example, ``CREATE INDEX USING pgroonga`` is failed.
-    However, probabry, old PGroonga also has not worked well with ``shared_preload_libraries = 'pgroonga'``.
+    However, probably, old PGroonga also has not worked well with ``shared_preload_libraries = 'pgroonga'``.
     Because we don't have a timing that initializes Groonga's DB.
 
     Therefore, we don't specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file.
@@ -31,7 +31,7 @@ upper_level: ../
 
 ### 修正
 
-  * Fixed a bug that PGroonga may crashe when we used ``pgroonga_query_expand()``.
+  * Fixed a bug that PGroonga may crash when we used ``pgroonga_query_expand()``.
 
     However, probably, this problem rarely occur.
 

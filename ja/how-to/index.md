@@ -35,6 +35,10 @@ title: ハウツー
 
   * [同義語展開にSudachiの辞書を使う方法](sudachi-dictionary.html)
 
+## Spring/Hibernateと一緒に使う方法
+
+  * [Spring/Hibernateと一緒に使う方法](spring-hibernate.html)
+
 ## ...
 
   * ...

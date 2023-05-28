@@ -75,6 +75,12 @@ msgid ""
 "tml)"
 msgstr "  * [同義語展開にSudachiの辞書を使う方法](sudachi-dictionary.html)"
 
+msgid "## How to use with Spring/Hibernate"
+msgstr "## Spring/Hibernateと一緒に使う方法"
+
+msgid "  * [How to use with Spring/Hibernate](spring-hibernate.html)"
+msgstr "  * [Spring/Hibernateと一緒に使う方法](spring-hibernate.html)"
+
 msgid "## ..."
 msgstr ""
 

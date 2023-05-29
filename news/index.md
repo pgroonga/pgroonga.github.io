@@ -5,6 +5,19 @@ upper_level: ../
 
 # News
 
+## 3.0.4: 2023-05-29 {#version-3-0-4}
+
+### Improvements
+
+  * [[`pgroonga_query_expand` function][query-expand]] Reverted using
+    `AnyArrayType` API instead of `ArrayType` API because it seems
+    that it's needless.
+
+### Fixes
+
+  * [[`pgroonga_query_expand` function][query-expand]] Fixed a crash
+    bug when synonyms array includes a `NULL` element.
+
 ## 3.0.3: 2023-05-18 {#version-3-0-3}
 
 ### Fixes

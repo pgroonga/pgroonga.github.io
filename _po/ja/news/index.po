@@ -21,11 +21,42 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.0.3: 2023-05-18 {#version-3-0-3}"
+msgid "## 3.0.5: 2023-05-31 {#version-3-0-5}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga_wal_set_applied_position` function][wal-set-applied-position]]"
+"\n"
+"    Added."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid ""
+"  * Fixed a crash bug that may be occurred when `VACUUM` including\n"
+"    `autovacuum` is finished while index scan is executed."
+msgstr ""
+
+msgid "## 3.0.4: 2023-05-29 {#version-3-0-4}"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Reverted using\n"
+"    `AnyArrayType` API instead of `ArrayType` API because it seems\n"
+"    that it's needless."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Fixed a crash\n"
+"    bug when synonyms array includes a `NULL` element."
+msgstr ""
+
+msgid "## 3.0.3: 2023-05-18 {#version-3-0-3}"
+msgstr ""
 
 msgid ""
 "  * Fixed a bug that PGroonga may have crashed when PGroonga writed PGroonga's"
@@ -94,9 +125,6 @@ msgstr ""
 
 msgid "## 3.0.1: 2023-04-27 {#version-3-0-1}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid ""
 "  * [[`pgroonga_wal_status` function][wal-status]] Added a newly function ``pg"
@@ -2635,6 +2663,8 @@ msgid ""
 "[tokenize]:../reference/functions/pgroonga-tokenize.html\n"
 "[vacuum]:../reference/functions/pgroonga-vacuum.html\n"
 "[wal-apply]:../reference/functions/pgroonga-wal-aplly.html\n"
+"[wal-set-applied-position]:../reference/functions/pgroonga-wal-set-applied-pos"
+"ition.html\n"
 "[wal-status]:../reference/functions/pgroonga-wal-status.html\n"
 "[wal-truncate]:../reference/functions/pgroonga-wal-truncate.html"
 msgstr ""

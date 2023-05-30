@@ -5,6 +5,31 @@ upper_level: ../
 
 # おしらせ
 
+## 3.0.5: 2023-05-31 {#version-3-0-5}
+
+### 改良
+
+  * [[`pgroonga_wal_set_applied_position` function][wal-set-applied-position]]
+    Added.
+
+### 修正
+
+  * Fixed a crash bug that may be occurred when `VACUUM` including
+    `autovacuum` is finished while index scan is executed.
+
+## 3.0.4: 2023-05-29 {#version-3-0-4}
+
+### 改良
+
+  * [[`pgroonga_query_expand` function][query-expand]] Reverted using
+    `AnyArrayType` API instead of `ArrayType` API because it seems
+    that it's needless.
+
+### 修正
+
+  * [[`pgroonga_query_expand` function][query-expand]] Fixed a crash
+    bug when synonyms array includes a `NULL` element.
+
 ## 3.0.3: 2023-05-18 {#version-3-0-3}
 
 ### 修正
@@ -1899,6 +1924,7 @@ The first release!!!
 [tokenize]:../reference/functions/pgroonga-tokenize.html
 [vacuum]:../reference/functions/pgroonga-vacuum.html
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
+[wal-set-applied-position]:../reference/functions/pgroonga-wal-set-applied-position.html
 [wal-status]:../reference/functions/pgroonga-wal-status.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 

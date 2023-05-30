@@ -567,6 +567,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_wal_apply`関数][wal-apply]
 
+  * [`pgroonga_wal_set_applied_position`関数][wal-set-applied-position]
+
   * [`pgroonga_wal_status`関数][wal-status]
 
   * [`pgroonga_wal_truncate`関数][wal-truncate]
@@ -711,6 +713,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [tokenize]:functions/pgroonga-tokenize.html
 [vacuum]:functions/pgroonga-vacuum.html
 [wal-apply]:functions/pgroonga-wal-apply.html
+[wal-set-applied-position]:functions/pgroonga-wal-set-applied-position.html
 [wal-status]:functions/pgroonga-wal-status.html
 [wal-truncate]:functions/pgroonga-wal-truncate.html
 

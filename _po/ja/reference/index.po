@@ -589,6 +589,9 @@ msgstr "  * [`pgroonga_vacuum`関数][vacuum]"
 msgid "  * [`pgroonga_wal_apply` function][wal-apply]"
 msgstr "  * [`pgroonga_wal_apply`関数][wal-apply]"
 
+msgid "  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]"
+msgstr "  * [`pgroonga_wal_set_applied_position`関数][wal-set-applied-position]"
+
 msgid "  * [`pgroonga_wal_status` function][wal-status]"
 msgstr "  * [`pgroonga_wal_status`関数][wal-status]"
 
@@ -801,6 +804,7 @@ msgid ""
 "[tokenize]:functions/pgroonga-tokenize.html\n"
 "[vacuum]:functions/pgroonga-vacuum.html\n"
 "[wal-apply]:functions/pgroonga-wal-apply.html\n"
+"[wal-set-applied-position]:functions/pgroonga-wal-set-applied-position.html\n"
 "[wal-status]:functions/pgroonga-wal-status.html\n"
 "[wal-truncate]:functions/pgroonga-wal-truncate.html"
 msgstr ""

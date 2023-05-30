@@ -5,6 +5,18 @@ upper_level: ../
 
 # News
 
+## 3.0.5: 2023-05-31 {#version-3-0-5}
+
+### Improvements
+
+  * [[`pgroonga_wal_set_applied_position` function][wal-set-applied-position]]
+    Added.
+
+### Fixes
+
+  * Fixed a crash bug that may be occurred when `VACUUM` including
+    `autovacuum` is finished while index scan is executed.
+
 ## 3.0.4: 2023-05-29 {#version-3-0-4}
 
 ### Improvements
@@ -1912,6 +1924,7 @@ The first release!!!
 [tokenize]:../reference/functions/pgroonga-tokenize.html
 [vacuum]:../reference/functions/pgroonga-vacuum.html
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
+[wal-set-applied-position]:../reference/functions/pgroonga-wal-set-applied-position.html
 [wal-status]:../reference/functions/pgroonga-wal-status.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 

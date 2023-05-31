@@ -5,11 +5,26 @@ upper_level: ../
 
 # News
 
+## 3.0.6: 2023-06-01 {#version-3-0-6}
+
+### Improvements
+
+  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:
+    Added support for declarative partitioning with PostgreSQL < 15.
+
+  * `VACUUM`: Added support for removing broken objects forcibly.
+
+### Fixes
+
+  * [Streaming replication][streaming-replication]: Fixed a bug that
+    needless WAL may be applied by `SELECT`/`INSERT`/`DELETE`/`UPDATE`
+    while `REINDEX CONCURRENTLY`.
+
 ## 3.0.5: 2023-05-31 {#version-3-0-5}
 
 ### Improvements
 
-  * [[`pgroonga_wal_set_applied_position` function][wal-set-applied-position]]
+  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:
     Added.
 
 ### Fixes

@@ -21,20 +21,36 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.0.5: 2023-05-31 {#version-3-0-5}"
+msgid "## 3.0.6: 2023-06-01 {#version-3-0-6}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
 
 msgid ""
-"  * [[`pgroonga_wal_set_applied_position` function][wal-set-applied-position]]"
-"\n"
-"    Added."
+"  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:\n"
+"    Added support for declarative partitioning with PostgreSQL < 15."
+msgstr ""
+
+msgid "  * `VACUUM`: Added support for removing broken objects forcibly."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid ""
+"  * [Streaming replication][streaming-replication]: Fixed a bug that\n"
+"    needless WAL may be applied by `SELECT`/`INSERT`/`DELETE`/`UPDATE`\n"
+"    while `REINDEX CONCURRENTLY`."
+msgstr ""
+
+msgid "## 3.0.5: 2023-05-31 {#version-3-0-5}"
+msgstr ""
+
+msgid ""
+"  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:\n"
+"    Added."
+msgstr ""
 
 msgid ""
 "  * Fixed a crash bug that may be occurred when `VACUUM` including\n"

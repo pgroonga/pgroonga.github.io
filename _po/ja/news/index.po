@@ -35,6 +35,11 @@ msgstr ""
 msgid "  * `VACUUM`: Added support for removing broken objects forcibly."
 msgstr ""
 
+msgid ""
+"  * [`pgroonga_highlight_html` function][highlight-html]: Rejected\n"
+"    parent index of declarative partitioning explicitly."
+msgstr ""
+
 msgid "### Fixes"
 msgstr "### 修正"
 

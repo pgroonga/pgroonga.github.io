@@ -14,6 +14,9 @@ upper_level: ../
 
   * `VACUUM`: Added support for removing broken objects forcibly.
 
+  * [`pgroonga_highlight_html` function][highlight-html]: Rejected
+    parent index of declarative partitioning explicitly.
+
 ### 修正
 
   * [Streaming replication][streaming-replication]: Fixed a bug that

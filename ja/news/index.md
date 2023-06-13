@@ -5,6 +5,27 @@ upper_level: ../
 
 # おしらせ
 
+## 3.0.7: 2023-06-13 {#version-3-0-7}
+
+### 改良
+
+  * Improved error handling on sequential search.
+
+  * [[`pgroonga_query_expand` function][query-expand]] Used
+    `AnyArrayType` API instead of `ArrayType` API again because it
+    doesn't have a problem.
+
+  * [[`pgroonga_score` function][score]]: Improved performance when HOT
+    doesn't exist.
+
+    [GH-346][gh-346] [Reported by Michael Fester]
+
+  * [[Windows][windows]] Required CMake 3.16 or later on build.
+
+### 感謝
+
+  * Michael Fester
+
 ## 3.0.6: 2023-06-01 {#version-3-0-6}
 
 ### 改良
@@ -1981,3 +2002,4 @@ The first release!!!
 [gh-317]:https://github.com/pgroonga/pgroonga/issues/308
 [gh-331]:https://github.com/pgroonga/pgroonga/issues/331
 [gh-336]:https://github.com/pgroonga/pgroonga/issues/336
+[gh-346]:https://github.com/pgroonga/pgroonga/issues/346

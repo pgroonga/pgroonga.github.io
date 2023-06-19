@@ -246,7 +246,7 @@ SELECT pgroonga_highlight_html('one two three four five',
 
 Here is an example of implementing keyword search feature with `pgroonga_highlight_html`.
 
-Imagine you are building a blog, and for simplicity, this blog's post model only has 'id', 'title' and 'body' fields.
+Imagine you are building a blog, and for simplicity, this blog's post model only has `id`, `title` and `body` fields.
 
 ```sql
 CREATE TABLE posts (

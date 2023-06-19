@@ -376,7 +376,7 @@ msgstr "以下は`pgroonga_highlight_html`を使ってキーワード検索機�
 
 msgid ""
 "Imagine you are building a blog, and for simplicity, this blog's post model on"
-"ly has 'id', 'title' and 'body' fields."
+"ly has `id`, `title` and `body` fields."
 msgstr "ブログを開発することを想像してください。単純にするために、このブログの記事のモデルは`id`、`title`、`body`フィールドしかありません。"
 
 msgid ""

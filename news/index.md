@@ -15,7 +15,7 @@ upper_level: ../
     `AnyArrayType` API instead of `ArrayType` API again because it
     doesn't have a problem.
 
-  * [[`pgroonga_score` function][score]]: Improved performance when HOT
+  * [[`pgroonga_score` function][score]] Improved performance when HOT
     doesn't exist.
 
     [GH-346][gh-346] [Reported by Michael Fester]

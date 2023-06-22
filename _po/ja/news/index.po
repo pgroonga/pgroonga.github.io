@@ -21,11 +21,25 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.0.7: 2023-06-13 {#version-3-0-7}"
+msgid "## 3.0.8: 2023-06-22 {#version-3-0-8}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`&=~` operator][equal-query-v2]] Added support for\n"
+"    `pgroonga_full_text_search_condition` to use an index options in\n"
+"    sequential search too."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.enable_trace_log` parameter][enable-trace-log]] Added\n"
+"    support for trace log."
+msgstr ""
+
+msgid "## 3.0.7: 2023-06-13 {#version-3-0-7}"
+msgstr ""
 
 msgid "  * Improved error handling on sequential search."
 msgstr ""
@@ -2718,6 +2732,7 @@ msgstr ""
 
 msgid ""
 "[enable-crash-safe]:../reference/parameters/enable-crash-safe.html\n"
+"[enable-trace-log]:../reference/parameters/enable-trace-log.html\n"
 "[force-match-escalation]:../reference/parameters/force-match-escalation.html\n"
 "[libgroonga-version]:../reference/parameters/libgroonga-version.html\n"
 "[match-escalation-threshold]:../reference/parameters/match-escalation-threshol"

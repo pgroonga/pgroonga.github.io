@@ -5,6 +5,17 @@ upper_level: ../
 
 # おしらせ
 
+## 3.0.8: 2023-06-22 {#version-3-0-8}
+
+### 改良
+
+  * [[`&=~` operator][equal-query-v2]] Added support for
+    `pgroonga_full_text_search_condition` to use an index options in
+    sequential search too.
+
+  * [[`pgroonga.enable_trace_log` parameter][enable-trace-log]] Added
+    support for trace log.
+
 ## 3.0.7: 2023-06-13 {#version-3-0-7}
 
 ### 改良
@@ -1968,6 +1979,7 @@ The first release!!!
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 
 [enable-crash-safe]:../reference/parameters/enable-crash-safe.html
+[enable-trace-log]:../reference/parameters/enable-trace-log.html
 [force-match-escalation]:../reference/parameters/force-match-escalation.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html

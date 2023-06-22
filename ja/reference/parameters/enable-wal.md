@@ -11,13 +11,11 @@ upper_level: ../
 
 `pgroonga.enable_wal`パラメーターは[WAL]({{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html)を有効にするかどうかを制御します。
 
-PGroongaはPostgreSQL 9.6以降で使う場合はWALをサポートしています。PostgreSQL 9.5以前で使う場合は`pgroonga.enable_wal`パラメーターを設定しても意味はありません。
-
 WALサポートを有効にするとPostgreSQLのストリーミングレプリケーション機能を使えます。詳細は[レプリケーション](../replication.html)を参照してください。
 
 WALサポートを有効にすると更新性能が落ちるはずです。これは追加のディスク書き込みが必要になるからです。
 
-デフォルト値は`off`です。これは、PGroongaはPostgreSQL 9.6以降で使っている場合でもWALを生成しないということです。
+デフォルト値は`off`です。これはWALを生成しないということです。
 
 ## 構文
 

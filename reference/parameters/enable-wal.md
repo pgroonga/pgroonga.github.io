@@ -11,13 +11,11 @@ Since 1.1.6.
 
 `pgroonga.enable_wal` parameter controls whether [WAL]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html) is enabled or not.
 
-PGroonga supports WAL with PostgreSQL 9.6 or later. `pgroonga.enable_wal` parameter is meaningless with PostgreSQL 9.5 or earlier.
-
 If you enable WAL support, you can use PostgreSQL's streaming replication feature. See [Replication](../replication.html) for details.
 
 If you enable WAL support, update performance will be decreased because some extra disk writes are needed.
 
-The default value is `off`. It means that PGroonga doesn't generate WAL even when you're using PostgreSQL 9.6 or later.
+The default value is `off`. It means that PGroonga doesn't generate WAL.
 
 ## Syntax
 

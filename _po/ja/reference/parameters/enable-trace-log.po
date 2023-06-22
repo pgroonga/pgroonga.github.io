@@ -35,8 +35,8 @@ msgstr "`pgroonga.enable_trace_log`パラメーターはトレースログを有
 msgid "If you enable trace log, PGroonga performance will be decreased."
 msgstr "トレースログを有効にするとPGroongaの性能が落ちます。"
 
-msgid "Trace logs are logged as `NOTICE` log level messages."
-msgstr "トレースログは`NOTICE`レベルのログとして出力されます。"
+msgid "Trace logs are logged as `notice` log level messages."
+msgstr "トレースログは`notice`レベルのログとして出力されます。"
 
 msgid "The default value is `off`. It means that trace logs aren't logged."
 msgstr "デフォルト値は`off`です。これはトレースログは出力されないということです。"

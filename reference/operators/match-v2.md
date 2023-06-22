@@ -51,7 +51,9 @@ column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition
 
 `keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
-`weights` is importance factors of each value. It's `int[]` type. If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
+`weights` is importance factors of each value. It's `int[]` type.
+
+If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
 
 `weights` can be `NULL`. Elements of `weights` can also be `NULL`. If the corresponding importance factor is `NULL`, the importance factor is `1`.
 
@@ -75,7 +77,9 @@ column &@ (keyword, weights, scorers, index_name)::pgroonga_full_text_search_con
 
 `keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
-`weights` is importance factors of each value. It's `int[]` type. If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
+`weights` is importance factors of each value. It's `int[]` type.
+
+If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
 
 `weights` can be `NULL`. Elements of `weights` can also be `NULL`. If the corresponding importance factor is `NULL`, the importance factor is `1`.
 

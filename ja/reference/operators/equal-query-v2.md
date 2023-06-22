@@ -19,6 +19,19 @@ upper_level: ../
 
 ```sql
 column &=~ query
+column &=~ (query, weights, index_name)::pgroonga_full_text_search_condition
+```
+
+1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。
+
+2つ目の使い方は検索スコアーを最適化するときに便利です。たとえば、ブログアプリケーションで「タイトルは本文よりも重要」という検索を実現できます。
+
+2つ目の使い方は3.0.8以降で使えます。
+
+以下は1つ目の使い方の説明です。
+
+```sql
+column &=~ query
 ```
 
 `column`は検索対象のカラムです。`text[]`型か`varchar[]`型です。
@@ -26,6 +39,26 @@ column &=~ query
 `query`は等価検索のクエリーです。`text`型です。
 
 `qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。
+
+以下は2つ目の使い方の説明です。
+
+```sql
+column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
+```
+
+`column`は検索対象のカラムです。`text[]`型か`varchar[]`型です。
+
+`query`は等価検索のクエリーです。`text`型です。
+
+現時点では`weights`は`NULL`でなければいけません。
+
+`index_name`は対応するPGroongaのインデックス名です。`text`型です。
+
+`index_name`には`NULL`を指定できます。
+
+これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
+
+3.0.8以降で使えます。
 
 ## 演算子クラス
 

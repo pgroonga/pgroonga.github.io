@@ -57,7 +57,9 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 
 `query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
-`weights` is importance factors of each value. It's `int[]` type. If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
+`weights` is importance factors of each value. It's `int[]` type.
+
+If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
 
 `weights` can be `NULL`. Elements of `weights` can also be `NULL`. If the corresponding importance factor is `NULL`, the importance factor is `1`.
 
@@ -81,7 +83,9 @@ column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_cond
 
 `query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
 
-`weights` is importance factors of each value. It's `int[]` type. If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
+`weights` is importance factors of each value. It's `int[]` type.
+
+If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor.
 
 `weights` can be `NULL`. Elements of `weights` can also be `NULL`. If the corresponding importance factor is `NULL`, the importance factor is `1`.
 
@@ -183,7 +187,7 @@ INSERT INTO memos VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension that u
 INSERT INTO memos VALUES ('CLI', 'There is groonga command.');
 ```
 
-You can find more suitable records against "`Groonga OR PostgreSQL`" query with [`pgroonga_score` function][score]:
+You can find more suitable records against the given query with [`pgroonga_score` function][score]:
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score

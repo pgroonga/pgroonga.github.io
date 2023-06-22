@@ -57,7 +57,9 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 
 `query`は全文検索用のクエリーです。`column`が`text`型または`text[]`型なら`query`は`text`型です。`column`が`varchar`型なら`query`は`varchar`型です。
 
-`weights`はそれぞれの値の重要度です。`int[]`型です。もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
+`weights`はそれぞれの値の重要度です。`int[]`型です。
+
+もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
 
 `weights`を`NULL`にできます。`weights`の要素も`NULL`にできます。対応する重要度が`NULL`の場合は重要度は`1`になります。
 
@@ -81,7 +83,9 @@ column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_cond
 
 `query`は全文検索用のクエリーです。`column`が`text`型または`text[]`型なら`query`は`text`型です。`column`が`varchar`型なら`query`は`varchar`型です。
 
-`weights`はそれぞれの値の重要度です。`int[]`型です。もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
+`weights`はそれぞれの値の重要度です。`int[]`型です。
+
+もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
 
 `weights`を`NULL`にできます。`weights`の要素も`NULL`にできます。対応する重要度が`NULL`の場合は重要度は`1`になります。
 
@@ -183,7 +187,7 @@ INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGro
 INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
 ```
 
-[`pgroonga_score`関数][score]を使うと、「`Groonga OR PostgreSQL`」というクエリーに対してより適切なレコードを見つけられます。
+You can find more suitable records against the given query with [`pgroonga_score` function][score]:
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score

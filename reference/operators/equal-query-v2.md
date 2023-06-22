@@ -19,6 +19,19 @@ There is one signature:
 
 ```sql
 column &=~ query
+column &=~ (query, weights, index_name)::pgroonga_full_text_search_condition
+```
+
+The first signature is simpler than others. The first signature is enough for most cases.
+
+The second signature is useful to optimize search score. For example, you can implement "title is more important than content" for blog application.
+
+The second signature is available since 3.0.8.
+
+Here is the description of the first signature.
+
+```sql
+column &=~ query
 ```
 
 `column` is a column to be searched. It's `text[]` type or `varchar[]` type.
@@ -26,6 +39,26 @@ column &=~ query
 `query` is a query for equal search. It's `text` type.
 
 [Groonga's query syntax][groonga-query-syntax] is used in `query`.
+
+Here is the description of the second signature.
+
+```sql
+column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
+```
+
+`column` is a column to be searched. It's `text[]` type or `varchar[]` type.
+
+`query` is a query for equal search. It's `text` type.
+
+`weights` must be `NULL` for now.
+
+`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+
+`index_name` can be `NULL`.
+
+It's for using the same search options specified in PGroonga index in sequential search.
+
+It's available since 3.0.8.
 
 ## Operator classes
 

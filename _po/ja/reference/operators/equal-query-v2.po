@@ -47,6 +47,29 @@ msgstr "使い方は1つです。"
 msgid ""
 "```sql\n"
 "column &=~ query\n"
+"column &=~ (query, weights, index_name)::pgroonga_full_text_search_condition\n"
+"```"
+msgstr ""
+
+msgid ""
+"The first signature is simpler than others. The first signature is enough for "
+"most cases."
+msgstr "1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。"
+
+msgid ""
+"The second signature is useful to optimize search score. For example, you can "
+"implement \"title is more important than content\" for blog application."
+msgstr "2つ目の使い方は検索スコアーを最適化するときに便利です。たとえば、ブログアプリケーションで「タイトルは本文よりも重要」という検索を実現できます。"
+
+msgid "The second signature is available since 3.0.8."
+msgstr "2つ目の使い方は3.0.8以降で使えます。"
+
+msgid "Here is the description of the first signature."
+msgstr "以下は1つ目の使い方の説明です。"
+
+msgid ""
+"```sql\n"
+"column &=~ query\n"
 "```"
 msgstr ""
 
@@ -58,6 +81,34 @@ msgstr "`query`は等価検索のクエリーです。`text`型です。"
 
 msgid "[Groonga's query syntax][groonga-query-syntax] is used in `query`."
 msgstr "`qeury`では[Groongaのクエリー構文][groonga-query-syntax]を使います。"
+
+msgid "Here is the description of the second signature."
+msgstr "以下は2つ目の使い方の説明です。"
+
+msgid ""
+"```sql\n"
+"column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition\n"
+"```"
+msgstr ""
+
+msgid "`weights` must be `NULL` for now."
+msgstr "現時点では`weights`は`NULL`でなければいけません。"
+
+msgid ""
+"`index_name` is an index name of the corresponding PGroonga index. It's `text`"
+" type."
+msgstr "`index_name`は対応するPGroongaのインデックス名です。`text`型です。"
+
+msgid "`index_name` can be `NULL`."
+msgstr "`index_name`には`NULL`を指定できます。"
+
+msgid ""
+"It's for using the same search options specified in PGroonga index in sequenti"
+"al search."
+msgstr "これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。"
+
+msgid "It's available since 3.0.8."
+msgstr "3.0.8以降で使えます。"
 
 msgid "## Operator classes"
 msgstr "## 演算子クラス"

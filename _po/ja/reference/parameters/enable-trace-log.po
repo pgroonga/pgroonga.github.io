@@ -1,0 +1,98 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga.enable_trace_log parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga.enable_trace_logパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga.enable_trace_log` parameter"
+msgstr "# `pgroonga.enable_trace_log`パラメーター"
+
+msgid "Since 3.0.8."
+msgstr "3.0.8で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga.enable_trace_log` parameter controls whether trace log is enabled or"
+" not."
+msgstr "`pgroonga.enable_trace_log`パラメーターはトレースログを有効にするかどうかを制御します。"
+
+msgid "If you enable trace log, PGroonga performance will be decreased."
+msgstr "トレースログを有効にするとPGroongaの性能が落ちます。"
+
+msgid "Trace logs are logged as `NOTICE` log level messages."
+msgstr "トレースログは`NOTICE`レベルのログとして出力されます。"
+
+msgid "The default value is `off`. It means that trace logs aren't logged."
+msgstr "デフォルト値は`off`です。これはトレースログは出力されないということです。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In SQL:"
+msgstr "SQLの場合："
+
+msgid ""
+"```sql\n"
+"SET pgroonga.enable_trace_log = boolean;\n"
+"```"
+msgstr ""
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga.enable_trace_log = boolean\n"
+"```"
+msgstr ""
+
+msgid ""
+"`boolean` is a boolean value. There are some literals for boolean value such a"
+"s `on`, `off`, `true`, `false`, `yes` and `no`."
+msgstr "`boolean`は真偽値です。真偽値には`on`、`off`、`true`、`false`、`yes`、`no`のようなリテラルがあります。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example SQL to enable trace log:"
+msgstr "以下はトレースログを有効にするSQLの例です。"
+
+msgid ""
+"```sql\n"
+"SET pgroonga.enable_trace_log = on;\n"
+"```"
+msgstr ""
+
+msgid "Here is an example configuration to enable trace log:"
+msgstr "以下はトレースログを有効にする設定の例です。"
+
+msgid ""
+"```sql\n"
+"pgroonga.enable_trace_log = on\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [`pgroonga.log_level` parameter][log-level]"
+msgstr "  * [`pgroonga.log_level`パラメーター][log-level]"
+
+msgid "[log-level]:log-level.html"
+msgstr ""

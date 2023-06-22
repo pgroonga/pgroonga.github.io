@@ -601,6 +601,12 @@ msgstr "  * [`pgroonga_wal_truncate`関数][wal-truncate]"
 msgid "## Parameters"
 msgstr "## パラメーター"
 
+msgid "  * [`pgroonga.enable_trace_log` parameter][enable-trace-log]"
+msgstr "  * [`pgroonga.enable_trace_log`パラメーター][enable-trace-log]"
+
+msgid "    * Since 3.0.8."
+msgstr "    * 3.0.8で追加。"
+
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
@@ -813,6 +819,7 @@ msgid "[tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html"
 msgstr ""
 
 msgid ""
+"[enable-trace-log]:parameters/enable-trace-log.html\n"
 "[enable-wal]:parameters/enable-wal.html\n"
 "[force-match-escalation]:parameters/force-match-escalation.html\n"
 "[libgroonga-version]:parameters/libgroonga-version.html\n"

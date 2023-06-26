@@ -588,6 +588,7 @@ php artisan serve
 
 Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
 
+<img width="1024" alt="laravel_sample" src="https://github.com/askdkc/pgroonga.github.io/assets/7894265/f8557078-85a7-474f-95f3-3c405b1b6ffa">
 
 
 ## Search Function
@@ -595,10 +596,12 @@ Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL whi
 
 For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power.
 
+![48EC6C85-99C3-46CA-B2FD-F43A773A008B](https://github.com/askdkc/pgroonga.github.io/assets/7894265/c00cac2b-34d6-4710-8e1d-0cbe5923b6a6)
 
 
 Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`.
 
+![537290D5-789D-47FC-B0E1-133E6865E9C2](https://github.com/askdkc/pgroonga.github.io/assets/7894265/3e9625d8-23d8-4ca1-a5a2-1445e8f1d75e)
 
 
 ## Make Japanese Version
@@ -646,4 +649,5 @@ Access the application in your web browser at: [http://localhost:8000](http://lo
 
 How cool is this!
 
+<img width="1020" alt="pgroonga_japanese" src="https://github.com/askdkc/pgroonga.github.io/assets/7894265/6c744ece-d370-4006-99e1-746f93a2866c">
 

@@ -8,8 +8,7 @@ In this guide we will walk through building a Laravel application from scratch w
 # Installation
 
 **## Installing Laravel**
-> ****Note****
-> This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga
+**NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga
 
 Assume you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:
 

@@ -633,7 +633,7 @@ Edit `config/app.php`
 'faker_locale' => 'ja_JP', // Change from en_US to ja_JP
 ```
 
-3. Run fresh migration and database seed again
+Run fresh migration and database seed again:
 ```shell
 php artisan migrate:fresh --seed
 ```

@@ -20,7 +20,6 @@ After the project has been created, start Laravel’s local development server u
 
 ```shell
 cd pgroonga_laravel
-
 php artisan serve
 ```
 

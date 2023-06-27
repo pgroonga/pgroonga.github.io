@@ -626,7 +626,7 @@ touch lang/ja.json
 }
 ```
 
-2. Set locale to Japanese
+Set locale to Japanese:
 Edit `config/app.php`
 ```php
 'locale' => 'ja', // Change from en to ja

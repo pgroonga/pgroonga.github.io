@@ -2,7 +2,7 @@
 title: How to use PGroonga with Laravel
 ---
 
-**# 01. Introduction**
+# How to use PGroonga with Laravel
 In this guide we will walk through building a Laravel application from scratch with PGroonga. 
 
 **# 02. Installation**

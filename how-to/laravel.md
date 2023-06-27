@@ -647,5 +647,5 @@ Access the application in your web browser at: [http://localhost:8000](http://lo
 
 How cool is this!
 
-<img width="1020" alt="pgroonga_japanese" src="https://github.com/askdkc/pgroonga.github.io/assets/7894265/6c744ece-d370-4006-99e1-746f93a2866c">
+![PGroonga Japanese](https://github.com/askdkc/pgroonga.github.io/assets/7894265/6c744ece-d370-4006-99e1-746f93a2866c)
 

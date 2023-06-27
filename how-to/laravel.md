@@ -605,7 +605,7 @@ Here is `OR` search, using capital letter `OR`, it searches blog posts that cont
 ## Make Japanese Version
 Simply following next steps and turn this Blog Search Sample in Japanese.
 
-1. Add language file
+Add language file:
 ```shell
 mkdir lang
 touch lang/ja.json

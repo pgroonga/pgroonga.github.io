@@ -638,7 +638,7 @@ Run fresh migration and database seed again:
 php artisan migrate:fresh --seed
 ```
 
-4. Start Laravel application:
+Start Laravel application:
 ```shell
 php artisan serve
 ``` 

@@ -7,7 +7,7 @@ In this guide we will walk through building a Laravel application from scratch w
 
 # Installation
 
-**## Installing Laravel**
+## Installing Laravel
 **NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga
 
 Assume you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:
@@ -25,7 +25,7 @@ php artisan serve
 
 Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000](~http://localhost:8000~).
 
-**## Installing Laravel Breeze**
+## Installing Laravel Breeze
 
 Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel’s authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.
 To install Laravel Breeze, just run the following commands:
@@ -36,7 +36,7 @@ composer require laravel/breeze --dev
 php artisan breeze:install blade
 ```
 
-**## Set up database**
+## Set up database
 
 Let’s create a PostgreSQL database for this Laravel application.
 
@@ -57,11 +57,11 @@ DB_PASSWORD=postgres
 
 If you’re using different PostgreSQL username and password, change them according to your settings.
 
-**# 03. Creating a Blog**
+# 03. Creating a Blog
 
 You’re now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using `PGroonga`.
 
-**## Models, migrations, and controllers**
+## Models, migrations, and controllers
 
 To make a blog, we will need to create a model, migrations, and controllers.
 Since the blog has posts, we create Post model for it. To create a model, just run the following command:
@@ -76,7 +76,7 @@ This command will create three files for you:
 * `database/migrations/<timestamp>_create_posts_table.php` - The database migration that will create your database table.
 * `app/Http/Controller/PostController.php` - The HTTP controller that will take incoming requests and return responses.
 
-**## Model**
+### Model
 Let’s add search function to our Post model  `app/Models/Post.php`
 
 Before part is original state, and After is modified version:
@@ -130,7 +130,7 @@ class Post extends Model
 ```
 
 
-**## Migration**
+### Migration
 Now we create a database migration for our Post model  `database/migrations/<timestamp>_create_posts_table.php`
 Here are its original state and after state we modified it:
 
@@ -211,7 +211,7 @@ return new class extends Migration
 ```
 
 
-**## Controller**
+### Controller
 Let’s add our Post Controller to handle user requests  `app/Http/Controller/PostController.php`
 
 - before
@@ -259,7 +259,7 @@ class PostController extends Controller
 ```
 
 
-**## Routing**
+### Routing
 
 We will also need to create URLs for our controller. 
 
@@ -319,7 +319,7 @@ GET       | `/`                 | index        | posts.index
 GET       | `/search`              | search       | posts.search
 
 
-**## Blade**
+### Blade
 Let’s create a Blade file that will display the data  returned from `index` and `search` method of our `PostController` class to render a view:
 
 First, we will change Breeze default `resources/views/layouts/guest.blade.php` template like this:
@@ -431,7 +431,7 @@ Then, we will create `resources/views/posts/index.blade.php` to display Blog Pos
 ```
 
 
-**## Factory**
+### Factory
 
 To create dummy data for this application, you need to create a Factory for Post Model.
 Run following command which create a `database/factories/PostFactory.php` file.
@@ -498,7 +498,7 @@ class PostFactory extends Factory
 ```
 
 
-**## Database Seeder**
+### Database Seeder
 
 Now you need to tell the database seeder class to use the factory we’ve created. We will modify the seeder to create 200,000 dummy blog posts:
 
@@ -561,7 +561,7 @@ class DatabaseSeeder extends Seeder
 }
 ```
 
-**## Run migration and seed sample data**
+### Run migration and seed sample data
 
 Following command will run the migration to PostgreSQL then seed 
  fake data to it.

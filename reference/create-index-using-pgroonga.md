@@ -96,6 +96,23 @@ See [How to customize token filters](#custom-token-filters) for token filters de
 
 Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to customize tokenizer.
 
+> **NOTE: In alphabetic languages**
+> Because default tokenizer of `PGroonga` is `TokenBigram`, if you want to use pertial matching search for your keyword in alphabetic languages, for example if you would like to query 'pp' to search 'Apple', 'Pineapple' or 'Ripple' in your data, it is strongly advised to set up your tokenizer to `TokenNgram`.
+
+Here is an example to use `TokenNgram]` based tokenizer. You need to specify `tokenizer='TokeNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail.
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH (tokenizer='TokenNgram');
+```
+
 Here is an example to use [MeCab][mecab] based tokenizer. You need to specify `tokenizer='TokenMecab'`. [`TokenMecab`][groonga-token-mecab] is a name of MeCab based tokenizer.
 
 ```sql
@@ -615,6 +632,8 @@ CREATE INDEX pgroonga_content_index
 [unicode-nfkc]:http://unicode.org/reports/tr15/
 
 [mecab]:http://taku910.github.io/mecab/
+
+[groonga-token-ngram]:https://groonga.org/ja/docs/reference/tokenizers/token_ngram.html
 
 [groonga-token-mecab]:http://groonga.org/docs/reference/tokenizers.html#token-mecab
 

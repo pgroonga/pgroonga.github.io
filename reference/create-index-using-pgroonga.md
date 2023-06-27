@@ -97,9 +97,10 @@ See [How to customize token filters](#custom-token-filters) for token filters de
 Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to customize tokenizer.
 
 > **NOTE: In alphabetic languages**
+> 
 > Because default tokenizer of `PGroonga` is `TokenBigram`, if you want to use pertial matching search for your keyword in alphabetic languages, for example if you would like to query 'pp' to search 'Apple', 'Pineapple' or 'Ripple' in your data, it is strongly advised to set up your tokenizer to `TokenNgram`.
 
-Here is an example to use `TokenNgram]` based tokenizer. You need to specify `tokenizer='TokeNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail.
+Here is an example to use `TokenNgram` based tokenizer. You need to specify `tokenizer='TokeNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail.
 
 ```sql
 CREATE TABLE memos (

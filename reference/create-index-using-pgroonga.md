@@ -96,9 +96,9 @@ See [How to customize token filters](#custom-token-filters) for token filters de
 
 Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to customize tokenizer.
 
-> **NOTE: In alphabetic languages**
-> 
-> If you plan to perform partial matching searches for keywords in alphabetic languages, it is recommended to configure your tokenizer to `TokenNgram`. The default tokenizer in `PGroonga` is `TokenBigram`, which means that if you search for the keyword 'pp', for instance, it won't match 'Apple', 'Pineapple', or 'Ripple' in your data. To avoid this issue, it is strongly advised to set up your tokenizer as `TokenNgram`.
+**NOTE: Partial match in alphabetic languages**
+
+If you plan to perform partial matching searches for keywords in alphabetic languages, it is recommended to configure your tokenizer to `TokenNgram` with extra options. The default tokenizer in `PGroonga` is `TokenBigram`, which means that if you search for the keyword 'pp', for instance, it won't match 'Apple', 'Pineapple', or 'Ripple' in your data. To avoid this issue, it is strongly advised to set up your tokenizer as following `TokenNgram` example.
 
 Here is an example to use `TokenNgram` based tokenizer. You need to specify `tokenizer='TokenNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail.
 
@@ -111,8 +111,14 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
-        WITH (tokenizer='TokenNgram');
+        WITH(tokenizer='TokenNgram("unify_alphabet", false, "unify_symbol", false, "unify_digit", false)');
 ```
+
+You may also use `TokenBigramBigramSplitSymbolAlphaDigit` for partial match instead of `TokenNgram` above **(the former is recommended)**.
+
+**Remarks**
+We however do not recommend using `TokenNgram("unify_...)`. It is advisable to use `TokenNgram/TokenBigram` instead, as partial matches in alphabetical languages tend to introduce a lot of noise. `TokenNgram("unify_...)` should only be utilized when it is truly necessary.
+
 
 Here is an example to use [MeCab][mecab] based tokenizer. You need to specify `tokenizer='TokenMecab'`. [`TokenMecab`][groonga-token-mecab] is a name of MeCab based tokenizer.
 

@@ -10,10 +10,10 @@ In this guide we will walk through building a Laravel application from scratch w
 ## Installing Laravel
 **NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga
 
-Assume you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:
+If you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:
 
 ```shell
-laravel new pgroonga_laravel
+composer create-project laravel/laravel pgroonga_laravel
 ```
 
 After the project has been created, start Laravel’s local development server using the Laravel’s Artisan CLI serve command:

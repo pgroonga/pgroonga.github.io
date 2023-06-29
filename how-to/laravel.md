@@ -32,7 +32,6 @@ To install Laravel Breeze, just run the following commands:
 
 ```shell
 composer require laravel/breeze --dev
- 
 php artisan breeze:install blade
 ```
 

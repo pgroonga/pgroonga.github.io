@@ -163,7 +163,7 @@ return new class extends Migration
 };
 ```
 
-- after
+After:
 ```php
 <?php
 

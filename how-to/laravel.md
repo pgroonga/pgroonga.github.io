@@ -23,7 +23,7 @@ cd pgroonga_laravel
 php artisan serve
 ```
 
-Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000](~http://localhost:8000~).
+Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000](http://localhost:8000).
 
 ## Installing Laravel Breeze
 

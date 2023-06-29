@@ -95,7 +95,7 @@ class Post extends Model
 }
 ```
 
-- After
+After:
 ```php
 <?php
 

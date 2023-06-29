@@ -583,7 +583,7 @@ php artisan serve
 
 Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
 
-<img width="1024" alt="laravel_sample" src="https://github.com/askdkc/pgroonga.github.io/assets/7894265/f8557078-85a7-474f-95f3-3c405b1b6ffa">
+![Laravel sample](https://github.com/askdkc/pgroonga.github.io/assets/7894265/f8557078-85a7-474f-95f3-3c405b1b6ffa)
 
 
 ### Search Function

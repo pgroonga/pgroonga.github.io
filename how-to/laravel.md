@@ -311,10 +311,10 @@ require __DIR__.'/auth.php';
 
 This will create the following routes:
 
-Verb      | URI                    | Action       | Route Name
-—————|————————————|———————|——————————
-GET       | `/`                 | index        | posts.index
-GET       | `/search`              | search       | posts.search
+| Verb | URI         | Action  | Route Name     |
+|------|-------------|---------|----------------|
+| GET  | `/`         | index   | posts.index    |
+| GET  | `/search`   | search  | posts.search   |
 
 
 ### Blade

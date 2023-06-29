@@ -566,7 +566,6 @@ Following command will run the migration to PostgreSQL then seed
 
 ```shell
 php arrtisan migrate
-
 php artisan db:seed
 ```
 

@@ -356,7 +356,7 @@ Then, we will create `resources/views/posts/index.blade.php` to display Blog Pos
                                 <div class="block w-3/4">
                                     <div class="flex flex-col sm:flex-row justify-start items-center pl-2">
                                     <input type="search" name="keyword" class="form-control w-full sm:w-5/6 " type="text" value="@if (isset($keyword)) {{ $keyword }} @endif" placeholder="{{ __('Enter search keyword') }}">
-                                    <button class="collapse sm:visible inline-block align-left text-base sm:w-20 rounded-md border border-gray-700 sm:p-2 sm:ml-4" type="submit">{{__('Search')}}</button>
+                                    <button class="collapse sm:visible inline-block align-left text-base sm:w-20 rounded-md border border-gray-700 sm:p-2 sm:ml-4" type="submit">{{ __('Search') }}</button>
                                     </div>
                                 </div>
                             </div>

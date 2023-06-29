@@ -148,6 +148,29 @@ CREATE INDEX pgroonga_tag_index
 
 See [Tokenizers][groonga-tokenizers] for other tokenizers.
 
+#### Partial match in alphabetic languages {#partial-match-alphabetic-languages}
+
+If you plan to perform partial matching searches for keywords in alphabetic languages, it is recommended to configure your tokenizer to `TokenNgram` with extra options. The default tokenizer in `PGroonga` is `TokenBigram`, which means that if you search for the keyword 'pp', for instance, it won't match 'Apple', 'Pineapple', or 'Ripple' in your data. To avoid this issue, it is strongly advised to set up your tokenizer as following `TokenNgram` example.
+
+Here is an example to use `TokenNgram` based tokenizer. You need to specify `tokenizer='TokenNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail.
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH(tokenizer='TokenNgram("unify_alphabet", false, "unify_symbol", false, "unify_digit", false)');
+```
+
+You may also use `TokenBigramBigramSplitSymbolAlphaDigit` for partial match instead of `TokenNgram` above. **(Using `TokenNgram(...)` is recommended)**.
+
+**Remarks**
+We however do not recommend using `TokenNgram("unify_...)`. It is advisable to use `TokenNgram/TokenBigram` instead, as partial matches in alphabetical languages tend to introduce a lot of noise. `TokenNgram("unify_...)` should only be utilized when it is truly necessary.
+
 #### How to customize normalizer {#custom-normalizer}
 
 You can use the following parameters to customize normalizer. Normally, you don't need to customize normalizer.
@@ -615,6 +638,8 @@ CREATE INDEX pgroonga_content_index
 [unicode-nfkc]:http://unicode.org/reports/tr15/
 
 [mecab]:http://taku910.github.io/mecab/
+
+[groonga-token-ngram]:https://groonga.org/ja/docs/reference/tokenizers/token_ngram.html
 
 [groonga-token-mecab]:http://groonga.org/docs/reference/tokenizers.html#token-mecab
 

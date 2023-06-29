@@ -549,7 +549,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-		  echo "Now you need to wait for few minitues \n";
+        echo "Now you need to wait for few minitues \n";
 
         for($i =0; $i<2000; $i++)
         {

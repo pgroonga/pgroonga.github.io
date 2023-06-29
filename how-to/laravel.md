@@ -132,7 +132,7 @@ class Post extends Model
 Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`
 Here are its original state and after state we modified it:
 
-- Before
+Before:
 ```php
 <?php
 

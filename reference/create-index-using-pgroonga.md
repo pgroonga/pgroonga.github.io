@@ -148,7 +148,7 @@ CREATE INDEX pgroonga_tag_index
 
 See [Tokenizers][groonga-tokenizers] for other tokenizers.
 
-#### **Partial match in alphabetic languages** {#partial-match-alphabetic-languages}
+#### Partial match in alphabetic languages {#partial-match-alphabetic-languages}
 
 If you plan to perform partial matching searches for keywords in alphabetic languages, it is recommended to configure your tokenizer to `TokenNgram` with extra options. The default tokenizer in `PGroonga` is `TokenBigram`, which means that if you search for the keyword 'pp', for instance, it won't match 'Apple', 'Pineapple', or 'Ripple' in your data. To avoid this issue, it is strongly advised to set up your tokenizer as following `TokenNgram` example.
 

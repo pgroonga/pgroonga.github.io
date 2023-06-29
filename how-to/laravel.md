@@ -212,7 +212,7 @@ return new class extends Migration
 #### Controller
 Let’s add our Post Controller to handle user requests `app/Http/Controller/PostController.php`
 
-- before
+Before:
 ```php
 <?php
 

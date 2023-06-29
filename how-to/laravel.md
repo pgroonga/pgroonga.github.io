@@ -440,7 +440,7 @@ php artisan make:factory PostFactory
 
 Let’s add some code to generate a fake data for Post Model. Here are before and after:
 
-- before
+Before:
 ```php
 <?php
 

@@ -226,7 +226,7 @@ class PostController extends Controller
 }
 ```
 
-- after
+After:
 ```php
 <?php
 

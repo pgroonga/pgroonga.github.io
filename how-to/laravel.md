@@ -123,7 +123,6 @@ class Post extends Model
         }
 
         return $search_query;
-        
     }
 }
 ```

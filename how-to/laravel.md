@@ -80,7 +80,7 @@ Let’s add search function to our Post model `app/Models/Post.php`.
 
 Before part is original state, and After is modified version:
 
-- Before
+Before:
 ```php
 <?php
 

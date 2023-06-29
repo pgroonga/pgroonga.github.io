@@ -598,6 +598,9 @@ Here is `OR` search, using capital letter `OR`, it searches blog posts that cont
 
 ![537290D5-789D-47FC-B0E1-133E6865E9C2](https://github.com/askdkc/pgroonga.github.io/assets/7894265/3e9625d8-23d8-4ca1-a5a2-1445e8f1d75e)
 
+You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`.
+
+Imagine when you are trying to create same feature using MySQL or PostgreSQL for `AND`, `OR` and `NOT` confitions, you will need to write a lot of code to handle all the cases. But with `PGroonga`, you get all these for free! And it is fast!
 
 ### Make Japanese Version
 Simply following next steps and turn this Blog Search Sample in Japanese.

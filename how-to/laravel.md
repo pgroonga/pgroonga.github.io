@@ -5,9 +5,9 @@ title: How to use PGroonga with Laravel
 # How to use PGroonga with Laravel
 In this guide we will walk through building a Laravel application from scratch with PGroonga. 
 
-# Installation
+## Installation
 
-## Installing Laravel
+### Installing Laravel
 **NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga
 
 If you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:
@@ -25,7 +25,7 @@ php artisan serve
 
 Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000](http://localhost:8000).
 
-## Installing Laravel Breeze
+### Installing Laravel Breeze
 
 Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel’s authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.
 To install Laravel Breeze, just run the following commands:
@@ -36,7 +36,7 @@ composer require laravel/breeze --dev
 php artisan breeze:install blade
 ```
 
-## Set up database
+### Set up database
 
 Let’s create a PostgreSQL database for this Laravel application.
 
@@ -57,11 +57,11 @@ DB_PASSWORD=postgres
 
 If you’re using different PostgreSQL username and password, change them according to your settings.
 
-# 03. Creating a Blog
+### Creating a Blog
 
 You’re now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using `PGroonga`.
 
-## Models, migrations, and controllers
+### Models, migrations, and controllers
 
 To make a blog, we will need to create a model, migrations, and controllers.
 Since the blog has posts, we create Post model for it. To create a model, just run the following command:
@@ -76,8 +76,8 @@ This command will create three files for you:
 * `database/migrations/<timestamp>_create_posts_table.php` - The database migration that will create your database table.
 * `app/Http/Controller/PostController.php` - The HTTP controller that will take incoming requests and return responses.
 
-### Model
-Let’s add search function to our Post model  `app/Models/Post.php`
+#### Model
+Let’s add search function to our Post model `app/Models/Post.php`.
 
 Before part is original state, and After is modified version:
 
@@ -130,8 +130,8 @@ class Post extends Model
 ```
 
 
-### Migration
-Now we create a database migration for our Post model  `database/migrations/<timestamp>_create_posts_table.php`
+#### Migration
+Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`
 Here are its original state and after state we modified it:
 
 - Before
@@ -211,8 +211,8 @@ return new class extends Migration
 ```
 
 
-### Controller
-Let’s add our Post Controller to handle user requests  `app/Http/Controller/PostController.php`
+#### Controller
+Let’s add our Post Controller to handle user requests `app/Http/Controller/PostController.php`
 
 - before
 ```php
@@ -573,7 +573,7 @@ php artisan db:seed
 ```
 
 
-## Let’s test it
+### Let’s test it
 First, you need to build a css. Just run the following command.
 ```shell
 npm run build
@@ -589,7 +589,7 @@ Now you can access the application in your web browser at: [http://localhost:800
 <img width="1024" alt="laravel_sample" src="https://github.com/askdkc/pgroonga.github.io/assets/7894265/f8557078-85a7-474f-95f3-3c405b1b6ffa">
 
 
-## Search Function
+### Search Function
 Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL which only can use indexes for prefix match search, it can also use indexes for Full-text partial match search! Not only that, you can get AND search and OR search for free! Just type your keyword separate with space, you get AND search. If you separate words with OR (capital letter), you get OR search.
 
 For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power.
@@ -602,7 +602,7 @@ Here is `OR` search, using capital letter `OR`, it searches blog posts that cont
 ![537290D5-789D-47FC-B0E1-133E6865E9C2](https://github.com/askdkc/pgroonga.github.io/assets/7894265/3e9625d8-23d8-4ca1-a5a2-1445e8f1d75e)
 
 
-## Make Japanese Version
+### Make Japanese Version
 Simply following next steps and turn this Blog Search Sample in Japanese.
 
 Add language file:

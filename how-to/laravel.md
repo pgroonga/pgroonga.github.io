@@ -526,7 +526,7 @@ class DatabaseSeeder extends Seeder
 }
 ```
 
-- after
+After:
 ```php
 <?php
 

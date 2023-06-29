@@ -467,7 +467,7 @@ class PostFactory extends Factory
 }
 ```
 
-- after
+After:
 ```php
 <?php
 

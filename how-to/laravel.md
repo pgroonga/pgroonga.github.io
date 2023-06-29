@@ -330,7 +330,7 @@ First, we will change Breeze default `resources/views/layouts/guest.blade.php` t
 	</div>
 ```
 
-- after
+After:
 ```php
 <!-- Line 25 -->
 	<div class="w-full lg:max-w-6xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">

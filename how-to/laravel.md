@@ -500,7 +500,7 @@ class PostFactory extends Factory
 
 Now you need to tell the database seeder class to use the factory we’ve created. We will modify the seeder to create 200,000 dummy blog posts:
 
-- before
+Before:
 ```php
 <?php
 

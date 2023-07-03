@@ -76,7 +76,7 @@ create role authenticator noinherit login password 'mypassword';
 grant web_user to authenticator;
 ```
 
-## Create a configuration file for PostgREST.
+## Configure PostgREST
 ```sh
 vi memo.conf
 ```

@@ -19,6 +19,7 @@ If you have useful information that isn't listed in this page, please send a pul
 ## How to use PGroonga with Web application framework
 
   * How to use with Ruby on Rails: TODO
+  * [How to use with Laravel](laravel.html)
   * [How to use with PostgREST](postgrest.html)
   * ...
 

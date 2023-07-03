@@ -249,7 +249,9 @@ END;
 $$;
 ```
 
-### Stored function to search all columns with a keyword:
+###  Search all columns
+
+Stored function to search all columns with a keyword:
 
 ```sql
 CREATE OR REPLACE FUNCTION memo_search(keyword text)

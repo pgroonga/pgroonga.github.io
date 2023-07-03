@@ -591,12 +591,12 @@ Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL whi
 
 For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power.
 
-![48EC6C85-99C3-46CA-B2FD-F43A773A008B](../images/laravel/laravel2.png)
+![Laravel sample 2](../images/laravel/laravel2.png)
 
 
 Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`.
 
-![537290D5-789D-47FC-B0E1-133E6865E9C2](../images/laravel/laravel3.png)
+![Laravel sample 3](../images/laravel/laravel3.png)
 
 You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`.
 

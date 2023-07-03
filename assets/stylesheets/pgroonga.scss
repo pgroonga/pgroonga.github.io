@@ -51,6 +51,10 @@ div.note {
   }
 }
 
+img {
+  @include img-responsive(block);
+}
+
 #myautocomplete {
   padding: 0 $padding-base-horizontal;
 }

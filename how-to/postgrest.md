@@ -63,7 +63,10 @@ CREATE INDEX pgroonga_content_search_index ON memos USING pgroonga (content)
   );
 ```
 
-## To create the necessary permissions for PostgREST, you can follow these steps:
+## Prepare PostgREST permissions
+
+To create the necessary permissions for PostgREST, you can follow these steps:
+
 ```sql
 create role web_user nologin;
 grant usage on schema public to web_user;

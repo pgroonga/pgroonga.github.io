@@ -196,7 +196,7 @@ Open your browser and access the following:
  {"id":3,"title":"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","content":"ハバナイスデー"}]
 ```
 
-### `PGroonga`'s functionality also supports treating hiragana and katakana as equivalent in searches.
+### Searching hiragana and katakana in hiragana or katakana
 
 Open your browser and access the following:
 

@@ -234,7 +234,9 @@ Open your browser and access the following:
 ## Bonus
 When you want to allow various additional searches, you can create multiple stored functions.
 
-### Here is an example of a stored function that performs a dynamic search by passing the column name:
+### Make target column customizable
+
+Here is an example of a stored function that performs a dynamic search by passing the column name:
 
 ```sql
 CREATE OR REPLACE FUNCTION search_col(column_name text, keyword text)

@@ -80,7 +80,25 @@ CREATE INDEX pgroonga_content_index
               normalizer='NormalizerNFKC100');
 ```
 
-Now, you can use `pgroonga_content_index` as `index_name`:
+If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga` document ([`How to use NormalizerTable` section](https://pgroonga.github.io/reference/create-index-using-pgroonga.html#normalizer-table)), the specified PGroonga index must have `NormalizerTable` with `"report_source_offset", true"` option.
+
+Here is an example:
+
+```sql
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (content)
+        WITH (normalizers='
+                NormalizerNFKC130,
+                NormalizerTable(
+                  "normalized", "${table:pgrn_normalizations_index}.normalized",
+                  "target", "target",
+                  "report_source_offset", true
+                )
+             ');
+```
+
+Here is an example of using `pgroonga_highlight_html` function:
 
 ```sql
 SELECT pgroonga_highlight_html('one two three four five',

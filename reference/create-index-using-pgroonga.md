@@ -408,7 +408,8 @@ CREATE INDEX pgroonga_memos_index
                 NormalizerNFKC130,
                 NormalizerTable(
                   "normalized", "${table:pgrn_normalizations_index}.normalized",
-                  "target", "target"
+                  "target", "target",
+                  "report_source_offset", true
                 )
              ');
 

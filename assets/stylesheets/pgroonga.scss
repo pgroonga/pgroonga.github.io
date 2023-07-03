@@ -51,8 +51,8 @@ div.note {
   }
 }
 
-img.laravel-image {
-  width: 840px;
+img {
+  @include img-responsive(block);
 }
 
 #myautocomplete {

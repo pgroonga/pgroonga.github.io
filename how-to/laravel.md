@@ -583,7 +583,7 @@ php artisan serve
 
 Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
 
-<img src="../images/laravel/laravel1.png" alt="Laravel sample" class="laravel-image">
+<img src="../images/laravel/laravel1.png" alt="Laravel sample">
 
 
 ### Search Function
@@ -591,12 +591,12 @@ Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL whi
 
 For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power.
 
-<img src="../images/laravel/laravel2.png" alt="Laravel sample" class="laravel-image">
+<img src="../images/laravel/laravel2.png" alt="Laravel sample">
 
 
 Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`.
 
-<img src="../images/laravel/laravel3.png" alt="Laravel sample" class="laravel-image">
+<img src="../images/laravel/laravel3.png" alt="Laravel sample">
 
 You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`.
 
@@ -647,5 +647,5 @@ Access the application in your web browser at: [http://localhost:8000](http://lo
 
 How cool is this!
 
-<img src="../images/laravel/laravel-ja1.png" alt="PGroonga Japanese" class="laravel-image">
+<img src="../images/laravel/laravel-ja1.png" alt="PGroonga Japanese">
 

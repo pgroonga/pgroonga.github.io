@@ -323,12 +323,19 @@ Let’s create a Blade file that will display the data  returned from `index` an
 First, we will change Breeze default `resources/views/layouts/guest.blade.php` template like this:
 
 Before:
+
+{% raw %}
+
 ```php
 <!-- Line 25 -->
 	<div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 		{{ $slot }}
 	</div>
 ```
+
+{% endraw %}
+
+{% raw %}
 
 After:
 ```php
@@ -338,7 +345,11 @@ After:
 	</div>
 ```
 
+{% endraw %}
+
 Then, we will create `resources/views/posts/index.blade.php` to display Blog Posts and also provide search features:
+
+{% raw %}
 
 ```php
 <x-guest-layout>
@@ -428,6 +439,7 @@ Then, we will create `resources/views/posts/index.blade.php` to display Blog Pos
 </x-guest-layout>
 ```
 
+{% endraw %}
 
 ### Factory
 

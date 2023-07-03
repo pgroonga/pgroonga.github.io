@@ -222,7 +222,7 @@ Open your browser and access the following:
 
 Open your browser and access the following:
 
-[`http://localhost:3000/rpc/find_title?keywords=nga%20OR%20です`](http://localhost:3000/rpc/find_title?keywords=nga%20OR%20です)
+[`http://localhost:3000/rpc/find_title?keywords=nga OR です`](http://localhost:3000/rpc/find_title?keywords=nga%20OR%20です)
 
 ```json
 [{"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}, 

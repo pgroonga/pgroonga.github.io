@@ -5,6 +5,13 @@ upper_level: ../
 
 # おしらせ
 
+## 3.0.9: 2023-07-03 {#version-3-0-9}
+
+### 改良
+
+  * [[`pgroonga_query_expand` function][query-expand]] Added support
+    for trace log.
+
 ## 3.0.8: 2023-06-22 {#version-3-0-8}
 
 ### 改良

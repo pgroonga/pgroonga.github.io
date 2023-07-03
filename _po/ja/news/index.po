@@ -21,11 +21,19 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.0.8: 2023-06-22 {#version-3-0-8}"
+msgid "## 3.0.9: 2023-07-03 {#version-3-0-9}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Added support\n"
+"    for trace log."
+msgstr ""
+
+msgid "## 3.0.8: 2023-06-22 {#version-3-0-8}"
+msgstr ""
 
 msgid ""
 "  * [[`&=~` operator][equal-query-v2]] Added support for\n"

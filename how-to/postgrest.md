@@ -81,7 +81,7 @@ grant web_user to authenticator;
 vi memo.conf
 ```
 
-Inside of the file
+Inside of the file:
 ```vim
 db-uri = "postgres://authenticator:mypassword@localhost:5432/api"
 db-schemas = "public"

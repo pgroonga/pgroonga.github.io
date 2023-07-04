@@ -408,8 +408,7 @@ CREATE INDEX pgroonga_memos_index
                 NormalizerNFKC130,
                 NormalizerTable(
                   "normalized", "${table:pgrn_normalizations_index}.normalized",
-                  "target", "target",
-                  "report_source_offset", true
+                  "target", "target"
                 )
              ');
 
@@ -426,6 +425,11 @@ SELECT * FROM memos WHERE content &@~ 'o123455';
 
 Note that you need to run `REINDEX INDEX pgroonga_memos_index` after you change `normalizations` table. Because normalization results are changed after `normalizations` table is changed.
 
+**Special Case: Using with `pgroonga_highlight_html`**
+
+When you need using `pgroonga_highlight_html` function with this `NormalizerTable`, you need to specify not only `TokenNgram` with `"report_source_location", true"` option but also both `Normalizer` and `NormalizerTable` with `"report_source_offset", true"` option for each.
+
+Please reference [pgroonga_highlight_html](./functions/pgroonga-highlight-html.html) for details.
 
 #### How to use token filters {#custom-token-filters}
 

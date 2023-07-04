@@ -80,24 +80,6 @@ CREATE INDEX pgroonga_content_index
               normalizer='NormalizerNFKC100');
 ```
 
-If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga` document ([`How to use NormalizerTable` section](https://pgroonga.github.io/reference/create-index-using-pgroonga.html#normalizer-table)), the specified PGroonga index must have `NormalizerTable` with `"report_source_offset", true"` option.
-
-Here is an example:
-
-```sql
-CREATE INDEX pgroonga_memos_index
-          ON memos
-       USING pgroonga (content)
-        WITH (normalizers='
-                NormalizerNFKC130,
-                NormalizerTable(
-                  "normalized", "${table:pgrn_normalizations_index}.normalized",
-                  "target", "target",
-                  "report_source_offset", true
-                )
-             ');
-```
-
 Here is an example of using `pgroonga_highlight_html` function:
 
 ```sql
@@ -113,6 +95,56 @@ SELECT pgroonga_highlight_html('one two three four five',
 `pgroonga_highlight_html` markups the keywords in `target`. It's type is `text` type.
 
 The keywords are surrounded with `<span class="keyword">` and `</span>`. `<`, `>`, `&` and `"` in `target` is HTML escaped.
+
+**Special Case: Using with `NormalizerTable`**
+
+If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga` document ([`How to use NormalizerTable` section](https://pgroonga.github.io/reference/create-index-using-pgroonga.html#normalizer-table)), the specified PGroonga index must have not only `TokenNgram` with `"report_source_location", true"` option but also both `Normalizer` and `NormalizerTable` with `"report_source_offset", true"` option for each.
+
+Here is an example (We use Japanese Name 'Saito' (`斉藤`) which has many variants):
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE TABLE "synonyms" (
+   "target" text not null,
+   "normalized" text not null
+);
+
+CREATE INDEX pgroonga_synonyms_index ON synonyms
+ USING pgroonga (target pgroonga_text_term_search_ops_v2)
+                INCLUDE (normalized);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (content)
+        WITH (
+         tokenizer='TokenNgram(
+                          "unify_alphabet", false,
+                          "unify_symbol", false,
+                          "unify_digit", false,
+                          "report_source_location", true
+                        )',
+         normalizers='
+               NormalizerNFKC150("report_source_offset", true),
+               NormalizerTable(
+                  "normalized", "${table:pgroonga_synonyms_index}.normalized", 
+                  "target", "target",
+                  "report_source_offset", true)'
+            );
+```
+
+```sql
+select pgroonga_highlight_html(content, '{斉藤}', 'pgroonga_memos_index')
+                  from memos where content &@~ '斉藤';
+--             pgroonga_highlight_html            
+-- -----------------------------------------------
+--  <span class="keyword"></span>斎藤さんの恋愛
+--  <span class="keyword"></span>斉藤さんの失恋
+--  <span class="keyword"></span>齋藤さんの片想い
+-- (3 rows)
+```
 
 It's available since 2.0.7.
 

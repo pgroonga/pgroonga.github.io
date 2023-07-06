@@ -244,9 +244,14 @@ CREATE OR REPLACE FUNCTION search_col(column_name text, keyword text)
   LANGUAGE plpgsql
 AS $$
 BEGIN
-  RETURN QUERY EXECUTE format('SELECT * FROM memos WHERE %I &@~ ''%s''', column_name, keyword);
+  IF column_name IN ('title', 'content') THEN -- Check if the column name is valid
+    RETURN QUERY EXECUTE format('SELECT * FROM memos WHERE %I &@~ ''%s''', column_name, keyword);
+  ELSE
+    RAISE EXCEPTION 'Invalid column name'; -- Return an error if the column name is invalid
+  END IF;
 END;
 $$;
+CREATE FUNCTION
 ```
 
 ###  Search all columns

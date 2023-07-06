@@ -184,7 +184,7 @@ curl --get --data-urlencode keywords=コマンド http://localhost:3000/rpc/find
 [{"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}]
 ```
 
-### `PGroonga`'s functionality also supports searching in romaji.
+### Search in romaji
 
 Open your browser and access the following:
 

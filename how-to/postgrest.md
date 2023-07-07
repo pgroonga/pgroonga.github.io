@@ -178,9 +178,8 @@ The following results will be returned.
 
 By the way, using a browser to hit the URL is easier than using curl because dealing with encoding can be cumbersome.
 
-```sh
-curl --get --data-urlencode keywords=コマンド http://localhost:3000/rpc/find_title
-
+```console
+$ curl --get --data-urlencode keywords=コマンド http://localhost:3000/rpc/find_title
 [{"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}]
 ```
 

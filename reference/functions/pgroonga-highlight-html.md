@@ -112,6 +112,14 @@ CREATE TABLE "synonyms" (
    "normalized" text not null
 );
 
+INSERT INTO synonyms VALUES ('齊', '斉');
+INSERT INTO synonyms VALUES ('斎', '斉');
+INSERT INTO synonyms VALUES ('齋', '斉');
+
+INSERT INTO memos  (content)  VALUES ('斎藤さんの恋愛');
+INSERT INTO memos  (content)  VALUES ('斉藤さんの失恋');
+INSERT INTO memos  (content)  VALUES ('齋藤さんの片想い');
+
 CREATE INDEX pgroonga_synonyms_index ON synonyms
  USING pgroonga (target pgroonga_text_term_search_ops_v2)
                 INCLUDE (normalized);

@@ -80,7 +80,7 @@ CREATE INDEX pgroonga_content_index
               normalizer='NormalizerNFKC100');
 ```
 
-Here is an example of using `pgroonga_highlight_html` function:
+Now, you can use `pgroonga_content_index` as `index_name`:
 
 ```sql
 SELECT pgroonga_highlight_html('one two three four five',

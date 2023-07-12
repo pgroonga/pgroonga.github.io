@@ -19,6 +19,11 @@ title: ハウツー
 ## Webアプリケーションフレームワークと一緒にPGroongaを使う方法
 
   * Ruby on Railsと一緒に使う方法：TODO
+
+  * [Laravelと一緒に使う方法](laravel.html)
+
+  * [PostgRESTと一緒に使う方法](postgrest.html)
+
   * ...
 
 ## 継続的インテグレーション（CI）

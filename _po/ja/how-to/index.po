@@ -45,12 +45,17 @@ msgstr "  * [オートコンプリートの実装方法](auto-complete.html)"
 msgid "## How to use PGroonga with Web application framework"
 msgstr "## Webアプリケーションフレームワークと一緒にPGroongaを使う方法"
 
-msgid ""
-"  * How to use with Ruby on Rails: TODO\n"
-"  * ..."
+msgid "  * How to use with Ruby on Rails: TODO"
+msgstr "  * Ruby on Railsと一緒に使う方法：TODO"
+
+msgid "  * [How to use with Laravel](laravel.html)"
+msgstr "  * [Laravelと一緒に使う方法](laravel.html)"
+
+msgid "  * [How to use with PostgREST](postgrest.html)"
+msgstr "  * [PostgRESTと一緒に使う方法](postgrest.html)"
+
+msgid "  * ..."
 msgstr ""
-"  * Ruby on Railsと一緒に使う方法：TODO\n"
-"  * ..."
 
 msgid "## Continuous integration"
 msgstr "## 継続的インテグレーション（CI）"
@@ -82,7 +87,4 @@ msgid "  * [How to use with Spring/Hibernate](spring-hibernate.html)"
 msgstr "  * [Spring/Hibernateと一緒に使う方法](spring-hibernate.html)"
 
 msgid "## ..."
-msgstr ""
-
-msgid "  * ..."
 msgstr ""

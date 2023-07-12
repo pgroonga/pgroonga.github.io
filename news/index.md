@@ -5,6 +5,19 @@ upper_level: ../
 
 # News
 
+## 3.1.0: 2023-07-12 {#version-3-1-0}
+
+### Improvements
+
+  * Required Groonga 13.0.2 or later.
+
+  * Added support for backtrace on `abort()`.
+
+### Fixes
+
+  * Fixed a potential crash bug when `VACUUM` including auto `VACUUM`
+    is used.
+
 ## 3.0.9: 2023-07-03 {#version-3-0-9}
 
 ### Improvements

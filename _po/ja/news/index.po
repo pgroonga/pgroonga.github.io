@@ -21,11 +21,28 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.0.9: 2023-07-03 {#version-3-0-9}"
+msgid "## 3.1.0: 2023-07-12 {#version-3-1-0}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Required Groonga 13.0.2 or later."
+msgstr ""
+
+msgid "  * Added support for backtrace on `abort()`."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a potential crash bug when `VACUUM` including auto `VACUUM`\n"
+"    is used."
+msgstr ""
+
+msgid "## 3.0.9: 2023-07-03 {#version-3-0-9}"
+msgstr ""
 
 msgid ""
 "  * [[`pgroonga_query_expand` function][query-expand]] Added support\n"
@@ -90,9 +107,6 @@ msgid ""
 "  * [`pgroonga_highlight_html` function][highlight-html]: Rejected\n"
 "    parent index of declarative partitioning explicitly."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [Streaming replication][streaming-replication]: Fixed a bug that\n"

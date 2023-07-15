@@ -26,6 +26,10 @@ Also Supabase gives financial contributions to various OSS including PGroonga vi
 * [Supabase Open Collective Page](https://opencollective.com/supabase)
 * [PGroonga Open Collective Page](https://opencollective.com/pgroonga)
 
+## National Institute of Japanese Literature {#nijl}
+
+国文学研究資料館により公開されている[国書データベース](https://kokusho.nijl.ac.jp/)では「オープンソフトウェアPostgreSQLの拡張機能であるPGroongaの導入により、日本語検索の高速化を実現している」ことが、国立国会図書館の[Current Awareness Portal 図書館に関する情報ポータルの記事](https://current.ndl.go.jp/e2612)で紹介されている。
+
 ## Zulip {#zulip}
 
 [Zulip](https://zulip.org/) is a powerful open source group chat. It uses PGroonga to implement all languages support full text search. Because [PostgreSQL built-in full text search feature]({{ site.postgresql_doc_base_url.en }}/textsearch.html) supports only one language at the same time. PGroonga can support all languages at the same time.

@@ -28,7 +28,9 @@ Also Supabase gives financial contributions to various OSS including PGroonga vi
 
 ## National Institute of Japanese Literature {#nijl}
 
-国文学研究資料館により公開されている[国書データベース](https://kokusho.nijl.ac.jp/)では「オープンソフトウェアPostgreSQLの拡張機能であるPGroongaの導入により、日本語検索の高速化を実現している」ことが、国立国会図書館の[Current Awareness Portal 図書館に関する情報ポータルの記事](https://current.ndl.go.jp/e2612)で紹介されている。
+[Union Catalogue Database of Japanese Texts](https://kokusho.nijl.ac.jp/?ln=en) published by National Institute of Japanese Literature uses PGroonga to implement fast Japanese full text search feature.
+
+See [E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612) which is an article at Current Awareness Portal for details.
 
 ## Zulip {#zulip}
 

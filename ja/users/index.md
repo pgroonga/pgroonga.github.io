@@ -26,6 +26,12 @@ PGroongaを含めた様々なオープンソースソフトウェアに対して
 * [Supabase Open Collective Page](https://opencollective.com/supabase)
 * [PGroonga Open Collective Page](https://opencollective.com/pgroonga)
 
+## 国文学研究資料館 {#nijl}
+
+国文学研究資料館が公開している[国書データベース](https://kokusho.nijl.ac.jp/)では高速な日本語全文検索を実現するためにPGroongaを使っています。
+
+詳細はカレントアウェアネス-Eの記事[E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612)を参照してください。
+
 ## Zulip {#zulip}
 
 [Zulip](https://zulip.org/)はパワフルなオープンソースのグループチャットアプリケーションです。全言語対応の全文検索機能を実現するためにPGroongaを使っています。なぜなら、[PostgreSQL組み込みの全文検索機能]({{ site.postgresql_doc_base_url.ja }}/textsearch.html)は同時に1つの言語しかサポートできないからです。PGroongaは同時にすべての言語をサポートできます。

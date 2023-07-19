@@ -84,6 +84,24 @@ msgid ""
 "* [PGroonga Open Collective Page](https://opencollective.com/pgroonga)"
 msgstr ""
 
+msgid "## National Institute of Japanese Literature {#nijl}"
+msgstr "## 国文学研究資料館 {#nijl}"
+
+msgid ""
+"[Union Catalogue Database of Japanese Texts](https://kokusho.nijl.ac.jp/?ln=en"
+") published by National Institute of Japanese Literature uses PGroonga to impl"
+"ement fast Japanese full text search feature."
+msgstr ""
+"国文学研究資料館が公開している[国書データベース](https://kokusho.nijl.ac.jp/)では高速な日本語全文検索を実現するためにPGro"
+"ongaを使っています。"
+
+msgid ""
+"See [E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612) which is "
+"an article at Current Awareness Portal for details."
+msgstr ""
+"詳細はカレントアウェアネス-Eの記事[E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2"
+"612)を参照してください。"
+
 msgid "## Zulip {#zulip}"
 msgstr ""
 

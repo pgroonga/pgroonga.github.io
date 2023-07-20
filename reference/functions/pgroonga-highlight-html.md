@@ -341,9 +341,10 @@ CREATE INDEX pgroonga_memos_index
          normalizers='
                NormalizerNFKC150("report_source_offset", true),
                NormalizerTable(
-                  "normalized", "${table:pgroonga_synonyms_index}.normalized", 
-                  "target", "target",
-                  "report_source_offset", true)'
+                 "normalized", "${table:pgroonga_synonyms_index}.normalized", 
+                 "target", "target",
+                 "report_source_offset", true
+               )'
             );
 ```
 

@@ -333,11 +333,11 @@ CREATE INDEX pgroonga_memos_index
        USING pgroonga (content)
         WITH (
          tokenizer='TokenNgram(
-                          "unify_alphabet", false,
-                          "unify_symbol", false,
-                          "unify_digit", false,
-                          "report_source_location", true
-                        )',
+                      "unify_alphabet", false,
+                      "unify_symbol", false,
+                      "unify_digit", false,
+                      "report_source_location", true
+                    )',
          normalizers='
                NormalizerNFKC150("report_source_offset", true),
                NormalizerTable(

@@ -365,4 +365,4 @@ select pgroonga_highlight_html(content, '{斉藤}', 'pgroonga_memos_index')
   * [`pgroonga_query_extract_keywords` function][query-extract-keywords]
 
 [query-extract-keywords]:pgroonga-query-extract-keywords.html
-[create-index-using-pgroonga]:/reference/create-index-using-pgroonga.html#normalizer-table
+[create-index-using-pgroonga-normalizer-table-highlight-html]:./create-index-using-pgroonga.html#normalizer-table-highlight-html

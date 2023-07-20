@@ -302,7 +302,7 @@ SELECT
 
 ## Practical example 2: keyword search and highlight using with `NormalizerTable`
 
-If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga` document ([`How to use NormalizerTable` section][create-index-using-pgroonga]), the specified PGroonga index must have not only `TokenNgram` with `"report_source_location", true"` option but also both `Normalizer` and `NormalizerTable` with `"report_source_offset", true"` option for each.
+If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga` document ([How to use `NormalizerTable` with `pgroonga_highlight_html` section][create-index-using-pgroonga-normalizer-table-highlight-html]), the specified PGroonga index must have not only `TokenNgram` with `"report_source_location", true"` option but also both `NormalizerNFKC*` and `NormalizerTable` with `"report_source_offset", true"` option for each.
 
 Here is an example (We use Japanese Name 'Saito' (`斉藤`) which has many variants):
 

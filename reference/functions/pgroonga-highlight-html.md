@@ -311,7 +311,7 @@ CREATE TABLE memos (
   content text
 );
 
-CREATE TABLE "synonyms" (
+CREATE TABLE synonyms (
    "target" text not null,
    "normalized" text not null
 );

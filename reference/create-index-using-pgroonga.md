@@ -427,7 +427,7 @@ Note that you need to run `REINDEX INDEX pgroonga_memos_index` after you change 
 
 ##### How to use `NormalizerTable` with `pgroonga_highlight_html`  {#normalizer-table-highlight-html}
 
-When you need using `pgroonga_highlight_html` function with this `NormalizerTable`, you need to specify not only `TokenNgram` with `"report_source_location", true"` option but also both `Normalizer` and `NormalizerTable` with `"report_source_offset", true"` option for each.
+When you need using `pgroonga_highlight_html` function with this `NormalizerTable`, you need to specify not only `TokenNgram` with `"report_source_location", true"` option but also both `NormalizerNFKC*` and `NormalizerTable` with `"report_source_offset", true"` option for each.
 
 Please reference [`pgroonga_highlight_html` function][highlight-html] for details.
 

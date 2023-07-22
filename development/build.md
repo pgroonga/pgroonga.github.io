@@ -27,12 +27,20 @@ Those who are newcomers to this field usually find it challenging to start contr
 #### For Debian 12 bookworm
 
 Please use following script:
-[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-debian12.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-debian12.sh)
+[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh)
+
+```bash
+./setup-devenv.sh debian-bookworm
+```
 
 #### For Ubuntu 22.04
 
 Please use following script:
-[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-ubuntu22.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-ubuntu22.sh)
+[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh)
+
+```bash
+./setup-devenv.sh ubuntu-jammy
+```
 
 
 ### Configure PostgreSQL Build

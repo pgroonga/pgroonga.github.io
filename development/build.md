@@ -20,6 +20,22 @@ Download source from [the PostgreSQL site][postgresql-source-download]. Here are
 % cd postgresql-{{ site.development_postgresql_version }}
 ```
 
+### Setting up build environment
+
+Those who are newcomers to this field usually find it challenging to start contributing to projects based in the C language, mainly due to the extensive library dependencies involved. So we provide setup script in our PGroonga source code.
+
+#### For Debian 12 bookworm
+
+Please use following script:
+[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-debian12.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-debian12.sh)
+
+#### For Ubuntu 22.04
+
+Please use following script:
+[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-ubuntu22.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-ubuntu22.sh)
+
+
+### Configure PostgreSQL Build
 Run `configure` with `CFLAGS="-O0 -g3"` argument. It enables debug build. `--prefix=/tmp/local` is optional:
 
 ```console

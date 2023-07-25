@@ -242,7 +242,7 @@ SELECT pgroonga_highlight_html('one two three four five',
 -- (1 row)
 ```
 
-## 実例：キーワード検索とハイライト
+## 実例1：キーワード検索とハイライト
 
 以下は`pgroonga_highlight_html`を使ってキーワード検索機能を実装する例です。
 
@@ -300,9 +300,69 @@ SELECT
    from posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100;
 ```
 
+## 実例2：`NormalizerTable`を使うときのキーワード検索とハイライト
+
+`CREATE INDEX USING pgroonga`のドキュメント（[`pgroonga_highlight_html`と一緒に`NormalizerTable`を使う方法セクション][create-index-using-pgroonga-normalizer-table-highlight-html]）のように`NormalizerTable`を指定した場合、指定したPGroongaのインデックスは`TokenNgram`に`"report_source_location", true"`オプションを指定するだけではなく`NormalizerNFKC*`と`NormalizerTable`の両方にそれぞれ`"report_source_offset", true"`オプションを指定してしなければいけません。
+
+以下は指定する例です。ここではたくさんの表記がある`斉藤`を使います。
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE TABLE synonyms (
+   "target" text not null,
+   "normalized" text not null
+);
+
+INSERT INTO synonyms VALUES ('齊', '斉');
+INSERT INTO synonyms VALUES ('斎', '斉');
+INSERT INTO synonyms VALUES ('齋', '斉');
+
+INSERT INTO memos  (content)  VALUES ('斎藤さんの恋愛');
+INSERT INTO memos  (content)  VALUES ('斉藤さんの失恋');
+INSERT INTO memos  (content)  VALUES ('齋藤さんの片想い');
+
+CREATE INDEX pgroonga_synonyms_index ON synonyms
+ USING pgroonga (target pgroonga_text_term_search_ops_v2)
+                INCLUDE (normalized);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (content)
+        WITH (
+         tokenizer='TokenNgram(
+                      "unify_alphabet", false,
+                      "unify_symbol", false,
+                      "unify_digit", false,
+                      "report_source_location", true
+                    )',
+         normalizers='
+               NormalizerNFKC150("report_source_offset", true),
+               NormalizerTable(
+                 "normalized", "${table:pgroonga_synonyms_index}.normalized", 
+                 "target", "target",
+                 "report_source_offset", true
+               )'
+            );
+```
+
+```sql
+select pgroonga_highlight_html(content, '{斉藤}', 'pgroonga_memos_index')
+                  from memos where content &@~ '斉藤';
+--             pgroonga_highlight_html            
+-- -----------------------------------------------
+--  <span class="keyword"></span>斎藤さんの恋愛
+--  <span class="keyword"></span>斉藤さんの失恋
+--  <span class="keyword"></span>齋藤さんの片想い
+-- (3 rows)
+```
+
 
 ## 参考
 
   * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]
 
 [query-extract-keywords]:pgroonga-query-extract-keywords.html
+[create-index-using-pgroonga-normalizer-table-highlight-html]:../create-index-using-pgroonga.html#normalizer-table-highlight-html

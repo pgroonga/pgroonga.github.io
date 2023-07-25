@@ -693,6 +693,26 @@ msgstr ""
 "`normalizations`テーブルを変更した後は`REINDEX INDEX pgroonga_memos_index`を実行しないといけないことに注"
 "意してください。なぜなら`normalizations`テーブルが変わるとノーマライズ結果も変わるからです。"
 
+msgid ""
+"##### How to use `NormalizerTable` with `pgroonga_highlight_html` {#normalizer"
+"-table-highlight-html}"
+msgstr ""
+"##### `pgroonga_highlight_html`と一緒に`NormalizerTable`を使う方法 {#normalizer-table-h"
+"ighlight-html}"
+
+msgid ""
+"When you need using `pgroonga_highlight_html` function with this `NormalizerTa"
+"ble`, you need to specify not only `TokenNgram` with `\"report_source_location\""
+", true\"` option but also both `NormalizerNFKC*` and `NormalizerTable` with `\"r"
+"eport_source_offset\", true\"` option for each."
+msgstr ""
+"この`NormalizerTable`と一緒に`pgroonga_highlight_html`関数を使うときは、`TokenNgram`に`\"report"
+"_source_location\", true\"`オプションを指定するだけでなく、`NormalizerNFKC*`と`NormalizerTable`それ"
+"ぞれに`\"report_source_offset\", true\"`オプションを指定する必要があります。"
+
+msgid "Please refer [`pgroonga_highlight_html` function][highlight-html] for details."
+msgstr "詳細は[`pgroonga_highlight_html`関数][highlight-html]を参照してください。"
+
 msgid "#### How to use token filters {#custom-token-filters}"
 msgstr "#### トークンフィルターのカスタマイズ方法 {#custom-token-filter}"
 
@@ -1031,6 +1051,13 @@ msgstr ""
 
 msgid "[mecab]:http://taku910.github.io/mecab/"
 msgstr ""
+
+msgid ""
+"[groonga-token-ngram]:https://groonga.org/docs/reference/tokenizers/token_ngra"
+"m.html"
+msgstr ""
+"[groonga-token-ngram]:https://groonga.org/ja/docs/reference/tokenizers/token_n"
+"gram.html"
 
 msgid ""
 "[groonga-token-mecab]:http://groonga.org/docs/reference/tokenizers.html#token-"

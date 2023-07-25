@@ -21,11 +21,17 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.1.0: 2023-07-12 {#version-3-1-0}"
+msgid "## 3.1.1: 2023-07-25 {#version-3-1-1}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux bookworm."
+msgstr ""
+
+msgid "## 3.1.0: 2023-07-12 {#version-3-1-0}"
+msgstr ""
 
 msgid "  * Required Groonga 13.0.2 or later."
 msgstr ""

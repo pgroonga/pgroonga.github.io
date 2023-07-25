@@ -5,6 +5,12 @@ upper_level: ../
 
 # News
 
+## 3.1.1: 2023-07-25 {#version-3-1-1}
+
+### Improvements
+
+  * [[Debian][debian]] Added support for Debian GNU/Linux bookworm.
+
 ## 3.1.0: 2023-07-12 {#version-3-1-0}
 
 ### Improvements

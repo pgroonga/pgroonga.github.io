@@ -155,7 +155,7 @@ msgstr "以下は3つ目の使い方の説明です。"
 msgid ""
 "```sql\n"
 "column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_co"
-"ndition\n"
+"ndition_with_scorers\n"
 "```"
 msgstr ""
 

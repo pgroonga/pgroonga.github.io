@@ -226,7 +226,7 @@ msgid ""
 "t.org/en/stable/explanations/install.html 😉"
 msgstr ""
 "PostgRESTのインストール方法については https://postgrest.org/en/stable/explanations/"
-:install.html を参考にしてね😉"
+"install.html を参考にしてね😉"
 
 msgid ""
 "## Access the URL\n"

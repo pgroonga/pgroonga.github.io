@@ -76,7 +76,7 @@ It's available since 2.0.6.
 Here is the description of the third signature.
 
 ```sql
-column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition
+column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
 ```
 
 `column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.

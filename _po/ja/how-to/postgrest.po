@@ -55,7 +55,7 @@ msgstr "PGroongaの便利な機能を使うには、それらの機能に応じ�
 msgid ""
 "In this example, we will create a memo table and create indexes that enable th"
 "e following search functionalities for each column:"
-msgstr "この例では、memoテーブルを作成し、後に続く検索機能に必要なインデックスをそれぞれのカラムに対して作成して行きます:"
+msgstr "この例では、memoテーブルを作成し、後に続く検索機能に必要なインデックスをそれぞれのカラムに対して作成します。"
 
 msgid ""
 "- Treating hiragana and katakana as equivalent (searching for \"あっぷる\" will matc"

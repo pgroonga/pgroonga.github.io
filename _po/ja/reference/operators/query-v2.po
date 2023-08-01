@@ -324,6 +324,11 @@ msgstr ""
 "```"
 
 msgid ""
+"You can find more suitable records against the given query with [`pgroonga_sco"
+"re` function][score]:"
+msgstr "より指定したクエリーにマッチしたレコードを探すためには[`pgroonga_score`関数][score]を使えます。"
+
+msgid ""
 "```sql\n"
 "SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
 "  FROM memos\n"

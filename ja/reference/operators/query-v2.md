@@ -187,7 +187,7 @@ INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGro
 INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
 ```
 
-You can find more suitable records against the given query with [`pgroonga_score` function][score]:
+より指定したクエリーにマッチしたレコードを探すためには[`pgroonga_score`関数][score]を使えます。
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score

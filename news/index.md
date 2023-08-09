@@ -18,6 +18,12 @@ upper_level: ../
   * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]
     Added support for parallel WAL application.
 
+  * [[Crash safe][crash-safe]] Changed behavior for a new connection
+    when `pgroonga-crash-safer` is preparing. New behavior is blocking
+    while `pgroonga-crash-safer` is preparing. Old behavior is
+    rejecting a new connection while `pgroonga-crash-safer` is
+    preparing.
+
 ### Fixes
 
   * Fixed a crash bug in sequential search. This may be occurred only

@@ -18,7 +18,19 @@ upper_level: ../
   * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]
     Added support for parallel WAL application.
 
+  * [[Crash safe][crash-safe]] Changed behavior for a new connection
+    when `pgroonga-crash-safer` is preparing. New behavior is blocking
+    while `pgroonga-crash-safer` is preparing. Old behavior is
+    rejecting a new connection while `pgroonga-crash-safer` is
+    preparing.
+
 ### 修正
+
+  * Fixed a crash bug in sequential search. This may be occurred only
+    when you use `NormalizerTable` in your index and specify the index
+    that uses `NormalizerTable` by
+    `pgroonga_full_text_search_condition` or
+    `pgroonga_full_text_search_condition_with_scorers`.
 
 ## 3.1.1: 2023-07-25 {#version-3-1-1}
 

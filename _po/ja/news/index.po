@@ -43,14 +43,6 @@ msgid ""
 "    Added support for parallel WAL application."
 msgstr ""
 
-msgid ""
-"  * [[Crash safe][crash-safe]] Changed behavior for a new connection\n"
-"    when `pgroonga-crash-safer` is preparing. New behavior is blocking\n"
-"    while `pgroonga-crash-safer` is preparing. Old behavior is\n"
-"    rejecting a new connection while `pgroonga-crash-safer` is\n"
-"    preparing."
-msgstr ""
-
 msgid "### Fixes"
 msgstr "### 修正"
 

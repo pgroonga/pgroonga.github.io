@@ -613,6 +613,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 2.3.3で追加。
 
+  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]
+
+    * 3.1.2で追加。
+
   * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-maintainer-naptime]
 
     * 2.4.2で追加。
@@ -739,6 +743,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
 
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
 
 [pgroonga-check]:modules/pgroonga-check.html

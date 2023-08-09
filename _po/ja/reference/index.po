@@ -658,6 +658,16 @@ msgid "  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-
 msgstr "  * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]"
 
 msgid ""
+"  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter]"
+"[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]"
+msgstr ""
+"  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター][pgr"
+"oonga-standby-maintainer-max-parallel-wal-appliers-per-db]"
+
+msgid "    * Since 3.1.2."
+msgstr "    * 3.1.2で追加。"
+
+msgid ""
 "  * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintai"
 "ner-naptime]"
 msgstr ""
@@ -841,6 +851,8 @@ msgid ""
 msgstr ""
 
 msgid ""
+"[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgro"
+"onga-standby-maintainer-max-parallel-wal-appliers-per-db.html\n"
 "[pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-n"
 "aptime.html"
 msgstr ""

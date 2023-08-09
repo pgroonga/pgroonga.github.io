@@ -21,11 +21,33 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.1.1: 2023-07-25 {#version-3-1-1}"
+msgid "## 3.1.2: 2023-08-09 {#version-3-1-2}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[Crash safe][crash-safe]] Added support for resetting WAL applied\n"
+"    position automatically on startup only on primary."
+msgstr ""
+
+msgid ""
+"    Note that this is not done on standbys because WAL applied\n"
+"    position may not be the latest on standbys."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter"
+"][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]\n"
+"    Added support for parallel WAL application."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "## 3.1.1: 2023-07-25 {#version-3-1-1}"
+msgstr ""
 
 msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux bookworm."
 msgstr ""
@@ -38,9 +60,6 @@ msgstr ""
 
 msgid "  * Added support for backtrace on `abort()`."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a potential crash bug when `VACUUM` including auto `VACUUM`\n"
@@ -2775,6 +2794,11 @@ msgid ""
 "log-level.html\n"
 "[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-l"
 "og-path.html"
+msgstr ""
+
+msgid ""
+"[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/pa"
+"rameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html"
 msgstr ""
 
 msgid ""

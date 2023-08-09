@@ -5,6 +5,27 @@ upper_level: ../
 
 # News
 
+## 3.1.2: 2023-08-09 {#version-3-1-2}
+
+### Improvements
+
+  * [[Crash safe][crash-safe]] Added support for resetting WAL applied
+    position automatically on startup only on primary.
+
+    Note that this is not done on standbys because WAL applied
+    position may not be the latest on standbys.
+
+  * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]
+    Added support for parallel WAL application.
+
+### Fixes
+
+  * Fixed a crash bug in sequential search. This may be occurred only
+    when you use `NormalizerTable` in your index and specify the index
+    that uses `NormalizerTable` by
+    `pgroonga_full_text_search_condition` or
+    `pgroonga_full_text_search_condition_with_scorers`.
+
 ## 3.1.1: 2023-07-25 {#version-3-1-1}
 
 ### Improvements
@@ -2014,6 +2035,8 @@ The first release!!!
 [pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html
+
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 
 [pgroonga-wal-applier-naptime]:../reference/parameters/pgroonga-wal-applier-naptime.html
 

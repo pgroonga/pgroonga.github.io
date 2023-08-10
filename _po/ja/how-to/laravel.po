@@ -156,6 +156,7 @@ msgid ""
 "```shell\n"
 "php artisan make:model -mc Post\n"
 "```"
+msgstr ""
 
 msgid "This command will create three files for you:"
 msgstr "このコマンドは次のファイルを生成します:"

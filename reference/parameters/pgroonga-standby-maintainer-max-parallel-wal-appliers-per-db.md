@@ -13,7 +13,7 @@ The `pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter con
 
 If this value is 1 or larger, `pgroonga_wal_apply()` for each PGroonga index is executed in a new background worker process. If you have enough resource to run `pgroonga_wal_apply()` in parallel, you can reduce total WAL application time by specifying a large value such as 6.
 
-Note that you may need to increase [`max_worker_processes`](postgresql-max-worker-processes) when you specify a large value to this parameter. If you specify a large value, you may need to use many worker processes at the same time.
+Note that you may need to increase [`max_worker_processes`][postgresql-max-worker-processes] when you specify a large value to this parameter. If you specify a large value, you may need to use many worker processes at the same time.
 
 Note that this parameter controls parallel level per database. If you have 2 databases that use PGroonga and specify 6 to this parameter, 12 background worker processes may be used for `pgroonga_wal_apply()` at the same time.
 
@@ -45,8 +45,10 @@ pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db = 6
 
   * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]
 
-[postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
+  * [The `max_worker_processes` parameter][postgresql-max-worker-processes]
 
 [pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html
 
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
+
+[postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES

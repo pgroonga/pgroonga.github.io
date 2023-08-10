@@ -88,7 +88,7 @@ msgid "  * [Streaming replication][streaming-replication]"
 msgstr " * [ストリーミングレプリケーション][streaming-replication]"
 
 msgid "  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
-msgstr "  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]"
+msgstr "  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]"
 
 msgid "[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
 msgstr ""

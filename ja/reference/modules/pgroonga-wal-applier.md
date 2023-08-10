@@ -35,7 +35,7 @@ shared_preload_libraries = 'pgroonga_wal_applier'
 
  * [ストリーミングレプリケーション][streaming-replication]
 
-  * [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer]
+  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]
 
 [pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html
 

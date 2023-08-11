@@ -28,13 +28,13 @@ msgstr "## サポートしているバージョン"
 msgid "Here are supported Ubuntu versions:"
 msgstr "サポートしているUbuntuのバージョンは次の通りです。"
 
-msgid "  * Ubuntu 18.04"
+msgid "  * Ubuntu 22.04"
 msgstr ""
 
 msgid "  * Ubuntu 20.04"
 msgstr ""
 
-msgid "  * Ubuntu 22.04"
+msgid "  * Ubuntu 18.04"
 msgstr ""
 
 msgid "## How to install for system PostgreSQL {#install-for-system-postgresql}"

@@ -23,13 +23,15 @@ upper_level: ../
 
   * [Debian GNU/Linux](debian.html)
 
+    * bookworm
+
     * bullseye
 
   * [Ubuntu](ubuntu.html)
 
-    * 20.04
-
     * 22.04
+
+    * 20.04
 
   * [CentOS](centos.html)
 
@@ -37,9 +39,9 @@ upper_level: ../
 
   * [AlmaLinux](almalinux.html)
 
-    * 8
-
     * 9
+
+    * 8
 
   * [Amazon Linux](amazon-linux.html)
 

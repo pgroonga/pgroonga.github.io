@@ -51,16 +51,19 @@ msgstr "次の中から自分のプラットフォーム用のドキュメント
 msgid "  * [Debian GNU/Linux](debian.html)"
 msgstr ""
 
+msgid "    * bookworm"
+msgstr ""
+
 msgid "    * bullseye"
 msgstr ""
 
 msgid "  * [Ubuntu](ubuntu.html)"
 msgstr ""
 
-msgid "    * 20.04"
+msgid "    * 22.04"
 msgstr ""
 
-msgid "    * 22.04"
+msgid "    * 20.04"
 msgstr ""
 
 msgid "  * [CentOS](centos.html)"
@@ -72,10 +75,10 @@ msgstr ""
 msgid "  * [AlmaLinux](almalinux.html)"
 msgstr ""
 
-msgid "    * 8"
+msgid "    * 9"
 msgstr ""
 
-msgid "    * 9"
+msgid "    * 8"
 msgstr ""
 
 msgid "  * [Amazon Linux](amazon-linux.html)"

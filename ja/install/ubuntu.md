@@ -10,11 +10,11 @@ title: Ubuntuにインストール
 
 サポートしているUbuntuのバージョンは次の通りです。
 
-  * Ubuntu 18.04
+  * Ubuntu 22.04
 
   * Ubuntu 20.04
 
-  * Ubuntu 22.04
+  * Ubuntu 18.04
 
 ## システムのPostgreSQL用のインストール方法 {#install-for-system-postgresql}
 

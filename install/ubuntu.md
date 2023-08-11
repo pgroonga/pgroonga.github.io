@@ -10,11 +10,11 @@ This document describes how to install PGroonga on Ubuntu.
 
 Here are supported Ubuntu versions:
 
-  * Ubuntu 18.04
+  * Ubuntu 22.04
 
   * Ubuntu 20.04
 
-  * Ubuntu 22.04
+  * Ubuntu 18.04
 
 ## How to install for system PostgreSQL {#install-for-system-postgresql}
 

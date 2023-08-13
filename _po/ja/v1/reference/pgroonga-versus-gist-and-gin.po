@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:1
 msgid ""
 "---\n"
 "title: PGroonga versus GiST and GIN\n"
@@ -17,52 +31,60 @@ msgstr ""
 "title: PGroonga対GiST・GIN\n"
 "---"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:5
 msgid "# PGroonga versus GiST and GIN"
 msgstr "# PGroonga対GiST・GIN"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:7
 msgid ""
-"PostgreSQL provides GiST and GIN as bundled indexes. You can use them for full"
-" text search against languages that use only alphabet and digit such as Englis"
-"h. You can't use them for full text search against Japanese, Chinese and so on"
-"."
+"PostgreSQL provides GiST and GIN as bundled indexes. You can use them for "
+"full text search against languages that use only alphabet and digit such as "
+"English. You can't use them for full text search against Japanese, Chinese "
+"and so on."
 msgstr ""
-"PostgreSQLは組み込みのインデックスとしてGiSTとGINを提供しています。これらを使って英語のようにアルファベットと数字だけからなる言語用の全文検"
-"索を実現することができます。しかし、日本語や中国語などのような言語用の全文検索は実現することはできません。"
+"PostgreSQLは組み込みのインデックスとしてGiSTとGINを提供しています。これらを使って英語のようにアルファベットと数字だけからなる言語用の全文検索を実現することができます。しかし、日本語や中国語などのような言語用の全文検索は実現することはできません。"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:9
 msgid ""
-"PGroonga's main feature is fast full text search against all languages. But PG"
-"roonga also provides general propose index features for equality condition and"
-" comparison conditions. PGroonga provides more features rather than GiST and G"
-"IN. So you can use PGroonga as alternative of GiST and GIN."
+"PGroonga's main feature is fast full text search against all languages. But "
+"PGroonga also provides general propose index features for equality condition"
+" and comparison conditions. PGroonga provides more features rather than GiST"
+" and GIN. So you can use PGroonga as alternative of GiST and GIN."
 msgstr ""
-"PGroongaの重要な機能はすべての言語に対する全文検索機能です。PGroongaの機能はそれだけではありません。PGroongaは等価条件・比較条件で使"
-"える一般的な用途向けのインデックス機能も提供しています。PGroongaはGiST・GINより多くの機能を提供しています。そのため、GiST・GINの代わり"
-"にPGroongaを使うことができます。"
+"PGroongaの重要な機能はすべての言語に対する全文検索機能です。PGroongaの機能はそれだけではありません。PGroongaは等価条件・比較条件で使える一般的な用途向けのインデックス機能も提供しています。PGroongaはGiST・GINより多くの機能を提供しています。そのため、GiST・GINの代わりにPGroongaを使うことができます。"
 
-msgid "This document describes about difference between PGroonga, GiST and GIN."
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:11
+msgid ""
+"This document describes about difference between PGroonga, GiST and GIN."
 msgstr "このドキュメントはPGroonga・GiST・GINの違いを説明します。"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:13
 msgid "## Characteristics"
 msgstr "## 特徴"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:15
 msgid ""
-"[PostgreSQL document describes about characteristics of GiST and GIN]({{ site."
-"postgresql_doc_base_url.en }}/textsearch-indexes.html). In short, searching by"
-" GiST is slower than searching by GIN but updating GiST is faster than updatin"
-"g GIN. GIN uses more disk space than GiST."
+"[PostgreSQL document describes about characteristics of GiST and GIN]({{ "
+"site.postgresql_doc_base_url.en }}/textsearch-indexes.html). In short, "
+"searching by GiST is slower than searching by GIN but updating GiST is "
+"faster than updating GIN. GIN uses more disk space than GiST."
 msgstr ""
-"[PostgreSQLのドキュメントはGiSTとGINの特徴を説明]({{ site.postgresql_doc_base_url.ja }}/texts"
-"earch-indexes.html)しています。手短にまとめると次の通りです。GiSTの検索はGINよりも遅いですが、GiSTの更新はGINよりも速いです"
-"。GINはGiSTよりも多くのディスク領域を使います。"
+"[PostgreSQLのドキュメントはGiSTとGINの特徴を説明]({{ site.postgresql_doc_base_url.ja "
+"}}/textsearch-"
+"indexes.html)しています。手短にまとめると次の通りです。GiSTの検索はGINよりも遅いですが、GiSTの更新はGINよりも速いです。GINはGiSTよりも多くのディスク領域を使います。"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:17
 msgid ""
-"Searching by PGroonga is faster than GIN and updating PGroonga is faster than "
-"GiST. But PGroonga uses more disk space than GIN and GiST."
-msgstr "PGroongaの検索はGINよりも速く、更新はGiSTよりも速いです。しかし、PGroongaはGIN・GiSTよりも多くのディスク領域を使います。"
+"Searching by PGroonga is faster than GIN and updating PGroonga is faster "
+"than GiST. But PGroonga uses more disk space than GIN and GiST."
+msgstr ""
+"PGroongaの検索はGINよりも速く、更新はGiSTよりも速いです。しかし、PGroongaはGIN・GiSTよりも多くのディスク領域を使います。"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:19
 msgid "Here is a table that shows the above characteristics:"
 msgstr "これらの特徴をまとめたものが以下の表です。"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:21
 msgid ""
 "Index    | Search      | Update      | Disk usage\n"
 "-------- | ----------- | ----------- | ----------\n"
@@ -76,18 +98,22 @@ msgstr ""
 "GiST        | 遅い       | 速い       | 少ない\n"
 "PGroonga    | もっと速い | もっと速い | もっと多い"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:27
 msgid "## Benchmark"
 msgstr "## ベンチマーク"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:29
 msgid "See the following documents for PGroonga and GIN performance:"
 msgstr "PGroongとGINのパフォーマンスに関しては次のドキュメントを参照してください。"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:31
 msgid ""
-"  * [PGroonga versus textsearch and pg\\_trgm](pgroonga-versus-textsearch-and-p"
-"g-trgm.html)"
+"  * [PGroonga versus textsearch and pg\\_trgm](pgroonga-versus-textsearch-"
+"and-pg-trgm.html)"
 msgstr ""
-"  * [PGroonga対textsearch対pg\\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html"
-")"
+"  * [PGroonga対textsearch対pg\\_trgm](pgroonga-versus-textsearch-and-pg-"
+"trgm.html)"
 
+#: ../../../../v1/reference/pgroonga-versus-gist-and-gin.md:33
 msgid "  * [PGroonga versus pg\\_bigm](pgroonga-versus-pg-bigm.html)"
 msgstr "  * [PGroonga対pg\\_bigm](pgroonga-versus-pg-bigm.html)"

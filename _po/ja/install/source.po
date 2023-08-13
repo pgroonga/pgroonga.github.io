@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../install/source.md:1
 msgid ""
 "---\n"
 "title: Install from source\n"
@@ -16,37 +31,45 @@ msgstr ""
 "title: ソースからインストール\n"
 "---"
 
+#: ../../../install/source.md:5
 msgid "# Install from source"
 msgstr "# ソースからインストール"
 
+#: ../../../install/source.md:7
 msgid "This document describes how to build and install PGroonga from source."
 msgstr "このドキュメントはソースからPGroongaをビルドしてインストールする方法を説明します。"
 
+#: ../../../install/source.md:9
 msgid ""
-"Build and install instruction is different between on Windows and on non Windo"
-"ws. This document describes it separately."
+"Build and install instruction is different between on Windows and on non "
+"Windows. This document describes it separately."
 msgstr "ビルド・インストール方法はWindowsとWindows以外のプラットフォームで違います。このドキュメントではそれぞれ別々に説明します。"
 
+#: ../../../install/source.md:11
 msgid "  * [On non Windows](#non-windows)"
 msgstr "  * [Windows以外のプラットフォーム](#non-windows)"
 
+#: ../../../install/source.md:13
 msgid "  * [On Windows](#windows)"
 msgstr "  * [Windows](#windows)"
 
+#: ../../../install/source.md:15
 msgid "## On non Windows {#non-windows}"
 msgstr "## Windows以外のプラットフォーム {#non-windows}"
 
+#: ../../../install/source.md:17
 msgid "Install PostgreSQL."
 msgstr "PostgreSQLをインストールします。"
 
+#: ../../../install/source.md:19
 msgid ""
-"[Install Groonga](http://groonga.org/docs/install.html). We recommend that you"
-" use package. If you use package to install Groonga, install the following pac"
-"kage:"
+"[Install Groonga](http://groonga.org/docs/install.html). We recommend that "
+"you use package. If you use package to install Groonga, install the "
+"following package:"
 msgstr ""
-"[Groongaをインストール](http://groonga.org/ja/docs/install.html)します。パッケージを使うことをおすすめしま"
-"す。パッケージを使ってGroongaをインストールする場合は次のパッケージをインストールしてください。"
+"[Groongaをインストール](http://groonga.org/ja/docs/install.html)します。パッケージを使うことをおすすめします。パッケージを使ってGroongaをインストールする場合は次のパッケージをインストールしてください。"
 
+#: ../../../install/source.md:21
 msgid ""
 "  * `groonga-devel`: on CentOS\n"
 "  * `libgroonga-dev`: on Debian/GNU Linux and Ubuntu"
@@ -54,21 +77,25 @@ msgstr ""
 "  * `groonga-devel`: CentOSの場合\n"
 "  * `libgroonga-dev`: Debian/GNU LinuxとUbuntuの場合"
 
+#: ../../../install/source.md:24
 msgid "Extract PGroonga source:"
 msgstr "PGroongaのソースを展開します。"
 
+#: ../../../install/source.md:26
 msgid ""
 "```console\n"
-"% wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_"
-"version }}.tar.gz\n"
+"% wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz\n"
 "% tar xvf pgroonga-{{ site.pgroonga_version }}.tar.gz\n"
 "% cd pgroonga-{{ site.pgroonga_version }}\n"
 "```"
 msgstr ""
 
-msgid "FYI: If you want to use the unreleased latest version, use the followings:"
+#: ../../../install/source.md:32
+msgid ""
+"FYI: If you want to use the unreleased latest version, use the followings:"
 msgstr "参考：未リリースの最新版を使いたい場合は次のようにしてください。"
 
+#: ../../../install/source.md:34
 msgid ""
 "```console\n"
 "% git clone --recursive https://github.com/pgroonga/pgroonga.git\n"
@@ -76,41 +103,51 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../install/source.md:39
 msgid "Build PGroonga. There are some options:"
 msgstr "PGroongaをビルドします。いくつかオプションがあります。"
 
+#: ../../../install/source.md:41
 msgid ""
-"  * `HAVE_MSGPACK=1`: It's required for WAL support. You need [msgpack-c](http"
-"s://github.com/msgpack/msgpack-c) 1.4.1 or later. You can use `libmsgpack-dev`"
-" package on Debian based platform and `msgpack-devel` package in [EPEL](https:"
-"//fedoraproject.org/wiki/EPEL) on CentOS 7."
+"  * `HAVE_MSGPACK=1`: It's required for WAL support. You need "
+"[msgpack-c](https://github.com/msgpack/msgpack-c) 1.4.1 or later. You can "
+"use `libmsgpack-dev` package on Debian based platform and `msgpack-devel` "
+"package in [EPEL](https://fedoraproject.org/wiki/EPEL) on CentOS 7."
 msgstr ""
-"  * `HAVE_MSGPACK=1`：WALサポート付きでビルドするときは必須です。[msgpack-c](https://github.com/msg"
-"pack/msgpack-c) 1.4.1以降が必要です。Debianベースのプラットフォームでは`libmsgpack-dev`パッケージを使えます。Ce"
-"ntOS 7では[EPEL](https://fedoraproject.org/wiki/EPEL/ja)にある`msgpack-devel`パッケージを"
-"使えます。"
+"  * "
+"`HAVE_MSGPACK=1`：WALサポート付きでビルドするときは必須です。[msgpack-c](https://github.com/msgpack/msgpack-c)"
+" 1.4.1以降が必要です。Debianベースのプラットフォームでは`libmsgpack-dev`パッケージを使えます。CentOS "
+"7では[EPEL](https://fedoraproject.org/wiki/EPEL/ja)にある`msgpack-"
+"devel`パッケージを使えます。"
 
-msgid "Use the following command line when you want to build with WAL support:"
+#: ../../../install/source.md:43
+msgid ""
+"Use the following command line when you want to build with WAL support:"
 msgstr "WALサポート付きでビルドしたい場合は次のコマンドラインを使います。"
 
+#: ../../../install/source.md:45
 msgid ""
 "```console\n"
 "% make HAVE_MSGPACK=1\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:49
 msgid "Use the following command line when you don't need WAL support:"
 msgstr "WALサポートが必要ない場合は次のコマンドラインを使います。"
 
+#: ../../../install/source.md:51
 msgid ""
 "```console\n"
 "% make\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:55
 msgid "If you get any error, confirm the followings:"
 msgstr "エラーが発生した場合は次のことを確認してください。"
 
+#: ../../../install/source.md:57
 msgid ""
 "  * `pg_config` command exists at any path in `PATH` environment variable.\n"
 "  * `pkg-config --list-all` includes `groonga`."
@@ -118,70 +155,81 @@ msgstr ""
 "  * `PATH`環境変数内のパスに`pg_config`コマンドが存在していること。\n"
 "  * `pkg-config --list-all`に`groonga`が含まれていること。"
 
+#: ../../../install/source.md:60
 msgid ""
-"If `pg_config` command doesn't exist, you may forget to install the developmen"
-"t package of PostgreSQL."
+"If `pg_config` command doesn't exist, you may forget to install the "
+"development package of PostgreSQL."
 msgstr "もし、`pg_config`コマンドが存在しない場合、PostgreSQLの開発用パッケージをインストールし忘れているかもしれません。"
 
+#: ../../../install/source.md:62
 msgid ""
-"If `pkg-config --list-all` doesn't include `groonga`, you may forget to instal"
-"l the development package of Groonga. Or `groonga.pc` is installed into non-st"
-"andard directory. You can use `PKG_CONFIG_PATH` environment variable for the c"
-"ase."
+"If `pkg-config --list-all` doesn't include `groonga`, you may forget to "
+"install the development package of Groonga. Or `groonga.pc` is installed "
+"into non-standard directory. You can use `PKG_CONFIG_PATH` environment "
+"variable for the case."
 msgstr ""
-"もし、`pkg-config --list-all`に`groonga`が含まれていない場合、Groongaの開発用パッケージをインストールし忘れているかも"
-"しれません。あるいは、`groonga.pc`が標準的なディレクトリーではないディレクトリーにインストールされているのかもしれません。その場合は`PKG_C"
-"ONFIG_PATH`環境変数を使ってください。"
+"もし、`pkg-config --list-"
+"all`に`groonga`が含まれていない場合、Groongaの開発用パッケージをインストールし忘れているかもしれません。あるいは、`groonga.pc`が標準的なディレクトリーではないディレクトリーにインストールされているのかもしれません。その場合は`PKG_CONFIG_PATH`環境変数を使ってください。"
 
-msgid "Here is an example when you install Groonga with `--prefix=/usr/local`:"
+#: ../../../install/source.md:64
+msgid ""
+"Here is an example when you install Groonga with `--prefix=/usr/local`:"
 msgstr "以下は`--prefix=/usr/local`オプション付きでGroongaをインストールした場合の例です。"
 
+#: ../../../install/source.md:66
 msgid ""
 "```console\n"
 "% PKG_CONFIG_PATH=/usr/local/lib/pkg-config make\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:70
 msgid "Install PGroonga:"
 msgstr "PGroongaをインストールします。"
 
+#: ../../../install/source.md:72
 msgid ""
 "```console\n"
 "% sudo make install\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:76
 msgid ""
-"If you use SELinux, you must create a policy package(.pp) and install it. PGro"
-"onga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is not a"
-"llowed by default. First, install `policycoreutils` and `checkpolicy`."
+"If you use SELinux, you must create a policy package(.pp) and install it. "
+"PGroonga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is"
+" not allowed by default. First, install `policycoreutils` and `checkpolicy`."
 msgstr ""
-"もし、SELinuxを使っているなら、ポリシーパッケージ(.pp)を作成し、インストールしなければなりません。PGroongaは、 `<data dir>/"
-"pgrn*` ファイルをメモリー内にマップさせますが、これはデフォルトでは許可されていません。初めに、 `policycoreutils` と `check"
-"policy` をインストールします。 "
+"もし、SELinuxを使っているなら、ポリシーパッケージ(.pp)を作成し、インストールしなければなりません。PGroongaは、 `<data "
+"dir>/pgrn*` ファイルをメモリー内にマップさせますが、これはデフォルトでは許可されていません。初めに、 `policycoreutils` と"
+" `checkpolicy` をインストールします。 "
 
+#: ../../../install/source.md:78
 msgid ""
 "```console\n"
 "% sudo dnf install policycoreutils checkpolicy\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:82
 msgid ""
-"Let's assume that PostgreSQL binaries are of type `postgresql_t` and PostgreSQ"
-"L data files are of type `postgresql_db_t`. Allow `postgresql_t` type to memor"
-"y map files of type `postgresql_db_t`. Then compile it (.mod), package it (.pp"
-") and install the resulting policy package."
+"Let's assume that PostgreSQL binaries are of type `postgresql_t` and "
+"PostgreSQL data files are of type `postgresql_db_t`. Allow `postgresql_t` "
+"type to memory map files of type `postgresql_db_t`. Then compile it (.mod), "
+"package it (.pp) and install the resulting policy package."
 msgstr ""
-"PostgreSQLのバイナリーのタイプを `postgresql_t` 、 PostgreSQｌのデータファイルのタイプを `postgresql_db_"
-"t` とします。 `postgresql_t` が `postgresql_db_t` のファイルをメモリーにマップすることを許可します。そして、それをコン"
-"パイル(.mod)、パッケージ(.pp)したポリシーパッケージをインストールします。"
+"PostgreSQLのバイナリーのタイプを `postgresql_t` 、 PostgreSQｌのデータファイルのタイプを "
+"`postgresql_db_t` とします。 `postgresql_t` が `postgresql_db_t` "
+"のファイルをメモリーにマップすることを許可します。そして、それをコンパイル(.mod)、パッケージ(.pp)したポリシーパッケージをインストールします。"
 
+#: ../../../install/source.md:85
 msgid ""
 "```console\n"
 "% cat > my-pgroonga.te << EOF\n"
 "module my-pgroonga 1.0;"
 msgstr ""
 
+#: ../../../install/source.md:89
 msgid ""
 "require {\n"
 "    type postgresql_t;\n"
@@ -190,11 +238,13 @@ msgid ""
 "}"
 msgstr ""
 
+#: ../../../install/source.md:95
 msgid ""
 "allow postgresql_t postgresql_db_t:file map;\n"
 "EOF"
 msgstr ""
 
+#: ../../../install/source.md:98
 msgid ""
 "% checkmodule -M -m -o my-pgroonga.mod my-pgroonga.te\n"
 "% semodule_package -o my-pgroonga.pp -m my-pgroonga.mod\n"
@@ -202,154 +252,177 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../install/source.md:103 ../../../install/source.md:167
 msgid "Create a database:"
 msgstr "データベースを作成します。"
 
+#: ../../../install/source.md:105
 msgid ""
 "```console\n"
 "% psql --command 'CREATE DATABASE pgroonga_test'\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:109 ../../../install/source.md:173
 msgid ""
-"(Normally, you should create a user for `pgroonga_test` database and use the u"
-"ser. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema"
-"-pgroonga.html) for details.)"
+"(Normally, you should create a user for `pgroonga_test` database and use the"
+" user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-"
+"schema-pgroonga.html) for details.)"
 msgstr ""
-"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pg"
-"roonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）"
+"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA "
+"pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）"
 
-msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+#: ../../../install/source.md:111 ../../../install/source.md:175
+msgid ""
+"Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
 msgstr "作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。"
 
+#: ../../../install/source.md:113
 msgid ""
 "```console\n"
 "% psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga;'\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:117 ../../../install/source.md:182
 msgid "That's all!"
 msgstr "これで終わりです！"
 
+#: ../../../install/source.md:119 ../../../install/source.md:184
 msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
 msgstr "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"
 
+#: ../../../install/source.md:121
 msgid "## On Windows {#windows}"
 msgstr "## Windows {#windows}"
 
+#: ../../../install/source.md:123
 msgid ""
-"Here is a list of required software to build and install PGroonga from source."
-" Install them:"
+"Here is a list of required software to build and install PGroonga from "
+"source. Install them:"
 msgstr "ソースからPGroongaをビルド・インストールするために必要なソフトウェアは次の通りです。これらをインストールしてください。"
 
+#: ../../../install/source.md:125
 msgid "  * PostgreSQL (You can choose installer version or zip version.)"
 msgstr "  * PostgreSQL（インストーラーバージョンでもzipバージョンでもどちらでも構いません。）"
 
+#: ../../../install/source.md:127
 msgid ""
-"    * [Installer version](http://www.enterprisedb.com/products-services-traini"
-"ng/pgdownload)"
+"    * [Installer version](http://www.enterprisedb.com/products-services-"
+"training/pgdownload)"
 msgstr ""
-"    * [インストーラーバージョン](http://www.enterprisedb.com/products-services-training/pg"
-"download)"
+"    * [インストーラーバージョン](http://www.enterprisedb.com/products-services-"
+"training/pgdownload)"
 
+#: ../../../install/source.md:129
 msgid ""
-"    * [Zip version](http://www.enterprisedb.com/products-services-training/pgb"
-"indownload)"
+"    * [Zip version](http://www.enterprisedb.com/products-services-"
+"training/pgbindownload)"
 msgstr ""
-"    * [zipバージョン](http://www.enterprisedb.com/products-services-training/pgbind"
-"ownload)"
+"    * [zipバージョン](http://www.enterprisedb.com/products-services-"
+"training/pgbindownload)"
 
+#: ../../../install/source.md:131
 msgid ""
-"  * [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.vis"
-"ualstudio.com/downloads/#d-2013-express)"
+"  * [Microsoft Visual Studio Express 2013 for Windows "
+"Desktop](https://www.visualstudio.com/downloads/#d-2013-express)"
 msgstr ""
 
+#: ../../../install/source.md:133
 msgid "  * [CMake](http://www.cmake.org/)"
 msgstr ""
 
+#: ../../../install/source.md:135
 msgid ""
-"Download PGroonga source archive for Windows from packages.groonga.org. Source"
-" archive for Windows is zip file. Source archive for Windows bundles Groonga."
+"Download PGroonga source archive for Windows from packages.groonga.org. "
+"Source archive for Windows is zip file. Source archive for Windows bundles "
+"Groonga."
 msgstr ""
-"packages.groonga.orgからWindows用のPGroongaソースアーカイブをダウンロードしてください。Windows用のソースアーカイブ"
-"はzipファイルです。Windows用のソースアーカイブにはGroongaがバンドルされています。"
+"packages.groonga.orgからWindows用のPGroongaソースアーカイブをダウンロードしてください。Windows用のソースアーカイブはzipファイルです。Windows用のソースアーカイブにはGroongaがバンドルされています。"
 
+#: ../../../install/source.md:137
 msgid ""
-"  * [pgroonga-{{ site.pgroonga_version }}](https://packages.groonga.org/source"
-"/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)"
+"  * [pgroonga-{{ site.pgroonga_version "
+"}}](https://packages.groonga.org/source/pgroonga/pgroonga-{{ "
+"site.pgroonga_version }}.zip)"
 msgstr ""
 
+#: ../../../install/source.md:139
 msgid "Extract the downloaded source archive and move to source folder:"
 msgstr "ダウンロードしたソースアーカイブを展開し、ソースフォルダーに移動してください。"
 
+#: ../../../install/source.md:141
 msgid ""
 "```text\n"
 "> cd c:\\Users\\%USERNAME%\\Downloads\\pgroonga-{{ site.pgroonga_version }}\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:145
 msgid ""
-"Specify build option by `cmake`. The following command line is for building PG"
-"roonga for 64bit version PostgreSQL. If you want to build for 32bit version Po"
-"stgreSQL, use `-G \"Visual Studio 12 2013\"` parameter instead:"
+"Specify build option by `cmake`. The following command line is for building "
+"PGroonga for 64bit version PostgreSQL. If you want to build for 32bit "
+"version PostgreSQL, use `-G \"Visual Studio 12 2013\"` parameter instead:"
 msgstr ""
-"`cmake`のビルドオプションを指定します。64bitバージョンのPostgreSQL用にPGroongaをビルドするためのコマンドラインは次の通りです。"
-"もし、32bitバージョンのPostgreSQL用にビルドしたい場合は、代わりに`-G \"Visual Studio 12 2013\"`パラメーターを使って"
-"ください。"
+"`cmake`のビルドオプションを指定します。64bitバージョンのPostgreSQL用にPGroongaをビルドするためのコマンドラインは次の通りです。もし、32bitバージョンのPostgreSQL用にビルドしたい場合は、代わりに`-G"
+" \"Visual Studio 12 2013\"`パラメーターを使ってください。"
 
+#: ../../../install/source.md:147
 msgid ""
 "```text\n"
-"pgroonga-{{ site.pgroonga_version }}> cmake . -G \"Visual Studio 12 2013 Win64\""
-" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER% -DGRN_WITH_BUNDLED_LZ4=yes"
-" -DGRN_WITH_BUNDLED_MECAB=yes -DGRN_WITH_BUNDLED_MESSAGE_PACK=yes -DGRN_WITH_M"
-"RUBY=yes\n"
+"pgroonga-{{ site.pgroonga_version }}> cmake . -G \"Visual Studio 12 2013 Win64\" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER% -DGRN_WITH_BUNDLED_LZ4=yes -DGRN_WITH_BUNDLED_MECAB=yes -DGRN_WITH_BUNDLED_MESSAGE_PACK=yes -DGRN_WITH_MRUBY=yes\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:151
 msgid ""
-"If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:"
-"\\Program Files\\PostgreSQL\\%POSTGRESQL_VERSION%`."
+"If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is "
+"`C:\\Program Files\\PostgreSQL\\%POSTGRESQL_VERSION%`."
 msgstr ""
-"インストーラーを使ってPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`C:\\Program Fil"
-"es\\PostgreSQL\\%POSTGRESQL_VERSION%`になります。"
+"インストーラーを使ってPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`C:\\Program "
+"Files\\PostgreSQL\\%POSTGRESQL_VERSION%`になります。"
 
+#: ../../../install/source.md:153
 msgid ""
-"If you installed PostgreSQL by zip, `%POSTGRESQL_INSTALL_FOLDER%` is `%POSTGRE"
-"SQL_ZIP_EXTRACTED_FOLDER%\\pgsql`."
+"If you installed PostgreSQL by zip, `%POSTGRESQL_INSTALL_FOLDER%` is "
+"`%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\\pgsql`."
 msgstr ""
-"zipバージョンのPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`%PostgreSQLのzipを"
-"展開したフォルダー%\\pgsql`になります。"
+"zipバージョンのPostgreSQLをインストールした場合は`%POSTGRESQL_INSTALL_FOLDER%`は`%PostgreSQLのzipを展開したフォルダー%\\pgsql`になります。"
 
+#: ../../../install/source.md:155
 msgid "Build PGroonga:"
 msgstr "PGroongaをビルドします。"
 
+#: ../../../install/source.md:157
 msgid ""
 "```text\n"
 "pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:161
 msgid ""
-"Install PGroonga. You may be required administrator privilege. For example, yo"
-"u installed PostgreSQL by installer, you will be required administrator privil"
-"ege."
+"Install PGroonga. You may be required administrator privilege. For example, "
+"you installed PostgreSQL by installer, you will be required administrator "
+"privilege."
 msgstr ""
-"PGroongaをインストールします。管理者権限が必要かもしれません。たとえば、インストーラーを使ってPostgreSQLをインストールした場合は管理者権限"
-"が必要でしょう。"
+"PGroongaをインストールします。管理者権限が必要かもしれません。たとえば、インストーラーを使ってPostgreSQLをインストールした場合は管理者権限が必要でしょう。"
 
+#: ../../../install/source.md:163
 msgid ""
 "```text\n"
-"pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release --targe"
-"t Install\n"
+"pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release --target Install\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:169
 msgid ""
 "```text\n"
 "postgres=# CREATE DATABASE pgroonga_test;\n"
 "```"
 msgstr ""
 
+#: ../../../install/source.md:177
 msgid ""
 "```text\n"
 "postgres=# \\c pgroonga_test\n"

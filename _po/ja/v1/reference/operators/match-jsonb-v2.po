@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:1
 msgid ""
 "---\n"
 "title: \"&@ operator for jsonb type\"\n"
@@ -19,51 +33,70 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:6
 msgid "# `&@` operator for `jsonb` type"
 msgstr "# `jsonb`型用の`&@`演算子"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`&@` operator performs full text search against all texts in `jsonb` by one keyword."
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:12
+msgid ""
+"`&@` operator performs full text search against all texts in `jsonb` by one "
+"keyword."
 msgstr "`&@`演算子は`jsonb`内のすべてのテキストに対して1つのキーワードで全文検索を実行します。"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:14
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:16
 msgid ""
 "```sql\n"
 "column &@ keyword\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:20
 msgid "`column` is a column to be searched. It's `jsonb` type."
 msgstr "`column`は検索対象のカラムです。型は`jsonb`型です。"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:22
 msgid "`keyword` is a keyword for full text search. It's `text` type."
 msgstr "`keyword`は全文検索で使うキーワードです。型は`text`型です。"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:24
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
-msgid "You need to specify one of the following operator classes to use this operator:"
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:26
+msgid ""
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:28
 msgid "  * `pgroonga.jsonb_ops`: Default for `jsonb`"
 msgstr "  * `pgroonga.jsonb_ops`：`jsonb`型のデフォルト"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:30
 msgid "  * `pgroonga.jsonb_ops_v2`: For `jsonb`"
 msgstr "  * `pgroonga.jsonb_ops_v2`：`jsonb`型用"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:32
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:34
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:36
 msgid ""
 "```sql\n"
 "CREATE TABLE logs (\n"
@@ -71,9 +104,11 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:41
 msgid "CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:43
 msgid ""
 "INSERT INTO logs\n"
 "     VALUES ('{\n"
@@ -106,12 +141,19 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:73
 msgid "You can perform full text search with one keyword by `&@`:"
 msgstr "`&@`演算子を使うと1つのキーワードで全文検索できます。"
 
-msgid "(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)"
-msgstr "（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-pretty]を使っています。）"
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:75
+msgid ""
+"(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since"
+" PostgreSQL 9.5 for readability.)"
+msgstr ""
+"（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-"
+"pretty]を使っています。）"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:77
 msgid ""
 "```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record &@ 'server';\n"
@@ -129,29 +171,45 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:92
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:94
 msgid "  * [`jsonb` support][jsonb]"
 msgstr "  * [`jsonb`サポート][jsonb]"
 
-msgid "  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language"
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:96
+msgid ""
+"  * [`&?` operator][query-jsonb-v2]: Full text search against all text data "
+"in `jsonb` by easy to use query language"
 msgstr "  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索"
 
-msgid "  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language"
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:98
+msgid ""
+"  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like"
+" query language"
 msgstr "  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:100
 msgid "  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data"
 msgstr "  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索"
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:102
 msgid "[jsonb]:../jsonb.html"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:104
 msgid ""
 "[query-jsonb-v2]:query-jsonb-v2.html\n"
 "[script-jsonb-v2]:script-jsonb-v2.html\n"
 "[contain-jsonb]:contain-jsonb.html"
 msgstr ""
 
-msgid "[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE"
-msgstr "[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.ja }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE"
+#: ../../../../../v1/reference/operators/match-jsonb-v2.md:108
+msgid ""
+"[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-"
+"json.html#FUNCTIONS-JSON-PROCESSING-TABLE"
+msgstr ""
+"[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.ja }}/functions-"
+"json.html#FUNCTIONS-JSON-PROCESSING-TABLE"

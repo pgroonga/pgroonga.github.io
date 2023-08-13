@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:1
 msgid ""
 "---\n"
 "title: \"&> operator\"\n"
@@ -19,51 +33,68 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:6
 msgid "# `&>` operator"
 msgstr "# `&>`演算子"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:12
 msgid "`&>` operator checks whether a term is included in an array of terms."
 msgstr "`&>`演算子は単語の配列中に指定した単語が含まれているかどうかをチェックします。"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:14
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:16
 msgid ""
 "```sql\n"
 "column &> term\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:20
 msgid "`column` is a column to be searched. It's `varchar[]` type."
 msgstr "`column`は検索対象のカラムです。型は`varchar[]`型です。"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:22
 msgid "`term` is a term to be found. It's `varchar` type."
 msgstr "`term`は検索条件の単語です。型は`varchar`です。"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:24
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
-msgid "You need to specify one of the following operator classes to use this operator:"
+#: ../../../../../v1/reference/operators/contain-term-v2.md:26
+msgid ""
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:28
 msgid "  * `pgroonga.varchar_array_ops`: Default for `varchar[]`"
 msgstr "  * `pgroonga.varchar_array_ops`：`varchar[]`型のデフォルト"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:30
 msgid "  * `pgroonga.varchar_array_term_search_ops`: For `varchar[]`"
 msgstr "  * `pgroonga.varchar_array_term_search_ops`：`varchar[]`用"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:32
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:34
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:36
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -72,11 +103,13 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:42
 msgid ""
 "CREATE INDEX pgroonga_tags_index ON memos USING pgroonga (tags);\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:45
 msgid ""
 "```sql\n"
 "INSERT INTO memos VALUES (1, ARRAY['PostgreSQ']);\n"
@@ -86,9 +119,13 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You can find records that contain `'Groonga'` term in an array of terms by `&>` operator:"
+#: ../../../../../v1/reference/operators/contain-term-v2.md:52
+msgid ""
+"You can find records that contain `'Groonga'` term in an array of terms by "
+"`&>` operator:"
 msgstr "`&>`演算子を使うと単語の配列中から`'Groonga'`という単語を含むレコードを検索できます。"
 
+#: ../../../../../v1/reference/operators/contain-term-v2.md:54
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE tags &> 'Groonga';\n"

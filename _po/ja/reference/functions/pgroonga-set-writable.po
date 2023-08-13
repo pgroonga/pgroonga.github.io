@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:1
 msgid ""
 "---\n"
 "title: pgroonga_set_writable function\n"
@@ -19,95 +33,121 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:6
 msgid "# `pgroonga_set_writable` function"
 msgstr "# `pgroonga_set_writable`関数"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:10
 msgid ""
-"`pgroonga_set_writable` function set whether you can change PGroonga data or n"
-"ot. Normally, you don't need to change it."
-msgstr "`pgroonga_set_writable`関数はPGroongaのデータを変更できるかどうか設定します。通常、この設定をする必要はありません。"
+"`pgroonga_set_writable` function set whether you can change PGroonga data or"
+" not. Normally, you don't need to change it."
+msgstr ""
+"`pgroonga_set_writable`関数はPGroongaのデータを変更できるかどうか設定します。通常、この設定をする必要はありません。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:12
+#: ../../../../reference/functions/pgroonga-set-writable.md:74
 msgid ""
-"You can implement online backup with this function. You need to keep the follo"
-"wing conditions to use this use case:"
+"You can implement online backup with this function. You need to keep the "
+"following conditions to use this use case:"
 msgstr "この関数を使うことでオンラインバックアップを実現できます。この使い方をする場合は以下の条件を満たす必要があります。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:14
+#: ../../../../reference/functions/pgroonga-set-writable.md:76
 msgid ""
-"  * You must call `SELECT pgroonga_command('io_flush', ARRAY['only_opened', 'y"
-"es'])` in the same session after you change your data."
+"  * You must call `SELECT pgroonga_command('io_flush', ARRAY['only_opened', "
+"'yes'])` in the same session after you change your data."
 msgstr ""
-"  * データを変更したあとは同一セッション内で必ず`SELECT pgroonga_command('io_flush', ARRAY['only_ope"
-"ned', 'yes'])`を実行します。"
+"  * データを変更したあとは同一セッション内で必ず`SELECT pgroonga_command('io_flush', "
+"ARRAY['only_opened', 'yes'])`を実行します。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:16
 msgid ""
-"  * You must disable [autovacuum][postgresql-autovacuum] for tables that use P"
-"Groonga index. You can use `autovacuum_enabled` storage parameter of [`CREATE "
-"TABLE`][postgresql-create-table] to disable autovacuum only for these tables. "
-"Note that you need to run `VACUUM` manually when you disable autovacuum."
+"  * You must disable [autovacuum][postgresql-autovacuum] for tables that use"
+" PGroonga index. You can use `autovacuum_enabled` storage parameter of "
+"[`CREATE TABLE`][postgresql-create-table] to disable autovacuum only for "
+"these tables. Note that you need to run `VACUUM` manually when you disable "
+"autovacuum."
 msgstr ""
-"  * PGroongaのインデックスを使っているテーブルは[オートバキューム][postgresql-autovacuum]を無効にします。該当テーブルだ"
-"けオートバキュームを無効にするために[`CREATE TABLE`][postgresql-create-table]の`autovacuum_enable"
-"d`ストレージパラメーターを使えます。オートバキュームを無効にした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。"
+"  * PGroongaのインデックスを使っているテーブルは[オートバキューム][postgresql-"
+"autovacuum]を無効にします。該当テーブルだけオートバキュームを無効にするために[`CREATE TABLE`][postgresql-"
+"create-"
+"table]の`autovacuum_enabled`ストレージパラメーターを使えます。オートバキュームを無効にした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:18
+#: ../../../../reference/functions/pgroonga-set-writable.md:80
 msgid "  * You must enable PGroonga's WAL."
 msgstr "  * PGroongaのWALを有効にします。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:20
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:22
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:24
 msgid ""
 "```text\n"
 "bool pgroonga_set_writable(new_writable)\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:28
 msgid ""
-"`new_writable` is a `bool` type value. `true` means writable and `false` is re"
-"ad-only."
+"`new_writable` is a `bool` type value. `true` means writable and `false` is "
+"read-only."
 msgstr "`new_writable`は`bool`型の値です。`true`は変更可能で`false`は変更不可能という意味です。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:30
 msgid "It returns whether writable or not before changing the current state."
 msgstr "変更する前は変更可能だったかどうかを返します。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:32
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:34
 msgid "Here are sample schema and data:"
 msgstr "サンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:36
 msgid ""
 "```sql\n"
 "SET pgroonga.enable_wal = yes;"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:39
 msgid ""
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:43
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (content);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:47
 msgid ""
 "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:50
 msgid ""
-"You can't change the PGroonga index after you pass `false` to `pgroonga_set_wr"
-"itable` function:"
+"You can't change the PGroonga index after you pass `false` to "
+"`pgroonga_set_writable` function:"
 msgstr "`pgroonga_writable`関数に`false`を渡した後はPGroongaのインデックスを変更できません。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:52
 msgid ""
 "```sql\n"
 "SELECT pgroonga_set_writable(false);\n"
@@ -120,6 +160,7 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:62
 msgid ""
 "```sql\n"
 "SELECT pgroonga_set_writable(true);\n"
@@ -132,31 +173,39 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:72
 msgid "## Online backup {#online-backup}"
 msgstr "## オンラインバックアップ {#online-backup}"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:78
 msgid ""
-"  * You must disable [autovacuum][postgresql-autovacuum] for tables that use P"
-"Groonga index. You can use `autovacuum_enabled` storage parameter of [`CREATE "
-"TABLE`][postgresql-create-table] to disable auto vacuum only for these tables."
-" Note that you need to run `VACUUM` manually when you disable auto vacuum."
+"  * You must disable [autovacuum][postgresql-autovacuum] for tables that use"
+" PGroonga index. You can use `autovacuum_enabled` storage parameter of "
+"[`CREATE TABLE`][postgresql-create-table] to disable auto vacuum only for "
+"these tables. Note that you need to run `VACUUM` manually when you disable "
+"auto vacuum."
 msgstr ""
-"  * PGroongaのインデックスを使っているテーブルは[オートバキューム][postgresql-autovacuum]を無効にします。該当テーブルだ"
-"けオートバキュームを無効にするために[`CREATE TABLE`][postgresql-create-table]の`autovacuum_enable"
-"d`ストレージパラメーターを使えます。オートバキュームを向こうにした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。"
+"  * PGroongaのインデックスを使っているテーブルは[オートバキューム][postgresql-"
+"autovacuum]を無効にします。該当テーブルだけオートバキュームを無効にするために[`CREATE TABLE`][postgresql-"
+"create-"
+"table]の`autovacuum_enabled`ストレージパラメーターを使えます。オートバキュームを向こうにした場合は手動で`VACUUM`を実行しなければいけないことに注意してください。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:82
 msgid "You must add the following configuration to your `postgresql.conf`:"
 msgstr "次の設定を`postgresql.conf`に追加します。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:84
 msgid ""
 "```text\n"
 "pgroonga.enable_wal = yes\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:88
 msgid "You must disable autovacuum:"
 msgstr "オートバキュームを無効にします。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:90
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -164,6 +213,7 @@ msgid ""
 ") WITH (autovacuum_enabled = false);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:95
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
@@ -171,13 +221,15 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:100
 msgid ""
-"You must call `SELECT pgroonga_command('io_flush', ARRAY['only_opened', 'yes']"
-")` in the same session after you change your data:"
+"You must call `SELECT pgroonga_command('io_flush', ARRAY['only_opened', "
+"'yes'])` in the same session after you change your data:"
 msgstr ""
-"データを変更した後は同一セッション内で`SELECT pgroonga_command('io_flush', ARRAY['only_opened', '"
-"yes'])`を呼びます。"
+"データを変更した後は同一セッション内で`SELECT pgroonga_command('io_flush', ARRAY['only_opened',"
+" 'yes'])`を呼びます。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:102
 msgid ""
 "```sql\n"
 "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
@@ -185,11 +237,13 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:107
 msgid ""
-"It's recommended that you run [`VACUUM`][postgresql-vacuum] manually before yo"
-"u create backup:"
+"It's recommended that you run [`VACUUM`][postgresql-vacuum] manually before "
+"you create backup:"
 msgstr "バックアップ作成前に手動で[`VACUUM`][postgresql-vacuum]を実行することを推奨します。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:109
 msgid ""
 "```sql\n"
 "VACUUM ANALYZE memos;\n"
@@ -197,9 +251,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:114
 msgid "You must make your PGroonga data read-only before you create backup:"
 msgstr "バックアップ作成前にPGroongaのデータを変更できないようにします。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:116
 msgid ""
 "```sql\n"
 "SELECT pgroonga_set_writable(false);\n"
@@ -207,14 +263,17 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:121
 msgid "Now, you can create backup without stopping PostgreSQL:"
 msgstr "これでPostgreSQLを止めずにバックアップを作成できます。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:123
 msgid ""
 "```shell\n"
 "db_name=\"YOUR_DB_NAME\""
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:126
 msgid ""
 "# Detect database information\n"
 "db_oid=$(psql \\\n"
@@ -231,30 +290,35 @@ msgid ""
 "  -c \"SHOW data_directory\")"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:140
 msgid ""
 "# Define directories\n"
 "db_dir=${data_dir}/base/${db_oid}\n"
 "backup_dir=${data_dir}/../../backup"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:144
 msgid ""
 "# Create backup directory\n"
 "mkdir -p ${backup_dir}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:147
 msgid ""
 "# Create backup\n"
 "rsync -a --include '/pgrn*' --exclude '*' --delete ${db_dir}/ ${backup_dir}/\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:151
 msgid ""
-"It's recommended that your PGroonga's WAL is truncated. You can run [`pgroonga"
-"_wal_truncate` function][wal-truncate] in read-only mode:"
+"It's recommended that your PGroonga's WAL is truncated. You can run "
+"[`pgroonga_wal_truncate` function][wal-truncate] in read-only mode:"
 msgstr ""
-"PGroongaのWALを削除することを推奨します。[`pgroonga_wal_truncate`関数][wal-truncate]は変更不可のときでも実"
-"行できます。"
+"PGroongaのWALを削除することを推奨します。[`pgroonga_wal_truncate`関数][wal-"
+"truncate]は変更不可のときでも実行できます。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:153
 msgid ""
 "```sql\n"
 "SELECT pgroonga_wal_truncate();\n"
@@ -262,15 +326,18 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:158
 msgid ""
-"If you truncate PGroonga's WAL, you must create backup again with the above sh"
-"ell script. The process will be fast because `rsync` copies only different dat"
-"a."
+"If you truncate PGroonga's WAL, you must create backup again with the above "
+"shell script. The process will be fast because `rsync` copies only different"
+" data."
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:160
 msgid "You must make your PGroonga data writable again:"
 msgstr "PGroongaのデータを変更可能に戻します。"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:162
 msgid ""
 "```sql\n"
 "SELECT pgroonga_set_writable(true);\n"
@@ -278,34 +345,44 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:167
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:169
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:171
 msgid "  * [`pgroonga_wal_truncate` function][wal-truncate]"
 msgstr "  * [`pgroonga_wal_truncate`関数][wal-truncate]"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:173
 msgid ""
-"[postgresql-autovacuum]:{{ site.postgresql_doc_base_url.en }}/routine-vacuumin"
-"g.html#AUTOVACUUM"
+"[postgresql-autovacuum]:{{ site.postgresql_doc_base_url.en }}/routine-"
+"vacuuming.html#AUTOVACUUM"
 msgstr ""
-"[postgresql-autovacuum]:{{ site.postgresql_doc_base_url.ja }}/routine-vacuumin"
-"g.html#AUTOVACUUM"
+"[postgresql-autovacuum]:{{ site.postgresql_doc_base_url.ja }}/routine-"
+"vacuuming.html#AUTOVACUUM"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:175
 msgid ""
-"[postgresql-create-table]:{{ site.postgresql_doc_base_url.en }}/sql-createtabl"
-"e.html"
+"[postgresql-create-table]:{{ site.postgresql_doc_base_url.en }}/sql-"
+"createtable.html"
 msgstr ""
-"[postgresql-create-table]:{{ site.postgresql_doc_base_url.ja }}/sql-createtabl"
-"e.html"
+"[postgresql-create-table]:{{ site.postgresql_doc_base_url.ja }}/sql-"
+"createtable.html"
 
-msgid "[postgresql-vacuum]:{{ site.postgresql_doc_base_url.en }}/sql-vacuum.html"
-msgstr "[postgresql-vacuum]:{{ site.postgresql_doc_base_url.ja }}/sql-vacuum.html"
+#: ../../../../reference/functions/pgroonga-set-writable.md:177
+msgid ""
+"[postgresql-vacuum]:{{ site.postgresql_doc_base_url.en }}/sql-vacuum.html"
+msgstr ""
+"[postgresql-vacuum]:{{ site.postgresql_doc_base_url.ja }}/sql-vacuum.html"
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:179
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-set-writable.md:181
 msgid "[wal-truncate]:pgroonga-wal-truncate.html"
 msgstr ""

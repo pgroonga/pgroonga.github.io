@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/operators/similar-search-v2.md:1
 msgid ""
 "---\n"
 "title: \"&@* operator\"\n"
@@ -19,60 +33,91 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/operators/similar-search-v2.md:6
 msgid "# `&@*` operator"
 msgstr "# `&@*`演算子"
 
+#: ../../../../reference/operators/similar-search-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../reference/operators/similar-search-v2.md:10
 msgid "`&~?` operator is deprecated since 1.2.2. Use `&@*` operator instead."
 msgstr "`&~?`演算子は1.2.2から非推奨です。代わりに`&@*`演算子を使ってください。"
 
+#: ../../../../reference/operators/similar-search-v2.md:12
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/operators/similar-search-v2.md:14
 msgid "`&@*` operator performs similar search."
 msgstr "`&@*`演算子は類似文書検索を実行します。"
 
+#: ../../../../reference/operators/similar-search-v2.md:16
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/operators/similar-search-v2.md:18
 msgid ""
 "```sql\n"
 "column &@* document\n"
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type."
+#: ../../../../reference/operators/similar-search-v2.md:22
+msgid ""
+"`column` is a column to be searched. It's `text` type, `text[]` type or "
+"`varchar` type."
 msgstr "`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。"
 
-msgid "`document` is a document for similar search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`."
-msgstr "`document`は類似文書検索で使う文書です。`column`が`text`型または`text[]`型の場合は型は`text`型です。`column`が`varchar`型の場合は型は`text`型です。"
+#: ../../../../reference/operators/similar-search-v2.md:24
+msgid ""
+"`document` is a document for similar search. It's `text` type for `text` "
+"type or `text[]` type `column`. It's `varchar` type for `varchar` type "
+"`column`."
+msgstr ""
+"`document`は類似文書検索で使う文書です。`column`が`text`型または`text[]`型の場合は型は`text`型です。`column`が`varchar`型の場合は型は`text`型です。"
 
-msgid "Similar search searches records that have similar content with `document`. If `document` is short content, similar search may return records that are less similar."
-msgstr "類似文書検索は`document`のコンテンツに似たレコードを探します。もし、`document`のコンテンツが短かった場合、類似文書検索はそれほど似ていないレコードも返してしまうかもしれません。"
+#: ../../../../reference/operators/similar-search-v2.md:26
+msgid ""
+"Similar search searches records that have similar content with `document`. "
+"If `document` is short content, similar search may return records that are "
+"less similar."
+msgstr ""
+"類似文書検索は`document`のコンテンツに似たレコードを探します。もし、`document`のコンテンツが短かった場合、類似文書検索はそれほど似ていないレコードも返してしまうかもしれません。"
 
+#: ../../../../reference/operators/similar-search-v2.md:28
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
-msgid "You need to specify one of the following operator classes to use this operator:"
+#: ../../../../reference/operators/similar-search-v2.md:30
+msgid ""
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../reference/operators/similar-search-v2.md:32
 msgid "  * `pgroonga_text_full_text_search_ops_v2`: Default for `text`"
 msgstr "  * `pgroonga_text_full_text_search_ops_v2`：`text`型のデフォルト"
 
-msgid "  * `pgroonga_text_array_full_text_search_ops_v2`: Default for `text[]`"
+#: ../../../../reference/operators/similar-search-v2.md:34
+msgid ""
+"  * `pgroonga_text_array_full_text_search_ops_v2`: Default for `text[]`"
 msgstr "  * `pgroonga_text_array_full_text_search_ops_v2`：`text[]`型のデフォルト"
 
+#: ../../../../reference/operators/similar-search-v2.md:36
 msgid "  * `pgroonga_varchar_full_text_search_ops_v2`: For `varchar`"
 msgstr "  * `pgroonga_varchar_full_text_search_ops_v2`：`varchar`用"
 
+#: ../../../../reference/operators/similar-search-v2.md:38
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/operators/similar-search-v2.md:40
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/operators/similar-search-v2.md:42
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -81,12 +126,14 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/operators/similar-search-v2.md:48
 msgid ""
 "CREATE INDEX pgroonga_content_index ON memos\n"
 "  USING pgroonga (content);\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/similar-search-v2.md:52
 msgid ""
 "```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
@@ -102,9 +149,13 @@ msgstr ""
 "INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');\n"
 "```"
 
-msgid "You can search records that are similar with the specified document by `&@*` operator:"
+#: ../../../../reference/operators/similar-search-v2.md:59
+msgid ""
+"You can search records that are similar with the specified document by `&@*`"
+" operator:"
 msgstr "`&@*`演算子を使うと指定した文書と似たレコードを検索できます。"
 
+#: ../../../../reference/operators/similar-search-v2.md:61
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &@* 'Mroonga is a MySQL extension taht uses Groonga';\n"
@@ -122,12 +173,17 @@ msgstr ""
 "-- (1 row)\n"
 "```"
 
+#: ../../../../reference/operators/similar-search-v2.md:69
 msgid "## Sequential scan"
 msgstr "## シーケンシャルスキャン"
 
-msgid "You can't use similar search with sequential scan. If you use similar search with sequential search, you get the following error:"
+#: ../../../../reference/operators/similar-search-v2.md:71
+msgid ""
+"You can't use similar search with sequential scan. If you use similar search"
+" with sequential search, you get the following error:"
 msgstr "シーケンシャルスキャンでは類似文書検索を使うことはできません。シーケンシャルスキャンで類似文書検索を使うと次のエラーが返ります。"
 
+#: ../../../../reference/operators/similar-search-v2.md:73
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &@* 'Mroonga is a MySQL extension taht uses Groonga';\n"
@@ -139,12 +195,17 @@ msgstr ""
 "-- ERROR:  pgroonga: operator &@* is available only in index scan\n"
 "```"
 
+#: ../../../../reference/operators/similar-search-v2.md:78
 msgid "## For Japanese"
 msgstr "## 日本語向け"
 
-msgid "You should use `TokenMecab` tokenizer instead of the default `TokenBigram` for similar search against Japanese documents:"
+#: ../../../../reference/operators/similar-search-v2.md:80
+msgid ""
+"You should use `TokenMecab` tokenizer instead of the default `TokenBigram` "
+"for similar search against Japanese documents:"
 msgstr "日本語の文書を類似文書検索する場合はデフォルトの`TokenBigram`ではなく`TokenMecab`を使う方がよいです。"
 
+#: ../../../../reference/operators/similar-search-v2.md:82
 msgid ""
 "```sql\n"
 "CREATE INDEX pgroonga_content_index ON memos\n"
@@ -153,11 +214,20 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "`TokenMecab` will tokenize target documents to words. It improves similar search precision."
+#: ../../../../reference/operators/similar-search-v2.md:88
+msgid ""
+"`TokenMecab` will tokenize target documents to words. It improves similar "
+"search precision."
 msgstr "`TokenMecab`は対象の文書を（ほぼ）単語にトークナイズします。これにより類似文書検索の精度が上がります。"
 
-msgid "See also [`CREATE INDEX USING pgroonga`][create-index-using-pgroonga] how to specify `TokenMecab` tokenizer."
-msgstr "`TokenMecab`トークナイザーの指定方法については[`CREATE INDEX USING pgroonga`][create-index-using-pgroonga]も参照してください。"
+#: ../../../../reference/operators/similar-search-v2.md:90
+msgid ""
+"See also [`CREATE INDEX USING pgroonga`][create-index-using-pgroonga] how to"
+" specify `TokenMecab` tokenizer."
+msgstr ""
+"`TokenMecab`トークナイザーの指定方法については[`CREATE INDEX USING pgroonga`][create-index-"
+"using-pgroonga]も参照してください。"
 
+#: ../../../../reference/operators/similar-search-v2.md:92
 msgid "[create-index-using-pgroonga]:../create-index-using-pgroonga.html"
 msgstr ""

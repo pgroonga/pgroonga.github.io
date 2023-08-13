@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../v1/reference/jsonb.md:1
 msgid ""
 "---\n"
 "title: jsonb support\n"
@@ -17,25 +31,29 @@ msgstr ""
 "title: jsonbサポート\n"
 "---"
 
+#: ../../../../v1/reference/jsonb.md:5
 msgid "# `jsonb` support"
 msgstr "# `jsonb`サポート"
 
+#: ../../../../v1/reference/jsonb.md:7
 msgid ""
-"PGroonga also supports `jsonb` type. You can search JSON data by one or more k"
-"eys and/or one or more values with PGroonga."
+"PGroonga also supports `jsonb` type. You can search JSON data by one or more"
+" keys and/or one or more values with PGroonga."
 msgstr "PGroongaは`jsonb`型にも対応しています。PGroongaを使うとJSON中のキー・値に対して検索することができます。"
 
+#: ../../../../v1/reference/jsonb.md:9
 msgid ""
-"You can also search JSON data by full text search against all text values in J"
-"SON. It's an unique feature of PGroonga. Built-in PostgreSQL features and [JsQ"
-"uery](https://github.com/postgrespro/jsquery) don't support it."
+"You can also search JSON data by full text search against all text values in"
+" JSON. It's an unique feature of PGroonga. Built-in PostgreSQL features and "
+"[JsQuery](https://github.com/postgrespro/jsquery) don't support it."
 msgstr ""
-"JSON中のすべてのテキスト値に対して全文検索することもできます。これはPGroonga独自の機能です。PostgreSQL組み込みの機能でも[JsQuer"
-"y](https://github.com/postgrespro/jsquery)でもこの機能はサポートしていません。"
+"JSON中のすべてのテキスト値に対して全文検索することもできます。これはPGroonga独自の機能です。PostgreSQL組み込みの機能でも[JsQuery](https://github.com/postgrespro/jsquery)でもこの機能はサポートしていません。"
 
+#: ../../../../v1/reference/jsonb.md:11
 msgid "Think about the following JSON:"
 msgstr "次のJSONを考えてください。"
 
+#: ../../../../v1/reference/jsonb.md:13
 msgid ""
 "```json\n"
 "{\n"
@@ -48,19 +66,23 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../v1/reference/jsonb.md:23
 msgid ""
-"You can find the JSON by full text search with `search`, `example` or `web` be"
-"cause all text values are full text search target."
+"You can find the JSON by full text search with `search`, `example` or `web` "
+"because all text values are full text search target."
 msgstr ""
-"`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だから"
-"です。"
+"`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だからです。"
 
+#: ../../../../v1/reference/jsonb.md:25
 msgid "## Operators"
 msgstr "## 演算子"
 
-msgid "PGroonga provides the following two operators for searching against `jsonb`:"
+#: ../../../../v1/reference/jsonb.md:27
+msgid ""
+"PGroonga provides the following two operators for searching against `jsonb`:"
 msgstr "PGroongaは`jsonb`に対して検索するために次の2つの演算子を提供しています。"
 
+#: ../../../../v1/reference/jsonb.md:29
 msgid ""
 "  * [`@>` operator](operators/jsonb-contain.html)\n"
 "  * [`@@` operator](operators/jsonb-query.html)"
@@ -68,25 +90,32 @@ msgstr ""
 "  * [`@>`演算子](operators/jsonb-contain.html)\n"
 "  * [`@@`演算子](operators/jsonb-query.html)"
 
+#: ../../../../v1/reference/jsonb.md:32
 msgid ""
-"`@>` operator is simpler than `@@` operator but you can't use complex conditio"
-"n such as range search."
+"`@>` operator is simpler than `@@` operator but you can't use complex "
+"condition such as range search."
 msgstr "`@>`演算子は`@@`演算子よりもシンプルですが範囲検索のような複雑な条件を指定することはできません。"
 
+#: ../../../../v1/reference/jsonb.md:34
 msgid ""
-"`@@` operator is more complex than `@>` operator but you can use complex condi"
-"tion. You can also use full text search against all text values in JSON."
+"`@@` operator is more complex than `@>` operator but you can use complex "
+"condition. You can also use full text search against all text values in "
+"JSON."
 msgstr "`@@`演算子は`@>`演算子より複雑ですが、複雑な条件も使えます。JSON内のすべてのテキスト値に対する全文検索もできます。"
 
+#: ../../../../v1/reference/jsonb.md:36
 msgid "## Comparison with GIN"
 msgstr "## GINとの比較"
 
+#: ../../../../v1/reference/jsonb.md:38
 msgid "PostgreSQL provides built-in fast `jsonb` search feature by GIN."
 msgstr "PostgreSQLは組み込みの機能としてGINを使った高速な`jsonb`検索機能を提供しています。"
 
+#: ../../../../v1/reference/jsonb.md:40
 msgid "Here are differences between PGroonga and GIN:"
 msgstr "PGroongaとGINの違いは次の通りです。"
 
+#: ../../../../v1/reference/jsonb.md:42
 msgid ""
 "  * Index creation time: No difference\n"
 "  * Search time: PGroonga is a bit faster\n"

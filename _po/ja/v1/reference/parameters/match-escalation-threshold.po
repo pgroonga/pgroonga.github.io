@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:1
 msgid ""
 "---\n"
 "title: \"pgroonga.match_escalation_threshold parameter\"\n"
@@ -19,68 +33,85 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:6
 msgid "# `pgroonga.match_escalation_threshold` parameter"
 msgstr "# `pgroonga.match_escalation_threshold`パラメーター"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:10
 msgid ""
-"`pgroonga.match_escalation_threshold` parameter controls when match escalation"
-" is occurred."
-msgstr "`pgroonga.match_escalation_threshold`パラメーターはいつマッチエスカレーションが実行されるかを制御します。"
-
-msgid ""
-"Match escalation is auto loose search. If the number of matched records is equ"
-"al or less than the threshold specified by `pgroonga.match_escalation_threshol"
-"d` parameter, loose search is done automatically. It's match escalation."
+"`pgroonga.match_escalation_threshold` parameter controls when match "
+"escalation is occurred."
 msgstr ""
-"マッチエスカレーションとは自動で条件のゆるい検索をする機能のことです。ヒット数が`pgroonga.match_escalation_threshold`パ"
-"ラメーターで指定した閾値よりも小さい時、自動で条件のゆるい検索をします。これがマッチエスカレーションです。"
+"`pgroonga.match_escalation_threshold`パラメーターはいつマッチエスカレーションが実行されるかを制御します。"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:12
 msgid ""
-"The default threshold is `0`. It means that no records are matched, loose sear"
-"ch is done automatically."
+"Match escalation is auto loose search. If the number of matched records is "
+"equal or less than the threshold specified by "
+"`pgroonga.match_escalation_threshold` parameter, loose search is done "
+"automatically. It's match escalation."
+msgstr ""
+"マッチエスカレーションとは自動で条件のゆるい検索をする機能のことです。ヒット数が`pgroonga.match_escalation_threshold`パラメーターで指定した閾値よりも小さい時、自動で条件のゆるい検索をします。これがマッチエスカレーションです。"
+
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:14
+msgid ""
+"The default threshold is `0`. It means that no records are matched, loose "
+"search is done automatically."
 msgstr "デフォルトの閾値は`0`です。これは1件もヒットしない時は自動で条件のゆるい検索をするという意味です。"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:16
 msgid "You can disable match escalation by specifying `-1`."
 msgstr "`-1`を指定することでマッチエスカレーションを無効にできます。"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:18
 msgid ""
-"Normally, you don't need to change this parameter. Auto loose search is useful"
-" for users."
+"Normally, you don't need to change this parameter. Auto loose search is "
+"useful for users."
 msgstr "通常、このパラメーターを変更する必要はありません。自動で条件のゆるい検索をするとユーザーは便利になるからです。"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:20
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:22
 msgid "In SQL:"
 msgstr "SQLの場合："
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:24
 msgid ""
 "```sql\n"
 "SET pgroonga.match_escalation_threshold = threshold;\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:28
 msgid "In `postgresql.conf`:"
 msgstr "`postgresql.conf`の場合："
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:30
 msgid ""
 "```text\n"
 "pgroonga.match_escalation_threshold = threshold\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:34
 msgid "`threshold` is a number value."
 msgstr "`threshold`は数値です。"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:36
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:38
 msgid "Here is an example to disable match escalation:"
 msgstr "以下はマッチエスカレーションを無効にする例です。"
 
+#: ../../../../../v1/reference/parameters/match-escalation-threshold.md:40
 msgid ""
 "```sql\n"
 "SET pgroonga.match_escalation_threshold = -1;\n"

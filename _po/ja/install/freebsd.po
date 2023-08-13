@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../install/freebsd.md:1
 msgid ""
 "---\n"
 "title: Install on FreeBSD\n"
@@ -16,102 +31,123 @@ msgstr ""
 "title: FreeBSDにインストール\n"
 "---"
 
+#: ../../../install/freebsd.md:5
 msgid "# Install on FreeBSD"
 msgstr "# FreeBSDにインストール"
 
+#: ../../../install/freebsd.md:7
 msgid "This document describes how to install PGroonga on FreeBSD."
 msgstr "このドキュメントはFreeBSDにPGroongaをインストールする方法を説明します。"
 
+#: ../../../install/freebsd.md:9
 msgid "## How to install"
 msgstr "## インストール方法"
 
+#: ../../../install/freebsd.md:11
 msgid "You can use the following instruction to install PGroonga on FreeBSD."
 msgstr "FreeBSDにPGroongaをインストールする方法は次の通りです。"
 
+#: ../../../install/freebsd.md:13
 msgid "Install PGroonga and PostgreSQL by `pkg`:"
 msgstr "`pkg`でPGroongaとPostgreSQLをインストールします。"
 
+#: ../../../install/freebsd.md:15
 msgid ""
 "```console\n"
-"$ sudo pkg install -y pgroonga postgresql{{ site.freebsd_postgresql_version }}"
-"-server\n"
+"$ sudo pkg install -y pgroonga postgresql{{ site.freebsd_postgresql_version }}-server\n"
 "```"
 msgstr ""
 
+#: ../../../install/freebsd.md:19
 msgid ""
-"If you want to use [MeCab](http://taku910.github.io/mecab/) as a tokenizer, in"
-"stall `japanese/mecab-ipadic` additionally:"
+"If you want to use [MeCab](http://taku910.github.io/mecab/) as a tokenizer, "
+"install `japanese/mecab-ipadic` additionally:"
 msgstr ""
-"トークナイザーとして[MeCab](http://taku910.github.io/mecab/)を利用する場合は、`japanese/mecab-ipa"
-"dic`を追加でインストールします。"
+"トークナイザーとして[MeCab](http://taku910.github.io/mecab/)を利用する場合は、`japanese/mecab-"
+"ipadic`を追加でインストールします。"
 
+#: ../../../install/freebsd.md:21
 msgid ""
 "```console\n"
 "$ sudo pkg install -y japanese/mecab-ipadic\n"
 "```"
 msgstr ""
 
+#: ../../../install/freebsd.md:25
 msgid ""
-"Create `/etc/rc.conf.d/postgresql` with the following content to enable Postgr"
-"eSQL:"
+"Create `/etc/rc.conf.d/postgresql` with the following content to enable "
+"PostgreSQL:"
 msgstr "PostgreSQLを有効にするために次の内容の`/etc/rc.conf.d/postgresql`を作ります。"
 
+#: ../../../install/freebsd.md:27
 msgid "`/etc/rc.conf.d/postgresql`:"
 msgstr ""
 
+#: ../../../install/freebsd.md:29
 msgid ""
 "```text\n"
 "postgresql_enable=\"YES\"\n"
 "```"
 msgstr ""
 
+#: ../../../install/freebsd.md:33
 msgid "Initialize PostgreSQL database:"
 msgstr "PostgreSQLのデータベースを初期化します。"
 
+#: ../../../install/freebsd.md:35
 msgid ""
 "```console\n"
 "$ sudo -H /usr/local/etc/rc.d/postgresql initdb\n"
 "```"
 msgstr ""
 
+#: ../../../install/freebsd.md:39
 msgid "Start PostgreSQL:"
 msgstr "PostgreSQLを起動します。"
 
+#: ../../../install/freebsd.md:41
 msgid ""
 "```console\n"
 "$ sudo -H service postgresql start\n"
 "```"
 msgstr ""
 
+#: ../../../install/freebsd.md:45
 msgid "Create a database:"
 msgstr "データベースを作成します。"
 
+#: ../../../install/freebsd.md:47
 msgid ""
 "```console\n"
 "$ sudo -H -u postgres psql --command 'CREATE DATABASE pgroonga_test'\n"
 "```"
 msgstr ""
 
+#: ../../../install/freebsd.md:51
 msgid ""
-"(Normally, you should create a user for `pgroonga_test` database and use the u"
-"ser. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema"
-"-pgroonga.html) for details.)"
+"(Normally, you should create a user for `pgroonga_test` database and use the"
+" user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-"
+"schema-pgroonga.html) for details.)"
 msgstr ""
-"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pg"
-"roonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）"
+"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA "
+"pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）"
 
-msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+#: ../../../install/freebsd.md:53
+msgid ""
+"Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
 msgstr "作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。"
 
+#: ../../../install/freebsd.md:55
 msgid ""
 "```console\n"
-"$ sudo -H -u postgres psql -d pgroonga_test --command 'CREATE EXTENSION pgroon"
-"ga;'\n"
+"$ sudo -H -u postgres psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga;'\n"
 "```"
 msgstr ""
 
+#: ../../../install/freebsd.md:59
 msgid "That's all!"
 msgstr "これで終わりです！"
 
+#: ../../../install/freebsd.md:61
 msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
 msgstr "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"

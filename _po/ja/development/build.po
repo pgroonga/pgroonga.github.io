@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../development/build.md:1
 msgid ""
 "---\n"
 "title: Build\n"
@@ -17,24 +31,51 @@ msgstr ""
 "title: ビルド\n"
 "---"
 
+#: ../../../development/build.md:5
 msgid "# Build"
 msgstr "# ビルド"
 
-msgid "It's recommended that you build both PostgreSQL and PGroonga with debug options."
+#: ../../../development/build.md:7
+msgid ""
+"It's recommended that you build both PostgreSQL and PGroonga with debug "
+"options."
 msgstr "PostgreSQLもPGroonaもどちらもデバッグオプション付きでビルドすることをオススメします。"
 
-msgid "It's better that you [build Groonga][groonga-build] with debug options (Groonga's `configure` provides `--enable-debug` option) too. If you use [packaged Groonga][groonga-install], you need to install development package. It's `libgroonga-dev` for Debian family distribution and `groonga-devel` for Red Hat family distribution."
-msgstr "Groongaもデバッグオプション（Groongaの`configure`には`--enable-debug`オプションがある）で[ビルド][groonga-build]した方が便利なことが多いです。[Groongaのパッケージ][groonga-install]を使う場合は、開発用パッケージをインストールする必要があります。Debian系のディストリビューションでは`libgroonga-dev`で、Red Hat系のディストリビューションでは`groonga-devel`です。"
+#: ../../../development/build.md:9
+msgid ""
+"It's better that you [build Groonga][groonga-build] with debug options "
+"(Groonga's `configure` provides `--enable-debug` option) too. If you use "
+"[packaged Groonga][groonga-install], you need to install development "
+"package. It's `libgroonga-dev` for Debian family distribution and `groonga-"
+"devel` for Red Hat family distribution."
+msgstr ""
+"Groongaもデバッグオプション（Groongaの`configure`には`--enable-"
+"debug`オプションがある）で[ビルド][groonga-build]した方が便利なことが多いです。[Groongaのパッケージ][groonga-"
+"install]を使う場合は、開発用パッケージをインストールする必要があります。Debian系のディストリビューションでは`libgroonga-"
+"dev`で、Red Hat系のディストリビューションでは`groonga-devel`です。"
 
-msgid "You need to install `token_fitlers/stem` Groonga plugin to run all tests. You can install it by `groonga-token-filter-stem` package."
-msgstr "すべてのテストを実行するためには`token_fitlers/stem`というGroongaのプラグインをインストールする必要があります。`groonga-token-filter-stem`パッケージをインストールするとインストールできます。"
+#: ../../../development/build.md:11
+msgid ""
+"You need to install `token_fitlers/stem` Groonga plugin to run all tests. "
+"You can install it by `groonga-token-filter-stem` package."
+msgstr ""
+"すべてのテストを実行するためには`token_fitlers/stem`というGroongaのプラグインをインストールする必要があります。`groonga-"
+"token-filter-stem`パッケージをインストールするとインストールできます。"
 
+#: ../../../development/build.md:13
 msgid "## How to build PostgreSQL"
 msgstr "## PostgreSQLのビルド方法"
 
-msgid "Download source from [the PostgreSQL site][postgresql-source-download]. Here are command lines to download the source of PostgreSQL {{ site.development_postgresql_version }} and extract it:"
-msgstr "[PostgreSQLのサイト][postgresql-source-download]からソースをダウンロードします。以下はPostgreSQL {{ site.development_postgresql_version }}のソースをダウンロードして展開するコマンドラインです。"
+#: ../../../development/build.md:15
+msgid ""
+"Download source from [the PostgreSQL site][postgresql-source-download]. Here"
+" are command lines to download the source of PostgreSQL {{ "
+"site.development_postgresql_version }} and extract it:"
+msgstr ""
+"[PostgreSQLのサイト][postgresql-source-download]からソースをダウンロードします。以下はPostgreSQL {{"
+" site.development_postgresql_version }}のソースをダウンロードして展開するコマンドラインです。"
 
+#: ../../../development/build.md:17
 msgid ""
 "```console\n"
 "% wget https://ftp.postgresql.org/pub/source/v{{ site.development_postgresql_version }}/postgresql-{{ site.development_postgresql_version }}.tar.bz2\n"
@@ -43,18 +84,26 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Run `configure` with `CFLAGS=\"-O0 -g3\"` argument. It enables debug build. `--prefix=/tmp/local` is optional:"
-msgstr "`CFLAGS=\"-O0 -g3\"`引数付きで`configure`を実行します。これでデバッグビルドになります。`--prefix=/tmp/local`は指定してもしなくてもどちらでもよいです。"
+#: ../../../development/build.md:23
+msgid ""
+"Run `configure` with `CFLAGS=\"-O0 -g3\"` argument. It enables debug build. "
+"`--prefix=/tmp/local` is optional:"
+msgstr ""
+"`CFLAGS=\"-O0 "
+"-g3\"`引数付きで`configure`を実行します。これでデバッグビルドになります。`--prefix=/tmp/local`は指定してもしなくてもどちらでもよいです。"
 
+#: ../../../development/build.md:25
 msgid ""
 "```console\n"
 "% ./configure CFLAGS=\"-O0 -g3\" --prefix=/tmp/local\n"
 "```"
 msgstr ""
 
+#: ../../../development/build.md:29
 msgid "Build and install PostgreSQL:"
 msgstr "PostgreSQLをビルドしてインストールします。"
 
+#: ../../../development/build.md:31
 msgid ""
 "```console\n"
 "% make -j$(nproc) > /dev/null\n"
@@ -62,9 +111,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../development/build.md:36
 msgid "Initialize and run PostgreSQL:"
 msgstr "PostgreSQLを初期化して実行します。"
 
+#: ../../../development/build.md:38
 msgid ""
 "```console\n"
 "% mkdir -p /tmp/local/var/lib\n"
@@ -73,9 +124,15 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "The following one liner is useful to reset all PostgreSQL related data. You store the one liner in your shell history, you can rerun the one linear quickly:"
-msgstr "以下のワンライナーはPostgreSQL関連のすべてのデータをリセットするときに便利です。このワンライナーをシェルのヒストリーに入れておけば、すぐにこのワンライナーを再実行できます。"
+#: ../../../development/build.md:44
+msgid ""
+"The following one liner is useful to reset all PostgreSQL related data. You "
+"store the one liner in your shell history, you can rerun the one linear "
+"quickly:"
+msgstr ""
+"以下のワンライナーはPostgreSQL関連のすべてのデータをリセットするときに便利です。このワンライナーをシェルのヒストリーに入れておけば、すぐにこのワンライナーを再実行できます。"
 
+#: ../../../development/build.md:46
 msgid ""
 "```console\n"
 "% rm -rf /tmp/local/var/lib/postgresql && \\\n"
@@ -88,12 +145,18 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../development/build.md:56
 msgid "## How to build and test PGroonga"
 msgstr "## PGroongaのビルド・テスト方法"
 
-msgid "It's recommended that you use the latest PGroonga instead of released PGroonga. Here are command lines to clone the latest PGroonga source:"
-msgstr "リリース版のPGroongaではなく最新のPGroongaを使うことをオススメします。以下は最新のPGroongaのソースをクローンするコマンドラインです。"
+#: ../../../development/build.md:58
+msgid ""
+"It's recommended that you use the latest PGroonga instead of released "
+"PGroonga. Here are command lines to clone the latest PGroonga source:"
+msgstr ""
+"リリース版のPGroongaではなく最新のPGroongaを使うことをオススメします。以下は最新のPGroongaのソースをクローンするコマンドラインです。"
 
+#: ../../../development/build.md:60
 msgid ""
 "```console\n"
 "% git clone --recursive git@github.com:pgroonga/pgroonga.git\n"
@@ -101,35 +164,51 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../development/build.md:65
 msgid "PGroonga has two test types:"
 msgstr "PGroongaのテストは2種類あります。"
 
+#: ../../../development/build.md:67
 msgid "  * SQL based regression tests"
 msgstr "  * SQLベースのリグレッションテスト"
 
+#: ../../../development/build.md:69
 msgid "  * Ruby and SQL based [`pgroonga_check`][pgroonga-check] tests"
 msgstr "  * RubyとSQLを使った[`pgroonga_check`][pgroonga-check]のテスト"
 
-msgid "Normally, you only use the former. `test/run-sql-test.sh` is the test runner for the former. It builds and installs PGroonga and runs SQL based regression tests. `PATH=/tmp/local/bin:$PATH` is needed because PostgreSQL is built with `--prefix=/tmp/local`. `pg_config` exists in `/tmp/local/bin`:"
-msgstr "通常、前者だけを使います。`test/run-sql-test.sh`は前者用のテストランナーです。このスクリプトはPGroongaをビルド・インストールし、続けてSQLベースのリグレッションテストも実行します。`PATH=/tmp/local/bin:$PATH`が必要なのはPostgreSQLを`--prefix=/tmp/local`オプションを指定してビルドしたからです。この場合は`pg_config`は`/tmp/local/bin`にあります。"
+#: ../../../development/build.md:71
+msgid ""
+"Normally, you only use the former. `test/run-sql-test.sh` is the test runner"
+" for the former. It builds and installs PGroonga and runs SQL based "
+"regression tests. `PATH=/tmp/local/bin:$PATH` is needed because PostgreSQL "
+"is built with `--prefix=/tmp/local`. `pg_config` exists in `/tmp/local/bin`:"
+msgstr ""
+"通常、前者だけを使います。`test/run-sql-"
+"test.sh`は前者用のテストランナーです。このスクリプトはPGroongaをビルド・インストールし、続けてSQLベースのリグレッションテストも実行します。`PATH=/tmp/local/bin:$PATH`が必要なのはPostgreSQLを`--prefix=/tmp/local`オプションを指定してビルドしたからです。この場合は`pg_config`は`/tmp/local/bin`にあります。"
 
+#: ../../../development/build.md:73
 msgid ""
 "```console\n"
 "% PATH=/tmp/local/bin:$PATH test/run-sql-test.sh\n"
 "```"
 msgstr ""
 
+#: ../../../development/build.md:77
 msgid "See also [test](test.html)."
 msgstr "[テスト](test.html)も読んでください。"
 
+#: ../../../development/build.md:79
 msgid "[postgresql-source-download]:https://www.postgresql.org/ftp/source/"
 msgstr ""
 
+#: ../../../development/build.md:81
 msgid "[groonga-build]:https://groonga.org/docs/install/others.html"
 msgstr ""
 
+#: ../../../development/build.md:83
 msgid "[groonga-install]:https://groonga.org/docs/install.html"
 msgstr ""
 
+#: ../../../development/build.md:85
 msgid "[pgroonga-check]:../reference/modules/pgroonga-check.html"
 msgstr ""

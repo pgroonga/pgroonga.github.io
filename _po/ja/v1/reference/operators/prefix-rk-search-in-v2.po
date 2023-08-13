@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:1
 msgid ""
 "---\n"
 "title: \"&^~| operator\"\n"
@@ -18,75 +33,96 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:6
 msgid "# `&^~|` operator"
 msgstr "# `&^~|`演算子"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:12
 msgid ""
-"`&^~|` operator performs [prefix RK search][groonga-prefix-rk-search] by an ar"
-"ray of prefixes. R is for [Romaji][wikipedia-romaji]. K is for [Katakana][wiki"
-"pedia-katakana]. If one ore more prefixes are matched, the record is matched."
+"`&^~|` operator performs [prefix RK search][groonga-prefix-rk-search] by an "
+"array of prefixes. R is for [Romaji][wikipedia-romaji]. K is for "
+"[Katakana][wikipedia-katakana]. If one ore more prefixes are matched, the "
+"record is matched."
 msgstr ""
-"`&^~>`演算子は[前方一致RK検索](http://groonga.org/ja/docs/reference/operations/prefix_rk"
-"_search.html)を実行します。Rは[ローマ字][wikipedia-romaji]でKは[カタカナ][wikipedia-katakana]という"
-"意味です。配列の中の1つ以上のプレフィックスがマッチしたらそのレコードはマッチしたことになります。"
+"`&^~>`演算子は[前方一致RK検索](http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html)を実行します。Rは[ローマ字][wikipedia-"
+"romaji]でKは[カタカナ][wikipedia-"
+"katakana]という意味です。配列の中の1つ以上のプレフィックスがマッチしたらそのレコードはマッチしたことになります。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:14
 msgid "Prefix RK search is useful for Japanese."
 msgstr "前方一致RK検索は日本語を検索するときに便利です。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:16
 msgid "Prefix RK search is useful for implementing input completion."
 msgstr "前方一致RK検索は入力補完機能を実装するときに便利です。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:18
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:20
 msgid ""
 "```sql\n"
 "column &^~| prefixes\n"
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type or `text[]` type."
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:24
+msgid ""
+"`column` is a column to be searched. It's `text` type or `text[]` type."
 msgstr "`column`は検索対象のカラムです。型は`text`型か`text[]`型です。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:26
 msgid "`prefixes` is an array of prefixes to be found. It's `text[]` type."
 msgstr "`prefixes`は検索したいプレフィックスの配列です。型は`text[]`型です。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:28
 msgid ""
-"`column` values must be in Katakana. `prefixes` must be in Romaji, Hiragana or"
-" Katakana."
+"`column` values must be in Katakana. `prefixes` must be in Romaji, Hiragana "
+"or Katakana."
 msgstr "`column`の値はカタカナにします。`prefixes`はローマ字かひらがなかカタカナにします。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:30
 msgid ""
-"The operator returns `true` when the `column` value starts with one or more pr"
-"efixes in `prefixes`."
+"The operator returns `true` when the `column` value starts with one or more "
+"prefixes in `prefixes`."
 msgstr "この演算子は`column`の値が`prefixes`中の1つ以上のプレフィックスから始まっていれば`true`を返します。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:32
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:34
 msgid ""
-"You need to specify one of the following operator classes to use this operator"
-":"
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:36
 msgid "  * `pgroonga.text_term_search_ops_v2`: For `text`"
 msgstr "  * `pgroonga.text_term_search_ops_v2`：`text`用"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:38
 msgid "  * `pgroonga.text_array_term_search_ops_v2`: For `text[]`"
 msgstr "  * `pgroonga.text_array_term_search_ops_v2`：`text[]`用"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:40
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:42
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:44
 msgid ""
 "```sql\n"
 "CREATE TABLE tags (\n"
@@ -95,12 +131,14 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:50
 msgid ""
 "CREATE INDEX pgroonga_tags_index ON tags\n"
 "  USING pgroonga (reading pgroonga.text_term_search_ops_v2);\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:54
 msgid ""
 "```sql\n"
 "INSERT INTO tags VALUES ('PostgreSQL',\n"
@@ -111,9 +149,12 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You can perform prefix RK search with prefixes in Romaji by `&^~|` operator:"
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:62
+msgid ""
+"You can perform prefix RK search with prefixes in Romaji by `&^~|` operator:"
 msgstr "`&^~|`演算子を使うとローマ字でプレフィックスを複数指定して前方一致RK検索を実行できます。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:64
 msgid ""
 "```sql\n"
 "SELECT * FROM tags WHERE reading &^~| ARRAY['pi-ji-', 'posu'];\n"
@@ -126,9 +167,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:74
 msgid "You can also use Hiragana for prefixes:"
 msgstr "プレフィックスにはひらがなを使うこともできます。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:76
 msgid ""
 "```sql\n"
 "SELECT * FROM tags WHERE reading &^~| ARRAY['ぴーじー', 'ぽす'];\n"
@@ -141,9 +184,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:86
 msgid "You can also use Katakana for prefixes:"
 msgstr "プレフィックスにカタカナを使うこともできます。"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:88
 msgid ""
 "```sql\n"
 "SELECT * FROM tags WHERE reading &^~| ARRAY['ピージー', 'ポス'];\n"
@@ -156,40 +201,53 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:98
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:100
 msgid "  * [`&^` operator][prefix-search-v2]: Prefix search"
 msgstr "  * [`&^`演算子][prefix-search-v2]：前方一致検索"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:102
 msgid ""
-"  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefix"
-"es"
+"  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of "
+"prefixes"
 msgstr "  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:104
 msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
 msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:106
 msgid ""
-"[groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix"
-"_rk_search.html"
+"[groonga-prefix-rk-"
+"search]:http://groonga.org/docs/reference/operations/prefix_rk_search.html"
 msgstr ""
-"[groonga-prefix-rk-search]:http://groonga.org/ja/docs/reference/operations/pre"
-"fix_rk_search.html"
+"[groonga-prefix-rk-"
+"search]:http://groonga.org/ja/docs/reference/operations/prefix_rk_search.html"
 
-msgid "[wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese"
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:108
+msgid ""
+"[wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese"
 msgstr ""
-"[wikipedia-romaji]:https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%BC%E3%83%9E%E"
-"5%AD%97"
+"[wikipedia-"
+"romaji]:https://ja.wikipedia.org/wiki/%E3%83%AD%E3%83%BC%E3%83%9E%E5%AD%97"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:110
 msgid "[wikipedia-katakana]:https://en.wikipedia.org/wiki/Katakana"
-msgstr "[wikipedia-katakana]:https://ja.wikipedia.org/wiki/%E7%89%87%E4%BB%AE%E5%90%8D"
+msgstr ""
+"[wikipedia-"
+"katakana]:https://ja.wikipedia.org/wiki/%E7%89%87%E4%BB%AE%E5%90%8D"
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:112
 msgid "[prefix-search-v2]:prefix-search-v2.html"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:114
 msgid "[prefix-search-in-v2]:prefix-search-in-v2.html"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-rk-search-in-v2.md:116
 msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
 msgstr ""

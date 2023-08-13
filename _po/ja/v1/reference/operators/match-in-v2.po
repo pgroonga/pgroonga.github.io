@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:1
 msgid ""
 "---\n"
 "title: \"&@| operator\"\n"
@@ -19,60 +33,90 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:6
 msgid "# `&@|` operator"
 msgstr "# `&@|`演算子"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:12
 msgid "`&@>` operator is deprecated since 1.2.1. Use `&@|` operator instead."
 msgstr "1.2.1から`&@>`は非推奨になりました。代わりに`&@|`演算子を使ってください。"
 
-msgid "`&@|` operator performs full text search by array of keywords. If one or more keywords are found, the record is matched."
+#: ../../../../../v1/reference/operators/match-in-v2.md:14
+msgid ""
+"`&@|` operator performs full text search by array of keywords. If one or "
+"more keywords are found, the record is matched."
 msgstr "`&@|`演算子はキーワードの配列で全文検索を実行します。1つ以上のキーワードが見つかった場合、そのレコードはマッチしたことになります。"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:16
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:18
 msgid ""
 "```sql\n"
 "column &@| keywords\n"
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type."
+#: ../../../../../v1/reference/operators/match-in-v2.md:22
+msgid ""
+"`column` is a column to be searched. It's `text` type, `text[]` type or "
+"`varchar` type."
 msgstr "`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。"
 
-msgid "`keywords` is an array of keywords for full text search. It's `text[]` type for `text` type or `text[]` type `column`. It's `varchar[]` for `varchar` type `column`."
-msgstr "`keywords`は全文検索で使うキーワードの配列です。`column`の型が`text`型か`text[]`型の場合は型は`text[]`型です。`column`が`varchar`型の場合は型は`varchar[]`型です。"
+#: ../../../../../v1/reference/operators/match-in-v2.md:24
+msgid ""
+"`keywords` is an array of keywords for full text search. It's `text[]` type "
+"for `text` type or `text[]` type `column`. It's `varchar[]` for `varchar` "
+"type `column`."
+msgstr ""
+"`keywords`は全文検索で使うキーワードの配列です。`column`の型が`text`型か`text[]`型の場合は型は`text[]`型です。`column`が`varchar`型の場合は型は`varchar[]`型です。"
 
-msgid "The operator returns `true` when one or more keyword in `keywords` are included in `column`."
+#: ../../../../../v1/reference/operators/match-in-v2.md:26
+msgid ""
+"The operator returns `true` when one or more keyword in `keywords` are "
+"included in `column`."
 msgstr "この演算子は`keywords`中の1つ以上のキーワードが`column`の中に含まれていると`true`を返します。"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:28
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
-msgid "You need to specify one of the following operator classes to use this operator:"
+#: ../../../../../v1/reference/operators/match-in-v2.md:30
+msgid ""
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:32
 msgid "  * `pgroonga.text_full_text_search_ops_v2`: For `text`"
 msgstr "  * `pgroonga.text_full_text_search_ops_v2`：`text`用"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:34
 msgid "  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`"
 msgstr "  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:36
 msgid "  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`"
 msgstr "  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:38
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:40
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:42
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -81,12 +125,14 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:48
 msgid ""
 "CREATE INDEX pgroonga_content_index ON memos\n"
 "  USING pgroonga (content pgroonga.text_full_text_search_ops_v2);\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:52
 msgid ""
 "```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
@@ -102,9 +148,11 @@ msgstr ""
 "INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');\n"
 "```"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:59
 msgid "You can perform full text search with keywords by `&@|` operator:"
 msgstr "`&@|`演算子を使うと複数のキーワードで全文検索できます。"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:61
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &@| ARRAY['engine', 'database'];\n"
@@ -124,21 +172,34 @@ msgstr ""
 "-- (2 rows)\n"
 "```\n"
 
-msgid "`column &@| ARRAY['KEYWORD1', 'KEYWORD2']` equals to `column &@~ 'KEYWORD1 OR KEYWORD2'`."
-msgstr "`column &@| ARRAY['キーワード1', 'キーワード2']`は`column &@~ 'キーワード1 OR キーワード2'`と同じです。"
+#: ../../../../../v1/reference/operators/match-in-v2.md:70
+msgid ""
+"`column &@| ARRAY['KEYWORD1', 'KEYWORD2']` equals to `column &@~ 'KEYWORD1 "
+"OR KEYWORD2'`."
+msgstr ""
+"`column &@| ARRAY['キーワード1', 'キーワード2']`は`column &@~ 'キーワード1 OR キーワード2'`と同じです。"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:72
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:74
 msgid "  * [`&@` operator][match-v2]: Full text search by a keyword"
 msgstr "  * [`&@`演算子][match-v2]：キーワード1つでの全文検索"
 
-msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+#: ../../../../../v1/reference/operators/match-in-v2.md:76
+msgid ""
+"  * [`&@~` operator][query-v2]: Full text search by easy to use query "
+"language"
 msgstr "  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索"
 
-msgid "  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language"
+#: ../../../../../v1/reference/operators/match-in-v2.md:78
+msgid ""
+"  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries "
+"in easy to use query language"
 msgstr "  * [`&@~|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
 
+#: ../../../../../v1/reference/operators/match-in-v2.md:80
 msgid ""
 "[match-v2]:match-v2.html\n"
 "[query-v2]:query-v2.html\n"

@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:1
 msgid ""
 "---\n"
 "title: pgroonga_query_extract_keywords function\n"
@@ -19,54 +33,96 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:6
 msgid "# `pgroonga_query_extract_keywords` function"
 msgstr "# `pgroonga_query_extract_keywords`関数"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:8
 msgid "Since 1.0.7."
 msgstr "1.0.7で追加。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_query_extract_keywords` function extract keywords from text that uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on."
-msgstr "`pgroonga_query_extract_keywords`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っているテキストからキーワードを抽出します。クエリー構文は[`&@~`演算子][query-v2]や[`&@~|`演算子][query-in-v2]などで使われています。"
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:12
+msgid ""
+"`pgroonga_query_extract_keywords` function extract keywords from text that "
+"uses [query "
+"syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query"
+" syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-"
+"in-v2] and so on."
+msgstr ""
+"`pgroonga_query_extract_keywords`関数は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っているテキストからキーワードを抽出します。クエリー構文は[`&@~`演算子][query-v2]や[`&@~|`演算子][query-"
+"in-v2]などで使われています。"
 
-msgid "Extracting keywords from query helps you to use [`pgroonga_snippet_html` function](pgroonga-snippet-html.html), [`pgroonga_highlight_html` function](pgroonga-highlight-html.html) and so on. They require keywords as an argument. Normally, the keywords must be keywords in query."
-msgstr "クエリーからキーワードを抽出できると[`pgroonga_snippet_html`関数](pgroonga-snippet-html.html)や[`pgroonga_highlight_html`関数](pgroonga-highlight-html.html)などを使いやすくなります。これらにはキーワードを引数として渡さなければいけません。通常、渡すキーワードはクエリー内のキーワードになります。"
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:14
+msgid ""
+"Extracting keywords from query helps you to use [`pgroonga_snippet_html` "
+"function](pgroonga-snippet-html.html), [`pgroonga_highlight_html` "
+"function](pgroonga-highlight-html.html) and so on. They require keywords as "
+"an argument. Normally, the keywords must be keywords in query."
+msgstr ""
+"クエリーからキーワードを抽出できると[`pgroonga_snippet_html`関数](pgroonga-snippet-"
+"html.html)や[`pgroonga_highlight_html`関数](pgroonga-highlight-"
+"html.html)などを使いやすくなります。これらにはキーワードを引数として渡さなければいけません。通常、渡すキーワードはクエリー内のキーワードになります。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:16
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:18
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:20
 msgid ""
 "```text\n"
 "text[] pgroonga_query_extract_keywords(query, index_name DEFAULTS '')\n"
 "```"
 msgstr ""
 
-msgid "`query` is a `text` type value. It uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)."
-msgstr "`query`は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っている`text`型の値です。"
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:24
+msgid ""
+"`query` is a `text` type value. It uses [query "
+"syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)."
+msgstr ""
+"`query`は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っている`text`型の値です。"
 
-msgid "`index_name` is a `text` type value. If you're using `query_allow_column=true` option with your index, you need to specify the index name."
-msgstr "`index_name`は`text`型の値です。該当クエリーを使っているインデックスが`query_allow_column=true`を使っている場合はそのインデックスの名前を指定しなければいけません。"
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:26
+msgid ""
+"`index_name` is a `text` type value. If you're using "
+"`query_allow_column=true` option with your index, you need to specify the "
+"index name."
+msgstr ""
+"`index_name`は`text`型の値です。該当クエリーを使っているインデックスが`query_allow_column=true`を使っている場合はそのインデックスの名前を指定しなければいけません。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:28
 msgid "`index_name` is available since 3.0.0."
 msgstr "`index_name`は3.0.0から使えます。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:30
 msgid "`pgroonga_query_extract_keywords` returns an array of keywords."
 msgstr "`pgroonga_query_extract_keywords`はキーワードの配列を返します。"
 
-msgid "Search terms for AND condition and OR condition are keywords. Search terms for NOT condition aren't keywords. For example, `A`, `B` and `C` are keywords and `D` isn't keyword in `\"A (B OR C) - D\"`. `-` is NOT operator."
-msgstr "AND条件とOR条件の検索語はキーワードになります。NOT条件の検索語はキーワードになりません。たとえば、`\"A (B OR C) - D\"`では`A`と`B`と`C`はキーワードで`D`はキーワードではありません。`-`はNOT演算子です。"
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:32
+msgid ""
+"Search terms for AND condition and OR condition are keywords. Search terms "
+"for NOT condition aren't keywords. For example, `A`, `B` and `C` are "
+"keywords and `D` isn't keyword in `\"A (B OR C) - D\"`. `-` is NOT operator."
+msgstr ""
+"AND条件とOR条件の検索語はキーワードになります。NOT条件の検索語はキーワードになりません。たとえば、`\"A (B OR C) - "
+"D\"`では`A`と`B`と`C`はキーワードで`D`はキーワードではありません。`-`はNOT演算子です。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:34
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:36
 msgid "You can get all terms as keywords for AND only case:"
 msgstr "ANDのみの場合はすべての語がキーワードになります。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:38
 msgid ""
 "```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga PostgreSQL') AS query_extract_keywords;\n"
@@ -77,9 +133,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:46
 msgid "You can get all terms as keywords for OR only case:"
 msgstr "ORのみの場合はすべての語がキーワードになります。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:48
 msgid ""
 "```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga OR PostgreSQL') AS query_extract_keywords;\n"
@@ -90,9 +148,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:56
 msgid "You can use parentheses:"
 msgstr "カッコを使えます。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:58
 msgid ""
 "```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga (MySQL OR PostgreSQL)') AS query_extract_keywords;\n"
@@ -103,9 +163,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:66
 msgid "Term for NOT condition isn't keyword:"
 msgstr "NOT条件の語はキーワードになりません。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:68
 msgid ""
 "```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga - MySQL PostgreSQL') AS query_extract_keywords;\n"
@@ -116,9 +178,12 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You need to specify `index_name` when you use `query_allow_column=true`:"
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:76
+msgid ""
+"You need to specify `index_name` when you use `query_allow_column=true`:"
 msgstr "`query_allow_column=true`を使っている場合は`index_name`を指定しなければいけません。"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:78
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -127,6 +192,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:84
 msgid ""
 "CREATE INDEX pgroonga_memo_texts_index\n"
 "          ON memos\n"
@@ -134,6 +200,7 @@ msgid ""
 "        WITH (query_allow_column=true);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:89
 msgid ""
 "SELECT pgroonga_query_extract_keywords(\n"
 "         'Groonga content:@PostgreSQL',\n"
@@ -145,24 +212,31 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:98
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:100
 msgid "  * [`pgroonga_snippet_html` function][snippet-html]"
 msgstr "  * [`pgroonga_snippet_html`関数][snippet-html]"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:102
 msgid "  * [`pgroonga_highlight_html` function][highlight-html]"
 msgstr "  * [`pgroonga_highlight_html`関数][highlight-html]"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:104
 msgid "  * [`pgroonga_match_positions_byte` function][match-positions-byte]"
 msgstr "  * [`pgroonga_match_positions_byte`関数][match-positions-byte]"
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:106
 msgid "[query-v2]:../operators/query-v2.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:108
 msgid "[query-in-v2]:../operators/query-in-v2.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:110
 msgid ""
 "[snippet-html]:pgroonga-query-snippet-html.html\n"
 "[highlight-html]:pgroonga-highlight-html.html\n"

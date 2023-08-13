@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:1
 msgid ""
 "---\n"
 "title: CREATE INDEX USING pgroonga\n"
@@ -17,21 +31,38 @@ msgstr ""
 "title: CREATE INDEX USING pgroonga\n"
 "---"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:5
 msgid "# `CREATE INDEX USING pgroonga`"
 msgstr ""
 
-msgid "You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index method. This section describes about `pgroonga` index method."
-msgstr "インデックスメソッドとしてPGroongaを使うためには`CREATE INDEX`に`USING pgroonga`を指定します。このセクションでは`pgroonga`インデックスメソッドについて説明します。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:7
+msgid ""
+"You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as "
+"index method. This section describes about `pgroonga` index method."
+msgstr ""
+"インデックスメソッドとしてPGroongaを使うためには`CREATE INDEX`に`USING "
+"pgroonga`を指定します。このセクションでは`pgroonga`インデックスメソッドについて説明します。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:9
 msgid "## Syntax"
 msgstr "## 構文"
 
-msgid "This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [`CREATE INDEX` document by PostgreSQL]({{ site.postgresql_doc_base_url.en }}/sql-createindex.html) for full `CREATE INDEX` syntax."
-msgstr "このセクションでは`pgroonga`インデックスメソッド関連の`CREATE INDEX`の構文だけ説明します。完全な`CREATE INDEX`の構文は[PostgreSQLの`CREATE INDEX`のドキュメント]({{ site.postgresql_doc_base_url.ja }}/sql-createindex.html)を参照してください。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:11
+msgid ""
+"This section describes only `pgroonga` index method related `CREATE INDEX` "
+"syntax. See [`CREATE INDEX` document by PostgreSQL]({{ "
+"site.postgresql_doc_base_url.en }}/sql-createindex.html) for full `CREATE "
+"INDEX` syntax."
+msgstr ""
+"このセクションでは`pgroonga`インデックスメソッド関連の`CREATE INDEX`の構文だけ説明します。完全な`CREATE "
+"INDEX`の構文は[PostgreSQLの`CREATE INDEX`のドキュメント]({{ "
+"site.postgresql_doc_base_url.ja }}/sql-createindex.html)を参照してください。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:13
 msgid "Here is a basic syntax for creating a single column index:"
 msgstr "シングルカラムインデックスを作成する基本的な構文は次の通りです。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:15
 msgid ""
 "```sql\n"
 "CREATE INDEX ${INDEX_NAME}\n"
@@ -40,9 +71,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:21
 msgid "This syntax can be used for the following cases:"
 msgstr "次のケースのときはこの構文を使えます。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:23
 msgid ""
 "  * Creating a full text search index for a `text` type column\n"
 "  * Creating a full text search index for an array of `text` type column\n"
@@ -56,9 +89,13 @@ msgstr ""
 "  * `text`型以外の型の配列のカラム用の等価条件・比較条件検索用インデックスを作るとき\n"
 "  * `jsonb`型のカラム用のサブセット検索・高度な検索用のインデックスを作るとき"
 
-msgid "Here is a basic syntax for creating a full text search index for a `varchar` type column:"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:29
+msgid ""
+"Here is a basic syntax for creating a full text search index for a `varchar`"
+" type column:"
 msgstr "`varchar`型のカラム用の全文検索インデックスを作るときの基本的な構文は次の通りです。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:31
 msgid ""
 "```sql\n"
 "CREATE INDEX ${INDEX_NAME}\n"
@@ -67,58 +104,122 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You need to specify `pgroonga.varchar_full_text_search_ops` operator class for the case."
+#: ../../../../v1/reference/create-index-using-pgroonga.md:37
+msgid ""
+"You need to specify `pgroonga.varchar_full_text_search_ops` operator class "
+"for the case."
 msgstr "この場合は`pgroonga.varchar_full_text_search_ops`オペレータークラスを指定する必要があります。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:39
 msgid "### Customization {#customization}"
 msgstr "### カスタマイズ {#customization}"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:41
 msgid "You can customize the followings by `WITH` option of `CREATE INDEX`:"
 msgstr "`CREATE INDEX`の`WITH`オプションを使って次の項目をカスタマイズできます。"
 
-msgid "  * Plugin: It's an extension for Groonga. You can use additional features including additional tokenizers, normalizers and token filters by registering a plugin."
-msgstr "  * プラグイン：Groongaの拡張機能です。プラグインを登録することで追加の機能を使うことができます。追加の機能には追加のトークナイザー・ノーマライザー・トークンフィルターなどがあります。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:43
+msgid ""
+"  * Plugin: It's an extension for Groonga. You can use additional features "
+"including additional tokenizers, normalizers and token filters by "
+"registering a plugin."
+msgstr ""
+"  * "
+"プラグイン：Groongaの拡張機能です。プラグインを登録することで追加の機能を使うことができます。追加の機能には追加のトークナイザー・ノーマライザー・トークンフィルターなどがあります。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:45
 msgid "  * Tokenizer: It's a module for customizing how to extract keywords."
 msgstr "  * トークナイザー：キーワードの抽出方法をカスタマイズするモジュールです。"
 
-msgid "  * Normalizer: It's a module for customizing equality of `text` and `varchar` types."
+#: ../../../../v1/reference/create-index-using-pgroonga.md:47
+msgid ""
+"  * Normalizer: It's a module for customizing equality of `text` and "
+"`varchar` types."
 msgstr "  * ノーマライザー：`text`型と`varchar`型の等価性をカスタマイズするモジュールです。"
 
-msgid "  * Token filter: It's a module for filtering keywords extracted by tokenizer."
+#: ../../../../v1/reference/create-index-using-pgroonga.md:49
+msgid ""
+"  * Token filter: It's a module for filtering keywords extracted by "
+"tokenizer."
 msgstr "  * トークンフィルター：トークナイザーが抽出したキーワードをフィルターするモジュールです。"
 
-msgid "Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to custom them are for advanced users."
-msgstr "通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユーザー向けの機能です。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:51
+msgid ""
+"Normally, you don't need to customize them because the default values of "
+"them are suitable for most cases. Features to custom them are for advanced "
+"users."
+msgstr ""
+"通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユーザー向けの機能です。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:53
 msgid "Plugin and token filter aren't used by default."
 msgstr "デフォルトではプラグインとトークンフィルターは使われていません。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:55
 msgid "Here are the default tokenizer and normalizer:"
 msgstr "デフォルトのトークナイザーとノーマライザーは次の通りです。"
 
-msgid "  * Tokenizer: [`TokenBigram`](http://groonga.org/docs/reference/tokenizers.html#token-bigram): It's a bigram based tokenizer. It combines bigram tokenization and white space based tokenization. It uses bigram tokenization for non ASCII characters and white space based tokenization for ASCII characters. It reduces noise for ASCII characters only query."
-msgstr "  * トークナイザー：[`TokenBigram`](http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram)：bigramベースのトークナイザーです。このトークナイザーはbigramベースのトークナイズ方法とスペース区切りベースのトークナイズ方法を組み合わせています。非ASCII文字にはbigramベースのトークナイズ方法を使い、ASCII文字にはスペース区切りベースのトークナイズ方法を使います。これはASCII文字だけのクエリーで検索したときのノイズを減らすためです。"
-
-msgid "  * Normalizer: [`NormalizerAuto`](http://groonga.org/docs/reference/normalizers.html#normalizer-auto): It chooses suitable normalization based on target encoding. For example, it uses [Unicode NFKC](http://unicode.org/reports/tr15/) based normalization for UTF-8."
+#: ../../../../v1/reference/create-index-using-pgroonga.md:57
+msgid ""
+"  * Tokenizer: "
+"[`TokenBigram`](http://groonga.org/docs/reference/tokenizers.html#token-"
+"bigram): It's a bigram based tokenizer. It combines bigram tokenization and "
+"white space based tokenization. It uses bigram tokenization for non ASCII "
+"characters and white space based tokenization for ASCII characters. It "
+"reduces noise for ASCII characters only query."
 msgstr ""
-"  * ノーマライザー：[`NormalizerAuto`](http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto)：対象のエンコーディングに合わせて適切なノーマライズ方法を選びます。たとえば、UTF-8の場合は[Unicode NFKC](http://unicode.org/reports/tr15/)ベースのノーマライズ方法を使います。\n"
+"  * "
+"トークナイザー：[`TokenBigram`](http://groonga.org/ja/docs/reference/tokenizers.html#token-"
+"bigram)：bigramベースのトークナイザーです。このトークナイザーはbigramベースのトークナイズ方法とスペース区切りベースのトークナイズ方法を組み合わせています。非ASCII文字にはbigramベースのトークナイズ方法を使い、ASCII文字にはスペース区切りベースのトークナイズ方法を使います。これはASCII文字だけのクエリーで検索したときのノイズを減らすためです。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:59
+msgid ""
+"  * Normalizer: "
+"[`NormalizerAuto`](http://groonga.org/docs/reference/normalizers.html#normalizer-"
+"auto): It chooses suitable normalization based on target encoding. For "
+"example, it uses [Unicode NFKC](http://unicode.org/reports/tr15/) based "
+"normalization for UTF-8."
+msgstr ""
+"  * "
+"ノーマライザー：[`NormalizerAuto`](http://groonga.org/ja/docs/reference/normalizers.html#normalizer-"
+"auto)：対象のエンコーディングに合わせて適切なノーマライズ方法を選びます。たとえば、UTF-8の場合は[Unicode "
+"NFKC](http://unicode.org/reports/tr15/)ベースのノーマライズ方法を使います。\n"
+
+#: ../../../../v1/reference/create-index-using-pgroonga.md:61
 msgid "#### How to register plugins {#custom-plugins}"
 msgstr "#### プラグインの登録方法 {#custom-plugins}"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:63
+#: ../../../../v1/reference/create-index-using-pgroonga.md:148
 msgid "Since 1.2.0."
 msgstr "1.2.0で追加。"
 
-msgid "Specify `plugins='${PLUGIN_NAME_1}, ${PLUGIN_NAME_2}, ..., ${PLUGIN_NAME_N}'` for registering plugins."
-msgstr "プラグインを登録するには`plugins='${プラグイン名1}, ${プラグイン名2}, ..., ${プラグイン名N}'`を指定します。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:65
+msgid ""
+"Specify `plugins='${PLUGIN_NAME_1}, ${PLUGIN_NAME_2}, ..., "
+"${PLUGIN_NAME_N}'` for registering plugins."
+msgstr ""
+"プラグインを登録するには`plugins='${プラグイン名1}, ${プラグイン名2}, ..., ${プラグイン名N}'`を指定します。"
 
-msgid "Note that you must specify `plugins` as the first option in `CREATE INDEX`. Options in `CREATE INDEX` are processed by the specified order. Plugins should be registered before other options are processed because tokenizer, normalizer and token filters may be included in the plugins."
-msgstr "`CREATE INDEX`の最初のオプションとして`plugins`を指定しなければいけないことに注意してください。`CREATE INDEX`のオプションは指定された順に処理されます。指定したプラグインに含まれてるトークナイザー・ノーマライザー・トークンフィルターを使うかもしれないので、他のオプションより先にプラグインを登録しておく必要があります。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:67
+msgid ""
+"Note that you must specify `plugins` as the first option in `CREATE INDEX`. "
+"Options in `CREATE INDEX` are processed by the specified order. Plugins "
+"should be registered before other options are processed because tokenizer, "
+"normalizer and token filters may be included in the plugins."
+msgstr ""
+"`CREATE INDEX`の最初のオプションとして`plugins`を指定しなければいけないことに注意してください。`CREATE "
+"INDEX`のオプションは指定された順に処理されます。指定したプラグインに含まれてるトークナイザー・ノーマライザー・トークンフィルターを使うかもしれないので、他のオプションより先にプラグインを登録しておく必要があります。"
 
-msgid "Here is an example to register `token_filters/stem` plugin to use `TokenFilterStem` token filter:"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:69
+msgid ""
+"Here is an example to register `token_filters/stem` plugin to use "
+"`TokenFilterStem` token filter:"
 msgstr "以下は`TokenFilterStem`トークンフィルターを使うために`token_filters/stem`プラグインを登録する例です。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:71
+#: ../../../../v1/reference/create-index-using-pgroonga.md:92
+#: ../../../../v1/reference/create-index-using-pgroonga.md:156
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -127,6 +228,8 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:77
+#: ../../../../v1/reference/create-index-using-pgroonga.md:162
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -136,18 +239,34 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "See [How to customize token filters](#custom-token-filters) for token filters details."
+#: ../../../../v1/reference/create-index-using-pgroonga.md:84
+msgid ""
+"See [How to customize token filters](#custom-token-filters) for token "
+"filters details."
 msgstr "トークンフィルターについては[トークンフィルターのカスタマイズ方法](#custom-token-filters)を参照してください。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:86
 msgid "#### How to customize tokenizer {#custom-tokenizer}"
 msgstr "#### トークナイザーのカスタマイズ方法 {#custom-tokenizers}"
 
-msgid "Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to custom tokenizer."
-msgstr "トークナイザーをカスタマイズするには`tokenizer='${トークナイザー名}'`を指定します。通常、トークナイザーをカスタマイズする必要はありません。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:88
+msgid ""
+"Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally,"
+" you don't need to custom tokenizer."
+msgstr ""
+"トークナイザーをカスタマイズするには`tokenizer='${トークナイザー名}'`を指定します。通常、トークナイザーをカスタマイズする必要はありません。"
 
-msgid "Here is an example to use [MeCab](http://taku910.github.io/mecab/) based tokenizer. You need to specify `tokenizer='TokenMecab'`. [`TokenMecab`](http://groonga.org/docs/reference/tokenizers.html#token-mecab) is a name of MeCab based tokenizer."
-msgstr "以下は[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使う例です。`tokenizer='TokenMecab'`を指定する必要があります。[`TokenMecab`](http://groonga.org/ja/docs/reference/tokenizers.html#token-mecab)はMeCabベースのトークナイザーの名前です。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:90
+msgid ""
+"Here is an example to use [MeCab](http://taku910.github.io/mecab/) based "
+"tokenizer. You need to specify `tokenizer='TokenMecab'`. "
+"[`TokenMecab`](http://groonga.org/docs/reference/tokenizers.html#token-"
+"mecab) is a name of MeCab based tokenizer."
+msgstr ""
+"以下は[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使う例です。`tokenizer='TokenMecab'`を指定する必要があります。[`TokenMecab`](http://groonga.org/ja/docs/reference/tokenizers.html#token-"
+"mecab)はMeCabベースのトークナイザーの名前です。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:98
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -156,12 +275,21 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You can disable tokenizer by specifying `tokenizer=''`. If you disable tokenizer, you can search column value only by exact match search and prefix search. It reduces noise for some cases. For example, it's useful for tag search, name search and so on."
-msgstr "`tokenizer=''`と指定することでトークナイザーを無効にすることができます。トークナイザーを無効にすると、完全一致検索または前方一致検索のみでカラムの値を検索できます。これにより誤ヒットが少なくなるケースがあります。例えば、タグ検索・名前検索などのときは有用です。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:104
+msgid ""
+"You can disable tokenizer by specifying `tokenizer=''`. If you disable "
+"tokenizer, you can search column value only by exact match search and prefix"
+" search. It reduces noise for some cases. For example, it's useful for tag "
+"search, name search and so on."
+msgstr ""
+"`tokenizer=''`と指定することでトークナイザーを無効にすることができます。トークナイザーを無効にすると、完全一致検索または前方一致検索のみでカラムの値を検索できます。これにより誤ヒットが少なくなるケースがあります。例えば、タグ検索・名前検索などのときは有用です。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:106
 msgid "Here is an example to disable tokenizer:"
 msgstr "以下はトークナイザーを無効にする例です。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:108
+#: ../../../../v1/reference/create-index-using-pgroonga.md:132
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -170,6 +298,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:114
 msgid ""
 "CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
@@ -178,24 +307,46 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "`tokenizer='TokenDelimit'` will be useful for tag search. See also [`TokenDelimit`](http://groonga.org/docs/reference/tokenizers.html#token-delimit)."
-msgstr "`tokenizer='TokenDelimit'`はタグ検索で便利です。[`TokenDelimit`](http://groonga.org/ja/docs/reference/tokenizers.html#token-delimit)も参照してください。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:120
+msgid ""
+"`tokenizer='TokenDelimit'` will be useful for tag search. See also "
+"[`TokenDelimit`](http://groonga.org/docs/reference/tokenizers.html#token-"
+"delimit)."
+msgstr ""
+"`tokenizer='TokenDelimit'`はタグ検索で便利です。[`TokenDelimit`](http://groonga.org/ja/docs/reference/tokenizers.html#token-"
+"delimit)も参照してください。"
 
-msgid "See [Tokenizers](http://groonga.org/docs/reference/tokenizers.html) for other tokenizers."
-msgstr "他のトークナイザーについては[トークナイザー](http://groonga.org/ja/docs/reference/tokenizers.html)を参照してください。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:122
+msgid ""
+"See [Tokenizers](http://groonga.org/docs/reference/tokenizers.html) for "
+"other tokenizers."
+msgstr ""
+"他のトークナイザーについては[トークナイザー](http://groonga.org/ja/docs/reference/tokenizers.html)を参照してください。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:124
 msgid "#### How to customize normalizer {#custom-normalizer}"
 msgstr "#### ノーマライザーのカスタマイズ方法 {#custom-normalizer}"
 
-msgid "Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. Normally, you don't need to customize normalizer."
-msgstr "ノーマライザーをカスタマイズするには`normalizer='${ノーマライザー名}'`を指定してください。通常はノーマライザーをカスタマイズする必要はありません。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:126
+msgid ""
+"Specify `normalizer='${NORMALIZER_NAME}'` for customizing normalizer. "
+"Normally, you don't need to customize normalizer."
+msgstr ""
+"ノーマライザーをカスタマイズするには`normalizer='${ノーマライザー名}'`を指定してください。通常はノーマライザーをカスタマイズする必要はありません。"
 
-msgid "You can disable normalizer by specifying `normalizer=''`. If you disable normalizer, you can search column value only by the original column value. If normalizer increases noise, it's useful."
-msgstr "`normalizer=''`を指定するとノーマライザーを無効にすることができます。ノーマライザーを無効にすると元のカラムの値そのものでだけ検索できます。もし、ノーマライザーを使うことで誤ヒットが増える場合は無効にした方がよいでしょう。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:128
+msgid ""
+"You can disable normalizer by specifying `normalizer=''`. If you disable "
+"normalizer, you can search column value only by the original column value. "
+"If normalizer increases noise, it's useful."
+msgstr ""
+"`normalizer=''`を指定するとノーマライザーを無効にすることができます。ノーマライザーを無効にすると元のカラムの値そのものでだけ検索できます。もし、ノーマライザーを使うことで誤ヒットが増える場合は無効にした方がよいでしょう。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:130
 msgid "Here is an example to disable normalizer:"
 msgstr "ノーマライザーを無効にする方法は次の通りです。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:138
 msgid ""
 "CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
@@ -204,44 +355,83 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "See [Normalizers](http://groonga.org/docs/reference/normalizers.html) for other normalizers."
-msgstr "他のノーマライザーについては[ノーマライザー](http://groonga.org/ja/docs/reference/normalizers.html)を参照してください。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:144
+msgid ""
+"See [Normalizers](http://groonga.org/docs/reference/normalizers.html) for "
+"other normalizers."
+msgstr ""
+"他のノーマライザーについては[ノーマライザー](http://groonga.org/ja/docs/reference/normalizers.html)を参照してください。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:146
 msgid "#### How to use token filters {#custom-token-filters}"
 msgstr "#### トークンフィルターのカスタマイズ方法 {#custom-token-filter}"
 
-msgid "Specify `token_filters='${TOKEN_FILTER_1}, ${TOKEN_FILTER_2}, ..., ${TOKEN_FILTER_N}'` for using token filters."
-msgstr "トークンフィルターを使うには`token_filters='${トークンフィルター1}, ${トークンフィルター2}, ..., ${トークンフィルターN}'`を指定します。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:150
+msgid ""
+"Specify `token_filters='${TOKEN_FILTER_1}, ${TOKEN_FILTER_2}, ..., "
+"${TOKEN_FILTER_N}'` for using token filters."
+msgstr ""
+"トークンフィルターを使うには`token_filters='${トークンフィルター1}, ${トークンフィルター2}, ..., "
+"${トークンフィルターN}'`を指定します。"
 
-msgid "Groonga doesn't provide any token filters by default. All token filters are provided as plugins. You need to register plugins to use token filters."
-msgstr "Groongaはデフォルトでは1つもトークンフィルターを提供していません。すべてのトークンフィルターはプラグインとして提供しています。トークンフィルターを使う場合はプラグインを登録する必要があります。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:152
+msgid ""
+"Groonga doesn't provide any token filters by default. All token filters are "
+"provided as plugins. You need to register plugins to use token filters."
+msgstr ""
+"Groongaはデフォルトでは1つもトークンフィルターを提供していません。すべてのトークンフィルターはプラグインとして提供しています。トークンフィルターを使う場合はプラグインを登録する必要があります。"
 
-msgid "Here is an example to use `TokenFilterStem` token filter that is included in `token_filters/stem` plugin:"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:154
+msgid ""
+"Here is an example to use `TokenFilterStem` token filter that is included in"
+" `token_filters/stem` plugin:"
 msgstr "以下は`token_filters/stem`プラグインに含まれている`TokenFilterStem`トークンフィルターを使う例です。"
 
-msgid "Note that you must specify `plugins` before `token_filters`. These `CREATE INDEX` options are processed by the specified order. Plugins must be registered before you use token filters."
-msgstr "`token_filters`より前に`plugins`を指定しなければいけないことに注意してください。`CREATE INDEX`に指定したオプションは指定した順に処理されます。トークンフィルターを使う前にプラグインを登録しておく必要があります。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:169
+msgid ""
+"Note that you must specify `plugins` before `token_filters`. These `CREATE "
+"INDEX` options are processed by the specified order. Plugins must be "
+"registered before you use token filters."
+msgstr ""
+"`token_filters`より前に`plugins`を指定しなければいけないことに注意してください。`CREATE "
+"INDEX`に指定したオプションは指定した順に処理されます。トークンフィルターを使う前にプラグインを登録しておく必要があります。"
 
-msgid "See [Token filters](http://groonga.org/docs/reference/token_filters.html) for other token filters."
-msgstr "他のトークンフィルターについては[トークンフィルター](http://groonga.org/ja/docs/reference/token_filters.html)を参照してください。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:171
+msgid ""
+"See [Token filters](http://groonga.org/docs/reference/token_filters.html) "
+"for other token filters."
+msgstr ""
+"他のトークンフィルターについては[トークンフィルター](http://groonga.org/ja/docs/reference/token_filters.html)を参照してください。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:173
 msgid "#### How to change tablespace {#custom-tablespace}"
 msgstr "#### テーブルスペースの変更方法 {#custom-tablespace}"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:175
 msgid "Since 1.1.6."
 msgstr "1.1.6で追加。"
 
-msgid "Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace]({{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html). If you have fast storage, you may want to change tablespace for PGroonga indexes."
-msgstr "[テーブルスペース]({{ site.postgresql_doc_base_url.ja }}/manage-ag-tablespaces.html)をカスタマイズするには`TABLESPACE ${TABLESPACE_NAME}`を指定してください。もし高速なストレージがある場合は、テーブルスペースを変更してそのストレージにPGroongaのインデックスを置きたくなるかもしれません。"
+#: ../../../../v1/reference/create-index-using-pgroonga.md:177
+msgid ""
+"Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace]({{ "
+"site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html). If you have "
+"fast storage, you may want to change tablespace for PGroonga indexes."
+msgstr ""
+"[テーブルスペース]({{ site.postgresql_doc_base_url.ja }}/manage-ag-"
+"tablespaces.html)をカスタマイズするには`TABLESPACE "
+"${TABLESPACE_NAME}`を指定してください。もし高速なストレージがある場合は、テーブルスペースを変更してそのストレージにPGroongaのインデックスを置きたくなるかもしれません。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:179
 msgid "Here is an example to change tablespace:"
 msgstr "以下はテーブルスペースを変更する例です。"
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:181
 msgid ""
 "```sql\n"
 "CREATE TABLESPACE fast LOCATION '/data/fast_disk';"
 msgstr ""
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:184
 msgid ""
 "CREATE TABLE memos (\n"
 "  id integer,\n"
@@ -249,6 +439,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../v1/reference/create-index-using-pgroonga.md:189
 msgid ""
 "CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"

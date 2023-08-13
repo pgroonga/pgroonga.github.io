@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-01 16:04+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../how-to/postgrest.md:1
 msgid ""
 "---\n"
 "title: How to use PGroonga with PostgREST\n"
@@ -17,18 +31,28 @@ msgstr ""
 "title: PostgRESTでPGroongaを使う方法\n"
 "---"
 
+#: ../../../how-to/postgrest.md:5
 msgid "# How to use PGroonga with PostgREST"
 msgstr "# PostgRESTでPGroongaを使う方法"
 
-msgid "Create data in PostgreSQL, provide it as an API using PostgREST, and then easily create an **\"API for convenient data search\"**. This is a beginner's guide to PostgREST with PGroonga."
-msgstr "PostgRESTを使うことによってPostgreSQLで作ったデータの**\"検索APIを簡単に公開\"**できます。これはそのためのPostgRESTでPGroongaを使うための初心者向けガイドです。"
+#: ../../../how-to/postgrest.md:7
+msgid ""
+"Create data in PostgreSQL, provide it as an API using PostgREST, and then "
+"easily create an **\"API for convenient data search\"**. This is a "
+"beginner's guide to PostgREST with PGroonga."
+msgstr ""
+"PostgRESTを使うことによってPostgreSQLで作ったデータの**\"検索APIを簡単に公開\"**できます。これはそのためのPostgRESTでPGroongaを使うための初心者向けガイドです。"
 
+#: ../../../how-to/postgrest.md:9
 msgid "## Prepare data on the PostgreSQL side"
 msgstr "## PostgreSQL側でのデータの準備"
 
-msgid "Here, we will use PostgreSQL, which is usually available on most computers😏"
+#: ../../../how-to/postgrest.md:11
+msgid ""
+"Here, we will use PostgreSQL, which is usually available on most computers😏"
 msgstr "ここでは大抵どのご家庭のコンピュータにも入っているPostgreSQLを使います😏"
 
+#: ../../../how-to/postgrest.md:13
 msgid ""
 "```sh\n"
 "createdb api\n"
@@ -40,32 +64,54 @@ msgstr ""
 "psql api\n"
 "```"
 
+#: ../../../how-to/postgrest.md:18
 msgid "## Create a table and create suitable indexes"
 msgstr "## テーブル作成と適切なインデックス作成"
 
-msgid "To make use of the convenient features of PGroonga, creating indexes that match the features is crucial."
+#: ../../../how-to/postgrest.md:20
+msgid ""
+"To make use of the convenient features of PGroonga, creating indexes that "
+"match the features is crucial."
 msgstr "PGroongaの便利な機能を使うには、それらの機能に応じた最適なインデックスを作ることが大変重要となります。"
 
-msgid "In this example, we will create a memo table and create indexes that enable the following search functionalities for each column:"
+#: ../../../how-to/postgrest.md:22
+msgid ""
+"In this example, we will create a memo table and create indexes that enable "
+"the following search functionalities for each column:"
 msgstr "この例では、memoテーブルを作成し、後に続く検索機能に必要なインデックスをそれぞれのカラムに対して作成します。"
 
-msgid "- Treating hiragana and katakana as equivalent (searching for \"あっぷる\" will match both \"あっぷる\" and \"アップル\")."
+#: ../../../how-to/postgrest.md:24
+msgid ""
+"- Treating hiragana and katakana as equivalent (searching for \"あっぷる\" will "
+"match both \"あっぷる\" and \"アップル\")."
 msgstr "- ひらがなとカタカナを同一視させます (\"あっぷる\"でも\"あっぷる\"と\"アップル\"がヒット)。"
 
-msgid "- Treating hiragana, katakana, and romaji as equivalent (searching for \"de-tabe-su\" will match \"de-tabe-su,\" \"でーたべーす,\" and \"データベース\")."
-msgstr "- ひらがなとカタカナとローマ字を同一視させます (\"de-tabe-su\"で検索しても\"de-tabe-su\",\"でーたべーす\",そして \"データベース\"がヒットします)。"
+#: ../../../how-to/postgrest.md:26
+msgid ""
+"- Treating hiragana, katakana, and romaji as equivalent (searching for \"de-"
+"tabe-su\" will match \"de-tabe-su,\" \"でーたべーす,\" and \"データベース\")."
+msgstr ""
+"- ひらがなとカタカナとローマ字を同一視させます (\"de-tabe-su\"で検索しても\"de-tabe-su\",\"でーたべーす\",そして "
+"\"データベース\"がヒットします)。"
 
-msgid "- Treating various long vowel marks as equivalent (treating similar long vowel marks, such as \"-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ,\" as the same for easier searching)."
+#: ../../../how-to/postgrest.md:28
+msgid ""
+"- Treating various long vowel marks as equivalent (treating similar long "
+"vowel marks, such as \"-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ,\" as the same for easier "
+"searching)."
 msgstr "- 様々な長音記号を同一視させます (\"-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ,\"を同じ文字として扱います)。"
 
+#: ../../../how-to/postgrest.md:30
 msgid "Now, let's try it out!"
 msgstr "早速やってみましょう！"
 
+#: ../../../how-to/postgrest.md:32
 msgid ""
 "```sql\n"
 "CREATE EXTENSION IF NOT EXISTS pgroonga;"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:35
 msgid ""
 "CREATE TABLE memos (\n"
 "  id integer,\n"
@@ -74,6 +120,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:41
 msgid ""
 "-- Please don't mind the randomness of the sample text 😗\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。','すごいでしょう');\n"
@@ -82,6 +129,7 @@ msgid ""
 "INSERT INTO memos VALUES (4, 'groongaコマンドがあります。','今日はコンバンワこのくにわ');"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:47
 msgid ""
 "CREATE INDEX pgroonga_title_search_index ON memos USING pgroonga (title)\n"
 "  WITH (\n"
@@ -95,6 +143,7 @@ msgid ""
 "  );"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:58
 msgid ""
 "CREATE INDEX pgroonga_content_search_index ON memos USING pgroonga (content)\n"
 "  WITH (\n"
@@ -109,12 +158,17 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:70
 msgid "## Prepare PostgREST permissions"
 msgstr "## PostgREST権限情報を設定"
 
-msgid "To create the necessary permissions for PostgREST, you can follow these steps:"
+#: ../../../how-to/postgrest.md:72
+msgid ""
+"To create the necessary permissions for PostgREST, you can follow these "
+"steps:"
 msgstr "次の手順に従ってPostgRESTへの権限情報を設定します："
 
+#: ../../../how-to/postgrest.md:74
 msgid ""
 "```sql\n"
 "CREATE ROLE web_user nologin;\n"
@@ -122,24 +176,29 @@ msgid ""
 "GRANT SELECT ON memos TO web_user;"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:79
 msgid ""
 "CREATE ROLE authenticator noinherit login password 'mypassword';\n"
 "GRANT web_user to authenticator;\n"
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:83
 msgid "## Configure PostgREST"
 msgstr "## PostgRESTの設定"
 
+#: ../../../how-to/postgrest.md:85
 msgid ""
 "```sh\n"
 "vi memo.conf\n"
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:89
 msgid "Inside of the file:"
 msgstr "ファイルの内容:"
 
+#: ../../../how-to/postgrest.md:91
 msgid ""
 "```vim\n"
 "db-uri = \"postgres://authenticator:mypassword@localhost:5432/api\"\n"
@@ -148,30 +207,45 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:97
 msgid "## Start PostgREST"
 msgstr "## PostgRESTの起動"
 
+#: ../../../how-to/postgrest.md:99
 msgid ""
 "```sh\n"
 "postgrest memo.conf\n"
 "```"
 msgstr ""
 
-msgid "Oh, for the installation method of PostgREST, please refer to https://postgrest.org/en/stable/explanations/install.html 😉"
-msgstr "PostgRESTのインストール方法については https://postgrest.org/en/stable/explanations/install.html を参考にしてね😉"
+#: ../../../how-to/postgrest.md:103
+msgid ""
+"Oh, for the installation method of PostgREST, please refer to "
+"https://postgrest.org/en/stable/explanations/install.html 😉"
+msgstr ""
+"PostgRESTのインストール方法については "
+"https://postgrest.org/en/stable/explanations/install.html を参考にしてね😉"
 
+#: ../../../how-to/postgrest.md:105
 msgid "## Access the URL"
 msgstr "## URLにアクセス"
 
+#: ../../../how-to/postgrest.md:107 ../../../how-to/postgrest.md:134
+#: ../../../how-to/postgrest.md:144 ../../../how-to/postgrest.md:182
+#: ../../../how-to/postgrest.md:201 ../../../how-to/postgrest.md:215
+#: ../../../how-to/postgrest.md:228 ../../../how-to/postgrest.md:241
 msgid "Open your browser and access the following:"
 msgstr "ブラウザを開いて次のURLにアクセスします:"
 
+#: ../../../how-to/postgrest.md:109
 msgid "http://localhost:3000/memos"
 msgstr "http://localhost:3000/memos"
 
+#: ../../../how-to/postgrest.md:111
 msgid "Result:"
 msgstr "結果："
 
+#: ../../../how-to/postgrest.md:113
 msgid ""
 "```json\n"
 "[\n"
@@ -183,63 +257,100 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "What? Is it really this easy to have a working REST API endpoint? It's too convenient! 🤯"
+#: ../../../how-to/postgrest.md:122
+msgid ""
+"What? Is it really this easy to have a working REST API endpoint? It's too "
+"convenient! 🤯"
 msgstr "何ということでしょう！？こんなに簡単にREST APIが動いちゃっていいの？！🤯"
 
-msgid "(However, please note that due to the permissions set up in this case, you can only perform `SELECT` operations. So, you can search but not add, modify, or delete data. 😏)"
+#: ../../../how-to/postgrest.md:124
+msgid ""
+"(However, please note that due to the permissions set up in this case, you "
+"can only perform `SELECT` operations. So, you can search but not add, "
+"modify, or delete data. 😏)"
 msgstr "(ただし今回の例では権限的に`SELECT`機能しか使えません。なので検索は出来ますがデータの変更や削除は出来ません😏)"
 
+#: ../../../how-to/postgrest.md:126
 msgid "## Regular LIKE search"
 msgstr "## 通常のLIKE検索"
 
-msgid "This is the method to perform a `LIKE` search using the standard functionality of PostgreSQL."
+#: ../../../how-to/postgrest.md:128
+msgid ""
+"This is the method to perform a `LIKE` search using the standard "
+"functionality of PostgreSQL."
 msgstr "ここでは通常のPostgreSQLの `LIKE` 検索を使う方法を紹介します。"
 
-msgid "(By the way, normally, indexes do not work for PostgreSQL's partial match, but if you create an index with PGroonga, it will work. It's like magic! 👀)"
-msgstr "(ところで通常のPostgreSQLでは中間一致検索においてインデックスは使われませんが、PGroongaを使うと中間一致でもインデックスが使えます。まるで魔法ですね！ 👀)"
+#: ../../../how-to/postgrest.md:130
+msgid ""
+"(By the way, normally, indexes do not work for PostgreSQL's partial match, "
+"but if you create an index with PGroonga, it will work. It's like magic! 👀)"
+msgstr ""
+"(ところで通常のPostgreSQLでは中間一致検索においてインデックスは使われませんが、PGroongaを使うと中間一致でもインデックスが使えます。まるで魔法ですね！"
+" 👀)"
 
+#: ../../../how-to/postgrest.md:132
 msgid "### Search by title"
 msgstr "### titleを検索"
 
-msgid "[`http://localhost:3000/memos?title=like.*データ*`](http://localhost:3000/memos?title=like.*データ*)"
+#: ../../../how-to/postgrest.md:136
+msgid ""
+"[`http://localhost:3000/memos?title=like.*データ*`](http://localhost:3000/memos?title=like.*データ*)"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:138
 msgid ""
 "```json\n"
 "[{\"id\":1,\"title\":\"PostgreSQLはリレーショナル・データベース管理システムです。\",\"content\":\"すごいでしょう\"}]\n"
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:142
 msgid "### Search by content"
 msgstr "### contentを検索"
 
-msgid "[`http://localhost:3000/memos?content=like.*ショウ*`](http://localhost:3000/memos?content=like.*ショウ*)"
+#: ../../../how-to/postgrest.md:146
+msgid ""
+"[`http://localhost:3000/memos?content=like.*ショウ*`](http://localhost:3000/memos?content=like.*ショウ*)"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:148
 msgid ""
 "```json\n"
 "[{\"id\":2,\"title\":\"Groongaは日本語対応の高速な全文検索エンジンです。\",\"content\":\"スワイショウ\"}]\n"
 "```"
 msgstr ""
 
-msgid "☝️ With the standard LIKE search functionality, searching for 'ショウ' in katakana will not match hiragana."
+#: ../../../how-to/postgrest.md:152
+msgid ""
+"☝️ With the standard LIKE search functionality, searching for 'ショウ' in "
+"katakana will not match hiragana."
 msgstr "☝️ 通常の LIKE 検索ではカタカナの'ショウ'ではひらがなの「しょう」はヒットしません"
 
+#: ../../../how-to/postgrest.md:154
 msgid "## Searching with PGroonga"
 msgstr "## PGroongaを使った検索"
 
-msgid "Now, since the operators `&@~` required for searching with PGroonga are not directly available in PostgREST, we will create a stored function to enable their usage."
-msgstr "さて、PGroongaで使用する `&@~` 演算子はそのままではPostgRESTで使用することができません。それを利用可能にするためのストアドファンクションを作成します。"
+#: ../../../how-to/postgrest.md:156
+msgid ""
+"Now, since the operators `&@~` required for searching with PGroonga are not "
+"directly available in PostgREST, we will create a stored function to enable "
+"their usage."
+msgstr ""
+"さて、PGroongaで使用する `&@~` "
+"演算子はそのままではPostgRESTで使用することができません。それを利用可能にするためのストアドファンクションを作成します。"
 
+#: ../../../how-to/postgrest.md:158
 msgid ""
 "```sh\n"
 "psql api\n"
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:162
 msgid "Execute the following SQL statement:"
 msgstr "次のSQL文を実行します:"
 
+#: ../../../how-to/postgrest.md:164
 msgid ""
 "```sql\n"
 "CREATE FUNCTION find_title(keywords text) RETURNS SETOF memos AS $$\n"
@@ -249,6 +360,7 @@ msgid ""
 "$$ LANGUAGE plpgsql;"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:171
 msgid ""
 "CREATE FUNCTION find_content(keywords text) RETURNS SETOF memos AS $$\n"
 "BEGIN\n"
@@ -258,27 +370,39 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:178
 msgid "## Searching with PGroonga in PostgREST"
 msgstr "## PostgRESTでPGroongaを使用した検索"
 
-msgid "When calling stored functions in PostgREST, the URL format is `/rpc/function_name`."
+#: ../../../how-to/postgrest.md:180
+msgid ""
+"When calling stored functions in PostgREST, the URL format is "
+"`/rpc/function_name`."
 msgstr "PostgRESTでストアドファンクションを使う際には、URLに `/rpc/function_name` を使います。"
 
-msgid "[`http://localhost:3000/rpc/find_title?keywords=コマンド`](http://localhost:3000/rpc/find_title?keywords=コマンド)"
+#: ../../../how-to/postgrest.md:184
+msgid ""
+"[`http://localhost:3000/rpc/find_title?keywords=コマンド`](http://localhost:3000/rpc/find_title?keywords=コマンド)"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:186
 msgid "The following results will be returned."
 msgstr "次のような結果が戻って来ます。"
 
+#: ../../../how-to/postgrest.md:188
 msgid ""
 "```json\n"
 "[{\"id\":4,\"title\":\"groongaコマンドがあります。\",\"content\":\"今日はコンバンワこのくにわ\"}]\n"
 "```"
 msgstr ""
 
-msgid "By the way, using a browser to hit the URL is easier than using curl because dealing with encoding can be cumbersome."
+#: ../../../how-to/postgrest.md:192
+msgid ""
+"By the way, using a browser to hit the URL is easier than using curl because"
+" dealing with encoding can be cumbersome."
 msgstr "ちなみにブラウザからURLでエンドポイントを叩く方が、文字列のエンコードが不要な分、curlを使うよりも楽です。"
 
+#: ../../../how-to/postgrest.md:194
 msgid ""
 "```console\n"
 "$ curl --get --data-urlencode keywords=コマンド http://localhost:3000/rpc/find_title\n"
@@ -286,12 +410,16 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:199
 msgid "### Search in romaji"
 msgstr "### ローマ字検索"
 
-msgid "[`http://localhost:3000/rpc/find_title?keywords=desu`](http://localhost:3000/rpc/find_title?keywords=desu)"
+#: ../../../how-to/postgrest.md:203
+msgid ""
+"[`http://localhost:3000/rpc/find_title?keywords=desu`](http://localhost:3000/rpc/find_title?keywords=desu)"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:205
 msgid ""
 "```json\n"
 "[\n"
@@ -302,12 +430,16 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:213
 msgid "### Searching hiragana and katakana in hiragana or katakana"
 msgstr "### ひらがな もしくは カタカナ で、ひらがなとカタカナ両方を検索"
 
-msgid "[`http://localhost:3000/rpc/find_content?keywords=ショウ`](http://localhost:3000/rpc/find_content?keywords=ショウ)"
+#: ../../../how-to/postgrest.md:217
+msgid ""
+"[`http://localhost:3000/rpc/find_content?keywords=ショウ`](http://localhost:3000/rpc/find_content?keywords=ショウ)"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:219
 msgid ""
 "```json\n"
 "[\n"
@@ -317,12 +449,17 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:226
 msgid "### AND search"
 msgstr "### AND検索"
 
-msgid "[`http://localhost:3000/rpc/find_title?keywords=nga です`](http://localhost:3000/rpc/find_title?keywords=nga%20です)"
+#: ../../../how-to/postgrest.md:230
+msgid ""
+"[`http://localhost:3000/rpc/find_title?keywords=nga "
+"です`](http://localhost:3000/rpc/find_title?keywords=nga%20です)"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:232
 msgid ""
 "```json\n"
 "[\n"
@@ -332,12 +469,17 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:239
 msgid "### OR search"
 msgstr "### OR検索"
 
-msgid "[`http://localhost:3000/rpc/find_title?keywords=nga OR です`](http://localhost:3000/rpc/find_title?keywords=nga%20OR%20です)"
+#: ../../../how-to/postgrest.md:243
+msgid ""
+"[`http://localhost:3000/rpc/find_title?keywords=nga OR "
+"です`](http://localhost:3000/rpc/find_title?keywords=nga%20OR%20です)"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:245
 msgid ""
 "```json\n"
 "[\n"
@@ -349,18 +491,27 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:254
 msgid "## Bonus"
 msgstr "## 参考情報"
 
-msgid "When you want to allow various additional searches, you can create multiple stored functions."
+#: ../../../how-to/postgrest.md:256
+msgid ""
+"When you want to allow various additional searches, you can create multiple "
+"stored functions."
 msgstr "追加の検索項目が欲しい場合にはストアドファンクションを追加して行きましょう。"
 
+#: ../../../how-to/postgrest.md:258
 msgid "### Make target column customizable"
 msgstr "### 検索対象を動的にするパターン"
 
-msgid "Here is an example of a stored function that performs a dynamic search by passing the column name:"
+#: ../../../how-to/postgrest.md:260
+msgid ""
+"Here is an example of a stored function that performs a dynamic search by "
+"passing the column name:"
 msgstr "カラム名をパラメータとして渡して検索させる例です："
 
+#: ../../../how-to/postgrest.md:262
 msgid ""
 "```sql\n"
 "CREATE OR REPLACE FUNCTION search_col(column_name text, keyword text)\n"
@@ -379,12 +530,15 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../how-to/postgrest.md:278
 msgid "###  Search all columns"
 msgstr "### 全てのカラムを検索"
 
+#: ../../../how-to/postgrest.md:280
 msgid "Stored function to search all columns with a keyword:"
 msgstr "全てのカラムに対してキーワード検索します:"
 
+#: ../../../how-to/postgrest.md:282
 msgid ""
 "```sql\n"
 "CREATE OR REPLACE FUNCTION memo_search(keyword text)\n"

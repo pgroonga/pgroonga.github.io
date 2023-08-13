@@ -1,24 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../uninstall/index.md:1
 msgid ""
 "---\n"
 "title: Uninstall\n"
 "---"
 msgstr ""
 
+#: ../../../uninstall/index.md:5
 msgid "# Uninstall"
 msgstr ""
 
+#: ../../../uninstall/index.md:7
 msgid "You can uninstall PGroonga by the following SQL:"
 msgstr "次のSQLでPGroongaをアンインストールできます。"
 
+#: ../../../uninstall/index.md:9
 msgid ""
 "```sql\n"
 "DROP EXTENSION pgroonga CASCADE;\n"
@@ -26,11 +44,13 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../uninstall/index.md:14
 msgid ""
-"If you're using PostgreSQL 9.5 or earlier, you need to also run the following "
-"SQL:"
+"If you're using PostgreSQL 9.5 or earlier, you need to also run the "
+"following SQL:"
 msgstr "PostgreSQL 9.5以前を使っている場合は以下のSQLも実行する必要があります。"
 
+#: ../../../uninstall/index.md:16
 msgid ""
 "```sql\n"
 "DELETE FROM pg_catalog.pg_am WHERE amname = 'pgroonga';\n"

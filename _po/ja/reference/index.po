@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-09 14:38+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../reference/index.md:1
 msgid ""
 "---\n"
 "title: Reference manual\n"
@@ -18,755 +33,1031 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../reference/index.md:6
 msgid "# Reference manual"
 msgstr "# リファレンスマニュアル"
 
+#: ../../../reference/index.md:8
 msgid ""
-"This document describes about all features. [Tutorial](../tutorial/) focuses o"
-"n easy to understand only about important features. This document focuses on c"
-"ompleteness. If you don't read [tutorial](../tutorial/) yet, read tutorial bef"
-"ore read this document."
+"This document describes about all features. [Tutorial](../tutorial/) focuses"
+" on easy to understand only about important features. This document focuses "
+"on completeness. If you don't read [tutorial](../tutorial/) yet, read "
+"tutorial before read this document."
 msgstr ""
-"このドキュメントはすべての機能を説明しています。[チュートリアル](../tutorial/)は重要な機能だけを簡単に理解できることに注力しています。このド"
-"キュメントは完全に説明することに注力しています。もし、まだ[チュートリアル](../tutorial/)を読んでいない場合は、このドキュメントを読む前にチュ"
-"ートリアルを読んでください。"
+"このドキュメントはすべての機能を説明しています。[チュートリアル](../tutorial/)は重要な機能だけを簡単に理解できることに注力しています。このドキュメントは完全に説明することに注力しています。もし、まだ[チュートリアル](../tutorial/)を読んでいない場合は、このドキュメントを読む前にチュートリアルを読んでください。"
 
+#: ../../../reference/index.md:10
 msgid "## `pgroonga` schema"
 msgstr "## `pgroonga`スキーマ"
 
+#: ../../../reference/index.md:12
 msgid ""
-"`pgroonga` schema is deprecated since 2.0.0. Use `pgroonga_*` functions, opera"
-"tors and operator classes in the current schema for newly written code."
+"`pgroonga` schema is deprecated since 2.0.0. Use `pgroonga_*` functions, "
+"operators and operator classes in the current schema for newly written code."
 msgstr ""
-"`pgroonga`スキーマは2.0.0から非推奨です。新しく書くコードでは`pgroonga`スキーマではなくカレントスキーマに定義されている`pgroo"
-"nga_*`関数・演算子・演算子クラスを使ってください。"
+"`pgroonga`スキーマは2.0.0から非推奨です。新しく書くコードでは`pgroonga`スキーマではなくカレントスキーマに定義されている`pgroonga_*`関数・演算子・演算子クラスを使ってください。"
 
+#: ../../../reference/index.md:14
 msgid ""
-"PGroonga defines functions, operators, operator classes and so on into `pgroon"
-"ga` schema. Only superuser can use features in `pgroonga` schema by default. S"
-"uperuser needs to grant `USAGE` privilege on `pgroonga` schema to normal users"
-" who want to use PGroonga."
+"PGroonga defines functions, operators, operator classes and so on into "
+"`pgroonga` schema. Only superuser can use features in `pgroonga` schema by "
+"default. Superuser needs to grant `USAGE` privilege on `pgroonga` schema to "
+"normal users who want to use PGroonga."
 msgstr ""
-"PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスなどを定義します。デフォルトではスーパーユーザーしか`pgroonga`スキーマの"
-"機能を使えません。スーパーユーザーはPGroongaを使いたいすべての一般ユーザーに`pgroonga`スキーマの`USAGE`権限を与えなければいけません"
-"。"
+"PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスなどを定義します。デフォルトではスーパーユーザーしか`pgroonga`スキーマの機能を使えません。スーパーユーザーはPGroongaを使いたいすべての一般ユーザーに`pgroonga`スキーマの`USAGE`権限を与えなければいけません。"
 
-msgid "  * [`GRANT USAGE ON SCHEMA pgroonga`](grant-usage-on-schema-pgroonga.html)"
+#: ../../../reference/index.md:16
+msgid ""
+"  * [`GRANT USAGE ON SCHEMA pgroonga`](grant-usage-on-schema-pgroonga.html)"
 msgstr ""
 
+#: ../../../reference/index.md:18
 msgid "## `pgroonga` index"
 msgstr "## `pgroonga`インデックス"
 
+#: ../../../reference/index.md:20
 msgid ""
-"  * [`CREATE INDEX USING pgroonga` explained in detail](create-index-using-pgr"
-"oonga.html)"
-msgstr "  * [`CREATE INDEX USING pgroonga`の詳細な説明](create-index-using-pgroonga.html)"
+"  * [`CREATE INDEX USING pgroonga` explained in detail](create-index-using-"
+"pgroonga.html)"
+msgstr ""
+"  * [`CREATE INDEX USING pgroonga`の詳細な説明](create-index-using-pgroonga.html)"
 
+#: ../../../reference/index.md:22
 msgid "  * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)"
 msgstr "  * [PGroonga対GiSTとGIN](pgroonga-versus-gist-and-gin.html)"
 
+#: ../../../reference/index.md:24
 msgid ""
-"  * [PGroonga versus textsearch and pg\\_trgm](pgroonga-versus-textsearch-and-p"
-"g-trgm.html)"
+"  * [PGroonga versus textsearch and pg\\_trgm](pgroonga-versus-textsearch-"
+"and-pg-trgm.html)"
 msgstr ""
-"  * [PGroonga対textsearch対pg\\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html"
-")"
+"  * [PGroonga対textsearch対pg\\_trgm](pgroonga-versus-textsearch-and-pg-"
+"trgm.html)"
 
+#: ../../../reference/index.md:26
 msgid "  * [PGroonga versus pg\\_bigm](pgroonga-versus-pg-bigm.html)"
 msgstr "  * [PGroonga対pg\\_bigm](pgroonga-versus-pg-bigm.html)"
 
+#: ../../../reference/index.md:28
 msgid "  * [Replication](replication.html)"
 msgstr "  * [レプリケーション](replication.html)"
 
+#: ../../../reference/index.md:30
 msgid "  * [Crash safe][crash-safe]"
 msgstr "  * [クラッシュセーフ][crash-safe]"
 
+#: ../../../reference/index.md:32
 msgid "  * [`jsonb` support][jsonb]"
 msgstr "  * [`jsonb`サポート][jsonb]"
 
+#: ../../../reference/index.md:34
 msgid "## Operators"
 msgstr "## 演算子"
 
+#: ../../../reference/index.md:36
 msgid "### Row level security support"
 msgstr "### 行レベルセキュリティーサポート"
 
+#: ../../../reference/index.md:38
 msgid "Since 2.3.3."
 msgstr "2.3.3で追加。"
 
+#: ../../../reference/index.md:40
 msgid ""
-"All v2 operators supports PostgreSQL's [row level security][postgresql-row-lev"
-"el-security]."
-msgstr "すべてのv2演算子はPostgreSQLの[行レベルセキュリティー][postgresql-row-level-security]をサポートしています。"
+"All v2 operators supports PostgreSQL's [row level security][postgresql-row-"
+"level-security]."
+msgstr ""
+"すべてのv2演算子はPostgreSQLの[行レベルセキュリティー][postgresql-row-level-security]をサポートしています。"
 
+#: ../../../reference/index.md:42 ../../../reference/index.md:362
 msgid "### For `text`"
 msgstr "### `text`用"
 
+#: ../../../reference/index.md:44
 msgid ""
-"#### `pgroonga_text_full_text_search_ops_v2` operator class (default) {#text-f"
-"ull-text-search-ops-v2}"
+"#### `pgroonga_text_full_text_search_ops_v2` operator class (default) "
+"{#text-full-text-search-ops-v2}"
 msgstr ""
-"#### `pgroonga_text_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-full-text-sea"
-"rch-ops-v2}"
+"#### `pgroonga_text_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-full-text-"
+"search-ops-v2}"
 
+#: ../../../reference/index.md:46 ../../../reference/index.md:138
+#: ../../../reference/index.md:370 ../../../reference/index.md:396
 msgid "  * [`LIKE` operator][like]"
 msgstr "  * [`LIKE`演算子][like]"
 
+#: ../../../reference/index.md:48 ../../../reference/index.md:140
+#: ../../../reference/index.md:372 ../../../reference/index.md:398
 msgid "  * `ILIKE` operator"
 msgstr "  * `ILIKE`演算子"
 
+#: ../../../reference/index.md:50 ../../../reference/index.md:156
+#: ../../../reference/index.md:250 ../../../reference/index.md:374
+#: ../../../reference/index.md:414 ../../../reference/index.md:454
 msgid "  * [`&@` operator][match-v2]: Full text search by a keyword"
 msgstr "  * [`&@`演算子][match-v2]：キーワード1つでの全文検索"
 
+#: ../../../reference/index.md:52 ../../../reference/index.md:158
+#: ../../../reference/index.md:252 ../../../reference/index.md:376
+#: ../../../reference/index.md:416 ../../../reference/index.md:456
 msgid "  * [`%%` operator][match]: Full text search by a keyword"
 msgstr "  * [`%%` operator][match]：キーワード1つでの全文検索"
 
+#: ../../../reference/index.md:54 ../../../reference/index.md:64
+#: ../../../reference/index.md:146 ../../../reference/index.md:160
+#: ../../../reference/index.md:170 ../../../reference/index.md:254
+#: ../../../reference/index.md:264 ../../../reference/index.md:296
+#: ../../../reference/index.md:310 ../../../reference/index.md:350
 msgid ""
-"    * Don't use this operator for newly written code. It's just for backward c"
-"ompatibility."
+"    * Don't use this operator for newly written code. It's just for backward"
+" compatibility."
 msgstr "    * 新しく書くコードではこの演算子を使わないでください。後方互換製のために残っているだけの演算子です。"
 
-msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+#: ../../../reference/index.md:56 ../../../reference/index.md:162
+#: ../../../reference/index.md:256 ../../../reference/index.md:380
+#: ../../../reference/index.md:420 ../../../reference/index.md:460
+msgid ""
+"  * [`&@~` operator][query-v2]: Full text search by easy to use query "
+"language"
 msgstr "  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索"
 
-msgid "  * [`&?` operator][query-v2]: Full text search by easy to use query language"
+#: ../../../reference/index.md:58 ../../../reference/index.md:164
+#: ../../../reference/index.md:258 ../../../reference/index.md:382
+#: ../../../reference/index.md:422 ../../../reference/index.md:462
+msgid ""
+"  * [`&?` operator][query-v2]: Full text search by easy to use query "
+"language"
 msgstr "  * [`&?`演算子][query-v2]：便利なクエリー言語を使った全文検索"
 
+#: ../../../reference/index.md:60 ../../../reference/index.md:166
+#: ../../../reference/index.md:260 ../../../reference/index.md:384
+#: ../../../reference/index.md:424 ../../../reference/index.md:464
 msgid "    * Deprecated since 1.2.2. Use [`&@~` operator][query-v2] instead."
 msgstr "    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。"
 
-msgid "  * [`@@` operator][query]: Full text search by easy to use query language"
+#: ../../../reference/index.md:62 ../../../reference/index.md:168
+#: ../../../reference/index.md:262 ../../../reference/index.md:386
+#: ../../../reference/index.md:426 ../../../reference/index.md:466
+msgid ""
+"  * [`@@` operator][query]: Full text search by easy to use query language"
 msgstr "  * [`@@`演算子][query]：便利なクエリー言語を使った全文検索"
 
+#: ../../../reference/index.md:66 ../../../reference/index.md:172
+#: ../../../reference/index.md:266
 msgid "  * [`&@*` operator][similar-search-v2]: Similar search"
 msgstr "  * [`&@*`演算子][similar-search-v2]：類似文書検索"
 
+#: ../../../reference/index.md:68 ../../../reference/index.md:174
+#: ../../../reference/index.md:268
 msgid "  * [`&~?` operator][similar-search-v2]: Similar search"
 msgstr "  * [`&~?`演算子][similar-search-v2]：類似文書検索"
 
-msgid "    * Deprecated since 1.2.2. Use [`&@*` operator][similar-search-v2] instead."
+#: ../../../reference/index.md:70 ../../../reference/index.md:176
+#: ../../../reference/index.md:270
+msgid ""
+"    * Deprecated since 1.2.2. Use [`&@*` operator][similar-search-v2] "
+"instead."
 msgstr "    * 1.2.2から非推奨です。代わりに[`&@*`演算子][similar-search-v2]を使ってください。"
 
+#: ../../../reference/index.md:72 ../../../reference/index.md:178
+#: ../../../reference/index.md:272
 msgid ""
-"  * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query l"
-"anguage"
+"  * [`` &` `` operator][script-v2]: Advanced search by ECMAScript like query"
+" language"
 msgstr "  * [`` &` ``演算子][script-v2]：ECMAScriptのようなクエリー言語を使った高度な検索"
 
-msgid "  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
+#: ../../../reference/index.md:74 ../../../reference/index.md:180
+#: ../../../reference/index.md:274
+msgid ""
+"  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
 msgstr "  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索"
 
-msgid "  * [`&@>` operator][match-in-v2]: Full text search by an array of keywords"
+#: ../../../reference/index.md:76 ../../../reference/index.md:182
+#: ../../../reference/index.md:276
+msgid ""
+"  * [`&@>` operator][match-in-v2]: Full text search by an array of keywords"
 msgstr "  * [`&@>`演算子][match-in-v2]：キーワードの配列での全文検索"
 
-msgid "    * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead."
+#: ../../../reference/index.md:78 ../../../reference/index.md:184
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&@|` operator][match-in-v2] instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&@|`演算子][match-in-v2]を使ってください。"
 
+#: ../../../reference/index.md:80 ../../../reference/index.md:186
+#: ../../../reference/index.md:280
 msgid ""
-"  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in"
-" easy to use query language"
+"  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries "
+"in easy to use query language"
 msgstr "  * [`&@~|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
 
+#: ../../../reference/index.md:82 ../../../reference/index.md:188
+#: ../../../reference/index.md:282
 msgid ""
-"  * [`&?|` operator][query-in-v2]: Full text search by an array of queries in "
-"easy to use query language"
+"  * [`&?|` operator][query-in-v2]: Full text search by an array of queries "
+"in easy to use query language"
 msgstr "  * [`&?|`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
 
-msgid "    * Deprecated since 1.2.2. Use [`&@~|` operator][query-in-v2] instead."
+#: ../../../reference/index.md:84 ../../../reference/index.md:190
+#: ../../../reference/index.md:284
+msgid ""
+"    * Deprecated since 1.2.2. Use [`&@~|` operator][query-in-v2] instead."
 msgstr "    * 1.2.2から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。"
 
+#: ../../../reference/index.md:86 ../../../reference/index.md:192
+#: ../../../reference/index.md:286
 msgid ""
-"  * [`&?>` operator][query-in-v2]: Full text search by an array of queries in "
-"easy to use query language"
+"  * [`&?>` operator][query-in-v2]: Full text search by an array of queries "
+"in easy to use query language"
 msgstr "  * [`&?>`演算子][query-in-v2]：便利なクエリー言語を使ったクエリーの配列での全文検索"
 
-msgid "    * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead."
+#: ../../../reference/index.md:88 ../../../reference/index.md:194
+#: ../../../reference/index.md:288
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&@~|` operator][query-in-v2] instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&@~|`演算子][query-in-v2]を使ってください。"
 
+#: ../../../reference/index.md:90
 msgid ""
-"#### `pgroonga_text_term_search_ops_v2` operator class {#text-term-search-ops-"
-"v2}"
-msgstr "#### `pgroonga_text_term_search_ops_v2`演算子クラス {#text-term-search-ops-v2}"
+"#### `pgroonga_text_term_search_ops_v2` operator class {#text-term-search-"
+"ops-v2}"
+msgstr ""
+"#### `pgroonga_text_term_search_ops_v2`演算子クラス {#text-term-search-ops-v2}"
 
+#: ../../../reference/index.md:92 ../../../reference/index.md:226
+#: ../../../reference/index.md:324 ../../../reference/index.md:438
 msgid "  * `<`"
 msgstr ""
 
+#: ../../../reference/index.md:94 ../../../reference/index.md:98
+#: ../../../reference/index.md:102 ../../../reference/index.md:106
+#: ../../../reference/index.md:110
 msgid "    * Since 1.2.2."
 msgstr "    * 1.2.2で追加。"
 
+#: ../../../reference/index.md:96 ../../../reference/index.md:228
+#: ../../../reference/index.md:326 ../../../reference/index.md:440
 msgid "  * `<=`"
 msgstr ""
 
+#: ../../../reference/index.md:100 ../../../reference/index.md:230
+#: ../../../reference/index.md:328 ../../../reference/index.md:442
 msgid "  * `=`"
 msgstr ""
 
+#: ../../../reference/index.md:104 ../../../reference/index.md:232
+#: ../../../reference/index.md:330 ../../../reference/index.md:444
 msgid "  * `>=`"
 msgstr ""
 
+#: ../../../reference/index.md:108 ../../../reference/index.md:234
+#: ../../../reference/index.md:332 ../../../reference/index.md:446
 msgid "  * `>`"
 msgstr ""
 
+#: ../../../reference/index.md:112 ../../../reference/index.md:236
 msgid "  * [`&=` operator][exact-match-search]: Exact match search"
 msgstr "  * [`&=` 演算子][exact-match-search]: 完全一致検索"
 
+#: ../../../reference/index.md:114 ../../../reference/index.md:238
 msgid "    * Since 2.4.6."
 msgstr "    * 2.4.6で追加。"
 
+#: ../../../reference/index.md:116 ../../../reference/index.md:198
+#: ../../../reference/index.md:240
 msgid "  * [`&^` operator][prefix-search-v2]: Prefix search"
 msgstr "  * [`&^`演算子][prefix-search-v2]：前方一致検索"
 
+#: ../../../reference/index.md:118 ../../../reference/index.md:204
+#: ../../../reference/index.md:242
 msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
 msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
 
+#: ../../../reference/index.md:120 ../../../reference/index.md:210
+#: ../../../reference/index.md:244
 msgid ""
-"  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefix"
-"es"
+"  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of "
+"prefixes"
 msgstr "  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
 
+#: ../../../reference/index.md:122
 msgid ""
-"  * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of prefix"
-"es"
+"  * [`&^>` operator][prefix-search-in-v2]: Prefix search by an array of "
+"prefixes"
 msgstr "  * [`&^>`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
 
+#: ../../../reference/index.md:124
 msgid ""
-"    * Deprecated since 1.2.1. Use [`&^|` operator][prefix-search-in-v2] instea"
-"d."
+"    * Deprecated since 1.2.1. Use [`&^|` operator][prefix-search-in-v2] "
+"instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&^|`演算子][prefix-search-in-v2]を使ってください。"
 
+#: ../../../reference/index.md:126
 msgid ""
-"  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array "
-"of prefixes"
+"  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an "
+"array of prefixes"
 msgstr "  * [`!&^|`演算子][not-prefix-search-in-v2]：プレフィックスの配列での否定前方一致検索"
 
+#: ../../../reference/index.md:128 ../../../reference/index.md:150
+#: ../../../reference/index.md:216 ../../../reference/index.md:300
+#: ../../../reference/index.md:314
 msgid "    * Since 2.2.1."
 msgstr "    * 2.2.1で追加。"
 
+#: ../../../reference/index.md:130 ../../../reference/index.md:212
+#: ../../../reference/index.md:246
 msgid ""
-"  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of"
-" prefixes"
+"  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array "
+"of prefixes"
 msgstr "  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
 
+#: ../../../reference/index.md:132
 msgid ""
-"  * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of"
-" prefixes"
+"  * [`&^~>` operator][prefix-rk-search-in-v2]: Prefix RK search by an array "
+"of prefixes"
 msgstr "  * [`&^~>`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
 
+#: ../../../reference/index.md:134
 msgid ""
-"    * Deprecated since 1.2.1. Use [`&^~|` operator][prefix-rk-search-in-v2] in"
-"stead."
+"    * Deprecated since 1.2.1. Use [`&^~|` operator][prefix-rk-search-in-v2] "
+"instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&^~|`演算子][prefix-rk-search-in-v2]を使ってください。"
 
-msgid "#### `pgroonga_text_regexp_ops_v2` operator class {#text-regexp-ops-v2}"
+#: ../../../reference/index.md:136
+msgid ""
+"#### `pgroonga_text_regexp_ops_v2` operator class {#text-regexp-ops-v2}"
 msgstr "#### `pgroonga_text_regexp_ops_v2`演算子クラス {#text-regexp-ops-v2}"
 
-msgid "  * [`&~` operator][regular-expression-v2]: Search by a regular expression"
+#: ../../../reference/index.md:142 ../../../reference/index.md:292
+#: ../../../reference/index.md:400 ../../../reference/index.md:476
+msgid ""
+"  * [`&~` operator][regular-expression-v2]: Search by a regular expression"
 msgstr "  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索"
 
-msgid "  * [`@~` operator][regular-expression]: Search by a regular expression"
+#: ../../../reference/index.md:144 ../../../reference/index.md:294
+#: ../../../reference/index.md:402 ../../../reference/index.md:478
+msgid ""
+"  * [`@~` operator][regular-expression]: Search by a regular expression"
 msgstr "  * [`@~`演算子][regular-expression]：正規表現を使った検索"
 
+#: ../../../reference/index.md:148 ../../../reference/index.md:298
 msgid ""
-"  * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular "
-"expressions"
+"  * [`&~|` operator][regular-expression-in-v2]: Search by an array of "
+"regular expressions"
 msgstr "  * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索"
 
+#: ../../../reference/index.md:152 ../../../reference/index.md:406
 msgid "### For `text[]`"
 msgstr "### `text[]`用"
 
+#: ../../../reference/index.md:154
 msgid ""
-"#### `pgroonga_text_array_full_text_search_ops_v2` operator class (default) {#"
-"text-array-full-text-search-ops-v2}"
+"#### `pgroonga_text_array_full_text_search_ops_v2` operator class (default) "
+"{#text-array-full-text-search-ops-v2}"
 msgstr ""
-"#### `pgroonga_text_array_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-array-f"
-"ull-text-search-ops-v2}"
+"#### `pgroonga_text_array_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-"
+"array-full-text-search-ops-v2}"
 
+#: ../../../reference/index.md:196
 msgid ""
-"#### `pgroonga_text_array_term_search_ops_v2` operator class {#text-array-term"
-"-search-ops-v2}"
+"#### `pgroonga_text_array_term_search_ops_v2` operator class {#text-array-"
+"term-search-ops-v2}"
 msgstr ""
-"#### `pgroonga_text_array_term_search_ops_v2`演算子クラス {#text-array-term-search-o"
-"ps-v2}"
+"#### `pgroonga_text_array_term_search_ops_v2`演算子クラス {#text-array-term-"
+"search-ops-v2}"
 
+#: ../../../reference/index.md:200
 msgid "  * [`&^>` operator][prefix-search-v2]: Prefix search"
 msgstr "  * [`&^>`演算子][prefix-search-v2]：前方一致検索"
 
-msgid "    * Deprecated since 1.2.1. Use [`&^` operator][prefix-search-v2] instead."
+#: ../../../reference/index.md:202
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&^` operator][prefix-search-v2] instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&^`演算子][prefix-search-v2]を使ってください。"
 
+#: ../../../reference/index.md:206
 msgid "  * [`&^~>` operator][prefix-rk-search-v2]: Prefix RK search"
 msgstr "  * [`&^~>`演算子][prefix-rk-search-v2]：前方一致RK検索"
 
+#: ../../../reference/index.md:208
 msgid ""
-"    * Deprecated since 1.2.1. Use [`&^~` operator][prefix-rk-search-v2] instea"
-"d."
+"    * Deprecated since 1.2.1. Use [`&^~` operator][prefix-rk-search-v2] "
+"instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&^~`演算子][prefix-rk-search-v2]を使ってください。"
 
+#: ../../../reference/index.md:214 ../../../reference/index.md:312
 msgid "  * [`@>` operator][contain-array]: Contained search by an array"
-msgstr ""
-"  * [`@>`演算子][contain-array]：配列を使った包含検索\n"
+msgstr "  * [`@>`演算子][contain-array]：配列を使った包含検索\n"
 
+#: ../../../reference/index.md:218 ../../../reference/index.md:316
 msgid ""
-"  * [`&=~` operator][equal-query-v2]: Equal search by easy to use query langua"
-"ge"
+"  * [`&=~` operator][equal-query-v2]: Equal search by easy to use query "
+"language"
 msgstr "  * [`&=~`演算子][equal-query-v2]：便利なクエリー言語を使った等価検索"
 
+#: ../../../reference/index.md:220 ../../../reference/index.md:318
 msgid "    * Since 3.0.0."
 msgstr "    * 3.0.0で追加。"
 
+#: ../../../reference/index.md:222 ../../../reference/index.md:430
 msgid "### For `varchar`"
 msgstr "### `varchar`用"
 
+#: ../../../reference/index.md:224
 msgid ""
-"#### `pgroonga_varchar_term_search_ops_v2` operator class (default) {#varchar-"
-"term-search-ops-v2}"
+"#### `pgroonga_varchar_term_search_ops_v2` operator class (default) "
+"{#varchar-term-search-ops-v2}"
 msgstr ""
-"#### `pgroonga_varchar_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-term-search-"
-"ops-v2}"
+"#### `pgroonga_varchar_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-term-"
+"search-ops-v2}"
 
+#: ../../../reference/index.md:248
 msgid ""
-"#### `pgroonga_varchar_full_text_search_ops_v2` operator class {#varchar-full-"
-"text-search-ops-v2}"
+"#### `pgroonga_varchar_full_text_search_ops_v2` operator class {#varchar-"
+"full-text-search-ops-v2}"
 msgstr ""
-"#### `pgroonga_varchar_full_text_search_ops_v2`演算子クラス {#varchar-full-text-sear"
-"ch-ops-v2}"
+"#### `pgroonga_varchar_full_text_search_ops_v2`演算子クラス {#varchar-full-text-"
+"search-ops-v2}"
 
-msgid "    * Deprecated since 1.2.1. Use [`&@|` operator][query-in-v2] instead."
+#: ../../../reference/index.md:278
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&@|` operator][query-in-v2] instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&@|`演算子][query-in-v2]を使ってください。"
 
-msgid "#### `pgroonga_varchar_regexp_ops_v2` operator class {#varchar-regexp-ops-v2}"
+#: ../../../reference/index.md:290
+msgid ""
+"#### `pgroonga_varchar_regexp_ops_v2` operator class {#varchar-regexp-"
+"ops-v2}"
 msgstr "#### `pgroonga_varchar_regexp_ops_v2`演算子クラス {#varchar-regexp-ops-v2}"
 
+#: ../../../reference/index.md:302 ../../../reference/index.md:482
 msgid "### For `varchar[]`"
 msgstr "### `varchar[]`用"
 
+#: ../../../reference/index.md:304
 msgid ""
-"#### `pgroonga_varchar_array_term_search_ops_v2` operator class (default) {#va"
-"rchar-array-term-search-ops-v2}"
+"#### `pgroonga_varchar_array_term_search_ops_v2` operator class (default) "
+"{#varchar-array-term-search-ops-v2}"
 msgstr ""
-"#### `pgroonga_varchar_array_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-array-"
-"term-search-ops-v2}"
+"#### `pgroonga_varchar_array_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-"
+"array-term-search-ops-v2}"
 
+#: ../../../reference/index.md:306 ../../../reference/index.md:490
 msgid ""
-"  * [`&>` operator][contain-term-v2]: Check whether a term is included in an a"
-"rray of terms"
+"  * [`&>` operator][contain-term-v2]: Check whether a term is included in an"
+" array of terms"
 msgstr "  * [`&>`演算子][contain-term-v2]：検索対象の単語の配列に指定した単語が含まれているかをチェック"
 
+#: ../../../reference/index.md:308 ../../../reference/index.md:492
 msgid ""
-"  * [`%%` operator][contain-term]: Check whether a term is included in an arra"
-"y of terms"
+"  * [`%%` operator][contain-term]: Check whether a term is included in an "
+"array of terms"
 msgstr "  * [`%%`演算子][contain-term]：検索対象の単語の配列に指定した単語が含まれているかをチェック"
 
+#: ../../../reference/index.md:320
 msgid "### For boolean, numbers and timestamps"
 msgstr "### 真偽値、数値、タイムスタンプ用"
 
+#: ../../../reference/index.md:322
 msgid ""
-"Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double p"
-"recision`, `timestamp` and `timestamp with time zone`"
+"Supported types: `boolean`, `smallint`, `integer`, `bigint`, `real`, `double"
+" precision`, `timestamp` and `timestamp with time zone`"
 msgstr ""
-"サポートしている型：`boolean`、`smallint`、`integer`、`bigint`、`real`、`double precision`、`t"
-"imestamp`、`timestamp with time zone`"
+"サポートしている型：`boolean`、`smallint`、`integer`、`bigint`、`real`、`double "
+"precision`、`timestamp`、`timestamp with time zone`"
 
+#: ../../../reference/index.md:334 ../../../reference/index.md:496
 msgid "### For `jsonb`"
 msgstr "### `jsonb`用"
 
+#: ../../../reference/index.md:336
 msgid "#### `pgroonga_jsonb_ops_v2` operator class (default) {#jsonb-ops-v2}"
 msgstr "#### `pgroonga_jsonb_ops_v2`演算子クラス（デフォルト） {#jsonb-ops-v2}"
 
+#: ../../../reference/index.md:338 ../../../reference/index.md:356
+#: ../../../reference/index.md:504
 msgid ""
-"  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in"
-" `jsonb` by a keyword"
+"  * [`&@` operator][match-jsonb-v2]: Full text search against all text data "
+"in `jsonb` by a keyword"
 msgstr "  * [`&@`演算子][match-jsonb-v2]：`jsonb`内のすべてのテキストデータをキーワード1つで全文検索"
 
+#: ../../../reference/index.md:340 ../../../reference/index.md:358
+#: ../../../reference/index.md:506
 msgid ""
-"  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data i"
-"n `jsonb` by easy to use query language"
+"  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data"
+" in `jsonb` by easy to use query language"
 msgstr "  * [`&@~`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索"
 
+#: ../../../reference/index.md:342 ../../../reference/index.md:508
 msgid ""
-"  * [`&?` operator][query-jsonb-v2]: Full text search against all text data in"
-" `jsonb` by easy to use query language"
+"  * [`&?` operator][query-jsonb-v2]: Full text search against all text data "
+"in `jsonb` by easy to use query language"
 msgstr "  * [`&?`演算子][query-jsonb-v2]：`jsonb`内のすべてのテキストデータを便利なクエリー言語を使った全文検索"
 
-msgid "    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead."
+#: ../../../reference/index.md:344 ../../../reference/index.md:510
+msgid ""
+"    * Deprecated since 1.2.2. Use [`&@~` operator][query-jsonb-v2] instead."
 msgstr "    * 1.2.2から非推奨です。代わりに[`&@~`演算子][query-jsonb-v2]を使ってください。"
 
+#: ../../../reference/index.md:346 ../../../reference/index.md:512
 msgid ""
-"  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like q"
-"uery language"
+"  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like"
+" query language"
 msgstr "  * [`` &` ``演算子][script-jsonb-v2]：ECMAScriptのようなクエリー言語を使った高度な検索"
 
+#: ../../../reference/index.md:348 ../../../reference/index.md:514
 msgid ""
-"  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query la"
-"nguage"
+"  * [`@@` operator][script-jsonb]: Advanced search by ECMAScript like query "
+"language"
 msgstr "  * [`@@`演算子][script-jsonb]：ECMAScriptのようなクエリー言語を使った高度な検索"
 
+#: ../../../reference/index.md:352 ../../../reference/index.md:518
 msgid "  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data"
 msgstr "  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索"
 
+#: ../../../reference/index.md:354
 msgid ""
-"#### `pgroonga_jsonb_full_text_search_ops_v2` operator class {#jsonb-full-text"
-"-search-ops-v2}"
+"#### `pgroonga_jsonb_full_text_search_ops_v2` operator class {#jsonb-full-"
+"text-search-ops-v2}"
 msgstr ""
-"#### `pgroonga_jsonb_full_text_search_ops_v2`演算子クラス {#jsonb-full-text-search-o"
-"ps-v2}"
+"#### `pgroonga_jsonb_full_text_search_ops_v2`演算子クラス {#jsonb-full-text-"
+"search-ops-v2}"
 
+#: ../../../reference/index.md:360
 msgid "## Old operators"
 msgstr "## 古い演算子"
 
+#: ../../../reference/index.md:364
 msgid ""
-"#### `pgroonga_text_full_text_search_ops` operator class (default) {#text-full"
-"-text-search-ops}"
-msgstr "#### `pgroonga_text_full_text_search_ops`演算子クラス {#text-full-text-search-ops}"
+"#### `pgroonga_text_full_text_search_ops` operator class (default) {#text-"
+"full-text-search-ops}"
+msgstr ""
+"#### `pgroonga_text_full_text_search_ops`演算子クラス {#text-full-text-search-ops}"
 
+#: ../../../reference/index.md:366 ../../../reference/index.md:392
+#: ../../../reference/index.md:410 ../../../reference/index.md:434
+#: ../../../reference/index.md:450 ../../../reference/index.md:472
+#: ../../../reference/index.md:486 ../../../reference/index.md:500
 msgid "Deprecated since 2.0.0."
 msgstr "2.0.0から非推奨です。"
 
+#: ../../../reference/index.md:368
 msgid ""
-"Use [`pgroonga_text_full_text_search_ops_v2` operator class](#text-full-text-s"
-"earch-ops-v2) instead."
+"Use [`pgroonga_text_full_text_search_ops_v2` operator class](#text-full-"
+"text-search-ops-v2) instead."
 msgstr ""
-"代わりに[`pgroonga_text_full_text_search_ops_v2`演算子クラス](#text-full-text-search-ops"
-"-v2)を使ってください。"
+"代わりに[`pgroonga_text_full_text_search_ops_v2`演算子クラス](#text-full-text-search-"
+"ops-v2)を使ってください。"
 
+#: ../../../reference/index.md:378 ../../../reference/index.md:418
+#: ../../../reference/index.md:458
 msgid "    * Deprecated since 1.2.0. Use [`&@` operator][match-v2] instead."
 msgstr "    * 1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。"
 
+#: ../../../reference/index.md:388 ../../../reference/index.md:428
+#: ../../../reference/index.md:468
 msgid "    * Deprecated since 1.2.0. Use [`&@~` operator][query-v2] instead."
 msgstr "    * 1.2.0から非推奨です。代わりに[`&@~`演算子][query-v2]を使ってください。"
 
+#: ../../../reference/index.md:390
 msgid "#### `pgroonga_text_regexp_ops` operator class {#text-regexp-ops}"
 msgstr "#### `pgroonga_text_regexp_ops`演算子クラス {#text-regexp-ops}"
 
+#: ../../../reference/index.md:394
 msgid ""
-"Use [`pgroonga_text_regexp_ops_v2` operator class](#text-regexp-ops-v2) instea"
-"d."
-msgstr "代わりに[`pgroonga_text_regexp_ops_v2`演算子クラス](#text-regexp-ops-v2)を使ってください。"
+"Use [`pgroonga_text_regexp_ops_v2` operator class](#text-regexp-ops-v2) "
+"instead."
+msgstr ""
+"代わりに[`pgroonga_text_regexp_ops_v2`演算子クラス](#text-regexp-ops-v2)を使ってください。"
 
+#: ../../../reference/index.md:404 ../../../reference/index.md:480
 msgid ""
-"    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] inste"
-"ad."
+"    * Deprecated since 1.2.1. Use [`&~` operator][regular-expression-v2] "
+"instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&~`演算子][regular-expression-v2]を使ってください。"
 
+#: ../../../reference/index.md:408
 msgid ""
-"#### `pgroonga_text_array_full_text_search_ops` operator class {#text-array-fu"
-"ll-text-search-ops}"
+"#### `pgroonga_text_array_full_text_search_ops` operator class {#text-array-"
+"full-text-search-ops}"
 msgstr ""
-"#### `pgroonga_text_array_full_text_search_ops`演算子クラス {#text-array-full-text-s"
-"earch-ops}"
+"#### `pgroonga_text_array_full_text_search_ops`演算子クラス {#text-array-full-"
+"text-search-ops}"
 
+#: ../../../reference/index.md:412
 msgid ""
-"Use [`pgroonga_text_array_full_text_search_ops_v2` operator class](#text-array"
-"-full-text-search-ops-v2) instead."
+"Use [`pgroonga_text_array_full_text_search_ops_v2` operator class](#text-"
+"array-full-text-search-ops-v2) instead."
 msgstr ""
-"代わりに[`pgroonga_text_array_full_text_search_ops_v2`演算子クラス](#text-array-full-tex"
-"t-search-ops-v2)を使ってください。"
+"代わりに[`pgroonga_text_array_full_text_search_ops_v2`演算子クラス](#text-array-full-"
+"text-search-ops-v2)を使ってください。"
 
+#: ../../../reference/index.md:432
 msgid "#### `pgroonga_varchar_ops` operator class {#varchar-ops}"
 msgstr "#### `pgroonga_varchar_ops`演算子クラス {#varchar-ops}"
 
+#: ../../../reference/index.md:436
 msgid ""
-"Use [`pgroonga_varchar_term_search_ops_v2` operator class](#text-varchar-term-"
-"search-ops-v2) instead."
+"Use [`pgroonga_varchar_term_search_ops_v2` operator class](#text-varchar-"
+"term-search-ops-v2) instead."
 msgstr ""
-"代わりに[`pgroonga_varchar_term_search_ops_v2`演算子クラス](#text-varchar-term-search-op"
-"s-v2)を使ってください。"
+"代わりに[`pgroonga_varchar_term_search_ops_v2`演算子クラス](#text-varchar-term-search-"
+"ops-v2)を使ってください。"
 
+#: ../../../reference/index.md:448
 msgid ""
-"#### `pgroonga_varchar_full_text_search_ops` operator class {#varchar-full-tex"
-"t-search-ops}"
+"#### `pgroonga_varchar_full_text_search_ops` operator class {#varchar-full-"
+"text-search-ops}"
 msgstr ""
-"#### `pgroonga_varchar_full_text_search_ops`演算子クラス {#varchar-full-text-search-"
-"ops}"
+"#### `pgroonga_varchar_full_text_search_ops`演算子クラス {#varchar-full-text-"
+"search-ops}"
 
+#: ../../../reference/index.md:452
 msgid ""
-"Use [`pgroonga_varchar_full_text_search_ops_v2` operator class](#text-varchar-"
-"full-text-search-ops-v2) instead."
+"Use [`pgroonga_varchar_full_text_search_ops_v2` operator class](#text-"
+"varchar-full-text-search-ops-v2) instead."
 msgstr ""
-"代わりに[`pgroonga_varchar_full_text_search_ops_v2`演算子クラス](#text-varchar-full-text"
-"-search-ops-v2)を使ってください。"
+"代わりに[`pgroonga_varchar_full_text_search_ops_v2`演算子クラス](#text-varchar-full-"
+"text-search-ops-v2)を使ってください。"
 
-msgid "#### `pgroonga_varchar_regexp_ops` operator class {#varchar-regexp-ops}"
+#: ../../../reference/index.md:470
+msgid ""
+"#### `pgroonga_varchar_regexp_ops` operator class {#varchar-regexp-ops}"
 msgstr "#### `pgroonga_varchar_regexp_ops`演算子クラス {#varchar-regexp-ops}"
 
+#: ../../../reference/index.md:474
 msgid ""
-"Use [`pgroonga_varchar_regexp_ops_v2` operator class](#text-varchar-regexp-ops"
-"-v2) instead."
+"Use [`pgroonga_varchar_regexp_ops_v2` operator class](#text-varchar-regexp-"
+"ops-v2) instead."
 msgstr ""
-"代わりに[`pgroonga_varchar_regexp_ops_v2`演算子クラス](#text-varchar-regexp-ops-v2)を使ってく"
-"ださい。"
+"代わりに[`pgroonga_varchar_regexp_ops_v2`演算子クラス](#text-varchar-regexp-"
+"ops-v2)を使ってください。"
 
+#: ../../../reference/index.md:484
 msgid "#### `pgroonga_varchar_array_ops` operator class {#varchar-array-ops}"
 msgstr "#### `pgroonga_varchar_array_ops`演算子クラス {#varchar-array-ops}"
 
+#: ../../../reference/index.md:488
 msgid ""
-"Use [`pgroonga_varchar_array_term_search_ops_v2` operator class](#text-varchar"
-"-array-term-search-ops-v2) instead."
+"Use [`pgroonga_varchar_array_term_search_ops_v2` operator class](#text-"
+"varchar-array-term-search-ops-v2) instead."
 msgstr ""
-"代わりに[`pgroonga_varchar_array_term_search_ops_v2`演算子クラス](#text-varchar-array-te"
-"rm-search-ops-v2)を使ってください。"
+"代わりに[`pgroonga_varchar_array_term_search_ops_v2`演算子クラス](#text-varchar-array-"
+"term-search-ops-v2)を使ってください。"
 
-msgid "    * Deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead."
+#: ../../../reference/index.md:494
+msgid ""
+"    * Deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`&>`演算子][contain-term-v2]を使ってください。"
 
+#: ../../../reference/index.md:498
 msgid "#### `pgroonga_jsonb_ops` operator class {#jsonb-ops}"
 msgstr "#### `pgroonga_jsonb_ops`演算子クラス {#jsonb-ops}"
 
-msgid "Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead."
+#: ../../../reference/index.md:502
+msgid ""
+"Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead."
 msgstr "代わりに[`pgroonga_jsonb_ops_v2`演算子クラス](#text-jsonb-ops-v2)を使ってください。"
 
+#: ../../../reference/index.md:516
 msgid ""
-"    * Deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead"
-"."
+"    * Deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] "
+"instead."
 msgstr "    * 1.2.1から非推奨です。代わりに[`` &` ``演算子][script-jsonb-v2]を使ってください。"
 
+#: ../../../reference/index.md:520
 msgid "## Functions"
 msgstr "## 関数"
 
+#: ../../../reference/index.md:522
 msgid "  * [`pgroonga_command` function][command]"
 msgstr "  * [`pgroonga_command`関数][command]"
 
+#: ../../../reference/index.md:524
 msgid "  * [`pgroonga_command_escape_value` function][command-escape-value]"
 msgstr "  * [`pgroonga_command_escape_value`関数][command-escape-value]"
 
+#: ../../../reference/index.md:526
 msgid "  * [`pgroonga_escape` function][escape]"
 msgstr "  * [`pgroonga_escape`関数][escape]"
 
+#: ../../../reference/index.md:528
 msgid "  * [`pgroonga_flush` function][flush]"
 msgstr "  * [`pgroonga_flush`関数][flush]"
 
+#: ../../../reference/index.md:530
 msgid "  * [`pgroonga_database_remove` function][database-remove]"
 msgstr "  * [`pgroonga_database_remove`関数][database-remove]"
 
+#: ../../../reference/index.md:532
 msgid "  * [`pgroonga_highlight_html` function][highlight-html]"
 msgstr "  * [`pgroonga_highlight_html`関数][highlight-html]"
 
+#: ../../../reference/index.md:534
 msgid "  * [`pgroonga_index_column_name` function][index-column-name]"
 msgstr "  * [`pgroonga_index_column_name` 関数][index-column-name]"
 
+#: ../../../reference/index.md:536
 msgid "  * [`pgroonga_is_writable` function][is-writable]"
 msgstr "  * [`pgroonga_is_writable`関数][is-writable]"
 
+#: ../../../reference/index.md:538
 msgid "  * [`pgroonga_match_positions_byte` function][match-positions-byte]"
 msgstr "  * [`pgroonga_match_positions_byte`関数][match-positions-byte]"
 
-msgid "  * [`pgroonga_match_positions_character` function][match-positions-character]"
-msgstr "  * [`pgroonga_match_positions_character`関数][match-positions-character]"
+#: ../../../reference/index.md:540
+msgid ""
+"  * [`pgroonga_match_positions_character` function][match-positions-"
+"character]"
+msgstr ""
+"  * [`pgroonga_match_positions_character`関数][match-positions-character]"
 
+#: ../../../reference/index.md:542
 msgid "  * [`pgroonga_normalize` function][normalize]"
 msgstr "  * [`pgroonga_normalize`関数][normalize]"
 
+#: ../../../reference/index.md:544
 msgid "  * [`pgroonga_query_escape` function][query-escape]"
 msgstr "  * [`pgroonga_query_escape`関数][query-escape]"
 
+#: ../../../reference/index.md:546
 msgid "  * [`pgroonga_query_expand` function][query-expand]"
 msgstr "  * [`pgroonga_query_expand`関数][query-expand]"
 
-msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
+#: ../../../reference/index.md:548
+msgid ""
+"  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr "  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]"
 
-msgid "  * [`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]"
+#: ../../../reference/index.md:550
+msgid ""
+"  * [`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]"
 msgstr "  * [`pgroonga_result_to_jsonb_objects`関数][result-to-jsonb-objects]"
 
+#: ../../../reference/index.md:552
 msgid "  * [`pgroonga_result_to_recordset` function][result-to-recordset]"
 msgstr "  * [`pgroonga_result_to_recordset`関数][result-to-recordset]"
 
+#: ../../../reference/index.md:554
 msgid "  * [`pgroonga_set_writable` function][set-writable]"
 msgstr "  * [`pgroonga_set_writable`関数][set-writable]"
 
+#: ../../../reference/index.md:556
 msgid "  * [`pgroonga_score` function][score]"
 msgstr "  * [`pgroonga_score`関数][score]"
 
+#: ../../../reference/index.md:558
 msgid "  * [`pgroonga_snippet_html` function][snippet-html]"
 msgstr "  * [`pgroonga_snippet_html`関数][snippet-html]"
 
+#: ../../../reference/index.md:560
 msgid "  * [`pgroonga_table_name` function][table-name]"
 msgstr "  * [`pgroonga_table_name`関数][table-name]"
 
+#: ../../../reference/index.md:562
 msgid "  * [`pgroonga_tokenize` function][tokenize]"
 msgstr "  * [`pgroonga_tokenize`関数][tokenize]"
 
+#: ../../../reference/index.md:564
 msgid "  * [`pgroonga_vacuum` function][vacuum]"
 msgstr "  * [`pgroonga_vacuum`関数][vacuum]"
 
+#: ../../../reference/index.md:566
 msgid "  * [`pgroonga_wal_apply` function][wal-apply]"
 msgstr "  * [`pgroonga_wal_apply`関数][wal-apply]"
 
-msgid "  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]"
+#: ../../../reference/index.md:568
+msgid ""
+"  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]"
 msgstr "  * [`pgroonga_wal_set_applied_position`関数][wal-set-applied-position]"
 
+#: ../../../reference/index.md:570
 msgid "  * [`pgroonga_wal_status` function][wal-status]"
 msgstr "  * [`pgroonga_wal_status`関数][wal-status]"
 
+#: ../../../reference/index.md:572
 msgid "  * [`pgroonga_wal_truncate` function][wal-truncate]"
 msgstr "  * [`pgroonga_wal_truncate`関数][wal-truncate]"
 
+#: ../../../reference/index.md:574
 msgid "## Parameters"
 msgstr "## パラメーター"
 
+#: ../../../reference/index.md:576
 msgid "  * [`pgroonga.enable_trace_log` parameter][enable-trace-log]"
 msgstr "  * [`pgroonga.enable_trace_log`パラメーター][enable-trace-log]"
 
+#: ../../../reference/index.md:578
 msgid "    * Since 3.0.8."
 msgstr "    * 3.0.8で追加。"
 
+#: ../../../reference/index.md:580
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
-msgid "  * [`pgroonga.force_match_escalation` parameter][force-match-escalation]"
+#: ../../../reference/index.md:582
+msgid ""
+"  * [`pgroonga.force_match_escalation` parameter][force-match-escalation]"
 msgstr "  * [`pgroonga.force_match_escalation`パラメーター][force-match-escalation]"
 
+#: ../../../reference/index.md:584
 msgid "  * [`pgroonga.libgroonga_version` parameter][libgroonga-version]"
 msgstr "  * [`pgroonga.libgroonga_version`パラメーター][libgroonga-version]"
 
+#: ../../../reference/index.md:586
 msgid "  * [`pgroonga.lock_timeout` parameter][lock-timeout]"
 msgstr "  * [`pgroonga.lock_timeout`パラメーター][lock-timeout]"
 
+#: ../../../reference/index.md:588
 msgid "  * [`pgroonga.log_level` parameter][log-level]"
 msgstr "  * [`pgroonga.log_level`パラメーター][log-level]"
 
+#: ../../../reference/index.md:590
 msgid "  * [`pgroonga.log_path` parameter][log-path]"
 msgstr "  * [`pgroonga.log_path`パラメーター][log-path]"
 
+#: ../../../reference/index.md:592
 msgid "  * [`pgroonga.log_type` parameter][log-type]"
 msgstr "  * [`pgroonga.log_type`パラメーター][log-type]"
 
+#: ../../../reference/index.md:594
 msgid ""
-"  * [`pgroonga.match_escalation_threshold` parameter][match-escalation-thresho"
-"ld]"
-msgstr "  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]"
+"  * [`pgroonga.match_escalation_threshold` parameter][match-escalation-"
+"threshold]"
+msgstr ""
+"  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-"
+"threshold]"
 
+#: ../../../reference/index.md:596
 msgid "  * [`pgroonga.max_wal_size` parameter][max-wal-size]"
 msgstr "  * [`pgroonga.max_wal_size`パラメーター][max-wal-size]"
 
+#: ../../../reference/index.md:598 ../../../reference/index.md:604
+#: ../../../reference/index.md:608 ../../../reference/index.md:612
+#: ../../../reference/index.md:630 ../../../reference/index.md:638
 msgid "    * Since 2.3.3."
 msgstr "    * 2.3.3で追加。"
 
+#: ../../../reference/index.md:600
 msgid "  * [`pgroonga.query_log_path` parameter][query-log-path]"
 msgstr "  * [`pgroonga.query_log_path`パラメーター][query-log-path]"
 
+#: ../../../reference/index.md:602
 msgid ""
-"  * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flus"
-"h-naptime]"
+"  * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-"
+"flush-naptime]"
 msgstr ""
-"  * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-na"
-"ptime]"
+"  * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-"
+"naptime]"
 
+#: ../../../reference/index.md:606
 msgid ""
-"  * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-leve"
-"l]"
-msgstr "  * [`pgroonga_crash_safer.log_level`パラメーター][pgroonga-crash-safer-log-level]"
-
-msgid "  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]"
-msgstr "  * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]"
-
-msgid ""
-"  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter]"
-"[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]"
+"  * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-"
+"level]"
 msgstr ""
-"  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター][pgr"
-"oonga-standby-maintainer-max-parallel-wal-appliers-per-db]"
+"  * [`pgroonga_crash_safer.log_level`パラメーター][pgroonga-crash-safer-log-level]"
 
+#: ../../../reference/index.md:610
+msgid ""
+"  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-"
+"path]"
+msgstr ""
+"  * [`pgroonga_crash_safer.log_path`パラメーター][pgroonga-crash-safer-log-path]"
+
+#: ../../../reference/index.md:614
+msgid ""
+"  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` "
+"parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]"
+msgstr ""
+"  * "
+"[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター][pgroonga-"
+"standby-maintainer-max-parallel-wal-appliers-per-db]"
+
+#: ../../../reference/index.md:616
 msgid "    * Since 3.1.2."
 msgstr "    * 3.1.2で追加。"
 
+#: ../../../reference/index.md:618
 msgid ""
-"  * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintai"
-"ner-naptime]"
+"  * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-"
+"maintainer-naptime]"
 msgstr ""
-"  * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-maintainer"
-"-naptime]"
+"  * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-"
+"maintainer-naptime]"
 
+#: ../../../reference/index.md:620 ../../../reference/index.md:644
 msgid "    * Since 2.4.2."
 msgstr "    * 2.4.2で追加。"
 
+#: ../../../reference/index.md:622
 msgid "## Modules"
-msgstr ""
-"## モジュール\n"
+msgstr "## モジュール\n"
 
+#: ../../../reference/index.md:624
 msgid "  * [`pgroonga_check` module][pgroonga-check]"
 msgstr "  * [`pgroonga_check`モジュール][pgroonga-check]"
 
+#: ../../../reference/index.md:626 ../../../reference/index.md:634
 msgid ""
-"    * Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-cra"
-"sh-safer] instead."
+"    * Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-"
+"crash-safer] instead."
 msgstr ""
-"    * 2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使って"
-"ください。"
+"    * 2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-"
+"safer]を使ってください。"
 
+#: ../../../reference/index.md:628
 msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
 msgstr "  * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]"
 
+#: ../../../reference/index.md:632
 msgid "  * [`pgroonga_database` module][pgroonga-database]"
 msgstr "  * [`pgroonga_database`モジュール][pgroonga-database]"
 
+#: ../../../reference/index.md:636
 msgid "  * [`pgroonga_wal_applier` module][pgroonga-wal-applier]"
 msgstr "  * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]"
 
+#: ../../../reference/index.md:640
 msgid ""
-"    * [`pgroonga_wal_applier` module][pgroonga-wal-applier] is deprecated sinc"
-"e 2.4.2. We use [the `pgroonga_standby_maintainer` module][pgroonga-standby-ma"
-"intainer] instead."
+"    * [`pgroonga_wal_applier` module][pgroonga-wal-applier] is deprecated "
+"since 2.4.2. We use [the `pgroonga_standby_maintainer` module][pgroonga-"
+"standby-maintainer] instead."
 msgstr ""
-"    * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier] は、2.4.2から非推奨です。代わりに "
-"[`pgroonga_standby_maintainer` モジュール][pgroonga-standby-maintainer] を使ってください。"
+"    * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier] "
+"は、2.4.2から非推奨です。代わりに [`pgroonga_standby_maintainer` モジュール][pgroonga-standby-"
+"maintainer] を使ってください。"
 
-msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
+#: ../../../reference/index.md:642
+msgid ""
+"  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
 msgstr "  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]"
 
+#: ../../../reference/index.md:646
 msgid "## Groonga functions"
 msgstr "## Groongaの関数"
 
+#: ../../../reference/index.md:648
 msgid ""
-"You can use them with [`pgroonga_command` function](functions/pgroonga-command"
-".html). You can't use them in `WHERE` clause."
+"You can use them with [`pgroonga_command` function](functions/pgroonga-"
+"command.html). You can't use them in `WHERE` clause."
 msgstr ""
-"[`pgroonga_command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`W"
-"HERE`節では使えません。"
+"[`pgroonga_command`関数](functions/pgroonga-"
+"command.html)内で以下のGroongaの関数を使えます。`WHERE`節では使えません。"
 
+#: ../../../reference/index.md:650
 msgid "  * [`pgroonga_tuple_is_alive` Groonga function][tuple-is-alive]"
 msgstr "  * [`pgroonga_tuple_is_alive` Groonga関数][tuple-is-alive]"
 
+#: ../../../reference/index.md:652
 msgid "## Tuning"
 msgstr "## チューニング"
 
+#: ../../../reference/index.md:654
 msgid ""
-"Normally, you don't need to tune PGroonga because PGroonga works well by defau"
-"lt."
+"Normally, you don't need to tune PGroonga because PGroonga works well by "
+"default."
 msgstr "通常、PGroongaはデフォルトで高速に動くため、特別にPGroongaをチューニングする必要はありません。"
 
+#: ../../../reference/index.md:656
 msgid ""
-"But you need to tune PGroonga in some cases such as a case that you need to ha"
-"ndle a very large database. PGroonga uses Groonga as backend. It means that yo"
-"u can apply tuning knowledge for Groonga to PGroonga. See the following Groong"
-"a document to tune PGroonga:"
+"But you need to tune PGroonga in some cases such as a case that you need to "
+"handle a very large database. PGroonga uses Groonga as backend. It means "
+"that you can apply tuning knowledge for Groonga to PGroonga. See the "
+"following Groonga document to tune PGroonga:"
 msgstr ""
-"しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroo"
-"ngaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のG"
-"roongaのドキュメントを参照してください。"
+"しかし、非常に大きなデータベースを扱うなどいくつかのケースではPGroongaをチューニングする必要があります。PGroongaはバックエンドとしてGroongaを使っています。つまり、Groonga用のチューニング知識をPGroongaでも使えるということです。PGroongaをチューニングする場合は以下のGroongaのドキュメントを参照してください。"
 
+#: ../../../reference/index.md:658
 msgid "  * [Tuning][groonga-tuning]"
 msgstr "  * [チューニング][groonga-tuning]"
 
+#: ../../../reference/index.md:660
 msgid "[crash-safe]:crash-safe.html"
 msgstr ""
 
+#: ../../../reference/index.md:662
 msgid "[jsonb]:jsonb.html"
 msgstr ""
 
+#: ../../../reference/index.md:664
 msgid ""
-"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rows"
-"ecurity.html"
+"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-"
+"rowsecurity.html"
 msgstr ""
-"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.ja }}/ddl-rows"
-"ecurity.html"
+"[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.ja }}/ddl-"
+"rowsecurity.html"
 
+#: ../../../reference/index.md:666
 msgid "[like]:operators/like.html"
 msgstr ""
 
+#: ../../../reference/index.md:668
 msgid ""
 "[match]:operators/match.html\n"
 "[query]:operators/query.html\n"
 "[regular-expression]:operators/regular-expression.html"
 msgstr ""
 
+#: ../../../reference/index.md:672
 msgid ""
 "[contain-array]:operators/contain-array.html\n"
 "[contain-jsonb]:operators/contain-jsonb.html\n"
@@ -793,9 +1084,11 @@ msgid ""
 "[similar-search-v2]:operators/similar-search-v2.html"
 msgstr ""
 
+#: ../../../reference/index.md:696
 msgid "[upgrade-incompatible]:../upgrade/#incompatible-case"
 msgstr ""
 
+#: ../../../reference/index.md:698
 msgid ""
 "[command]:functions/pgroonga-command.html\n"
 "[command-escape-value]:functions/pgroonga-command-escape-value.html\n"
@@ -825,9 +1118,11 @@ msgid ""
 "[wal-truncate]:functions/pgroonga-wal-truncate.html"
 msgstr ""
 
+#: ../../../reference/index.md:725
 msgid "[tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html"
 msgstr ""
 
+#: ../../../reference/index.md:727
 msgid ""
 "[enable-trace-log]:parameters/enable-trace-log.html\n"
 "[enable-wal]:parameters/enable-wal.html\n"
@@ -842,21 +1137,20 @@ msgid ""
 "[query-log-path]:parameters/query-log-path.html"
 msgstr ""
 
+#: ../../../reference/index.md:739
 msgid ""
-"[pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-nap"
-"time.html\n"
-"[pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.htm"
-"l\n"
+"[pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html\n"
+"[pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html\n"
 "[pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html"
 msgstr ""
 
+#: ../../../reference/index.md:743
 msgid ""
-"[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgro"
-"onga-standby-maintainer-max-parallel-wal-appliers-per-db.html\n"
-"[pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-n"
-"aptime.html"
+"[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html\n"
+"[pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html"
 msgstr ""
 
+#: ../../../reference/index.md:746
 msgid ""
 "[pgroonga-check]:modules/pgroonga-check.html\n"
 "[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html\n"
@@ -865,5 +1159,6 @@ msgid ""
 "[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html"
 msgstr ""
 
+#: ../../../reference/index.md:752
 msgid "[groonga-tuning]:https://groonga.org/docs/reference/tuning.html"
 msgstr "[groonga-tuning]:https://groonga.org/ja/docs/reference/tuning.html"

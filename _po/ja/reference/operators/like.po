@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../../reference/operators/like.md:1
 msgid ""
 "---\n"
 "title: LIKE operator\n"
@@ -18,89 +33,109 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/operators/like.md:6
 msgid "# `LIKE` operator"
 msgstr "# `LIKE`演算子"
 
+#: ../../../../reference/operators/like.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/operators/like.md:10
 msgid ""
-"PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'`"
-" internally. [`%%` operator](match.html) performs full text search with index."
-" It's faster than `LIKE` operator without index."
+"PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% "
+"'KEYWORD'` internally. [`%%` operator](match.html) performs full text search"
+" with index. It's faster than `LIKE` operator without index."
 msgstr ""
-"PGroongaは内部的に`column LIKE '%キーワード%'`条件を`column %% 'キーワード'`条件に変換します。[`%%`演算子](m"
-"atch.html)はインデックスを使って全文検索をします。これはインデックスを使わない`LIKE`演算子より速いです。"
+"PGroongaは内部的に`column LIKE '%キーワード%'`条件を`column %% "
+"'キーワード'`条件に変換します。[`%%`演算子](match.html)はインデックスを使って全文検索をします。これはインデックスを使わない`LIKE`演算子より速いです。"
 
+#: ../../../../reference/operators/like.md:12
 msgid ""
-"`column LIKE '%KEYWORD%'` with index is slower than `column %% 'KEYWORD'` with"
-" index because `column LIKE '%KEYWORD%'` with index needs \"[Recheck]({{ site.p"
-"ostgresql_doc_base_url.en }}/index-scanning.html)\". `column %% 'KEYWORD'` does"
-"n't need \"Recheck\"."
+"`column LIKE '%KEYWORD%'` with index is slower than `column %% 'KEYWORD'` "
+"with index because `column LIKE '%KEYWORD%'` with index needs \"[Recheck]({{"
+" site.postgresql_doc_base_url.en }}/index-scanning.html)\". `column %% "
+"'KEYWORD'` doesn't need \"Recheck\"."
 msgstr ""
-"インデックスを使った`column LIKE '%キーワード%'`は`column %% 'キーワード'`よりも遅いです。これは、インデックスを使った`co"
-"lumn LIKE '%キーワード%'`は「[再検査]({{ site.postgresql_doc_base_url.ja }}/index-scanni"
-"ng.html)」する必要があるからです。`column %% 'キーワード'`は「再検査」する必要がありません。"
+"インデックスを使った`column LIKE '%キーワード%'`は`column %% "
+"'キーワード'`よりも遅いです。これは、インデックスを使った`column LIKE '%キーワード%'`は「[再検査]({{ "
+"site.postgresql_doc_base_url.ja }}/index-scanning.html)」する必要があるからです。`column "
+"%% 'キーワード'`は「再検査」する必要がありません。"
 
+#: ../../../../reference/operators/like.md:14
 msgid ""
-"The original `LIKE` operator searches against text as is. But `%%` operator pe"
-"rforms full text search against normalized text. It means that search result o"
-"f `LIKE` operator with index needs \"Recheck\"."
+"The original `LIKE` operator searches against text as is. But `%%` operator "
+"performs full text search against normalized text. It means that search "
+"result of `LIKE` operator with index needs \"Recheck\"."
 msgstr ""
-"元の`LIKE`演算子は対象テキストに対して検索します。しかし、`%%`演算子は正規化したテキストに対して検索します。そのため、インデックスを使って`LIK"
-"E`演算子の検索を実行した場合は「再検査」が必要になります。"
+"元の`LIKE`演算子は対象テキストに対して検索します。しかし、`%%`演算子は正規化したテキストに対して検索します。そのため、インデックスを使って`LIKE`演算子の検索を実行した場合は「再検査」が必要になります。"
 
+#: ../../../../reference/operators/like.md:16
 msgid ""
-"However, If the column type is `varchar`, `LIKE` or `ILIKE` are always sequent"
-"ial search. Because PGroonga can't use index against `varchar`."
+"However, If the column type is `varchar`, `LIKE` or `ILIKE` are always "
+"sequential search. Because PGroonga can't use index against `varchar`."
 msgstr ""
-"ただし、カラムの型が `varchar` の場合、 `LIKE` または `ILIKE` は常にシーケンシャルサーチになります。PGroongaは `var"
-"char` に対してインデックスを使えないためです。"
+"ただし、カラムの型が `varchar` の場合、 `LIKE` または `ILIKE` は常にシーケンシャルサーチになります。PGroongaは "
+"`varchar` に対してインデックスを使えないためです。"
 
+#: ../../../../reference/operators/like.md:18
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
+#: ../../../../reference/operators/like.md:20
 msgid ""
-"You need to specify one of the following operator classes to use this operator"
-":"
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../reference/operators/like.md:22
 msgid "  * `pgroonga_text_full_text_search_ops_v2`: Default for `text`"
 msgstr "  * `pgroonga_text_full_text_search_ops_v2`：`text`型のデフォルト"
 
+#: ../../../../reference/operators/like.md:24
 msgid "  * `pgroonga_text_regexp_ops_v2`: For `text`"
 msgstr "  * `pgroonga_text_regexp_ops_v2`：`text`用"
 
+#: ../../../../reference/operators/like.md:26
 msgid "  * `pgroonga_text_full_text_search_ops`: For `text`"
 msgstr "  * `pgroonga_text_full_text_search_ops`：`text`用"
 
+#: ../../../../reference/operators/like.md:28
 msgid "  * `pgroonga_text_regexp_ops`: For `text`"
 msgstr "  * `pgroonga_text_regexp_ops`：`text`用"
 
+#: ../../../../reference/operators/like.md:30
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/operators/like.md:32
 msgid "Here is the syntax of this operator:"
 msgstr "この演算子の構文は次の通りです。"
 
+#: ../../../../reference/operators/like.md:34
 msgid ""
 "```sql\n"
 "column LIKE pattern\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:38
 msgid "`column` is a column to be searched."
 msgstr "`column`は検索対象のカラムです。"
 
+#: ../../../../reference/operators/like.md:40
 msgid "`pattern` is a search pattern. It's `text` type."
 msgstr "`pattern`は検索パターンです。`text`型です。"
 
+#: ../../../../reference/operators/like.md:42
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/operators/like.md:44
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/operators/like.md:46
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -109,33 +144,37 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:52
 msgid ""
 "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:55
 msgid ""
 "```sql\n"
-"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management s"
-"ystem.');\n"
-"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that s"
-"upports all languages.');\n"
-"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Gro"
-"onga as index.');\n"
+"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
 "INSERT INTO memos VALUES (4, 'There is groonga command.');\n"
 "```"
 msgstr ""
 "```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');\n"
 "INSERT INTO memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。');\n"
-"INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です"
-"。');\n"
+"INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');\n"
 "INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');\n"
 "```"
 
+#: ../../../../reference/operators/like.md:62
 msgid "You can perform `LIKE` operator with index:"
 msgstr "インデックスを使って`LIKE`演算子を実行できます。"
 
+#: ../../../../reference/operators/like.md:64
+#: ../../../../reference/operators/like.md:78
+#: ../../../../reference/operators/like.md:107
+#: ../../../../reference/operators/like.md:135
+#: ../../../../reference/operators/like.md:163
 msgid ""
 "```sql\n"
 "SET enable_seqscan = off;\n"
@@ -143,6 +182,7 @@ msgid ""
 "SET enable_bitmapscan = on;"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:69
 msgid ""
 "SELECT * FROM memos WHERE content LIKE '%groonga%';\n"
 "--  id |          content          \n"
@@ -158,14 +198,15 @@ msgstr ""
 "-- (1 row)\n"
 "```"
 
+#: ../../../../reference/operators/like.md:76
 msgid ""
-"The default operator class of PGroonga index for `text` type can't find any re"
-"cords with partial alphabet keyword. For example, you can't find record with `"
-"roonga` keyword:"
+"The default operator class of PGroonga index for `text` type can't find any "
+"records with partial alphabet keyword. For example, you can't find record "
+"with `roonga` keyword:"
 msgstr ""
-"PGroongaのインデックスが適用している`text`型用のデフォルトのオペレータークラスは、キーワードがアルファベットのみだった場合、キーワードの一部だ"
-"けで検索してもヒットしません。たとえば、`roonga`というキーワードではヒットしません。"
+"PGroongaのインデックスが適用している`text`型用のデフォルトのオペレータークラスは、キーワードがアルファベットのみだった場合、キーワードの一部だけで検索してもヒットしません。たとえば、`roonga`というキーワードではヒットしません。"
 
+#: ../../../../reference/operators/like.md:83
 msgid ""
 "SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
 "--  id | content \n"
@@ -174,9 +215,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:89
 msgid "But you can find some records with `roonga` keyword without index:"
 msgstr "インデックスを使わない場合は`roonga`というキーワードでもヒットします。"
 
+#: ../../../../reference/operators/like.md:91
 msgid ""
 "```sql\n"
 "SET enable_seqscan = on;\n"
@@ -184,66 +227,69 @@ msgid ""
 "SET enable_bitmapscan = off;"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:96
+#: ../../../../reference/operators/like.md:140
+#: ../../../../reference/operators/like.md:168
 msgid ""
 "SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
-"--  id |                                content                               "
-"  \n"
-"-- ----+----------------------------------------------------------------------"
-"--\n"
-"--   2 | Groonga is a fast full text search engine that supports all languages"
-".\n"
+"--  id |                                content                                 \n"
+"-- ----+------------------------------------------------------------------------\n"
+"--   2 | Groonga is a fast full text search engine that supports all languages.\n"
 "--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.\n"
 "--   4 | There is groonga command.\n"
 "-- (3 rows)\n"
 "```"
 msgstr ""
 "SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
-"--  id |                                  content                             "
-"     \n"
-"-- ----+----------------------------------------------------------------------"
-"-----\n"
+"--  id |                                  content                                  \n"
+"-- ----+---------------------------------------------------------------------------\n"
 "--   2 | Groongaは日本語対応の高速な全文検索エンジンです。\n"
 "--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。\n"
 "--   4 | groongaコマンドがあります。\n"
 "-- (3 rows)\n"
 "```"
 
+#: ../../../../reference/operators/like.md:105
 msgid "You can find records by prefix alphabet keyword such as `Gro`:"
 msgstr "キーワードがアルファベットだけだった場合でも、`Gro`のようにキーワードの先頭部分を指定した場合はヒットします。"
 
+#: ../../../../reference/operators/like.md:112
 msgid ""
 "SELECT * FROM memos WHERE content LIKE '%Gro%';\n"
-"--  id |                                content                               "
-"  \n"
-"-- ----+----------------------------------------------------------------------"
-"--\n"
-"--   2 | Groonga is a fast full text search engine that supports all languages"
-".\n"
+"--  id |                                content                                 \n"
+"-- ----+------------------------------------------------------------------------\n"
+"--   2 | Groonga is a fast full text search engine that supports all languages.\n"
 "--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.\n"
 "-- (2 rows)\n"
 "```"
 msgstr ""
 "SELECT * FROM memos WHERE content LIKE '%Gro%';\n"
-"--  id |                                  content                             "
-"     \n"
-"-- ----+----------------------------------------------------------------------"
-"-----\n"
+"--  id |                                  content                                  \n"
+"-- ----+---------------------------------------------------------------------------\n"
 "--   2 | Groongaは日本語対応の高速な全文検索エンジンです。\n"
 "--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。\n"
 "-- (2 rows)\n"
 "```"
 
-msgid "If you want to search by partial alphabet keyword, there are two approaches."
+#: ../../../../reference/operators/like.md:120
+msgid ""
+"If you want to search by partial alphabet keyword, there are two approaches."
 msgstr "キーワードがアルファベットの場合でも、キーワードの一部で検索できるようにする方法は2つあります。"
 
-msgid "The first approach is using the `TokenBigramSplitSymbolAlphaDigit` tokenizer:"
+#: ../../../../reference/operators/like.md:122
+msgid ""
+"The first approach is using the `TokenBigramSplitSymbolAlphaDigit` "
+"tokenizer:"
 msgstr "最初の方法は`TokenBigramSplitSymbolAlphaDigit`トークナイザーを使う方法です。"
 
+#: ../../../../reference/operators/like.md:124
+#: ../../../../reference/operators/like.md:153
 msgid ""
 "```sql\n"
 "DROP INDEX IF EXISTS pgroonga_content_index;"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:127
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -252,19 +298,24 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:133
 msgid "You can find records by `roonga`:"
 msgstr "これで`roonga`でもヒットするようになります。"
 
+#: ../../../../reference/operators/like.md:149
 msgid ""
-"See [Customization in `CREATE INDEX USING pgroonga`](../create-index-using-pgr"
-"oonga.html#customization) for tokenizer."
+"See [Customization in `CREATE INDEX USING pgroonga`](../create-index-using-"
+"pgroonga.html#customization) for tokenizer."
 msgstr ""
-"トークナイザーをカスタマイズする方法については[`CREATE INDEX USING pgroonga`のカスタマイズ](../create-index-"
-"using-pgroonga.html#customization)を参照してください。"
+"トークナイザーをカスタマイズする方法については[`CREATE INDEX USING pgroonga`のカスタマイズ](../create-"
+"index-using-pgroonga.html#customization)を参照してください。"
 
-msgid "The second approach is using `pgroonga_text_regexp_ops_v2` operator class:"
+#: ../../../../reference/operators/like.md:151
+msgid ""
+"The second approach is using `pgroonga_text_regexp_ops_v2` operator class:"
 msgstr "2つめの方法は`pgroonga_text_regexp_ops`オペレータークラスを使う方法です。"
 
+#: ../../../../reference/operators/like.md:156
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -272,11 +323,15 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/like.md:161
 msgid "You can find records by `rooonga`:"
 msgstr "これで`roonga`でもヒットするようになります。"
 
+#: ../../../../reference/operators/like.md:177
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html)"
+#: ../../../../reference/operators/like.md:179
+msgid ""
+"  * [`CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html)"
 msgstr ""

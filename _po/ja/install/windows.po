@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:26+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../install/windows.md:1
 msgid ""
 "---\n"
 "title: Install on Windows\n"
@@ -16,112 +31,134 @@ msgstr ""
 "title: Windowsにインストール\n"
 "---"
 
+#: ../../../install/windows.md:5
 msgid "# Install on Windows"
 msgstr "# Windowsにインストール"
 
+#: ../../../install/windows.md:7
 msgid "This document describes how to install PGroonga on Windows."
 msgstr "このドキュメントはWindowsにPGroongaをインストールする方法を説明します。"
 
+#: ../../../install/windows.md:9
 msgid "## Supported versions"
 msgstr "## サポートしているバージョン"
 
+#: ../../../install/windows.md:11
 msgid ""
-"You can use both 32bit version Windows and 64bit version Windows. You can use "
-"any Windows that are supported by PostgreSQL."
+"You can use both 32bit version Windows and 64bit version Windows. You can "
+"use any Windows that are supported by PostgreSQL."
 msgstr ""
-"32bitバージョンのWindowsでも64bitバージョンのWindowsでも構いません。PostgreSQLがサポートしているすべてのWindowsで使"
-"えます。"
+"32bitバージョンのWindowsでも64bitバージョンのWindowsでも構いません。PostgreSQLがサポートしているすべてのWindowsで使えます。"
 
+#: ../../../install/windows.md:13
 msgid "## How to install"
 msgstr "## インストール方法"
 
+#: ../../../install/windows.md:15
 msgid ""
-"Install PostgreSQL (supported versions: {{ site.windows_postgresql_versions | "
-"join: \", \" }}). You can choose [installer version][windows-postgresql-download"
-"-installer] or [zip version][windows-postgresql-download-zip]."
+"Install PostgreSQL (supported versions: {{ site.windows_postgresql_versions "
+"| join: \", \" }}). You can choose [installer version][windows-postgresql-"
+"download-installer] or [zip version][windows-postgresql-download-zip]."
 msgstr ""
-"PostgreSQL（対応バージョン：{{ site.windows_postgresql_versions | join: \"、\" }}）をインストールし"
-"ます。[インストーラーバージョン][windows-postgresql-download-installer]か[zipバージョン][windows-po"
-"stgresql-download-zip]を選んでください。"
+"PostgreSQL（対応バージョン：{{ site.windows_postgresql_versions | join: \"、\" "
+"}}）をインストールします。[インストーラーバージョン][windows-postgresql-download-"
+"installer]か[zipバージョン][windows-postgresql-download-zip]を選んでください。"
 
+#: ../../../install/windows.md:17
 msgid "Download PGroonga package:"
 msgstr "PGroongaのパッケージをダウンロードします。"
 
-msgid "{% for windows_postgresql_version in site.windows_postgresql_versions %}"
+#: ../../../install/windows.md:19
+msgid ""
+"{% for windows_postgresql_version in site.windows_postgresql_versions %}"
 msgstr ""
 
+#: ../../../install/windows.md:21
 msgid ""
-"{% assign windows_postgresql_major_version = windows_postgresql_version | spli"
-"t: \".\" | first %}\n"
+"{% assign windows_postgresql_major_version = windows_postgresql_version | split: \".\" | first %}\n"
 "{% if windows_postgresql_major_version == \"9\" or\n"
 "      windows_postgresql_major_version == \"10\" %}"
 msgstr ""
 
+#: ../../../install/windows.md:25
 msgid ""
-"  * [For PostgreSQL {{ windows_postgresql_version }} 32bit version](https://gi"
-"thub.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroo"
-"nga-{{ site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x8"
-"6.zip)"
+"  * [For PostgreSQL {{ windows_postgresql_version }} 32bit "
+"version](https://github.com/pgroonga/pgroonga/releases/download/{{ "
+"site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ "
+"windows_postgresql_version }}-x86.zip)"
 msgstr ""
-"  * [32bitバージョンのPostgreSQL {{ windows_postgresql_version }}用](https://github.c"
-"om/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{"
-" site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x86.zip)"
+"  * [32bitバージョンのPostgreSQL {{ windows_postgresql_version "
+"}}用](https://github.com/pgroonga/pgroonga/releases/download/{{ "
+"site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ "
+"windows_postgresql_version }}-x86.zip)"
 
+#: ../../../install/windows.md:27
 msgid "{% endif %}"
 msgstr ""
 
+#: ../../../install/windows.md:29
 msgid ""
-"  * [For PostgreSQL {{ windows_postgresql_version }} 64bit version](https://gi"
-"thub.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroo"
-"nga-{{ site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x6"
-"4.zip)"
+"  * [For PostgreSQL {{ windows_postgresql_version }} 64bit "
+"version](https://github.com/pgroonga/pgroonga/releases/download/{{ "
+"site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ "
+"windows_postgresql_version }}-x64.zip)"
 msgstr ""
-"  * [64bitバージョンのPostgreSQL {{ windows_postgresql_version }}用](https://github.c"
-"om/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{"
-" site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x64.zip)"
+"  * [64bitバージョンのPostgreSQL {{ windows_postgresql_version "
+"}}用](https://github.com/pgroonga/pgroonga/releases/download/{{ "
+"site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ "
+"windows_postgresql_version }}-x64.zip)"
 
+#: ../../../install/windows.md:31
 msgid "{% endfor %}"
 msgstr ""
 
+#: ../../../install/windows.md:33
 msgid ""
-"Extract the downloaded PGroonga package. You need to specify PostgreSQL folder"
-" as extract target folder."
+"Extract the downloaded PGroonga package. You need to specify PostgreSQL "
+"folder as extract target folder."
 msgstr "ダウンロードしたPGroongaを展開します。展開先のフォルダーにはPostgreSQLのフォルダーを指定してください。"
 
+#: ../../../install/windows.md:35
 msgid ""
-"If you installed installer version PostgreSQL, `C:\\Program Files\\PostgreSQL\\%P"
-"OSTGRESQL_VERSION%` is the extract target folder."
+"If you installed installer version PostgreSQL, `C:\\Program "
+"Files\\PostgreSQL\\%POSTGRESQL_VERSION%` is the extract target folder."
 msgstr ""
-"インストーラーバージョンのPostgreSQLを使っている場合は`C:\\Program Files\\PostgreSQL\\%POSTGRESQL_VERSI"
-"ON%`が展開先のフォルダーです。"
+"インストーラーバージョンのPostgreSQLを使っている場合は`C:\\Program "
+"Files\\PostgreSQL\\%POSTGRESQL_VERSION%`が展開先のフォルダーです。"
 
+#: ../../../install/windows.md:37
 msgid ""
-"If you installed zip version PostgreSQL, `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\\pg"
-"sql` is the extract target folder."
+"If you installed zip version PostgreSQL, "
+"`%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\\pgsql` is the extract target folder."
 msgstr ""
-"zipバージョンのPostgreSQLをインストールした場合は`%PostgreSQLのzipを展開したフォルダー%\\pgsql`が展開先のフォルダーになり"
-"ます。"
+"zipバージョンのPostgreSQLをインストールした場合は`%PostgreSQLのzipを展開したフォルダー%\\pgsql`が展開先のフォルダーになります。"
 
+#: ../../../install/windows.md:39
 msgid "Create a database:"
 msgstr "データベースを作成します。"
 
+#: ../../../install/windows.md:41
 msgid ""
 "```text\n"
 "postgres=# CREATE DATABASE pgroonga_test;\n"
 "```"
 msgstr ""
 
+#: ../../../install/windows.md:45
 msgid ""
-"(Normally, you should create a user for `pgroonga_test` database and use the u"
-"ser. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema"
-"-pgroonga.html) for details.)"
+"(Normally, you should create a user for `pgroonga_test` database and use the"
+" user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-"
+"schema-pgroonga.html) for details.)"
 msgstr ""
-"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pg"
-"roonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）"
+"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA "
+"pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）"
 
-msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+#: ../../../install/windows.md:47
+msgid ""
+"Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
 msgstr "作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。"
 
+#: ../../../install/windows.md:49
 msgid ""
 "```text\n"
 "postgres=# \\c pgroonga_test\n"
@@ -129,15 +166,16 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../install/windows.md:54
 msgid "That's all!"
 msgstr "これで終わりです！"
 
+#: ../../../install/windows.md:56
 msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
 msgstr "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"
 
+#: ../../../install/windows.md:58
 msgid ""
-"[windows-postgresql-download-installer]: https://www.enterprisedb.com/download"
-"s/postgres-postgresql-downloads\n"
-"[windows-postgresql-download-zip]: https://www.enterprisedb.com/download-postg"
-"resql-binaries"
+"[windows-postgresql-download-installer]: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads\n"
+"[windows-postgresql-download-zip]: https://www.enterprisedb.com/download-postgresql-binaries"
 msgstr ""

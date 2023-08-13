@@ -1,59 +1,42 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_query_expand function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:6
 msgid "# `pgroonga_query_expand` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:8
 msgid "Since 1.2.2."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:12
 msgid "`pgroonga_query_expand` function expands registered synonyms in query in [query syntax][groonga-query-syntax]. Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:14
 msgid "`pgroonga_query_expand` function is useful to implement [query expansion][wikipedia-query-expansion]. See also [document for Groonga's query expansion feature][groonga-query-expander]."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:16
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:18
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:20
-msgid "```text\n"
+msgid ""
+"```text\n"
 "text pgroonga_query_expand(table_name,\n"
 "                           term_column_name,\n"
 "                           synonyms_column_name,\n"
@@ -61,97 +44,79 @@ msgid "```text\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:27
 msgid "`table_name` is a `text` type value. It's an existing table name that stores synonyms."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:29
 msgid "`term_column_name` is a `text` type value. It's an column name that stores term to be expanded in the `table_name` table. The column is `text` type or `text[]` type value."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:31
 msgid "`synonyms_column_name` is a `text` type value. It's an column name that stores synonyms of the `term` column. The column is `text[]` type value."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:33
 msgid "`query` is a `text` type value. It's a query that uses [query syntax][groonga-query-syntax]."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:35
 msgid "`pgroonga_query_expand` returns a `text` type value. All registered synonyms are expanded in the `query`."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:37
 msgid "It's recommended that `${table_name}.${term_column_name}` is indexed by PGroonga with `pgroonga_text_term_search_ops_v2` operator class for fast query expansion like the following:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:39
-#: ../../../../reference/functions/pgroonga-query-expand.md:66
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE synonyms (\n"
 "  term text,\n"
 "  synonyms text[]\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:45
-msgid "CREATE INDEX synonyms_term\n"
+msgid ""
+"CREATE INDEX synonyms_term\n"
 "          ON synonyms\n"
 "       USING pgroonga (term pgroonga_text_term_search_ops_v2);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:50
 msgid "`pgroonga_query_escape` function can work without index but can work faster with index."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:52
 msgid "You can use all index access methods that support `=` for `text` type such as `btree`. But it's recommended that you use PGroonga. Because PGroonga supports value normalized `=` (including case insensitive comparison) for `text`. Value normalized `=` is useful for query expansion."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:54
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:56
 msgid "You can use the following styles:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:58
 msgid "  * A term to multiple synonyms mapping"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:60
 msgid "  * Synonym groups"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:62
 msgid "### A term to multiple synonyms mapping {#usage-term-to-synonyms}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:64
-#: ../../../../reference/functions/pgroonga-query-expand.md:100
 msgid "Here are sample schema and data:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:72
-msgid "CREATE INDEX synonyms_term\n"
+msgid ""
+"CREATE INDEX synonyms_term\n"
 "          ON synonyms\n"
 "       USING pgroonga (term pgroonga_text_term_search_ops_v2);"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:76
-msgid "INSERT INTO synonyms VALUES ('PGroonga', ARRAY['PGroonga', 'Groonga PostgreSQL']);\n"
+msgid ""
+"INSERT INTO synonyms VALUES ('PGroonga', ARRAY['PGroonga', 'Groonga PostgreSQL']);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:79
-#: ../../../../reference/functions/pgroonga-query-expand.md:115
 msgid "In this sample, all of `\"PGroonga\"` and `\"pgroonga\"` in query are expanded because PGroonga index is used:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:81
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_query_expand('synonyms', 'term', 'synonyms',\n"
 "                             'PGroonga OR Mroonga') AS query_expand;\n"
 "--                  query_expand                   \n"
@@ -167,37 +132,33 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:96
 msgid "### Synonym groups {#usage-synonym-groups}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:98
 msgid "Since 2.2.1."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:102
-#: ../../../../reference/functions/pgroonga-query-expand.md:156
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE synonym_groups (\n"
 "  synonyms text[]\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:107
-#: ../../../../reference/functions/pgroonga-query-expand.md:161
-msgid "CREATE INDEX synonym_groups_synonyms\n"
+msgid ""
+"CREATE INDEX synonym_groups_synonyms\n"
 "          ON synonym_groups\n"
 "       USING pgroonga (synonyms pgroonga_text_array_term_search_ops_v2);"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:111
-msgid "INSERT INTO synonym_groups\n"
+msgid ""
+"INSERT INTO synonym_groups\n"
 "  VALUES (ARRAY['PGroonga', 'Groonga']);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:117
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',\n"
 "                             'PGroonga OR Mroonga') AS query_expand;\n"
 "--              query_expand             \n"
@@ -213,58 +174,52 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:132
 msgid "### Practical Example Using Synonym groups"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:134
 msgid "This is for when you want to search similar names like (Timothy or Tim), (William,Bill or Billy), (Stephen,Steven or Steve)."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:136
 msgid "Here are sample schema and data for solving this problem using Synonym groups."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:138
 msgid "#### Name Table"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:140
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE names (\n"
 "  name varchar(255)\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:145
-msgid "CREATE INDEX pgroonga_names_index\n"
+msgid ""
+"CREATE INDEX pgroonga_names_index\n"
 "          ON names\n"
 "       USING pgroonga (name pgroonga_varchar_full_text_search_ops_v2);"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:149
-msgid "INSERT INTO names\n"
+msgid ""
+"INSERT INTO names\n"
 "  (name)\n"
 "  VALUES ('William Gates'),('Steven Paul Jobs'),('Timothy Donald Cook');\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:154
 msgid "#### Synonym groups Table"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:165
-msgid "INSERT INTO synonym_groups\n"
+msgid ""
+"INSERT INTO synonym_groups\n"
 "  VALUES (ARRAY['Stephen', 'Steven', 'Steve']);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:169
 msgid "In this example, all of `\"Stephen\"`, `\"Steven\"` and `\"Steve\"` in the query will be shown because the value \"Steve\"  is expanded within PGroonga index used."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:171
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_query_expand('synonym_groups', 'synonyms', 'synonyms',\n"
 "                             'Steve') AS query_expand;\n"
 "--              query_expand             \n"
@@ -274,20 +229,17 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:181
 msgid "An example down below is Name Table Search Example with pgroonga_query_expand."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:183
 msgid "Note: Name Table \"name\" column is `varchar` character type. so that you need specifically to cast  result of  `pgroonga_query_expand` as `pgroonga_query_expand(...)::varchar`.  (You do not need to cast `pgroonga_query_expand()` as varchar when you search on `text` character columns. Because return type of `pgroonga_query_expand()` is `text` character type.)"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:185
 msgid "Without type casting, PostgreSQL uses sequential search when your search column type differs from `pgroonga_query_expand()` type so that you may experience some performance issues."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:187
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(\n"
 "                             'synonym_groups', 'synonyms', 'synonyms','Steve')::varchar;\n"
 "--   synonym_names              \n"
@@ -296,8 +248,8 @@ msgid "```sql\n"
 "--(1 rows)"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:195
-msgid "-- Sample of EXPLAIN ANALYZE with / without type cast\n"
+msgid ""
+"-- Sample of EXPLAIN ANALYZE with / without type cast\n"
 "-- Without type casting varchar (it uses sequential scan):\n"
 "EXPLAIN ANALYZE VERBOSE SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(\n"
 "                             'synonym_groups', 'synonyms', 'synonyms','Steve');\n"
@@ -312,8 +264,8 @@ msgid "-- Sample of EXPLAIN ANALYZE with / without type cast\n"
 "-- (6 rows)"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:210
-msgid "-- With type casting varchar (it uses index scan): \n"
+msgid ""
+"-- With type casting varchar (it uses index scan): \n"
 "EXPLAIN ANALYZE VERBOSE SELECT name AS synonym_names from names where name &@~ pgroonga_query_expand(\n"
 "                             'synonym_groups', 'synonyms', 'synonyms','Steve')::varchar;\n"
 "--                                                                        QUERY PLAN                                                                        \n"
@@ -326,39 +278,29 @@ msgid "-- With type casting varchar (it uses index scan): \n"
 "-- (5 rows)"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:222
 msgid "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:225
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:227
 msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:229
 msgid "  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:231
 msgid "[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:233
 msgid "[groonga-query-expander]:http://groonga.org/docs/reference/commands/select.html#select-query-expander"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:235
 msgid "[wikipedia-query-expansion]:https://en.wikipedia.org/wiki/Query_expansion"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:237
 msgid "[query-v2]:../operators/query-v2.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-expand.md:239
 msgid "[query-in-v2]:../operators/query-in-v2.html"
 msgstr ""
-

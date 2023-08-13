@@ -1,175 +1,134 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/operators/regular-expression-v2.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"&~ operator\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:6
 msgid "# `&~` operator"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:8
 msgid "Since 1.2.1."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:12
 msgid "`&~` operator performs regular expression search."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:14
 msgid "PostgreSQL provides the following built-in regular expression operators:"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:16
 msgid "  * [`SIMILAR TO`][postgresql-similar-to]"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:18
 msgid "  * [POSIX Regular Expression][postgresql-regexp]"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:20
 msgid "`SIMILAR TO` is based on SQL standard. \"POSIX Regular Expression\" is based on POSIX. They use different regular expression syntax."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:22
 msgid "This operator uses another regular expression syntax. This operator uses syntax that is used in [Ruby][ruby]. Because PGroonga uses the same regular expression engine that is used in Ruby. It's [Onigmo][onigmo]. See [Onigmo document][onigmo-document] for full syntax definition."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:24
 msgid "This operator normalizes target text before matching. It's similar to `~*` operator in \"POSIX Regular Expression\". It performs case insensitive match."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:26
 msgid "Normalization is different from case insensitive. Normally, normalization is more powerful."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:28
 msgid "Example1: All of \"`A`\", \"`a`\", \"`Ａ`\" (U+FF21 FULLWIDTH LATIN CAPITAL LETTER A), \"`ａ`\" (U+FF41 FULLWIDTH LATIN SMALL LETTER A) are normalized to \"`a`\"."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:30
 msgid "Example2: Both of full-width Katakana and half-width Katakana are normalized to full-width Katakana. For example, both of \"`ア`\" (U+30A2 KATAKANA LETTER A) and \"`ｱ`\" (U+FF71 HALFWIDTH KATAKANA LETTER A) are normalized to \"`ア`\" (U+30A2 KATAKANA LETTER A)."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:32
 msgid "Note that this operator doesn't normalize regular expression pattern. It only normalizes target text. It means that you must use normalized characters in regular expression pattern."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:34
 msgid "For example, you must not use \"`Groonga`\" as pattern. You must use \"`groonga`\" as pattern. Because \"`G`\" in target text is normalized to \"`g`\". \"`Groonga`\" is never appeared in target text."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:36
 msgid "Some simple regular expression patterns can be searched by index in Groonga. If index is used, the search is very fast. See [Groonga's regular expression document][groonga-regular-expression] for index searchable patterns."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:38
 msgid "If a regular expression pattern can't be searchable by index, it's searched by sequential scan in Groonga."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:40
 msgid "Note that Groonga may search with regular expression pattern by sequential scan even when `EXPLAIN` reports PostgreSQL uses PGroonga index."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:42
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:44
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "column &~ regular_expression\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:48
 msgid "`column` is a column to be searched. It's `text` type or `varchar` type."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:50
 msgid "`regular_expression` is a regular expression to be used as pattern. It's `text` type for `text` type `column`. It's `varchar` type for `varchar` type `column`."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:52
 msgid "If `column` value is matched against `regular_expression` pattern, the expression returns `true`."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:54
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:56
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:58
 msgid "  * `pgroonga_text_regexp_ops_v2`: For `text`"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:60
 msgid "  * `pgroonga_varchar_regexp_ops_v2`: For `varchar`"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:62
 msgid "  * `pgroonga_text_regexp_ops`: For `text`"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:64
 msgid "  * `pgroonga_varchar_regexp_ops`: For `varchar`"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:66
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:68
 msgid "Here are sample schema for examples:"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:70
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:76
-msgid "CREATE INDEX pgroonga_content_index ON memos\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index ON memos\n"
 "  USING pgroonga (content pgroonga_text_regexp_ops_v2);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:80
 msgid "Here are data for examples:"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:82
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
 "INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
 "INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
@@ -177,12 +136,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:89
 msgid "You can perform regular expression search by `&~` operator:"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:91
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT * FROM memos WHERE content &~ '\\Apostgresql';\n"
 "--  id |                        content                         \n"
 "-- ----+--------------------------------------------------------\n"
@@ -191,59 +149,44 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:99
 msgid "\"`\\A`\" in \"`\\Apostgresql`\" is a special notation in Ruby regular expression syntax. It means that the beginning of text. The pattern means that \"`postgresql`\" must be appeared in the beginning of text."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:101
 msgid "Why is \"`PostgreSQL is a ...`\" record matched? Remember that this operator normalizes target text before matching. It means that \"`PostgreSQL is a ...`\" text is normalized to \"`postgresql is a ...`\" text before matching. The normalized text is started with \"`postgresql`\". So \"`\\Apostgresql`\" regular expression matches to the record."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:103
 msgid "\"`PGroonga is a PostgreSQL ...`\" record isn't matched. It includes \"`postgresql`\" in normalized text but \"`postgresql`\" isn't appeared at the beginning of text. So it's not matched."
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:105
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:107
 msgid "  * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular expressions"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:109
 msgid "  * [Onigmo's regular expression syntax document][onigmo-document]"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:111
 msgid "  * [Groonga's regular expression support document][groonga-regular-expression]"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:113
 msgid "[postgresql-similar-to]:{{ site.postgresql_doc_base_url.en }}/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:115
 msgid "[postgresql-regexp]:{{ site.postgresql_doc_base_url.en }}/functions-matching.html#FUNCTIONS-POSIX-REGEXP"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:117
 msgid "[ruby]:https://www.ruby-lang.org/"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:119
 msgid "[onigmo]:https://github.com/k-takata/Onigmo"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:121
 msgid "[onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:123
 msgid "[groonga-regular-expression]:http://groonga.org/docs/reference/regular_expression.html#regular-expression-index"
 msgstr ""
 
-#: ../../../../reference/operators/regular-expression-v2.md:125
 msgid "[regular-expression-in-v2]:regular-expression-in-v2.html"
 msgstr ""
-

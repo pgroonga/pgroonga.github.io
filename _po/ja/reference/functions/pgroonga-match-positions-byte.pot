@@ -1,153 +1,118 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_match_positions_byte function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:6
 msgid "# `pgroonga_match_positions_byte` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:8
 msgid "Since 1.0.7."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:12
 msgid "`pgroonga_match_positions_byte` function returns positions of the specified keywords in the specified text. The unit of position is byte. If you want to highlight keywords for HTML output, [`pgroonga_snippet_html` function](pgroonga-snippet-html.html) or [`pgroonga_highlight_html` function](pgroonga-highlight-html.html) will be suitable. `pgroonga_match_positions_byte` function is for advanced use."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:14
 msgid "If you want in character version, see [`pgroonga_match_positions_character`](pgroonga-match-positions-character.html) instead."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:16
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:18
 msgid "There are two signatures:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:20
-msgid "```text\n"
+msgid ""
+"```text\n"
 "integer[2][] pgroonga_match_positions_byte(target, ARRAY[keyword1, keyword2, ...])\n"
 "integer[2][] pgroonga_match_positions_byte(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:25
 msgid "The first signature is simpler than others. The first signature is enough for most cases."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:27
 msgid "The second signature is useful when you use custom normalizer."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:29
 msgid "The second signature is available since 2.2.8."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:31
 msgid "Here is the description of the first signature."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:33
-msgid "```text\n"
+msgid ""
+"```text\n"
 "integer[2][] pgroonga_match_positions_byte(target, ARRAY[keyword1, keyword2, ...])\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:37
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:51
 msgid "`target` is a text to be searched. It's `text` type."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:39
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:53
 msgid "`keyword1`, `keyword2`, `...` are keywords to be found. They're an array of `text` type. You must specify one or more keywords."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:41
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:87
 msgid "`pgroonga_match_positions_byte` returns an array of positions."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:43
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:89
 msgid "Position consists of offset and length. Offset is the start byte from the beginning. Length is the number of bytes of matched text. Length may be different size with the length of keyword. Because keyword and matched text are normalized."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:45
 msgid "Here is the description of the second signature."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:47
-msgid "```text\n"
+msgid ""
+"```text\n"
 "integer[2][] pgroonga_match_positions_byte(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:55
 msgid "`index_name` is an index name of the corresponding PGroonga index. It's `text` type."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:57
 msgid "`index_name` can be `NULL`."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:59
 msgid "If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:61
 msgid "Here is an example:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:63
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:68
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (normalizer='NormalizerNFKC121');\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:74
 msgid "Now, you can use `pgroonga_content_index` as `index_name`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:76
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_byte('Reiwa: ㋿',\n"
 "                                     ARRAY['令和'],\n"
@@ -159,20 +124,17 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:91
 msgid "It's available since 2.2.8."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:93
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:95
 msgid "You need to specify at least one keyword:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:97
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_byte('PGroonga is a PostgreSQL extension.',\n"
 "                                     ARRAY['PostgreSQL']) AS match_positions_byte;\n"
@@ -184,12 +146,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:108
 msgid "You can specify multiple keywords:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:110
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_byte('PGroonga is a PostgreSQL extension.',\n"
 "                                     ARRAY['Groonga', 'PostgreSQL']) AS match_positions_byte;\n"
@@ -201,12 +162,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:121
 msgid "You can extract keywords from query by [`pgroonga_query_extract_keywords` function](pgroonga-query-extract-keywords.html):"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:123
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_byte('PGroonga is a PostgreSQL extension.',\n"
 "                                     pgroonga_query_extract_keywords('Groonga PostgreSQL -extension')) AS match_positions_byte;\n"
@@ -218,12 +178,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:134
 msgid "Characters are normalized:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:136
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_byte('PGroonga + pglogical = replicatable!',\n"
 "                                     ARRAY['Pg']) AS match_positions_byte;\n"
@@ -235,12 +194,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:147
 msgid "Multibyte characters are also supported:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:149
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_byte('10㌖先にある100ｷﾛグラムの米',\n"
 "                                     ARRAY['キロ']) AS match_positions_byte;\n"
@@ -252,27 +210,26 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:160
 msgid "Custom normalizer can be used by specifying a PGroonga index name:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:162
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:168
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (normalizer='NormalizerNFKC121');"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:173
-msgid "SELECT pgroonga_match_positions_byte('Reiwa: ㋿',\n"
+msgid ""
+"SELECT pgroonga_match_positions_byte('Reiwa: ㋿',\n"
 "                                     ARRAY['令和'],\n"
 "                                     'pgroonga_content_index');\n"
 "--  pgroonga_match_positions_byte \n"
@@ -283,30 +240,24 @@ msgid "SELECT pgroonga_match_positions_byte('Reiwa: ㋿',\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:183
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:185
 msgid "  * [`pgroonga_match_positions_character` function][match-positions-character]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:187
 msgid "  * [`pgroonga_snippet_html` function][query-snippet-html]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:189
 msgid "  * [`pgroonga_highlight_html` function][query-highlight-html]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:191
 msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-byte.md:193
-msgid "[match-positions-character]:pgroonga-match-positions-character.html\n"
+msgid ""
+"[match-positions-character]:pgroonga-match-positions-character.html\n"
 "[query-snippet-html]:pgroonga-query-snippet-html.html\n"
 "[query-highlight-html]:pgroonga-query-highlight-html.html\n"
 "[query-extract-keywords]:pgroonga-query-extract-keywords.html"
 msgstr ""
-

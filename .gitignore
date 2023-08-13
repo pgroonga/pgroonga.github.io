@@ -1,10 +1,14 @@
 *.edit.po
 *.edit.po~
 *.pot
-!/_po/ja/**/*.pot
+*.source.pot
 *.time_stamp
 /.sass-cache/
 /Gemfile.lock
 /_po/*.po
 /_site/
 /vendor/
+
+# For Transifex
+!/_po/ja/**/*.pot
+_po/ja/**/*.source.pot

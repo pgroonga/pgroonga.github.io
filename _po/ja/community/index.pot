@@ -1,137 +1,98 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../community/index.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: Community\n"
 "---"
 msgstr ""
 
-#: ../../../community/index.md:5
 msgid "# Community"
 msgstr ""
 
-#: ../../../community/index.md:7
 msgid "This documentation describes how to communicate with the PGroonga developers and other users."
 msgstr ""
 
-#: ../../../community/index.md:9
 msgid "## How to ask about PGroonga related things"
 msgstr ""
 
-#: ../../../community/index.md:11
 msgid "You can ask about PGroonga related things on mailing list, GitHub issues and chat room. You can communicate with both the developers and other users on mailing list and chat room. You can communicate with only developers on GitHub issues."
 msgstr ""
 
-#: ../../../community/index.md:13
 msgid "If you have a question about how to use PGroonga, mailing list or chat room is better. Because other users may have knowledge and provide it to you. Otherwise, the developers will help you."
 msgstr ""
 
-#: ../../../community/index.md:15
 msgid "If you get a PGroonga problem, GitHub issues is better. The developers will solve your problem."
 msgstr ""
 
-#: ../../../community/index.md:17
 msgid "### Mailing list {#mailing-list}"
 msgstr ""
 
-#: ../../../community/index.md:19
 msgid "Here are mailing lists for PGroonga:"
 msgstr ""
 
-#: ../../../community/index.md:21
 msgid "  * For English speaker: [groonga-talk](https://lists.sourceforge.net/lists/listinfo/groonga-talk)"
 msgstr ""
 
-#: ../../../community/index.md:23
 msgid "  * For Japanese speaker: [groonga-dev](http://lists.osdn.me/mailman/listinfo/groonga-dev)"
 msgstr ""
 
-#: ../../../community/index.md:25
 msgid "### GitHub issues {#github-issues}"
 msgstr ""
 
-#: ../../../community/index.md:27
 msgid "Here is a list of PGroonga related GitHub issues:"
 msgstr ""
 
-#: ../../../community/index.md:29
 msgid "  * [Issues - pgroonga/pgroonga](https://github.com/pgroonga/pgroonga/issues) for PGroonga."
 msgstr ""
 
-#: ../../../community/index.md:31
 msgid "  * [Issues - pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io/issues) for this Web site."
 msgstr ""
 
-#: ../../../community/index.md:33
 msgid "### Chat room {#chat}"
 msgstr ""
 
-#: ../../../community/index.md:35
 msgid "Here are chat rooms for PGroonga:"
 msgstr ""
 
-#: ../../../community/index.md:37
 msgid "  * For English speaker: [groonga/en chat room on Gitter](https://gitter.im/groonga/en)"
 msgstr ""
 
-#: ../../../community/index.md:39
 msgid "  * For Japanese speaker: [groonga/ja chat room on Gitter](https://gitter.im/groonga/ja)"
 msgstr ""
 
-#: ../../../community/index.md:41
 msgid "## How to get the latest information"
 msgstr ""
 
-#: ../../../community/index.md:43
 msgid "You can get the latest information on mailing list, Twitter and Facebook. For example, you can get release announce."
 msgstr ""
 
-#: ../../../community/index.md:45
 msgid "### Mailing list"
 msgstr ""
 
-#: ../../../community/index.md:47
 msgid "See [the above section](#mailing-list)."
 msgstr ""
 
-#: ../../../community/index.md:49
 msgid "### Twitter {#twitter}"
 msgstr ""
 
-#: ../../../community/index.md:51
 msgid "[@groonga](https://twitter.com/groonga/) tweets PGroonga related information."
 msgstr ""
 
-#: ../../../community/index.md:53
 msgid "Please follow the account to get the latest PGroonga related information!"
 msgstr ""
 
-#: ../../../community/index.md:55
 msgid "### Facebook {#facebook}"
 msgstr ""
 
-#: ../../../community/index.md:57
 msgid "[Groonga page on Facebook](http://www.facebook.com/groonga) shares PGroonga related information."
 msgstr ""
 
-#: ../../../community/index.md:59
 msgid "Please like the page to get the latest PGroonga related information!"
 msgstr ""
-

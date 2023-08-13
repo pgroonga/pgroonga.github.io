@@ -1,183 +1,135 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 11:36+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../users/index.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: Users\n"
 "---"
 msgstr ""
 
-#: ../../../users/index.md:5
 msgid "# Users"
 msgstr ""
 
-#: ../../../users/index.md:7
 msgid "Here are PGroonga users."
 msgstr ""
 
-#: ../../../users/index.md:9
 msgid "## Supabase {#supabase}"
 msgstr ""
 
-#: ../../../users/index.md:11
 msgid "[Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features developers need to build a product: a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage. Postgres is the core of Supabase, it works natively with more than 40 Postgres extensions, including PGroonga."
 msgstr ""
 
-#: ../../../users/index.md:13
 msgid "[https://supabase.com/blog/launch-week-6-community-day](https://supabase.com/blog/launch-week-6-community-day)"
 msgstr ""
 
-#: ../../../users/index.md:15
-msgid "PGroonga could not be used in any managed service. Supabase let you use PGroonga, a fast full text search for all languages, on a managed PostgreSQL.\n"
+msgid ""
+"PGroonga could not be used in any managed service. Supabase let you use PGroonga, a fast full text search for all languages, on a managed PostgreSQL.\n"
 "Supabase has the free basic plan to start. For people who couldn't use PGroonga because of PostgreSQL operation cost, it is a great chance to give a try!"
 msgstr ""
 
-#: ../../../users/index.md:18
 msgid "For other plan and more information, please check [Supabase website](https://supabase.com/pricing)."
 msgstr ""
 
-#: ../../../users/index.md:20
 msgid "Supabase added PGroonga to our native extensions because PGroonga would be great option for multi language users."
 msgstr ""
 
-#: ../../../users/index.md:22
 msgid "Supabase values PostgreSQL License and the idea of OSS ecosystem because we make contributions to OSS community by providing services with those OSS licenses such as PostgreSQL License, BSD License, and MIT License."
 msgstr ""
 
-#: ../../../users/index.md:24
 msgid "Also Supabase gives financial contributions to various OSS including PGroonga via [Open Collective](https://opencollective.com/), a fundraising + legal status + money management platform."
 msgstr ""
 
-#: ../../../users/index.md:26
-msgid "* [Supabase Open Collective Page](https://opencollective.com/supabase)\n"
+msgid ""
+"* [Supabase Open Collective Page](https://opencollective.com/supabase)\n"
 "* [PGroonga Open Collective Page](https://opencollective.com/pgroonga)"
 msgstr ""
 
-#: ../../../users/index.md:29
 msgid "## National Institute of Japanese Literature {#nijl}"
 msgstr ""
 
-#: ../../../users/index.md:31
 msgid "[Union Catalogue Database of Japanese Texts](https://kokusho.nijl.ac.jp/?ln=en) published by National Institute of Japanese Literature uses PGroonga to implement fast Japanese full text search feature."
 msgstr ""
 
-#: ../../../users/index.md:33
 msgid "See [E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612) which is an article at Current Awareness Portal for details."
 msgstr ""
 
-#: ../../../users/index.md:35
 msgid "## Zulip {#zulip}"
 msgstr ""
 
-#: ../../../users/index.md:37
 msgid "[Zulip](https://zulip.org/) is a powerful open source group chat. It uses PGroonga to implement all languages support full text search. Because [PostgreSQL built-in full text search feature]({{ site.postgresql_doc_base_url.en }}/textsearch.html) supports only one language at the same time. PGroonga can support all languages at the same time."
 msgstr ""
 
-#: ../../../users/index.md:39
 msgid "## waja {#waja}"
 msgstr ""
 
-#: ../../../users/index.md:41
 msgid "[waja](https://www.waja.co.jp/) is an EC for fashion items. It uses PGroonga to implement full text search by keywords."
 msgstr ""
 
-#: ../../../users/index.md:43
 msgid "Here are main reasons to use PGroonga:"
 msgstr ""
 
-#: ../../../users/index.md:45
 msgid "  * It's easy to integrate with existing search process. (waja uses PostgreSQL.)"
 msgstr ""
 
-#: ../../../users/index.md:47
 msgid "  * waja only needs to add indexes to use fast full text search."
 msgstr ""
 
-#: ../../../users/index.md:49
 msgid "  * It's fast enough."
 msgstr ""
 
-#: ../../../users/index.md:51
 msgid "PGroonga also supports query expansion and auto complete. Their precision can be  improved by maintaining normal PostgreSQL tables. It's easy to use."
 msgstr ""
 
-#: ../../../users/index.md:53
 msgid "See also [the blog post by the developer](https://www.waja.co.jp/corp/6359). (Japanese)"
 msgstr ""
 
-#: ../../../users/index.md:55
 msgid "## Web portfolio search at Top Studio {#topstudio}"
 msgstr ""
 
-#: ../../../users/index.md:57
 msgid "Our company, [Top Studio Corporation](https://www.topstudio.co.jp/), is a production company working mainly for the publisher's production like translation, writing, editing, proof reading, design, digital publishing, and etc."
 msgstr ""
 
-#: ../../../users/index.md:59
 msgid "We are introducing our work in the [Web portfolio](https://www.topstudio.co.jp/books/). Yet, we did not have search system for our work portfolio on the Web site, even though we have been stocking our work with our PostgreSQL database."
 msgstr ""
 
-#: ../../../users/index.md:61
 msgid "Because the sales departments requested to add the search function in order for the potential customer to search easily what kind of publishing the company has been done, we have examined \"how to develop the search system\". Of course, we had thought about simple SQL's LIKE operator and PostgreSQL's standard full text search feature, \"tequery\", but those methods require to clarify normalization of query strings and stored strings, or to install other big depending system like morphological analysis tool."
 msgstr ""
 
-#: ../../../users/index.md:63
 msgid "On the other hand, PGroonga is very simple and easy to setup. It only requires to enable the extension after the install. Since our service system is based on Debian GNU/Linux to start, we only followed the direction on the [Debian GNU/Linux install guide][install-debian] to install."
 msgstr ""
 
-#: ../../../users/index.md:65
 msgid "It is widely known to use multiple query words by using space between the words for narrowing-down the search results. We were thinking to use `&@~` operator in PGroonga for \"AND search\"."
 msgstr ""
 
-#: ../../../users/index.md:67
 msgid "However, `&@~` operator requires highly functioned [query syntax][groonga-query-syntax] and the function is bit too much for general guest usage who only needs simple \"AND search\". We could imagine to receive nice advisories like \"your system has a SQL injection vulnerability\" that caused by too much high feature."
 msgstr ""
 
-#: ../../../users/index.md:69
 msgid "Thus, we chose sadly not to use `&@~` operator. We split query to keywords with space and build a condition that combines the split keywords with `&@` operator that is for single keyword search and SQL's `AND`. The splitting rule for query is `/[\\s　,，.．・。、「」『』（）]+/` so that \"AND results\" come up even with random letters besides space."
 msgstr ""
 
-#: ../../../users/index.md:71
 msgid "For the future, we would like to improve the system with our meta tag by using [the score feature of PGroonga][tutorial-score]. Our work data are labeled with meta tags that inform the contents of the book like \"Windows\", \"Linux\", \"Open Source\", \"machine learning\". Currently adding those meta tag as the search makes the search results hazy. But we think it is important to utilize those tags that our staff are working on."
 msgstr ""
 
-#: ../../../users/index.md:73
 msgid "## (Send us your service name)"
 msgstr ""
 
-#: ../../../users/index.md:75
 msgid "(Send us your service description, how do you use PGroonga and why did you choose PGroonga.)"
 msgstr ""
 
-#: ../../../users/index.md:77
 msgid "You can send your use case from [https://github.com/pgroonga/pgroonga.github.io/edit/master/users/index.md](https://github.com/pgroonga/pgroonga.github.io/edit/master/users/index.md) ."
 msgstr ""
 
-#: ../../../users/index.md:79
 msgid "[install-debian]: ../install/debian.html"
 msgstr ""
 
-#: ../../../users/index.md:81
 msgid "[groonga-query-syntax]: https://groonga.org/docs/reference/grn_expr/query_syntax.html"
 msgstr ""
 
-#: ../../../users/index.md:83
 msgid "[tutorial-score]:../tutorial/#score"
 msgstr ""
-

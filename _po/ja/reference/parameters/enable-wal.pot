@@ -1,114 +1,87 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-22 14:50+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/parameters/enable-wal.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"pgroonga.enable_wal parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:6
 msgid "# `pgroonga.enable_wal` parameter"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:8
 msgid "Since 1.1.6."
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:12
 msgid "`pgroonga.enable_wal` parameter controls whether [WAL]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html) is enabled or not."
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:14
 msgid "If you enable WAL support, you can use PostgreSQL's streaming replication feature. See [Replication](../replication.html) for details."
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:16
 msgid "If you enable WAL support, update performance will be decreased because some extra disk writes are needed."
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:18
 msgid "The default value is `off`. It means that PGroonga doesn't generate WAL."
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:20
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:22
 msgid "In SQL:"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:24
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.enable_wal = boolean;\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:28
 msgid "In `postgresql.conf`:"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:30
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.enable_wal = boolean\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:34
 msgid "`boolean` is a boolean value. There are some literals for boolean value such as `on`, `off`, `true`, `false`, `yes` and `no`."
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:36
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:38
 msgid "Here is an example SQL to enable WAL support:"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:40
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.enable_wal = on;\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:44
 msgid "Here is an example configration to enable WAL support:"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:46
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "pgroonga.enable_wal = on\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:50
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/parameters/enable-wal.md:52
 msgid "  * [Replication](../replication.html)"
 msgstr ""
-

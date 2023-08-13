@@ -1,112 +1,84 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"pgroonga_crash_safer.log_level parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:6
 msgid "# `pgroonga_crash_safer.log_level` parameter"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:8
 msgid "Since 2.3.3."
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:12
 msgid "`pgroonga_crash_safer.log_level` parameter controls which logs are recorded. This is a [`pgroonga_crash_safer` module][pgroonga-crash-safer] version of [`pgroonga.log_level` parameter][log-level]."
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:14
 msgid "See [`pgroonga.log_level` parameter][log-level] for details."
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:16
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:18
 msgid "In `postgresql.conf`:"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:20
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga_crash_safer.log_level = level\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:24
 msgid "See [`pgroonga.log_level` parameter][log-level] for available levels."
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:26
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:28
 msgid "Here is an example to disable log:"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:30
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga_crash_safer.log_level = none\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:34
 msgid "Here is an example to enable almost log messages:"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:36
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "pgroonga_crash_safer.log_level = debug\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:40
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:42
 msgid "  * [`pgroonga.log_level` parameter][log-level]"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:44
 msgid "  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:46
 msgid "[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:48
 msgid "[log-level]:log-level.html"
 msgstr ""
 
-#: ../../../../reference/parameters/pgroonga-crash-safer-log-level.md:50
 msgid "[pgroonga-crash-safer-log-path]:pgroonga-crash-safer-log-path.html"
 msgstr ""
-

@@ -1,85 +1,63 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga.flush function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:6
 msgid "# `pgroonga.flush` function"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:10
 msgid "`pgroonga.flush` function ensuring writing changes only in memory into disk. Normally, you don't need to this function because it's done automatically. But you may need to use this function when you want to prevent breaking PGroonga indexes on crash or force shutdown."
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:12
 msgid "Normally, users shouldn't shut down server forcibly but some users do in some cases. For example, Windows update may restart Windows server unexpectedly."
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:14
 msgid "If PostgreSQL with PGroonga is shut down forcibly, changes only in memory may be lost. If you call `pgroonga.flush` function before force shutdown, there are no changes only in memory. It means that PGroonga indexes aren't broken even if users shut down PostgreSQL with PGroonga forcibly."
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:16
 msgid "If there are many changes only in memory, `pgroonga.flush` may take a long time. It's depend on write performance of your disk."
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:18
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:20
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:22
-msgid "```text\n"
+msgid ""
+"```text\n"
 "bool pgroonga.flush(pgroonga_index_name)\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:26
 msgid "`pgroonga_index_name` is a `text` type value. It's an index name to be flushed. The index should be created with `USING pgroonga`."
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:28
 msgid "`pgroonga.flush` returns always `true`. Because if `pgroonga.flush` is failed, it raises an error instead of returning result."
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:30
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:32
 msgid "Here are sample schema and data. In the schema, both search target data and output data are index target columns:"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:34
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE terms (\n"
 "  id integer,\n"
 "  title text,\n"
@@ -87,19 +65,18 @@ msgid "```sql\n"
 ");"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:41
-msgid "CREATE INDEX pgroonga_terms_index\n"
+msgid ""
+"CREATE INDEX pgroonga_terms_index\n"
 "          ON terms\n"
 "       USING pgroonga (title, content);\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:46
 msgid "You can flush `pgroonga_terms_index` related changes only in memory by the following `pgroonga.flush` call:"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:48
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga.flush('pgroonga_terms_index');\n"
 "--  flush \n"
 "-- -------\n"
@@ -108,14 +85,12 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:56
 msgid "If you specify nonexistent index name, `pgroonga.flush` raises an error:"
 msgstr ""
 
-#: ../../../../../v1/reference/functions/pgroonga-flush.md:58
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga.flush('nonexistent');\n"
 "-- ERROR:  relation \"nonexistent\" does not exist\n"
 "```"
 msgstr ""
-

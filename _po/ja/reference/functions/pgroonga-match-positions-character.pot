@@ -1,153 +1,118 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_match_positions_character function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:6
 msgid "# `pgroonga_match_positions_character` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:8
 msgid "Since 1.1.1."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:12
 msgid "`pgroonga_match_positions_character` function returns positions of the specified keywords in the specified text. The unit of position is character. If you want to highlight keywords for HTML output, [`pgroonga_snippet_html` function](pgroonga-snippet-html.html) or [`pgroonga_highlight_html` function](pgroonga-highlight-html.html) will be suitable. `pgroonga_match_positions_character` function is for advanced use."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:14
 msgid "If you want in byte version, see [`pgroonga_match_positions_byte`](pgroonga-match-positions-byte.html) instead."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:16
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:18
 msgid "There are two signatures:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:20
-msgid "```text\n"
+msgid ""
+"```text\n"
 "integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...])\n"
 "integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:25
 msgid "The first signature is simpler than others. The first signature is enough for most cases."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:27
 msgid "The second signature is useful when you use custom normalizer."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:29
 msgid "The second signature is available since 2.2.8."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:31
 msgid "Here is the description of the first signature."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:33
-msgid "```text\n"
+msgid ""
+"```text\n"
 "integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...])\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:37
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:51
 msgid "`target` is a text to be searched. It's `text` type."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:39
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:53
 msgid "`keyword1`, `keyword2`, `...` are keywords to be found. They're an array of `text` type. You must specify one or more keywords."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:41
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:88
 msgid "`pgroonga_match_positions_character` returns an array of positions."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:43
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:90
 msgid "Position consists of offset and length. Offset is the start character from the beginning. Length is the number of characters of matched text. Length may be different size with the length of keyword. Because keyword and matched text are normalized."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:45
 msgid "Here is the description of the second signature."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:47
-msgid "```text\n"
+msgid ""
+"```text\n"
 "integer[2][] pgroonga_match_positions_character(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:55
 msgid "`index_name` is an index name of the corresponding PGroonga index. It's `text` type."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:57
 msgid "`index_name` can be `NULL`."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:59
 msgid "If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:61
 msgid "Here is an example:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:63
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:68
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (normalizer='NormalizerNFKC121');\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:74
 msgid "Now, you can use `pgroonga_content_index` as `index_name`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:76
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_character('Reiwa: ㋿',\n"
 "                                          ARRAY['令和'],\n"
@@ -160,16 +125,14 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:92
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:94
 msgid "You need to specify at least one keyword:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:96
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_character('PGroonga is a PostgreSQL extension.',\n"
 "                                          ARRAY['PostgreSQL']) AS match_positions_character;\n"
@@ -181,12 +144,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:107
 msgid "You can specify multiple keywords:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:109
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_character('PGroonga is a PostgreSQL extension.',\n"
 "                                          ARRAY['Groonga', 'PostgreSQL']) AS match_positions_character;\n"
@@ -198,12 +160,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:120
 msgid "You can extract keywords from query by [`pgroonga_query_extract_keywords` function](pgroonga-query-extract-keywords.html):"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:122
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_character('PGroonga is a PostgreSQL extension.',\n"
 "                                          pgroonga_query_extract_keywords('Groonga PostgreSQL -extension')) AS match_positions_character;\n"
@@ -215,12 +176,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:133
 msgid "Characters are normalized:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:135
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_character('PGroonga + pglogical = replicatable!',\n"
 "                                          ARRAY['Pg']) AS match_positions_character;\n"
@@ -232,12 +192,11 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:146
 msgid "Multibyte characters are also supported:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:148
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "SELECT pgroonga_match_positions_character('10㌖先にある100ｷﾛグラムの米',\n"
 "                                          ARRAY['キロ']) AS match_positions_character;\n"
@@ -249,27 +208,26 @@ msgid "{% raw %}\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:159
 msgid "Custom normalizer can be used by specifying a PGroonga index name:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:161
-msgid "{% raw %}\n"
+msgid ""
+"{% raw %}\n"
 "```sql\n"
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:167
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (normalizer='NormalizerNFKC121');"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:172
-msgid "SELECT pgroonga_match_positions_character('Reiwa: ㋿',\n"
+msgid ""
+"SELECT pgroonga_match_positions_character('Reiwa: ㋿',\n"
 "                                          ARRAY['令和'],\n"
 "                                          'pgroonga_content_index');\n"
 "--  pgroonga_match_positions_character \n"
@@ -280,30 +238,24 @@ msgid "SELECT pgroonga_match_positions_character('Reiwa: ㋿',\n"
 "{% endraw %}"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:182
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:184
 msgid "  * [`pgroonga_match_positions_byte` function][match-positions-byte]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:186
 msgid "  * [`pgroonga_snippet_html` function][query-snippet-html]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:188
 msgid "  * [`pgroonga_highlight_html` function][query-highlight-html]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:190
 msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-match-positions-character.md:192
-msgid "[match-positions-byte]:pgroonga-match-positions-byte.html\n"
+msgid ""
+"[match-positions-byte]:pgroonga-match-positions-byte.html\n"
 "[query-snippet-html]:pgroonga-query-snippet-html.html\n"
 "[query-highlight-html]:pgroonga-query-highlight-html.html\n"
 "[query-extract-keywords]:pgroonga-query-extract-keywords.html"
 msgstr ""
-

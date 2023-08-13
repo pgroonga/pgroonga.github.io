@@ -1,130 +1,100 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/operators/query-v2.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"&@~ operator for non jsonb types\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:6
 msgid "# `&@~` operator for non `jsonb` types"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:8
 msgid "Since 1.2.2."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:10
 msgid "`&?` operator is deprecated since 1.2.2. Use `&@~` operator instead."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:12
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:14
 msgid "`&@~` operator performs full text search with query."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:16
 msgid "Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:18
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:20
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "column &@~ query\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:24
 msgid "`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:26
 msgid "`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:28
 msgid "[Groonga's query syntax][groonga-query-syntax] is used in `query`."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:30
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:32
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:34
 msgid "  * `pgroonga.text_full_text_search_ops`: Default for `text`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:36
 msgid "  * `pgroonga.text_array_full_text_search_ops`: Default for `text[]`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:38
 msgid "  * `pgroonga.varchar_full_text_search_ops`: For `varchar`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:40
 msgid "  * `pgroonga.text_full_text_search_ops_v2`: For `text`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:42
 msgid "  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:44
 msgid "  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:46
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:48
 msgid "Here are sample schema and data for examples:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:50
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:56
-msgid "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:59
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
 "INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
 "INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
@@ -132,12 +102,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:66
 msgid "You can perform full text search with multiple keywords by `&@~` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:68
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';\n"
 "--  id |                            content                             \n"
 "-- ----+----------------------------------------------------------------\n"
@@ -147,35 +116,26 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:77
 msgid "See [Groonga document][groonga-query-syntax] for query syntax details."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:79
 msgid "Note that you can't use syntax that starts with `COLUMN_NAME:` like `COLUMN_NAME:@KEYWORD`. It's disabled in PGroonga."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:81
 msgid "You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` for prefix search."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:83
 msgid "## See also"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:85
 msgid "  * [`&@` operator][match-v2]: Full text search by a keyword"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:87
 msgid "  * [Groonga's query syntax][groonga-query-syntax]"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:89
 msgid "[match-v2]:match-v2.html"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/query-v2.md:91
 msgid "[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html"
 msgstr ""
-

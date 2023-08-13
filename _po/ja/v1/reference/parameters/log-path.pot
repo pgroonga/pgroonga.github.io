@@ -1,118 +1,90 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/parameters/log-path.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"pgroonga.log_path parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:6
 msgid "# `pgroonga.log_path` parameter"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:10
 msgid "`pgroonga.log_path` parameter controls log path."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:12
 msgid "This parameter is only effective when [`pgroonga.log_type` parameter](log-type.html) is `file`."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:14
 msgid "The default value is `$PGDATA/pgroonga.log`."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:16
 msgid "You can disable log output by specifying `none` as path."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:18
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:20
 msgid "In SQL:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:22
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.log_path = path;\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:26
 msgid "In `postgresql.conf`:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:28
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.log_path = path\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:32
 msgid "`path` is a string value. It means that you need to quote `path` value such as `'/var/log/pgroonga.log'`."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:34
 msgid "PGroonga outputs log to `path`."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:36
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:38
 msgid "Here is an example to output log to `/var/log/pgroonga.log`:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:40
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.log_path = '/var/log/pgroonga.log';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:44
 msgid "Here is an example to disable log:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:46
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.log_path = 'none';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:50
 msgid "## See also"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:52
 msgid "  * [`pgroonga.log_type` parameter](log-type.html)"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-path.md:54
 msgid "  * [Log format](http://groonga.org/docs/reference/log.html#format)"
 msgstr ""
-

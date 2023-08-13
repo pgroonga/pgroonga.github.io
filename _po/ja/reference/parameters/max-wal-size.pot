@@ -1,116 +1,87 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/parameters/max-wal-size.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"pgroonga.max_wal_size parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:6
 msgid "# `pgroonga.max_wal_size` parameter"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:8
 msgid "Since 2.3.3."
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:12
 msgid "`pgroonga.max_wal_size` parameter controls the max PGroonga's WAL size."
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:14
 msgid "You must use `pgroonga.max_wal_size` parameter with [`pgroonga_wal_applier` module][pgroonga-wal-applier]. You set `pgroonga_max_wal_size` parameter in primary server and enable [`pgroonga_wal_applier` module][pgroonga-wal-applier] in standby servers."
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:16
 msgid "`pgroonga.max_wal_size` parameter value must be enough large for ensuring applying WAL on standby servers. If `pgroonga.max_wal_size` parameter value is small, data on standby servers are broken."
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:18
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:20
 msgid "In SQL:"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:22
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.max_wal_size = size;\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:26
 msgid "In `postgresql.conf`:"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:28
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.max_wal_size = size\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:32
 msgid "`size` is a size value. The default unit is KiB. You can change unit by specify suffix such as `MB` for MiB."
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:34
 msgid "The default is `0`. It means that no size limit."
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:36
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:38
 msgid "Here is an example to specify 10 MiB:"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:40
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.max_wal_size = 10MB\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:44
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:46
 msgid "  * [`pgroonga_wal_applier` module][pgroonga-wal-applier]"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:48
 msgid "  * [Streaming replication][streaming-replication]"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:50
 msgid "[pgroonga-wal-applier]:../modules/pgroonga-wal-applier.html"
 msgstr ""
 
-#: ../../../../reference/parameters/max-wal-size.md:52
 msgid "[streaming-replication]:../streaming-replication.html"
 msgstr ""
-

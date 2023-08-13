@@ -1,481 +1,252 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-09 17:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../news/index.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: News\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../news/index.md:6
 msgid "# News"
 msgstr ""
 
-#: ../../../news/index.md:8
 msgid "## 3.1.2: 2023-08-09 {#version-3-1-2}"
 msgstr ""
 
-#: ../../../news/index.md:10
-#: ../../../news/index.md:31
-#: ../../../news/index.md:37
-#: ../../../news/index.md:50
-#: ../../../news/index.md:57
-#: ../../../news/index.md:68
-#: ../../../news/index.md:89
-#: ../../../news/index.md:107
-#: ../../../news/index.md:119
-#: ../../../news/index.md:174
-#: ../../../news/index.md:208
-#: ../../../news/index.md:226
-#: ../../../news/index.md:244
-#: ../../../news/index.md:279
-#: ../../../news/index.md:287
-#: ../../../news/index.md:322
-#: ../../../news/index.md:348
-#: ../../../news/index.md:365
-#: ../../../news/index.md:385
-#: ../../../news/index.md:430
-#: ../../../news/index.md:468
-#: ../../../news/index.md:478
-#: ../../../news/index.md:508
-#: ../../../news/index.md:535
-#: ../../../news/index.md:569
-#: ../../../news/index.md:591
-#: ../../../news/index.md:608
-#: ../../../news/index.md:649
-#: ../../../news/index.md:677
-#: ../../../news/index.md:737
-#: ../../../news/index.md:760
-#: ../../../news/index.md:788
-#: ../../../news/index.md:812
-#: ../../../news/index.md:824
-#: ../../../news/index.md:838
-#: ../../../news/index.md:849
-#: ../../../news/index.md:889
-#: ../../../news/index.md:911
-#: ../../../news/index.md:922
-#: ../../../news/index.md:951
-#: ../../../news/index.md:972
-#: ../../../news/index.md:1015
-#: ../../../news/index.md:1023
-#: ../../../news/index.md:1049
-#: ../../../news/index.md:1090
-#: ../../../news/index.md:1102
-#: ../../../news/index.md:1125
-#: ../../../news/index.md:1202
-#: ../../../news/index.md:1245
-#: ../../../news/index.md:1278
-#: ../../../news/index.md:1310
-#: ../../../news/index.md:1394
-#: ../../../news/index.md:1432
-#: ../../../news/index.md:1476
-#: ../../../news/index.md:1498
-#: ../../../news/index.md:1522
-#: ../../../news/index.md:1540
-#: ../../../news/index.md:1556
-#: ../../../news/index.md:1578
-#: ../../../news/index.md:1594
-#: ../../../news/index.md:1618
-#: ../../../news/index.md:1624
-#: ../../../news/index.md:1636
-#: ../../../news/index.md:1652
-#: ../../../news/index.md:1664
-#: ../../../news/index.md:1698
-#: ../../../news/index.md:1720
-#: ../../../news/index.md:1762
-#: ../../../news/index.md:1784
-#: ../../../news/index.md:1814
-#: ../../../news/index.md:1822
-#: ../../../news/index.md:1844
-#: ../../../news/index.md:1857
-#: ../../../news/index.md:1878
-#: ../../../news/index.md:1898
-#: ../../../news/index.md:1931
 msgid "### Improvements"
 msgstr ""
 
-#: ../../../news/index.md:12
-msgid "  * [[Crash safe][crash-safe]] Added support for resetting WAL applied\n"
+msgid ""
+"  * [[Crash safe][crash-safe]] Added support for resetting WAL applied\n"
 "    position automatically on startup only on primary."
 msgstr ""
 
-#: ../../../news/index.md:15
-msgid "    Note that this is not done on standbys because WAL applied\n"
+msgid ""
+"    Note that this is not done on standbys because WAL applied\n"
 "    position may not be the latest on standbys."
 msgstr ""
 
-#: ../../../news/index.md:18
-msgid "  * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]\n"
+msgid ""
+"  * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]\n"
 "    Added support for parallel WAL application."
 msgstr ""
 
-#: ../../../news/index.md:21
-#: ../../../news/index.md:43
-#: ../../../news/index.md:99
-#: ../../../news/index.md:112
-#: ../../../news/index.md:125
-#: ../../../news/index.md:132
-#: ../../../news/index.md:154
-#: ../../../news/index.md:186
-#: ../../../news/index.md:234
-#: ../../../news/index.md:267
-#: ../../../news/index.md:306
-#: ../../../news/index.md:332
-#: ../../../news/index.md:375
-#: ../../../news/index.md:424
-#: ../../../news/index.md:458
-#: ../../../news/index.md:472
-#: ../../../news/index.md:526
-#: ../../../news/index.md:580
-#: ../../../news/index.md:633
-#: ../../../news/index.md:657
-#: ../../../news/index.md:697
-#: ../../../news/index.md:714
-#: ../../../news/index.md:722
-#: ../../../news/index.md:749
-#: ../../../news/index.md:782
-#: ../../../news/index.md:806
-#: ../../../news/index.md:867
-#: ../../../news/index.md:898
-#: ../../../news/index.md:940
-#: ../../../news/index.md:959
-#: ../../../news/index.md:966
-#: ../../../news/index.md:995
-#: ../../../news/index.md:1009
-#: ../../../news/index.md:1041
-#: ../../../news/index.md:1075
-#: ../../../news/index.md:1094
-#: ../../../news/index.md:1173
-#: ../../../news/index.md:1225
-#: ../../../news/index.md:1237
-#: ../../../news/index.md:1257
-#: ../../../news/index.md:1270
-#: ../../../news/index.md:1382
-#: ../../../news/index.md:1426
-#: ../../../news/index.md:1470
-#: ../../../news/index.md:1490
-#: ../../../news/index.md:1512
-#: ../../../news/index.md:1526
-#: ../../../news/index.md:1546
-#: ../../../news/index.md:1562
-#: ../../../news/index.md:1582
-#: ../../../news/index.md:1606
-#: ../../../news/index.md:1642
-#: ../../../news/index.md:1686
-#: ../../../news/index.md:1692
-#: ../../../news/index.md:1710
-#: ../../../news/index.md:1752
-#: ../../../news/index.md:1768
-#: ../../../news/index.md:1849
-#: ../../../news/index.md:1864
 msgid "### Fixes"
 msgstr ""
 
-#: ../../../news/index.md:23
-msgid "  * Fixed a crash bug in sequential search. This may be occurred only\n"
+msgid ""
+"  * Fixed a crash bug in sequential search. This may be occurred only\n"
 "    when you use `NormalizerTable` in your index and specify the index\n"
 "    that uses `NormalizerTable` by\n"
 "    `pgroonga_full_text_search_condition` or\n"
 "    `pgroonga_full_text_search_condition_with_scorers`."
 msgstr ""
 
-#: ../../../news/index.md:29
 msgid "## 3.1.1: 2023-07-25 {#version-3-1-1}"
 msgstr ""
 
-#: ../../../news/index.md:33
 msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux bookworm."
 msgstr ""
 
-#: ../../../news/index.md:35
 msgid "## 3.1.0: 2023-07-12 {#version-3-1-0}"
 msgstr ""
 
-#: ../../../news/index.md:39
 msgid "  * Required Groonga 13.0.2 or later."
 msgstr ""
 
-#: ../../../news/index.md:41
 msgid "  * Added support for backtrace on `abort()`."
 msgstr ""
 
-#: ../../../news/index.md:45
-msgid "  * Fixed a potential crash bug when `VACUUM` including auto `VACUUM`\n"
+msgid ""
+"  * Fixed a potential crash bug when `VACUUM` including auto `VACUUM`\n"
 "    is used."
 msgstr ""
 
-#: ../../../news/index.md:48
 msgid "## 3.0.9: 2023-07-03 {#version-3-0-9}"
 msgstr ""
 
-#: ../../../news/index.md:52
-msgid "  * [[`pgroonga_query_expand` function][query-expand]] Added support\n"
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Added support\n"
 "    for trace log."
 msgstr ""
 
-#: ../../../news/index.md:55
 msgid "## 3.0.8: 2023-06-22 {#version-3-0-8}"
 msgstr ""
 
-#: ../../../news/index.md:59
-msgid "  * [[`&=~` operator][equal-query-v2]] Added support for\n"
+msgid ""
+"  * [[`&=~` operator][equal-query-v2]] Added support for\n"
 "    `pgroonga_full_text_search_condition` to use an index options in\n"
 "    sequential search too."
 msgstr ""
 
-#: ../../../news/index.md:63
-msgid "  * [[`pgroonga.enable_trace_log` parameter][enable-trace-log]] Added\n"
+msgid ""
+"  * [[`pgroonga.enable_trace_log` parameter][enable-trace-log]] Added\n"
 "    support for trace log."
 msgstr ""
 
-#: ../../../news/index.md:66
 msgid "## 3.0.7: 2023-06-13 {#version-3-0-7}"
 msgstr ""
 
-#: ../../../news/index.md:70
 msgid "  * Improved error handling on sequential search."
 msgstr ""
 
-#: ../../../news/index.md:72
-msgid "  * [[`pgroonga_query_expand` function][query-expand]] Used\n"
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Used\n"
 "    `AnyArrayType` API instead of `ArrayType` API again because it\n"
 "    doesn't have a problem."
 msgstr ""
 
-#: ../../../news/index.md:76
-msgid "  * [[`pgroonga_score` function][score]] Improved performance when HOT\n"
+msgid ""
+"  * [[`pgroonga_score` function][score]] Improved performance when HOT\n"
 "    doesn't exist."
 msgstr ""
 
-#: ../../../news/index.md:79
 msgid "    [GH-346][gh-346] [Reported by Michael Fester]"
 msgstr ""
 
-#: ../../../news/index.md:81
 msgid "  * [[Windows][windows]] Required CMake 3.16 or later on build."
 msgstr ""
 
-#: ../../../news/index.md:83
-#: ../../../news/index.md:147
-#: ../../../news/index.md:168
-#: ../../../news/index.md:201
-#: ../../../news/index.md:220
-#: ../../../news/index.md:238
-#: ../../../news/index.md:260
-#: ../../../news/index.md:273
-#: ../../../news/index.md:314
-#: ../../../news/index.md:340
-#: ../../../news/index.md:359
-#: ../../../news/index.md:369
-#: ../../../news/index.md:401
-#: ../../../news/index.md:462
-#: ../../../news/index.md:563
-#: ../../../news/index.md:585
-#: ../../../news/index.md:602
-#: ../../../news/index.md:639
-#: ../../../news/index.md:665
-#: ../../../news/index.md:704
-#: ../../../news/index.md:729
-#: ../../../news/index.md:754
-#: ../../../news/index.md:881
-#: ../../../news/index.md:903
-#: ../../../news/index.md:916
-#: ../../../news/index.md:945
-#: ../../../news/index.md:1001
-#: ../../../news/index.md:1084
-#: ../../../news/index.md:1119
-#: ../../../news/index.md:1190
-#: ../../../news/index.md:1231
-#: ../../../news/index.md:1264
-#: ../../../news/index.md:1302
-#: ../../../news/index.md:1386
-#: ../../../news/index.md:1516
-#: ../../../news/index.md:1534
-#: ../../../news/index.md:1550
-#: ../../../news/index.md:1572
-#: ../../../news/index.md:1586
-#: ../../../news/index.md:1612
-#: ../../../news/index.md:1646
-#: ../../../news/index.md:1680
-#: ../../../news/index.md:1714
-#: ../../../news/index.md:1756
-#: ../../../news/index.md:1772
-#: ../../../news/index.md:1798
-#: ../../../news/index.md:1834
 msgid "### Thanks"
 msgstr ""
 
-#: ../../../news/index.md:85
 msgid "  * Michael Fester"
 msgstr ""
 
-#: ../../../news/index.md:87
 msgid "## 3.0.6: 2023-06-01 {#version-3-0-6}"
 msgstr ""
 
-#: ../../../news/index.md:91
-msgid "  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:\n"
+msgid ""
+"  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:\n"
 "    Added support for declarative partitioning with PostgreSQL < 15."
 msgstr ""
 
-#: ../../../news/index.md:94
 msgid "  * `VACUUM`: Added support for removing broken objects forcibly."
 msgstr ""
 
-#: ../../../news/index.md:96
-msgid "  * [`pgroonga_highlight_html` function][highlight-html]: Rejected\n"
+msgid ""
+"  * [`pgroonga_highlight_html` function][highlight-html]: Rejected\n"
 "    parent index of declarative partitioning explicitly."
 msgstr ""
 
-#: ../../../news/index.md:101
-msgid "  * [Streaming replication][streaming-replication]: Fixed a bug that\n"
+msgid ""
+"  * [Streaming replication][streaming-replication]: Fixed a bug that\n"
 "    needless WAL may be applied by `SELECT`/`INSERT`/`DELETE`/`UPDATE`\n"
 "    while `REINDEX CONCURRENTLY`."
 msgstr ""
 
-#: ../../../news/index.md:105
 msgid "## 3.0.5: 2023-05-31 {#version-3-0-5}"
 msgstr ""
 
-#: ../../../news/index.md:109
-msgid "  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:\n"
+msgid ""
+"  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:\n"
 "    Added."
 msgstr ""
 
-#: ../../../news/index.md:114
-msgid "  * Fixed a crash bug that may be occurred when `VACUUM` including\n"
+msgid ""
+"  * Fixed a crash bug that may be occurred when `VACUUM` including\n"
 "    `autovacuum` is finished while index scan is executed."
 msgstr ""
 
-#: ../../../news/index.md:117
 msgid "## 3.0.4: 2023-05-29 {#version-3-0-4}"
 msgstr ""
 
-#: ../../../news/index.md:121
-msgid "  * [[`pgroonga_query_expand` function][query-expand]] Reverted using\n"
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Reverted using\n"
 "    `AnyArrayType` API instead of `ArrayType` API because it seems\n"
 "    that it's needless."
 msgstr ""
 
-#: ../../../news/index.md:127
-msgid "  * [[`pgroonga_query_expand` function][query-expand]] Fixed a crash\n"
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Fixed a crash\n"
 "    bug when synonyms array includes a `NULL` element."
 msgstr ""
 
-#: ../../../news/index.md:130
 msgid "## 3.0.3: 2023-05-18 {#version-3-0-3}"
 msgstr ""
 
-#: ../../../news/index.md:134
 msgid "  * Fixed a bug that PGroonga may have crashed when PGroonga writed PGroonga's WAL."
 msgstr ""
 
-#: ../../../news/index.md:136
 msgid "  * [GH-336][gh-336]: Fixed a bug that PGroonga crashed if we specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file. [Reported by askdkc and Rui Chen]"
 msgstr ""
 
-#: ../../../news/index.md:138
 msgid "    PGroonga doesn't crash even if we specify ``shared_preload_libraries = 'pgroonga'`` by this modification."
 msgstr ""
 
-#: ../../../news/index.md:140
-msgid "    However, if we specify ``shared_preload_libraries = 'pgroonga'``, PGroonga doesn't work well.\n"
+msgid ""
+"    However, if we specify ``shared_preload_libraries = 'pgroonga'``, PGroonga doesn't work well.\n"
 "    For example, ``CREATE INDEX USING pgroonga`` is failed.\n"
 "    However, probably, old PGroonga also has not worked well with ``shared_preload_libraries = 'pgroonga'``.\n"
 "    Because we don't have a timing that initializes Groonga's DB."
 msgstr ""
 
-#: ../../../news/index.md:145
 msgid "    Therefore, we don't specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file."
 msgstr ""
 
-#: ../../../news/index.md:149
-msgid "  * askdkc\n"
+msgid ""
+"  * askdkc\n"
 "  * Rui Chen"
 msgstr ""
 
-#: ../../../news/index.md:152
 msgid "## 3.0.2: 2023-05-11 {#version-3-0-2}"
 msgstr ""
 
-#: ../../../news/index.md:156
 msgid "  * Fixed a bug that PGroonga may crash when we used ``pgroonga_query_expand()``."
 msgstr ""
 
-#: ../../../news/index.md:158
-#: ../../../news/index.md:162
 msgid "    However, probably, this problem rarely occur."
 msgstr ""
 
-#: ../../../news/index.md:160
 msgid "  * Fixed a bug that ``SELECT`` using PGroonga's index may fail after PostgreSQL crashed while execution ``INSERT``."
 msgstr ""
 
-#: ../../../news/index.md:164
 msgid "  * [GH-331][gh-331]: Fixed a bug that many compile errors rised when we did not not define ``HAVE_MSGPACK`` in ``src/pgrn-wal.c``. [Reported by OBATA Akio]"
 msgstr ""
 
-#: ../../../news/index.md:166
 msgid "    This problem only occures when we build PGroonga from sources."
 msgstr ""
 
-#: ../../../news/index.md:170
 msgid "  * OBATA Akio"
 msgstr ""
 
-#: ../../../news/index.md:172
 msgid "## 3.0.1: 2023-04-27 {#version-3-0-1}"
 msgstr ""
 
-#: ../../../news/index.md:176
 msgid "  * [[`pgroonga_wal_status` function][wal-status]] Added a newly function ``pgroonga_wal_status()``."
 msgstr ""
 
-#: ../../../news/index.md:178
-msgid "    This function display a status of applying PGroonga's WAL.\n"
+msgid ""
+"    This function display a status of applying PGroonga's WAL.\n"
 "    The maximum size of PGroonga's WAL is limited by ``pgroonga.max_wal_size``."
 msgstr ""
 
-#: ../../../news/index.md:181
-msgid "    If we execute many modification before PGroonga doesn't apply PGroonga's WAL, not applied PGroonga's WAL may lost.\n"
+msgid ""
+"    If we execute many modification before PGroonga doesn't apply PGroonga's WAL, not applied PGroonga's WAL may lost.\n"
 "    Because PGroonga's WAL is over writed from the head of it when the size of modification over ``pgroonga.max_wal_size``"
 msgstr ""
 
-#: ../../../news/index.md:184
 msgid "    We understand the size of applied PGroonga's WAL by this function. Therefore we can prevent lost for not applied PGroonga's WAL."
 msgstr ""
 
-#: ../../../news/index.md:188
 msgid "  * Fixed a bug that dead lock occures when we execute ``UPDATE`` or ``INSERT`` while we execute ``REINDEX INDEX ... CONCURRENTLY``."
 msgstr ""
 
-#: ../../../news/index.md:190
 msgid "  * [GH-90][gh-90], [GH-117][gh-117]: Fixed a bug that if we repeated ``REINDEX`` and ``VACUUM``, PGroonga may return incorrect results and fail ``INSERT``."
 msgstr ""
 
-#: ../../../news/index.md:192
 msgid "    For example, if this problem is occurred when INSERT, the following error is raised:"
 msgstr ""
 
-#: ../../../news/index.md:194
-msgid "    ```\n"
+msgid ""
+"    ```\n"
 "    ERROR:  pgroonga: [insert] failed to add a record: <75300883>:\n"
 "    [table][add][hash] failed to add:\n"
 "     #<key \"\\u0013\\u0000}\\u0004\\u0000\\u0000\\u0000\\u0000\"\n"
@@ -483,147 +254,117 @@ msgid "    ```\n"
 "    ```"
 msgstr ""
 
-#: ../../../news/index.md:203
-msgid "  * Daisuke Ando\n"
+msgid ""
+"  * Daisuke Ando\n"
 "  * Raphael Gaschignard"
 msgstr ""
 
-#: ../../../news/index.md:206
 msgid "## 3.0.0: 2023-04-13 {#version-3-0-0}"
 msgstr ""
 
-#: ../../../news/index.md:210
 msgid "  * [GH-291][gh-291]: Stopped defining v1 compatible operators to the `public` schema. Now, you can install PGroonga to non-`public` schema (Supabase uses `extensions` schema by default) and work without any tricky SQL."
 msgstr ""
 
-#: ../../../news/index.md:212
 msgid "    This is a backward incompatible change but most users will not be affected because PGroonga 2.0.0 was released 6 years ago. Most users must not use v1 compatible operators."
 msgstr ""
 
-#: ../../../news/index.md:214
-msgid "  * [GH-308][gh-308]: [[`pgroonga_query_extract_keywords` function][query-extract-keywords]] Added support for `query_allow_column=true` by specifying index name.\n"
+msgid ""
+"  * [GH-308][gh-308]: [[`pgroonga_query_extract_keywords` function][query-extract-keywords]] Added support for `query_allow_column=true` by specifying index name.\n"
 "    [Reported by yodhcn]"
 msgstr ""
 
-#: ../../../news/index.md:217
-msgid "  * [GH-317][gh-317]: [[`&=~` operator][equal-query-v2]] Added support for query syntax for `text[]` and `varchar[]`.\n"
+msgid ""
+"  * [GH-317][gh-317]: [[`&=~` operator][equal-query-v2]] Added support for query syntax for `text[]` and `varchar[]`.\n"
 "    [Reported by yodhcn]"
 msgstr ""
 
-#: ../../../news/index.md:222
 msgid "  * yodhcn"
 msgstr ""
 
-#: ../../../news/index.md:224
 msgid "## 2.4.7: 2023-03-27 {#version-2-4-7}"
 msgstr ""
 
-#: ../../../news/index.md:228
 msgid "  * Added a newly support for AlmaLinux 9."
 msgstr ""
 
-#: ../../../news/index.md:230
 msgid "  * Dropped support for Ubuntu 18.04."
 msgstr ""
 
-#: ../../../news/index.md:232
 msgid "    Because Ubuntu 18.04 will reache EOL in April 2023."
 msgstr ""
 
-#: ../../../news/index.md:236
 msgid "  * Fixed a bug that PGroonga crashed when we execute ``CREATE INDEX`` against a column of UUID type. [GitHub:GH-305][Reported by ghevge]"
 msgstr ""
 
-#: ../../../news/index.md:240
 msgid "  * ghevge"
 msgstr ""
 
-#: ../../../news/index.md:242
 msgid "## 2.4.6: 2023-03-24 {#version-2-4-6}"
 msgstr ""
 
-#: ../../../news/index.md:246
 msgid "  * [`&^` operator][prefix-search-v2] Added support for ``pgroonga_full_text_search_condition``."
 msgstr ""
 
-#: ../../../news/index.md:248
 msgid "  * [[`pgroonga_highlight_html` function][highlight-html]] Added support prefix search."
 msgstr ""
 
-#: ../../../news/index.md:250
 msgid "  * [`&=` operator][exact-match-search] Added a newly operator `&=`."
 msgstr ""
 
-#: ../../../news/index.md:252
 msgid "    We can use custom normalizers with this in exact match search even if PGroonga's index is used or not."
 msgstr ""
 
-#: ../../../news/index.md:254
 msgid "  * Added support for UUID type. [GitHub#302][Reported by ghevge]"
 msgstr ""
 
-#: ../../../news/index.md:256
 msgid "  * [tuning] Added a newly documentation for PGroonga's tunung. [GitHub:pgroonga/pgroonga.github.io#99][Patched by askdkc]"
 msgstr ""
 
-#: ../../../news/index.md:258
 msgid "  * [streaming-replication] Update replication example to use Ubuntu 22.04 and the latest PostgreSQL. [GitHub:pgroonga/pgroonga.github.io#100][Patched by askdkc]"
 msgstr ""
 
-#: ../../../news/index.md:262
-msgid "  * askdkc\n"
+msgid ""
+"  * askdkc\n"
 "  * ghevge"
 msgstr ""
 
-#: ../../../news/index.md:265
 msgid "## 2.4.5: 2023-03-06 {#version-2-4-5}"
 msgstr ""
 
-#: ../../../news/index.md:269
 msgid "  * [[`pgroonga_text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Fixed a bug that TokenRegexp isn't used with options. [GitHub#293][Reported by askdkc]"
 msgstr ""
 
-#: ../../../news/index.md:271
 msgid "  * [[Crash safe][crash-safe]] Fixed a bug that re-index recovery doesn't work."
 msgstr ""
 
-#: ../../../news/index.md:275
-#: ../../../news/index.md:342
-#: ../../../news/index.md:361
 msgid "  * askdkc"
 msgstr ""
 
-#: ../../../news/index.md:277
 msgid "## 2.4.4: 2023-01-29 {#version-2-4-4}"
 msgstr ""
 
-#: ../../../news/index.md:281
 msgid "  * [[`pgroonga_wal_apply` function][wal-apply]] add target index information to error logs"
 msgstr ""
 
-#: ../../../news/index.md:283
 msgid "    We can find indexes that failed to apply WAL records of PGroonga by this modification."
 msgstr ""
 
-#: ../../../news/index.md:285
 msgid "## 2.4.3: 2023-01-06 {#version-2-4-3}"
 msgstr ""
 
-#: ../../../news/index.md:289
 msgid "  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for the `text[]` type as `target`. [GitHub#219][Reported by Kentaro Hayashi]"
 msgstr ""
 
-#: ../../../news/index.md:291
-msgid "    We can now specify the `text[]` type as `target` with `pgroonga_highlight_html`.\n"
+msgid ""
+"    We can now specify the `text[]` type as `target` with `pgroonga_highlight_html`.\n"
 "    It only supported the `text` type for `target` before."
 msgstr ""
 
-#: ../../../news/index.md:294
 msgid "    A type of a returned value is also `text[]` when we specify the `text[]` type as `target`."
 msgstr ""
 
-#: ../../../news/index.md:296
-msgid "    ```sql\n"
+msgid ""
+"    ```sql\n"
 "    SELECT pgroonga_highlight_html(\n"
 "      ARRAY['one two three', NULL, 'five', 'six three'],\n"
 "      ARRAY['two', 'six']);\n"
@@ -634,2295 +375,1785 @@ msgid "    ```sql\n"
 "    ```"
 msgstr ""
 
-#: ../../../news/index.md:308
 msgid "  * Fixed a bug that PGroonga failed to create an index during executing two-phase commit. [GitHub#269][Reported by Raif Atef]"
 msgstr ""
 
-#: ../../../news/index.md:310
 msgid "  * Published the latest [Docker image](https://hub.docker.com/r/groonga/pgroonga)."
 msgstr ""
 
-#: ../../../news/index.md:312
 msgid "    The matched Docker images were not published between 2.3.9 and the current version."
 msgstr ""
 
-#: ../../../news/index.md:316
 msgid "  * Kentaro Hayashi"
 msgstr ""
 
-#: ../../../news/index.md:318
-#: ../../../news/index.md:344
 msgid "  * Raif Atef"
 msgstr ""
 
-#: ../../../news/index.md:320
 msgid "## 2.4.2: 2022-11-29 {#version-2-4-2}"
 msgstr ""
 
-#: ../../../news/index.md:324
 msgid "  * Added support for PostgreSQL 15 on Windows.[GitHub#256][Reported by Raif Atef]"
 msgstr ""
 
-#: ../../../news/index.md:326
 msgid "  * Added support for PostgreSQL 15 on Ubuntu 22.04."
 msgstr ""
 
-#: ../../../news/index.md:328
 msgid "  * Added a new module [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer] executing ``pgroonga_wal_apply()`` and ``pgroonga_vacuum()`` automatically on a standby database."
 msgstr ""
 
-#: ../../../news/index.md:330
 msgid "  * [`pgroonga_snippet_html` function][snippet-html] Added a new argument, ``pgroonga_snippet_html``, specifying snippet length dynamically.[GitHub#253][Reported by askdkc][GitHub#255][Patched by askdkc]"
 msgstr ""
 
-#: ../../../news/index.md:334
 msgid "  * Fixed a bug that ``VACUUM`` fails while we execute two-phase commit. [GitHub#252][Reported by Raif Atef]"
 msgstr ""
 
-#: ../../../news/index.md:336
 msgid "### Known issues"
 msgstr ""
 
-#: ../../../news/index.md:338
 msgid "  * PGroonga may fail to create index while we execute two-phase commit. [GitHub#269][Reported by Raif Atef]"
 msgstr ""
 
-#: ../../../news/index.md:346
 msgid "## 2.4.1: 2022-10-28 {#version-2-4-1}"
 msgstr ""
 
-#: ../../../news/index.md:350
-#: ../../../news/index.md:434
 msgid "  * Added support for PostgreSQL 15."
 msgstr ""
 
-#: ../../../news/index.md:352
 msgid "  * Dropped support for PostgreSQL 10."
 msgstr ""
 
-#: ../../../news/index.md:354
 msgid "    Because PostgreSQL 10 will reach EOL on November 2022."
 msgstr ""
 
-#: ../../../news/index.md:356
-msgid "  * [[`` &@~ `` operator for jsonb type][query-jsonb-v2]] Added translation about how to perform full text search with indexes against jsonb type values. \n"
+msgid ""
+"  * [[`` &@~ `` operator for jsonb type][query-jsonb-v2]] Added translation about how to perform full text search with indexes against jsonb type values. \n"
 "    [GitHub:pgroonga/pgroonga.github.io#83][Patched by askdkc]"
 msgstr ""
 
-#: ../../../news/index.md:363
 msgid "## 2.4.0: 2022-10-07 {#version-2-4-0}"
 msgstr ""
 
-#: ../../../news/index.md:367
 msgid "  * [[Ubuntu][ubuntu]] Added support for PoatgreSQL 10, 11, 12, 13, and 14 for PGDG packages on Ubuntu 22.04. [GitHub#228][Reported by sousuke0422]"
 msgstr ""
 
-#: ../../../news/index.md:371
 msgid "  * sousuke0422"
 msgstr ""
 
-#: ../../../news/index.md:373
 msgid "## 2.3.9: 2022-09-14 {#version-2-3-9}"
 msgstr ""
 
-#: ../../../news/index.md:377
 msgid "  * Fixed a bug that PGroonga crash when an append node that had \"never executed\" statue existed in a query plan."
 msgstr ""
 
-#: ../../../news/index.md:379
 msgid "    For example, this bug occurred in a following condition."
 msgstr ""
 
-#: ../../../news/index.md:381
 msgid "      * If PostgreSQL narrow down child nodes by \"Partition pruning\" function."
 msgstr ""
 
-#: ../../../news/index.md:383
 msgid "## 2.3.8: 2022-08-08 {#version-2-3-8}"
 msgstr ""
 
-#: ../../../news/index.md:387
 msgid "  * Added support for Unlogged Table. [GitHub#95][Reported by kurita0]"
 msgstr ""
 
-#: ../../../news/index.md:389
 msgid "    We can create a index of PGroonga on Unlogged Table."
 msgstr ""
 
-#: ../../../news/index.md:391
 msgid "  * [[Debian][debian]] Dropped support for Debian 10 (buster)."
 msgstr ""
 
-#: ../../../news/index.md:393
 msgid "    Because Debian 10 (buster) reaches EOL in August 2022."
 msgstr ""
 
-#: ../../../news/index.md:395
 msgid "  * [[Ubuntu][ubuntu]] Dropped ssupport for Ubuntu 21.10 (Impish Indri)."
 msgstr ""
 
-#: ../../../news/index.md:397
 msgid "    Because Ubuntu 21.10 reached EOL in July 2022."
 msgstr ""
 
-#: ../../../news/index.md:399
 msgid "  * [[pgroonga-query-expand][query-expand]] Added document for an example of how to search keywords using synonym groups. [GitHub:pgroonga/pgroonga.github.io#71][GitHub:pgroonga/pgroonga.github.io#72][Patched by askdkc]"
 msgstr ""
 
-#: ../../../news/index.md:403
-msgid "* kurita0\n"
+msgid ""
+"* kurita0\n"
 "* askdkc"
 msgstr ""
 
-#: ../../../news/index.md:406
 msgid "## 2.3.7: 2022-06-07 {#version-2-3-7}"
 msgstr ""
 
-#: ../../../news/index.md:408
 msgid "  * Add support for `pg_stat_progress_create_index`."
 msgstr ""
 
-#: ../../../news/index.md:410
 msgid "    We can get the progress for creating an index of PGroonga."
 msgstr ""
 
-#: ../../../news/index.md:412
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 12.0.4."
 msgstr ""
 
-#: ../../../news/index.md:414
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 22.04."
 msgstr ""
 
-#: ../../../news/index.md:416
 msgid "## 2.3.6: 2022-03-17 {#version-2-3-6}"
 msgstr ""
 
-#: ../../../news/index.md:418
 msgid "  * [[Crash safe][crash-safe]] Improved reindex order."
 msgstr ""
 
-#: ../../../news/index.md:420
 msgid "    * PGroonga also became able to reindex against indexes that have dependencies by this improvement."
 msgstr ""
 
-#: ../../../news/index.md:422
 msgid "  * Added support for PostgreSQL 12.5."
 msgstr ""
 
-#: ../../../news/index.md:426
 msgid "  * [[Crash safe][crash-safe]] Fixed a bug that `REINDEX` failed even if `REINDEX` succeed actually."
 msgstr ""
 
-#: ../../../news/index.md:428
 msgid "## 2.3.5: 2022-03-09 {#version-2-3-5}"
 msgstr ""
 
-#: ../../../news/index.md:432
 msgid "  * [[CentOS][centos]] Dropped support for CentOS 8."
 msgstr ""
 
-#: ../../../news/index.md:436
 msgid "  * [[Crash safe][crash-safe]] Improved performance."
 msgstr ""
 
-#: ../../../news/index.md:438
 msgid "  * Added support for parallel vacuum."
 msgstr ""
 
-#: ../../../news/index.md:440
-#: ../../../news/index.md:442
 msgid "  * Added support for `INCLUDE` in `CREATE INDEX`."
 msgstr ""
 
-#: ../../../news/index.md:444
-msgid "  * [[`pgroonga_text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Ignored empty terms with warning.\n"
+msgid ""
+"  * [[`pgroonga_text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Ignored empty terms with warning.\n"
 "    [Gitter#6204a9bfced11857f9a1852d](https://gitter.im/groonga/en?at=6204a9bfced11857f9a1852d)[Reported by Zhanzhao (Deo) Liang]"
 msgstr ""
 
-#: ../../../news/index.md:447
-msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]\n"
+msgid ""
+"  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]\n"
 "    Added support for logging backtrace on crash."
 msgstr ""
 
-#: ../../../news/index.md:450
 msgid "  * [[Amazon Linux][amazon-linux]] Changed to use PostgreSQL package provided by Amazon Linux not PostgreSQL."
 msgstr ""
 
-#: ../../../news/index.md:452
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 12.0.1."
 msgstr ""
 
-#: ../../../news/index.md:454
 msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 21.04."
 msgstr ""
 
-#: ../../../news/index.md:456
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.10."
 msgstr ""
 
-#: ../../../news/index.md:460
 msgid "  * Fixed a bug that index only scan may return `NULL` unexpectedly."
 msgstr ""
 
-#: ../../../news/index.md:464
-#: ../../../news/index.md:667
-#: ../../../news/index.md:708
 msgid "  * Zhanzhao (Deo) Liang"
 msgstr ""
 
-#: ../../../news/index.md:466
 msgid "## 2.3.4: 2021-11-09 {#version-2-3-4}"
 msgstr ""
 
-#: ../../../news/index.md:470
 msgid "  * [[AlmaLinux][almalinux]] Added support for AlmaLinux 8."
 msgstr ""
 
-#: ../../../news/index.md:474
 msgid "  * Fixed a crash bug when we execute `EXPLAIN ANALYZE` on sequential search."
 msgstr ""
 
-#: ../../../news/index.md:476
 msgid "## 2.3.3: 2021-11-05 {#version-2-3-3}"
 msgstr ""
 
-#: ../../../news/index.md:480
 msgid "  * Added support for [row level security][postgresql-row-level-security]."
 msgstr ""
 
-#: ../../../news/index.md:482
 msgid "  * Dropped support for PostgreSQL 9.6."
 msgstr ""
 
-#: ../../../news/index.md:484
 msgid "  * Added support for limiting max WAL size:"
 msgstr ""
 
-#: ../../../news/index.md:486
 msgid "    * [`pgroonga_wal_applier` module][pgroonga-wal-applier]"
 msgstr ""
 
-#: ../../../news/index.md:488
 msgid "    * [`pgroonga_wal_applier.naptime` parameter][pgroonga-wal-applier-naptime]"
 msgstr ""
 
-#: ../../../news/index.md:490
 msgid "    * [`pgroonga.max_wal_size` parameter][max-wal-size]"
 msgstr ""
 
-#: ../../../news/index.md:492
 msgid "  * Added support for crash safe:"
 msgstr ""
 
-#: ../../../news/index.md:494
 msgid "    * [Crash safe][crash-safe]"
 msgstr ""
 
-#: ../../../news/index.md:496
 msgid "    * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
 msgstr ""
 
-#: ../../../news/index.md:498
 msgid "    * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]"
 msgstr ""
 
-#: ../../../news/index.md:500
 msgid "    * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-level]"
 msgstr ""
 
-#: ../../../news/index.md:502
 msgid "    * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]"
 msgstr ""
 
-#: ../../../news/index.md:504
 msgid "    * [`pgroonga.enable_crash_safe` parameter][enable-crash-safe]"
 msgstr ""
 
-#: ../../../news/index.md:506
 msgid "## 2.3.2: 2021-10-04 {#version-2-3-2}"
 msgstr ""
 
-#: ../../../news/index.md:510
 msgid "  * Added support for parallel scan."
 msgstr ""
 
-#: ../../../news/index.md:512
 msgid "  * Added support for parallel scan against declarative partitioning."
 msgstr ""
 
-#: ../../../news/index.md:514
-msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-index-flags]]\n"
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-index-flags]]\n"
 "    Added `index_flags_mapping` option that can be used to customize\n"
 "    index flags for each indexed target."
 msgstr ""
 
-#: ../../../news/index.md:518
-msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
 "    Added support for `${table:INDEX_NAME}` substitution in `normalizers_mapping`\n"
 "    option."
 msgstr ""
 
-#: ../../../news/index.md:522
 msgid "  * Added support for PostgreSQL 14."
 msgstr ""
 
-#: ../../../news/index.md:524
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 21.04."
 msgstr ""
 
-#: ../../../news/index.md:528
-msgid "  * [[`pgroonga_highlight_html` function][highlight-html]]\n"
+msgid ""
+"  * [[`pgroonga_highlight_html` function][highlight-html]]\n"
 "    Fixed a bug that a lexicon may not update when we recreate the lexicon."
 msgstr ""
 
-#: ../../../news/index.md:531
 msgid "## 2.3.1: 2021-08-05 {#version-2-3-1}"
 msgstr ""
 
-#: ../../../news/index.md:533
 msgid "PGroonga requires Groonga 11.0.5 since this version."
 msgstr ""
 
-#: ../../../news/index.md:537
-msgid "  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages\n"
+msgid ""
+"  * [[Ubuntu][ubuntu]] Added packages for PostgreSQL 11 packages\n"
 "    provided by PostgreSQL Global Developer Group.\n"
 "    [GitHub#184][Reported by Tim Abbott]"
 msgstr ""
 
-#: ../../../news/index.md:541
-msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
 "    Added `normalizers` option that can be used to customize\n"
 "    normalizers. `normalizer` option is deprecated."
 msgstr ""
 
-#: ../../../news/index.md:545
-msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
 "    Added `normalizers_mapping` option that can be used to customize\n"
 "    normalizer for each indexed target."
 msgstr ""
 
-#: ../../../news/index.md:549
-msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga-custom-normalizer]]\n"
 "    Added support for `${table:INDEX_NAME}` substitution in normalizer\n"
 "    name."
 msgstr ""
 
-#: ../../../news/index.md:553
-msgid "  * [[`pgroonga_result_to_recordset` function][result-to-recordset]]\n"
+msgid ""
+"  * [[`pgroonga_result_to_recordset` function][result-to-recordset]]\n"
 "    Added support for term indexed column."
 msgstr ""
 
-#: ../../../news/index.md:556
-msgid "  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]\n"
+msgid ""
+"  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]\n"
 "    Added support for term indexed column."
 msgstr ""
 
-#: ../../../news/index.md:559
 msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 20.10."
 msgstr ""
 
-#: ../../../news/index.md:561
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.5."
 msgstr ""
 
-#: ../../../news/index.md:565
-#: ../../../news/index.md:1590
 msgid "  * Tim Abbott"
 msgstr ""
 
-#: ../../../news/index.md:567
 msgid "## 2.3.0: 2021-05-14 {#version-2-3-0}"
 msgstr ""
 
-#: ../../../news/index.md:571
 msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux bullseye."
 msgstr ""
 
-#: ../../../news/index.md:573
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.2."
 msgstr ""
 
-#: ../../../news/index.md:575
 msgid "  * [[`pgroonga_result_to_recordset` function][result-to-recordset]] Added."
 msgstr ""
 
-#: ../../../news/index.md:577
-msgid "  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]\n"
+msgid ""
+"  * [[`pgroonga_result_to_jsonb_objects` function][result-to-jsonb-objects]]\n"
 "    Added."
 msgstr ""
 
-#: ../../../news/index.md:582
-msgid "  * Fixed a bug that `NULL` `jsonb` data with partial index may not\n"
+msgid ""
+"  * Fixed a bug that `NULL` `jsonb` data with partial index may not\n"
 "    return records of `NULL` value. [GitHub#181][Reported by Artem]"
 msgstr ""
 
-#: ../../../news/index.md:587
 msgid "  * Artem"
 msgstr ""
 
-#: ../../../news/index.md:589
 msgid "## 2.2.9: 2021-04-04 {#version-2-2-9}"
 msgstr ""
 
-#: ../../../news/index.md:593
 msgid "  * [[Debian][debian]] Dropped support for Debian GNU/Linux buster i386."
 msgstr ""
 
-#: ../../../news/index.md:595
 msgid "  * [[Debian][debian]] Added support for arm64."
 msgstr ""
 
-#: ../../../news/index.md:597
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 11.0.1."
 msgstr ""
 
-#: ../../../news/index.md:599
-msgid "  * Avoided `COUNT(*)` with large value.\n"
+msgid ""
+"  * Avoided `COUNT(*)` with large value.\n"
 "    [GitHub:clear-code/redmine_full_text_search#96][Reported by ryouma-nagare]"
 msgstr ""
 
-#: ../../../news/index.md:604
 msgid "  * ryouma-nagare"
 msgstr ""
 
-#: ../../../news/index.md:606
 msgid "## 2.2.8: 2020-12-27 {#version-2-2-8}"
 msgstr ""
 
-#: ../../../news/index.md:610
-msgid "  * [[Ubuntu][ubuntu]], [[Debian][debian]] Added packages for\n"
+msgid ""
+"  * [[Ubuntu][ubuntu]], [[Debian][debian]] Added packages for\n"
 "    PostgreSQL packages provided by PostgreSQL Global Developer Group."
 msgstr ""
 
-#: ../../../news/index.md:613
 msgid "  * [[Debian][debian]] Dropped support for Debian GNU/Linux stretch."
 msgstr ""
 
-#: ../../../news/index.md:615
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 20.10."
 msgstr ""
 
-#: ../../../news/index.md:617
 msgid "  * [[CentOS][centos]] Dropped support for CentOS 6."
 msgstr ""
 
-#: ../../../news/index.md:619
-msgid "  * [[`pgroonga.force_match_escalation` parameter][force-match-escalation]]\n"
+msgid ""
+"  * [[`pgroonga.force_match_escalation` parameter][force-match-escalation]]\n"
 "    Added. [GitHub#157][Reported by Hung Nguyen V.]"
 msgstr ""
 
-#: ../../../news/index.md:622
-msgid "  * Similar search functions: Increased cost to ensure using index\n"
+msgid ""
+"  * Similar search functions: Increased cost to ensure using index\n"
 "    scan. [GitHub#163][Reported by oyhan]"
 msgstr ""
 
-#: ../../../news/index.md:625
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 10.1.0"
 msgstr ""
 
-#: ../../../news/index.md:627
-msgid "  * [[`pgroonga_match_positions_byte` function][match-positions-byte]]\n"
+msgid ""
+"  * [[`pgroonga_match_positions_byte` function][match-positions-byte]]\n"
 "    Added support for custom normalizer."
 msgstr ""
 
-#: ../../../news/index.md:630
-msgid "  * [[`pgroonga_match_positions_character` function][match-positions-character]]\n"
+msgid ""
+"  * [[`pgroonga_match_positions_character` function][match-positions-character]]\n"
 "    Added support for custom normalizer."
 msgstr ""
 
-#: ../../../news/index.md:635
-msgid "  * [[`pgroonga_wal_truncate` function][wal-truncate]] Fixed a bug\n"
+msgid ""
+"  * [[`pgroonga_wal_truncate` function][wal-truncate]] Fixed a bug\n"
 "    that calling this after large update is failed. This bug was\n"
 "    introduced in 2.2.6. [GitHub#150][Reported by BiscuitsColonel]"
 msgstr ""
 
-#: ../../../news/index.md:641
 msgid "  * Hung Nguyen V."
 msgstr ""
 
-#: ../../../news/index.md:643
 msgid "  * oyhan"
 msgstr ""
 
-#: ../../../news/index.md:645
 msgid "  * BiscuitsColonel"
 msgstr ""
 
-#: ../../../news/index.md:647
 msgid "## 2.2.7: 2020-11-10 {#version-2-2-7}"
 msgstr ""
 
-#: ../../../news/index.md:651
 msgid "  * Provided the packages for PostgreSQL 13."
 msgstr ""
 
-#: ../../../news/index.md:653
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.8"
 msgstr ""
 
-#: ../../../news/index.md:655
 msgid "  * Added support for using system xxHash by HAVE_XXHASH"
 msgstr ""
 
-#: ../../../news/index.md:659
 msgid "  * Fixed a bug that PGroonga might crash when PostgreSQL wrote WAL."
 msgstr ""
 
-#: ../../../news/index.md:661
-msgid "  * [[Ubuntu][ubuntu]], [[Debian][debian]] Fixed a bug that WAL\n"
+msgid ""
+"  * [[Ubuntu][ubuntu]], [[Debian][debian]] Fixed a bug that WAL\n"
 "    support was disabled. [GitHub#144][Reported by DeoLeung and\n"
 "    zyp-rgb]"
 msgstr ""
 
-#: ../../../news/index.md:669
 msgid "  * zyp-rgb"
 msgstr ""
 
-#: ../../../news/index.md:671
 msgid "## 2.2.6: 2020-07-01 {#version-2-2-6}"
 msgstr ""
 
-#: ../../../news/index.md:673
-msgid "NOTE: If you have PGroonga index for `jsonb`, you need to reindex all\n"
+msgid ""
+"NOTE: If you have PGroonga index for `jsonb`, you need to reindex all\n"
 "your PGroonga indexes for `jsonb` after you upgrade to this\n"
 "version. This version has a fix for `jsonb`."
 msgstr ""
 
-#: ../../../news/index.md:679
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 20.04."
 msgstr ""
 
-#: ../../../news/index.md:681
 msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 16.04."
 msgstr ""
 
-#: ../../../news/index.md:683
 msgid "  * Added support for PostgreSQL 13."
 msgstr ""
 
-#: ../../../news/index.md:685
 msgid "  * Dropped support for PostgreSQL 9.5."
 msgstr ""
 
-#: ../../../news/index.md:687
-msgid "  * Added support for Postgres-XL.\n"
+msgid ""
+"  * Added support for Postgres-XL.\n"
 "    [GitHub#140][Reported by nateekarn-e]"
 msgstr ""
 
-#: ../../../news/index.md:690
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 10.0.4."
 msgstr ""
 
-#: ../../../news/index.md:692
-msgid "  * Suppressed assertions reported by debug build PostgreSQL.\n"
+msgid ""
+"  * Suppressed assertions reported by debug build PostgreSQL.\n"
 "    [GitHub#135][Reported by Malt]"
 msgstr ""
 
-#: ../../../news/index.md:695
 msgid "  * [[`pgroonga_index_name` function][index-column-name]] Added."
 msgstr ""
 
-#: ../../../news/index.md:699
-msgid "  * [`jsonb`] Fixed a bug that wrong paths are generated for nested\n"
+msgid ""
+"  * [`jsonb`] Fixed a bug that wrong paths are generated for nested\n"
 "    objects/array. You need to reindex all PGroonga indexes for\n"
 "    `jsonb` to apply this fix after you upgrade to PGroonga 2.2.6.\n"
 "    [GitHub#137][Reported by Zhanzhao (Deo) Liang]"
 msgstr ""
 
-#: ../../../news/index.md:706
 msgid "  * Malt"
 msgstr ""
 
-#: ../../../news/index.md:710
 msgid "  * nateekarn-e"
 msgstr ""
 
-#: ../../../news/index.md:712
 msgid "## 2.2.5: 2020-03-12 {#version-2-2-5}"
 msgstr ""
 
-#: ../../../news/index.md:716
 msgid "  * Fixed a bug that failed update to version 2.2.4."
 msgstr ""
 
-#: ../../../news/index.md:718
 msgid "  * [`jsonb`] Added a workaround for `SELECT COUNT(*)`."
 msgstr ""
 
-#: ../../../news/index.md:720
 msgid "## 2.2.4: 2020-03-12 {#version-2-2-4}"
 msgstr ""
 
-#: ../../../news/index.md:724
 msgid "  * [[Debian][debian]] Fixed wrong PostgreSQL package name."
 msgstr ""
 
-#: ../../../news/index.md:726
-msgid "  * [[Ubuntu][ubuntu]] Fixed wrong PostgreSQL package name.\n"
+msgid ""
+"  * [[Ubuntu][ubuntu]] Fixed wrong PostgreSQL package name.\n"
 "    [GitHub#128][Reported by Volo Zyko] [Reported by punchagan]"
 msgstr ""
 
-#: ../../../news/index.md:731
 msgid "  * Volo Zyko"
 msgstr ""
 
-#: ../../../news/index.md:733
 msgid "  * punchagan"
 msgstr ""
 
-#: ../../../news/index.md:735
 msgid "## 2.2.3: 2020-03-11 {#version-2-2-3}"
 msgstr ""
 
-#: ../../../news/index.md:739
-msgid "  * Added support for `CREATE TABLE`, `CREATE INDEX` and `TRUNCATE` in\n"
+msgid ""
+"  * Added support for `CREATE TABLE`, `CREATE INDEX` and `TRUNCATE` in\n"
 "    the same transaction.\n"
 "    [GitHub#123][Reported by Alex Rudenko]"
 msgstr ""
 
-#: ../../../news/index.md:743
 msgid "  * Reduced the number of estimated size when too much estimated case."
 msgstr ""
 
-#: ../../../news/index.md:745
 msgid "  * Increased operator cost to 300 from 200."
 msgstr ""
 
-#: ../../../news/index.md:747
 msgid "  * [`jsonb`] Added support for `SELECT COUNT(*)`."
 msgstr ""
 
-#: ../../../news/index.md:751
-msgid "  * Fixed a bug that PGroonga occurred error on sequential search\n"
+msgid ""
+"  * Fixed a bug that PGroonga occurred error on sequential search\n"
 "    when we set PGroonga's index with libgroonga 10.0.0 or later."
 msgstr ""
 
-#: ../../../news/index.md:756
 msgid "  * Alex Rudenko"
 msgstr ""
 
-#: ../../../news/index.md:758
 msgid "## 2.2.2: 2019-11-14 {#version-2-2-2}"
 msgstr ""
 
-#: ../../../news/index.md:762
 msgid "  * Added support for PostgreSQL 12."
 msgstr ""
 
-#: ../../../news/index.md:764
 msgid "  * Dropped support for PostgreSQL 9.4."
 msgstr ""
 
-#: ../../../news/index.md:766
 msgid "  * Dropped support for Greenplum."
 msgstr ""
 
-#: ../../../news/index.md:768
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.9."
 msgstr ""
 
-#: ../../../news/index.md:770
 msgid "  * Upgrade bundled xxHash to 0.7.2 from 0.6.2."
 msgstr ""
 
-#: ../../../news/index.md:772
 msgid "  * [[Debian][debian]] Added support for Debian GNU/Linux buster."
 msgstr ""
 
-#: ../../../news/index.md:774
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 19.10."
 msgstr ""
 
-#: ../../../news/index.md:776
 msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 18.10."
 msgstr ""
 
-#: ../../../news/index.md:778
 msgid "  * [[CentOS][centos]] Added support for CentOS 8 but WAL isn't enabled."
 msgstr ""
 
-#: ../../../news/index.md:780
 msgid "  * Removed needless copyright holders."
 msgstr ""
 
-#: ../../../news/index.md:784
 msgid "  * Fix a build failure on CentOS 6."
 msgstr ""
 
-#: ../../../news/index.md:786
 msgid "## 2.2.1: 2019-07-19 {#version-2-2-1}"
 msgstr ""
 
-#: ../../../news/index.md:790
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.4."
 msgstr ""
 
-#: ../../../news/index.md:792
 msgid "  * [[`&~|` operator][regular-expression-in-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:794
 msgid "  * [[`!&^|` operator][not-prefix-search-in-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:796
-msgid "  * Added support for [`@>` operator][contain-array] to the following\n"
+msgid ""
+"  * Added support for [`@>` operator][contain-array] to the following\n"
 "    operator classes."
 msgstr ""
 
-#: ../../../news/index.md:799
 msgid "    * [`pgroonga_text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]"
 msgstr ""
 
-#: ../../../news/index.md:801
 msgid "    * [`pgroonga_varchar_array_term_search_ops_v2` operator class][varchar-array-term-search-ops-v2]"
 msgstr ""
 
-#: ../../../news/index.md:803
-msgid "  * [[`pgroonga_query_expand` function][query-expand]] Added support\n"
+msgid ""
+"  * [[`pgroonga_query_expand` function][query-expand]] Added support\n"
 "    for synonyms only data."
 msgstr ""
 
-#: ../../../news/index.md:808
 msgid "  * Fix a bug that index only scan is used for nullable column."
 msgstr ""
 
-#: ../../../news/index.md:810
 msgid "## 2.2.0: 2019-06-05 {#version-2-2-0}"
 msgstr ""
 
-#: ../../../news/index.md:814
 msgid "  * Added support for Groonga 9.0.3."
 msgstr ""
 
-#: ../../../news/index.md:816
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.3."
 msgstr ""
 
-#: ../../../news/index.md:818
-msgid "  * Added operator class for `int4[]`. Normally, this isn't\n"
+msgid ""
+"  * Added operator class for `int4[]`. Normally, this isn't\n"
 "    useful. It's useful only when you want to access `int4[]` data by\n"
 "    [`pgroonga_command` function][command]."
 msgstr ""
 
-#: ../../../news/index.md:822
 msgid "## 2.1.9: 2019-05-08 {#version-2-1-9}"
 msgstr ""
 
-#: ../../../news/index.md:826
 msgid "  * Added support for Groonga 9.0.2."
 msgstr ""
 
-#: ../../../news/index.md:828
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 9.0.2."
 msgstr ""
 
-#: ../../../news/index.md:830
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 18.10."
 msgstr ""
 
-#: ../../../news/index.md:832
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 19.04."
 msgstr ""
 
-#: ../../../news/index.md:834
 msgid "  * [[Ubuntu][ubuntu]] Dropped support for Ubuntu 14.04."
 msgstr ""
 
-#: ../../../news/index.md:836
 msgid "## 2.1.8: 2019-01-11 {#version-2-1-8}"
 msgstr ""
 
-#: ../../../news/index.md:840
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.1.0."
 msgstr ""
 
-#: ../../../news/index.md:842
-msgid "  * [[`pgroonga_database`][pgroonga-database]]: Added. It provides\n"
+msgid ""
+"  * [[`pgroonga_database`][pgroonga-database]]: Added. It provides\n"
 "    functions that manage PGroonga database. For now,\n"
 "    [`pgroonga_database_remove` function][database-remove] is only\n"
 "    provided."
 msgstr ""
 
-#: ../../../news/index.md:847
 msgid "## 2.1.7: 2018-12-25 {#version-2-1-7}"
 msgstr ""
 
-#: ../../../news/index.md:851
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.9."
 msgstr ""
 
-#: ../../../news/index.md:853
-#: ../../../news/index.md:953
 msgid "  * Added support for PostgreSQL 11."
 msgstr ""
 
-#: ../../../news/index.md:855
-msgid "  * [[`pgroonga_tokenize` function][tokenize]] Added a new function\n"
+msgid ""
+"  * [[`pgroonga_tokenize` function][tokenize]] Added a new function\n"
 "    that tokenizes the given text."
 msgstr ""
 
-#: ../../../news/index.md:858
-msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]\n"
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]\n"
 "    Added support for token filter options."
 msgstr ""
 
-#: ../../../news/index.md:861
-msgid "  * [[`pgroonga_normalize` function][normalize]] Added support for\n"
+msgid ""
+"  * [[`pgroonga_normalize` function][normalize]] Added support for\n"
 "    normalizer options."
 msgstr ""
 
-#: ../../../news/index.md:864
-msgid "  * [[`pgroonga_vacuum` function][vacuum]] Added a new function that\n"
+msgid ""
+"  * [[`pgroonga_vacuum` function][vacuum]] Added a new function that\n"
 "    removes garbage in Groonga explicitly."
 msgstr ""
 
-#: ../../../news/index.md:869
 msgid "  * Fixed a crash bug on error in `SELECT`."
 msgstr ""
 
-#: ../../../news/index.md:871
-msgid "  * Fixed a bug that needless records in `IndexStatuses` internal\n"
+msgid ""
+"  * Fixed a bug that needless records in `IndexStatuses` internal\n"
 "    Groonga table on `VACUUM`.\n"
 "    [Gitter#5c10aad7e4787d16e3833ffe][Reported by kwata]"
 msgstr ""
 
-#: ../../../news/index.md:875
-msgid "  * Fixed a bug that wrong ctid may be returned in `SELECT`.\n"
+msgid ""
+"  * Fixed a bug that wrong ctid may be returned in `SELECT`.\n"
 "    [GitHub#89][Reported by Daisuke Ando]"
 msgstr ""
 
-#: ../../../news/index.md:878
-msgid "  * [[`pgroonga_escape` function][escape]] Fixed a bug that\n"
+msgid ""
+"  * [[`pgroonga_escape` function][escape]] Fixed a bug that\n"
 "    `pgroonga_escape(float4)` returns wrong result."
 msgstr ""
 
-#: ../../../news/index.md:883
 msgid "  * kwata"
 msgstr ""
 
-#: ../../../news/index.md:885
 msgid "  * Daisuke Ando"
 msgstr ""
 
-#: ../../../news/index.md:887
 msgid "## 2.1.6: 2018-10-18 {#version-2-1-6}"
 msgstr ""
 
-#: ../../../news/index.md:891
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.7."
 msgstr ""
 
-#: ../../../news/index.md:893
 msgid "  * Reduces memory usage on multiple sub-selects."
 msgstr ""
 
-#: ../../../news/index.md:895
-msgid "  * Reduces memory usage on index only scan.\n"
+msgid ""
+"  * Reduces memory usage on index only scan.\n"
 "    [groonga-dev,04684][Reported by Kawakami]"
 msgstr ""
 
-#: ../../../news/index.md:900
-msgid "  * Fixed a bug that streaming replication doesn't work.\n"
+msgid ""
+"  * Fixed a bug that streaming replication doesn't work.\n"
 "    [GitHub#84][Reported by tongsama]"
 msgstr ""
 
-#: ../../../news/index.md:905
 msgid "  * tongsama"
 msgstr ""
 
-#: ../../../news/index.md:907
 msgid "  * Kawakami"
 msgstr ""
 
-#: ../../../news/index.md:909
 msgid "## 2.1.4: 2018-09-18 {#version-2-1-4}"
 msgstr ""
 
-#: ../../../news/index.md:913
-msgid "  * Use resource release mechanism to release internal data in scan.\n"
+msgid ""
+"  * Use resource release mechanism to release internal data in scan.\n"
 "    [GitHub#82][Reported by dodaisuke]"
 msgstr ""
 
-#: ../../../news/index.md:918
-#: ../../../news/index.md:947
 msgid "  * dodaisuke"
 msgstr ""
 
-#: ../../../news/index.md:920
 msgid "## 2.1.3: 2018-09-11 {#version-2-1-3}"
 msgstr ""
 
-#: ../../../news/index.md:924
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.6."
 msgstr ""
 
-#: ../../../news/index.md:926
 msgid "  * Added debug logs."
 msgstr ""
 
-#: ../../../news/index.md:928
-msgid "  * Added a workaround for error by `SELECT FOR UPDATE NOWAIT`.\n"
+msgid ""
+"  * Added a workaround for error by `SELECT FOR UPDATE NOWAIT`.\n"
 "    It's a PostgreSQL problem.\n"
 "    [GitHub#80][Reported by dodaisuke]"
 msgstr ""
 
-#: ../../../news/index.md:932
 msgid "  * [`&@~` operator][query-v2] Added valid index check."
 msgstr ""
 
-#: ../../../news/index.md:934
 msgid "  * Improved PGroonga index detection for PGroonga < 9.6."
 msgstr ""
 
-#: ../../../news/index.md:936
-msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]\n"
+msgid ""
+"  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]]\n"
 "    Added `query_allow_column` option to use `column:...` syntax in\n"
 "    `&@~`."
 msgstr ""
 
-#: ../../../news/index.md:942
-msgid "  * Fixed a crash bug that is occurred when executing `&@~` by\n"
+msgid ""
+"  * Fixed a crash bug that is occurred when executing `&@~` by\n"
 "    sequential search with multiple indexes."
 msgstr ""
 
-#: ../../../news/index.md:949
 msgid "## 2.1.2: 2018-08-23 {#version-2-1-2}"
 msgstr ""
 
-#: ../../../news/index.md:955
 msgid "  * [[`pgroonga_score` function][score]] Added missing error checks."
 msgstr ""
 
-#: ../../../news/index.md:957
 msgid "  * Added more debug logs on insert and delete."
 msgstr ""
 
-#: ../../../news/index.md:961
-msgid "  * [[`pgroonga_score` function][score]] Fixed a bug that score is 0 when\n"
+msgid ""
+"  * [[`pgroonga_score` function][score]] Fixed a bug that score is 0 when\n"
 "    HOT redirection is occurred."
 msgstr ""
 
-#: ../../../news/index.md:964
 msgid "## 2.1.1: 2018-08-08 {#version-2-1-1}"
 msgstr ""
 
-#: ../../../news/index.md:968
 msgid "  * Fixed packages."
 msgstr ""
 
-#: ../../../news/index.md:970
 msgid "## 2.1.0: 2018-08-08 {#version-2-1-0}"
 msgstr ""
 
-#: ../../../news/index.md:974
 msgid "  * Improved cost estimation."
 msgstr ""
 
-#: ../../../news/index.md:976
-msgid "  * [[Travis CI][travis-ci]] Added support for WAL with `PGROONGA_MASTER=yes`.\n"
+msgid ""
+"  * [[Travis CI][travis-ci]] Added support for WAL with `PGROONGA_MASTER=yes`.\n"
 "    [GitHub#71][Reported by Jason Truesdell]"
 msgstr ""
 
-#: ../../../news/index.md:979
-msgid "  * Added support for closing unused files after recreating indexes.\n"
+msgid ""
+"  * Added support for closing unused files after recreating indexes.\n"
 "    [GitHub#72][Reported by Jason Truesdell]"
 msgstr ""
 
-#: ../../../news/index.md:982
-msgid "  * Added support for index only scan availability check for vector\n"
+msgid ""
+"  * Added support for index only scan availability check for vector\n"
 "    column."
 msgstr ""
 
-#: ../../../news/index.md:985
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.5."
 msgstr ""
 
-#: ../../../news/index.md:987
 msgid "  * Required Groonga 8.0.5 or later."
 msgstr ""
 
-#: ../../../news/index.md:989
 msgid "  * [[`pgroonga_score` function][score]] Added debug logs."
 msgstr ""
 
-#: ../../../news/index.md:991
 msgid "  * [[Debian][debian]] Dropped Debian GNU/Linux Jessie support."
 msgstr ""
 
-#: ../../../news/index.md:993
 msgid "  * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.10 support."
 msgstr ""
 
-#: ../../../news/index.md:997
-msgid "  * [WAL] Fixed a bug that WAL may be broken when multiple updates are\n"
+msgid ""
+"  * [WAL] Fixed a bug that WAL may be broken when multiple updates are\n"
 "    occurred at once.\n"
 "    [GitHub#70][Reported by Eiji Ito]"
 msgstr ""
 
-#: ../../../news/index.md:1003
 msgid "  * Jason Truesdell"
 msgstr ""
 
-#: ../../../news/index.md:1005
 msgid "  * Eiji Ito"
 msgstr ""
 
-#: ../../../news/index.md:1007
 msgid "## 2.0.9: 2018-07-04 {#version-2-0-9}"
 msgstr ""
 
-#: ../../../news/index.md:1011
 msgid "  * Fixed a bug that sequential full text search against array data uses wrong configuration."
 msgstr ""
 
-#: ../../../news/index.md:1013
 msgid "## 2.0.8: 2018-07-03 {#version-2-0-8}"
 msgstr ""
 
-#: ../../../news/index.md:1017
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.4."
 msgstr ""
 
-#: ../../../news/index.md:1019
 msgid "  * Improved index cost estimation."
 msgstr ""
 
-#: ../../../news/index.md:1021
 msgid "## 2.0.7: 2018-06-07 {#version-2-0-7}"
 msgstr ""
 
-#: ../../../news/index.md:1025
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.3."
 msgstr ""
 
-#: ../../../news/index.md:1027
 msgid "  * Changed to require Groonga 8.0.3 or later."
 msgstr ""
 
-#: ../../../news/index.md:1029
 msgid "  * Added index options support on sequential scan in the following operators:"
 msgstr ""
 
-#: ../../../news/index.md:1031
-#: ../../../news/index.md:1057
-#: ../../../news/index.md:1115
-#: ../../../news/index.md:1320
-#: ../../../news/index.md:1328
 msgid "    * [`&@` operator][match-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1033
-#: ../../../news/index.md:1059
-#: ../../../news/index.md:1117
 msgid "    * [`&@~` operator][query-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1035
 msgid "    * [`` &` `` operator][script-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1037
 msgid "  * [[`pgroonga_highlight_html` function][highlight-html]] Added support for index based highlight."
 msgstr ""
 
-#: ../../../news/index.md:1039
 msgid "  * Increased sequential scan cost of full text search related operators. They aren't so lightweight."
 msgstr ""
 
-#: ../../../news/index.md:1043
 msgid "  * Fixed a bug in 2.0.5 to 2.0.6 upgrade SQL."
 msgstr ""
 
-#: ../../../news/index.md:1045
 msgid "  * Fixed a bug that `text[] &@~` has different behavior between index scan and sequential scan."
 msgstr ""
 
-#: ../../../news/index.md:1047
 msgid "## 2.0.6: 2018-05-14 {#version-2-0-6}"
 msgstr ""
 
-#: ../../../news/index.md:1051
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.2."
 msgstr ""
 
-#: ../../../news/index.md:1053
 msgid "  * Changed to require Groonga 8.0.2 or later."
 msgstr ""
 
-#: ../../../news/index.md:1055
 msgid "  * Added scorer support in the following operators:"
 msgstr ""
 
-#: ../../../news/index.md:1061
 msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added tokenizer options support."
 msgstr ""
 
-#: ../../../news/index.md:1063
 msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added normalizer options support."
 msgstr ""
 
-#: ../../../news/index.md:1065
-#: ../../../news/index.md:1137
 msgid "  * [[`CREATE INDEX USING PGroonga`][create-index-using-pgroonga]] Added new options."
 msgstr ""
 
-#: ../../../news/index.md:1067
 msgid "    * `lexicon_type`"
 msgstr ""
 
-#: ../../../news/index.md:1069
 msgid "  * [[Ubuntu][ubuntu]] Added Ubuntu 18.04 (Bionic Beaver) support."
 msgstr ""
 
-#: ../../../news/index.md:1071
 msgid "  * [[Ubuntu][ubuntu]] Dropped Ubuntu 17.04 (Zesty Zapus) support."
 msgstr ""
 
-#: ../../../news/index.md:1073
 msgid "  * [[Debian][debian]] Added package for PostgreSQL 10 on Debian GNU/Linux Strecth."
 msgstr ""
 
-#: ../../../news/index.md:1077
-msgid "  * Fixed a bug that wrong search result may be returned when `ARRAY` has one or more `NULL`.\n"
+msgid ""
+"  * Fixed a bug that wrong search result may be returned when `ARRAY` has one or more `NULL`.\n"
 "    [GitHub#64][Reported by peter-schmitz]"
 msgstr ""
 
-#: ../../../news/index.md:1080
 msgid "  * Fixed a bug that `timestamp (without time zone)` value is stored with long offset."
 msgstr ""
 
-#: ../../../news/index.md:1082
-#: ../../../news/index.md:1177
 msgid "    * You need to recreate PGroonga indexes that use `timestamp (without time zone)` after you upgrade PGroonga."
 msgstr ""
 
-#: ../../../news/index.md:1086
-#: ../../../news/index.md:1388
 msgid "  * peter-schmitz"
 msgstr ""
 
-#: ../../../news/index.md:1088
 msgid "## 2.0.5: 2018-04-04 {#version-2-0-5}"
 msgstr ""
 
-#: ../../../news/index.md:1092
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.1."
 msgstr ""
 
-#: ../../../news/index.md:1096
 msgid "  * Fixed a bug that large index update may fail with WAL related error after [[`pgroonga_wal_truncate` function][wal-truncate]] is used."
 msgstr ""
 
-#: ../../../news/index.md:1098
 msgid "  * Fixed required Groonga version. PGroonga will always depend on the latest Groonga to prevent this problem."
 msgstr ""
 
-#: ../../../news/index.md:1100
 msgid "## 2.0.4: 2018-03-22 {#version-2-0-4}"
 msgstr ""
 
-#: ../../../news/index.md:1104
 msgid "  * [[`pgroonga_score` function][score]] Improved performance."
 msgstr ""
 
-#: ../../../news/index.md:1106
 msgid "    * `pgroonga_score(tableoid, ctid)` version is faster than existing `pgroonga_score(record)` version."
 msgstr ""
 
-#: ../../../news/index.md:1108
-msgid "  * Added parallel query support.\n"
+msgid ""
+"  * Added parallel query support.\n"
 "    [GitHub#59][Reported by tedypranolo]"
 msgstr ""
 
-#: ../../../news/index.md:1111
 msgid "  * Added summer time support."
 msgstr ""
 
-#: ../../../news/index.md:1113
 msgid "  * Added weight support in the following operators:"
 msgstr ""
 
-#: ../../../news/index.md:1121
-#: ../../../news/index.md:1192
-#: ../../../news/index.md:1233
-#: ../../../news/index.md:1266
 msgid "  * tedypranolo"
 msgstr ""
 
-#: ../../../news/index.md:1123
 msgid "## 2.0.3: 2018-03-08 {#version-2-0-3}"
 msgstr ""
 
-#: ../../../news/index.md:1127
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 8.0.0."
 msgstr ""
 
-#: ../../../news/index.md:1129
-msgid "  * Improved performance for sub `SELECT`.\n"
+msgid ""
+"  * Improved performance for sub `SELECT`.\n"
 "    [GitHub#55][Reported by tedypranolo]"
 msgstr ""
 
-#: ../../../news/index.md:1132
-msgid "  * Improved `text[]` load performance.\n"
+msgid ""
+"  * Improved `text[]` load performance.\n"
 "    [groonga-dev,04533][Reported by Toshio Uchiyama]"
 msgstr ""
 
-#: ../../../news/index.md:1135
 msgid "  * [[`pgroonga_jsonb_full_text_search_ops_v2` operator class][jsonb-full-text-search-ops-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1139
 msgid "    * `full_text_search_normalizer`"
 msgstr ""
 
-#: ../../../news/index.md:1141
 msgid "    * `regexp_search_normalizer`"
 msgstr ""
 
-#: ../../../news/index.md:1143
 msgid "    * `prefix_search_normalizer`"
 msgstr ""
 
-#: ../../../news/index.md:1145
-msgid "  * Made query parsing loose. No syntax error is occurred.\n"
+msgid ""
+"  * Made query parsing loose. No syntax error is occurred.\n"
 "    [GitHub:zulip/zulip#8457][Reported by burek967]"
 msgstr ""
 
-#: ../../../news/index.md:1148
 msgid "  * [[`pgroonga_wal_apply` function][wal-apply]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1150
 msgid "  * [[`pgroonga_wal_truncate` function][wal-truncate]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1152
 msgid "  * [[`pgroonga_set_writable` function][set-writable]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1154
 msgid "  * [[`pgroonga_is_writable` function][is-writable]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1156
 msgid "  * Added vector column comparison support."
 msgstr ""
 
-#: ../../../news/index.md:1158
-#: ../../../news/index.md:1166
 msgid "    * It requires Groonga 8.0.1."
 msgstr ""
 
-#: ../../../news/index.md:1160
 msgid "  * [[`pgroonga.libgroonga_version` parameter][libgroonga-version]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1162
 msgid "  * [WAL] Added record deletion on `VACUUM`."
 msgstr ""
 
-#: ../../../news/index.md:1164
 msgid "  * Changed location to store `ctid` to source table key from a column."
 msgstr ""
 
-#: ../../../news/index.md:1168
 msgid "    * It doesn't break backward compatibility. Only newly created indexes uses this style. Old style indexes are still supported."
 msgstr ""
 
-#: ../../../news/index.md:1170
-msgid "  * [[`pgroonga_normalize` function][normalize]] Added.\n"
+msgid ""
+"  * [[`pgroonga_normalize` function][normalize]] Added.\n"
 "    [GitHub#13][Patch by Fujimoto Seiji]"
 msgstr ""
 
-#: ../../../news/index.md:1175
 msgid "  * Fixed a bug that `timestamp (without time zone)` value is stored as local time."
 msgstr ""
 
-#: ../../../news/index.md:1179
 msgid "  * Fixed a bug that `jsonb` WAL was broken since 2.0.2."
 msgstr ""
 
-#: ../../../news/index.md:1181
 msgid "  * Fixed a bug that wrong table may be removed on `VACUUM`."
 msgstr ""
 
-#: ../../../news/index.md:1183
 msgid "  * [[`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2]] Fixed a bug that it may return wrong result."
 msgstr ""
 
-#: ../../../news/index.md:1185
 msgid "    * You need to recreate PGroonga indexes that use [`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2] after you upgrade PGroonga."
 msgstr ""
 
-#: ../../../news/index.md:1187
-msgid "  * [[`pgroonga_varchar_full_text_search_ops_v2` operator class][varchar-full-text-search-ops-v2]] Fixed a bug that needless 4KiB check is done.\n"
+msgid ""
+"  * [[`pgroonga_varchar_full_text_search_ops_v2` operator class][varchar-full-text-search-ops-v2]] Fixed a bug that needless 4KiB check is done.\n"
 "    [Reported by Rising Sun]"
 msgstr ""
 
-#: ../../../news/index.md:1194
 msgid "  * Toshio Uchiyama"
 msgstr ""
 
-#: ../../../news/index.md:1196
 msgid "  * Rising Sun"
 msgstr ""
 
-#: ../../../news/index.md:1198
 msgid "  * Fujimoto Seiji"
 msgstr ""
 
-#: ../../../news/index.md:1200
 msgid "## 2.0.2: 2017-10-10 {#version-2-0-2}"
 msgstr ""
 
-#: ../../../news/index.md:1204
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.7."
 msgstr ""
 
-#: ../../../news/index.md:1206
 msgid "  * [[Ubuntu][ubuntu]] Added Ubuntu 17.10 (Artful Aardvark) support."
 msgstr ""
 
-#: ../../../news/index.md:1208
-msgid "  * Added `INTEGER_COLUMN = ANY(ARRAY[]::integer[])` support.\n"
+msgid ""
+"  * Added `INTEGER_COLUMN = ANY(ARRAY[]::integer[])` support.\n"
 "    [GitHub#53][Reported by tedypranolo]"
 msgstr ""
 
-#: ../../../news/index.md:1211
 msgid "  * [[`pgroonga_query_expand` function][query-expand]] Added `text` type for synonym column."
 msgstr ""
 
-#: ../../../news/index.md:1213
 msgid "  * Improved index search estimation with `IMMUTABLE` or `STABLE` function call."
 msgstr ""
 
-#: ../../../news/index.md:1215
 msgid "  * Added missing empty array check for the following functions:"
 msgstr ""
 
-#: ../../../news/index.md:1217
 msgid "    * [`pgroonga_snippet_html` function][snippet-html]"
 msgstr ""
 
-#: ../../../news/index.md:1219
 msgid "    * [`pgroonga_highlight_html` function][highlight-html]"
 msgstr ""
 
-#: ../../../news/index.md:1221
 msgid "    * [`pgroonga_command` function][command]"
 msgstr ""
 
-#: ../../../news/index.md:1223
 msgid "  * Added PostgreSQL 10 packages."
 msgstr ""
 
-#: ../../../news/index.md:1227
 msgid "  * Fixed build error on Windows."
 msgstr ""
 
-#: ../../../news/index.md:1229
 msgid "  * Fixed a bug that creating index may be removed by `VACUUM` including `AUTO VACUUM`."
 msgstr ""
 
-#: ../../../news/index.md:1235
 msgid "## 2.0.1: 2017-08-17 {#version-2-0-1}"
 msgstr ""
 
-#: ../../../news/index.md:1239
 msgid "  * Fixed upgrading failure on PostgreSQL 9.5 or earlier."
 msgstr ""
 
-#: ../../../news/index.md:1241
 msgid "## 2.0.0: 2017-08-17 {#version-2-0-0}"
 msgstr ""
 
-#: ../../../news/index.md:1243
 msgid "This is the second major release! It's upgradable from 1.X! 2.X is backward compatible with 1.X!"
 msgstr ""
 
-#: ../../../news/index.md:1247
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.5."
 msgstr ""
 
-#: ../../../news/index.md:1249
 msgid "  * Added PostgreSQL 10 support."
 msgstr ""
 
-#: ../../../news/index.md:1251
 msgid "  * Added logical replication support."
 msgstr ""
 
-#: ../../../news/index.md:1253
 msgid "  * Changed to install functions, operators and operator classes to the current schema with `pgroonga_` prefix from `pgroonga` schema without `pgroonga_` prefix. `pgroonga` schema is still used for backward compatibility. But `pgroonga` schema is deprecated."
 msgstr ""
 
-#: ../../../news/index.md:1255
 msgid "  * Changed to the default operator classes to `_v2` operator classes."
 msgstr ""
 
-#: ../../../news/index.md:1259
-msgid "  * Fixed a crash bug when primary key column isn't the first indexed column.\n"
+msgid ""
+"  * Fixed a crash bug when primary key column isn't the first indexed column.\n"
 "    [GitHub#50][Reported by tedypranolo]"
 msgstr ""
 
-#: ../../../news/index.md:1262
 msgid "  * Fixed upgrade failure from 1.2.0 on PostgreSQL 9.6 or later."
 msgstr ""
 
-#: ../../../news/index.md:1268
 msgid "## 1.2.3: 2017-07-03 {#version-1-2-3}"
 msgstr ""
 
-#: ../../../news/index.md:1272
 msgid "  * [[Ubuntu][ubuntu]] Fixed invalid package."
 msgstr ""
 
-#: ../../../news/index.md:1274
 msgid "  * [[Debian][debian]] Supported Debian GNU/Linux Stretch."
 msgstr ""
 
-#: ../../../news/index.md:1276
 msgid "## 1.2.2: 2017-07-03 {#version-1-2-2}"
 msgstr ""
 
-#: ../../../news/index.md:1280
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.4."
 msgstr ""
 
-#: ../../../news/index.md:1282
 msgid "  * Improved performance against empty array."
 msgstr ""
 
-#: ../../../news/index.md:1284
 msgid "  * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Ignored tokenizer option."
 msgstr ""
 
-#: ../../../news/index.md:1286
-msgid "  * Supported `NULL` value for `jsonb` column.\n"
+msgid ""
+"  * Supported `NULL` value for `jsonb` column.\n"
 "    [groonga-dev,04382][Reported by Hirokazu Matsuo]"
 msgstr ""
 
-#: ../../../news/index.md:1289
 msgid "  * [[`pgroonga.query_expand` function][query-expand]]: Added"
 msgstr ""
 
-#: ../../../news/index.md:1291
 msgid "  * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Supported comparison operators."
 msgstr ""
 
-#: ../../../news/index.md:1293
-msgid "  * Stopped to use `?` for operator name:\n"
+msgid ""
+"  * Stopped to use `?` for operator name:\n"
 "    [GitHub#45][Reported by YUKI \"Piro\" Hiroshi]"
 msgstr ""
 
-#: ../../../news/index.md:1296
 msgid "    * [[`&@~` operator][query-v2]]: Added. Deprecated `&?` operator."
 msgstr ""
 
-#: ../../../news/index.md:1298
 msgid "    * [[`&@~|` operator][query-in-v2]]: Added. Deprecated `&?|` operator."
 msgstr ""
 
-#: ../../../news/index.md:1300
 msgid "    * [[`&@*` operator][similar-search-v2]]: Added. Deprecated `&~?` operator."
 msgstr ""
 
-#: ../../../news/index.md:1304
 msgid "  * Hirokazu Matsuo"
 msgstr ""
 
-#: ../../../news/index.md:1306
 msgid "  * YUKI \"Piro\" Hiroshi"
 msgstr ""
 
-#: ../../../news/index.md:1308
 msgid "## 1.2.1: 2017-06-08 {#version-1-2-1}"
 msgstr ""
 
-#: ../../../news/index.md:1312
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.3."
 msgstr ""
 
-#: ../../../news/index.md:1314
 msgid "  * [[`pgroonga.text_full_text_search_ops_v2` operator class][text-full-text-search-ops-v2]] Supported `@@` and `%%` for backward compatibility."
 msgstr ""
 
-#: ../../../news/index.md:1316
 msgid "  * [[`pgroonga.text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1318
 msgid "  * [[`pgroonga.text_array_full_text_search_ops` operator class][text-array-full-text-search-ops]] Added the following v2 operators for forward compatibility:"
 msgstr ""
 
-#: ../../../news/index.md:1322
-#: ../../../news/index.md:1330
 msgid "    * [`&?` operator][query-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1324
 msgid "  * [[`pgroonga.varchar_full_text_search_ops_v2` operator class][varchar-full-text-search-ops-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1326
 msgid "  * [[`pgroonga.varchar_full_text_search_ops` operator class][varchar-full-text-search-ops]] Added the following v2 operators for forward compatibility:"
 msgstr ""
 
-#: ../../../news/index.md:1332
 msgid "  * [[`pgroonga.text_term_search_ops_v2` operator class][text-term-search-ops-v2]] Added the following operators:"
 msgstr ""
 
-#: ../../../news/index.md:1334
-#: ../../../news/index.md:1346
 msgid "    * [`&^|` operator][prefix-search-in-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1336
-#: ../../../news/index.md:1348
 msgid "    * [`&^~|` operator][prefix-rk-search-in-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1338
-#: ../../../news/index.md:1344
 msgid "  * [[`pgroonga.text_array_term_search_ops_v2` operator class][text-array-term-search-ops-v2]] Added the following operators:"
 msgstr ""
 
-#: ../../../news/index.md:1340
 msgid "    * [`&^` operator][prefix-search-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1342
 msgid "    * [`&^~` operator][prefix-rk-search-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1350
 msgid "  * [[`pgroonga.text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1352
 msgid "  * [[`pgroonga.varchar_regexp_ops_v2` operator class][text-regexp-ops-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1354
 msgid "  * [[`pgroonga.varchar_array_term_search_ops_v2` operator class][varchar-array-term-search-ops-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1356
 msgid "  * [[`pgroonga.varchar_array_ops` operator class][varchar-array-ops]] Added the following v2 operators for forward compatibility:"
 msgstr ""
 
-#: ../../../news/index.md:1358
 msgid "    * [`&>` operator][contain-term-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1360
 msgid "  * [[`pgroonga.jsonb_ops_v2` operator class][jsonb-ops-v2]] Added."
 msgstr ""
 
-#: ../../../news/index.md:1362
 msgid "  * [[`pgroonga.jsonb_ops` operator class][jsonb-ops]] Added the following v2 operators for forward compatibility:"
 msgstr ""
 
-#: ../../../news/index.md:1364
 msgid "    * [`` &@ `` operator][match-jsonb-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1366
 msgid "    * [`` &? `` operator][query-jsonb-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1368
 msgid "    * [`` &` `` operator][script-jsonb-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1370
 msgid "  * [[Debian][debian]][[Ubuntu][ubuntu]] Supported log rotation by logrotate."
 msgstr ""
 
-#: ../../../news/index.md:1372
 msgid "  * [[`pgroonga.text_regexp_ops` operator class][text-regexp-ops]] Added the following v2 operators for forward compatibility:"
 msgstr ""
 
-#: ../../../news/index.md:1374
-#: ../../../news/index.md:1378
 msgid "    * [`&~` operator][regular-expression-v2]"
 msgstr ""
 
-#: ../../../news/index.md:1376
 msgid "  * [[`pgroonga.varchar_regexp_ops` operator class][varchar-regexp-ops]] Added the following v2 operators for forward compatibility:"
 msgstr ""
 
-#: ../../../news/index.md:1380
 msgid "  * [[`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]] Added. [GitHub#37][Reported by ArturFormella]"
 msgstr ""
 
-#: ../../../news/index.md:1384
 msgid "  * Fixed a bug that removed entries may be referenced. [GitHub#36][Reported by peter-schmitz]"
 msgstr ""
 
-#: ../../../news/index.md:1390
 msgid "  * ArturFormella"
 msgstr ""
 
-#: ../../../news/index.md:1392
 msgid "## 1.2.0: 2017-04-29 {#version-1-2-0}"
 msgstr ""
 
-#: ../../../news/index.md:1396
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 7.0.2."
 msgstr ""
 
-#: ../../../news/index.md:1398
 msgid "  * [[CentOS](../install/centos.html) 6] Supported WAL."
 msgstr ""
 
-#: ../../../news/index.md:1400
 msgid "  * Dropped [[CentOS](../install/centos.html) 5] support."
 msgstr ""
 
-#: ../../../news/index.md:1402
 msgid "  * [[Ubuntu](../install/ubuntu.html) 17.04] Supported. It supports WAL."
 msgstr ""
 
-#: ../../../news/index.md:1404
 msgid "  * [[Replication](../reference/replication.html)] Supported NULL column value."
 msgstr ""
 
-#: ../../../news/index.md:1406
 msgid "  * [[`pgroonga.score` function](../reference/functions/pgroonga-score.html)] Improved performance. This improvements makes `pgroonga.score` function 30 times faster. [GitHub#31][Reported by yongxianggao-chanjet]"
 msgstr ""
 
-#: ../../../news/index.md:1408
 msgid "  * Supported PostgreSQL 9.6.2."
 msgstr ""
 
-#: ../../../news/index.md:1410
 msgid "  * Required Groonga 6.1.1 or later."
 msgstr ""
 
-#: ../../../news/index.md:1412
 msgid "  * [[`pgroonga_check`][pgroonga-check]] Added. It checks PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database."
 msgstr ""
 
-#: ../../../news/index.md:1414
 msgid "  * Supported applying WAL on `INSERT`."
 msgstr ""
 
-#: ../../../news/index.md:1416
 msgid "  * [[`CREATE INDEX USING pgroonga`][create-index-using-pgroonga] Supported token filters. [GitHub#32][Reported by Tim Bellefleur]"
 msgstr ""
 
-#: ../../../news/index.md:1418
 msgid "  * [[Windows][windows]] Supported PostgreSQL 9.5.6."
 msgstr ""
 
-#: ../../../news/index.md:1420
 msgid "  * [[Windows][windows]] Supported PostgreSQL 9.6.2."
 msgstr ""
 
-#: ../../../news/index.md:1422
 msgid "  * Added [`&@` operator](../reference/operators/match-v2.html) to `pgroonga.text_full_text_search_ops` (the current default operator class for `text` type). It means that you can use `&@` operator both with `pgroonga.text_full_text_search_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`%%` operator](../reference/operators/match.html) is deprecated."
 msgstr ""
 
-#: ../../../news/index.md:1424
 msgid "  * Added [`&?` operator](../reference/operators/query-v2.html) to `pgroonga.text_full_text_search_ops` (the current default operator class for `text` type). It means that you can use `&?` operator both with `pgroonga.text_full_text_search_ops` and `pgroonga.text_full_text_search_ops_v2` operator classes. [`@@` operator](../reference/operators/query.html) is deprecated."
 msgstr ""
 
-#: ../../../news/index.md:1428
 msgid "  * [[CentOS](../install/centos.html)] Fixed wrong msgpack library link."
 msgstr ""
 
-#: ../../../news/index.md:1430
 msgid "## 1.1.9: 2016-11-30 {#version-1-1-9}"
 msgstr ""
 
-#: ../../../news/index.md:1434
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.1.1."
 msgstr ""
 
-#: ../../../news/index.md:1436
 msgid "  * Reduced memory usage on static index construction. You can use index construction by executing `CREATE INDEX` after inserting data to table."
 msgstr ""
 
-#: ../../../news/index.md:1438
 msgid "  * Supported logging backtrace on SEGV. It doesn't work on Windows."
 msgstr ""
 
-#: ../../../news/index.md:1440
 msgid "  * Supported Zstandard. If Groonga supports Zstandard, PGroonga uses Zstandard. If Groonga doesn't support Zstandard but supports LZ4, PGroonga uses LZ4. If Groonga doesn't support Zstandard nor LZ4 but supports zlib, PGroonga uses zlib."
 msgstr ""
 
-#: ../../../news/index.md:1442
 msgid "  * Added PID to log."
 msgstr ""
 
-#: ../../../news/index.md:1444
 msgid "  * Made the following functions optimizable for constant arguments case:"
 msgstr ""
 
-#: ../../../news/index.md:1446
 msgid "    * [`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html)"
 msgstr ""
 
-#: ../../../news/index.md:1448
 msgid "    * [`pgroonga.snippet_html` function](../reference/functions/pgroonga-snippet-html.html)"
 msgstr ""
 
-#: ../../../news/index.md:1450
 msgid "    * [`pgroonga.highlight_html` function](../reference/functions/pgroonga-highlight-html.html)"
 msgstr ""
 
-#: ../../../news/index.md:1452
 msgid "    * [`pgroonga.match_positions_byte` function][match-positions-byte]"
 msgstr ""
 
-#: ../../../news/index.md:1454
 msgid "    * [`pgroonga.match_positions_character` function][match-positions-character]"
 msgstr ""
 
-#: ../../../news/index.md:1456
 msgid "    * [`pgroonga.query_extract_keywords` function](../reference/functions/pgroonga-query-extract-keywords.html)"
 msgstr ""
 
-#: ../../../news/index.md:1458
 msgid "  * [[`pgroonga.escape` function](../reference/functions/pgroonga-escape.html)] Added a new function to escape script syntax value."
 msgstr ""
 
-#: ../../../news/index.md:1460
 msgid "  * [[`pgroonga.query_escape` function](../reference/functions/pgroonga-query-escape.html)] Added a new function to escape query syntax value."
 msgstr ""
 
-#: ../../../news/index.md:1462
 msgid "  * [[`pgroonga.command_escape_escape` function](../reference/functions/pgroonga-query-escape.html)] Added a new function to escape Groonga command argument value."
 msgstr ""
 
-#: ../../../news/index.md:1464
 msgid "  * [[`pgroonga.table_name` function](../reference/functions/pgroonga-table-name.html)] Changed return type to `text` from `cstring`."
 msgstr ""
 
-#: ../../../news/index.md:1466
 msgid "  * [[`pgroonga.command` function](../reference/functions/pgroonga-command.html)] Added arguments array style. The style is recommended for preventing Groonga command injection."
 msgstr ""
 
-#: ../../../news/index.md:1468
 msgid "  * [[`pgroonga.query_log_path` parameter](../reference/parameters/query-log-path.html)] Added a new parameter to control path of query log."
 msgstr ""
 
-#: ../../../news/index.md:1472
 msgid "  * [[`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functions/pgroonga-tuple-is-alive.html)] Fixed a bug that it may always return `false`."
 msgstr ""
 
-#: ../../../news/index.md:1474
 msgid "## 1.1.8: 2016-11-09 {#version-1-1-8}"
 msgstr ""
 
-#: ../../../news/index.md:1478
 msgid "  * Added startup log with PGroonga version."
 msgstr ""
 
-#: ../../../news/index.md:1480
 msgid "  * Supported index only scan availability check for 8KiB over column (TOAST-ed column)."
 msgstr ""
 
-#: ../../../news/index.md:1482
 msgid "  * Changed to use zlib compression as fallback for text column when LZ4 isn't available."
 msgstr ""
 
-#: ../../../news/index.md:1484
 msgid "  * [[CentOS](../install/centos.html) 7] Supported WAL. It requires EPEL."
 msgstr ""
 
-#: ../../../news/index.md:1486
 msgid "  * [[`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functions/pgroonga-tuple-is-alive.html)] Added a new Groonga function to remove invalid tuples. It can be used with [`pgroonga.command` function](../reference/functions/pgroonga-command.html)."
 msgstr ""
 
-#: ../../../news/index.md:1488
 msgid "## 1.1.7: 2016-11-03 {#version-1-1-7}"
 msgstr ""
 
-#: ../../../news/index.md:1492
 msgid "  * Fixed build error with PostgreSQL 9.4 or earlier."
 msgstr ""
 
-#: ../../../news/index.md:1494
 msgid "  * [[Ubuntu](../install/ubuntu.html)] Supported Yakkety Yak (16.10)."
 msgstr ""
 
-#: ../../../news/index.md:1496
 msgid "## 1.1.6: 2016-11-03 {#version-1-1-6}"
 msgstr ""
 
-#: ../../../news/index.md:1500
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.1.0."
 msgstr ""
 
-#: ../../../news/index.md:1502
 msgid "  * [experimental][WAL] Supported WAL. WAL support requires PostgreSQL 9.6 or later and [MessagePack](http://msgpack.org/). WAL support means that you can use PostgreSQL's [stream replication feature]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) but doesn't mean that PGroonga is crash safe. If PostgreSQL crashes while updating PGroonga data, PGroonga data may be broken. See also [replication](../reference/replication.html) and [`pgroonga.enable_wal` parameter](../reference/parameters/enable-wal.html)."
 msgstr ""
 
-#: ../../../news/index.md:1504
 msgid "  * Upgraded required Groonga version to 6.0.7 or later."
 msgstr ""
 
-#: ../../../news/index.md:1506
 msgid "  * Supported [tablespace]({{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html)."
 msgstr ""
 
-#: ../../../news/index.md:1508
 msgid "  * Disabled index only scan automatically when there is one or more long records."
 msgstr ""
 
-#: ../../../news/index.md:1510
 msgid "  * [[Ubuntu](../install.ubuntu.htmp)] Dropped Wily Werewolf (15.10) support."
 msgstr ""
 
-#: ../../../news/index.md:1514
 msgid "  * Fixed a bug that living PGroonga indexes are removed on `VACUUM` when PGroonga index is created at non default tablespace. [GitHub#27][Reported by pavelpopovgmail]"
 msgstr ""
 
-#: ../../../news/index.md:1518
 msgid "  * pavelpopovgmail"
 msgstr ""
 
-#: ../../../news/index.md:1520
 msgid "## 1.1.5: 2016-10-22 {#version-1-1-5}"
 msgstr ""
 
-#: ../../../news/index.md:1524
 msgid "  * [[Windows][windows]] Provided PostgreSQL 9.5 package again."
 msgstr ""
 
-#: ../../../news/index.md:1528
 msgid "  * [`&?>` operator](../reference/operators/query-contain-v2.html) Fixed a bug that it may return `true` even if it's not matched."
 msgstr ""
 
-#: ../../../news/index.md:1530
 msgid "  * [`&@>` operator](../reference/operators/query-contain-v2.html) Fixed a bug that it may return `true` even if it's not matched."
 msgstr ""
 
-#: ../../../news/index.md:1532
 msgid "  * [`pgroonga.score` function](../reference/functions/pgroonga-score.html) Fixed a memory leak. [groonga-dev,04154][Reported by Takahashi]"
 msgstr ""
 
-#: ../../../news/index.md:1536
 msgid "  * Takahashi"
 msgstr ""
 
-#: ../../../news/index.md:1538
 msgid "## 1.1.4: 2016-10-08 {#version-1-1-4}"
 msgstr ""
 
-#: ../../../news/index.md:1542
 msgid "  * [[Windows][windows]] Upgraded target PostgreSQL to 9.6.0."
 msgstr ""
 
-#: ../../../news/index.md:1544
 msgid "  * [[CentOS](../install/centos.html)] Supported PostgreSQL 9.6.0."
 msgstr ""
 
-#: ../../../news/index.md:1548
 msgid "  * Fixed a bug that living records may be removed from index unexpectedly when you `UPDATE` or `DELETE` one or more records. [GitHub#23][Reported by yongxianggao-chanjet]"
 msgstr ""
 
-#: ../../../news/index.md:1552
-#: ../../../news/index.md:1588
 msgid "  * yongxianggao-chanjet"
 msgstr ""
 
-#: ../../../news/index.md:1554
 msgid "## 1.1.3: 2016-09-29 {#version-1-1-3}"
 msgstr ""
 
-#: ../../../news/index.md:1558
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.9."
 msgstr ""
 
-#: ../../../news/index.md:1560
 msgid "  * Supported `Windows-1252` encoding."
 msgstr ""
 
-#: ../../../news/index.md:1564
 msgid "  * Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) function doesn't work against JSONB."
 msgstr ""
 
-#: ../../../news/index.md:1566
 msgid "  * Fixed a bug that searching against JSONB may return wrong result."
 msgstr ""
 
-#: ../../../news/index.md:1568
 msgid "  * [[Windows][windows]] Fixed a bug that [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) isn't found on `CREATE EXTENSION pgroonga`. [Gitter:groonga/ja?at=57e1f1cfc8af41d45f31d2b2][Reported by Truong Dinh Anh Duy]"
 msgstr ""
 
-#: ../../../news/index.md:1570
 msgid "  * [[Windows][windows]] Fixed a bug that `SELECT` may be crashed."
 msgstr ""
 
-#: ../../../news/index.md:1574
 msgid "  * Truong Dinh Anh Duy"
 msgstr ""
 
-#: ../../../news/index.md:1576
 msgid "## 1.1.2: 2016-09-07 {#version-1-1-2}"
 msgstr ""
 
-#: ../../../news/index.md:1580
 msgid "  * Supported `IN` by integer. [GitHub#21][Reported by yongxianggao-chanjet]"
 msgstr ""
 
-#: ../../../news/index.md:1584
 msgid "  * Fixed a bug that PGroonga doesn't work with PostgreSQL 9.3. [GitHub#22][Reported by Tim Abbott]"
 msgstr ""
 
-#: ../../../news/index.md:1592
 msgid "## 1.1.1: 2016-08-31 {#version-1-1-1}"
 msgstr ""
 
-#: ../../../news/index.md:1596
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.8."
 msgstr ""
 
-#: ../../../news/index.md:1598
 msgid "  * Supported estimation. It improves performance."
 msgstr ""
 
-#: ../../../news/index.md:1600
 msgid "  * Updated bundled xxHash to 0.6.2."
 msgstr ""
 
-#: ../../../news/index.md:1602
 msgid "  * Added [`pgroonga.match_positions_character`][match-positions-character] function that returns match positions in character."
 msgstr ""
 
-#: ../../../news/index.md:1604
 msgid "  * Added [`pgroonga.flush`](../reference/functions/pgroonga-flush.html) function that flushes buffered changes in memory."
 msgstr ""
 
-#: ../../../news/index.md:1608
 msgid "  * Fixed a crash bug when background worker is used. [GitHub#17][Reported by svsool]"
 msgstr ""
 
-#: ../../../news/index.md:1610
 msgid "  * Fixed a bug that needless recheck is ran on bitmap heap scan."
 msgstr ""
 
-#: ../../../news/index.md:1614
 msgid "  * svsool"
 msgstr ""
 
-#: ../../../news/index.md:1616
 msgid "## 1.1.0: 2016-06-06 {#version-1-1-0}"
 msgstr ""
 
-#: ../../../news/index.md:1620
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.4."
 msgstr ""
 
-#: ../../../news/index.md:1622
 msgid "## 1.0.9: 2016-06-02 {#version-1-0-9}"
 msgstr ""
 
-#: ../../../news/index.md:1626
 msgid "  * Supported PostgreSQL 9.6beta1."
 msgstr ""
 
-#: ../../../news/index.md:1628
 msgid "  * [`pgroonga.text_array_term_search_ops_v2`] Supported prefix search against `text[]` by [`&^>`](../reference/operators/prefix-search-contain-v2.html)."
 msgstr ""
 
-#: ../../../news/index.md:1630
 msgid "  * [`pgroonga.text_array_term_search_ops_v2`] Supported prefix RK search against `text[]` by [`&^~>`](../reference/operators/prefix-rk-search-contain-v2.html)."
 msgstr ""
 
-#: ../../../news/index.md:1632
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.3."
 msgstr ""
 
-#: ../../../news/index.md:1634
 msgid "## 1.0.8: 2016-05-21 {#version-1-0-8}"
 msgstr ""
 
-#: ../../../news/index.md:1638
 msgid "  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.3 from 9.5.2"
 msgstr ""
 
-#: ../../../news/index.md:1640
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.2."
 msgstr ""
 
-#: ../../../news/index.md:1644
 msgid "  * Fixed a bug that [`pgroonga.match_positions_byte`][match-positions-byte] function returns wrong positions when text has 17 or more keywords. [Reported by 张建春]"
 msgstr ""
 
-#: ../../../news/index.md:1648
 msgid "  * 张建春"
 msgstr ""
 
-#: ../../../news/index.md:1650
 msgid "## 1.0.7: 2016-04-24 {#version-1-0-7}"
 msgstr ""
 
-#: ../../../news/index.md:1654
 msgid "  * [Ubuntu] Supported Xenial Xerus (16.04 LTS)."
 msgstr ""
 
-#: ../../../news/index.md:1656
 msgid "  * Added [`pgroonga.highlight_html`](../reference/functions/pgroonga-highlight-html.html) function that highlight the specified keywords in the specified text."
 msgstr ""
 
-#: ../../../news/index.md:1658
 msgid "  * Added [`pgroonga.match_positions_byte`][match-positions-byte] function that returns match positions of the specified keywords in the specified text. The unit of position is byte."
 msgstr ""
 
-#: ../../../news/index.md:1660
 msgid "  * Added [`pgroonga.query_extract_keywords`](../reference/functions/pgroonga-query-extract-keywords.html) function that returns keywords from the specified query."
 msgstr ""
 
-#: ../../../news/index.md:1662
 msgid "## 1.0.6: 2016-04-15 {#version-1-0-6}"
 msgstr ""
 
-#: ../../../news/index.md:1666
 msgid "  * [[Windows][windows]] Added version information to DLL. [groonga-dev,03962] [Suggested by Naoki Takami]"
 msgstr ""
 
-#: ../../../news/index.md:1668
 msgid "  * [`pgroonga.text_full_text_search_ops_v2`] Supported similar search by [`&~?`][similar-search-v2]."
 msgstr ""
 
-#: ../../../news/index.md:1670
 msgid "  * [`pgroonga.text_term_search_ops_v2`] Supported prefix search by [`&^`][prefix-search-v2]."
 msgstr ""
 
-#: ../../../news/index.md:1672
 msgid "  * [`pgroonga.text_term_search_ops_v2`] Supported [prefix RK search](http://groonga.org/docs/reference/operations/prefix_rk_search.html) by [`&^~`][prefix-rk-search-v2]."
 msgstr ""
 
-#: ../../../news/index.md:1674
 msgid "  * [[Windows][windows]] Changed Visual Studio version to 2013 from 2015. Because PostgreSQL binary uses 2013."
 msgstr ""
 
-#: ../../../news/index.md:1676
 msgid "  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.2 from 9.5.1"
 msgstr ""
 
-#: ../../../news/index.md:1678
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.1."
 msgstr ""
 
-#: ../../../news/index.md:1682
-#: ../../../news/index.md:1716
-#: ../../../news/index.md:1758
-#: ../../../news/index.md:1774
-#: ../../../news/index.md:1800
 msgid "  * Naoki Takami"
 msgstr ""
 
-#: ../../../news/index.md:1684
 msgid "## 1.0.5: 2016-03-01 {#version-1-0-5}"
 msgstr ""
 
-#: ../../../news/index.md:1688
 msgid "  * Added missing update SQL files."
 msgstr ""
 
-#: ../../../news/index.md:1690
 msgid "## 1.0.4: 2016-03-01 {#version-1-0-4}"
 msgstr ""
 
-#: ../../../news/index.md:1694
 msgid "  * [[Windows][windows]] Added a missing symbol export."
 msgstr ""
 
-#: ../../../news/index.md:1696
 msgid "## 1.0.3: 2016-02-29 {#version-1-0-3}"
 msgstr ""
 
-#: ../../../news/index.md:1700
 msgid "  * Supported multibyte column name in UTF-8."
 msgstr ""
 
-#: ../../../news/index.md:1702
 msgid "  * [`pgroonga.text_full_text_search_ops_v2`] Added `` &` `` operator that accepts [script syntax](http://groonga.org/docs/reference/grn_expr/script_syntax.html) as condition."
 msgstr ""
 
-#: ../../../news/index.md:1704
 msgid "  * [[Windows][windows]] Enabled LZ4."
 msgstr ""
 
-#: ../../../news/index.md:1706
 msgid "  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.1 from 9.5.0."
 msgstr ""
 
-#: ../../../news/index.md:1708
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 6.0.0 from 5.1.2."
 msgstr ""
 
-#: ../../../news/index.md:1712
 msgid "  * Added missing update SQL. [groonga-dev,03950] [Reported by Naoki Takami]"
 msgstr ""
 
-#: ../../../news/index.md:1718
 msgid "## 1.0.2: 2016-02-09 {#version-1-0-2}"
 msgstr ""
 
-#: ../../../news/index.md:1722
 msgid "  * Required Groonga 5.1.2 or later."
 msgstr ""
 
-#: ../../../news/index.md:1724
 msgid "  * [[Windows][windows]] Upgraded base PostgreSQL to 9.5.0 from 9.4.5."
 msgstr ""
 
-#: ../../../news/index.md:1726
 msgid "  * [[Windows][windows]] Upgraded bundled Groonga to 5.1.2."
 msgstr ""
 
-#: ../../../news/index.md:1728
 msgid "  * [[Windows][windows]] Enabled mruby."
 msgstr ""
 
-#: ../../../news/index.md:1730
 msgid "  * [RPM] Supported PostgreSQL 9.5."
 msgstr ""
 
-#: ../../../news/index.md:1732
 msgid "  * [`jsonb`] Supported sequential scan."
 msgstr ""
 
-#: ../../../news/index.md:1734
 msgid "  * Added `pgroonga.text_full_text_search_ops_v2` operator class. It's an experimental operator class. It may break backward compatibility but includes new features."
 msgstr ""
 
-#: ../../../news/index.md:1736
 msgid "    Here are supported operators:"
 msgstr ""
 
-#: ../../../news/index.md:1738
 msgid "    * `LIKE`"
 msgstr ""
 
-#: ../../../news/index.md:1740
 msgid "    * `ILIKE`"
 msgstr ""
 
-#: ../../../news/index.md:1742
 msgid "    * `&@`: It's equal to `%%` in `pgroonga.text_full_text_search`."
 msgstr ""
 
-#: ../../../news/index.md:1744
 msgid "    * `&?`: It's equal to `@@` in `pgroonga.text_full_text_search`."
 msgstr ""
 
-#: ../../../news/index.md:1746
 msgid "    * `&@>`: It returns true when one of the right hand side texts returns true by `&@`."
 msgstr ""
 
-#: ../../../news/index.md:1748
 msgid "    * `&?>`: It returns true when one of the right hand side texts returns true by `&?`."
 msgstr ""
 
-#: ../../../news/index.md:1750
 msgid "  * Support composite primary key."
 msgstr ""
 
-#: ../../../news/index.md:1754
 msgid "  * Fixed a bug that valid tables and columns are removed by `VACUUM` or `ANALYZE`. It's caused after you use `REINDEX`. [groonga-dev,03850] [Reported by Naoki Takami]"
 msgstr ""
 
-#: ../../../news/index.md:1760
 msgid "## 1.0.1: 2015-12-29 {#version-1-0-1}"
 msgstr ""
 
-#: ../../../news/index.md:1764
 msgid "  * Accepted `none` as none value for tokenizer and normalizer. [groonga-dev,03664] [Reported by Naoki Takami]"
 msgstr ""
 
-#: ../../../news/index.md:1766
 msgid "  * Supported `CREATE DATABASE TABLESPACE`. [Suggested by Hiroyuki Sato]"
 msgstr ""
 
-#: ../../../news/index.md:1770
 msgid "  * Fixed a bug that sequential scan doesn't work for regular expression search.  [Reported by Hiroyuki Sato]"
 msgstr ""
 
-#: ../../../news/index.md:1776
 msgid "  * Hiroyuki Sato"
 msgstr ""
 
-#: ../../../news/index.md:1778
 msgid "## 1.0.0: 2015-10-29 {#version-1-0-0}"
 msgstr ""
 
-#: ../../../news/index.md:1780
 msgid "It's the first major release!!!"
 msgstr ""
 
-#: ../../../news/index.md:1782
 msgid "You need to run `DROP EXTENSION pgroonga CASCADE`, upgrade PGroonga binary, run `CREATE EXTENSION pgroonga` and create indexes again to upgrade to 1.0.0 from older versions."
 msgstr ""
 
-#: ../../../news/index.md:1786
 msgid "  * Propagated double initialization on failing to open database. [groonga-dev,03528] [Reported by Naoki Takami]"
 msgstr ""
 
-#: ../../../news/index.md:1788
 msgid "  * Supported index only scan."
 msgstr ""
 
-#: ../../../news/index.md:1790
 msgid "  * Supported regular expression search by `@~`. [groonga-dev,03563] [Reported by Hiroaki Tachikawa]"
 msgstr ""
 
-#: ../../../news/index.md:1792
 msgid "  * [[Windows][windows]] Bundled MeCab."
 msgstr ""
 
-#: ../../../news/index.md:1794
 msgid "  * Made `LIKE` with index outputs `LIKE` with sequential scan compatible outputs. It's implemented by using recheck feature provided by PostgreSQL. It means that `LIKE` is slower than `%%` operator and `@@` operator."
 msgstr ""
 
-#: ../../../news/index.md:1796
 msgid "  * Supported `ILIKE` with index."
 msgstr ""
 
-#: ../../../news/index.md:1802
 msgid "  * Hiroaki Tachikawa"
 msgstr ""
 
-#: ../../../news/index.md:1804
 msgid "## 0.9.0: 2015-09-29 {#version-0-9-0}"
 msgstr ""
 
-#: ../../../news/index.md:1806
 msgid "You can update to 0.9.0 from 0.8.0 by override install and executing the following SQL:"
 msgstr ""
 
-#: ../../../news/index.md:1808
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "ALTER EXTENSION pgroonga UPDATE;\n"
 "```"
 msgstr ""
 
-#: ../../../news/index.md:1812
 msgid "You don't need to re-create `pgroonga` indexes."
 msgstr ""
 
-#: ../../../news/index.md:1816
 msgid "  * Supported `jsonb`. You can use `@>` operator like GIN index for `jsonb`. `@>` operator works like GIN index for `jsonb`. It's compatible. You can also use `@@` operator. It's PGroonga original operator. It's more flexible."
 msgstr ""
 
-#: ../../../news/index.md:1818
 msgid "## 0.8.0: 2015-09-01"
 msgstr ""
 
-#: ../../../news/index.md:1820
 msgid "You can update to 0.8.0 from 0.7.0 by override install. You don't need to re-create `pgroonga` indexes."
 msgstr ""
 
-#: ../../../news/index.md:1824
-msgid "  * Reduced needless loop on `VACUUM`.\n"
+msgid ""
+"  * Reduced needless loop on `VACUUM`.\n"
 "  * Reduced temporary memory usage.\n"
 "  * `pgroonga.log_path`: Added a variable that changes path for Groonga log.\n"
 "  * incompatible: Changed the path for Groonga log to the database directory by default. You can change it by `pgroonga.log_path`.\n"
@@ -2933,99 +2164,82 @@ msgid "  * Reduced needless loop on `VACUUM`.\n"
 "  * `pgroonga.lock_timeout`: Added a variable that changes the number of lock retries. [groonga-dev,03419] [Suggested by Naoki Takami]"
 msgstr ""
 
-#: ../../../news/index.md:1836
-msgid "  * Hiroki Nakamura\n"
+msgid ""
+"  * Hiroki Nakamura\n"
 "  * Yokoda Toshiaki\n"
 "  * Naoki Takami"
 msgstr ""
 
-#: ../../../news/index.md:1840
 msgid "## 0.7.0: 2015-07-10"
 msgstr ""
 
-#: ../../../news/index.md:1842
-#: ../../../news/index.md:1855
 msgid "You can update to 0.6.0 from 0.5.0 by override install. You don't need to re-create `pgroonga` indexes."
 msgstr ""
 
-#: ../../../news/index.md:1846
-msgid "  * incompatible: Changed to use Groonga's default logger. Messages for PGroonga is logged to `pgroonga.log` in database directory instead of PostgreSQL's log path.\n"
+msgid ""
+"  * incompatible: Changed to use Groonga's default logger. Messages for PGroonga is logged to `pgroonga.log` in database directory instead of PostgreSQL's log path.\n"
 "  * `pgroonga.log_level`: Added a variable that changes log level."
 msgstr ""
 
-#: ../../../news/index.md:1851
 msgid "  * Fixed a bug that lexicon tables for dropped indexes aren't removed on `VACUUM`."
 msgstr ""
 
-#: ../../../news/index.md:1853
 msgid "## 0.6.0: 2015-05-29"
 msgstr ""
 
-#: ../../../news/index.md:1859
-msgid "  * `pgroonga.score()`: Supported HOT update on PostgreSQL 9.3.\n"
+msgid ""
+"  * `pgroonga.score()`: Supported HOT update on PostgreSQL 9.3.\n"
 "  * Supported log messages from Groonga.\n"
 "  * Stopped to try opening Groonga database when Groonga database path doesn't exist.\n"
 "  * Supported Debian GNU/Linux Jessie."
 msgstr ""
 
-#: ../../../news/index.md:1866
 msgid "  * Fixed a bug that large block number in ctid is overflowed."
 msgstr ""
 
-#: ../../../news/index.md:1868
 msgid "## 0.5.0: 2015-04-29"
 msgstr ""
 
-#: ../../../news/index.md:1870
 msgid "You can't upgrade to 0.5.0 from 0.4.0 without re-creating `pgroonga` index. You need to re-install PGroonga:"
 msgstr ""
 
-#: ../../../news/index.md:1872
-#: ../../../news/index.md:1892
-#: ../../../news/index.md:1925
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "DROP EXTENSION pgroonga CASCADE;\n"
 "CREATE EXTENSION pgroonga;\n"
 "-- Create your pgroonga indexes again.\n"
 "```"
 msgstr ""
 
-#: ../../../news/index.md:1880
-msgid "  * `pgroonga.score()`: Supported HOT update.\n"
+msgid ""
+"  * `pgroonga.score()`: Supported HOT update.\n"
 "  * Supported Ubuntu 15.04 Vivid Vervet.\n"
 "  * Supported Windows."
 msgstr ""
 
-#: ../../../news/index.md:1884
-#: ../../../news/index.md:1916
-#: ../../../news/index.md:1948
 msgid "### Changes"
 msgstr ""
 
-#: ../../../news/index.md:1886
 msgid "  * `pgroonga.score()`: Required primary key."
 msgstr ""
 
-#: ../../../news/index.md:1888
 msgid "## 0.4.0: 2015-03-29"
 msgstr ""
 
-#: ../../../news/index.md:1890
 msgid "You can't upgrade to 0.4.0 from 0.3.0 without re-creating `pgroonga` index. You need to re-install PGroonga:"
 msgstr ""
 
-#: ../../../news/index.md:1900
-msgid "  * Supported `column LIKE '%keyword'` as a short cut of `column @@ 'keyword'`.\n"
+msgid ""
+"  * Supported `column LIKE '%keyword'` as a short cut of `column @@ 'keyword'`.\n"
 "  * Supported range search with multi-column index.\n"
 "  * Added PGroonga setup script on Travis CI. Add the following line to `install` section in your `.travis.yml`:"
 msgstr ""
 
-#: ../../../news/index.md:1904
 msgid "        curl --silent --location https://github.com/pgroonga/pgroonga/raw/master/data/travis/setup.sh | sh"
 msgstr ""
 
-#: ../../../news/index.md:1906
-msgid "  * Added `pgroonga.table_name()` that returns table name in Groonga.\n"
+msgid ""
+"  * Added `pgroonga.table_name()` that returns table name in Groonga.\n"
 "  * Added `pgroonga.command()` that executes Groonga command line.\n"
 "  * Added `pgroonga.score()` that returns search score in Groonga.\n"
 "  * Supported `timestamp` type.\n"
@@ -3036,26 +2250,24 @@ msgid "  * Added `pgroonga.table_name()` that returns table name in Groonga.\n"
 "  * Added Yum repositories for CentOS 5 and 6."
 msgstr ""
 
-#: ../../../news/index.md:1918
-msgid "  * Dropped `text == text` search by index. Use 4096 bytes or smaller `varchar` instead.\n"
+msgid ""
+"  * Dropped `text == text` search by index. Use 4096 bytes or smaller `varchar` instead.\n"
 "  * Dropped PostgreSQL 9.2 support."
 msgstr ""
 
-#: ../../../news/index.md:1921
 msgid "## 0.3.0: 2015-02-09"
 msgstr ""
 
-#: ../../../news/index.md:1923
 msgid "You can't upgrade to 0.3.0 from 0.2.0 without re-creating `pgroonga` index. You need to re-install PGroonga:"
 msgstr ""
 
-#: ../../../news/index.md:1933
-msgid "  * Supported encoding\n"
+msgid ""
+"  * Supported encoding\n"
 "  * Supported customizing tokenizer and normalizer by `WITH` such as:"
 msgstr ""
 
-#: ../../../news/index.md:1936
-msgid "    ```sql\n"
+msgid ""
+"    ```sql\n"
 "    CREATE INDEX pgroonga_index\n"
 "              ON table\n"
 "           USING pgroonga (column)\n"
@@ -3064,26 +2276,23 @@ msgid "    ```sql\n"
 "    ```"
 msgstr ""
 
-#: ../../../news/index.md:1944
-msgid "  * Reduced needless locks.\n"
+msgid ""
+"  * Reduced needless locks.\n"
 "  * Supported column compression by LZ4.\n"
 "  * Supported non full-text search index such as text, numbers and timestamp."
 msgstr ""
 
-#: ../../../news/index.md:1950
 msgid "  * Changed database file base name to `pgrn` from `grn`."
 msgstr ""
 
-#: ../../../news/index.md:1952
 msgid "## 0.2.0: 2015-01-29"
 msgstr ""
 
-#: ../../../news/index.md:1954
 msgid "The first release!!!"
 msgstr ""
 
-#: ../../../news/index.md:1956
-msgid "[centos]:../install/centos.html\n"
+msgid ""
+"[centos]:../install/centos.html\n"
 "[almalinux]:../install/almalinux.html\n"
 "[amazon-linux]:../install/amazon-linux.html\n"
 "[debian]:../install/debian.html\n"
@@ -3091,14 +2300,14 @@ msgid "[centos]:../install/centos.html\n"
 "[windows]:../install/windows.html"
 msgstr ""
 
-#: ../../../news/index.md:1963
-msgid "[create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html\n"
+msgid ""
+"[create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html\n"
 "[create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer\n"
 "[create-index-using-pgroonga-custom-index-flags]:../reference/create-index-using-pgroonga.html#custom-index-flags"
 msgstr ""
 
-#: ../../../news/index.md:1967
-msgid "[text-regexp-ops]:../reference/#text-regexp-ops\n"
+msgid ""
+"[text-regexp-ops]:../reference/#text-regexp-ops\n"
 "[text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops\n"
 "[varchar-full-text-search-ops]:../reference/#varchar-full-text-search-ops\n"
 "[varchar-regexp-ops]:../reference/#varchar-regexp-ops\n"
@@ -3106,8 +2315,8 @@ msgid "[text-regexp-ops]:../reference/#text-regexp-ops\n"
 "[jsonb-ops]:../reference/#jsonb-ops"
 msgstr ""
 
-#: ../../../news/index.md:1974
-msgid "[text-full-text-search-ops-v2]:../reference/#text-full-text-search-ops-v2\n"
+msgid ""
+"[text-full-text-search-ops-v2]:../reference/#text-full-text-search-ops-v2\n"
 "[text-term-search-ops-v2]:../reference/#text-term-search-ops-v2\n"
 "[text-regexp-ops-v2]:../reference/#text-regexp-ops-v2\n"
 "[text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2\n"
@@ -3119,8 +2328,8 @@ msgid "[text-full-text-search-ops-v2]:../reference/#text-full-text-search-ops-v2
 "[jsonb-full-text-search-ops-v2]:../reference/#jsonb-full-text-search-ops-v2"
 msgstr ""
 
-#: ../../../news/index.md:1985
-msgid "[contain-array]:../reference/operators/contain-array.html\n"
+msgid ""
+"[contain-array]:../reference/operators/contain-array.html\n"
 "[contain-term-v2]:../reference/operators/contain-term-v2.html\n"
 "[equal-query-v2]:../reference/operators/equal-query-v2.html\n"
 "[exact-match-search]:../reference/operators/exact-match-search.html\n"
@@ -3141,8 +2350,8 @@ msgid "[contain-array]:../reference/operators/contain-array.html\n"
 "[similar-search-v2]:../reference/operators/similar-search-v2.html"
 msgstr ""
 
-#: ../../../news/index.md:2005
-msgid "[command]:../reference/functions/pgroonga-command.html\n"
+msgid ""
+"[command]:../reference/functions/pgroonga-command.html\n"
 "[database-remove]:../reference/functions/pgroonga-database-remove.html\n"
 "[escape]:../reference/functions/pgroonga-escape.html\n"
 "[highlight-html]:../reference/functions/pgroonga-highlight-html.html\n"
@@ -3166,8 +2375,8 @@ msgid "[command]:../reference/functions/pgroonga-command.html\n"
 "[wal-truncate]:../reference/functions/pgroonga-wal-truncate.html"
 msgstr ""
 
-#: ../../../news/index.md:2028
-msgid "[enable-crash-safe]:../reference/parameters/enable-crash-safe.html\n"
+msgid ""
+"[enable-crash-safe]:../reference/parameters/enable-crash-safe.html\n"
 "[enable-trace-log]:../reference/parameters/enable-trace-log.html\n"
 "[force-match-escalation]:../reference/parameters/force-match-escalation.html\n"
 "[libgroonga-version]:../reference/parameters/libgroonga-version.html\n"
@@ -3175,50 +2384,43 @@ msgid "[enable-crash-safe]:../reference/parameters/enable-crash-safe.html\n"
 "[max-wal-size]:../reference/parameters/max-wal-size.html"
 msgstr ""
 
-#: ../../../news/index.md:2035
-msgid "[pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html\n"
+msgid ""
+"[pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html\n"
 "[pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html\n"
 "[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html"
 msgstr ""
 
-#: ../../../news/index.md:2039
 msgid "[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html"
 msgstr ""
 
-#: ../../../news/index.md:2041
 msgid "[pgroonga-wal-applier-naptime]:../reference/parameters/pgroonga-wal-applier-naptime.html"
 msgstr ""
 
-#: ../../../news/index.md:2043
-msgid "[pgroonga-check]:../reference/modules/pgroonga-check.html\n"
+msgid ""
+"[pgroonga-check]:../reference/modules/pgroonga-check.html\n"
 "[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html\n"
 "[pgroonga-database]:../reference/modules/pgroonga-database.html\n"
 "[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html\n"
 "[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html"
 msgstr ""
 
-#: ../../../news/index.md:2049
 msgid "[streaming-replication]:../reference/streaming-replication.html"
 msgstr ""
 
-#: ../../../news/index.md:2051
 msgid "[travis-ci]:../how-to/travis-ci.html"
 msgstr ""
 
-#: ../../../news/index.md:2053
 msgid "[tuning]:../how-to/tuning.html"
 msgstr ""
 
-#: ../../../news/index.md:2055
 msgid "[postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rowsecurity.html"
 msgstr ""
 
-#: ../../../news/index.md:2057
 msgid "[crash-safe]:../reference/crash-safe.html"
 msgstr ""
 
-#: ../../../news/index.md:2059
-msgid "[gh-90]:https://github.com/pgroonga/pgroonga/issues/90\n"
+msgid ""
+"[gh-90]:https://github.com/pgroonga/pgroonga/issues/90\n"
 "[gh-117]:https://github.com/pgroonga/pgroonga/issues/117\n"
 "[gh-291]:https://github.com/pgroonga/pgroonga/issues/291\n"
 "[gh-308]:https://github.com/pgroonga/pgroonga/issues/308\n"
@@ -3227,4 +2429,3 @@ msgid "[gh-90]:https://github.com/pgroonga/pgroonga/issues/90\n"
 "[gh-336]:https://github.com/pgroonga/pgroonga/issues/336\n"
 "[gh-346]:https://github.com/pgroonga/pgroonga/issues/346"
 msgstr ""
-

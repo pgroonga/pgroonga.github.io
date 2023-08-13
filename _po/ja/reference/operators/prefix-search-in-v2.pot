@@ -1,115 +1,89 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"&^| operator\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:6
 msgid "# `&^|` operator"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:8
 msgid "Since 1.2.1."
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:12
 msgid "`&^|` operator performs prefix search by an array of prefixes. If one or more prefixes are matched, the record is matched."
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:14
 msgid "Prefix search is useful for implementing input completion."
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:16
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:18
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "column &^| prefixes\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:22
 msgid "`column` is a column to be searched. It's `text` type or `text[]` type."
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:24
 msgid "`prefixes` is an array of prefixes to be found. It's `text[]` type."
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:26
 msgid "The operator returns `true` when the `column` value starts with one or more prefixes in `prefixes`."
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:28
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:30
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:32
 msgid "  * `pgroonga_text_term_search_ops_v2`: For `text`"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:34
 msgid "  * `pgroonga_text_array_term_search_ops_v2`: For `text[]`"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:36
 msgid "  * `pgroonga_varchar_term_search_ops_v2`: For `varchar`"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:38
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:40
 msgid "Here are sample schema and data for examples:"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:42
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE tags (\n"
 "  name text PRIMARY KEY,\n"
 "  alias text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:48
-msgid "CREATE INDEX pgroonga_tag_alias_index ON tags\n"
+msgid ""
+"CREATE INDEX pgroonga_tag_alias_index ON tags\n"
 "  USING pgroonga (alias pgroonga_text_term_search_ops_v2);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:52
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO tags VALUES ('PostgreSQL', 'PG');\n"
 "INSERT INTO tags VALUES ('Groonga',    'grn');\n"
 "INSERT INTO tags VALUES ('PGroonga',   'pgrn');\n"
@@ -117,12 +91,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:59
 msgid "You can perform prefix search with prefixes by `&^|` operator:"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:61
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT * FROM tags WHERE alias &^| ARRAY['pg', 'mrn'];\n"
 "--     name    | alias \n"
 "-- ------------+-------\n"
@@ -133,39 +106,29 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:71
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:73
 msgid "  * [`&^` operator][prefix-search-v2]: Prefix search"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:75
 msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:77
 msgid "  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array of prefixes"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:79
 msgid "  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:81
 msgid "[prefix-search-v2]:prefix-search-v2.html"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:83
 msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:85
 msgid "[not-prefix-search-in-v2]:not-prefix-search-in-v2.html"
 msgstr ""
 
-#: ../../../../reference/operators/prefix-search-in-v2.md:87
 msgid "[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html"
 msgstr ""
-

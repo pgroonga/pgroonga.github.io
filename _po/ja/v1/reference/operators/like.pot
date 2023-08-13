@@ -1,118 +1,91 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/operators/like.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: LIKE operator\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:6
 msgid "# `LIKE` operator"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:10
 msgid "PGroonga converts `column LIKE '%KEYWORD%'` condition to `column %% 'KEYWORD'` internally. [`%%` operator](match.html) performs full text search with index. It's faster than `LIKE` operator without index."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:12
 msgid "`column LIKE '%KEYWORD%'` with index is slower than `column %% 'KEYWORD'` with index because `column LIKE '%KEYWORD%'` with index needs \"[Recheck]({{ site.postgresql_doc_base_url.en }}/index-scanning.html)\". `column %% 'KEYWORD'` doesn't need \"Recheck\"."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:14
 msgid "The original `LIKE` operator searches against text as is. But `%%` operator performs full text search against normalized text. It means that search result of `LIKE` operator with index needs \"Recheck\"."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:16
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:18
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:20
 msgid "  * `pgroonga.text_full_text_search_ops`: Default for `text`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:22
 msgid "  * `pgroonga.text_regexp_ops`: For `text`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:24
 msgid "  * `pgroonga.text_full_text_search_ops_v2`: For `text`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:26
 msgid "  * `pgroonga.text_regexp_ops_v2`: For `text`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:28
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:30
 msgid "Here is the syntax of this operator:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:32
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "column LIKE pattern\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:36
 msgid "`column` is a column to be searched."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:38
 msgid "`pattern` is a search pattern. It's `text` type."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:40
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:42
 msgid "Here are sample schema and data for examples:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:44
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:50
-msgid "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:53
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
 "INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
 "INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
@@ -120,23 +93,18 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:60
 msgid "You can perform `LIKE` operator with index:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:62
-#: ../../../../../v1/reference/operators/like.md:76
-#: ../../../../../v1/reference/operators/like.md:105
-#: ../../../../../v1/reference/operators/like.md:133
-#: ../../../../../v1/reference/operators/like.md:161
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET enable_seqscan = off;\n"
 "SET enable_indexscan = on;\n"
 "SET enable_bitmapscan = on;"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:67
-msgid "SELECT * FROM memos WHERE content LIKE '%groonga%';\n"
+msgid ""
+"SELECT * FROM memos WHERE content LIKE '%groonga%';\n"
 "--  id |          content          \n"
 "-- ----+---------------------------\n"
 "--   4 | There is groonga command.\n"
@@ -144,33 +112,29 @@ msgid "SELECT * FROM memos WHERE content LIKE '%groonga%';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:74
 msgid "The default operator class of PGroonga index for `text` type can't find any records with partial alphabet keyword. For example, you can't find record with `roonga` keyword:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:81
-msgid "SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
+msgid ""
+"SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
 "--  id | content \n"
 "-- ----+---------\n"
 "-- (0 rows)\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:87
 msgid "But you can find some records with `roonga` keyword without index:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:89
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET enable_seqscan = on;\n"
 "SET enable_indexscan = off;\n"
 "SET enable_bitmapscan = off;"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:94
-#: ../../../../../v1/reference/operators/like.md:138
-#: ../../../../../v1/reference/operators/like.md:166
-msgid "SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
+msgid ""
+"SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
 "--  id |                                content                                 \n"
 "-- ----+------------------------------------------------------------------------\n"
 "--   2 | Groonga is a fast full text search engine that supports all languages.\n"
@@ -180,12 +144,11 @@ msgid "SELECT * FROM memos WHERE content LIKE '%roonga%';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:103
 msgid "You can find records by prefix alphabet keyword such as `Gro`:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:110
-msgid "SELECT * FROM memos WHERE content LIKE '%Gro%';\n"
+msgid ""
+"SELECT * FROM memos WHERE content LIKE '%Gro%';\n"
 "--  id |                                content                                 \n"
 "-- ----+------------------------------------------------------------------------\n"
 "--   2 | Groonga is a fast full text search engine that supports all languages.\n"
@@ -194,56 +157,46 @@ msgid "SELECT * FROM memos WHERE content LIKE '%Gro%';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:118
 msgid "If you want to search by partial alphabet keyword, there are two approaches."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:120
 msgid "The first approach is using the `TokenBigramSplitSymbolAlphaDigit` tokenizer:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:122
-#: ../../../../../v1/reference/operators/like.md:151
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "DROP INDEX IF EXISTS pgroonga_content_index;"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:125
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (tokenizer='TokenBigramSplitSymbolAlphaDigit');\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:131
 msgid "You can find records by `roonga`:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:147
 msgid "See [Customization in `CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html#customization) for tokenizer."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:149
 msgid "The second approach is using `pgroonga.text_regexp_ops` operator class:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:154
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content pgroonga.text_regexp_ops);\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:159
 msgid "You can find records by `rooonga`:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:175
 msgid "## See also"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/like.md:177
 msgid "  * [`CREATE INDEX USING pgroonga`](../create-index-using-pgroonga.html)"
 msgstr ""
-

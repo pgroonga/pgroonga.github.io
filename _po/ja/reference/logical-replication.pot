@@ -1,299 +1,224 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../reference/logical-replication.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: Logical replication\n"
 "---"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:5
 msgid "# Logical replication"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:7
 msgid "PGroonga supports PostgreSQL built-in logical replication since 1.2.4. It requires PostgreSQL 10 or later."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:9
 msgid "This document describes how to configure PostgreSQL built-in logical replication for PGroonga. Most of steps are normal steps. There are some PGroonga specific steps."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:11
-msgid "It doesn't have to be have same schema for source of replication and\n"
+msgid ""
+"It doesn't have to be have same schema for source of replication and\n"
 "destionation of replication for logical replication."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:14
 msgid "Therefore, setting an index on only a destination of replication in here."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:16
 msgid "## Summary"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:18
 msgid "Here are steps to configure PostgreSQL built-in logical replication for PGroonga. \"[normal]\" tag means that the step is a normal step for logical replication. \"[special]\" tag means that the step is a PGroonga specific step."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:20
 msgid "  1. [normal] Install PostgreSQL on Publisher and Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:22
 msgid "  2. [special] Install PGroonga on Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:24
 msgid "  3. [normal] Initialize PostgreSQL database on Publisher and Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:26
 msgid "  4. [normal] Add some logical replication configurations to `postgresql.conf` and `pg_hba.conf` on Publisher"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:28
 msgid "  5. [normal] Create table on Publisher and Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:30
 msgid "  6. [normal] Create publication on Publisher"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:32
 msgid "  7. [normal] Create subscription on Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:34
 msgid "  8. [special] Create a PGroonga index on Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:36
 msgid "  9. [normal] Insert data on Publisher"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:38
 msgid "## Example environment"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:40
 msgid "This document uses the following environment:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:42
 msgid "  * Publisher:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:44
-#: ../../../reference/logical-replication.md:56
 msgid "    * OS: CentOS 7"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:46
 msgid "    * IP Address: 172.16.0.1"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:48
-#: ../../../reference/logical-replication.md:60
 msgid "    * Database name: `blog`"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:50
 msgid "    * Replication user name: `replicator`"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:52
 msgid "    * Replication user password: `passw0rd`"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:54
 msgid "  * Subscriber:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:58
 msgid "    * IP Address: 172.16.0.2"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:62
 msgid "This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:64
 msgid "## [normal] Install PostgreSQL on Publisher and Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:66
-#: ../../../reference/logical-replication.md:95
-#: ../../../reference/logical-replication.md:108
-#: ../../../reference/logical-replication.md:203
 msgid "This is a normal step."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:68
 msgid "Install PostgreSQL {{ site.latest_postgresql_version }} on Publisher and Subscriber."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:70
-#: ../../../reference/logical-replication.md:99
-#: ../../../reference/logical-replication.md:215
 msgid "Publisher and Subscriber:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:72
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat=\"%{VERSION}\" /etc/redhat-release)-$(rpm -qf --queryformat=\"%{ARCH}\" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm\n"
 "% sudo yum install postgresql{{ site.latest_postgresql_version }}-server\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:77
 msgid "See also [PostgreSQL: Linux downloads (CentOS)][postgresql-centos]."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:79
 msgid "## [special] Install PGroonga on Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:81
-#: ../../../reference/logical-replication.md:239
 msgid "This is a PGroonga specific step."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:83
 msgid "Install PGroonga on Subscriber."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:85
-#: ../../../reference/logical-replication.md:207
-#: ../../../reference/logical-replication.md:243
-#: ../../../reference/logical-replication.md:251
-#: ../../../reference/logical-replication.md:293
 msgid "Subscriber:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:87
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(rpm -qf --queryformat=\"%{VERSION}\" /etc/redhat-release)-$(rpm -qf --queryformat=\"%{ARCH}\" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm\n"
 "% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm\n"
 "% sudo -H yum install -y postgresql{{ site.latest_postgresql_version}}-pgroonga\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:93
 msgid "## [normal] Initialize PostgreSQL database on Publisher and Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:97
 msgid "Initialize PostgreSQL database on Publisher and Subscriber."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:101
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% sudo /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb\n"
 "% sudo systemctl enable --now postgresql-{{ site.latest_postgresql_version }}\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:106
 msgid "## [normal] Add some logical replication configurations to `postgresql.conf` on Publisher"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:110
 msgid "Add the following logical replication configurations to `postgresql.conf` on only Publisher:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:112
 msgid "  * `wal_level = logical`"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:114
 msgid "    * See also [PostgreSQL: Documentation: Write Ahead Log][postgresql-wal-level]."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:116
 msgid "  * `max_wal_senders = 2` (`= 1 (The number of Subscribers) * 2`. `* 2` is for unexpected connection close.)"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:118
 msgid "    * See also [PostgreSQL: Documentation: Replication][postgresql-max-wal-senders]."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:120
 msgid "  * `max_replication_slots = 1` (`= 1 (The number of Subscribers)`)."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:122
 msgid "    * See also [PostgreSQL: Documentation: Replication][postgresql-max-replication-slots]."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:124
 msgid "`/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/postgresql.conf`:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:126
-#: ../../../reference/logical-replication.md:152
 msgid "Before:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:128
-msgid "```text\n"
+msgid ""
+"```text\n"
 "#listen_address = 'localhost'"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:131
-msgid "#wal_level = minimal\n"
+msgid ""
+"#wal_level = minimal\n"
 "#max_wal_senders = 0\n"
 "#max_replication_slots = 0\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:136
-#: ../../../reference/logical-replication.md:168
 msgid "After:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:138
-msgid "```text\n"
+msgid ""
+"```text\n"
 "listen_address = '*'"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:141
-msgid "wal_level = logical\n"
+msgid ""
+"wal_level = logical\n"
 "max_wal_senders = 2\n"
 "max_replication_slots = 1\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:146
 msgid "Add the following logical replication configurations to `pg_hba.conf` on only Publisher:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:148
 msgid "  * Accept replication connection by the replication user `replicator` from `172.16.0.2/32`."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:150
 msgid "`/var/lib/pgsql/{{ site.latest_postgresql_version }}/data/pg_hba.conf`:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:154
-msgid "```text\n"
+msgid ""
+"```text\n"
 "# \"local\" is for Unix domain socket connections only\n"
 "local   all             all                                     trust\n"
 "# IPv4 local connections:\n"
@@ -308,8 +233,8 @@ msgid "```text\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:170
-msgid "```text\n"
+msgid ""
+"```text\n"
 "# \"local\" is for Unix domain socket connections only\n"
 "local   all             all                                     trust\n"
 "# IPv4 local connections:\n"
@@ -323,75 +248,69 @@ msgid "```text\n"
 "host    replication     all        ::1/128                 trust"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:183
-msgid "# IPv4 remote connections:\n"
+msgid ""
+"# IPv4 remote connections:\n"
 "host    all             replicator       172.16.0.2/32         md5\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:187
 msgid "Restart PostgreSQL to apply the configuration:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:189
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% sudo -H systemctl restart postgresql-{{ site.latest_postgresql_version }}\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:193
 msgid "Create the user for replication on only Publisher:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:195
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/createuser --pwprompt replicator -U postgres\n"
 "Enter password for new role: (passw0rd)\n"
 "Enter it again: (passw0rd)\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:201
 msgid "## [normal] Create table on Publisher and Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:205
 msgid "Create a normal user on Subscriber:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:209
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/createuser ${USER} -U postgres\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:213
 msgid "Create a database on Publisher and Subscriber:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:217
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/createdb --owner ${USER} blog -U postgres\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:221
-msgid "Create a table in the created database.\n"
+msgid ""
+"Create a table in the created database.\n"
 "Connect to the created `blog` database:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:224
-msgid "```console\n"
+msgid ""
+"```console\n"
 "% /usr/pgsql-{{ site.latest_postgresql_version }}/bin/psql blog -U ${USER}\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:228
 msgid "Create `entries` table:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:230
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE entries (\n"
 "  title text,\n"
 "  body text\n"
@@ -399,77 +318,67 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:237
 msgid "## [special] Create a PGroonga index on Subscriber"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:241
 msgid "Install PGroonga to the database. It requires superuser privilege:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:245
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE EXTENSION pgroonga;\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:249
 msgid "Create a PGroonga index on Subscriber:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:253
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:257
 msgid "Create a PUBLICATION on Publisher only:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:259
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE PUBLICATION pub_srv1_blog FOR TABLE entries;\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:263
 msgid "Create a SUBSCRIPTION on Subscriber only:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:265
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE SUBSCRIPTION sub_srv2_blog CONNECTION 'dbname=blog hostaddr=172.16.0.2 port=5432 user=replicator password=passw0rd' PUBLICATION pub_srv1_blog;\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:269
 msgid "## [normal] Insert data on Publisher only:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:271
 msgid "Insert data to the created `entries` table:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:273
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');\n"
 "INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine used by PGroonga. We did not know about it.');\n"
 "INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:279
 msgid "Confirm replication:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:281
 msgid "Publisher:"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:283
-#: ../../../reference/logical-replication.md:295
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT * FROM entries;\n"
 " title    |                                  body\n"
 " ---------+---------------------------------------------------------------------------\n"
@@ -480,12 +389,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:305
 msgid "Now, we can search data replicated on subscriber by PGroonga index created on subscriber."
 msgstr ""
 
-#: ../../../reference/logical-replication.md:307
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET enable_seqscan TO off;\n"
 "SELECT * FROM entries WHERE body &@ 'Groonga';\n"
 "  title  |                                       body\n"
@@ -495,19 +403,14 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:316
 msgid "[postgresql-wal-level]:{{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:318
 msgid "[postgresql-max-wal-senders]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:320
 msgid "[postgresql-max-replication-slots]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS"
 msgstr ""
 
-#: ../../../reference/logical-replication.md:322
 msgid "[postgresql-centos]:https://www.postgresql.org/download/linux/redhat/"
 msgstr ""
-

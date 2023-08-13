@@ -1,112 +1,85 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"@@ operator for jsonb type\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:6
 msgid "# `@@` operator for `jsonb` type"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:10
 msgid "This operator is deprecated since 1.2.1. Use [`` &` `` operator][script-jsonb-v2] instead."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:12
 msgid "`@@` operator is a PGroonga original operator. You can use complex condition that can't be written by [`@>` operator][contain-jsonb] such as range search."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:14
 msgid "If you know [JsQuery][jsquery], you can understand like \"PGroonga provides `jsonb` type related search features that are similar to JsQuery with different syntax\"."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:16
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:18
 msgid "Here is the syntax of this operator:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:20
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "jsonb_column @@ condition\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:24
 msgid "`jsonb_column` is a column that its type is `jsonb`."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:26
 msgid "`condition` is a `text` value used as query. It uses [Groonga's script syntax][groogna-script-syntax]."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:28
 msgid "The operator returns `true` when `condition` matches `jsonb_column` value, `false` otherwise."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:30
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:32
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:34
 msgid "  * `pgroonga.jsonb_ops`: Default for `jsonb`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:36
 msgid "  * `pgroonga.jsonb_ops_v2`: For `jsonb`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:38
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:40
 msgid "Here are sample schema and data for examples:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:42
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE logs (\n"
 "  record jsonb\n"
 ");"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:47
 msgid "CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:49
-msgid "INSERT INTO logs\n"
+msgid ""
+"INSERT INTO logs\n"
 "     VALUES ('{\n"
 "                \"message\": \"Server is started.\",\n"
 "                \"host\":    \"www.example.com\",\n"
@@ -137,26 +110,23 @@ msgid "INSERT INTO logs\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:79
 msgid "Disable sequential scan:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:81
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET enable_seqscan = off;\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:85
 msgid "You need to understand how PGroonga creates index against `jsonb` type value to create search condition."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:87
 msgid "PGroonga splits a `jsonb` type value into values and then creates indexes against these values. In SQL, think about the following schema:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:89
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE values (\n"
 "  key text PRIMARY KEY,\n"
 "  path text,\n"
@@ -170,24 +140,20 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:102
 msgid "Here are descriptions of column:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:104
 msgid "  * `key`: The ID of the value. If value has the same path and content, `key` is the same value. Key format is `'${PATH}|${TYPE}|${VALUE}'`. It's not used in search condition."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:106
 msgid "  * `path`: The path of the value from root. It uses [jq][jq] compatible format. Object is `[\"${ELEMENT_NAME}\"]`, array is `[]`. For example, the path of `\"web\"` in `{\"tags\": [\"web\"]}` is `.[\"tags\"][]`. If you know absolute path of the value, you can use this value in search condition."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:108
 msgid "  * `paths`: The paths of the value. It includes absolute path, sub paths, `.${ELEMENT_NAME1}.${ELEMENT_NAME2}` format paths and paths without array. This column is convenient for search condition because you can use one of them for search condition. Here are paths for `\"x\"` in `{\"a\": {\"b\": \"c\": [\"x\"]}}`:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:110
-msgid "     * `.a.b.c`\n"
+msgid ""
+"     * `.a.b.c`\n"
 "     * `.[\"a\"][\"b\"][\"c\"]`\n"
 "     * `.[\"a\"][\"b\"][\"c\"][]`\n"
 "     * `a.b.c`\n"
@@ -202,52 +168,41 @@ msgid "     * `.a.b.c`\n"
 "     * `[]`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:124
 msgid "  * `type`: The type of the value. This column value is one of them:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:126
 msgid "    * `\"object\"`: Object. No value."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:128
 msgid "    * `\"array\"`: Array. The number of elements is stored in `size` column."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:130
 msgid "    * `\"boolean\"`: Boolean. The value is stored in `boolean` column."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:132
 msgid "    * `\"number\"`: Number. The value is stored in `number` column."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:134
 msgid "    * `\"string\"`: String. The value is stored in `string` column."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:136
 msgid "  * `boolean`: The value if `type` column value is `\"boolean\"`, `false` otherwise."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:138
 msgid "  * `number`: The value if `type` column value is `\"number\"`, `0` otherwise."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:140
 msgid "  * `string`: The value if `type` column value is `\"string\"`, `\"\"` otherwise."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:142
 msgid "  * `size`: The number of elements if `type` column value is `\"array\"`, `0` otherwise."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:144
 msgid "Here is a sample JSON:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:146
-msgid "```json\n"
+msgid ""
+"```json\n"
 "{\n"
 "  \"message\": \"GET /\",\n"
 "  \"host\":    \"www.example.com\",\n"
@@ -260,32 +215,28 @@ msgid "```json\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:158
 msgid "The JSON is split to the following values. (They are part of all split values.)"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:160
-msgid "| key | path | paths | type | boolean | number | string | size |\n"
+msgid ""
+"| key | path | paths | type | boolean | number | string | size |\n"
 "| --- | ---- | ----- | ---- | ------- | ------ | ------ | ---- |\n"
 "| `.|object` | `.` | `[.]` | `object` | | | | |\n"
 "| `.[\"message\"]|string|GET /` | `.[\"message\"]` | `[.message, .[\"message\"], message, [\"message\"]]` | `string` | | | `GET /` | |\n"
 "| `.[\"tags\"][]|string|web` | `.[\"tags\"]` | `[.tags, .[\"tags\"], .[\"tags\"][], tags, [\"tags\"], [\"tags\"][], []]` | `string` | | | `web` | |"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:166
 msgid "You specify condition that matches split value to `@@` operator. If there is one or more split values that match specified condition in `jsonb` type value, the `jsonb` type value is matched."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:168
 msgid "Here is a condition that searches `jsonb` type value that has `www.example.com` string:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:170
 msgid "(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:172
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string == \"www.example.com\"';\n"
 "--             jsonb_pretty             \n"
 "-- -------------------------------------\n"
@@ -310,12 +261,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:196
 msgid "Here is a condition that searches `jsonb` type value that has number between `200` to `299` as `code` column value. The condition uses `paths @ \"...\"` syntax to use simple path format (`.code`) to specify path."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:198
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'paths @ \".code\" && number >= 200 && number < 300';\n"
 "--           jsonb_pretty          \n"
 "-- --------------------------------\n"
@@ -332,12 +282,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:214
 msgid "Here is a condition for full text search from all text values in `jsonb` value type:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:216
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'string @ \"started\"';\n"
 "--             jsonb_pretty             \n"
 "-- -------------------------------------\n"
@@ -353,12 +302,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:231
 msgid "You can use [Groonga's query syntax][groonga-query-syntax] (`a OR b` can be used) for full text search by `query(\"string\", \"...\")` syntax:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:233
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record @@ 'query(\"string\", \"send OR server\")';\n"
 "--                  jsonb_pretty                 \n"
 "-- ----------------------------------------------\n"
@@ -382,45 +330,35 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:256
 msgid "## See also"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:258
 msgid "  * [`jsonb` support][jsonb]"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:260
 msgid "  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:262
 msgid "  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:264
 msgid "[jsonb]:../jsonb.html"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:266
-msgid "[contain-jsonb]:contain-jsonb.html\n"
+msgid ""
+"[contain-jsonb]:contain-jsonb.html\n"
 "[script-jsonb-v2]:script-jsonb-v2.html\n"
 "[jsquery]:https://github.com/postgrespro/jsquery"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:270
 msgid "[jq]:https://stedolan.github.io/jq/"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:272
 msgid "[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:274
 msgid "[groonga-script-syntax]:http://groonga.org/docs/reference/grn_expr/script_syntax.html"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/script-jsonb.md:276
 msgid "[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE"
 msgstr ""
-

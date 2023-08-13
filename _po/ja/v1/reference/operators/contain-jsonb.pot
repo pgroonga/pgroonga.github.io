@@ -1,108 +1,82 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"@> operator\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:6
 msgid "# `@>` operator"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:10
 msgid "PGroonga supports fast index search by `@>` operator."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:12
 msgid "[`@>` operator is a built-in PostgreSQL operator][postgresql-jsonb-operators]. `@>` operator returns `true` when the right hand side `jsonb` type value is a subset of left hand side `jsonb` type value."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:14
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:16
 msgid "Here is the syntax of this operator:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:18
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "column @> query\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:22
 msgid "`column` is a column to be searched. It's `jsonb` type."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:24
 msgid "`query` is a `jsonb` type value used as query."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:26
 msgid "The operator returns `true` when `query` is a subset of `column` value, `false` otherwise."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:28
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:30
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:32
 msgid "  * `pgroonga.jsonb_ops`: Default for `jsonb`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:34
 msgid "  * `pgroonga.jsonb_ops_v2`: For `jsonb`"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:36
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:38
 msgid "Here are sample schema and data for examples:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:40
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE logs (\n"
 "  record jsonb\n"
 ");"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:45
 msgid "CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:47
-msgid "INSERT INTO logs\n"
+msgid ""
+"INSERT INTO logs\n"
 "     VALUES ('{\n"
 "                \"message\": \"Server is started.\",\n"
 "                \"host\":    \"www.example.com\",\n"
@@ -133,26 +107,23 @@ msgid "INSERT INTO logs\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:77
 msgid "Disable sequential scan:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:79
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET enable_seqscan = off;\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:83
 msgid "Here is an example for match case:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:85
 msgid "(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:87
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record @> '{\"host\": \"www.example.com\"}'::jsonb;\n"
 "--             jsonb_pretty             \n"
 "-- -------------------------------------\n"
@@ -177,20 +148,17 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:111
 msgid "Here is an example for not match case."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:113
 msgid "If you use an array in the search condition `jsonb` type value, all elements must be included in the search target `jsonb` type value. Position of element isn't cared. If there are one or more elements that are included in the search condition `jsonb` type value but aren't included in the search target `jsonb` type value, record that have the search target `jsonb` type value isn't matched."
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:115
 msgid "In the following example, there are records that have only `\"mail\"` or `\"web\"` but there are no records that have both `\"mail\"` and `\"web\"`. So the following `SELECT` returns no record:"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:117
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record @> '{\"tags\": [\"mail\", \"web\"]}'::jsonb;\n"
 "--  jsonb_pretty \n"
 "-- --------------\n"
@@ -198,39 +166,29 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:124
 msgid "## See also"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:126
 msgid "  * [`jsonb` support][jsonb]"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:128
 msgid "  * [`&@~` operator][query-jsonb-v2]: Full text search against all text data in `jsonb` by easy to use query language"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:130
 msgid "  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:132
 msgid "[jsonb]:../jsonb.html"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:134
 msgid "[query-jsonb-v2]:query-jsonb-v2.html"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:136
 msgid "[script-jsonb-v2]:script-jsonb-v2.html"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:138
 msgid "[postgresql-jsonb-operators]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE"
 msgstr ""
 
-#: ../../../../../v1/reference/operators/contain-jsonb.md:140
 msgid "[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE"
 msgstr ""
-

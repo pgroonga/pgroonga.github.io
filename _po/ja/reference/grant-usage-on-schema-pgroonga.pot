@@ -1,64 +1,47 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: GRANT USAGE ON SCHEME pgroonga\n"
 "---"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:5
 msgid "# `GRANT USAGE ON SCHEME pgroonga`"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:7
 msgid "`pgroonga` schema is deprecated since 2.0.0. Use `pgroonga_*` functions, operators and operator classes in the current schema for newly written code."
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:9
 msgid "PGroonga defines functions, operators, operator classes and so on into `pgroonga` schema. Only superuser can use features in `pgroonga` schema by default. Superuser needs to grant `USAGE` privilege on `pgroonga` schema to normal users who want to use PGroonga."
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:11
 msgid "This document describes how to grant `USAGE` privilege on `pgroonga` schema to a normal user."
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:13
 msgid "## Create a normal user {#create-user}"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:15
 msgid "First, create a normal user `alice` by [`CREATE USER`]({{ site.postgresql_doc_base_url.en }}/sql-createuser.html):"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:17
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE USER alice;\n"
 "```"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:21
 msgid "Normal user `alice` can't access any objects in `pgroonga` schema at this time. For example, `alice` can't use [`pgroonga.snippet_html` function](functions/pgroonga-snippet-html.html):"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:23
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga.snippet_html('PGroonga is fast', Array['fast']);\n"
 "-- ERROR:  permission denied for schema pgroonga\n"
 "-- LINE 1: SELECT pgroonga.snippet_html('PGroonga is fast', Array['fast...\n"
@@ -66,30 +49,26 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:30
 msgid "You need to grant `USAGE` privilege on `pgroonga` schema to `alice`."
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:32
 msgid "## Grant `USAGE` privilege on `pgroonga` schema {#grant}"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:34
 msgid "You can grant `USAGE` privilege on `pgroonga` schema to normal user `alice` by [`GRANT`]({{ site.postgresql_doc_base_url.en }}/sql-grant.html):"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:36
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "GRANT USAGE ON SCHEMA pgroonga TO alice;\n"
 "```"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:40
 msgid "Now, `alice` can use all features in `pgroonga` schema. For example, `alice` can use `pgroonga.snippet_html` function:"
 msgstr ""
 
-#: ../../../reference/grant-usage-on-schema-pgroonga.md:42
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga.snippet_html('PGroonga is fast', Array['fast']);\n"
 "--                     snippet_html                     \n"
 "-- -----------------------------------------------------\n"
@@ -97,4 +76,3 @@ msgid "```sql\n"
 "-- (1 row)\n"
 "```"
 msgstr ""
-

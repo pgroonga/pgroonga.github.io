@@ -1,46 +1,32 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../how-to/jsonb.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: How to use on jsonb type column\n"
 "---"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:5
 msgid "# How to do full-text-search on `jsonb` type column"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:7
 msgid "`jsonb` type comes from PostgreSQL 9.4, this document will help you to try use PGroonga on `jsonb` type."
 msgstr ""
 
-#: ../../../how-to/jsonb.md:9
 msgid "## Create table schema and index"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:11
 msgid "Here is the sample to create a table with `jsonb` type:"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:13
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE jsonb_table (\n"
 "  id serial,\n"
 "  data jsonb,\n"
@@ -49,30 +35,28 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:21
 msgid "Then create index on `jsonb`:"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:23
-msgid "Note that `pgroonga_jsonb_ops_v2` only supports less than **4KiB**\n"
+msgid ""
+"Note that `pgroonga_jsonb_ops_v2` only supports less than **4KiB**\n"
 "string data in a `jsonb` column; if not certain about the length of\n"
 "`jsonb` data `pgroonga_jsonb_full_text_search_ops_v2` should be used\n"
 "as index method."
 msgstr ""
 
-#: ../../../how-to/jsonb.md:28
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE INDEX pgroonga_index_jsonb_table_data ON jsonb_table\n"
 "   USING pgroonga (\"data\" pgroonga_jsonb_full_text_search_ops_v2);\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:33
 msgid "Let us add some data for test:"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:35
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO jsonb_table (data)\n"
 "  VALUES ('{\"category\":\"server\"}');\n"
 "INSERT INTO jsonb_table (data)\n"
@@ -84,12 +68,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:46
 msgid "Now you can use full text search by PGroonga on `data` column like below:"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:48
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT id\n"
 "  FROM jsonb_table\n"
 " WHERE data &@ 'user';\n"
@@ -101,16 +84,14 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:59
 msgid "## Score function on `jsonb` column"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:61
 msgid "With `pgroonga_score(tableoid, ctid)` can get score of full `jsonb` column:"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:63
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT id,\n"
 "       pgroonga_score(tableoid, ctid) AS score\n"
 "  FROM jsonb_table\n"
@@ -123,27 +104,24 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:75
 msgid "If you want to score on specified JSON field, you must create index on that field:"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:77
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE INDEX pgroonga_index_jsonb_title ON jsonb_table\n"
 " USING pgroonga ((data->>'category'));\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:82
 msgid "Note that `jsonb->>'field'` is `text` type and `jsonb->'field'` is `jsonb` type."
 msgstr ""
 
-#: ../../../how-to/jsonb.md:84
 msgid "With this index, you can get score on `jsonb` field:"
 msgstr ""
 
-#: ../../../how-to/jsonb.md:86
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT id,\n"
 "       pgroonga_score(tableoid, ctid) AS score\n"
 "  FROM jsonb_table\n"
@@ -155,4 +133,3 @@ msgid "```sql\n"
 "-- (2 rows)\n"
 "```"
 msgstr ""
-

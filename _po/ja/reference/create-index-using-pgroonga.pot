@@ -1,182 +1,137 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-25 16:56+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../reference/create-index-using-pgroonga.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: CREATE INDEX USING pgroonga\n"
 "toc: true\n"
 "---"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:6
 msgid "# `CREATE INDEX USING pgroonga`"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:8
 msgid "You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index method. This section describes about `pgroonga` index method."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:10
 msgid "## Syntax {#syntax}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:12
 msgid "This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [`CREATE INDEX` document by PostgreSQL]({{ site.postgresql_doc_base_url.en }}/sql-createindex.html) for full `CREATE INDEX` syntax."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:14
 msgid "Here is a basic syntax for creating a single column index:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:16
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE INDEX ${INDEX_NAME}\n"
 "          ON ${TABLE_NAME}\n"
 "       USING pgroonga (${COLUMN});\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:22
 msgid "This syntax can be used for the following cases:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:24
-msgid "  * Creating a full text search index for a `text` type column\n"
+msgid ""
+"  * Creating a full text search index for a `text` type column\n"
 "  * Creating a full text search index for an array of `text` type column\n"
 "  * Creating a equality condition and comparison conditions search index for a non `text` type columns\n"
 "  * Creating a equality condition and comparison conditions search index for an array of non `text` type columns\n"
 "  * Creating a contain search and complex search index for `jsonb` type column"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:30
 msgid "Here is a basic syntax for creating a full text search index for a `varchar` type column:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:32
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE INDEX ${INDEX_NAME}\n"
 "          ON ${TABLE_NAME}\n"
 "       USING pgroonga (${COLUMN} pgroonga_varchar_full_text_search_ops_v2);\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:38
 msgid "You need to specify `pgroonga_varchar_full_text_search_ops_v2` operator class for the case."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:40
 msgid "You can also use `INCLUDE` since 2.3.5."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:42
 msgid "### Customization {#customization}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:44
 msgid "You can customize the followings by `WITH` option of `CREATE INDEX`:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:46
 msgid "  * Plugin: It's an extension for Groonga. You can use additional features including additional tokenizers, normalizers and token filters by registering a plugin."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:48
 msgid "  * Tokenizer: It's a module for customizing how to extract keywords."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:50
 msgid "  * Normalizer: It's a module for customizing equality of `text` and `varchar` types."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:52
 msgid "  * Token filter: It's a module for filtering keywords extracted by tokenizer."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:54
 msgid "  * Lexicon type: It's a type for lexicon that manages tokens."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:56
 msgid "  * Query syntax: It's the syntax used by [`$@~` operator][query-v2]."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:58
 msgid "Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to customize them are for advanced users."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:60
 msgid "Plugin and token filter aren't used by default."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:62
 msgid "Here are the default tokenizer, normalizer and lexicon type:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:64
 msgid "  * Tokenizer: [`TokenBigram`][groonga-token-bigram]: It's a bigram based tokenizer. It combines bigram tokenization and white space based tokenization. It uses bigram tokenization for non ASCII characters and white space based tokenization for ASCII characters. It reduces noise for ASCII characters only query."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:66
 msgid "  * Normalizer: [`NormalizerAuto`][groonga-normalizer-auto]: It chooses suitable normalization based on target encoding. For example, it uses [Unicode NFKC][unicode-nfkc] based normalization for UTF-8."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:68
 msgid "  * Lexicon type: [`patricia_trie`][groonga-table-patricia-trie]: It supports rich token search features such as predictive search. Its size is small."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:70
 msgid "#### How to register plugins {#custom-plugins}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:72
-#: ../../../reference/create-index-using-pgroonga.md:436
 msgid "Since 1.2.0."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:74
 msgid "Specify `plugins='${PLUGIN_NAME_1}, ${PLUGIN_NAME_2}, ..., ${PLUGIN_NAME_N}'` for registering plugins."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:76
 msgid "Note that you must specify `plugins` as the first option in `CREATE INDEX`. Options in `CREATE INDEX` are processed by the specified order. Plugins should be registered before other options are processed because tokenizer, normalizer and token filters may be included in the plugins."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:78
 msgid "Here is an example to register `token_filters/stem` plugin to use `TokenFilterStem` token filter:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:80
-#: ../../../reference/create-index-using-pgroonga.md:101
-#: ../../../reference/create-index-using-pgroonga.md:157
-#: ../../../reference/create-index-using-pgroonga.md:444
-#: ../../../reference/create-index-using-pgroonga.md:503
-#: ../../../reference/create-index-using-pgroonga.md:617
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:86
-#: ../../../reference/create-index-using-pgroonga.md:450
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (plugins='token_filters/stem',\n"
@@ -184,201 +139,162 @@ msgid "CREATE INDEX pgroonga_content_index\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:93
 msgid "See [How to customize token filters](#custom-token-filters) for token filters details."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:95
 msgid "#### How to customize tokenizer {#custom-tokenizer}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:97
 msgid "Specify `tokenizer='${TOKENIZER_NAME}'` for customizing tokenizer. Normally, you don't need to customize tokenizer."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:99
 msgid "Here is an example to use [MeCab][mecab] based tokenizer. You need to specify `tokenizer='TokenMecab'`. [`TokenMecab`][groonga-token-mecab] is a name of MeCab based tokenizer."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:107
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (tokenizer='TokenMecab');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:113
 msgid "You can disable tokenizer by specifying `tokenizer=''`. If you disable tokenizer, you can search column value only by exact match search and prefix search. It reduces noise for some cases. For example, it's useful for tag search, name search and so on."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:115
 msgid "Here is an example to disable tokenizer:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:117
-#: ../../../reference/create-index-using-pgroonga.md:137
-#: ../../../reference/create-index-using-pgroonga.md:198
-#: ../../../reference/create-index-using-pgroonga.md:216
-#: ../../../reference/create-index-using-pgroonga.md:234
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  tag text\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:123
-msgid "CREATE INDEX pgroonga_tag_index\n"
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
 "       USING pgroonga (tag)\n"
 "        WITH (tokenizer='');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:129
 msgid "`tokenizer='TokenDelimit'` will be useful for tag search. See also [`TokenDelimit`][groonga-token-delimit]."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:131
 msgid "You can specify tokenizer options by `tokenizer='${TOKENIZER_NAME}(...)'` syntax."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:133
-#: ../../../reference/create-index-using-pgroonga.md:212
 msgid "It's available since 2.0.6."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:135
 msgid "Here is an example to use `TokenNgram` tokenizer with `\"n\"` and `3` options:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:143
-msgid "CREATE INDEX pgroonga_tag_index\n"
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
 "       USING pgroonga (tag)\n"
 "        WITH (tokenizer='TokenNgram(\"n\", 3)');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:149
 msgid "See [Tokenizers][groonga-tokenizers] for other tokenizers."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:151
 msgid "#### Partial match in alphabetic languages {#partial-match-alphabetic-languages}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:153
 msgid "If you plan to perform partial matching searches for keywords in alphabetic languages, it is recommended to configure your tokenizer to `TokenNgram` with extra options. The default tokenizer in `PGroonga` is `TokenBigram`, which means that if you search for the keyword 'pp', for instance, it won't match 'Apple', 'Pineapple', or 'Ripple' in your data. To avoid this issue, it is strongly advised to set up your tokenizer as following `TokenNgram` example."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:155
 msgid "Here is an example to use `TokenNgram` based tokenizer. You need to specify `tokenizer='TokenNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:163
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH(tokenizer='TokenNgram(\"unify_alphabet\", false, \"unify_symbol\", false, \"unify_digit\", false)');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:169
 msgid "You may also use `TokenBigramBigramSplitSymbolAlphaDigit` for partial match instead of `TokenNgram` above. **(Using `TokenNgram(...)` is recommended)**."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:171
-msgid "**Remarks**\n"
+msgid ""
+"**Remarks**\n"
 "We however do not recommend using `TokenNgram(\"unify_...)`. It is advisable to use `TokenNgram/TokenBigram` instead, as partial matches in alphabetical languages tend to introduce a lot of noise. `TokenNgram(\"unify_...)` should only be utilized when it is truly necessary."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:174
 msgid "#### How to customize normalizer {#custom-normalizer}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:176
 msgid "You can use the following parameters to customize normalizer. Normally, you don't need to customize normalizer."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:178
 msgid "  * `normalizers`: The default normalizers that are used when the following parameters aren't used."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:180
-#: ../../../reference/create-index-using-pgroonga.md:192
 msgid "    * Since 2.3.1."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:182
 msgid "  * `normalizer`: Same as `normalizers`. This is deprecated since 2.3.1."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:184
 msgid "  * `full_text_search_normalizer`: Normalizer that is used for full text search index when `normalizers_mapping` doesn't specify normalizer for the index target."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:186
 msgid "  * `regexp_search_normalizer`: Normalizer that is used for regular expression search index when `normalizers_mapping` doesn't specify normalizer for the index target."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:188
 msgid "  * `prefix_search_normalizer`: Normalizer that is used for prefix search index when `normalizers_mapping` doesn't specify normalizer for the index target."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:190
 msgid "  * `normalizers_mapping`: You can specify normalizer for the specified index target."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:194
 msgid "You can disable normalizer by specifying empty value such as `normalizers=''`. If you disable normalizer, you can search column value only by the original column value. If normalizer increases noise, it's useful."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:196
 msgid "Here is an example to disable normalizer:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:204
-msgid "CREATE INDEX pgroonga_tag_index\n"
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
 "       USING pgroonga (tag)\n"
 "        WITH (normalizers='');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:210
 msgid "You can specify normalizer options by `normalizers='${NORMALIZER_NAME}(...)'` syntax."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:214
 msgid "Here is an example to use `NormalizerNFKC100` normalizer with `\"unify_kana\"` and `true` options:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:222
-msgid "CREATE INDEX pgroonga_tag_index\n"
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
 "       USING pgroonga (tag)\n"
 "        WITH (normalizers='NormalizerNFKC100(\"unify_kana\", true)');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:228
 msgid "You can specify multiple normalizers by `normalizers='${NORMALIZER_NAME1}(...), ${NORMALISER_NAME2(...), ...'` syntax."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:230
-#: ../../../reference/create-index-using-pgroonga.md:340
-#: ../../../reference/create-index-using-pgroonga.md:380
 msgid "It's available since 2.3.1."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:232
 msgid "Here is a useless example to use `NormalizerNFKC130` normalizer with `\"unify_kana\"` and `true` option and `NormalizerNFKC130` with `\"unify_hyphen\"` and `true` option:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:240
-msgid "CREATE INDEX pgroonga_tag_index\n"
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
 "       USING pgroonga (tag)\n"
 "        WITH (normalizers='\n"
@@ -388,55 +304,41 @@ msgid "CREATE INDEX pgroonga_tag_index\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:249
 msgid "See [Normalizers][groonga-normalizers] for other normalizers."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:251
 msgid "You can use other custom normalizer for full text search, regular expression search and prefix search separately. Here are sample operator classes for them:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:253
 msgid "  * Full text search: [`pgroonga_text_full_text_search_ops_v2`][text-full-text-search-ops-v2]"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:255
 msgid "  * Regular expression search: [`pgroonga_text_regexp_ops_v2`][text-regexp-ops-v2]"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:257
 msgid "  * Prefix search: [`pgroonga_text_term_search_ops_v2`][text-term-search-ops-v2]"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:259
 msgid "You can use different normalizer for each search operations by the following parameters."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:261
 msgid "  * Full text search: `full_text_search_normalizer`"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:263
 msgid "  * Regular expression search: `regexp_search_normalizer`"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:265
 msgid "  * Prefix search: `prefix_search_normalizer`"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:267
 msgid "If they aren't used, the `normalizers` parameter is used as fallback."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:269
 msgid "Here is an example to disable normalizer only for full text search:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:271
-#: ../../../reference/create-index-using-pgroonga.md:294
-#: ../../../reference/create-index-using-pgroonga.md:317
-#: ../../../reference/create-index-using-pgroonga.md:354
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  title text,\n"
@@ -445,8 +347,8 @@ msgid "```sql\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:279
-msgid "CREATE INDEX pgroonga_memos_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (\n"
 "               title pgroonga_text_full_text_search_ops_v2,\n"
@@ -458,16 +360,14 @@ msgid "CREATE INDEX pgroonga_memos_index\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:290
 msgid "The index for `title` is for full text search. It doesn't use normalizer because `full_text_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizer` is `'NormalizerAuto'`."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:292
 msgid "Here is an example to disable normalizer only for regular expression search:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:302
-msgid "CREATE INDEX pgroonga_memos_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (\n"
 "               title pgroonga_text_full_text_search_ops_v2,\n"
@@ -479,16 +379,14 @@ msgid "CREATE INDEX pgroonga_memos_index\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:313
 msgid "The index for `content` is for regular expression search. It doesn't use normalizer because `regexp_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizers` is `'NormalizerAuto'`."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:315
 msgid "Here is an example to disable normalizer only for prefix search:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:325
-msgid "CREATE INDEX pgroonga_memos_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (\n"
 "               title pgroonga_text_full_text_search_ops_v2,\n"
@@ -500,21 +398,17 @@ msgid "CREATE INDEX pgroonga_memos_index\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:336
 msgid "The index for `tag` is for term search that includes prefix search. It doesn't use normalizer because `prefix_search_normalizer` is `''`. Other indexes use `NormalizerAuto` because `normalizers` is `'NormalizerAuto'`."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:338
 msgid "You can use `normalizers_mapping='${MAPPING_IN_JSON}'` to specify normalizers for the specified index targets."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:342
-#: ../../../reference/create-index-using-pgroonga.md:589
 msgid "Here is the syntax of `${MAPPING_IN_JSON}`:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:344
-msgid "```json\n"
+msgid ""
+"```json\n"
 "{\n"
 "  \"${index_target_name1}\": \"${normalizer1}\",\n"
 "  \"${index_target_name2}\": \"${normalizer2}\",\n"
@@ -523,12 +417,11 @@ msgid "```json\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:352
 msgid "Here is an example to use `NormalizerNFKC130(\"unify_kana\", true)` normalizer for `title`, `NormalizerNFKC130(\"unify_hyphen\", true)` normalizer for `content` and `NormalizerAuto` for other columns:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:362
-msgid "CREATE INDEX pgroonga_memos_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (\n"
 "               title pgroonga_text_full_text_search_ops_v2,\n"
@@ -543,50 +436,46 @@ msgid "CREATE INDEX pgroonga_memos_index\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:376
 msgid "##### How to use `NormalizerTable` {#normalizer-table}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:378
 msgid "You can use `${table:PGROONGA_INDEX_NAME}` syntax in text that specifies normalizers."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:382
 msgid "It's substituted with table name in Groonga corresponding to the PGroonga's index specified as `PGROONGA_INDEX_NAME`. This is useful for [`NormalizerTable`][groonga-normalizer-table] that requires table and column names in Groonga."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:384
 msgid "Here is an example to use `NormalizerNFKC130` normalizer and `NormalizerTable` normalizer:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:386
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE normalizations (\n"
 "  target text,\n"
 "  normalized text\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:392
-msgid "CREATE INDEX pgrn_normalizations_index ON normalizations\n"
+msgid ""
+"CREATE INDEX pgrn_normalizations_index ON normalizations\n"
 " USING pgroonga (target pgroonga_text_term_search_ops_v2,\n"
 "                 normalized);"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:396
-msgid "INSERT INTO normalizations VALUES ('o', '0');\n"
+msgid ""
+"INSERT INTO normalizations VALUES ('o', '0');\n"
 "INSERT INTO normalizations VALUES ('ss', '55');"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:399
-msgid "CREATE TABLE memos (\n"
+msgid ""
+"CREATE TABLE memos (\n"
 "  id integer,\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:404
-msgid "CREATE INDEX pgroonga_memos_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (normalizers='\n"
@@ -598,13 +487,13 @@ msgid "CREATE INDEX pgroonga_memos_index\n"
 "             ');"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:415
-msgid "INSERT INTO memos VALUES (1, '0123455');\n"
+msgid ""
+"INSERT INTO memos VALUES (1, '0123455');\n"
 "INSERT INTO memos VALUES (2, 'o1234ss');"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:418
-msgid "SELECT * FROM memos WHERE content &@~ 'o123455';\n"
+msgid ""
+"SELECT * FROM memos WHERE content &@~ 'o123455';\n"
 "--  id | content \n"
 "-- ----+---------\n"
 "--   1 | 0123455\n"
@@ -613,157 +502,126 @@ msgid "SELECT * FROM memos WHERE content &@~ 'o123455';\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:426
 msgid "Note that you need to run `REINDEX INDEX pgroonga_memos_index` after you change `normalizations` table. Because normalization results are changed after `normalizations` table is changed."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:428
 msgid "##### How to use `NormalizerTable` with `pgroonga_highlight_html` {#normalizer-table-highlight-html}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:430
 msgid "When you need using `pgroonga_highlight_html` function with this `NormalizerTable`, you need to specify not only `TokenNgram` with `\"report_source_location\", true\"` option but also both `NormalizerNFKC*` and `NormalizerTable` with `\"report_source_offset\", true\"` option for each."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:432
 msgid "Please refer [`pgroonga_highlight_html` function][highlight-html] for details."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:434
 msgid "#### How to use token filters {#custom-token-filters}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:438
 msgid "Specify `token_filters='${TOKEN_FILTER_1}, ${TOKEN_FILTER_2}, ..., ${TOKEN_FILTER_N}'` for using token filters."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:440
 msgid "Groonga doesn't provide any token filters by default. All token filters are provided as plugins. You need to register plugins to use token filters."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:442
 msgid "Here is an example to use `TokenFilterStem` token filter that is included in `token_filters/stem` plugin:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:457
 msgid "Note that you must specify `plugins` before `token_filters`. These `CREATE INDEX` options are processed by the specified order. Plugins must be registered before you use token filters."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:459
 msgid "See [Token filters][groonga-token-filters] for other token filters."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:461
 msgid "#### How to customize tablespace {#custom-tablespace}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:463
 msgid "Since 1.1.6."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:465
 msgid "Specify `TABLESPACE ${TABLESPACE_NAME}` for customizing [tablespace][postgresql-tablespace]. If you have fast storage, you may want to change tablespace for PGroonga indexes."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:467
 msgid "Here is an example to change tablespace:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:469
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLESPACE fast LOCATION '/data/fast_disk';"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:472
-msgid "CREATE TABLE memos (\n"
+msgid ""
+"CREATE TABLE memos (\n"
 "  id integer,\n"
 "  tag text\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:477
-msgid "CREATE INDEX pgroonga_tag_index\n"
+msgid ""
+"CREATE INDEX pgroonga_tag_index\n"
 "          ON memos\n"
 "       USING pgroonga (tag)\n"
 "  TABLESPACE fast;\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:483
 msgid "#### How to customize lexicon type {#custom-lexicon-type}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:485
 msgid "Since 2.0.6."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:487
 msgid "Specify `lexicon_type='${LEXICON_TYPE}'` for customizing lexicon type."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:489
 msgid "Here are available lexicon types:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:491
 msgid "  * [`hash_table`][groonga-table-hash-table]"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:493
 msgid "  * [`patricia_trie`][groonga-table-patricia-trie]"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:495
 msgid "    * Default"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:497
 msgid "  * [`double_array_trie`][groonga-table-double-array-trie]"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:499
-#: ../../../reference/create-index-using-pgroonga.md:613
 msgid "Normally, you don't need to customize this because the default value is suitable for most cases."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:501
 msgid "Here is an example to use `hash_table` lexicon type to disable predictive token search:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:509
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (lexicon_type='hash_table');\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:515
 msgid "#### How to use `column:...` syntax in query {#query-allow-column}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:517
 msgid "Since 2.1.3."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:519
 msgid "Specify `query_allow_column=true` to use `column:...` syntax in query."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:521
 msgid "If you use `column:...` syntax, you can use other columns and not only match operations but also other operations."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:523
 msgid "Note that `column:...` syntax doesn't work with sequential search. It works only with index search."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:525
 msgid "Here is an example to use `query_allow_column` to use other column in the same index:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:527
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "DROP TABLE IF EXISTS memos;\n"
 "CREATE TABLE memos (\n"
 "  title text,\n"
@@ -771,21 +629,21 @@ msgid "```sql\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:534
-msgid "CREATE INDEX pgroonga_memo_texts_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memo_texts_index\n"
 "          ON memos\n"
 "       USING pgroonga (title, content)\n"
 "        WITH (query_allow_column=true);"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:539
-msgid "INSERT INTO memos VALUES\n"
+msgid ""
+"INSERT INTO memos VALUES\n"
 "  ('PGroonga = PostgreSQL + Groonga', 'Very fast full text search extension.'),\n"
 "  ('PostGIS', 'GIS extension.');"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:543
-msgid "SELECT *\n"
+msgid ""
+"SELECT *\n"
 "  FROM memos\n"
 "    -- The content column must have 'extension' and\n"
 "    -- the title column must have 'Groonga'.\n"
@@ -797,32 +655,31 @@ msgid "SELECT *\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:554
 msgid "Here is an example to use `query_allow_column` to use other operation:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:556
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "DROP TABLE IF EXISTS memos;\n"
 "CREATE TABLE memos (\n"
 "  title text\n"
 ");"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:562
-msgid "CREATE INDEX pgroonga_title_index\n"
+msgid ""
+"CREATE INDEX pgroonga_title_index\n"
 "          ON memos\n"
 "       USING pgroonga (title)\n"
 "        WITH (query_allow_column=true);"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:567
-msgid "INSERT INTO memos VALUES ('PGroonga');\n"
+msgid ""
+"INSERT INTO memos VALUES ('PGroonga');\n"
 "INSERT INTO memos VALUES ('PGroonga = PostgreSQL + Groonga');"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:570
-msgid "SELECT *\n"
+msgid ""
+"SELECT *\n"
 "  FROM memos\n"
 "    -- The title column must equal to 'PGroonga'.\n"
 "    -- Note that this operation doesn't use index.\n"
@@ -834,24 +691,20 @@ msgid "SELECT *\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:581
 msgid "See [Groonga's query syntax][groonga-query-syntax] for available operations."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:583
 msgid "#### How to customize index column flags {#custom-index-flags}"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:585
 msgid "Since 2.3.2."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:587
 msgid "Specify `index_flags_mappings='${MAPPING_IN_JSON}'` for customizing index column flags for the specified index target."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:591
-msgid "```json\n"
+msgid ""
+"```json\n"
 "{\n"
 "  \"${index_target_name1}\": \"${flags1}\",\n"
 "  \"${index_target_name2}\": \"${flags2}\",\n"
@@ -860,40 +713,32 @@ msgid "```json\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:599
 msgid "Here are available index column flags that are corresponding to [flags in Groonga][groonga-index-column-flags]:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:601
 msgid "  * `SMALL`: `INDEX_SMALL` in Groonga"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:603
 msgid "  * `MEDIUM`: `INDEX_MEDIUM` in Groonga"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:605
 msgid "  * `LARGE`: `INDEX_LARGE` in Groonga"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:607
 msgid "  * `WITH_WEIGHT`: `WITH_WEIGHT` in Groonga"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:609
 msgid "  * `WEIGHT_FLOAT32`: `WEIGHT_FLOAT32` in Groonga"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:611
 msgid "You can specify multiple flags by separating with `|` such as `LARGE|WITH_WEIGHT`. But you can't specify conflicted flags at once such as `SMALL|MEDIUM|LARGE`."
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:615
 msgid "Here is an example to use large index column for large data:"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:623
-msgid "CREATE INDEX pgroonga_content_index\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
 "       USING pgroonga (content)\n"
 "        WITH (index_flags_mapping='{\n"
@@ -902,87 +747,65 @@ msgid "CREATE INDEX pgroonga_content_index\n"
 "```"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:631
 msgid "[query-v2]:operators/query-v2.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:633
 msgid "[groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers.html#token-bigram"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:635
 msgid "[groonga-normalizer-auto]:http://groonga.org/docs/reference/normalizers.html#normalizer-auto"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:637
 msgid "[groonga-table-patricia-trie]:http://groonga.org/docs/reference/tables.html#table-pat-key"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:639
 msgid "[groonga-table-hash-table]:http://groonga.org/docs/reference/tables.html#table-hash-key"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:641
 msgid "[groonga-table-double-array-trie]:http://groonga.org/docs/reference/tables.html#table-dat-key"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:643
 msgid "[unicode-nfkc]:http://unicode.org/reports/tr15/"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:645
 msgid "[mecab]:http://taku910.github.io/mecab/"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:647
 msgid "[groonga-token-ngram]:https://groonga.org/docs/reference/tokenizers/token_ngram.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:649
 msgid "[groonga-token-mecab]:http://groonga.org/docs/reference/tokenizers.html#token-mecab"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:651
 msgid "[groonga-token-delimit]:http://groonga.org/docs/reference/tokenizers.html#token-delimit"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:653
 msgid "[groonga-tokenizers]:http://groonga.org/docs/reference/tokenizers.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:655
 msgid "[groonga-normalizers]:http://groonga.org/docs/reference/normalizers.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:657
 msgid "[groonga-normalizer-table]:https://groonga.org/docs/reference/normalizers/normalizer_table.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:659
 msgid "[groonga-token-filters]:http://groonga.org/docs/reference/token_filters.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:661
 msgid "[postgresql-tablespace]:{{ site.postgresql_doc_base_url.en }}/manage-ag-tablespaces.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:663
 msgid "[text-full-text-search-ops-v2]:./#text-full-text-search-ops-v2"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:665
 msgid "[text-regexp-ops-v2]:./#text-regexp-ops-v2"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:667
 msgid "[text-term-search-ops-v2]:./#text-term-search-ops-v2"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:669
 msgid "[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html"
 msgstr ""
 
-#: ../../../reference/create-index-using-pgroonga.md:671
 msgid "[groonga-index-column-flags]:https://groonga.org/docs/reference/commands/column_create.html#flags"
 msgstr ""
-

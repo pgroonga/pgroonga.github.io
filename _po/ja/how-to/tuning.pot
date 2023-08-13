@@ -1,124 +1,96 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../how-to/tuning.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: How to tune PGroonga\n"
 "---"
 msgstr ""
 
-#: ../../../how-to/tuning.md:5
 msgid "# How to tune PGroonga"
 msgstr ""
 
-#: ../../../how-to/tuning.md:7
 msgid "Normally, you don't need to tune PGroonga because PGroonga works well by default."
 msgstr ""
 
-#: ../../../how-to/tuning.md:9
 msgid "But you need to tune PGroonga in some cases such as a case that you need to handle a very large database. PGroonga uses Groonga as backend. It means that you can apply tuning knowledge for Groonga to PGroonga. See also the [Groonga tuning document][groonga-tuning] to tune PGroonga."
 msgstr ""
 
-#: ../../../how-to/tuning.md:11
 msgid "## Basic tuning"
 msgstr ""
 
-#: ../../../how-to/tuning.md:13
 msgid "### `nofile`"
 msgstr ""
 
-#: ../../../how-to/tuning.md:15
 msgid "When you are inserting or updating huge amout of data using PGroonga, you might get following errors in your `pgroonga.log`."
 msgstr ""
 
-#: ../../../how-to/tuning.md:17
-msgid "```text\n"
+msgid ""
+"```text\n"
 "SQLSTATE[58000]: <<Unknown error>>: 7 ERROR:  pgroonga: [insert] failed to set column value: system call error: Too many open files: [io][open] failed to open path: <base/121469/pgrn.00001C4>\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/tuning.md:21
 msgid "PostgreSQL process that uses PGroonga needs to open many files but your system preferences are not allowing it. In order to solve this, you need to create a configuration file `/etc/security/limits.d/postgresql.conf` with the following content:"
 msgstr ""
 
-#: ../../../how-to/tuning.md:23
-msgid "```vim\n"
+msgid ""
+"```vim\n"
 "postgres soft nofile 65535\n"
 "postgres hard nofile 65535\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/tuning.md:28
 msgid "In this example, one PostgreSQL process can open up to 65535 files."
 msgstr ""
 
-#: ../../../how-to/tuning.md:30
 msgid "To calculate how many open files are sufficient, please refer to [Groonga: Turning: The max number of open files per process][groonga-tuning-nofile]"
 msgstr ""
 
-#: ../../../how-to/tuning.md:33
 msgid "### `vm.overcommit_memory`"
 msgstr ""
 
-#: ../../../how-to/tuning.md:35
 msgid "When you are performing search using PGroonga, you might get following warning in your `pgroonga.log`."
 msgstr ""
 
-#: ../../../how-to/tuning.md:37
-msgid "```text\n"
+msgid ""
+"```text\n"
 "vm.overcommit_memory kernel parameter should be 1: <0>: See INFO level log to resolve this\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/tuning.md:41
 msgid "In order to prevent this warning from happening, you need to set `vm.overcommit_memory` kernel parameter to 1. To do this, you need to create a configuration file `/etc/sysctl.d/groonga.conf` that has the following content:"
 msgstr ""
 
-#: ../../../how-to/tuning.md:43
-msgid "```vim\n"
+msgid ""
+"```vim\n"
 "vm.overcommit_memory = 1\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/tuning.md:47
 msgid "The configuration can be applied by restarting your system or run the following command:"
 msgstr ""
 
-#: ../../../how-to/tuning.md:49
-msgid "```bash\n"
+msgid ""
+"```bash\n"
 "sudo sysctl --system\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/tuning.md:53
 msgid "## See also"
 msgstr ""
 
-#: ../../../how-to/tuning.md:55
 msgid "  * [Groonga: Tuning][groonga-tuning]"
 msgstr ""
 
-#: ../../../how-to/tuning.md:57
 msgid "[groonga-tuning]:https://groonga.org/docs/reference/tuning.html"
 msgstr ""
 
-#: ../../../how-to/tuning.md:59
 msgid "[groonga-tuning-nofile]:https://groonga.org/docs/reference/tuning.html#the-max-number-of-open-files-per-process"
 msgstr ""
-

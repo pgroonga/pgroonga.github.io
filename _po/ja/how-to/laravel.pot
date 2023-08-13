@@ -1,103 +1,85 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-12 15:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../how-to/laravel.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: How to use PGroonga with Laravel\n"
 "---"
 msgstr ""
 
-#: ../../../how-to/laravel.md:5
-msgid "# How to use PGroonga with Laravel\n"
+msgid ""
+"# How to use PGroonga with Laravel\n"
 "In this guide we will walk through building a Laravel application from scratch with PGroonga."
 msgstr ""
 
-#: ../../../how-to/laravel.md:8
 msgid "## Installation"
 msgstr ""
 
-#: ../../../how-to/laravel.md:10
-msgid "### Installing Laravel\n"
+msgid ""
+"### Installing Laravel\n"
 "**NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga"
 msgstr ""
 
-#: ../../../how-to/laravel.md:13
 msgid "If you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:15
-msgid "```shell\n"
+msgid ""
+"```shell\n"
 "composer create-project laravel/laravel pgroonga_laravel\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:19
 msgid "After the project has been created, start Laravel’s local development server using the Laravel’s Artisan CLI serve command:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:21
-msgid "```shell\n"
+msgid ""
+"```shell\n"
 "cd pgroonga_laravel\n"
 "php artisan serve\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:26
 msgid "Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000](http://localhost:8000)."
 msgstr ""
 
-#: ../../../how-to/laravel.md:28
 msgid "### Installing Laravel Breeze"
 msgstr ""
 
-#: ../../../how-to/laravel.md:30
-msgid "Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel’s authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.\n"
+msgid ""
+"Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel’s authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.\n"
 "To install Laravel Breeze, just run the following commands:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:33
-msgid "```shell\n"
+msgid ""
+"```shell\n"
 "composer require laravel/breeze --dev\n"
 "php artisan breeze:install blade\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:38
 msgid "### Set up database"
 msgstr ""
 
-#: ../../../how-to/laravel.md:40
 msgid "Let’s create a PostgreSQL database for this Laravel application."
 msgstr ""
 
-#: ../../../how-to/laravel.md:42
-msgid "```shell\n"
+msgid ""
+"```shell\n"
 "createdb pgroonga_laravel\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:46
 msgid "To instruct Laravel to use PostgreSQL instead of default MySQL, update your new application’s `.env` file and set environment variables like this:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:48
-msgid "```ini\n"
+msgid ""
+"```ini\n"
 "DB_CONNECTION=pgsql\n"
 "DB_HOST=127.0.0.1\n"
 "DB_PORT=5432\n"
@@ -107,140 +89,121 @@ msgid "```ini\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:57
 msgid "If you’re using different PostgreSQL username and password, change them according to your settings."
 msgstr ""
 
-#: ../../../how-to/laravel.md:59
 msgid "### Creating a Blog"
 msgstr ""
 
-#: ../../../how-to/laravel.md:61
 msgid "You’re now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using `PGroonga`."
 msgstr ""
 
-#: ../../../how-to/laravel.md:63
 msgid "### Models, migrations, and controllers"
 msgstr ""
 
-#: ../../../how-to/laravel.md:65
-msgid "To make a blog, we will need to create a model, migrations, and controllers.\n"
+msgid ""
+"To make a blog, we will need to create a model, migrations, and controllers.\n"
 "Since the blog has posts, we create Post model for it. To create a model, just run the following command:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:68
-msgid "```shell\n"
+msgid ""
+"```shell\n"
 "php artisan make:model -mc Post\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:72
 msgid "This command will create three files for you:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:74
-msgid "* `app/Models/Post.php` - The Eloquent model.\n"
+msgid ""
+"* `app/Models/Post.php` - The Eloquent model.\n"
 "* `database/migrations/<timestamp>_create_posts_table.php` - The database migration that will create your database table.\n"
 "* `app/Http/Controller/PostController.php` - The HTTP controller that will take incoming requests and return responses."
 msgstr ""
 
-#: ../../../how-to/laravel.md:78
-msgid "#### Model\n"
+msgid ""
+"#### Model\n"
 "Let’s add search function to our Post model `app/Models/Post.php`."
 msgstr ""
 
-#: ../../../how-to/laravel.md:81
 msgid "Before part is original state, and After is modified version:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:83
-#: ../../../how-to/laravel.md:135
-#: ../../../how-to/laravel.md:215
-#: ../../../how-to/laravel.md:455
-#: ../../../how-to/laravel.md:515
-msgid "Before:\n"
+msgid ""
+"Before:\n"
 "```php\n"
 "<?php"
 msgstr ""
 
-#: ../../../how-to/laravel.md:87
-#: ../../../how-to/laravel.md:102
 msgid "namespace App\\Models;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:89
-#: ../../../how-to/laravel.md:104
-msgid "use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n"
+msgid ""
+"use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n"
 "use Illuminate\\Database\\Eloquent\\Model;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:92
-msgid "class Post extends Model\n"
+msgid ""
+"class Post extends Model\n"
 "{\n"
 "    use HasFactory;\n"
 "}\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:98
-#: ../../../how-to/laravel.md:166
-#: ../../../how-to/laravel.md:229
-#: ../../../how-to/laravel.md:482
-#: ../../../how-to/laravel.md:541
-msgid "After:\n"
+msgid ""
+"After:\n"
 "```php\n"
 "<?php"
 msgstr ""
 
-#: ../../../how-to/laravel.md:107
-msgid "class Post extends Model\n"
+msgid ""
+"class Post extends Model\n"
 "{\n"
 "    use HasFactory;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:111
-msgid "    public static function search($keyword)\n"
+msgid ""
+"    public static function search($keyword)\n"
 "    {\n"
 "        if(empty($keyword)){\n"
 "            return static::query();\n"
 "        }"
 msgstr ""
 
-#: ../../../how-to/laravel.md:117
 msgid "        $search_columns = ['title', 'body'];"
 msgstr ""
 
-#: ../../../how-to/laravel.md:119
 msgid "        $search_query = static::query();"
 msgstr ""
 
-#: ../../../how-to/laravel.md:121
-msgid "        foreach($search_columns as $column){\n"
+msgid ""
+"        foreach($search_columns as $column){\n"
 "            $search_query->orWhereRaw(\"$column &@~ ?\", [$keyword]);\n"
 "        }"
 msgstr ""
 
-#: ../../../how-to/laravel.md:125
-msgid "        return $search_query;\n"
+msgid ""
+"        return $search_query;\n"
 "    }\n"
 "}\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:131
-msgid "#### Migration\n"
+msgid ""
+"#### Migration\n"
 "Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`\n"
 "Here are its original state and after state we modified it:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:139
-msgid "use Illuminate\\Database\\Migrations\\Migration;\n"
+msgid ""
+"use Illuminate\\Database\\Migrations\\Migration;\n"
 "use Illuminate\\Database\\Schema\\Blueprint;\n"
 "use Illuminate\\Support\\Facades\\Schema;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:143
-msgid "return new class extends Migration\n"
+msgid ""
+"return new class extends Migration\n"
 "{\n"
 "    /**\n"
 "     * Run the migrations.\n"
@@ -254,8 +217,8 @@ msgid "return new class extends Migration\n"
 "    }"
 msgstr ""
 
-#: ../../../how-to/laravel.md:156
-msgid "    /**\n"
+msgid ""
+"    /**\n"
 "     * Reverse the migrations.\n"
 "     */\n"
 "    public function down(): void\n"
@@ -266,15 +229,15 @@ msgid "    /**\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:170
-msgid "use Illuminate\\Database\\Migrations\\Migration;\n"
+msgid ""
+"use Illuminate\\Database\\Migrations\\Migration;\n"
 "use Illuminate\\Database\\Schema\\Blueprint;\n"
 "use Illuminate\\Support\\Facades\\DB;  // Don't forget to add this\n"
 "use Illuminate\\Support\\Facades\\Schema;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:175
-msgid "return new class extends Migration\n"
+msgid ""
+"return new class extends Migration\n"
 "{\n"
 "    /**\n"
 "     * Run the migrations.\n"
@@ -289,8 +252,8 @@ msgid "return new class extends Migration\n"
 "        });"
 msgstr ""
 
-#: ../../../how-to/laravel.md:189
-msgid "        Schema::table('posts', function (Blueprint $table) {\n"
+msgid ""
+"        Schema::table('posts', function (Blueprint $table) {\n"
 "            DB::statement('CREATE EXTENSION IF NOT EXISTS pgroonga');\n"
 "            DB::statement('CREATE INDEX pgrn_posts_id_index ON posts USING pgroonga (id)');\n"
 "            DB::statement('CREATE INDEX pgrn_posts_title_index ON posts USING pgroonga (title)');\n"
@@ -299,8 +262,8 @@ msgid "        Schema::table('posts', function (Blueprint $table) {\n"
 "    }"
 msgstr ""
 
-#: ../../../how-to/laravel.md:197
-msgid "    /**\n"
+msgid ""
+"    /**\n"
 "     * Reverse the migrations.\n"
 "     */\n"
 "    public function down(): void\n"
@@ -315,99 +278,91 @@ msgid "    /**\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:212
-msgid "#### Controller\n"
+msgid ""
+"#### Controller\n"
 "Let’s add our Post Controller to handle user requests `app/Http/Controller/PostController.php`"
 msgstr ""
 
-#: ../../../how-to/laravel.md:219
-#: ../../../how-to/laravel.md:233
 msgid "namespace App\\Http\\Controllers;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:221
 msgid "use Illuminate\\Http\\Request;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:223
-msgid "class PostController extends Controller\n"
+msgid ""
+"class PostController extends Controller\n"
 "{\n"
 "    //\n"
 "}\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:235
-msgid "use Illuminate\\Http\\Request;\n"
+msgid ""
+"use Illuminate\\Http\\Request;\n"
 "use Illuminate\\View\\View;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:238
-msgid "class PostController extends Controller\n"
+msgid ""
+"class PostController extends Controller\n"
 "{\n"
 "    public function index() : View\n"
 "    {\n"
 "        $posts = \\App\\Models\\Post::query()->paginate(10);"
 msgstr ""
 
-#: ../../../how-to/laravel.md:244
-msgid "        return view('posts.index', compact('posts'));\n"
+msgid ""
+"        return view('posts.index', compact('posts'));\n"
 "    }"
 msgstr ""
 
-#: ../../../how-to/laravel.md:247
-msgid "    public function search(Request $request) : View\n"
+msgid ""
+"    public function search(Request $request) : View\n"
 "    {\n"
 "        $keyword = $request->input('keyword');"
 msgstr ""
 
-#: ../../../how-to/laravel.md:251
 msgid "        $posts = \\App\\Models\\Post::search($keyword)->paginate(10)->withQueryString();"
 msgstr ""
 
-#: ../../../how-to/laravel.md:253
-msgid "        return view('posts.index', compact('posts', 'keyword'));\n"
+msgid ""
+"        return view('posts.index', compact('posts', 'keyword'));\n"
 "    }"
 msgstr ""
 
-#: ../../../how-to/laravel.md:256
-msgid "}\n"
+msgid ""
+"}\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:260
 msgid "### Routing"
 msgstr ""
 
-#: ../../../how-to/laravel.md:262
 msgid "We will also need to create URLs for our controller."
 msgstr ""
 
-#: ../../../how-to/laravel.md:264
 msgid "To start with, we are going to enable two routes:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:266
-msgid "* The `index` route will display our listing of blog posts.\n"
+msgid ""
+"* The `index` route will display our listing of blog posts.\n"
 "* The `search` route will be used for searching blog posts."
 msgstr ""
 
-#: ../../../how-to/laravel.md:269
 msgid "Edit `routes/web.php` like this:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:271
-msgid "```php\n"
+msgid ""
+"```php\n"
 "<?php"
 msgstr ""
 
-#: ../../../how-to/laravel.md:274
-msgid "use App\\Http\\Controllers\\ProfileController;\n"
+msgid ""
+"use App\\Http\\Controllers\\ProfileController;\n"
 "use Illuminate\\Support\\Facades\\Route;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:277
-msgid "/*\n"
+msgid ""
+"/*\n"
 "|--------------------------------------------------------------------------\n"
 "| Web Routes\n"
 "|--------------------------------------------------------------------------\n"
@@ -419,101 +374,91 @@ msgid "/*\n"
 "*/"
 msgstr ""
 
-#: ../../../how-to/laravel.md:288
-msgid "/* remove\n"
+msgid ""
+"/* remove\n"
 "Route::get('/', function () {\n"
 "    return view('welcome');\n"
 "});\n"
 "*/"
 msgstr ""
 
-#: ../../../how-to/laravel.md:294
-msgid "Route::get('/',  [\\App\\Http\\Controllers\\PostController::class, 'index']) // Add\n"
+msgid ""
+"Route::get('/',  [\\App\\Http\\Controllers\\PostController::class, 'index']) // Add\n"
 "    ->name('posts.index'); // Add\n"
 "Route::get('/search',  [\\App\\Http\\Controllers\\PostController::class, 'search']) // Add\n"
 "    ->name('posts.search'); // Add"
 msgstr ""
 
-#: ../../../how-to/laravel.md:299
-msgid "Route::get('/dashboard', function () {\n"
+msgid ""
+"Route::get('/dashboard', function () {\n"
 "    return view('dashboard');\n"
 "})->middleware(['auth', 'verified'])->name('dashboard');"
 msgstr ""
 
-#: ../../../how-to/laravel.md:303
-msgid "Route::middleware('auth')->group(function () {\n"
+msgid ""
+"Route::middleware('auth')->group(function () {\n"
 "    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');\n"
 "    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');\n"
 "    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');\n"
 "});"
 msgstr ""
 
-#: ../../../how-to/laravel.md:309
-msgid "require __DIR__.'/auth.php';\n"
+msgid ""
+"require __DIR__.'/auth.php';\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:312
 msgid "This will create the following routes:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:314
-msgid "| Verb | URI         | Action  | Route Name     |\n"
+msgid ""
+"| Verb | URI         | Action  | Route Name     |\n"
 "|------|-------------|---------|----------------|\n"
 "| GET  | `/`         | index   | posts.index    |\n"
 "| GET  | `/search`   | search  | posts.search   |"
 msgstr ""
 
-#: ../../../how-to/laravel.md:320
-msgid "### Blade\n"
+msgid ""
+"### Blade\n"
 "Let’s create a Blade file that will display the data  returned from `index` and `search` method of our `PostController` class to render a view:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:323
 msgid "First, we will change Breeze default `resources/views/layouts/guest.blade.php` template like this:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:325
 msgid "Before:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:327
-#: ../../../how-to/laravel.md:338
-#: ../../../how-to/laravel.md:352
 msgid "{% raw %}"
 msgstr ""
 
-#: ../../../how-to/laravel.md:329
-msgid "```php\n"
+msgid ""
+"```php\n"
 "<!-- Line 25 -->\n"
-"	<div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\n"
-"		{{ $slot }}\n"
-"	</div>\n"
+"\t<div class=\"w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\n"
+"\t\t{{ $slot }}\n"
+"\t</div>\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:336
-#: ../../../how-to/laravel.md:348
-#: ../../../how-to/laravel.md:442
 msgid "{% endraw %}"
 msgstr ""
 
-#: ../../../how-to/laravel.md:340
-msgid "After:\n"
+msgid ""
+"After:\n"
 "```php\n"
 "<!-- Line 25 -->\n"
-"	<div class=\"w-full lg:max-w-6xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\n"
-"	    {{ $slot }}\n"
-"	</div>\n"
+"\t<div class=\"w-full lg:max-w-6xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\n"
+"\t    {{ $slot }}\n"
+"\t</div>\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:350
 msgid "Then, we will create `resources/views/posts/index.blade.php` to display Blog Posts and also provide search features:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:354
-msgid "```php\n"
+msgid ""
+"```php\n"
 "<x-guest-layout>\n"
 "    <div class=\"py-2\">\n"
 "        <div class=\"max-w-7xl mx-auto sm:px-6 lg:px-8\">\n"
@@ -521,8 +466,8 @@ msgid "```php\n"
 "                <div class=\"p-2 bg-white border-b border-gray-200\">"
 msgstr ""
 
-#: ../../../how-to/laravel.md:361
-msgid "                    <div>\n"
+msgid ""
+"                    <div>\n"
 "                        <div class=\"flex w-full justify-between items-center sm:mb-2\">\n"
 "                            <h2 class=\"text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:mb-4\"><a href=\"/\">PGroonga Laravel</a> </h2>\n"
 "                        </div>\n"
@@ -538,16 +483,16 @@ msgid "                    <div>\n"
 "                        </form>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:376
-msgid "                        @if($posts ?? false)\n"
+msgid ""
+"                        @if($posts ?? false)\n"
 "                        <div class=\"container\">\n"
 "                            <div class=\"bg-white\">\n"
 "                              <div class=\"max-w-2xl mx-auto px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid-cols-1\">\n"
 "                                <div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:382
-msgid "                                  <dl class=\"sm:mt-8 grid grid-cols-1 gap-x-6 gap-y-2 grid-cols-1 sm:grid-cols-7 sm:gap-y-2 lg:gap-x-8\">\n"
+msgid ""
+"                                  <dl class=\"sm:mt-8 grid grid-cols-1 gap-x-6 gap-y-2 grid-cols-1 sm:grid-cols-7 sm:gap-y-2 lg:gap-x-8\">\n"
 "                                    <div class=\"border-t border-gray-200\">\n"
 "                                      <dt class=\"text-sm sm:text-base sm:font-medium text-gray-900\">\n"
 "                                              ID\n"
@@ -555,24 +500,24 @@ msgid "                                  <dl class=\"sm:mt-8 grid grid-cols-1 ga
 "                                    </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:389
-msgid "                                    <div class=\"border-t border-gray-200 sm:col-span-2\">\n"
+msgid ""
+"                                    <div class=\"border-t border-gray-200 sm:col-span-2\">\n"
 "                                      <dt class=\"text-sm sm:text-base sm:font-medium text-gray-900\">\n"
 "                                        {{ __('Title') }}\n"
 "                                      </dt>\n"
 "                                    </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:395
-msgid "                                    <div class=\"border-t border-gray-200 sm:col-span-4\">\n"
+msgid ""
+"                                    <div class=\"border-t border-gray-200 sm:col-span-4\">\n"
 "                                      <dt class=\"text-sm sm:text-base font-medium text-gray-900\">\n"
 "                                        {{ __('Body') }}\n"
 "                                      </dt>\n"
 "                                    </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:401
-msgid "                                    @foreach($posts as $post)\n"
+msgid ""
+"                                    @foreach($posts as $post)\n"
 "                                        <div class=\"border-t border-gray-200 pt-1\">\n"
 "                                            <dd class=\"sm:mt-2 text-sm text-gray-500\">\n"
 "                                                <span class=\"block m-1\">ID: {{ $post->id }}</span>\n"
@@ -580,47 +525,46 @@ msgid "                                    @foreach($posts as $post)\n"
 "                                        </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:408
-msgid "                                        <div class=\"border-t border-gray-200 pt-1 sm:col-span-2\">\n"
+msgid ""
+"                                        <div class=\"border-t border-gray-200 pt-1 sm:col-span-2\">\n"
 "                                            <dd class=\"sm:mt-2 text-sm text-gray-500\">\n"
 "                                                <span class=\"block m-1\">{{ $post->title }}</span>\n"
 "                                            </dd>\n"
 "                                        </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:414
-msgid "                                        <div class=\"border-t border-gray-200 pt-1 sm:col-span-4\">\n"
+msgid ""
+"                                        <div class=\"border-t border-gray-200 pt-1 sm:col-span-4\">\n"
 "                                          <dd class=\"sm:mt-2 text-sm text-gray-500\">\n"
 "                                              <span class=\"block m-1 line-break\">{{ $post->body }}</span>\n"
 "                                          </dd>\n"
 "                                        </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:420
-msgid "                                    @endforeach\n"
+msgid ""
+"                                    @endforeach\n"
 "                                  </dl>\n"
 "                                </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:424
-msgid "                                  <div>\n"
+msgid ""
+"                                  <div>\n"
 "                                    {{ $posts->links() }}\n"
 "                                  </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:428
-msgid "                              </div>\n"
+msgid ""
+"                              </div>\n"
 "                            </div>\n"
 "                        </div>\n"
 "                        @endif"
 msgstr ""
 
-#: ../../../how-to/laravel.md:433
 msgid "                    </div>"
 msgstr ""
 
-#: ../../../how-to/laravel.md:435
-msgid "                </div>\n"
+msgid ""
+"                </div>\n"
 "            </div>\n"
 "        </div>\n"
 "    </div>\n"
@@ -628,37 +572,31 @@ msgid "                </div>\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:444
 msgid "### Factory"
 msgstr ""
 
-#: ../../../how-to/laravel.md:446
-msgid "To create dummy data for this application, you need to create a Factory for Post Model.\n"
+msgid ""
+"To create dummy data for this application, you need to create a Factory for Post Model.\n"
 "Run following command which create a `database/factories/PostFactory.php` file."
 msgstr ""
 
-#: ../../../how-to/laravel.md:449
-msgid "```shell\n"
+msgid ""
+"```shell\n"
 "php artisan make:factory PostFactory\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:453
 msgid "Let’s add some code to generate a fake data for Post Model. Here are before and after:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:459
-#: ../../../how-to/laravel.md:486
 msgid "namespace Database\\Factories;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:461
-#: ../../../how-to/laravel.md:488
 msgid "use Illuminate\\Database\\Eloquent\\Factories\\Factory;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:463
-msgid "/**\n"
+msgid ""
+"/**\n"
 " * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Post>\n"
 " */\n"
 "class PostFactory extends Factory\n"
@@ -678,8 +616,8 @@ msgid "/**\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:490
-msgid "/**\n"
+msgid ""
+"/**\n"
 " * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Post>\n"
 " */\n"
 "class PostFactory extends Factory\n"
@@ -700,28 +638,22 @@ msgid "/**\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:511
 msgid "### Database Seeder"
 msgstr ""
 
-#: ../../../how-to/laravel.md:513
 msgid "Now you need to tell the database seeder class to use the factory we’ve created. We will modify the seeder to create 200,000 dummy blog posts:"
 msgstr ""
 
-#: ../../../how-to/laravel.md:519
-#: ../../../how-to/laravel.md:545
 msgid "namespace Database\\Seeders;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:521
-#: ../../../how-to/laravel.md:547
-msgid "// use Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents;\n"
+msgid ""
+"// use Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents;\n"
 "use Illuminate\\Database\\Seeder;"
 msgstr ""
 
-#: ../../../how-to/laravel.md:524
-#: ../../../how-to/laravel.md:550
-msgid "class DatabaseSeeder extends Seeder\n"
+msgid ""
+"class DatabaseSeeder extends Seeder\n"
 "{\n"
 "    /**\n"
 "     * Seed the application's database.\n"
@@ -731,8 +663,8 @@ msgid "class DatabaseSeeder extends Seeder\n"
 "        // \\App\\Models\\User::factory(10)->create();"
 msgstr ""
 
-#: ../../../how-to/laravel.md:533
-msgid "        // \\App\\Models\\User::factory()->create([\n"
+msgid ""
+"        // \\App\\Models\\User::factory()->create([\n"
 "        //     'name' => 'Test User',\n"
 "        //     'email' => 'test@example.com',\n"
 "        // ]);\n"
@@ -741,19 +673,18 @@ msgid "        // \\App\\Models\\User::factory()->create([\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:559
-msgid "        // \\App\\Models\\User::factory()->create([\n"
+msgid ""
+"        // \\App\\Models\\User::factory()->create([\n"
 "        //     'name' => 'Test User',\n"
 "        //     'email' => 'test@example.com',\n"
 "        // ]);"
 msgstr ""
 
-#: ../../../how-to/laravel.md:564
 msgid "        echo \"Now you need to wait for few minitues \\n\";"
 msgstr ""
 
-#: ../../../how-to/laravel.md:566
-msgid "        for($i =0; $i<2000; $i++)\n"
+msgid ""
+"        for($i =0; $i<2000; $i++)\n"
 "        {\n"
 "            \\App\\Models\\Post::factory()->count(100)->create();\n"
 "        }\n"
@@ -762,89 +693,80 @@ msgid "        for($i =0; $i<2000; $i++)\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:574
 msgid "### Run migration and seed sample data"
 msgstr ""
 
-#: ../../../how-to/laravel.md:576
-msgid "Following command will run the migration to PostgreSQL then seed \n"
+msgid ""
+"Following command will run the migration to PostgreSQL then seed \n"
 " fake data to it."
 msgstr ""
 
-#: ../../../how-to/laravel.md:579
-msgid "```shell\n"
+msgid ""
+"```shell\n"
 "php arrtisan migrate\n"
 "php artisan db:seed\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:585
-msgid "### Let’s test it\n"
+msgid ""
+"### Let’s test it\n"
 "First, you need to build a css. Just run the following command.\n"
 "```shell\n"
 "npm run build\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:591
-msgid "Then start the laravel by running follwoing command.\n"
+msgid ""
+"Then start the laravel by running follwoing command.\n"
 "```shell\n"
 "php artisan serve\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:596
 msgid "Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)"
 msgstr ""
 
-#: ../../../how-to/laravel.md:598
 msgid "![Laravel sample](../images/laravel/laravel1.png)"
 msgstr ""
 
-#: ../../../how-to/laravel.md:601
-msgid "### Search Function\n"
+msgid ""
+"### Search Function\n"
 "Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL which only can use indexes for prefix match search, it can also use indexes for full-text partial match search! Not only that, you can get AND search and OR search for free! Just type your keyword separate with space, you get AND search. If you separate words with OR (capital letter), you get OR search."
 msgstr ""
 
-#: ../../../how-to/laravel.md:604
 msgid "For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power."
 msgstr ""
 
-#: ../../../how-to/laravel.md:606
 msgid "![Laravel sample 2](../images/laravel/laravel2.png)"
 msgstr ""
 
-#: ../../../how-to/laravel.md:609
 msgid "Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`."
 msgstr ""
 
-#: ../../../how-to/laravel.md:611
 msgid "![Laravel sample 3](../images/laravel/laravel3.png)"
 msgstr ""
 
-#: ../../../how-to/laravel.md:613
 msgid "You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`."
 msgstr ""
 
-#: ../../../how-to/laravel.md:615
 msgid "Imagine when you are trying to create same feature using MySQL or PostgreSQL for `AND`, `OR` and `NOT` confitions, you will need to write a lot of code to handle all the cases. But with `PGroonga`, you get all these for free! And it is fast!"
 msgstr ""
 
-#: ../../../how-to/laravel.md:617
-msgid "### Make Japanese Version\n"
+msgid ""
+"### Make Japanese Version\n"
 "Simply following next steps and turn this Blog Search Sample in Japanese."
 msgstr ""
 
-#: ../../../how-to/laravel.md:620
-msgid "Add language file:\n"
+msgid ""
+"Add language file:\n"
 "```shell\n"
 "mkdir lang\n"
 "touch lang/ja.json\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:626
-msgid "`lang/ja.json`\n"
+msgid ""
+"`lang/ja.json`\n"
 "```json\n"
 "{\n"
 "    \"Title\": \"タイトル\",\n"
@@ -860,8 +782,8 @@ msgid "`lang/ja.json`\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:641
-msgid "Set locale to Japanese:\n"
+msgid ""
+"Set locale to Japanese:\n"
 "Edit `config/app.php`\n"
 "```php\n"
 "'locale' => 'ja', // Change from en to ja\n"
@@ -869,29 +791,25 @@ msgid "Set locale to Japanese:\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:648
-msgid "Run fresh migration and database seed again:\n"
+msgid ""
+"Run fresh migration and database seed again:\n"
 "```shell\n"
 "php artisan migrate:fresh --seed\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:653
-msgid "Start Laravel application:\n"
+msgid ""
+"Start Laravel application:\n"
 "```shell\n"
 "php artisan serve\n"
 "```"
 msgstr ""
 
-#: ../../../how-to/laravel.md:658
 msgid "Access the application in your web browser at: [http://localhost:8000](http://localhost:8000)"
 msgstr ""
 
-#: ../../../how-to/laravel.md:660
 msgid "How cool is this!"
 msgstr ""
 
-#: ../../../how-to/laravel.md:662
 msgid "![PGroonga Japanese](../images/laravel/laravel-ja1.png)"
 msgstr ""
-

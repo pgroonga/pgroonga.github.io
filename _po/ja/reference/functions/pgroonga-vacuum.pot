@@ -1,101 +1,78 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_vacuum function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:6
 msgid "# `pgroonga_vacuum` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:8
 msgid "Since 2.1.7."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:12
 msgid "`pgroonga_vacuum` function removes internal unused Groonga tables, columns and records. Note that it's not for PGroonga. It's for Groonga. Normally, you don't need to call this function because PGroonga does the same process on `VACUUM`."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:14
 msgid "You need to call this function one of the following situations:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:16
 msgid "  * You remove all PGroonga indexes. If you don't have any PGroonga index, PGroonga can't run the same process on `VACUUM`."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:18
 msgid "  * You use streaming replication. You need to call this function only on slaves because `VACUUM` isn't run on slaves."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:20
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:22
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:24
-msgid "```text\n"
+msgid ""
+"```text\n"
 "bool pgroonga_vacuum()\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:28
 msgid "It always returns `true`. If there is a problem in processing, an error is raised."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:30
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:32
 msgid "Here are sample schema:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:34
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:39
-msgid "CREATE INDEX pgroonga_index ON memos USING PGroonga (content);\n"
+msgid ""
+"CREATE INDEX pgroonga_index ON memos USING PGroonga (content);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:42
 msgid "You keep the current internal Groonga table name. `\\gset` and `\\echo` are `psql`'s meta commands:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:44
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_table_name('pgroonga_index')\n"
 "\\gset old_\n"
 "\\echo :old_pgroonga_table_name\n"
@@ -103,12 +80,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:51
 msgid "The current internal Groonga table is changed after `REINDEX`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:53
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "REINDEX INDEX pgroonga_index;\n"
 "SELECT pgroonga_table_name('pgroonga_index');\n"
 "--  pgroonga_table_name \n"
@@ -118,12 +94,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:62
 msgid "The old internal Groonga table exists until `VACUUM`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:64
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_command('object_exist',\n"
 "                        ARRAY[\n"
 "                          'name', :'old_pgroonga_table_name'\n"
@@ -135,12 +110,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:75
 msgid "You can remove the old internal Groonga table by `pgroonga_vacuum()`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-vacuum.md:77
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_vacuum();\n"
 "--  pgroonga_vacuum \n"
 "-- -----------------\n"
@@ -156,4 +130,3 @@ msgid "```sql\n"
 "-- (1 row)\n"
 "```"
 msgstr ""
-

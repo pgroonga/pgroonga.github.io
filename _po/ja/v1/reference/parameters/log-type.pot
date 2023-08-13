@@ -1,148 +1,114 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/parameters/log-type.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"pgroonga.log_type parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:6
 msgid "# `pgroonga.log_type` parameter"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:10
 msgid "`pgroonga.log_type` parameter controls how to log."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:12
 msgid "You can choose one log type from the followings:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:14
 msgid "  * Log to a file"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:16
 msgid "  * Log by Windows event log"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:18
 msgid "  * Log by log system in PostgreSQL"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:20
 msgid "PGroonga logs to a file by default. File path is specified by [`pgroonga.log_path` parameter](log-path.html)."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:22
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:24
 msgid "In SQL:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:26
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.log_type = type;\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:30
 msgid "In `postgresql.conf`:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:32
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.log_type = type\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:36
 msgid "`type` is an enum value. It means that you must choose one of them:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:38
 msgid "  * `file`: PGroonga logs to a file"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:40
 msgid "  * `windows_event_log`: PGroonga logs by Windows event log"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:42
 msgid "  * `postgresql`: PGroonga logs by log system in PostgreSQL"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:44
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:46
 msgid "Here is an example to use log system in PostgreSQL:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:48
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.log_type = postgresql;\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:52
 msgid "Here is an example to use Windows event log:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:54
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.log_type = windows_event_log;\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:58
 msgid "You can confirm logs from PGroonga by [Event Viewer](http://windows.microsoft.com/en-us/windows/open-event-viewer). But it may not be easy to read because Event Viewer shows PGroonga logs with warnings."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:60
 msgid "You can suppress the warnings from Event Viewer by registering `PGroonga` event source to Windows:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:62
-msgid "```text\n"
+msgid ""
+"```text\n"
 "> regsvr32 /n /i:PGroonga ${PostgreSQL install folder}\\lib\\pgevent.dll\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:66
 msgid "See also [Registering Event Log on Windows]({{ site.postgresql_doc_base_url.en }}/event-log-registration.html)."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:68
 msgid "## See also"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/log-type.md:70
 msgid "  * [`pgroonga.log_path` parameter](log-path.html)"
 msgstr ""
-

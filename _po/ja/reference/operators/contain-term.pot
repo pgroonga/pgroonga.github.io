@@ -1,102 +1,79 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/operators/contain-term.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"%% operator for varchar[]\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:6
 msgid "# `%%` operator for `varchar[]`"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:10
 msgid "This operator is deprecated since 1.2.1. Use [`&>` operator][contain-term-v2] instead."
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:12
 msgid "`%%` operator checks whether a term is included in an array of terms."
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:14
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:16
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "column %% term\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:20
 msgid "`column` is a column to be searched. It's `varchar[]` type."
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:22
 msgid "`term` is a term to be found. It's `varchar` type."
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:24
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:26
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:28
 msgid "  * `pgroonga_varchar_array_term_search_ops_v2`: Default for `varchar[]`"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:30
 msgid "  * `pgroonga_varchar_array_ops`: For `varchar[]`"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:32
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:34
 msgid "Here are sample schema and data for examples:"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:36
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  tags varchar(255)[]\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:42
-msgid "CREATE INDEX pgroonga_tags_index ON memos USING pgroonga (tags);\n"
+msgid ""
+"CREATE INDEX pgroonga_tags_index ON memos USING pgroonga (tags);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:45
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO memos VALUES (1, ARRAY['PostgreSQ']);\n"
 "INSERT INTO memos VALUES (2, ARRAY['Groonga']);\n"
 "INSERT INTO memos VALUES (3, ARRAY['PGroonga', 'PostgreSQL', 'Groonga']);\n"
@@ -104,12 +81,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:52
 msgid "You can find records that contain `'Groonga'` term in an array of terms by `%%` operator:"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:54
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT * FROM memos WHERE tags %% 'Groonga';\n"
 "--  id |             tags              \n"
 "-- ----+-------------------------------\n"
@@ -120,15 +96,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:64
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:66
 msgid "  * [`&>` operator][contain-term-v2]: Check whether a term is included in an array of terms"
 msgstr ""
 
-#: ../../../../reference/operators/contain-term.md:68
 msgid "[contain-term-v2]:contain-term-v2.html"
 msgstr ""
-

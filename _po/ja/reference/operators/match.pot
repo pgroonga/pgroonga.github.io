@@ -1,118 +1,91 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/operators/match.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"%% operator\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:6
 msgid "# `%%` operator"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:10
 msgid "This operator is deprecated since 1.2.0. Use [`&@` operator][match-v2] instead."
 msgstr ""
 
-#: ../../../../reference/operators/match.md:12
 msgid "`%%` operator performs full text search by one keyword."
 msgstr ""
 
-#: ../../../../reference/operators/match.md:14
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:16
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "column %% keyword\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:20
 msgid "`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type."
 msgstr ""
 
-#: ../../../../reference/operators/match.md:22
 msgid "`keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`."
 msgstr ""
 
-#: ../../../../reference/operators/match.md:24
 msgid "## Operator classes"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:26
 msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:28
 msgid "  * `pgroonga_text_full_text_search_ops_v2`: Default for `text`"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:30
 msgid "  * `pgroonga_text_array_full_text_search_ops_v2`: Default for `text[]`"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:32
 msgid "  * `pgroonga_varchar_full_text_search_ops_v2`: For `varchar`"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:34
 msgid "  * `pgroonga_text_full_text_search_ops`: For `text`"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:36
 msgid "  * `pgroonga_text_array_full_text_search_ops`: For `text[]`"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:38
 msgid "  * `pgroonga_varchar_full_text_search_ops`: For `varchar`"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:40
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:42
 msgid "Here are sample schema and data for examples:"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:44
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:50
-msgid "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
+msgid ""
+"CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:53
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
 "INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
 "INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
@@ -120,12 +93,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:60
 msgid "You can perform full text search with one keyword by `%%` operator:"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:62
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT * FROM memos WHERE content %% 'engine';\n"
 "--  id |                                content                                 \n"
 "-- ----+------------------------------------------------------------------------\n"
@@ -134,29 +106,23 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:70
 msgid "If you want to perform full text search with multiple keywords or AND/OR search, use [`&@~` operator][query-v2]."
 msgstr ""
 
-#: ../../../../reference/operators/match.md:72
 msgid "If you want to perform full text search with multiple keywords OR search, use [`&@|` operator][match-in-v2]."
 msgstr ""
 
-#: ../../../../reference/operators/match.md:74
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:76
 msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:78
 msgid "  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
 msgstr ""
 
-#: ../../../../reference/operators/match.md:80
-msgid "[match-v2]:match-v2.html\n"
+msgid ""
+"[match-v2]:match-v2.html\n"
 "[query-v2]:query-v2.html\n"
 "[match-in-v2]:match-in-v2.html"
 msgstr ""
-

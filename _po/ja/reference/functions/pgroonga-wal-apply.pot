@@ -1,114 +1,91 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-29 08:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_wal_apply function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:6
 msgid "# `pgroonga_wal_apply` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:10
 msgid "`pgroonga_wal_apply` function applies pending WAL. Normally, you don't need to use this function because PGroonga applies pending WAL automatically when `INSERT`, `DELETE`, `UPDATE`, `SELECT` and so on are executed."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:12
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:14
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:16
-msgid "```text\n"
+msgid ""
+"```text\n"
 "bigint pgroonga_wal_apply(pgroonga_index_name)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:20
 msgid "`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to be applied pending WAL."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:22
-#: ../../../../reference/functions/pgroonga-wal-apply.md:32
 msgid "It returns the number of applied operations."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:24
 msgid "Here is another syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:26
-msgid "```text\n"
+msgid ""
+"```text\n"
 "bigint pgroonga_wal_apply()\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:30
 msgid "It applies pending WAL of all PGroonga indexes."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:34
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:36
 msgid "Here are sample schema and data:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:38
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.enable_wal = yes;"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:41
-msgid "CREATE TABLE memos (\n"
+msgid ""
+"CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:45
-msgid "CREATE INDEX pgroonga_memos_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (content);"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:49
-msgid "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
+msgid ""
+"INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:52
 msgid "Simulate PGroonga database is destroyed situation:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:54
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_command('delete',\n"
 "                        ARRAY[\n"
 "                          'table', 'IndexStatuses',\n"
@@ -139,12 +116,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:84
 msgid "Now, there are pending WAL. You can apply the pending WAL explicitly:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:86
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_wal_apply('pgroonga_memos_index');\n"
 "--  pgroonga_wal_apply \n"
 "-- --------------------\n"
@@ -153,12 +129,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:94
 msgid "You can omit PGroonga index name. If you omit PGroonga index name, all pending WAL for all PGroonga indexes are applied explicitly:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:96
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_wal_apply();\n"
 "--  pgroonga_wal_apply \n"
 "-- --------------------\n"
@@ -167,23 +142,17 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:104
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:106
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:108
 msgid "  * [`pgroonga_wal_truncate` function][wal-truncate]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:110
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-wal-apply.md:112
 msgid "[wal-truncate]:pgroonga-wal-truncate.html"
 msgstr ""
-

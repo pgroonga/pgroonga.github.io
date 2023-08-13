@@ -1,87 +1,66 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-normalize.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_normalize function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:6
 msgid "# `pgroonga_normalize` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:8
 msgid "Since 2.0.3."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:12
 msgid "`pgroonga_normalize` function converts a text into a normalized form using [Groonga's normalizer modules][groonga-normalizers]."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:14
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:16
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:18
-msgid "```text\n"
+msgid ""
+"```text\n"
 "text pgroonga_normalize(target)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:22
 msgid "`target` is a `text` type value to be normalized. By default, it uses the built-in [`NormalizerAuto`][groonga-normalizer-auto] normalizer."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:24
 msgid "Here is another syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:26
-msgid "```text\n"
+msgid ""
+"```text\n"
 "text pgroonga_normalize(target, normalizer)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:30
 msgid "`normalizer` is a `text` type value which specifies the normalizer module you want to use."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:32
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:34
 msgid "You can normalize a `text` type value:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:36
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_normalize('aBcDe 123');\n"
 "--  pgroonga_normalize \n"
 "-- --------------------\n"
@@ -90,12 +69,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:44
 msgid "You can specify the normalizer:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:46
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_command('plugin_register normalizers/mysql');\n"
 "SELECT pgroonga_normalize('aBcDe 123', 'NormalizerMySQLGeneralCI');\n"
 "--  pgroonga_normalize \n"
@@ -105,16 +83,14 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:55
 msgid "`plugin_register normalizers/mysql` is needed to use [groonga-normalizer-mysql][groonga-normalizer-mysql]. It provides some MySQL compatible normalizers."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:57
 msgid "You can also specify normalizer options:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:59
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_normalize('あア', 'NormalizerNFKC130(\"unify_kana\", true)');\n"
 "--  pgroonga_normalize \n"
 "-- --------------------\n"
@@ -123,12 +99,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:67
 msgid "You may also specify multiple normalizers. Here is an useless example:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:69
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_normalize('あー-ア', \n"
 "  '\n"
 "    NormalizerNFKC130(\"unify_kana\", true),\n"
@@ -142,23 +117,17 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:82
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:84
 msgid " * [Groonga document for normalizers][groonga-normalizers]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:86
 msgid "[groonga-normalizers]:http://groonga.org/docs/reference/normalizers.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:88
 msgid "[groonga-normalizer-auto]:http://groonga.org/docs/reference/normalizers.html#normalizer-auto"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-normalize.md:90
 msgid "[groonga-normalizer-mysql]:https://github.com/groonga/groonga-normalizer-mysql"
 msgstr ""
-

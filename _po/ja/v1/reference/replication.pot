@@ -1,370 +1,271 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../v1/reference/replication.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: Replication\n"
 "---"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:5
 msgid "# Replication"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:7
 msgid "PGroonga supports PostgreSQL built-in [WAL based streaming replication]({{ site.postgresql_doc_base_url.en }}/warm-standby.html) since 1.1.6. It requires PostgreSQL 9.6 or later."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:9
 msgid "If you're using PostgreSQL 9.5 or earlier, you can use some alternative streaming replication implementations that can be used with PGroonga:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:11
 msgid "  * [pglogical](https://2ndquadrant.com/en/resources/pglogical/)"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:13
 msgid "  * [pg\\_shard](https://github.com/citusdata/pg_shard) (pg\\_shard is deprecated. [Citus](https://github.com/citusdata/citus), the replacement of pg\\_shard, may work with PGroonga. If you confirm that Citus can work with PGroonga, please [report it](https://github.com/pgroonga/pgroonga/issues/new).)"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:15
 msgid "Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html)."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:17
 msgid "This document describes how to configure PostgreSQL built-in WAL based streaming replication for PGroonga. Most of steps are normal steps. There are some PGroonga specific steps."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:19
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:21
 msgid "Here are steps to configure PostgreSQL built-in WAL based streaming replication for PGroonga. \"[normal]\" tag means that the step is a normal step for streaming replication. \"[special]\" tag means that the step is a PGroonga specific step."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:23
 msgid "  1. [normal] Install PostgreSQL on master and slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:25
 msgid "  2. [special] Install PGroonga on master and slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:27
 msgid "  3. [normal] Initialize PostgreSQL database on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:29
 msgid "  4. [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:31
 msgid "  5. [special] Add some PGroonga related configurations to `postgresql.conf` on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:33
 msgid "  6. [normal] Insert data on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:35
 msgid "  7. [special] Create a PGroonga index on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:37
 msgid "  8. [special] Flush PGroonga related data on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:39
 msgid "  9. [normal] Run `pg_basebackup` on slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:41
 msgid "  10. [normal] Add some streaming replication configurations to `postgresql.conf` on slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:43
 msgid "  11. [normal] Start PostgreSQL on slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:45
 msgid "## Example environment"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:47
 msgid "This document uses the following environment:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:49
 msgid "  * Master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:51
-#: ../../../../v1/reference/replication.md:63
-#: ../../../../v1/reference/replication.md:69
 msgid "    * OS: CentOS 7"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:53
 msgid "    * IP address: 192.168.0.30"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:55
 msgid "    * Database name: `blog`"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:57
 msgid "    * Replication user name: `replicator`"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:59
 msgid "    * Replication user password: `passw0rd`"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:61
 msgid "  * Slave1:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:65
-#: ../../../../v1/reference/replication.md:71
 msgid "    * IP address: 192.168.0.31"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:67
 msgid "  * Slave2:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:73
 msgid "This document shows command lines for CentOS 7. If you're using other platforms, adjust command lines by yourself."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:75
 msgid "For now (2017-07-03), the following official PGroonga packages support WAL. Because WAL support requires MessagePack and PostgreSQL 9.6 or later. Packages for other platforms don't satisfy one of them. If you build PGroonga from source, see [Install from source](../install/source.html). It describes about how to build with MessagePack."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:77
 msgid "  * [Debian GNU/Linux Stretch][debian-stretch]"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:79
 msgid "  * [Ubuntu 17.04][ubuntu]"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:81
 msgid "  * [CentOS 6][centos-6]"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:83
 msgid "  * [CentOS 7][centos-7]"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:85
 msgid "  * [Windows][windows]"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:87
 msgid "## [normal] Install PostgreSQL on master and slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:89
-#: ../../../../v1/reference/replication.md:136
-#: ../../../../v1/reference/replication.md:148
-#: ../../../../v1/reference/replication.md:229
-#: ../../../../v1/reference/replication.md:326
-#: ../../../../v1/reference/replication.md:340
-#: ../../../../v1/reference/replication.md:366
 msgid "This is a normal step."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:91
 msgid "Install PostgreSQL 9.6 on master and slaves."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:93
-#: ../../../../v1/reference/replication.md:117
-#: ../../../../v1/reference/replication.md:140
-#: ../../../../v1/reference/replication.md:393
 msgid "Master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:95
-#: ../../../../v1/reference/replication.md:103
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -H yum install -y http://yum.postgresql.org/9.6/redhat/rhel-$(rpm -qf --queryformat=\"%{VERSION}\" /etc/redhat-release)-$(rpm -qf --queryformat=\"%{ARCH}\" /etc/redhat-release)/pgdg-centos96-9.6-3.noarch.rpm\n"
 "% sudo -H yum install -y postgresql96-server\n"
 "% sudo -H systemctl enable postgresql-9.6\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:101
-#: ../../../../v1/reference/replication.md:124
-#: ../../../../v1/reference/replication.md:330
-#: ../../../../v1/reference/replication.md:348
 msgid "Slaves:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:109
 msgid "See also [PostgreSQL: Linux downloads (Red Hat family)](https://www.postgresql.org/download/linux/redhat/#yum)."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:111
 msgid "## [special] Install PGroonga on master and slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:113
-#: ../../../../v1/reference/replication.md:211
-#: ../../../../v1/reference/replication.md:270
-#: ../../../../v1/reference/replication.md:304
 msgid "This is a PGroonga specific step."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:115
 msgid "Install PGroonga on master and slaves."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:119
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm\n"
 "% sudo -H yum install -y postgresql96-pgroonga\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:126
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -H yum install -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm\n"
 "% sudo -H yum install -y epel-release\n"
 "% sudo -H yum install -y postgresql96-pgroonga\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:132
 msgid "See also [Install on CentOS](/../install/centos.html#install-on-7)."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:134
 msgid "## [normal] Initialize PostgreSQL database on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:138
 msgid "Initialize PostgreSQL database on only master. You don't need to initialize PostgreSQL database on slaves."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:142
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -H env PGSETUP_INITDB_OPTIONS=\"--locale C --encoding UTF-8\" /usr/pgsql-9.6/bin/postgresql96-setup initdb\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:146
 msgid "## [normal] Add some streaming replication configurations to `postgresql.conf` and `pg_hba.conf` on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:150
 msgid "Add the following streaming replication configurations to `postgresql.conf` on only master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:152
 msgid "  * `listen_address = '*'`"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:154
 msgid "  * `wal_level = replica`"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:156
 msgid "     * See also [PostgreSQL: Documentation: Write Ahead Log]({{ site.postgresql_doc_base_url.en }}/runtime-config-wal.html#GUC-WAL-LEVEL)."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:158
 msgid "  * `max_wal_senders = 4` (`= 2 (The number of slaves) * 2`. `* 2` is for unexpected connection close.)"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:160
 msgid "     * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:162
-#: ../../../../v1/reference/replication.md:215
-#: ../../../../v1/reference/replication.md:350
 msgid "`/var/lib/pgsql/9.6/data/postgresql.conf`:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:164
-#: ../../../../v1/reference/replication.md:186
-#: ../../../../v1/reference/replication.md:352
 msgid "Before:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:166
-msgid "```text\n"
+msgid ""
+"```text\n"
 "#listen_address = 'localhost'\n"
 "#wal_level = minimal\n"
 "#max_wal_senders = 0\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:172
-#: ../../../../v1/reference/replication.md:194
-#: ../../../../v1/reference/replication.md:358
 msgid "After:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:174
-msgid "```text\n"
+msgid ""
+"```text\n"
 "listen_address = '*'\n"
 "wal_level = replica\n"
 "max_wal_senders = 4\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:180
 msgid "Add the following streaming replication configurations to `pg_hba.conf` on only master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:182
 msgid "  * Accept replication connection by the replication user `replicator` from `192.168.0.0/24`."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:184
 msgid "`/var/lib/pgsql/9.6/data/pg_hba.conf`:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:188
-msgid "```text\n"
+msgid ""
+"```text\n"
 "#local   replication     postgres                                peer\n"
 "#host    replication     postgres        127.0.0.1/32            ident\n"
 "#host    replication     postgres        ::1/128                 ident\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:196
-msgid "```text\n"
+msgid ""
+"```text\n"
 "host    replication     replicator       192.168.0.0/24         md5\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:200
 msgid "Create the user for replication on only master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:202
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -H systemctl start postgresql-9.6\n"
 "% sudo -u postgres -H createuser --pwprompt --replication replicator\n"
 "Enter password for new role: (passw0rd)\n"
@@ -372,77 +273,65 @@ msgid "```text\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:209
 msgid "## [special] Add some PGroonga related configurations to `postgresql.conf` on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:213
 msgid "Add [`pgronga.enable_wal` parameter](parameters/enable-wal.html) configuration to `postgresql.conf` on only master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:217
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.enable_wal = on\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:221
 msgid "Restart PostgreSQL to apply the configuration:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:223
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -H systemctl restart postgresql-9.6\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:227
 msgid "## [normal] Insert data on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:231
 msgid "Create a normal user on only master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:233
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -u postgres -H createuser ${USER}\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:237
 msgid "Create a database on only master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:239
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -u postgres -H createdb --locale C --encoding UTF-8 --owner ${USER} blog\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:243
 msgid "Create a table in the created database on only master."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:245
 msgid "Connect to the created `blog` database:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:247
-#: ../../../../v1/reference/replication.md:281
-#: ../../../../v1/reference/replication.md:378
-#: ../../../../v1/reference/replication.md:412
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% psql blog\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:251
 msgid "Create `entries` table:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:253
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE entries (\n"
 "  title text,\n"
 "  body text\n"
@@ -450,54 +339,47 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:260
 msgid "Insert data to the created `entries` table:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:262
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');\n"
 "INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine used by PGroonga. We did not know about it.');\n"
 "INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:268
 msgid "## [special] Create a PGroonga index on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:272
 msgid "Install PGroonga to the database. It requires superuser privilege:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:274
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -u postgres -H psql blog --command \"CREATE EXTENSION pgroonga;\"\n"
 "% sudo -u postgres -H psql blog --command \"GRANT USAGE ON SCHEMA pgroonga TO ${USER};\"\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:279
 msgid "Connect to PostgreSQL by a normal user again:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:285
 msgid "Create a PGroonga index on only master:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:287
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:291
 msgid "Confirm the index:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:293
-#: ../../../../v1/reference/replication.md:382
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET enable_seqscan TO off;\n"
 "SELECT title FROM entries WHERE title %% 'replication';\n"
 "--           title           \n"
@@ -507,28 +389,23 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:302
 msgid "## [special] Flush PGroonga related data on master"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:306
 msgid "Ensure writing PGroonga related data on memory to disk on only master. You can choose one of them:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:308
 msgid "  1. Run `SELECT pgroonga.command('io_flush');`"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:310
 msgid "  2. Disconnect all connections"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:312
 msgid "Here is an example to use `pgroonga.command('io_flush')`:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:314
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga.command('io_flush');\n"
 "--                     command                    \n"
 "-- -----------------------------------------------\n"
@@ -537,90 +414,76 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:322
 msgid "You must not change tables that use PGroonga indexes on master until the next `pg_basebackup` step is finished."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:324
 msgid "## [normal] Run `pg_basebackup` on slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:328
 msgid "Run `pg_basebackup` on only slaves. It copies the current database from master."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:332
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -u postgres -H pg_basebackup --host 192.168.0.30 --pgdata /var/lib/pgsql/9.6/data --xlog --progress --username replicator --password --write-recovery-conf\n"
 "Password: (passw0rd)\n"
 "149261/149261 kB (100%), 1/1 tablespace\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:338
 msgid "## [normal] Add some streaming replication configurations to `postgresql.conf` on slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:342
 msgid "Add the following replica configurations to `postgresql.conf` on only slaves:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:344
 msgid "  * `hot_standby = on`"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:346
 msgid "    * See also [PostgreSQL: Documentation: Replication]({{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html#GUC-HOT-STANDBY)."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:354
-msgid "```text\n"
+msgid ""
+"```text\n"
 "#hot_standby = off\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:360
-msgid "```text\n"
+msgid ""
+"```text\n"
 "hot_standby = on\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:364
 msgid "## [normal] Start PostgreSQL on slaves"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:368
 msgid "Start PostgreSQL on slaves:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:370
-msgid "```text\n"
+msgid ""
+"```text\n"
 "% sudo -H systemctl start postgresql-9.6\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:374
 msgid "Now, you can search data inserted on master by PGroonga index created on master."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:376
-#: ../../../../v1/reference/replication.md:399
 msgid "Slave1:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:391
 msgid "You can also search data inserted on master after `pg_basebackup`."
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:395
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL supports generic WAL since 9.6. It is required for replication for PGroonga.');\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:401
-#: ../../../../v1/reference/replication.md:416
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT title FROM entries WHERE title %% 'replication';\n"
 "--              title              \n"
 "-- --------------------------------\n"
@@ -630,27 +493,20 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:410
 msgid "Slave2:"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:425
 msgid "[debian-stretch]:../install/debian.html#install-on-stretch"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:427
 msgid "[ubuntu]:../install/ubuntu.html"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:429
 msgid "[centos-6]:../install/centos.html#install-on-6"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:431
 msgid "[centos-7]:../install/centos.html#install-on-7"
 msgstr ""
 
-#: ../../../../v1/reference/replication.md:433
 msgid "[windows]:../install/windows.html"
 msgstr ""
-

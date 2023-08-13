@@ -1,77 +1,57 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-table-name.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_table_name function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:6
 msgid "# `pgroonga_table_name` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:10
 msgid "`pgroonga_table_name` function converts PGroonga's index name to Groonga's table name. Groonga's table name is useful to use [`select` Groonga command][groonga-select] by [`pgroonga_command` function][command]."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:12
 msgid "You can use weight feature by `select` Groonga command."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:14
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:16
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:18
-msgid "```text\n"
+msgid ""
+"```text\n"
 "text pgroonga_table_name(pgroonga_index_name)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:22
 msgid "`pgroonga_index_name` is a `text` type value. It's an index name to be converted to Groonga's table name. The index must be created with `USING pgroonga`."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:24
 msgid "`pgroonga_table_name` returns Groonga table name for `pgroonga_index_name` as `text` type value. If `pgroonga_index_name` doesn't exist or isn't a PGroonga index, `pgroonga_table_name` raises an error."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:26
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:28
 msgid "Here are sample schema and data. In the schema, both search target data and output data are index target columns:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:30
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE terms (\n"
 "  id integer,\n"
 "  title text,\n"
@@ -80,14 +60,14 @@ msgid "```sql\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:38
-msgid "CREATE INDEX pgroonga_terms_index\n"
+msgid ""
+"CREATE INDEX pgroonga_terms_index\n"
 "          ON terms\n"
 "       USING pgroonga (title, content, tag);"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:42
-msgid "INSERT INTO terms\n"
+msgid ""
+"INSERT INTO terms\n"
 "     VALUES (1,\n"
 "             'PostgreSQL',\n"
 "             'PostgreSQL is a relational database management system.',\n"
@@ -105,12 +85,11 @@ msgid "INSERT INTO terms\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:59
 msgid "You can use [`match_columns` option](http://groonga.org/docs/reference/commands/select.html#select-match-columns) to use weight:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:61
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT *\n"
 "  FROM json_array_elements(\n"
 "         pgroonga_command('select ' ||\n"
@@ -131,12 +110,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:81
 msgid "You can use drilldown feature by [`drilldown` option](http://groonga.org/docs/reference/commands/select.html#select-drilldown):"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:83
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT *\n"
 "  FROM json_array_elements(\n"
 "         pgroonga_command('select ' ||\n"
@@ -155,35 +133,26 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:101
 msgid "`select` Groonga command may help you when `SELECT` statement in SQL is slow."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:103
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:105
 msgid "  * [`pgroonga_table_name` function description in tutorial][tutorial-pgroonga-table-name]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:107
 msgid "  * [Attention when you use `select` Groonga command][command-attention]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:109
 msgid "[groonga-select]:https://groonga.org/docs/reference/commands/select.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:111
 msgid "[command]:pgroonga-command.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:113
 msgid "[tutorial-pgroonga-table-name]:../../tutorial/#pgroonga-table-name"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-table-name.md:115
 msgid "[command-attention]:pgroonga-command.html#attention"
 msgstr ""
-

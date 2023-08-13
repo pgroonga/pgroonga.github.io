@@ -1,128 +1,99 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"pgroonga.query_log_path parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:6
 msgid "# `pgroonga.query_log_path` parameter"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:10
 msgid "`pgroonga.query_log_path` parameter controls the path of query log."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:12
 msgid "This parameter is meaningless when you don't use [`pgroonga.command` function](../functions/pgroonga-command.html). Because query can be executed only via `pgroonga.command` function."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:14
 msgid "If you specify relative path, the path is resolved from `$PGDATA`."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:16
 msgid "You can disable query log output by specifying `none` as path."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:18
 msgid "The default value is `none`. It means that query log is disabled by default."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:20
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:22
 msgid "In SQL:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:24
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.query_log_path = path;\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:28
 msgid "In `postgresql.conf`:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:30
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.query_log_path = path\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:34
 msgid "`path` is a string value. It means that you need to quote `path` value such as `'pgroonga.query.log'`."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:36
 msgid "PGroonga outputs query log to `path`."
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:38
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:40
 msgid "Here is an example to output query log to `$PGDATA/pgroonga.query.log`:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:42
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.query_log_path = 'pgroonga.query.log';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:46
 msgid "Here is an example to output query log to `/var/log/pgroonga.query.log`:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:48
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.query_log_path = '/var/log/pgroonga.query.log';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:52
 msgid "Here is an example to disable query log:"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:54
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.query_log_path = 'none';\n"
 "```"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:58
 msgid "## See also"
 msgstr ""
 
-#: ../../../../../v1/reference/parameters/query-log-path.md:60
 msgid "  * [Query log format](http://groonga.org/docs/reference/log.html#query-log)"
 msgstr ""
-

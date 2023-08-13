@@ -1,93 +1,69 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_query_extract_keywords function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:6
 msgid "# `pgroonga_query_extract_keywords` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:8
 msgid "Since 1.0.7."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:12
 msgid "`pgroonga_query_extract_keywords` function extract keywords from text that uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html). Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:14
 msgid "Extracting keywords from query helps you to use [`pgroonga_snippet_html` function](pgroonga-snippet-html.html), [`pgroonga_highlight_html` function](pgroonga-highlight-html.html) and so on. They require keywords as an argument. Normally, the keywords must be keywords in query."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:16
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:18
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:20
-msgid "```text\n"
+msgid ""
+"```text\n"
 "text[] pgroonga_query_extract_keywords(query, index_name DEFAULTS '')\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:24
 msgid "`query` is a `text` type value. It uses [query syntax](http://groonga.org/docs/reference/grn_expr/query_syntax.html)."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:26
 msgid "`index_name` is a `text` type value. If you're using `query_allow_column=true` option with your index, you need to specify the index name."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:28
 msgid "`index_name` is available since 3.0.0."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:30
 msgid "`pgroonga_query_extract_keywords` returns an array of keywords."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:32
 msgid "Search terms for AND condition and OR condition are keywords. Search terms for NOT condition aren't keywords. For example, `A`, `B` and `C` are keywords and `D` isn't keyword in `\"A (B OR C) - D\"`. `-` is NOT operator."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:34
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:36
 msgid "You can get all terms as keywords for AND only case:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:38
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga PostgreSQL') AS query_extract_keywords;\n"
 "--  query_extract_keywords \n"
 "-- ------------------------\n"
@@ -96,12 +72,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:46
 msgid "You can get all terms as keywords for OR only case:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:48
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga OR PostgreSQL') AS query_extract_keywords;\n"
 "--  query_extract_keywords \n"
 "-- ------------------------\n"
@@ -110,12 +85,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:56
 msgid "You can use parentheses:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:58
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga (MySQL OR PostgreSQL)') AS query_extract_keywords;\n"
 "--    query_extract_keywords   \n"
 "-- ----------------------------\n"
@@ -124,12 +98,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:66
 msgid "Term for NOT condition isn't keyword:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:68
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_query_extract_keywords('Groonga - MySQL PostgreSQL') AS query_extract_keywords;\n"
 "--  query_extract_keywords \n"
 "-- ------------------------\n"
@@ -138,27 +111,26 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:76
 msgid "You need to specify `index_name` when you use `query_allow_column=true`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:78
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  title text,\n"
 "  content text\n"
 ");"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:84
-msgid "CREATE INDEX pgroonga_memo_texts_index\n"
+msgid ""
+"CREATE INDEX pgroonga_memo_texts_index\n"
 "          ON memos\n"
 "       USING pgroonga (title, content)\n"
 "        WITH (query_allow_column=true);"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:89
-msgid "SELECT pgroonga_query_extract_keywords(\n"
+msgid ""
+"SELECT pgroonga_query_extract_keywords(\n"
 "         'Groonga content:@PostgreSQL',\n"
 "         index_name => 'pgroonga_memo_texts_index') AS keywords;\n"
 "--  query_extract_keywords \n"
@@ -168,33 +140,26 @@ msgid "SELECT pgroonga_query_extract_keywords(\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:98
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:100
 msgid "  * [`pgroonga_snippet_html` function][snippet-html]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:102
 msgid "  * [`pgroonga_highlight_html` function][highlight-html]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:104
 msgid "  * [`pgroonga_match_positions_byte` function][match-positions-byte]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:106
 msgid "[query-v2]:../operators/query-v2.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:108
 msgid "[query-in-v2]:../operators/query-in-v2.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-query-extract-keywords.md:110
-msgid "[snippet-html]:pgroonga-query-snippet-html.html\n"
+msgid ""
+"[snippet-html]:pgroonga-query-snippet-html.html\n"
 "[highlight-html]:pgroonga-highlight-html.html\n"
 "[match-positions-byte]:pgroonga-match-positions-byte.html"
 msgstr ""
-

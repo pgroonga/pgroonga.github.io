@@ -1,82 +1,61 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_index_column_name function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:6
 msgid "# `pgroonga_index_column_name` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:8
 msgid "Since 2.2.6."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:10
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:12
 msgid "`pgroonga_index_column_name` function converts PGroonga's index name to Groonga's index column name. Groonga's index column name is useful to use [`object_inspect` Groonga command][groonga-object-inspect] by [`pgroonga_command` function][command]. `object_inspect` Groonga command against PGroonga's index column requires Groonga's index column name."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:14
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:16
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:18
-msgid "```text\n"
+msgid ""
+"```text\n"
 "text pgroonga_index_column_name(pgroonga_index_name, column_name)\n"
 "text pgroonga_index_column_name(pgroonga_index_name, column_index)\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:23
 msgid "`pgroonga_index_name` is a `text` type value. It's an index name to be converted to Groonga's index column name. The index must be created with `USING pgroonga`."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:25
 msgid "`column_name` is a `text` type value. It's the target column name in the target PGroonga's index."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:27
 msgid "`column_index` is a `int4` type value. It's the target position in the target PGroonga's index. The position uses zero-based indexing."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:29
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:31
 msgid "Here are sample schema:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:33
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "CREATE TABLE memos (\n"
 "  id integer,\n"
 "  title text,\n"
@@ -89,12 +68,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:45
 msgid "Here is a sample to use `column_index`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:47
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_index_column_name('pgroonga_index', 2);\n"
 "--  pgroonga_index_column_name \n"
 "-- ----------------------------\n"
@@ -103,12 +81,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:55
 msgid "Here is a sample to use `column_name`:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:57
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_index_column_name('pgroonga_index', 'tag');\n"
 "--  pgroonga_index_column_name \n"
 "-- ----------------------------\n"
@@ -117,12 +94,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:65
 msgid "Here is a sample to use `pgroonga_index_column_name()` for [`object_inspect` Groonga command][groonga-object-inspect]:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:67
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT jsonb_pretty(\n"
 "  pgroonga_command('object_inspect',\n"
 "                   ARRAY[\n"
@@ -260,19 +236,14 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:204
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:206
 msgid "  * [`pgroonga_command` function][command]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:208
 msgid "[groonga-object-inspect]:https://groonga.org/docs/reference/commands/object_inspect.html"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-index-column-name.md:210
 msgid "[command]:pgroonga-command.html"
 msgstr ""
-

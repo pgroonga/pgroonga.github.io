@@ -1,69 +1,51 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: pgroonga_is_writable function\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:6
 msgid "# `pgroonga_is_writable` function"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:10
 msgid "`pgroonga_is_writable` function returns whether you can change PGroonga data or not."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:12
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:14
 msgid "Here is the syntax of this function:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:16
-msgid "```text\n"
+msgid ""
+"```text\n"
 "bool pgroonga_is_writable()\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:20
 msgid "It returns whether you can change PGroonga data or not."
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:22
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:24
 msgid "Here is an example:"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:26
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SELECT pgroonga_is_writable();\n"
 "--  pgroonga_is_writable \n"
 "-- ----------------------\n"
@@ -72,15 +54,11 @@ msgid "```sql\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:34
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:36
 msgid "  * [`pgroonga_set_writable` function][set-writable]"
 msgstr ""
 
-#: ../../../../reference/functions/pgroonga-is-writable.md:38
 msgid "[is-writable]:pgroonga-is-writable.html"
 msgstr ""
-

@@ -1,112 +1,84 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-24 12:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:1
-msgid "---\n"
+msgid ""
+"---\n"
 "title: \"pgroonga.match_escalation_threshold parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:6
 msgid "# `pgroonga.match_escalation_threshold` parameter"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:8
 msgid "## Summary"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:10
 msgid "`pgroonga.match_escalation_threshold` parameter controls when match escalation is occurred."
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:12
 msgid "Match escalation is auto loose search. If the number of matched records is equal or less than the threshold specified by `pgroonga.match_escalation_threshold` parameter, loose search is done automatically. It's match escalation."
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:14
 msgid "The default threshold is `0`. It means that no records are matched, loose search is done automatically."
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:16
 msgid "You can disable match escalation by specifying `-1`."
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:18
 msgid "Normally, you don't need to change this parameter. Auto loose search is useful for users."
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:20
 msgid "See also [`pgroonga.force_match_escalation` parameter][force-match-escalation]."
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:22
 msgid "## Syntax"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:24
 msgid "In SQL:"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:26
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.match_escalation_threshold = threshold;\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:30
 msgid "In `postgresql.conf`:"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:32
-msgid "```text\n"
+msgid ""
+"```text\n"
 "pgroonga.match_escalation_threshold = threshold\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:36
 msgid "`threshold` is a number value."
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:38
 msgid "## Usage"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:40
 msgid "Here is an example to disable match escalation:"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:42
-msgid "```sql\n"
+msgid ""
+"```sql\n"
 "SET pgroonga.match_escalation_threshold = -1;\n"
 "```"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:46
 msgid "## See also"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:48
 msgid "  * [`pgroonga.force_match_escalation` parameter][force-match-escalation]"
 msgstr ""
 
-#: ../../../../reference/parameters/match-escalation-threshold.md:50
 msgid "[force-match-escalation]:force-match-escalation.html"
 msgstr ""
-

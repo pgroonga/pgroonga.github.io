@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-29 08:49+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=; plural=;\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:1
 msgid ""
 "---\n"
 "title: pgroonga_wal_status function\n"
@@ -18,103 +33,120 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:6
 msgid "# `pgroonga_wal_status` function"
 msgstr "# `pgroonga_wal_status` 関数"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_wal_status` function display a status of applying PGroonga's WAL."
+#: ../../../../reference/functions/pgroonga-wal-status.md:10
+msgid ""
+"`pgroonga_wal_status` function display a status of applying PGroonga's WAL."
 msgstr "`pgroonga_wal_status` 関数はPGroongaのWALの適用状況を表示します。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:12
 msgid ""
-"The maximum size of PGroonga's WAL is limited by [`pgroonga.max_wal_size`][max"
-"-wal-size].\n"
-"If we execute many modification before PGroonga doesn't apply PGroonga's WAL, "
-"not applied PGroonga's WAL may lost.\n"
-"Because PGroonga's WAL is over writed from the head of it when the size of mod"
-"ification over ``pgroonga.max_wal_size``"
+"The maximum size of PGroonga's WAL is limited by [`pgroonga.max_wal_size`][max-wal-size].\n"
+"If we execute many modification before PGroonga doesn't apply PGroonga's WAL, not applied PGroonga's WAL may lost.\n"
+"Because PGroonga's WAL is over writed from the head of it when the size of modification over ``pgroonga.max_wal_size``"
 msgstr ""
-"PGroongaのWALの最大サイズは、 [`pgroonga.max_wal_size`][max-wal-size] で制限されます。PGroongaの"
-"WALが適用される前にたくさんの変更を行うと、未適用のWALが失われる可能性があります。PGroongaのWALは、 ``pgroonga.max_wal_"
-"size`` を超える変更があった場合、PGroongaのWALの先頭から上書きされるためです。"
+"PGroongaのWALの最大サイズは、 [`pgroonga.max_wal_size`][max-wal-size] "
+"で制限されます。PGroongaのWALが適用される前にたくさんの変更を行うと、未適用のWALが失われる可能性があります。PGroongaのWALは、 "
+"``pgroonga.max_wal_size`` を超える変更があった場合、PGroongaのWALの先頭から上書きされるためです。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:16
 msgid ""
-"We understand the size of applied PGroonga's WAL by this function. Therefore w"
-"e can prevent lost for not applied PGroonga's WAL."
-msgstr "この関数を使うことでPGroongaのWALの適用済みのサイズがわかります。したがって、この関数を使うことで未適用のWALの消失を防ぐことができます。"
+"We understand the size of applied PGroonga's WAL by this function. Therefore"
+" we can prevent lost for not applied PGroonga's WAL."
+msgstr ""
+"この関数を使うことでPGroongaのWALの適用済みのサイズがわかります。したがって、この関数を使うことで未適用のWALの消失を防ぐことができます。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:18
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:20
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:22
 msgid ""
 "```text\n"
 "SETOF RECORD pgroonga_wal_status()\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:26
 msgid "It get a status of applying PGroonga's WAL."
 msgstr "この関数は、PGroongaのWALの適用状況を取得します。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:28
 msgid "It returns the following records:"
 msgstr "以下のようなレコードを返します。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:30
 msgid ""
 "```sql\n"
-"       name       | current_block | current_offset | current_size | last_block"
-" | last_offset | last_size \n"
-"------------------+---------------+----------------+--------------+-----------"
-"-+-------------+-----------\n"
-" pgrn_memos_index |             1 |            566 |         8758 |          1"
-" |         566 |      8758\n"
+"       name       | current_block | current_offset | current_size | last_block | last_offset | last_size \n"
+"------------------+---------------+----------------+--------------+------------+-------------+-----------\n"
+" pgrn_memos_index |             1 |            566 |         8758 |          1 |         566 |      8758\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:36
 msgid "``current_*`` show the information of applied PGroonga's WAL."
 msgstr "``current_*`` は適用済みのPGroongaのWALの情報です。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:38
 msgid ""
-"``last_*`` show the indormation of existing PGroonga's WAL regardless of wheth"
-"er apply or not."
+"``last_*`` show the indormation of existing PGroonga's WAL regardless of "
+"whether apply or not."
 msgstr "``last_*`` は適用されているかどうかに関わらず、現在存在しているPGroongaのWALの情報を表します。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:40
 msgid "``*_block`` show the number of block."
 msgstr "``*_block`` はブロック数を表します。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:42
 msgid "``*_offset`` show the position in a block."
 msgstr "``*_offset`` はブロック内の位置を表します。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:44
 msgid ""
-"``*_size`` show the size of PGroonga's WAL. The unit of this parameter is byte"
-"."
+"``*_size`` show the size of PGroonga's WAL. The unit of this parameter is "
+"byte."
 msgstr "``*_size`` はPGroongaのWALのサイズを表します。単位はbyteです。"
 
-msgid "If PGroonga applied all WAL, values of current and last are same values."
+#: ../../../../reference/functions/pgroonga-wal-status.md:46
+msgid ""
+"If PGroonga applied all WAL, values of current and last are same values."
 msgstr "PGroongaがWALをすべて適用している場合は、 current と last は同じ値になります。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:48
 msgid ""
 "Normally, values of current and last are same values in a primary database.\n"
-"In a standby database, if we don't use [`pgroonga_standby_maintainer` module]["
-"standby-maintainer], values of ``last_*`` increase only."
+"In a standby database, if we don't use [`pgroonga_standby_maintainer` module][standby-maintainer], values of ``last_*`` increase only."
 msgstr ""
 "通常、プライマリーのデーターベースでは、 current と last は同じ値です。\n"
-"スタンバイデータベースでは、 [`pgroonga_standby_maintainer` モジュール][standby-maintainer] を使ってい"
-"ない場合、 ``last_*`` の値のみ増加します。"
+"スタンバイデータベースでは、 [`pgroonga_standby_maintainer` モジュール][standby-maintainer] を使っていない場合、 ``last_*`` の値のみ増加します。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:51
 msgid ""
-"We can confirm whether overwritten WAL or not by using this function periodica"
-"lly in a standby database."
+"We can confirm whether overwritten WAL or not by using this function "
+"periodically in a standby database."
 msgstr "この関数を定期的にスタンバイデータベースで実行することでWALが上書きされているかどうかを確認できます。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:53
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:55
 msgid "Here are sample schema and data:"
 msgstr "サンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:57
 msgid ""
 "```sql\n"
 "SET pgroonga.enable_wal = yes;\n"
@@ -134,17 +166,14 @@ msgid ""
 "       last_offset,\n"
 "       last_size\n"
 "  FROM pgroonga_wal_status();\n"
-"       name       | current_block | current_offset | current_size | last_block"
-" | last_offset | last_size \n"
-"------------------+---------------+----------------+--------------+-----------"
-"-+-------------+-----------\n"
-" pgrn_memos_index |             1 |            566 |         8758 |          1"
-" |         566 |      8758\n"
-" pgrn_tags_index  |             1 |            560 |         8752 |          1"
-" |         560 |      8752\n"
+"       name       | current_block | current_offset | current_size | last_block | last_offset | last_size \n"
+"------------------+---------------+----------------+--------------+------------+-------------+-----------\n"
+" pgrn_memos_index |             1 |            566 |         8758 |          1 |         566 |      8758\n"
+" pgrn_tags_index  |             1 |            560 |         8752 |          1 |         560 |      8752\n"
 "(2 rows)"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:81
 msgid ""
 "INSERT INTO memos VALUES ('Groonga is fast!');\n"
 "INSERT INTO tags VALUES ('Groonga');\n"
@@ -156,17 +185,14 @@ msgid ""
 "       last_offset,\n"
 "       last_size\n"
 "  FROM pgroonga_wal_status();\n"
-"       name       | current_block | current_offset | current_size | last_block"
-" | last_offset | last_size \n"
-"------------------+---------------+----------------+--------------+-----------"
-"-+-------------+-----------\n"
-" pgrn_memos_index |             1 |            627 |         8819 |          1"
-" |         627 |      8819\n"
-" pgrn_tags_index  |             1 |            609 |         8801 |          1"
-" |         609 |      8801\n"
+"       name       | current_block | current_offset | current_size | last_block | last_offset | last_size \n"
+"------------------+---------------+----------------+--------------+------------+-------------+-----------\n"
+" pgrn_memos_index |             1 |            627 |         8819 |          1 |         627 |      8819\n"
+" pgrn_tags_index  |             1 |            609 |         8801 |          1 |         609 |      8801\n"
 "(2 rows)"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:97
 msgid ""
 "INSERT INTO memos VALUES ('PGroonga is also fast!');\n"
 "INSERT INTO tags VALUES ('PGroonga');\n"
@@ -178,35 +204,38 @@ msgid ""
 "       last_offset,\n"
 "       last_size\n"
 "  FROM pgroonga_wal_status();\n"
-"       name       | current_block | current_offset | current_size | last_block"
-" | last_offset | last_size \n"
-"------------------+---------------+----------------+--------------+-----------"
-"-+-------------+-----------\n"
-" pgrn_memos_index |             1 |            694 |         8886 |          1"
-" |         694 |      8886\n"
-" pgrn_tags_index  |             1 |            659 |         8851 |          1"
-" |         659 |      8851\n"
+"       name       | current_block | current_offset | current_size | last_block | last_offset | last_size \n"
+"------------------+---------------+----------------+--------------+------------+-------------+-----------\n"
+" pgrn_memos_index |             1 |            694 |         8886 |          1 |         694 |      8886\n"
+" pgrn_tags_index  |             1 |            659 |         8851 |          1 |         659 |      8851\n"
 "(2 rows)\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:114
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:116
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal` パラメーター][enable-wal]"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:118
 msgid "  * [`pgroonga.max_wal_size` parameter][max-wal-size]"
 msgstr "  * [`pgroonga.max_wal_size` パラメーター][max-wal-size]"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:120
 msgid "  * [`pgroonga_standby_maintainer` module][standby-maintainer]"
 msgstr "  * [`pgroonga_standby_maintainer` モジュール][standby-maintainer]"
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:122
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:124
 msgid "[max-wal-size]:../parameters/max-wal-size.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-status.md:126
 msgid "[standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
 msgstr ""

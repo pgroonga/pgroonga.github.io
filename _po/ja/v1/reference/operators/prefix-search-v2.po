@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:1
 msgid ""
 "---\n"
 "title: \"&^ operator\"\n"
@@ -19,64 +33,84 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:6
 msgid "# `&^` operator"
 msgstr "# `&^`演算子"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:12
 msgid ""
-"`&^>` operator for `text[]` is deprecated since 1.2.1. Use `&^` operator inste"
-"ad."
+"`&^>` operator for `text[]` is deprecated since 1.2.1. Use `&^` operator "
+"instead."
 msgstr "1.2.1から`text[]`用の`&^>`演算子は非推奨になりました。代わりに`&^`演算子を使ってください。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:14
 msgid "`&^` operator performs prefix search."
 msgstr "`&^`演算子は前方一致検索を実行します。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:16
 msgid "Prefix search is useful for implementing input completion."
 msgstr "前方一致検索は入力補完機能を実現する場合に便利です。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:18
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:20
 msgid ""
 "```sql\n"
 "column &^ prefix\n"
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type or `text[]` type."
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:24
+msgid ""
+"`column` is a column to be searched. It's `text` type or `text[]` type."
 msgstr "`column`は検索対象のカラムです。型は`text`型か`text[]`型です。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:26
 msgid "`prefix` is a prefix to be found. It's `text` type."
 msgstr "`prefix`は含まれているべきプレフィックスです。`text`型です。"
 
-msgid "The operator returns `true` when the `column` value starts with `prefix`."
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:28
+msgid ""
+"The operator returns `true` when the `column` value starts with `prefix`."
 msgstr "`column`の値が`prefix`から始まっていれば`true`を返します。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:30
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:32
 msgid ""
-"You need to specify one of the following operator classes to use this operator"
-":"
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:34
 msgid "  * `pgroonga.text_term_search_ops_v2`: For `text`"
 msgstr "  * `pgroonga.text_term_search_ops_v2`：`text`用"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:36
 msgid "  * `pgroonga.text_array_term_search_ops_v2`: For `text[]`"
 msgstr "  * `pgroonga.text_array_term_search_ops_v2`：`text[]`用"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:38
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:40
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:42
 msgid ""
 "```sql\n"
 "CREATE TABLE tags (\n"
@@ -84,12 +118,14 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:47
 msgid ""
 "CREATE INDEX pgroonga_tag_name_index ON tags\n"
 "  USING pgroonga (name pgroonga.text_term_search_ops_v2);\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:51
 msgid ""
 "```sql\n"
 "INSERT INTO tags VALUES ('PostgreSQL');\n"
@@ -99,9 +135,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:58
 msgid "You can perform prefix search with prefix by `&^` operator:"
 msgstr "`&^`演算子を使うと指定したプレフィックスで前方一致検索を実行できます。"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:60
 msgid ""
 "```sql\n"
 "SELECT * FROM tags WHERE name &^ 'pg';\n"
@@ -113,27 +151,34 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:69
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:71
 msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
 msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:73
 msgid ""
-"  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefix"
-"es"
+"  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of "
+"prefixes"
 msgstr "  * [`&^|`演算子][prefix-search-in-v2]：プレフィックスの配列での前方一致検索"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:75
 msgid ""
-"  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of"
-" prefixes"
+"  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array "
+"of prefixes"
 msgstr "  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:77
 msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:79
 msgid "[prefix-search-in-v2]:prefix-search-in-v2.html"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/prefix-search-v2.md:81
 msgid "[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html"
 msgstr ""

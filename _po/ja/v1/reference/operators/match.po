@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../../v1/reference/operators/match.md:1
 msgid ""
 "---\n"
 "title: \"%% operator\"\n"
@@ -19,63 +33,92 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/operators/match.md:6
 msgid "# `%%` operator"
 msgstr "# `%%`演算子"
 
+#: ../../../../../v1/reference/operators/match.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "This operator is deprecated since 1.2.0. Use [`&@` operator][match-v2] instead."
+#: ../../../../../v1/reference/operators/match.md:10
+msgid ""
+"This operator is deprecated since 1.2.0. Use [`&@` operator][match-v2] "
+"instead."
 msgstr "この演算子は1.2.0から非推奨です。代わりに[`&@`演算子][match-v2]を使ってください。"
 
+#: ../../../../../v1/reference/operators/match.md:12
 msgid "`%%` operator performs full text search by one keyword."
 msgstr "`%%`は1つのキーワードで全文検索を実行します。"
 
+#: ../../../../../v1/reference/operators/match.md:14
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/operators/match.md:16
 msgid ""
 "```sql\n"
 "column %% keyword\n"
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type."
+#: ../../../../../v1/reference/operators/match.md:20
+msgid ""
+"`column` is a column to be searched. It's `text` type, `text[]` type or "
+"`varchar` type."
 msgstr "`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。"
 
-msgid "`keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`."
-msgstr "`keyword`は全文検索で使うキーワードです。`column`が`text`型または`text[]`型なら`keyword`は`text`型です。`column`が`varchar`型なら`keyword`は`varchar`型です。"
+#: ../../../../../v1/reference/operators/match.md:22
+msgid ""
+"`keyword` is a keyword for full text search. It's `text` type for `text` "
+"type or `text[]` type `column`. It's `varchar` type for `varchar` type "
+"`column`."
+msgstr ""
+"`keyword`は全文検索で使うキーワードです。`column`が`text`型または`text[]`型なら`keyword`は`text`型です。`column`が`varchar`型なら`keyword`は`varchar`型です。"
 
+#: ../../../../../v1/reference/operators/match.md:24
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
-msgid "You need to specify one of the following operator classes to use this operator:"
+#: ../../../../../v1/reference/operators/match.md:26
+msgid ""
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../../v1/reference/operators/match.md:28
 msgid "  * `pgroonga.text_full_text_search_ops`: Default for `text`"
 msgstr "  * `pgroonga.text_full_text_search_ops`：`text`のデフォルト"
 
+#: ../../../../../v1/reference/operators/match.md:30
 msgid "  * `pgroonga.text_array_full_text_search_ops`: Default for `text[]`"
 msgstr "  * `pgroonga.text_array_full_text_search_ops`：`text[]`のデフォルト"
 
+#: ../../../../../v1/reference/operators/match.md:32
 msgid "  * `pgroonga.varchar_full_text_search_ops`: For `varchar`"
 msgstr "  * `pgroonga.varchar_full_text_search_ops`：`varchar`用"
 
+#: ../../../../../v1/reference/operators/match.md:34
 msgid "  * `pgroonga.text_full_text_search_ops_v2`: For `text`"
 msgstr "  * `pgroonga.text_full_text_search_ops_v2`：`text`用"
 
+#: ../../../../../v1/reference/operators/match.md:36
 msgid "  * `pgroonga.text_array_full_text_search_ops_v2`: For `text[]`"
 msgstr "  * `pgroonga.text_array_full_text_search_ops_v2`：`text[]`用"
 
+#: ../../../../../v1/reference/operators/match.md:38
 msgid "  * `pgroonga.varchar_full_text_search_ops_v2`: For `varchar`"
 msgstr "  * `pgroonga.varchar_full_text_search_ops_v2`：`varchar`用"
 
+#: ../../../../../v1/reference/operators/match.md:40
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/operators/match.md:42
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../../v1/reference/operators/match.md:44
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -84,11 +127,13 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match.md:50
 msgid ""
 "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/match.md:53
 msgid ""
 "```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
@@ -104,9 +149,11 @@ msgstr ""
 "INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');\n"
 "```"
 
+#: ../../../../../v1/reference/operators/match.md:60
 msgid "You can perform full text search with one keyword by `%%` operator:"
 msgstr "`%%`演算子を使うと1つキーワードで全文検索できます。"
 
+#: ../../../../../v1/reference/operators/match.md:62
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content %% 'engine';\n"
@@ -124,21 +171,34 @@ msgstr ""
 "-- (1 row)\n"
 "```"
 
-msgid "If you want to perform full text search with multiple keywords or AND/OR search, use [`&@~` operator][query-v2]."
+#: ../../../../../v1/reference/operators/match.md:70
+msgid ""
+"If you want to perform full text search with multiple keywords or AND/OR "
+"search, use [`&@~` operator][query-v2]."
 msgstr "複数のキーワードで全文検索したいときやAND/ORを使った検索をしたいときは[`&@~`演算子][query-v2]を使います。"
 
-msgid "If you want to perform full text search with multiple keywords OR search, use [`&@|` operator][match-in-v2]."
+#: ../../../../../v1/reference/operators/match.md:72
+msgid ""
+"If you want to perform full text search with multiple keywords OR search, "
+"use [`&@|` operator][match-in-v2]."
 msgstr "複数のキーワードでOR全文検索をしたいときは[`&@|`演算子][match-in-v2]を使います。"
 
+#: ../../../../../v1/reference/operators/match.md:74
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+#: ../../../../../v1/reference/operators/match.md:76
+msgid ""
+"  * [`&@~` operator][query-v2]: Full text search by easy to use query "
+"language"
 msgstr "  * [`&@~`演算子][query-v2]：便利なクエリー言語を使った全文検索"
 
-msgid "  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
+#: ../../../../../v1/reference/operators/match.md:78
+msgid ""
+"  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
 msgstr "  * [`&@|`演算子][match-in-v2]：キーワードの配列での全文検索"
 
+#: ../../../../../v1/reference/operators/match.md:80
 msgid ""
 "[match-v2]:match-v2.html\n"
 "[query-v2]:query-v2.html\n"

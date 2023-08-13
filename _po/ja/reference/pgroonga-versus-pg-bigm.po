@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:1
 msgid ""
 "---\n"
 "title: PGroonga versus pg_bigm\n"
@@ -17,57 +31,126 @@ msgstr ""
 "title: PGroonga対pg_bigm\n"
 "---"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:5
 msgid "# PGroonga versus pg\\_bigm"
 msgstr "# PGroonga対pg\\_bigm"
 
-msgid "PostgreSQL doesn't support full text search for non alphabet based languages such as Asian languages including Japanese, Chinese and Korean by default. There are some third party modules to support Asian languages. PGroonga is one of them. [pg\\_bigm](http://pgbigm.osdn.jp/index_en.html) is another module. There are some textsearch parsers such as [zhparser](https://github.com/amutu/zhparser) for Chinese and [textsearch\\_ja (not maintained)](http://textsearch-ja.projects.pgfoundry.org/textsearch_ja.html) for Japanese."
-msgstr "PostgreSQLはデフォルトではアルファベットベースではない言語の全文検索をサポートしていません。たとえば、日本語・中国語・韓国語といったアジアの言語の全文検索をサポートしていません。アジアの言語をサポートしたサードパーティーのモジュールがあります。PGroongaはそのうちのひとつです。他にも[pg\\_bigm](http://pgbigm.osdn.jp/)というモジュールがあります。textsearchのパーサーもあります。たとえば、[zhparser](https://github.com/amutu/zhparser)は中国語用のパーサーで、[textsearch\\_ja（メンテナンスされていません）](http://textsearch-ja.projects.pgfoundry.org/textsearch_ja.html)は日本語用のパーサーです。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:7
+msgid ""
+"PostgreSQL doesn't support full text search for non alphabet based languages"
+" such as Asian languages including Japanese, Chinese and Korean by default. "
+"There are some third party modules to support Asian languages. PGroonga is "
+"one of them. [pg\\_bigm](http://pgbigm.osdn.jp/index_en.html) is another "
+"module. There are some textsearch parsers such as "
+"[zhparser](https://github.com/amutu/zhparser) for Chinese and "
+"[textsearch\\_ja (not maintained)](http://textsearch-"
+"ja.projects.pgfoundry.org/textsearch_ja.html) for Japanese."
+msgstr ""
+"PostgreSQLはデフォルトではアルファベットベースではない言語の全文検索をサポートしていません。たとえば、日本語・中国語・韓国語といったアジアの言語の全文検索をサポートしていません。アジアの言語をサポートしたサードパーティーのモジュールがあります。PGroongaはそのうちのひとつです。他にも[pg\\_bigm](http://pgbigm.osdn.jp/)というモジュールがあります。textsearchのパーサーもあります。たとえば、[zhparser](https://github.com/amutu/zhparser)は中国語用のパーサーで、[textsearch\\_ja（メンテナンスされていません）](http://textsearch-"
+"ja.projects.pgfoundry.org/textsearch_ja.html)は日本語用のパーサーです。"
 
-msgid "The pg\\_bigm module is similar to the [pg\\_trgm]({{ site.postgresql_doc_base_url.en }}/pgtrgm.html) module. The pg\\_trgm module doesn't support Asian languages by default but the pg\\_bigm module supports them."
-msgstr "pg\\_bigmモジュールは[pg\\_trgm]({{ site.postgresql_doc_base_url.ja }}/pgtrgm.html)モジュールと似ています。pg\\_trgmモジュールはデフォルトではアジアの言語をサポートしていませんが、pg\\_bigmはサポートしています。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:9
+msgid ""
+"The pg\\_bigm module is similar to the [pg\\_trgm]({{ "
+"site.postgresql_doc_base_url.en }}/pgtrgm.html) module. The pg\\_trgm module"
+" doesn't support Asian languages by default but the pg\\_bigm module "
+"supports them."
+msgstr ""
+"pg\\_bigmモジュールは[pg\\_trgm]({{ site.postgresql_doc_base_url.ja "
+"}}/pgtrgm.html)モジュールと似ています。pg\\_trgmモジュールはデフォルトではアジアの言語をサポートしていませんが、pg\\_bigmはサポートしています。"
 
-msgid "This documents describes about difference between PGroonga and pg\\_bigm."
+#: ../../../reference/pgroonga-versus-pg-bigm.md:11
+msgid ""
+"This documents describes about difference between PGroonga and pg\\_bigm."
 msgstr "このドキュメントはPGroongaとpg\\_bigmの違いを説明します。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:13
 msgid "## Characteristics"
 msgstr "## 特徴"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:15
 msgid "Here are characteristics of each modules."
 msgstr "各モジュールの特徴は次の通りです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:17
 msgid "### PGroonga {#pgroonga}"
 msgstr ""
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:19
 msgid "PGroonga is fast for searching because it doesn't need \"recheck\"."
 msgstr "「recheck」する必要がないのでPGroongaの検索は高速です。"
 
-msgid "PGroonga is also fast for searching while updating because it doesn't block searching while updating. PGroonga doesn't decrease search performance while updating."
+#: ../../../reference/pgroonga-versus-pg-bigm.md:21
+msgid ""
+"PGroonga is also fast for searching while updating because it doesn't block "
+"searching while updating. PGroonga doesn't decrease search performance while"
+" updating."
 msgstr "PGroongaは更新中の検索をブロックしないので更新中も高速に検索できます。PGroongaは更新中も検索性能を落としません。"
 
-msgid "PGroonga is also fast for alphabet based languages and Asian languages mixed case. PGroonga uses N-gram based full text search by default. It's similar to pg\\_bigm because pg\\_bigm uses 2-gram (N is 2 case of N-gram). But PGroonga uses variable size N-gram. N-gram is slower for alphabet based languages because the number of letter types are few in alphabet. It's about 26 (\"a\" to \"z\" and more). Posting list in inverted index will be longer when the number of letter types are few. (If you're not familiar with inverted index, you may not understand this description.) See also [PGroonga versus textsearch and pg\\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html). You can find pg\\_trgm that uses N-gram based full text search is slower. PGroonga uses word based full text search instead of N-gram based full text search for alphabet based languages even if the target text mixes alphabet based languages and Asian languages such as \"私はPostgreSQLユーザーです。\"."
-msgstr "PGroongaはアルファベットベースの言語とアジアの言語が混ざっている場合も高速です。PGroongaはデフォルトでN-gramベースの全文検索を使います。これはpg\\_bigmと似ています。なぜなら、pg\\_bigmは2-gram（N-gramのNが2のケース）を使っているからです。しかし、PGroongaは可変長サイズのN-gramを使っています。N-gramはアルファベットベースの言語では遅くなりがちです。これは、アルファベットの字種が少ないからです。字種はだいたい26（「a」から「z」までと他にいくつか）になります。字種が少ないと転置インデックスのポスティングリストが長くなりがちです。（転置インデックスに詳しくないとこの説明はピンとこないかもしれません。）[PGroonga対textsearch対pg\\_trgm](pgroonga-versus-textsearch-and-pg-trgm.html)も参照してください。N-gramベースの全文検索であるpg\\_trgmが遅めなのがわかります。PGroongaは「私はPostgreSQLユーザーです。」というようにアルファベットベースの言語とアジアの言語が混ざっているときでもアルファベットベースの言語にはN-gramベースの全文検索ではなく単語ベースの全文検索を使います。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:23
+msgid ""
+"PGroonga is also fast for alphabet based languages and Asian languages mixed"
+" case. PGroonga uses N-gram based full text search by default. It's similar "
+"to pg\\_bigm because pg\\_bigm uses 2-gram (N is 2 case of N-gram). But "
+"PGroonga uses variable size N-gram. N-gram is slower for alphabet based "
+"languages because the number of letter types are few in alphabet. It's about"
+" 26 (\"a\" to \"z\" and more). Posting list in inverted index will be longer"
+" when the number of letter types are few. (If you're not familiar with "
+"inverted index, you may not understand this description.) See also [PGroonga"
+" versus textsearch and pg\\_trgm](pgroonga-versus-textsearch-and-pg-"
+"trgm.html). You can find pg\\_trgm that uses N-gram based full text search "
+"is slower. PGroonga uses word based full text search instead of N-gram based"
+" full text search for alphabet based languages even if the target text mixes"
+" alphabet based languages and Asian languages such as "
+"\"私はPostgreSQLユーザーです。\"."
+msgstr ""
+"PGroongaはアルファベットベースの言語とアジアの言語が混ざっている場合も高速です。PGroongaはデフォルトでN-"
+"gramベースの全文検索を使います。これはpg\\_bigmと似ています。なぜなら、pg\\_bigmは2-gram（N-gramのNが2のケース）を使っているからです。しかし、PGroongaは可変長サイズのN-"
+"gramを使っています。N-gramはアルファベットベースの言語では遅くなりがちです。これは、アルファベットの字種が少ないからです。字種はだいたい26（「a」から「z」までと他にいくつか）になります。字種が少ないと転置インデックスのポスティングリストが長くなりがちです。（転置インデックスに詳しくないとこの説明はピンとこないかもしれません。）[PGroonga対textsearch対pg\\_trgm](pgroonga-"
+"versus-textsearch-and-pg-"
+"trgm.html)も参照してください。N-gramベースの全文検索であるpg\\_trgmが遅めなのがわかります。PGroongaは「私はPostgreSQLユーザーです。」というようにアルファベットベースの言語とアジアの言語が混ざっているときでもアルファベットベースの言語にはN-"
+"gramベースの全文検索ではなく単語ベースの全文検索を使います。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:25
 msgid "PGroonga is also fast for updating."
 msgstr "PGroongaは更新も高速です。"
 
-msgid "PGroonga index is large because it keeps index target text that is already stored in PostgreSQL."
+#: ../../../reference/pgroonga-versus-pg-bigm.md:27
+msgid ""
+"PGroonga index is large because it keeps index target text that is already "
+"stored in PostgreSQL."
 msgstr "PGroongaはPostgreSQLに保存しているインデックス対象のテキストも保存しているのでインデックスサイズは大きいです。"
 
-msgid "PGroonga index isn't crash safe. You need to run [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html) when your PGroonga index is broken by crash."
-msgstr "PGroongaのインデックスはクラッシュセーフではありません。もし、クラッシュしてPGroongaのインデックスが壊れた場合は[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)を実行する必要があります。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:29
+msgid ""
+"PGroonga index isn't crash safe. You need to run [`REINDEX`]({{ "
+"site.postgresql_doc_base_url.en }}/sql-reindex.html) when your PGroonga "
+"index is broken by crash."
+msgstr ""
+"PGroongaのインデックスはクラッシュセーフではありません。もし、クラッシュしてPGroongaのインデックスが壊れた場合は[`REINDEX`]({{"
+" site.postgresql_doc_base_url.ja }}/sql-reindex.html)を実行する必要があります。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:31
 msgid "### The pg\\_bigm module {#pg-bigm}"
 msgstr "### pg\\_bigmモジュール {#pg-bigm}"
 
-msgid "The pg\\_bigm module is crash safe because it uses GIN. GIN is crash safe."
+#: ../../../reference/pgroonga-versus-pg-bigm.md:33
+msgid ""
+"The pg\\_bigm module is crash safe because it uses GIN. GIN is crash safe."
 msgstr "pg\\_bigmモジュールはクラッシュセーフです。なぜならGINを使っているからです。GINはクラッシュセーフです。"
 
-msgid "The pg\\_bigm module is slow when many documents are matched and each document is long. Because pg\\_bigm need \"recheck\" after index search."
-msgstr "pg\\_bigmモジュールは大量のドキュメントがマッチして各ドキュメントが長い場合は遅いです。なぜならpg\\_bigmはインデックスを使った検索の後に「recheck」する必要があるからです。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:35
+msgid ""
+"The pg\\_bigm module is slow when many documents are matched and each "
+"document is long. Because pg\\_bigm need \"recheck\" after index search."
+msgstr ""
+"pg\\_bigmモジュールは大量のドキュメントがマッチして各ドキュメントが長い場合は遅いです。なぜならpg\\_bigmはインデックスを使った検索の後に「recheck」する必要があるからです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:37
 msgid "### Summary {#summary}"
 msgstr "### 概要 {#summary}"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:39
 msgid ""
 "Module     | Supported languages | Search  | Update  | Size\n"
 "---------- | --------------------| ------- | ------- | -------\n"
@@ -79,63 +162,100 @@ msgstr ""
 "PGroonga   | 全言語               | 速い | 速い | 大きい\n"
 "pg\\_bigm   | 全言語               | 遅い | 遅い | 小さい"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:44
 msgid "## Benchmark {#benchmark}"
 msgstr "## ベンチマーク {#benchmark}"
 
-msgid "This section shows benchmark result against Japanese Wikipedia. You can find benchmark script at [postgresql.sh](https://github.com/groonga/wikipedia-search/blob/master/benchmark/centos7/postgresql.sh)."
-msgstr "このセクションでは日本語版Wikipediaを使ったベンチマーク結果を示します。ベンチマークスクリプトは[postgresql.sh](https://github.com/groonga/wikipedia-search/blob/master/benchmark/centos7/postgresql.sh)にあります。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:46
+msgid ""
+"This section shows benchmark result against Japanese Wikipedia. You can find"
+" benchmark script at [postgresql.sh](https://github.com/groonga/wikipedia-"
+"search/blob/master/benchmark/centos7/postgresql.sh)."
+msgstr ""
+"このセクションでは日本語版Wikipediaを使ったベンチマーク結果を示します。ベンチマークスクリプトは[postgresql.sh](https://github.com/groonga/wikipedia-"
+"search/blob/master/benchmark/centos7/postgresql.sh)にあります。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:48
 msgid "### Summary"
 msgstr "### 概要"
 
-msgid "Here is the summary of full text search index creation benchmark result:"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:50
+msgid ""
+"Here is the summary of full text search index creation benchmark result:"
 msgstr "以下は全文検索インデックス作成のベンチマーク結果の概要です。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:52
 msgid "  * PGroonga is the fastest module."
 msgstr "  * PGroongaが一番速いモジュールです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:54
 msgid "  * pg\\_bigm is about 73% slower than PGroonga."
 msgstr "  * pg\\_bigmはPGroongaよりも約73%遅いです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:56
 msgid "![Index creation time](../images/pgroonga-pg-bigm/index-creation.svg)"
 msgstr "![インデックス作成時間](../../images/pgroonga-pg-bigm/index-creation.svg)"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:58
 msgid "Here is the summary of full text search index size benchmark result:"
 msgstr "以下は全文検索インデックスのサイズのベンチマーク結果の概要です。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:60
 msgid "  * pg\\_bigm is the smallest module."
 msgstr "  * pg\\_bigmが一番小さいモジュールです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:62
 msgid "  * PGroonga is about 2.3 times larger than pg\\_bigm."
 msgstr "  * PGroongaはpg\\_bigmよりも約2.3倍大きいです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:64
 msgid "![Index size](../images/pgroonga-pg-bigm/index-size.svg)"
 msgstr "![インデックスサイズ](../../images/pgroonga-pg-bigm/index-size.svg)"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:66
 msgid "Here is the summary of full text search performance benchmark result:"
 msgstr "以下は全文検索性能のベンチマーク結果の概要です。"
 
-msgid "  * Full text search performance by pg\\_bigm is about 50 times slower than other modules expect \"日本\" (two characters case)."
+#: ../../../reference/pgroonga-versus-pg-bigm.md:68
+msgid ""
+"  * Full text search performance by pg\\_bigm is about 50 times slower than "
+"other modules expect \"日本\" (two characters case)."
 msgstr "  * pg\\_bigmの全文検索性能は他のモジュールよりも約50倍遅いです。ただし、「日本」（クエリーが2文字のケース）は遅くありません。"
 
-msgid "  * Full text search performances of PGroonga and Groonga are similar expect \"日本\" (many hit records case)."
-msgstr "  * PGroongaとGroongaの全文検索性能は似ています。ただし、「日本」（ヒット数が多いケース）ではGroongaの方が10倍高速です。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:70
+msgid ""
+"  * Full text search performances of PGroonga and Groonga are similar expect"
+" \"日本\" (many hit records case)."
+msgstr ""
+"  * PGroongaとGroongaの全文検索性能は似ています。ただし、「日本」（ヒット数が多いケース）ではGroongaの方が10倍高速です。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:72
 msgid "![Full text search performance](../images/pgroonga-pg-bigm/search.svg)"
 msgstr "![全文検索性能](../../images/pgroonga-pg-bigm/search.svg)"
 
-msgid "Here is the full text search performance graph without pg\\_bigm because pg\\_bigm is about 50 times slower than other modules:"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:74
+msgid ""
+"Here is the full text search performance graph without pg\\_bigm because "
+"pg\\_bigm is about 50 times slower than other modules:"
 msgstr "以下はpg\\_bigmが他のモジュールより約50倍遅いのでpg\\_bigmを除いた全文検索性能のグラフです。"
 
-msgid "![Full text search performance without pg\\_bigm](../images/pgroonga-pg-bigm/search-without-pg-bigm.svg)"
-msgstr "![pg\\_bigmを除いた全文検索性能](../../images/pgroonga-pg-bigm/search-without-pg-bigm.svg)"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:76
+msgid ""
+"![Full text search performance without pg\\_bigm](../images/pgroonga-pg-"
+"bigm/search-without-pg-bigm.svg)"
+msgstr ""
+"![pg\\_bigmを除いた全文検索性能](../../images/pgroonga-pg-bigm/search-without-pg-"
+"bigm.svg)"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:78
 msgid "### Environment"
 msgstr "### 環境"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:80
 msgid "Here is the benchmark environment:"
 msgstr "以下はベンチマーク環境です。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:82
 msgid ""
 "CPU     | Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz (24cores)\n"
 "Memory  | 32GiB\n"
@@ -149,24 +269,30 @@ msgstr ""
 "ストレージ | SSD (500GB)\n"
 "OS        | CentOS 7.2"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:88
 msgid "### Version"
 msgstr "### バージョン"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:90
 msgid "Here are the software versions:"
 msgstr "以下はソフトウェアのバージョンです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:92
 msgid ""
 "PostgreSQL | PGroonga | pg\\_bigm\n"
 "---------- | -------- | ------------\n"
 "9.6.1      | 1.1.9    | 1.2-20161011"
 msgstr ""
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:96
 msgid "### Data"
 msgstr "### データ"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:98
 msgid "Here are statistics of the target data:"
 msgstr "以下は対象データの統計情報です。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:100
 msgid ""
 "Size                                | About 5.9GiB\n"
 "The number of records               | About 900thousands\n"
@@ -182,12 +308,17 @@ msgstr ""
 "本文の平均バイト数     | 約6.7KiB\n"
 "本文の最大バイト数     | 約677KiB"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:107
 msgid "### Data load"
 msgstr "### データロード"
 
-msgid "Here is the benchmark result of data load. It's not related with full text search modules. Because any indexes aren't created yet."
+#: ../../../reference/pgroonga-versus-pg-bigm.md:109
+msgid ""
+"Here is the benchmark result of data load. It's not related with full text "
+"search modules. Because any indexes aren't created yet."
 msgstr "以下はデータロードのベンチマーク結果です。全文検索モジュールには依存しません。なぜならどのインデックスもまだ作られていないからです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:111
 msgid ""
 "Elapsed time   | Database size\n"
 "-------------- | -------------\n"
@@ -197,21 +328,30 @@ msgstr ""
 "-------- | -----------------\n"
 "約5分    | 約5GB"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:115
 msgid "Here is the SQL to load data:"
 msgstr "以下はデータをロードするSQLです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:117
 msgid ""
 "```sql\n"
 "COPY wikipedia FROM 'ja-all-pages.csv' WITH CSV ENCODING 'utf8';\n"
 "```"
 msgstr ""
 
-msgid "You can download the CSV data at [ja-all-pages.csv.xz](https://packages.groonga.org/tmp/ja-all-pages.csv.xz)."
-msgstr "このCSVデータは[ja-all-pages.csv.xz](https://packages.groonga.org/tmp/ja-all-pages.csv.xz)からダウンロードできます。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:121
+msgid ""
+"You can download the CSV data at [ja-all-"
+"pages.csv.xz](https://packages.groonga.org/tmp/ja-all-pages.csv.xz)."
+msgstr ""
+"このCSVデータは[ja-all-pages.csv.xz](https://packages.groonga.org/tmp/ja-all-"
+"pages.csv.xz)からダウンロードできます。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:123
 msgid "Here is the SQL to define the `wikipedia` table:"
 msgstr "以下は`wikipedia`テーブルを定義するSQLです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:125
 msgid ""
 "```sql\n"
 "CREATE TABLE wikipedia (\n"
@@ -222,12 +362,15 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:133
 msgid "### Index creation"
 msgstr "### インデックス作成"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:135
 msgid "Here are benchmark results of creating full text search indexes:"
 msgstr "以下は全文検索インデックス作成のベンチマーク結果です。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:137
 msgid ""
 "Module     | Elapsed time    | Index size  | Note\n"
 "---------- | --------------- | ----------- | -------------------------------------------------------------------------------------------------------------\n"
@@ -239,9 +382,11 @@ msgstr ""
 "PGroonga   | 約19分  | 約9.8GB            | PGroongaはデータをコピーしてそれに対してインデックスを作成します。データはzlibで圧縮しています。インデックスだけのサイズは約6.4GBです。\n"
 "pg\\_bigm   | 約33分  | 約4.2GB            | `maintenance_work_mem`は`2GB`です。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:142
 msgid "Here is the index definition of PGroonga:"
 msgstr "PGroongaのインデックス定義は以下の通りです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:144
 msgid ""
 "```sql\n"
 "CREATE INDEX wikipedia_index_pgroonga ON wikipedia\n"
@@ -249,9 +394,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:149
 msgid "Here is the index definition of pg\\_bigm:"
 msgstr "pg\\_bigmのインデックス定義は以下の通りです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:151
 msgid ""
 "```sql\n"
 "CREATE INDEX wikipedia_index_pg_bigm ON wikipedia\n"
@@ -259,21 +406,33 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:156
 msgid "### Full text search"
 msgstr "### 全文検索"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:158
 msgid "Here are benchmark results of full text searches."
 msgstr "全文検索のベンチマーク結果は以下の通りです。"
 
-msgid "  * \"Groonga\" means `pgroonga_command('select ...')` result. See also [`pgroonga_command`](functions/pgroonga-command.html)."
-msgstr "  * 「Groonga」は`pgroonga_command('select ...')`の結果です。[`pgroonga_command`](functions/pgroonga-command.html)も参照してください。"
+#: ../../../reference/pgroonga-versus-pg-bigm.md:160
+msgid ""
+"  * \"Groonga\" means `pgroonga_command('select ...')` result. See also "
+"[`pgroonga_command`](functions/pgroonga-command.html)."
+msgstr ""
+"  * 「Groonga」は`pgroonga_command('select "
+"...')`の結果です。[`pgroonga_command`](functions/pgroonga-command.html)も参照してください。"
 
-msgid "  * \"Relative elapsed time\" is the ratio between the target elapsed time and the fastest case elapsed time. Larger means slower."
+#: ../../../reference/pgroonga-versus-pg-bigm.md:162
+msgid ""
+"  * \"Relative elapsed time\" is the ratio between the target elapsed time "
+"and the fastest case elapsed time. Larger means slower."
 msgstr "  * 「相対経過時間」は対象の経過時間と最速のケースの経過時間の比率です。大きいほど遅いです。"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:164
 msgid "Query: \"テレビアニメ\""
 msgstr "クエリー：「テレビアニメ」"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:166
 msgid ""
 "Module   | Elapsed time | N hits             | Relative elapsed time\n"
 "-------- | ------------ | ------------------ | ---------------------\n"
@@ -287,9 +446,11 @@ msgstr ""
 "Groonga    | 約38ミリ秒 | 約2万件   | 1\n"
 "pg\\_bigm   | 約2.8秒    | 約2万件   | 約4.8"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:172
 msgid "Query: \"データベース\""
 msgstr "クエリー：「データベース」"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:174
 msgid ""
 "Module   | Elapsed time | N hits            | Relative elapsed time\n"
 "-------- | ------------ | ----------------- | ---------------------\n"
@@ -303,9 +464,11 @@ msgstr ""
 "Groonga    | 約31ミリ秒 | 約1万5千件 | 1\n"
 "pg\\_bigm   | 約1.3秒    | 約1万5千件 | 約41"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:181
 msgid "Query: \"PostgreSQL OR MySQL\""
 msgstr "クエリー：「PostgreSQL OR MySQL」"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:183
 msgid ""
 "Module   | Elapsed time | N hits | Relative elapsed time\n"
 "-------- | ------------ | ------ | ---------------------\n"
@@ -319,9 +482,11 @@ msgstr ""
 "Groonga    | 約1ミリ秒  | 316件    | 1\n"
 "pg\\_bigm   | 約49ミリ秒 | 311件    | 約49"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:189
 msgid "Query: \"日本\""
 msgstr "クエリー：「日本」"
 
+#: ../../../reference/pgroonga-versus-pg-bigm.md:191
 msgid ""
 "Module   | Elapsed time | N hits             | Relative elapsed time\n"
 "-------- | ------------ | ------------------ | ---------------------\n"

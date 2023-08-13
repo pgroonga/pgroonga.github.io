@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:1
 msgid ""
 "---\n"
 "title: \"&` operator for jsonb type\"\n"
@@ -19,78 +33,96 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:6
 msgid "# `` &` `` operator for `jsonb` type"
 msgstr "# `jsonb`型用の`` &` ``演算子"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:12
 msgid ""
-"`` &` `` operator is a PGroonga original operator. You can use complex conditi"
-"on that can't be written by [`@>` operator][contain-jsonb] such as range searc"
-"h."
+"`` &` `` operator is a PGroonga original operator. You can use complex "
+"condition that can't be written by [`@>` operator][contain-jsonb] such as "
+"range search."
 msgstr ""
-"`` &` ``演算子はPGroonga独自の演算子です。[`@>`演算子][contain-jsonb]では書けない範囲検索のような複雑な条件を書くことが"
-"できます。"
+"`` &` ``演算子はPGroonga独自の演算子です。[`@>`演算子][contain-"
+"jsonb]では書けない範囲検索のような複雑な条件を書くことができます。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:14
 msgid ""
-"If you know [JsQuery][jsquery], you can understand like \"PGroonga provides `js"
-"onb` type related search features that are similar to JsQuery with different s"
-"yntax\"."
+"If you know [JsQuery][jsquery], you can understand like \"PGroonga provides "
+"`jsonb` type related search features that are similar to JsQuery with "
+"different syntax\"."
 msgstr ""
-"もし[JsQuery][jsquery]を知っているなら、「PGroongaはJsQueryが提供しているような`jsonb`型用の検索機能を違う構文で提供"
-"している」と理解してください。"
+"もし[JsQuery][jsquery]を知っているなら、「PGroongaはJsQueryが提供しているような`jsonb`型用の検索機能を違う構文で提供している」と理解してください。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:16
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:18
 msgid "Here is the syntax of this operator:"
 msgstr "この演算子の構文は次の通りです。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:20
 msgid ""
 "```sql\n"
 "jsonb_column &` condition\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:24
 msgid "`jsonb_column` is a column that its type is `jsonb`."
 msgstr "`jsonb_column`は`jsonb`型のカラムです。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:26
 msgid ""
-"`condition` is a `text` value used as query. It uses [Groonga's script syntax]"
-"[groonga-script-syntax]."
+"`condition` is a `text` value used as query. It uses [Groonga's script "
+"syntax][groonga-script-syntax]."
 msgstr ""
-"`condition`はクエリーとして使う`text`型の値です。[Groongaのスクリプト構文][groonga-script-syntax]を使います"
-"。"
+"`condition`はクエリーとして使う`text`型の値です。[Groongaのスクリプト構文][groonga-script-"
+"syntax]を使います。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:28
 msgid ""
-"The operator returns `true` when `condition` matches `jsonb_column` value, `fa"
-"lse` otherwise."
-msgstr "この演算子は`condition`が`jsonb_column`の値にマッチしたら`true`を返し、マッチしなかったら`false`を返します。"
+"The operator returns `true` when `condition` matches `jsonb_column` value, "
+"`false` otherwise."
+msgstr ""
+"この演算子は`condition`が`jsonb_column`の値にマッチしたら`true`を返し、マッチしなかったら`false`を返します。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:30
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:32
 msgid ""
-"You need to specify one of the following operator classes to use this operator"
-":"
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:34
 msgid "  * `pgroonga.jsonb_ops`: Default for `jsonb`"
 msgstr "  * `pgroonga.jsonb_ops`：`jsonb`型のデフォルト"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:36
 msgid "  * `pgroonga.jsonb_ops_v2`: For `jsonb`"
 msgstr "  * `pgroonga.jsonb_ops_v2`：`jsonb`型用"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:38
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:40
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:42
 msgid ""
 "```sql\n"
 "CREATE TABLE logs (\n"
@@ -98,9 +130,11 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:47
 msgid "CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:49
 msgid ""
 "INSERT INTO logs\n"
 "     VALUES ('{\n"
@@ -133,27 +167,31 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:79
 msgid "Disable sequential scan:"
 msgstr "シーケンシャルスキャンを無効にします。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:81
 msgid ""
 "```sql\n"
 "SET enable_seqscan = off;\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:85
 msgid ""
-"You need to understand how PGroonga creates index against `jsonb` type value t"
-"o create search condition."
+"You need to understand how PGroonga creates index against `jsonb` type value"
+" to create search condition."
 msgstr "検索条件を作るためにはPGroongaが`jsonb`型のデータ用のインデックスをどのように作るかを理解する必要があります。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:87
 msgid ""
-"PGroonga splits a `jsonb` type value into values and then creates indexes agai"
-"nst these values. In SQL, think about the following schema:"
+"PGroonga splits a `jsonb` type value into values and then creates indexes "
+"against these values. In SQL, think about the following schema:"
 msgstr ""
-"PGroongaは`jsonb`型の値を複数の値に分割し、それらの分割した値に対してインデックスを作成します。SQLで言うと次のスキーマを作っていると考えて"
-"ください。"
+"PGroongaは`jsonb`型の値を複数の値に分割し、それらの分割した値に対してインデックスを作成します。SQLで言うと次のスキーマを作っていると考えてください。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:89
 msgid ""
 "```sql\n"
 "CREATE TABLE values (\n"
@@ -169,37 +207,44 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:102
 msgid "Here are descriptions of column:"
 msgstr "各カラムの説明は次の通りです。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:104
 msgid ""
-"  * `key`: The ID of the value. If value has the same path and content, `key` "
-"is the same value. Key format is `'${PATH}|${TYPE}|${VALUE}'`. It's not used i"
-"n search condition."
+"  * `key`: The ID of the value. If value has the same path and content, "
+"`key` is the same value. Key format is `'${PATH}|${TYPE}|${VALUE}'`. It's "
+"not used in search condition."
 msgstr ""
-"  * `key`：値のIDです。値が違うパスで違う内容なら`key`は違う値になります。キーのフォーマットは`'${パス}|${種類}|${値}'`です。"
-"このカラムは検索条件には使いません。"
+"  * "
+"`key`：値のIDです。値が違うパスで違う内容なら`key`は違う値になります。キーのフォーマットは`'${パス}|${種類}|${値}'`です。このカラムは検索条件には使いません。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:106
 msgid ""
-"  * `path`: The path of the value from root. It uses [jq][jq] compatible forma"
-"t. Object is `[\"${ELEMENT_NAME}\"]`, array is `[]`. For example, the path of `\""
-"web\"` in `{\"tags\": [\"web\"]}` is `.[\"tags\"][]`. If you know absolute path of th"
-"e value, you can use this value in search condition."
+"  * `path`: The path of the value from root. It uses [jq][jq] compatible "
+"format. Object is `[\"${ELEMENT_NAME}\"]`, array is `[]`. For example, the "
+"path of `\"web\"` in `{\"tags\": [\"web\"]}` is `.[\"tags\"][]`. If you know"
+" absolute path of the value, you can use this value in search condition."
 msgstr ""
-"  * `path`：値がある位置へのルートからのパスです。[jq][jq]互換のフォーマットです。オブジェクトは`[\"${要素名}\"]`で配列は`[]`で"
-"す。たとえば、`{\"tags\": [\"web\"]}`の中の`\"web\"`のパスは`.[\"tags\"][]`です。もし、値の絶対パスを知っているなら検索条件で"
-"この値を使えます。"
+"  * "
+"`path`：値がある位置へのルートからのパスです。[jq][jq]互換のフォーマットです。オブジェクトは`[\"${要素名}\"]`で配列は`[]`です。たとえば、`{\"tags\":"
+" "
+"[\"web\"]}`の中の`\"web\"`のパスは`.[\"tags\"][]`です。もし、値の絶対パスを知っているなら検索条件でこの値を使えます。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:108
 msgid ""
-"  * `paths`: The paths of the value. It includes absolute path, sub paths, `.$"
-"{ELEMENT_NAME1}.${ELEMENT_NAME2}` format paths and paths without array. This c"
-"olumn is convenient for search condition because you can use one of them for s"
-"earch condition. Here are paths for `\"x\"` in `{\"a\": {\"b\": \"c\": [\"x\"]}}`:"
+"  * `paths`: The paths of the value. It includes absolute path, sub paths, "
+"`.${ELEMENT_NAME1}.${ELEMENT_NAME2}` format paths and paths without array. "
+"This column is convenient for search condition because you can use one of "
+"them for search condition. Here are paths for `\"x\"` in `{\"a\": {\"b\": "
+"\"c\": [\"x\"]}}`:"
 msgstr ""
-"  * `paths`: 値を示すパスです。値を示すパスは複数あります。絶対パス、サブパス、`.${要素名1}.${要素名2}`というフォーマットのパス、配"
-"列部分を省略したパスがあります。このカラムは検索条件の指定を便利にするために用意されています。検索時にはこの中のパスのどれでも使うことができます。以下はどれ"
-"も`{\"a\": {\"b\": \"c\": [\"x\"]}}`の中の`\"x\"`を指定するパスです。"
+"  * `paths`: "
+"値を示すパスです。値を示すパスは複数あります。絶対パス、サブパス、`.${要素名1}.${要素名2}`というフォーマットのパス、配列部分を省略したパスがあります。このカラムは検索条件の指定を便利にするために用意されています。検索時にはこの中のパスのどれでも使うことができます。以下はどれも`{\"a\":"
+" {\"b\": \"c\": [\"x\"]}}`の中の`\"x\"`を指定するパスです。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:110
 msgid ""
 "     * `.a.b.c`\n"
 "     * `.[\"a\"][\"b\"][\"c\"]`\n"
@@ -216,43 +261,60 @@ msgid ""
 "     * `[]`"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:124
 msgid "  * `type`: The type of the value. This column value is one of them:"
 msgstr "  * `type`：値の種類です。このカラムの値は次のどれかになります。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:126
 msgid "    * `\"object\"`: Object. No value."
 msgstr "    * `\"object\"`：オブジェクト。値はありません。"
 
-msgid "    * `\"array\"`: Array. The number of elements is stored in `size` column."
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:128
+msgid ""
+"    * `\"array\"`: Array. The number of elements is stored in `size` column."
 msgstr "    * `\"array\"`：配列。`size`カラムに要素数が入っています。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:130
 msgid "    * `\"boolean\"`: Boolean. The value is stored in `boolean` column."
 msgstr "    * `\"boolean\"`：真偽値。`boolean`カラムに値が入っています。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:132
 msgid "    * `\"number\"`: Number. The value is stored in `number` column."
 msgstr "    * `\"number\"`：数値。`number`カラムに値が入っています。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:134
 msgid "    * `\"string\"`: String. The value is stored in `string` column."
 msgstr "    * `\"string\"`：文字列。`string`カラムに値が入っています。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:136
 msgid ""
-"  * `boolean`: The value if `type` column value is `\"boolean\"`, `false` otherw"
-"ise."
+"  * `boolean`: The value if `type` column value is `\"boolean\"`, `false` "
+"otherwise."
 msgstr "  * `boolean`：`type`カラムの値が`\"boolean\"`なら値が入っています。それ以外のときは`false`が入っています。"
 
-msgid "  * `number`: The value if `type` column value is `\"number\"`, `0` otherwise."
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:138
+msgid ""
+"  * `number`: The value if `type` column value is `\"number\"`, `0` "
+"otherwise."
 msgstr "  * `number`：`type`カラムの値が`\"number\"`なら値が入っています。それ以外のときは`0`が入っています。"
 
-msgid "  * `string`: The value if `type` column value is `\"string\"`, `\"\"` otherwise."
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:140
+msgid ""
+"  * `string`: The value if `type` column value is `\"string\"`, `\"\"` "
+"otherwise."
 msgstr "  * `string`：`type`カラムの値が`\"string\"`なら値が入っています。それ以外のときは`\"\"`が入っています。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:142
 msgid ""
-"  * `size`: The number of elements if `type` column value is `\"array\"`, `0` ot"
-"herwise."
+"  * `size`: The number of elements if `type` column value is `\"array\"`, "
+"`0` otherwise."
 msgstr "  * `size`：`type`カラムの値が`\"array\"`なら要素数が入っています。それ以外のときは`0`が入っています。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:144
 msgid "Here is a sample JSON:"
 msgstr "以下はサンプルJSONです。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:146
 msgid ""
 "```json\n"
 "{\n"
@@ -267,45 +329,48 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:158
 msgid ""
-"The JSON is split to the following values. (They are part of all split values."
-")"
+"The JSON is split to the following values. (They are part of all split "
+"values.)"
 msgstr "このJSONを次の値に分割します。（これは分割した値の一部です。）"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:160
 msgid ""
 "| key | path | paths | type | boolean | number | string | size |\n"
 "| --- | ---- | ----- | ---- | ------- | ------ | ------ | ---- |\n"
 "| `.|object` | `.` | `[.]` | `object` | | | | |\n"
-"| `.[\"message\"]|string|GET /` | `.[\"message\"]` | `[.message, .[\"message\"], mes"
-"sage, [\"message\"]]` | `string` | | | `GET /` | |\n"
-"| `.[\"tags\"][]|string|web` | `.[\"tags\"]` | `[.tags, .[\"tags\"], .[\"tags\"][], ta"
-"gs, [\"tags\"], [\"tags\"][], []]` | `string` | | | `web` | |"
+"| `.[\"message\"]|string|GET /` | `.[\"message\"]` | `[.message, .[\"message\"], message, [\"message\"]]` | `string` | | | `GET /` | |\n"
+"| `.[\"tags\"][]|string|web` | `.[\"tags\"]` | `[.tags, .[\"tags\"], .[\"tags\"][], tags, [\"tags\"], [\"tags\"][], []]` | `string` | | | `web` | |"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:166
 msgid ""
-"You specify condition that matches split value to `` &` `` operator. If there "
-"is one or more split values that match specified condition in `jsonb` type val"
-"ue, the `jsonb` type value is matched."
+"You specify condition that matches split value to `` &` `` operator. If "
+"there is one or more split values that match specified condition in `jsonb` "
+"type value, the `jsonb` type value is matched."
 msgstr ""
-"`` &` ``演算子を使って、分割した値にマッチする条件を指定します。もし、`jsonb`型の値の中に条件にマッチする分割した値が1つ以上ある場合はその`"
-"jsonb`型の値はマッチしたことになります。"
+"`` &` "
+"``演算子を使って、分割した値にマッチする条件を指定します。もし、`jsonb`型の値の中に条件にマッチする分割した値が1つ以上ある場合はその`jsonb`型の値はマッチしたことになります。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:168
 msgid ""
-"Here is a condition that searches `jsonb` type value that has `www.example.com"
-"` string:"
+"Here is a condition that searches `jsonb` type value that has "
+"`www.example.com` string:"
 msgstr "次は`www.example.com`という文字列値を含む`jsonb`型の値を検索する条件です。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:170
 msgid ""
-"(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since P"
-"ostgreSQL 9.5 for readability.)"
+"(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since"
+" PostgreSQL 9.5 for readability.)"
 msgstr ""
-"（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-pretty]を使"
-"っています。）"
+"（読みやすくするためにPostgreSQL 9.5以降で使える[`jsonb_pretty()`関数][postgresql-jsonb-"
+"pretty]を使っています。）"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:172
 msgid ""
 "```sql\n"
-"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'string == \"www.example."
-"com\"';\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'string == \"www.example.com\"';\n"
 "--             jsonb_pretty             \n"
 "-- -------------------------------------\n"
 "--  {                                  +\n"
@@ -329,18 +394,19 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:196
 msgid ""
-"Here is a condition that searches `jsonb` type value that has number between `"
-"200` to `299` as `code` column value. The condition uses `paths @ \"...\"` synta"
-"x to use simple path format (`.code`) to specify path."
+"Here is a condition that searches `jsonb` type value that has number between"
+" `200` to `299` as `code` column value. The condition uses `paths @ \"...\"`"
+" syntax to use simple path format (`.code`) to specify path."
 msgstr ""
-"以下は`code`カラムの値として`200`から`299`の間の数値を持っている`jsonb`型の値を検索する条件です。この条件はパスの指定に簡易パスフォー"
-"マット（`.code`）を使うため、`paths @ \"...\"`という構文を使っています。"
+"以下は`code`カラムの値として`200`から`299`の間の数値を持っている`jsonb`型の値を検索する条件です。この条件はパスの指定に簡易パスフォーマット（`.code`）を使うため、`paths"
+" @ \"...\"`という構文を使っています。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:198
 msgid ""
 "```sql\n"
-"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ \".code\" && numb"
-"er >= 200 && number < 300';\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ \".code\" && number >= 200 && number < 300';\n"
 "--           jsonb_pretty          \n"
 "-- --------------------------------\n"
 "--  {                             +\n"
@@ -356,11 +422,13 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:214
 msgid ""
-"Here is a condition for full text search from all text values in `jsonb` value"
-" type:"
+"Here is a condition for full text search from all text values in `jsonb` "
+"value type:"
 msgstr "`jsonb`型の値の中のすべてのテキスト値に対して全文検索をする条件は次の通りです。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:216
 msgid ""
 "```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record &` 'string @ \"started\"';\n"
@@ -378,17 +446,18 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:231
 msgid ""
-"You can use [Groonga's query syntax][groonga-query-syntax] (`a OR b` can be us"
-"ed) for full text search by `query(\"string\", \"...\")` syntax:"
+"You can use [Groonga's query syntax][groonga-query-syntax] (`a OR b` can be "
+"used) for full text search by `query(\"string\", \"...\")` syntax:"
 msgstr ""
-"全文検索用に[Groongaのクエリー構文][groonga-query-syntax]（`a OR b`という構文を使えます）を使うには`query(\"s"
-"tring\", \"...\")`という構文を使います。"
+"全文検索用に[Groongaのクエリー構文][groonga-query-syntax]（`a OR "
+"b`という構文を使えます）を使うには`query(\"string\", \"...\")`という構文を使います。"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:233
 msgid ""
 "```sql\n"
-"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'query(\"string\", \"send O"
-"R server\")';\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'query(\"string\", \"send OR server\")';\n"
 "--                  jsonb_pretty                 \n"
 "-- ----------------------------------------------\n"
 "--  {                                           +\n"
@@ -411,44 +480,54 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:256
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:258
 msgid "  * [`jsonb` support][jsonb]"
 msgstr "  * [`jsonb`サポート][jsonb]"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:260
 msgid "  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data"
 msgstr "  * [`@>`演算子][contain-jsonb]：`jsonb`データを使った検索"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:262
 msgid "[jsonb]:../jsonb.html"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:264
 msgid "[contain-jsonb]:contain-jsonb.html"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:266
 msgid "[jsquery]:https://github.com/postgrespro/jsquery"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:268
 msgid "[jq]:https://stedolan.github.io/jq/"
 msgstr ""
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:270
 msgid ""
-"[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax"
-".html"
+"[groonga-query-"
+"syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html"
 msgstr ""
-"[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syn"
-"tax.html"
+"[groonga-query-"
+"syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:272
 msgid ""
-"[groonga-script-syntax]:http://groonga.org/docs/reference/grn_expr/script_synt"
-"ax.html"
+"[groonga-script-"
+"syntax]:http://groonga.org/docs/reference/grn_expr/script_syntax.html"
 msgstr ""
-"[groonga-script-syntax]:http://groonga.org/ja/docs/reference/grn_expr/script_s"
-"yntax.html"
+"[groonga-script-"
+"syntax]:http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html"
 
+#: ../../../../../v1/reference/operators/script-jsonb-v2.md:274
 msgid ""
-"[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json"
-".html#FUNCTIONS-JSON-PROCESSING-TABLE"
+"[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-"
+"json.html#FUNCTIONS-JSON-PROCESSING-TABLE"
 msgstr ""
-"[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.ja }}/functions-json"
-".html#FUNCTIONS-JSON-PROCESSING-TABLE"
+"[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.ja }}/functions-"
+"json.html#FUNCTIONS-JSON-PROCESSING-TABLE"

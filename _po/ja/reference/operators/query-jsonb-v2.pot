@@ -1,0 +1,398 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/operators/query-jsonb-v2.md:1
+msgid "---\n"
+"title: \"&@~ operator for jsonb type\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:6
+msgid "# `&@~` operator for `jsonb` type"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:8
+msgid "Since 1.2.1."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:10
+msgid "`&?` operator is deprecated since 1.2.2. Use `&@~` operator instead."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:12
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:14
+msgid "`&@~` operator performs full text search against all texts in `jsonb` with query."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:16
+msgid "Query's syntax is similar to syntax that is used in Web search engine. For example, you can use OR search by `KEYWORD1 OR KEYWORD2` in query."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:18
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:20
+msgid "```sql\n"
+"column &@~ query\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:24
+msgid "`column` is a column to be searched. It's `jsonb` type."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:26
+msgid "`query` is a query for full text search. It's `text` type."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:28
+msgid "[Groonga's query syntax][groonga-query-syntax] is used in `query`."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:30
+msgid "## Operator classes"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:32
+msgid "You need to specify one of the following operator classes to use this operator:"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:34
+msgid "  * `pgroonga_jsonb_ops_v2`: Default for `jsonb`"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:36
+msgid "  * `pgroonga_jsonb_ops`: For `jsonb`"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:38
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:40
+msgid "Here are sample schema and data for examples:"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:42
+#: ../../../../reference/operators/query-jsonb-v2.md:205
+msgid "```sql\n"
+"CREATE TABLE logs (\n"
+"  record jsonb\n"
+");"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:47
+msgid "CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:49
+msgid "INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"Server is started.\",\n"
+"                \"host\":    \"www.example.com\",\n"
+"                \"tags\": [\n"
+"                  \"web\",\n"
+"                  \"example.com\"\n"
+"                ]\n"
+"              }');\n"
+"INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"GET /\",\n"
+"                \"host\":    \"www.example.com\",\n"
+"                \"code\":    200,\n"
+"                \"tags\": [\n"
+"                  \"web\",\n"
+"                  \"example.com\"\n"
+"                ]\n"
+"              }');\n"
+"INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"Send to <info@example.com>.\",\n"
+"                \"host\":    \"mail.example.net\",\n"
+"                \"tags\": [\n"
+"                  \"mail\",\n"
+"                  \"example.net\"\n"
+"                ]\n"
+"              }');\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:79
+msgid "You can perform full text search with multiple keywords by `&@~` operator like `KEYWORD1 KEYWORD2`. You can also do OR search by `KEYWORD1 OR KEYWORD2`:"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:81
+msgid "(It uses [`jsonb_pretty()` function][postgresql-jsonb-pretty] provided since PostgreSQL 9.5 for readability.)"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:83
+msgid "```sql\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR mail';\n"
+"--                  jsonb_pretty                 \n"
+"-- ----------------------------------------------\n"
+"--  {                                           +\n"
+"--      \"host\": \"www.example.com\",              +\n"
+"--      \"tags\": [                               +\n"
+"--          \"web\",                              +\n"
+"--          \"example.com\"                       +\n"
+"--      ],                                      +\n"
+"--      \"message\": \"Server is started.\"         +\n"
+"--  }\n"
+"--  {                                           +\n"
+"--      \"host\": \"mail.example.net\",             +\n"
+"--      \"tags\": [                               +\n"
+"--          \"mail\",                             +\n"
+"--          \"example.net\"                       +\n"
+"--      ],                                      +\n"
+"--      \"message\": \"Send to <info@example.com>.\"+\n"
+"--  }\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:106
+msgid "## Important note for better PGroonga performance: If you want to search on specific key values in your jsonb column, you need to create indexes on all of your json keys that you want to search"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:108
+msgid "When you use the `&@~` operator to search through specific key values in your jsonb column, not just the entire jsonb column like the previous examples, then you need to index each of these keys. Without creating these indexes, the `&@~` operator only uses sequential search and the query performance will be slow."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:110
+msgid "Here is a demo, using the previous `logs` table examples:"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:112
+msgid "```sql\n"
+"-- This query uses PGroonga index so that performance is great\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';\n"
+"--           jsonb_pretty          \n"
+"-- --------------------------------\n"
+"--  {                             +\n"
+"--      \"code\": 200,              +\n"
+"--      \"host\": \"www.example.com\",+\n"
+"--      \"tags\": [                 +\n"
+"--          \"web\",                +\n"
+"--          \"example.com\"         +\n"
+"--      ],                        +\n"
+"--      \"message\": \"GET /\"        +\n"
+"--  }\n"
+"-- (1 row)"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:129
+msgid "-- This query does not use PGroonga index, just sequential search (slow)\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';\n"
+"--           jsonb_pretty          \n"
+"-- --------------------------------\n"
+"--  {                             +\n"
+"--      \"code\": 200,              +\n"
+"--      \"host\": \"www.example.com\",+\n"
+"--      \"tags\": [                 +\n"
+"--          \"web\",                +\n"
+"--          \"example.com\"         +\n"
+"--      ],                        +\n"
+"--      \"message\": \"GET /\"        +\n"
+"--  }\n"
+"-- (1 row)"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:144
+msgid "-- Just run EXPLAIN ANALYZE on these queries and see it for yourself.\n"
+"-- Searching on entire jsonb record column uses Index.\n"
+"EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'get';\n"
+"--                                                          QUERY PLAN                                                          \n"
+"-- -----------------------------------------------------------------------------------------------------------------------------\n"
+"--  Bitmap Heap Scan on public.logs  (cost=0.00..21.03 rows=1 width=32) (actual time=1.577..1.578 rows=1 loops=1)\n"
+"--    Output: jsonb_pretty(record)\n"
+"--    Recheck Cond: (logs.record &@~ 'get'::text)\n"
+"--    Heap Blocks: exact=1\n"
+"--    ->  Bitmap Index Scan on pgroonga_logs_index  (cost=0.00..0.00 rows=14 width=0) (actual time=1.566..1.566 rows=1 loops=1)\n"
+"--          Index Cond: (logs.record &@~ 'get'::text)\n"
+"--  Planning Time: 0.680 ms\n"
+"--  Execution Time: 1.631 ms\n"
+"-- (8 rows)"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:160
+msgid "-- But when you search on specific key value in jsonb column, it DOES NOT USE Index\n"
+"EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';\n"
+"--                                                QUERY PLAN                                                \n"
+"-- ---------------------------------------------------------------------------------------------------------\n"
+"--  Seq Scan on public.logs  (cost=0.00..1047.00 rows=1 width=32) (actual time=0.422..0.566 rows=1 loops=1)\n"
+"--    Output: jsonb_pretty(record)\n"
+"--    Filter: ((logs.record -> 'message'::text) &@~ 'get'::text)\n"
+"--    Rows Removed by Filter: 2\n"
+"--  Planning Time: 0.035 ms\n"
+"--  Execution Time: 0.576 ms\n"
+"-- (6 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:173
+msgid "Now let's create an index of `message` key value in your record jsonb column:"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:175
+msgid "```sql\n"
+"-- Create \"message\" key value index for your record jsonb column\n"
+"CREATE INDEX pgroonga_message_index ON logs USING pgroonga ((record->'message'));"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:179
+msgid "-- Before you execute EXPLAIN ANALYZE, you need to set sequential scan off\n"
+"-- to make sure it uses PGroonga index.\n"
+"-- Note: Do not set enable_seqscan = off on production environment\n"
+"SET enable_seqscan = off;"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:184
+msgid "-- Analyze the query: Now it uses PGroonga index\n"
+"EXPLAIN ANALYZE verbose SELECT jsonb_pretty(record) FROM logs WHERE record->'message' &@~ 'get';\n"
+"--                                                               QUERY PLAN                                                               \n"
+"-- ---------------------------------------------------------------------------------------------------------------------------------------\n"
+"--  Index Scan using pgroonga_message_index on public.logs  (cost=0.00..4.01 rows=1 width=32) (actual time=2.389..2.393 rows=1 loops=1)\n"
+"--    Output: jsonb_pretty(record)\n"
+"--    Index Cond: ((logs.record -> 'message'::text) &@~ 'get'::text)\n"
+"--  Planning Time: 0.201 ms\n"
+"--  Execution Time: 2.496 ms\n"
+"-- (5 rows)"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:195
+msgid "```"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:198
+msgid "## If you don’t know which jsonb key value should be indexed beforehand, then you should use `` &` `` operator instead"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:200
+msgid "Because of the nature of unstructured data, like json/jsonb data in this case, it is sometimes difficult to specify which key values to be indexed beforehand. (Say you need to store some user’s input which you don’t know what kind of data structure they use, and later user requests you to implement a search feature for that data.)\n"
+"In that case, you should use  the `` &` ``  operator that can still use the `pgroonga_jsonb_ops_v2` index without specifying which key values should be indexed."
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:203
+msgid "Let’s see an example:"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:210
+msgid "-- Create index on your jsonb field (not any of its key values)\n"
+"CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:213
+msgid "INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"Server is started.\",\n"
+"                \"host\":    \"www.example.com\",\n"
+"                \"tags\": [\n"
+"                  \"web\",\n"
+"                  \"example.com\"\n"
+"                ]\n"
+"              }');\n"
+"INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"GET /\",\n"
+"                \"host\":    \"www.example.com\",\n"
+"                \"code\":    200,\n"
+"                \"tags\": [\n"
+"                  \"web\",\n"
+"                  \"example.com\"\n"
+"                ]\n"
+"              }');\n"
+"INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"Send to <info@example.com>.\",\n"
+"                \"host\":    \"mail.example.net\",\n"
+"                \"tags\": [\n"
+"                  \"mail\",\n"
+"                  \"example.net\"\n"
+"                ]\n"
+"              }');"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:242
+msgid "-- Now without creating any key values indexes, you can still use PGroonga index with &` operator to fully enjoy PGroonga performance\n"
+"EXPLAIN ANALYZE VERBOSE SELECT * FROM logs WHERE record &` '(paths @ \"message\") && query(\"string\", \"get\")';\n"
+"--                                                          QUERY PLAN                                                          \n"
+"-- -----------------------------------------------------------------------------------------------------------------------------\n"
+"--  Bitmap Heap Scan on public.logs  (cost=0.00..21.03 rows=1 width=32) (actual time=1.020..1.022 rows=1 loops=1)\n"
+"--    Output: record\n"
+"--    Recheck Cond: (logs.record &` '(paths @ \"message\") && query(\"string\",\"get\")'::text)\n"
+"--    Heap Blocks: exact=1\n"
+"--    ->  Bitmap Index Scan on pgroonga_logs_index  (cost=0.00..0.00 rows=14 width=0) (actual time=1.012..1.013 rows=1 loops=1)\n"
+"--          Index Cond: (logs.record &` '(paths @ \"message\") && query(\"string\",\"get\")'::text)\n"
+"--  Planning Time: 0.379 ms\n"
+"--  Execution Time: 1.077 ms\n"
+"-- (8 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:257
+msgid "Hope all these examples help you to create some great applications 😄"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:259
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:261
+msgid "  * [`jsonb` support][jsonb]"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:263
+msgid "  * [`&@` operator][match-jsonb-v2]: Full text search against all text data in `jsonb` by a keyword"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:265
+msgid "  * [`` &` `` operator][script-jsonb-v2]: Advanced search by ECMAScript like query language"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:267
+msgid "  * [`@>` operator][contain-jsonb]: Search by a `jsonb` data"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:269
+msgid "  * [Groonga's query syntax][groonga-query-syntax]"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:271
+msgid "[jsonb]:../jsonb.html"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:273
+msgid "[match-jsonb-v2]:match-jsonb-v2.html\n"
+"[script-jsonb-v2]:script-jsonb-v2.html\n"
+"[contain-jsonb]:contain-jsonb.html"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:277
+msgid "[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html"
+msgstr ""
+
+#: ../../../../reference/operators/query-jsonb-v2.md:279
+msgid "[postgresql-jsonb-pretty]:{{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSON-PROCESSING-TABLE"
+msgstr ""
+

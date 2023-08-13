@@ -1,0 +1,183 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:1
+msgid "---\n"
+"title: pgroonga.query_expand function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:6
+msgid "# `pgroonga.query_expand` function"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:8
+msgid "Since 1.2.2."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:12
+msgid "`pgroonga.query_expand` function expands registered synonyms in query in [query syntax][groonga-query-syntax]. Query syntax is used by [`&@~` operator][query-v2], [`&@~|` operator][query-in-v2] and so on."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:14
+msgid "`pgroonga.query_expand` function is useful to implement [query expansion][wikipedia-query-expansion]. See also [document for Groonga's query expansion feature][groonga-query-expander]."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:16
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:18
+msgid "Here is the syntax of this function:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:20
+msgid "```text\n"
+"text pgroonga.query_expand(table_name,\n"
+"                           term_column_name,\n"
+"                           synonyms_column_name,\n"
+"                           query)\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:27
+msgid "`table_name` is a `text` type value. It's an existing table name that stores synonyms."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:29
+msgid "`term_column_name` is a `text` type value. It's an column name that stores term to be expanded in the `table_name` table. The column is `text` type value."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:31
+msgid "`synonyms_column_name` is a `text` type value. It's an column name that stores synonyms of the `term` column. The column is `text[]` type value."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:33
+msgid "`query` is a `text` type value. It's a query that uses [query syntax][groonga-query-syntax]."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:35
+msgid "`pgroonga.query_expand` returns a `text` type value. All registered synonyms are expanded in the `query`."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:37
+msgid "It's recommended that `${table_name}.${term_column_name}` is indexed by PGroonga with `pgroonga.text_term_search_ops_v2` operator class for fast query expansion like the following:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:39
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:58
+msgid "```sql\n"
+"CREATE TABLE synonyms (\n"
+"  term text,\n"
+"  synonyms text[]\n"
+");"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:45
+msgid "CREATE INDEX synonyms_term\n"
+"          ON synonyms\n"
+"       USING pgroonga (term pgroonga.text_term_search_ops_v2);\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:50
+msgid "`pgroonga.query_escape` function can work without index but can work faster with index."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:52
+msgid "You can use all index access methods that support `=` for `text` type such as `btree`. But it's recommended that you use PGroonga. Because PGroonga supports value normalized `=` (including case insensitive comparison) for `text`. Value normalized `=` is useful for query expansion."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:54
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:56
+msgid "Here are sample schema and data:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:64
+msgid "CREATE INDEX synonyms_term\n"
+"          ON synonyms\n"
+"       USING pgroonga (term pgroonga.text_term_search_ops_v2);"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:68
+msgid "INSERT INTO synonyms VALUES ('PGroonga', ARRAY['PGroonga', 'Groonga PostgreSQL']);\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:71
+msgid "In this sample, all of `\"PGroonga\"` and `\"pgroonga\"` in query are expanded because PGroonga index is used:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:73
+msgid "```sql\n"
+"SELECT pgroonga.query_expand('synonyms', 'term', 'synonyms',\n"
+"                             'PGroonga OR Mroonga');\n"
+"--                  query_expand                   \n"
+"-- -------------------------------------------------\n"
+"--  ((PGroonga) OR (Groonga PostgreSQL)) OR Mroonga\n"
+"-- (1 row)\n"
+"SELECT pgroonga.query_expand('synonyms', 'term', 'synonyms',\n"
+"                             'pgroonga OR mroonga');\n"
+"--                   query_expand                   \n"
+"-- -------------------------------------------------\n"
+"--  ((PGroonga) OR (Groonga PostgreSQL)) OR mroonga\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:88
+msgid "## See also"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:90
+msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:92
+msgid "  * [`&@~|` operator][query-in-v2]: Full text search by an array of queries in easy to use query language"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:94
+msgid "[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:96
+msgid "[groonga-query-expander]:http://groonga.org/docs/reference/commands/select.html#select-query-expander"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:98
+msgid "[wikipedia-query-expansion]:https://en.wikipedia.org/wiki/Query_expansion"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:100
+msgid "[query-v2]:../operators/query-v2.html"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-query-expand.md:102
+msgid "[query-in-v2]:../operators/query-in-v2.html"
+msgstr ""
+

@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:1
+msgid "---\n"
+"title: pgroonga.snippet_html function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:6
+msgid "# `pgroonga.snippet_html` function"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:8
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:10
+msgid "`pgroonga.snippet_html` function returns texts around keywords from target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:12
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:14
+msgid "Here is the syntax of this function:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:16
+msgid "```text\n"
+"text[] pgroonga.snippet_html(target, ARRAY[keyword1, keyword2, ...])\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:20
+msgid "`target` is a `text` type value. `pgroonga.snippet_html` extracts keywords with around texts from `target`."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:22
+msgid "`keyword1`, `keyword2`, `...` are an array of `text` type. The keywords to be extracted from `target`. You must specify one or more keywords."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:24
+msgid "`pgroonga.snippet_html` returns an array of `text` type."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:26
+msgid "Element in the returned array is a text around keyword."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:28
+msgid "The keywords are surrounded with `<span class=\"keyword\">` and `</span>`. `<`, `>`, `&` and `\"` in `target` is HTML escaped."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:30
+msgid "The maximum size of part of `target` in each element is 200 bytes. Its unit is byte not the number of characters. Each element may be lager than 200 bytes because each element includes `<span class=\"keyword\">` and `</span>` and may have HTML escaped values. If `<` is HTML escaped to `&lt;`, the byte size is increased to 4 from 1."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:32
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:34
+msgid "See [examples in tutorial](../../tutorial/#snippet)."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:36
+msgid "## See also"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:38
+msgid "  * [Examples in tutorial](../../tutorial/#snippet)"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-snippet-html.md:40
+msgid "  * [`pgroonga.query_extract_keywords` function](pgroonga-query-extract-keywords.html)"
+msgstr ""
+

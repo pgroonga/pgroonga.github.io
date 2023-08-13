@@ -1,0 +1,122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:1
+msgid "---\n"
+"title: \"&> operator\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:6
+msgid "# `&>` operator"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:8
+msgid "Since 1.2.1."
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:12
+msgid "`&>` operator checks whether a term is included in an array of terms."
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:14
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:16
+msgid "```sql\n"
+"column &> term\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:20
+msgid "`column` is a column to be searched. It's `varchar[]` type."
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:22
+msgid "`term` is a term to be found. It's `varchar` type."
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:24
+msgid "## Operator classes"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:26
+msgid "You need to specify one of the following operator classes to use this operator:"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:28
+msgid "  * `pgroonga.varchar_array_ops`: Default for `varchar[]`"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:30
+msgid "  * `pgroonga.varchar_array_term_search_ops`: For `varchar[]`"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:32
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:34
+msgid "Here are sample schema and data for examples:"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:36
+msgid "```sql\n"
+"CREATE TABLE memos (\n"
+"  id integer,\n"
+"  tags varchar(255)[]\n"
+");"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:42
+msgid "CREATE INDEX pgroonga_tags_index ON memos USING pgroonga (tags);\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:45
+msgid "```sql\n"
+"INSERT INTO memos VALUES (1, ARRAY['PostgreSQ']);\n"
+"INSERT INTO memos VALUES (2, ARRAY['Groonga']);\n"
+"INSERT INTO memos VALUES (3, ARRAY['PGroonga', 'PostgreSQL', 'Groonga']);\n"
+"INSERT INTO memos VALUES (4, ARRAY['Groonga']);\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:52
+msgid "You can find records that contain `'Groonga'` term in an array of terms by `&>` operator:"
+msgstr ""
+
+#: ../../../../../v1/reference/operators/contain-term-v2.md:54
+msgid "```sql\n"
+"SELECT * FROM memos WHERE tags &> 'Groonga';\n"
+"--  id |             tags              \n"
+"-- ----+-------------------------------\n"
+"--   2 | {Groonga}\n"
+"--   3 | {PGroonga,PostgreSQL,Groonga}\n"
+"--   4 | {Groonga}\n"
+"-- (3 rows)\n"
+"```"
+msgstr ""
+

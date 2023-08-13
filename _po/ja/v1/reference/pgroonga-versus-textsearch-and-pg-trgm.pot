@@ -1,0 +1,449 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:1
+msgid "---\n"
+"title: PGroonga versus textsearch and pg_trgm\n"
+"---"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:5
+msgid "# PGroonga versus textsearch and pg\\_trgm"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:7
+msgid "PostgreSQL provides two full text search modules. They are [textsearch]({{ site.postgresql_doc_base_url.en }}/textsearch.html) and [pg\\_trgm]({{ site.postgresql_doc_base_url.en }}/pgtrgm.html)."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:9
+msgid "The textsearch module is a built-in full text search feature. It supports GiST and GIN indexes. If you use GiST or GIN index, you can improve full text search performance."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:11
+msgid "The pg\\_trgm module is a contrib module. pg\\_trgm provides full text search feature. pg\\_trgm also supports GiST and GIN indexes. If you use GiST or GIN index, you can improve full text search performance."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:13
+msgid "This documents describes about difference between PGroonga, textsearch and pg\\_trgm."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:15
+msgid "## Characteristics"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:17
+msgid "Here are characteristics of each modules."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:19
+msgid "### PGroonga {#pgroonga}"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:21
+msgid "PGroonga implements both language specific full text search and not language specific full text search. PGroonga uses not language specific full text search by default. Normally, PGroonga provides satisfactory full text search result by default."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:23
+msgid "PGroonga supports all languages by default because PGroonga uses not language specific full text search by default. You don't need to change source code."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:25
+msgid "PGroonga is fast for searching because it doesn't need \"recheck\"."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:27
+msgid "PGroonga is also fast for searching while updating because it doesn't block searching while updating. PGroonga doesn't decrease search performance while updating."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:29
+msgid "PGroonga is also fast for updating."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:31
+msgid "PGroonga index is large because it keeps index target text that is already stored in PostgreSQL."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:33
+msgid "### The textsearch module {#textsearch}"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:35
+msgid "The textsearch module implements language specific full text search. For example, English terms are stemmed. All of \"work\", \"works\" and \"worked\" are converted to \"work\". It'll improve [recall](https://en.wikipedia.org/wiki/Full-text_search#The_precision_vs._recall_tradeoff)."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:37
+msgid "Language specific full text search may improve full text search feature but \"language specific\" means someone implements \"language specific\" process. PostgreSQL 9.6.1 supports 15 languages such as English, French and Russian but other many languages aren't supported such as Asian languages including Japanese, Chinese and Korean."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:39
+msgid "The textsearch module is fast for searching because it doesn't need \"recheck\". (If you use weight, you need \"recheck\".)"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:41
+msgid "The textsearch module can't process very large text. `1MiB - 1B` is the max bytes of text. If you put 1MiB or more text, you will get the following error:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:43
+msgid "```text\n"
+"string is too long for tsvector (XXX bytes, max 1048575 bytes)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:47
+msgid "### The pg\\_trgm module {#pg-trgm}"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:49
+msgid "The pg\\_trgm module implements not language specific full text search. But pg\\_trgm disables non ASCII characters support. It means that pg\\_trgm doesn't support many Asian languages such as Japanese and Chinese by default. You need to comment out the following line in `contrib/pg_trgm/trgm.h` to enable non ASCII characters support:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:51
+msgid "```c\n"
+"#define KEEPONLYALNUM\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:55
+msgid "If you're using Debian based system, you can enable non ASCII characters support without changing pg\\_trgm source code by using `C.UTF-8` locale."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:57
+msgid "The pg\\_trgm module is slow when many documents are matched and each document is long. Because pg\\_trgm need \"recheck\" after index search."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:59
+msgid "### Summary {#summary}"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:61
+msgid "Module     | Supported languages                  | Search  | Update       | Size\n"
+"---------- | ------------------------------------ | ------- | ------------ | -------\n"
+"PGroonga   | All                                  | Faster  | Faster       | Larger\n"
+"textsearch | 15 (Asian languages aren't included) | Faster  | More slower  | Smaller\n"
+"pg\\_trgm   | ASCII only languages                 | Slower  | Slower       | Smaller"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:67
+msgid "## Benchmark {#benchmark}"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:69
+msgid "This section shows benchmark result against English Wikipedia. You can find benchmark script at [postgresql.sh](https://github.com/groonga/wikipedia-search/blob/master/benchmark/centos7/postgresql.sh)."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:71
+msgid "### Summary"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:73
+msgid "Here is the summary of full text search index creation benchmark result:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:75
+msgid "  * PGroonga is the fastest module."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:77
+msgid "  * pg\\_trgm is about 30% slower than PGroonga."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:79
+msgid "  * textsearch is about 2 times slower than PGroonga."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:81
+msgid "![Index creation time](../images/pgroonga-textsearch-pg-trgm/index-creation.svg)"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:83
+msgid "Here is the summary of full text search index size benchmark result:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:85
+msgid "  * pg\\_trgm is the smallest module."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:87
+msgid "  * textsearch is about 60% larger than pg\\_trgm."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:89
+msgid "  * PGroonga is about 5 times larger than pg\\_trgm."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:91
+msgid "![Index size](../images/pgroonga-textsearch-pg-trgm/index-size.svg)"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:93
+msgid "Here is the summary of full text search performance benchmark result:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:95
+msgid "  * Full text search performance by pg\\_trgm is very slower than other modules."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:97
+msgid "  * Full text search performances of PGroonga and textsearch are similar."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:99
+msgid "  * Full text search performance of Groonga, full text search engine by PGroonga, is faster than PGroonga and textsearch. It's 10 times or more faster."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:101
+msgid "![Full text search performance](../images/pgroonga-textsearch-pg-trgm/search.svg)"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:103
+msgid "Here is the full text search performance graph without pg\\_trgm because pg\\_trgm is too slow:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:105
+msgid "![Full text search performance without pg\\_trgm](../images/pgroonga-textsearch-pg-trgm/search-without-pg-trgm.svg)"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:107
+msgid "### Environment"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:109
+msgid "Here is the benchmark environment:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:111
+msgid "CPU     | Intel(R) Xeon(R) CPU E5-2660 v3 @ 2.60GHz (24cores)\n"
+"Memory  | 32GiB\n"
+"Swap    | 2GiB\n"
+"Storage | SSD (500GB)\n"
+"OS      | CentOS 7.2"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:117
+msgid "### Version"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:119
+msgid "Here are the software versions:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:121
+msgid "PostgreSQL | PGroonga\n"
+"---------- | --------\n"
+"9.6.1      | 1.1.9"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:125
+msgid "### Data"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:127
+msgid "Here are statistics of the target data:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:129
+msgid "Size                                | About 33GiB\n"
+"The number of records               | About 5.3millions\n"
+"The average of title length in byte | About 19.6B\n"
+"The max title length in byte        | 211B\n"
+"The average of body length in byte  | About 6.4KiB\n"
+"The max body length in byte         | About 1MiB (1047190B)"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:136
+msgid "It's important for textsearch that the max body length in byte is less than 1MiB. If it's equals to `1MiB - 1B` or more, you can't create textsearch index with the following error message:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:138
+msgid "```text\n"
+"string is too long for tsvector (1618908 bytes, max 1048575 bytes)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:142
+msgid "### Data load"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:144
+msgid "Here is the benchmark result of data load. It's not related with full text search modules. Because any indexes aren't created yet."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:146
+msgid "Elapsed time    | Database size\n"
+"--------------- | -------------\n"
+"About 26minutes | About 21GB"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:150
+msgid "Here is the SQL to load data:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:152
+msgid "```sql\n"
+"COPY wikipedia FROM 'en-all-pages.csv' WITH CSV ENCODING 'utf8';\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:156
+msgid "You can download the CSV data at [en-all-pages.csv.xz](https://packages.groonga.org/tmp/en-all-pages.csv.xz)."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:158
+msgid "Here is the SQL to define the `wikipedia` table:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:160
+msgid "```sql\n"
+"CREATE TABLE wikipedia (\n"
+"  id integer PRIMARY KEY,\n"
+"  title text,\n"
+"  text text\n"
+");\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:168
+msgid "### Index creation"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:170
+msgid "Here are benchmark results of creating full text search indexes:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:172
+msgid "Module     | Elapsed time           | Index size  | Note\n"
+"---------- | ---------------------- | ----------- | -------------------------------------------------------------------------------------------------------------\n"
+"PGroonga   | About 1hour 24minutes  | About 39GB  | PGroonga copies data and creates index from them. Data are compressed by zlib. Index only size is about 21GB.\n"
+"textsearch | About 2hours 53minutes | About 12GB  | `maintenance_work_mem` is `2GB`. There are 3923 words that can't be indexed. (*)\n"
+"pg\\_trgm   | About 1hour 50minutes  | About 7.6GB | `maintenance_work_mem` is `2GB`."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:178
+msgid "(*) Here is the error message of the case:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:180
+msgid "```text\n"
+"NOTICE:  word is too long to be indexed\n"
+"DETAIL:  Words longer than 2047 characters are ignored.\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:185
+msgid "Here is the index definition of PGroonga:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:187
+msgid "```sql\n"
+"CREATE INDEX wikipedia_index_pgroonga ON wikipedia\n"
+" USING pgroonga (title, text);\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:192
+msgid "Here is the index definition of textsearch:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:194
+msgid "```sql\n"
+"CREATE INDEX wikipedia_index_textsearch ON wikipedia\n"
+" USING GIN (to_tsvector('english', title),\n"
+"            to_tsvector('english', text));\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:200
+msgid "Here is the index definition of pg\\_trgm:"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:202
+msgid "```sql\n"
+"CREATE INDEX wikipedia_index_pg_trgm ON wikipedia\n"
+" USING GIN (title gin_trgm_ops, text gin_trgm_ops);\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:207
+msgid "### Full text search"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:209
+msgid "Here are benchmark results of full text searches."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:211
+msgid "  * \"Groonga\" means `pgroonga.command('select ...')` result. See also [`pgroonga.command`](functions/pgroonga-command.html)."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:213
+msgid "  * \"Relative elapsed time\" is the ratio between the target elapsed time and the fastest case elapsed time. Larger means slower."
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:215
+msgid "Query: \"animation\""
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:217
+msgid "Module     | Elapsed time | N hits             | Relative elapsed time | Note\n"
+"---------- | ------------ | ------------------ | --------------------- | ----\n"
+"PGroonga   | About 173ms  | About 40thousands  | About 29              |\n"
+"Groonga    | About 6ms    | About 40thousands  | 1                     |\n"
+"textsearch | About 1s     | About 420thousands | About 167             | N hits is about 10 times than other cases. It's caused by stemming. \"animation\" is stemmed as \"anim\" and \"anim\" is searched.\n"
+"pg\\_trgm   | About 44s    | About 30thousands  | About 7333            |"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:224
+msgid "Query: \"database\""
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:226
+msgid "Module     | Elapsed time | N hits             | Relative elapsed time\n"
+"---------- | ------------ | ------------------ | ---------------------\n"
+"PGroonga   | About 698ms  | About 210thousands | About 37\n"
+"Groonga    | About 19ms   | About 210thousands | 1\n"
+"textsearch | About 602ms  | About 190thousands | About 32\n"
+"pg\\_trgm   | About 33s    | About 130thousands | About 1736"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:234
+msgid "Query: \"PostgreSQL OR MySQL\""
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:236
+msgid "Module     | Elapsed time | N hits             | Relative elapsed time\n"
+"---------- | ------------ | ------------------ | ---------------------\n"
+"PGroonga   | About 6ms    | 1636               | About 2\n"
+"Groonga    | About 3ms    | 1636               | 1\n"
+"textsearch | About 3ms    | 1506               | 1\n"
+"pg\\_trgm   | About 241ms  | 1484               | About 80"
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:243
+msgid "Query: \"America\""
+msgstr ""
+
+#: ../../../../v1/reference/pgroonga-versus-textsearch-and-pg-trgm.md:245
+msgid "Module     | Elapsed time | N hits             | Relative elapsed time\n"
+"---------- | ------------ | ------------------ | ---------------------\n"
+"PGroonga   | About 1.3s   | About 470thousands | About 29\n"
+"Groonga    | About 45ms   | About 470thousands | 1\n"
+"textsearch | About 1.2s   | About 480thousands | About 26\n"
+"pg\\_trgm   | About 1m32s  | About 1.4millions  | About 2044"
+msgstr ""
+

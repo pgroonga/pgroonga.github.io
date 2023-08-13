@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../index.md:1
+msgid "---\n"
+"title: none\n"
+"---"
+msgstr ""
+
+#: ../../index.md:5
+msgid "<div class=\"jumbotron\">\n"
+"  <h1>\n"
+"    <img alt=\"{{ site.title }}\"\n"
+"         title=\"{{ site.title }}\"\n"
+"         src=\"/images/pgroonga-logo.png\">\n"
+"  </h1>\n"
+"  <p>{{ site.description.en }}</p>\n"
+"  <p>The latest version\n"
+"     (<a href=\"news/#version-{{ site.pgroonga_version | replace:\".\", \"-\" }}\">{{ site.pgroonga_version }}</a>)\n"
+"     has been released at {{ site.pgroonga_release_date }}.\n"
+"  </p>\n"
+"  <p>\n"
+"    <a href=\"tutorial/\"\n"
+"       class=\"btn btn-primary btn-lg\"\n"
+"       role=\"button\">Try tutorial</a>\n"
+"    <a href=\"install/\"\n"
+"       class=\"btn btn-primary btn-lg\"\n"
+"       role=\"button\">Install</a>\n"
+"  </p>\n"
+"</div>"
+msgstr ""
+
+#: ../../index.md:26
+msgid "## About PGroonga {#about}"
+msgstr ""
+
+#: ../../index.md:28
+msgid "PGroonga (píːzí:lúnɡά) is a PostgreSQL extension to use [Groonga](http://groonga.org/) as the index."
+msgstr ""
+
+#: ../../index.md:30
+msgid "PostgreSQL supports full text search against languages that use only alphabet and digit. It means that PostgreSQL doesn't support full text search against Japanese, Chinese and so on. You can use super fast full text search feature against all languages by installing PGroonga into your PostgreSQL!"
+msgstr ""
+
+#: ../../index.md:32
+msgid "## Documentations {#documentations}"
+msgstr ""
+
+#: ../../index.md:34
+msgid "  * [News](news/): It lists release information."
+msgstr ""
+
+#: ../../index.md:36
+msgid "  * [Overview](overview/): It describes about PGroonga."
+msgstr ""
+
+#: ../../index.md:38
+msgid "  * [Install](install/): It describes how to install PGroonga."
+msgstr ""
+
+#: ../../index.md:40
+msgid "  * [Upgrade](upgrade/): It describes how to upgrade PGroonga."
+msgstr ""
+
+#: ../../index.md:42
+msgid "  * [Uninstall](uninstall/): It describes how to uninstall PGroonga."
+msgstr ""
+
+#: ../../index.md:44
+msgid "  * [Tutorial](tutorial/): It describes how to use PGroonga step by step."
+msgstr ""
+
+#: ../../index.md:46
+msgid "  * [FAQ](faq/): Frequently asked questions."
+msgstr ""
+
+#: ../../index.md:48
+msgid "  * [How to](how-to/): It describes about useful information for specific situations."
+msgstr ""
+
+#: ../../index.md:50
+msgid "  * [Reference](reference/): It describes details for each features such as options, functions and operators."
+msgstr ""
+
+#: ../../index.md:52
+msgid "  * [Community](community/): It introduces about PGroonga community."
+msgstr ""
+
+#: ../../index.md:54
+msgid "  * [Users](users/): It lists PGroonga users."
+msgstr ""
+
+#: ../../index.md:56
+msgid "  * [Development](development/): It describes how to develop PGroonga."
+msgstr ""
+
+#: ../../index.md:58
+msgid "## License {#license}"
+msgstr ""
+
+#: ../../index.md:60
+msgid "PGroonga is released under [PostgreSQL license](http://opensource.org/licenses/postgresql) that is similar to BSD license and MIT license."
+msgstr ""
+
+#: ../../index.md:62
+msgid "See [COPYING](https://github.com/pgroonga/pgroonga/blob/master/COPYING) file for details such as copyright holders."
+msgstr ""
+
+#: ../../index.md:64
+msgid "Bundled software is released under different license. Here are bundled software and license information:"
+msgstr ""
+
+#: ../../index.md:66
+msgid "  * [xxHash](https://github.com/Cyan4973/xxHash)\n"
+"    * BSD license\n"
+"    * Copyright: `Copyright (c) 2012-2014, Yann Collet`\n"
+"    * Detail: [`vendor/xxHash/LICENSE`](https://github.com/Cyan4973/xxHash/blob/master/LICENSE)"
+msgstr ""
+
+#: ../../index.md:71
+msgid "  * [Groonga](http://groonga.org/) (bundled only for Windows package)\n"
+"    * LGPL 2.1\n"
+"    * Copyright: `Copyright(C) 2009-2015 Brazil`\n"
+"    * Detail: [`vendor/groonga/COPYING`](https://github.com/groonga/groonga/blob/master/COPYING)"
+msgstr ""
+
+#: ../../index.md:76
+msgid "  * [MeCab](http://taku910.github.io/mecab/) (bundled only for Windows package)\n"
+"    * GPL, LGPL or BSD license\n"
+"    * Copyright: `Taku Kudo <taku@chasen.org> and Nippon Telegraph and Telephone Corporation`\n"
+"    * Detail: [`vendor/groonga/vendor/mecab-0.996/COPYING`](https://github.com/taku910/mecab/blob/master/mecab/COPYING)"
+msgstr ""
+
+#: ../../index.md:81
+msgid "  * [NAIST Japanese Dictionary](https://osdn.jp/projects/naist-jdic/) (bundled only for Windows package)\n"
+"    * 3-clause BSD license\n"
+"    * Copyright: `Copyright (c) 2009, Nara Institute of Science and Technology, Japan`\n"
+"    * Detail: `vendor/groonga/vendor/mecab-naist-jdic-0.6.3b-20111013/COPYING`"
+msgstr ""
+
+#: ../../index.md:86
+msgid "  * [LZ4](http://www.lz4.org/) (bundled only for Windows package)\n"
+"    * 2-clause BSD license for libraries\n"
+"    * GPLv2+ for programs\n"
+"    * Copyright: `Copyright (c) 2011-2015, Yann Collet`\n"
+"    * Detail for libraries: `vendor/groonga/vendor/lz4-r131/lib/LICENSE`\n"
+"    * Detail for programs: `vendor/groonga/vendor/lz4-r131/programs/COPYING`"
+msgstr ""
+
+#: ../../index.md:93
+msgid "  * [msgpack-c](https://github.com/msgpack/msgpack-c) (bundled only for Windows package)\n"
+"    * Boost Software License Version 1.0\n"
+"    * Copyright: `Copyright (C) 2008-2015 FURUHASHI Sadayuki`\n"
+"    * Detail: [`vendor/groonga/vendor/msgpack-1.4.1/LICENSE_1_0.txt`](https://github.com/msgpack/msgpack-c/blob/master/LICENSE_1_0.txt)"
+msgstr ""
+

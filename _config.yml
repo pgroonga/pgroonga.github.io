@@ -20,10 +20,11 @@ latest_amazon_linux_postgresql_version: 14
 freebsd_postgresql_version: 13
 development_postgresql_version: 15.2
 exclude:
-  - "Rakefile"
   - "Gemfile"
   - "Gemfile.lock"
+  - "Rakefile"
   - "data"
+  - "transifex.yml"
   - "vendor"
 description:
   en: Make PostgreSQL fast full text search platform for all languages!

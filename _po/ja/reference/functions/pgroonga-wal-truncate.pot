@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:1
+msgid "---\n"
+"title: pgroonga_wal_truncate function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:6
+msgid "# `pgroonga_wal_truncate` function"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:8
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:10
+msgid "`pgroonga_wal_truncate` function truncates PGroonga's WAL. It's not PostgreSQL's WAL. PGroonga's WAL isn't deleted unless you call this function. You can delete PGroonga's WAL if you have backup."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:12
+msgid "Note that disk usage for PGroonga's WAL isn't reduced after you truncate PGroonga's WAL. The disk space already used is just reused for newly added WAL."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:14
+msgid "If you use PGroonga's WAL, you should consider about disk usage of PGroonga's WAL. If you do nothing, PGroonga's WAL keeps growing. You can choose one of them:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:16
+msgid "  1. You create backup and delete PGroonga's WAL periodically."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:18
+msgid "  2. You recreate PGroonga indexes periodically. PGroonga's WAL will be deleted at the next `VACUUM`."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:20
+msgid "  3. Configure [`pgroonga_wal_applier` module][wal-applier] and [`pgroonga.max_wal_size` parameter][max-wal-size]."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:22
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:24
+msgid "Here is the syntax of this function:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:26
+msgid "```text\n"
+"bigint pgroonga_wal_truncate(pgroonga_index_name)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:30
+msgid "`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to be truncated."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:32
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:42
+msgid "It returns the number of truncated PostgreSQL data blocks. PGroonga's WAL is stored in PostgreSQL data blocks."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:34
+msgid "Here is another syntax of this function:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:36
+msgid "```text\n"
+"bigint pgroonga_wal_truncate()\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:40
+msgid "It truncates all WAL of all PGroonga indexes."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:44
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:46
+msgid "Here are sample schema and data:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:48
+msgid "```sql\n"
+"SET pgroonga.enable_wal = yes;"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:51
+msgid "CREATE TABLE memos (\n"
+"  content text\n"
+");"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:55
+msgid "CREATE INDEX pgroonga_memos_index\n"
+"          ON memos\n"
+"       USING pgroonga (content);"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:59
+msgid "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:62
+msgid "Simulate PGroonga database is destroyed situation:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:64
+msgid "```sql\n"
+"SELECT pgroonga_command('delete',\n"
+"                        ARRAY[\n"
+"                          'table', 'IndexStatuses',\n"
+"                          'key', 'pgroonga_memos_index'::regclass::oid::text\n"
+"                        ])::json->>1;\n"
+"--  ?column? \n"
+"-- ----------\n"
+"--  true\n"
+"-- (1 row)\n"
+"SELECT pgroonga_command('table_remove',\n"
+"                        ARRAY[\n"
+"                          'name', 'Lexicon' ||\n"
+"                                  'pgroonga_memos_index'::regclass::oid ||\n"
+"                                  '_0'\n"
+"                        ])::json->>1;\n"
+"--  ?column? \n"
+"-- ----------\n"
+"--  true\n"
+"-- (1 row)\n"
+"SELECT pgroonga_command('table_remove',\n"
+"                        ARRAY[\n"
+"                          'name', pgroonga_table_name('pgroonga_memos_index')\n"
+"                        ])::json->>1;\n"
+"--  ?column? \n"
+"-- ----------\n"
+"--  true\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:94
+msgid "Normally, you can recover the PGroonga index from PGroonga's WAL automatically. But you can't recover the PGroonga index automatically when PGroonga's WAL of the PGroonga's index is deleted (You can recover the PGroonga index by recreating the index explicitly):"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:96
+msgid "```sql\n"
+"SELECT pgroonga_wal_truncate('pgroonga_memos_index');\n"
+"--  pgroonga_wal_truncate \n"
+"-- -----------------------\n"
+"--                      2\n"
+"-- (1 row)\n"
+"SELECT * FROM memos WHERE content &@~ 'Groonga';\n"
+"-- ERROR:  pgroonga: object isn't found: <Sources555045>\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:106
+msgid "You can omit PGroonga index name. If you omit PGroonga index name, all WAL for all PGroonga indexes are truncated:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:108
+msgid "```sql\n"
+"SELECT pgroonga_wal_truncate();\n"
+"--  pgroonga_wal_truncate \n"
+"-- -----------------------\n"
+"--                      2\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:116
+msgid "## Backup and PGroonga's WAL truncation {#backup-and-pgroonga-wal-truncation}"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:118
+msgid "PGroonga's data isn't crash safe. You just create backup only for PGroonga's data to reduce recover time from crash when you enable PGroonga's WAL. You don't need to create backup all PostgreSQL data. You can use [`rsync`][rsync] for backup."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:120
+msgid "Note that you must create PostgreSQL backup into other host for storage crash."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:122
+msgid "Here are sample shell script to create backup and restore from backup:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:124
+msgid "```shell\n"
+"db_name=\"YOUR_DB_NAME\""
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:127
+msgid "# Detect database information\n"
+"db_oid=$(psql \\\n"
+"  --dbname ${db_name} \\\n"
+"  --no-psqlrc \\\n"
+"  --no-align \\\n"
+"  --tuples-only \\\n"
+"  -c \"SELECT datid FROM pg_stat_database WHERE datname = '${db_name}'\")\n"
+"data_dir=$(psql \\\n"
+"  --dbname ${db_name} \\\n"
+"  --no-psqlrc \\\n"
+"  --no-align \\\n"
+"  --tuples-only \\\n"
+"  -c \"SHOW data_directory\")"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:141
+msgid "# Define directories\n"
+"db_dir=${data_dir}/base/${db_oid}\n"
+"backup_dir=${data_dir}/../../backup"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:145
+msgid "# Create backup directory\n"
+"mkdir -p ${backup_dir}"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:148
+msgid "# Stop PostgreSQL\n"
+"systemctl stop postgresql-10"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:151
+msgid "# Create backup\n"
+"rsync -a --include '/pgrn*' --exclude '*' --delete ${db_dir}/ ${backup_dir}/"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:154
+msgid "# Run PostgreSQL\n"
+"systemctl start postgresql-10"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:157
+msgid "# Remove PGroonga's WAL\n"
+"#\n"
+"# You must not change your data\n"
+"# between creating backup and running pgroonga_wal_truncate\n"
+"psql --dbname ${db_name} -c \"SELECT pgroonga_wal_truncate()\""
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:163
+msgid "# ...PostgreSQL is crashed..."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:165
+msgid "# Restore from backup\n"
+"rsync -a --include '/pgrn*' --exclude '*' --delete ${backup_dir}/ ${db_dir}/"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:168
+msgid "# Run PostgreSQL again\n"
+"systemctl restart postgresql-10\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:172
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:174
+msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:176
+msgid "  * [`pgroonga_wal_apply` function][wal-apply]"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:178
+msgid "  * [`pgroonga_set_writable` function][set-writable]"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:180
+msgid "[wal-applier]:../modules/pgroonga-wal-applier.html"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:182
+msgid "[max-wal-size]:../parameters/max-wal-size.html"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:184
+msgid "[enable-wal]:../parameters/enable-wal.html"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:186
+msgid "[wal-apply]:pgroonga-wal-apply.html"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:188
+msgid "[set-writable]:pgroonga-set-writable.html"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:190
+msgid "[rsync]:https://rsync.samba.org/"
+msgstr ""
+

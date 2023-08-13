@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../../v1/reference/parameters/log-level.md:1
+msgid "---\n"
+"title: \"pgroonga.log_level parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:6
+msgid "# `pgroonga.log_level` parameter"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:8
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:10
+msgid "`pgroonga.log_level` parameter controls which logs are recorded."
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:12
+msgid "You can choose one the following log levels:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:14
+#: ../../../../../v1/reference/parameters/log-level.md:45
+msgid "  * `none`\n"
+"  * `emergency`\n"
+"  * `alert`\n"
+"  * `critical`\n"
+"  * `error`\n"
+"  * `warning`\n"
+"  * `notice`\n"
+"  * `info`\n"
+"  * `debug`\n"
+"  * `dump`"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:25
+msgid "The log level list is sorted by less logs to more logs."
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:27
+msgid "The default log level is `notice`."
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:29
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:31
+msgid "In SQL:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:33
+msgid "```sql\n"
+"SET pgroonga.log_level = level;\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:37
+msgid "In `postgresql.conf`:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:39
+msgid "```text\n"
+"pgroonga.log_level = level\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:43
+msgid "`level` is an enum value. It means that you must choose one of them:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:56
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:58
+msgid "Here is an example to disable log:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:60
+msgid "```sql\n"
+"SET pgroonga.log_level = none;\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:64
+msgid "Here is an example to enable almost log messages:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/log-level.md:66
+msgid "```sql\n"
+"SET pgroonga.log_level = debug;\n"
+"```"
+msgstr ""
+

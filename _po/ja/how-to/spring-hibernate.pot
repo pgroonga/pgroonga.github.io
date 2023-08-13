@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-29 08:49+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to/spring-hibernate.md:1
+msgid "---\n"
+"title: How to integrate pgroonga with Java based Spring/Hibernate\n"
+"---"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:5
+msgid "## Overview"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:7
+msgid "There are three parts to the integration. First is notification to spring that a custom registration of functions is required. The second step is to register all desired operations with separate function names for use in Hibernate. The last step is using the functions in your HQL or JPA queries."
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:9
+msgid "## Register with Spring"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:11
+msgid "Under resources, in the **META-INF/services** folder create a file called **org.hibernate.boot.model.FunctionContributor** By creating this file in this location, Spring k nows to execute the class as part of bootstrapping Hibernate.\n"
+"The content of the file is the fully qualified class name of a function contributor. The function contributor is what registers the customer function for use by Hibernate."
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:14
+msgid "e.g."
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:16
+msgid "```java\n"
+"com.whonome.ec.lib.PgFunctionContributor\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:20
+msgid "## Register Functions with Hibernate"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:22
+msgid "Below is a simple use case is for selected operations of pgroonga, and did not to leverage lower level commands. As such, I only needed to create a simple registration of the operations to Hibernate as custom functions. [Hibernate document on FunctionContributor](https://docs.jboss.org/hibernate/orm/current/javadocs/org/hibernate/boot/model/FunctionContributor.html)"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:24
+msgid "The FunctionContributor is effectively a contract to register new functions which when encountered in HQL will be translated. \n"
+"There is a prebuilt tool for Pattern based substitution. The PatternFunction provides simple string replacement for the named function. The params passed into the function are sequentially numbered and prefixed by a question mark '*?*'."
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:27
+msgid "```java\n"
+"package com.whonome.ec.lib;\n"
+"import org.hibernate.boot.model.FunctionContributions;\n"
+"import org.hibernate.boot.model.FunctionContributor;\n"
+"import org.hibernate.type.BasicType;\n"
+"import org.hibernate.type.StandardBasicTypes;\n"
+"public class PgFunctionContributor implements FunctionContributor {\n"
+"	@Override\n"
+"	public void contributeFunctions(FunctionContributions functionContributions) {\n"
+"		BasicType<Boolean> resolveType = functionContributions.getTypeConfiguration().getBasicTypeRegistry().resolve(StandardBasicTypes.BOOLEAN);\n"
+"		functionContributions.getFunctionRegistry().registerPattern(\"ecfts\",\"?1 &@~ ?2\",resolveType);\n"
+"	}\n"
+"}\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:42
+msgid "## Use the function"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:44
+msgid "A simple example of the HQL syntax to call the newly registered function."
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:46
+msgid "```sql\n"
+"select count(primaryKey) from FTX where fkEntity.fkType = :param1 and ecfts(content, :param2) = true\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:50
+msgid "The generated SQL will look like the following:"
+msgstr ""
+
+#: ../../../how-to/spring-hibernate.md:52
+msgid "```sql\n"
+"select count(f1_0.primary_key) from ec_ftx f1_0 where f1_0.fk_entity_fk_type=? and f1_0.content &@~ ?=true\n"
+"```"
+msgstr ""
+

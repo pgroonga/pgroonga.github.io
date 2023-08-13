@@ -1,0 +1,525 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-25 16:49+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:1
+msgid "---\n"
+"title: pgroonga_highlight_html function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:6
+msgid "# `pgroonga_highlight_html` function"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:8
+msgid "Since 1.0.7."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:12
+msgid "`pgroonga_highlight_html` function surrounds the specified keywords in the specified text by `<span class=\"keyword\">` and `</span>`. HTML special characters such as `&` in the specified text are escaped."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:14
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:16
+msgid "There are two signatures:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:18
+msgid "```text\n"
+"text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])\n"
+"text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
+"text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],\n"
+"                               ARRAY[keyword1, keyword2, ...])\n"
+"text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],\n"
+"                               ARRAY[keyword1, keyword2, ...], index_name)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:27
+msgid "The first signature is simpler than others. The first signature is enough for most cases."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:29
+msgid "The second signature is useful when you use custom normalizer."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:31
+msgid "The second signature is available since 2.0.7."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:33
+msgid "The third and fourth signatures are `text[]` versions of the first and second signatures."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:35
+msgid "The third and fourth signatures are available since 2.4.3."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:37
+msgid "Here is the description of the first signature."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:39
+msgid "```text\n"
+"text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:43
+#: ../../../../reference/functions/pgroonga-highlight-html.md:57
+msgid "`target` is a text to be highlighted. It's `text` type."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:45
+#: ../../../../reference/functions/pgroonga-highlight-html.md:59
+#: ../../../../reference/functions/pgroonga-highlight-html.md:110
+#: ../../../../reference/functions/pgroonga-highlight-html.md:137
+msgid "`keyword1`, `keyword2`, `...` are keywords to be highlighted. They're an array of `text` type. You must specify one or more keywords."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:47
+#: ../../../../reference/functions/pgroonga-highlight-html.md:95
+msgid "`pgroonga_highlight_html` markups the keywords in `target`. It's type is `text` type."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:49
+#: ../../../../reference/functions/pgroonga-highlight-html.md:97
+#: ../../../../reference/functions/pgroonga-highlight-html.md:114
+#: ../../../../reference/functions/pgroonga-highlight-html.md:149
+msgid "The keywords are surrounded with `<span class=\"keyword\">` and `</span>`. `<`, `>`, `&` and `\"` in `target` is HTML escaped."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:51
+msgid "Here is the description of the second signature."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:53
+msgid "```text\n"
+"text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:61
+#: ../../../../reference/functions/pgroonga-highlight-html.md:139
+msgid "`index_name` is an index name of the corresponding PGroonga index. It's `text` type."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:63
+#: ../../../../reference/functions/pgroonga-highlight-html.md:141
+msgid "`index_name` can be `NULL`."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:65
+#: ../../../../reference/functions/pgroonga-highlight-html.md:143
+msgid "If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:67
+#: ../../../../reference/functions/pgroonga-highlight-html.md:145
+msgid "If you specify `index_name`, the specified PGroonga index must have `TokenNgram` tokenizer with `\"report_source_location\"` option."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:69
+msgid "Here is an example:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:71
+#: ../../../../reference/functions/pgroonga-highlight-html.md:225
+#: ../../../../reference/functions/pgroonga-highlight-html.md:309
+msgid "```sql\n"
+"CREATE TABLE memos (\n"
+"  content text\n"
+");"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:76
+msgid "CREATE INDEX pgroonga_content_index\n"
+"          ON memos\n"
+"       USING pgroonga (content)\n"
+"        WITH (tokenizer='TokenNgram(\"report_source_location\", true)',\n"
+"              normalizer='NormalizerNFKC100');\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:83
+msgid "Now, you can use `pgroonga_content_index` as `index_name`:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:85
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html('one two three four five',\n"
+"                               ARRAY['two three', 'five'],\n"
+"                               'pgroonga_content_index');\n"
+"--                               pgroonga_highlight_html                              \n"
+"-- -----------------------------------------------------------------------------------\n"
+"--  one<span class=\"keyword\"> two three</span> four<span class=\"keyword\"> five</span>\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:99
+msgid "It's available since 2.0.7."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:101
+msgid "Here is the description of the third signature."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:103
+msgid "```text\n"
+"text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],\n"
+"                               ARRAY[keyword1, keyword2, ...])\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:108
+#: ../../../../reference/functions/pgroonga-highlight-html.md:135
+msgid "`target1`, `target2`, `...` are texts to be highlighted. They're an array of `text` type."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:112
+#: ../../../../reference/functions/pgroonga-highlight-html.md:147
+msgid "`pgroonga_highlight_html` markups the keywords in for each `target`. `pgroonga_highlight_html` returns an array of `text` type. If a `target` is `NULL`, corresponding element in the returned array is also `NULL`."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:116
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html(ARRAY['one two three', NULL, 'five', 'six three'],\n"
+"                               ARRAY['two three', 'six']);\n"
+"--                                         pgroonga_highlight_html                                        \n"
+"-- -------------------------------------------------------------------------------------------------------\n"
+"--  {\"one<span class=\\\"keyword\\\"> two three</span>\",NULL,five,\"<span class=\\\"keyword\\\">six</span> three\"}\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:125
+#: ../../../../reference/functions/pgroonga-highlight-html.md:153
+msgid "It's available since 2.4.2."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:127
+msgid "Here is the description of the fourth signature."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:129
+msgid "```text\n"
+"text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],\n"
+"                               ARRAY[keyword1, keyword2, ...],\n"
+"                               index_name)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:151
+msgid "See also the example of the second signature and the third signature."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:155
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:157
+msgid "You need to specify at least one keyword:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:159
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',\n"
+"                               ARRAY['PostgreSQL']) AS highlight_html;\n"
+"--                           highlight_html                          \n"
+"-- ------------------------------------------------------------------\n"
+"--  PGroonga is a <span class=\"keyword\">PostgreSQL</span> extension.\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:168
+msgid "You can specify multiple keywords:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:170
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',\n"
+"                               ARRAY['Groonga', 'PostgreSQL']) AS highlight_html;\n"
+"--                                         highlight_html                                         \n"
+"-- -----------------------------------------------------------------------------------------------\n"
+"--  P<span class=\"keyword\">Groonga</span> is a <span class=\"keyword\">PostgreSQL</span> extension.\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:179
+msgid "You can extract keywords from query by [`pgroonga_query_extract_keywords` function](pgroonga-query-extract-keywords.html):"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:181
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',\n"
+"                               pgroonga_query_extract_keywords('Groonga PostgreSQL -extension')) AS highlight_html;\n"
+"--                                         highlight_html                                         \n"
+"-- -----------------------------------------------------------------------------------------------\n"
+"--  P<span class=\"keyword\">Groonga</span> is a <span class=\"keyword\">PostgreSQL</span> extension.\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:190
+msgid "HTML special characters are escaped automatically:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:192
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html('<p>PGroonga is Groonga & PostgreSQL.</p>',\n"
+"                               ARRAY['PostgreSQL']) AS highlight_html;\n"
+"--                                     highlight_html                                     \n"
+"-- ---------------------------------------------------------------------------------------\n"
+"--  &lt;p&gt;PGroonga is Groonga &amp; <span class=\"keyword\">PostgreSQL</span>.&lt;/p&gt;\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:201
+msgid "Characters are normalized:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:203
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html('PGroonga + pglogical = replicatable!',\n"
+"                               ARRAY['Pg']) AS highlight_html;\n"
+"--                                     highlight_html                                         \n"
+"-- ------------------------------------------------------------------------------------------------\n"
+"--  <span class=\"keyword\">PG</span>roonga + <span class=\"keyword\">pg</span>logical = replicatable!\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:212
+msgid "Multibyte characters are also supported:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:214
+msgid "```sql\n"
+"SELECT pgroonga_highlight_html('10㌖先にある100ｷﾛグラムの米',\n"
+"                               ARRAY['キロ']) AS highlight_html;\n"
+"--                                     highlight_html                                     \n"
+"-- ---------------------------------------------------------------------------------------\n"
+"--  10<span class=\"keyword\">㌖</span>先にある100<span class=\"keyword\">ｷﾛ</span>グラムの米\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:223
+msgid "Custom tokenizer and normalizer can be used by specifying a PGroonga index name:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:230
+msgid "CREATE INDEX pgroonga_content_index\n"
+"          ON memos\n"
+"       USING pgroonga (content)\n"
+"        WITH (tokenizer='TokenNgram(\"report_source_location\", true)',\n"
+"              normalizer='NormalizerNFKC100');"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:236
+msgid "SELECT pgroonga_highlight_html('one two three four five',\n"
+"                               ARRAY['two three', 'five'],\n"
+"                               'pgroonga_content_index');\n"
+"--                               pgroonga_highlight_html                              \n"
+"-- -----------------------------------------------------------------------------------\n"
+"--  one<span class=\"keyword\"> two three</span> four<span class=\"keyword\"> five</span>\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:245
+msgid "## Practical example 1: keyword search and highlight"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:247
+msgid "Here is an example of implementing keyword search feature with `pgroonga_highlight_html`."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:249
+msgid "Imagine you are building a blog, and for simplicity, this blog's post model only has `id`, `title` and `body` fields."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:251
+msgid "```sql\n"
+"CREATE TABLE posts (\n"
+"  id SERIAL NOT NULL,\n"
+"  title varchar(255),\n"
+"  body text\n"
+");"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:258
+msgid "-- Create PGroonga Index\n"
+"CREATE INDEX pgroonga_posts_index\n"
+"          ON posts\n"
+"       USING pgroonga (title, body);"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:263
+msgid "-- Insert some sample data\n"
+"INSERT INTO posts VALUES (1, 'Quote of the day one', 'Design is not just what it looks like and feels like. Design is how it works.');\n"
+"INSERT INTO posts VALUES (2, 'Quote of the day two', 'If everyone is busy making everything, how can any one perfect anything?');\n"
+"INSERT INTO posts VALUES (3, 'Quote of the day three', 'There are a thousand no''s, for every yes.');\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:270
+msgid "Then you may use `pgroonga_highlight_html` function to search through your blog posts, and get the result with keywords highlighted like this:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:272
+msgid "```sql\n"
+"SELECT\n"
+"   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('thousand')) AS highlighted_title,\n"
+"   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('thousand')) AS highlighted_body\n"
+"   from posts where title &@~ 'thousand' or body &@~ 'thousand';"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:278
+msgid "--    highlighted_title    |                            highlighted_body                            \n"
+"-- ------------------------+------------------------------------------------------------------------\n"
+"--  Quote of the day three | There are a <span class=\"keyword\">thousand</span> no's, for every yes.\n"
+"--  (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:284
+msgid "If you have a lot of data to search through and return the result with pagination, it is not wise to use `pgroonga_highlight_html()` on that query. Because `pgroonga_highlight_html()` only works in sequentially, the more number of records for processing in `pgroonga_highlight_html()` you have, slower it gets in performance."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:286
+msgid "To avoid this problem, in the following example, we reduce the number of records for processing in `pgroonga_highlight_html()` by using `pgroonga_highlight_html()` on the result of your keyword search instead."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:288
+msgid "```sql\n"
+"-- Good Performance\n"
+"SELECT\n"
+"   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('Search Words')) AS highlighted_title,\n"
+"   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('Search Words')) AS highlighted_body\n"
+"   from posts where id IN\n"
+"   (SELECT id FROM posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100);"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:296
+msgid "-- Do not do this. You may experience some performance issue.\n"
+"SELECT\n"
+"   pgroonga_highlight_html(title, pgroonga_query_extract_keywords('Search Words')) AS highlighted_title,\n"
+"   pgroonga_highlight_html(body, pgroonga_query_extract_keywords('Search Words')) AS highlighted_body\n"
+"   from posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100;\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:303
+msgid "## Practical example 2: keyword search and highlight using with `NormalizerTable`"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:305
+msgid "If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga` document ([How to use `NormalizerTable` with `pgroonga_highlight_html` section][create-index-using-pgroonga-normalizer-table-highlight-html]), the specified PGroonga index must have not only `TokenNgram` with `\"report_source_location\", true\"` option but also both `NormalizerNFKC*` and `NormalizerTable` with `\"report_source_offset\", true\"` option for each."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:307
+msgid "Here is an example (We use Japanese Name 'Saito' (`斉藤`) which has many variants):"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:314
+msgid "CREATE TABLE synonyms (\n"
+"   \"target\" text not null,\n"
+"   \"normalized\" text not null\n"
+");"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:319
+msgid "INSERT INTO synonyms VALUES ('齊', '斉');\n"
+"INSERT INTO synonyms VALUES ('斎', '斉');\n"
+"INSERT INTO synonyms VALUES ('齋', '斉');"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:323
+msgid "INSERT INTO memos  (content)  VALUES ('斎藤さんの恋愛');\n"
+"INSERT INTO memos  (content)  VALUES ('斉藤さんの失恋');\n"
+"INSERT INTO memos  (content)  VALUES ('齋藤さんの片想い');"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:327
+msgid "CREATE INDEX pgroonga_synonyms_index ON synonyms\n"
+" USING pgroonga (target pgroonga_text_term_search_ops_v2)\n"
+"                INCLUDE (normalized);"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:331
+msgid "CREATE INDEX pgroonga_memos_index\n"
+"          ON memos\n"
+"       USING pgroonga (content)\n"
+"        WITH (\n"
+"         tokenizer='TokenNgram(\n"
+"                      \"unify_alphabet\", false,\n"
+"                      \"unify_symbol\", false,\n"
+"                      \"unify_digit\", false,\n"
+"                      \"report_source_location\", true\n"
+"                    )',\n"
+"         normalizers='\n"
+"               NormalizerNFKC150(\"report_source_offset\", true),\n"
+"               NormalizerTable(\n"
+"                 \"normalized\", \"${table:pgroonga_synonyms_index}.normalized\", \n"
+"                 \"target\", \"target\",\n"
+"                 \"report_source_offset\", true\n"
+"               )'\n"
+"            );\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:351
+msgid "```sql\n"
+"select pgroonga_highlight_html(content, '{斉藤}', 'pgroonga_memos_index')\n"
+"                  from memos where content &@~ '斉藤';\n"
+"--             pgroonga_highlight_html            \n"
+"-- -----------------------------------------------\n"
+"--  <span class=\"keyword\"></span>斎藤さんの恋愛\n"
+"--  <span class=\"keyword\"></span>斉藤さんの失恋\n"
+"--  <span class=\"keyword\"></span>齋藤さんの片想い\n"
+"-- (3 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:363
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:365
+msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-highlight-html.md:367
+msgid "[query-extract-keywords]:pgroonga-query-extract-keywords.html\n"
+"[create-index-using-pgroonga-normalizer-table-highlight-html]:../create-index-using-pgroonga.html#normalizer-table-highlight-html"
+msgstr ""
+

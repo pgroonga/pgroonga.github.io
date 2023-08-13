@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../overview/index.md:1
+msgid "---\n"
+"title: Overview\n"
+"---"
+msgstr ""
+
+#: ../../../overview/index.md:5
+msgid "# Overview"
+msgstr ""
+
+#: ../../../overview/index.md:7
+msgid "PGroonga is a PostgreSQL extension. PGroonga provides a new index access method that uses [Groonga](http://groonga.org/)."
+msgstr ""
+
+#: ../../../overview/index.md:9
+msgid "Groonga is an embeddable super fast full text search engine. It can be embedded into MySQL. [Mroonga](http://mroonga.org/) is a storage engine that is based on Groonga. Groonga can also work as standalone search engine."
+msgstr ""
+
+#: ../../../overview/index.md:11
+msgid "PostgreSQL supports full text search against languages that use only alphabet and digit. It means that PostgreSQL doesn't support full text search against Japanese, Chinese and so on. You can use super fast full text search feature against all languages by installing PGroonga into your PostgreSQL!"
+msgstr ""
+
+#: ../../../overview/index.md:13
+msgid "And more, PGroonga supports full text search against all text values in JSON. It's an unique feature. Built-in PostgreSQL features and [JsQuery](https://github.com/postgrespro/jsquery) don't support it."
+msgstr ""
+
+#: ../../../overview/index.md:15
+msgid "## Related extensions"
+msgstr ""
+
+#: ../../../overview/index.md:17
+msgid "There are some extensions that implements full text search against all languages:"
+msgstr ""
+
+#: ../../../overview/index.md:19
+msgid "  * [pg\\_trgm]({{ site.postgresql_doc_base_url.en }}/pgtrgm.html)"
+msgstr ""
+
+#: ../../../overview/index.md:21
+msgid "    * It's bundled with PostgreSQL but it's not installed as default."
+msgstr ""
+
+#: ../../../overview/index.md:23
+msgid "    * You need to change pg\\_trgm source code to support all languages."
+msgstr ""
+
+#: ../../../overview/index.md:25
+msgid "  * [pg\\_bigm](http://pgbigm.osdn.jp/)"
+msgstr ""
+
+#: ../../../overview/index.md:27
+msgid "    * It supports full text search against all languages without changing source code."
+msgstr ""
+
+#: ../../../overview/index.md:29
+msgid "    * It requires [Recheck](http://pgbigm.osdn.jp/pg_bigm_en-1-1.html#enable_recheck) to remove false positives."
+msgstr ""
+
+#: ../../../overview/index.md:31
+msgid "    * Recheck is slow for many hits case. Because Recheck does sequential search against records found by index search."
+msgstr ""
+
+#: ../../../overview/index.md:33
+msgid "    * If you disables Recheck, you may get false positives."
+msgstr ""
+
+#: ../../../overview/index.md:35
+msgid "PGroonga supports full text search against all languages without changing source code."
+msgstr ""
+
+#: ../../../overview/index.md:37
+msgid "PGroonga works without Recheck. PGroonga can find exact records only by index search. PGroonga is fast for many hits case."
+msgstr ""
+
+#: ../../../overview/index.md:39
+msgid "PGroonga supports [replication](../reference/replication.html) with PostgreSQL 9.6 or later."
+msgstr ""
+
+#: ../../../overview/index.md:41
+msgid "PGroonga isn't crash safe. If your PostgreSQL process is crashed while updating, your PGroonga indexes may be broken. If your PGroonga indexes are broken, you need to recreate PGroonga indexes by [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html)."
+msgstr ""
+
+#: ../../../overview/index.md:43
+msgid "## History"
+msgstr ""
+
+#: ../../../overview/index.md:45
+msgid "PGroonga is based on [textsearch_groonga](http://textsearch-ja.projects.pgfoundry.org/textsearch_groonga.html) that was developed by Itagaki Takahiro. Thanks for the works!"
+msgstr ""
+
+#: ../../../overview/index.md:47
+msgid "## The next step"
+msgstr ""
+
+#: ../../../overview/index.md:49
+msgid "Interested? [Install](../install/) PGroonga and try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr ""
+

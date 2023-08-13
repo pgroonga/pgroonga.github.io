@@ -1,0 +1,362 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to/sudachi-dictionary.md:1
+msgid "---\n"
+"title: How to use Sudachi dictionary for synonym expansion\n"
+"---"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:5
+msgid "## How to use Sudachi dictionary for synonym expansion"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:7
+msgid "[SudachiDict][sudachi-dict] provides a synonym dictionary. We can use it in PGroonga."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:9
+msgid "We explain how to use the synonym dictionary in SudachiDict in your search system. We use the synonym dictionary in SudachiDict as the system dictionary here. We can use additional synonym dictionary defined by us."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:11
+msgid "### How to register contents of the synonym dictionary in SudachiDict"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:13
+msgid "We need to create a table for system synonym dictionary based on SudachiDict. We name it `system_thesaurus` here:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:15
+msgid "```sql\n"
+"CREATE TABLE system_thesaurus (\n"
+"  term text PRIMARY KEY,\n"
+"  synonyms text[]\n"
+");\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:22
+msgid "We need a PGroonga index to use it as synonym dictionary. It must use `pgroonga_text_term_search_ops_v2` operator class for `term` that is used as synonym key:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:24
+msgid "```sql\n"
+"CREATE INDEX system_thesaurus_term_index\n"
+"  ON system_thesaurus\n"
+"  USING pgroonga (term pgroonga_text_term_search_ops_v2);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:30
+msgid "We can use [Groonga synonym][groonga-synonym] to register contents of the synonym dictionary in SudachiDict to `system_thesaurus`."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:32
+msgid "Groonga synonym is written in Ruby. We need to install Ruby at first."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:34
+msgid "Install Groonga synonym:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:36
+msgid "```bash\n"
+"gem install groonga-synonym\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:40
+msgid "The following command line generates `INSERT` to register contents of the synonym dictionary in SudachiDict to `system_thesaurus`:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:42
+msgid "```bash\n"
+"groonga-synonym-generate --format=pgroonga --table=system_thesaurus --output=system_thesaurus_data.sql\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:46
+msgid "The generated data has weight because SudachiDict provides relation information."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:48
+msgid "We can load the data by `\\i` in `psql`:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:50
+msgid "```text\n"
+"\\i system_thesaurus_data.sql\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:54
+msgid "### How to register user synonym dictionary"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:56
+msgid "We need to create a table for user synonym dictionary. We use [synonym groups usage][pgroonga-query-expand-usage-synonym-groups] here. Because maintaining synonym dictionary is high cost task. Synonym groups usage is less maintenance cost than [term to synonyms usage][pgroonga-query-expand-usage-term-to-synonyms]."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:58
+msgid "We name it `user_synonym_groups` here:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:60
+msgid "```sql\n"
+"CREATE TABLE user_synonym_groups (\n"
+"  synonyms text[]\n"
+");\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:66
+msgid "We need a PGroonga index to use it as synonym dictionary. It must use `pgroonga_text_array_term_search_ops_v2` operator class for `synonyms` that is used as synonym group:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:68
+msgid "```sql\n"
+"CREATE INDEX user_synonym_groups_synonyms_index\n"
+"          ON user_synonym_groups\n"
+"       USING pgroonga (synonyms pgroonga_text_array_term_search_ops_v2);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:74
+msgid "Here are sample data:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:76
+msgid "```sql\n"
+"INSERT INTO user_synonym_groups VALUES (ARRAY['pg', 'postgresql']);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:80
+msgid "We can get the same search result for `pg` and `postgresql` with this synonym groups data. If we search with `pg`, `pg OR postgresql` is used as query. If we search with `postgresql`, `pg OR postgresql` is used as query."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:82
+msgid "### How to search with synonym dictionaries"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:84
+msgid "We can use [`pgroonga_query_expand` function][pgroonga-query-expand] twice to search with synonym dictionaries."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:86
+msgid "First `pgroonga_query_expand()` uses user synonym dictionary:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:88
+msgid "```sql\n"
+"SELECT\n"
+"  pgroonga_query_expand(\n"
+"    'user_synonym_groups',\n"
+"    'synonyms',\n"
+"    'synonyms',\n"
+"    'QUERY'\n"
+"  );\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:98
+msgid "Here is an example to use `pg` as query:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:100
+msgid "```sql\n"
+"SELECT\n"
+"  pgroonga_query_expand(\n"
+"    'user_synonym_groups',\n"
+"    'synonyms',\n"
+"    'synonyms',\n"
+"    'pg'\n"
+"  );\n"
+"--  pgroonga_query_expand  \n"
+"-- ------------------------\n"
+"--  ((pg) OR (postgresql))\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:114
+msgid "Both of `pg` and `postgresql` will be searched."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:116
+msgid "Second `pgroonga_query_expand()` uses system synonym dictionary against the result of the first `pgroonga_query_expand()`:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:118
+msgid "```sql\n"
+"SELECT\n"
+"  pgroonga_query_expand(\n"
+"    'system_thesaurus',\n"
+"    'term',\n"
+"    'synonyms',\n"
+"    pgroonga_query_expand(\n"
+"      'user_synonym_groups',\n"
+"      'synonyms',\n"
+"      'synonyms',\n"
+"      'QUERY'\n"
+"    )\n"
+"  );\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:133
+msgid "We add one more synonym group to the user synonym dictionary:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:135
+msgid "```sql\n"
+"INSERT INTO user_synonym_groups VALUES (ARRAY['on-line', 'online']);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:139
+msgid "Let's confirm the new synonym group:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:141
+msgid "```sql\n"
+"SELECT\n"
+"  pgroonga_query_expand(\n"
+"    'user_synonym_groups',\n"
+"    'synonyms',\n"
+"    'synonyms',\n"
+"    'on-line'\n"
+"  );\n"
+"--   pgroonga_query_expand  \n"
+"-- -------------------------\n"
+"--  ((on-line) OR (online))\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:155
+msgid "Let's use both system synonym dictionary and user synonym dictionary with `on-line` as query:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:157
+msgid "```sql\n"
+"SELECT\n"
+"  pgroonga_query_expand(\n"
+"    'system_thesaurus',\n"
+"    'term',\n"
+"    'synonyms',\n"
+"	pgroonga_query_expand(\n"
+"      'user_synonym_groups',\n"
+"      'synonyms',\n"
+"      'synonyms',\n"
+"      'on-line'\n"
+"    )\n"
+"  );\n"
+"--               pgroonga_query_expand               \n"
+"-- --------------------------------------------------\n"
+"--  ((on-line) OR (((>-0.2オンライン) OR (online))))\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:176
+msgid "Here is the workflow of the above `SELECT`:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:178
+msgid "  1. `on-line` is expanded to `on-line OR online` with user synonym dictionary: `on-line` -> `((on-line)) OR (online))`"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:180
+msgid "  2. `online` is expanded to `>-0.2オンライン OR online` with system synonym dictionary: `((on-line)) OR (online))` -> `((on-line) OR (((>-0.2オンライン) OR (online))))`"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:182
+msgid "Note that `>-0.2` in `>-0.2オンライン` adjusts weight for `オンライン`. It uses `0.8` (`1 - 0.2`) as weight."
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:184
+msgid "Let's use the synonym dictionaries with full text search:"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:186
+msgid "```sql\n"
+"CREATE TABLE memos (\n"
+"  content text\n"
+");\n"
+"INSERT INTO memos VALUES ('Online conference is easy to join');\n"
+"INSERT INTO memos VALUES ('On-line conference is easy to join');\n"
+"INSERT INTO memos VALUES ('オンライン conference is easy to join');"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:194
+msgid "CREATE INDEX memos_content_index ON memos USING pgroonga (content);"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:196
+msgid "-- For ensuring using index\n"
+"SET enable_seqscan = no;"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:199
+msgid "SELECT content, pgroonga_score(tableoid, ctid) AS score\n"
+"  FROM memos\n"
+"  WHERE\n"
+"    content &@~\n"
+"      pgroonga_query_expand(\n"
+"        'system_thesaurus',\n"
+"        'term',\n"
+"        'synonyms',\n"
+"        pgroonga_query_expand(\n"
+"          'user_synonym_groups',\n"
+"          'synonyms',\n"
+"          'synonyms',\n"
+"          'on-line'\n"
+"        )\n"
+"      );\n"
+"--                content                |       score       \n"
+"-- ---------------------------------------+-------------------\n"
+"--  On-line conference is easy to join    |                 1\n"
+"--  オンライン conference is easy to join | 0.800000011920929\n"
+"--  Online conference is easy to join     |                 1\n"
+"-- (3 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:222
+msgid "[sudachi-dict]:https://github.com/WorksApplications/SudachiDict"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:224
+msgid "[groonga-synonym]:https://github.com/groonga/groonga-synonym"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:226
+msgid "[pgroonga-query-expand-usage-synonym-groups]:../reference/functions/pgroonga-query-expand.html#usage-synonym-groups"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:228
+msgid "[pgroonga-query-expand-usage-term-to-synonyms]:../reference/functions/pgroonga-query-expand.html#usage-term-to-synonyms"
+msgstr ""
+
+#: ../../../how-to/sudachi-dictionary.md:230
+msgid "[pgroonga-query-expand]:../reference/functions/pgroonga-query-expand.html"
+msgstr ""
+

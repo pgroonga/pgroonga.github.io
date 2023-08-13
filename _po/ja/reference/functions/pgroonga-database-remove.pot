@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:1
+msgid "---\n"
+"title: pgroonga_database_remove function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:6
+msgid "# `pgroonga_database_remove` function"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:8
+msgid "Since 2.1.8."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:12
+msgid "`pgroonga_database_remove` function removes all PGroonga related files (`pgrn*` files) from PostgreSQL database directories."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:14
+msgid "You need to install [`pgroonga_database` module][pgroonga-database] to use this function."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:16
+msgid "Note that this is a dangerous function. You should not enable this function until you need this function."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:18
+msgid "Normally, you don't need to remove PGroonga related files. If your PGroonga indexes are broken, you can recover these indexes by [`REINDEX`][postgresql-reindex]. But you can't recover by `REINDEX` when internal PGroonga database is broken."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:20
+msgid "If your internal PGroonga database is broken, you need to follow the following steps to recover your internal PGroonga database:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:22
+#: ../../../../reference/functions/pgroonga-database-remove.md:40
+msgid "  1. Disconnect all PostgreSQL connections"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:24
+msgid "  2. Remove all `pgrn*` files in PostgreSQL data directories"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:26
+msgid "     If you use tablespace, you need to remove `pgrn*` files in tablespace directories."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:28
+msgid "     You need to log in to the host that runs PostgreSQL."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:30
+msgid "  3. Connect PostgreSQL"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:32
+#: ../../../../reference/functions/pgroonga-database-remove.md:46
+msgid "  4. Run `REINDEX` against all PGroonga indexes"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:34
+#: ../../../../reference/functions/pgroonga-database-remove.md:48
+msgid "     This creates internal PGroonga database and rebuilds all PGroonga indexes from data in PostgreSQL."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:36
+msgid "`pgroonga_database_remove` function removes all `pgrn*` files. It also supports tablespace."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:38
+msgid "If you use `pgroonga_database_remove` function, you don't need to log in to the host that runs PostgreSQL. Here are steps to recover with `pgroonga_database_remove` function:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:42
+msgid "  2. Connect PostgreSQL"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:44
+msgid "  3. Run `SELECT pgroonga_database_remove()`"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:50
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:52
+msgid "Here is the syntax of this function:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:54
+msgid "```text\n"
+"bool pgroonga_database_remove()\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:58
+msgid "It always returns `true` because if there is an error, it raises an error instead of returning `false`."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:60
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:62
+msgid "Here are steps how to recover from broken internal PGroonga database."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:64
+msgid "First, disconnect all connections. If there are any connections that still use internal PGroonga database, these connections will be crashed."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:66
+msgid "Then, connect to PostgreSQL again and run `pgroonga_database_remove()` function:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:68
+msgid "```sql\n"
+"SELECT pgroonga_database_remove();\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:72
+msgid "Then, disconnect the connection."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:74
+msgid "Note that you can't use any PGroonga features except features provided `pgroonga_database` module in the connection. If you use one of them, the connection tries to open internal PGroonga database. It may cause a crash."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:76
+msgid "Then, connect to PostgreSQL again and recreate all PGroonga indexes:"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:78
+msgid "```sql\n"
+"REINDEX INDEX pgroonga_index1;\n"
+"REINDEX INDEX pgroonga_index2;\n"
+"-- ...\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:84
+msgid "Now, your system is recovered. You don't need to log in the host that runs PostgreSQL."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:86
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:88
+msgid " * [`pgroonga_database` module][pgroonga-database]"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:90
+msgid "[pgroonga-database]:../modules/pgroonga-database.html"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:92
+msgid "[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html"
+msgstr ""
+

@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:1
+msgid "---\n"
+"title: \"pgroonga.lock_timeout parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:6
+msgid "# `pgroonga.lock_timeout` parameter"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:8
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:10
+msgid "`pgroonga.lock_timeout` parameter controls lock timeout."
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:12
+msgid "PGroonga tries to acquire a lock the specified timeout times at 1 millisecond interval until PGroonga acquires a lock."
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:14
+msgid "The default value is `10000000`. It means that PGroonga tries to acquire a lock for about 2.7 hours until PGroonga acquires a lock by default."
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:16
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:18
+msgid "In SQL:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:20
+msgid "```sql\n"
+"SET pgroonga.lock_timeout = timeout;\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:24
+msgid "In `postgresql.conf`:"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:26
+msgid "```text\n"
+"pgroonga.lock_timeout = timeout\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:30
+msgid "`timeout` is a number value."
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:32
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:34
+msgid "Here is an example to change PGroonga gives up acquiring a lock when PGroonga can't acquire a lock for 1 minute (`1 millisecond * 60000 = 60000 milliseconds = 60 seconds = 1 minute`):"
+msgstr ""
+
+#: ../../../../../v1/reference/parameters/lock-timeout.md:36
+msgid "```sql\n"
+"SET pgroonga.lock_timeout = 60000;\n"
+"```"
+msgstr ""
+

@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-11 17:04+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../install/ubuntu.md:1
+msgid "---\n"
+"title: Install on Ubuntu\n"
+"---"
+msgstr ""
+
+#: ../../../install/ubuntu.md:5
+msgid "# Install on Ubuntu"
+msgstr ""
+
+#: ../../../install/ubuntu.md:7
+msgid "This document describes how to install PGroonga on Ubuntu."
+msgstr ""
+
+#: ../../../install/ubuntu.md:9
+msgid "## Supported versions"
+msgstr ""
+
+#: ../../../install/ubuntu.md:11
+msgid "Here are supported Ubuntu versions:"
+msgstr ""
+
+#: ../../../install/ubuntu.md:13
+msgid "  * Ubuntu 22.04"
+msgstr ""
+
+#: ../../../install/ubuntu.md:15
+msgid "  * Ubuntu 20.04"
+msgstr ""
+
+#: ../../../install/ubuntu.md:17
+msgid "  * Ubuntu 18.04"
+msgstr ""
+
+#: ../../../install/ubuntu.md:19
+msgid "## How to install for system PostgreSQL {#install-for-system-postgresql}"
+msgstr ""
+
+#: ../../../install/ubuntu.md:21
+msgid "You can use the following instruction to install PGroonga for system PostgreSQL on Ubuntu."
+msgstr ""
+
+#: ../../../install/ubuntu.md:23
+msgid "If you're using Ubuntu 18.04, install `postgresql-10-pgroonga` package."
+msgstr ""
+
+#: ../../../install/ubuntu.md:25
+msgid "If you're using Ubuntu 20.04, install `postgresql-12-pgroonga` package."
+msgstr ""
+
+#: ../../../install/ubuntu.md:27
+msgid "If you're using Ubuntu 22.04, install `postgresql-14-pgroonga` package:"
+msgstr ""
+
+#: ../../../install/ubuntu.md:29
+msgid "```console\n"
+"$ sudo apt install -y software-properties-common\n"
+"$ sudo add-apt-repository -y universe\n"
+"$ sudo add-apt-repository -y ppa:groonga/ppa\n"
+"$ sudo apt update\n"
+"Ubuntu 18.04:\n"
+"$ sudo apt install -y -V postgresql-10-pgroonga\n"
+"Ubuntu 20.04:\n"
+"$ sudo apt install -y -V postgresql-12-pgroonga\n"
+"Ubuntu 22.04:\n"
+"$ sudo apt install -y -V postgresql-14-pgroonga\n"
+"```"
+msgstr ""
+
+#: ../../../install/ubuntu.md:42
+#: ../../../install/ubuntu.md:83
+msgid "If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:"
+msgstr ""
+
+#: ../../../install/ubuntu.md:44
+#: ../../../install/ubuntu.md:85
+msgid "```console\n"
+"$ sudo apt install -y -V groonga-tokenizer-mecab\n"
+"```"
+msgstr ""
+
+#: ../../../install/ubuntu.md:48
+#: ../../../install/ubuntu.md:89
+msgid "Create a database:"
+msgstr ""
+
+#: ../../../install/ubuntu.md:50
+#: ../../../install/ubuntu.md:91
+msgid "```console\n"
+"$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'\n"
+"```"
+msgstr ""
+
+#: ../../../install/ubuntu.md:54
+#: ../../../install/ubuntu.md:95
+msgid "(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)"
+msgstr ""
+
+#: ../../../install/ubuntu.md:56
+#: ../../../install/ubuntu.md:97
+msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+msgstr ""
+
+#: ../../../install/ubuntu.md:58
+#: ../../../install/ubuntu.md:99
+msgid "```console\n"
+"$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'\n"
+"```"
+msgstr ""
+
+#: ../../../install/ubuntu.md:62
+#: ../../../install/ubuntu.md:103
+msgid "That's all!"
+msgstr ""
+
+#: ../../../install/ubuntu.md:64
+#: ../../../install/ubuntu.md:105
+msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr ""
+
+#: ../../../install/ubuntu.md:66
+msgid "## How to install for the official PostgreSQL {#install-for-official-postgresql}"
+msgstr ""
+
+#: ../../../install/ubuntu.md:68
+msgid "You can use the following instruction to install PGroonga for the PostgreSQL packages provided by the PostgreSQL Global Development Group on Ubuntu."
+msgstr ""
+
+#: ../../../install/ubuntu.md:70
+msgid "```console\n"
+"$ sudo apt install -y software-properties-common\n"
+"$ sudo add-apt-repository -y universe\n"
+"$ sudo add-apt-repository -y ppa:groonga/ppa\n"
+"$ sudo apt install -y wget lsb-release\n"
+"$ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb\n"
+"$ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb\n"
+"$ echo \"deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main\" | sudo tee /etc/apt/sources.list.d/pgdg.list\n"
+"$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -\n"
+"$ sudo apt update\n"
+"$ sudo apt install -y -V postgresql-13-pgdg-pgroonga\n"
+"```"
+msgstr ""
+

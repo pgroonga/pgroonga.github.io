@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../v1/how-to/index.md:1
+msgid "---\n"
+"title: How to\n"
+"---"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:5
+msgid "# How to"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:7
+msgid "This document describes about useful information for specific situations."
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:9
+msgid "If you have useful information that isn't listed in this page, please send a pull request to [pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io). Please share your useful information!"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:11
+msgid "## How to implement auto complete feature"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:13
+msgid "  * [How to implement auto complete feature](auto-complete.html)"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:15
+msgid "## How to use PGroonga with Web application framework"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:17
+msgid "  * How to use with Ruby on Rails: TODO\n"
+"  * ..."
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:20
+msgid "## Continuous integration"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:22
+msgid "  * [How to use PGroonga on Travis CI](travis-ci.html)"
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:24
+msgid "## ..."
+msgstr ""
+
+#: ../../../../v1/how-to/index.md:26
+msgid "  * ..."
+msgstr ""
+

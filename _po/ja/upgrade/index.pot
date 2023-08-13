@@ -1,0 +1,518 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-25 16:51+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../upgrade/index.md:1
+msgid "---\n"
+"title: Upgrade\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../upgrade/index.md:6
+msgid "# Upgrade"
+msgstr ""
+
+#: ../../../upgrade/index.md:8
+msgid "You can upgrade PGroonga without recreating PGroonga indexes when new version doesn't have any backward incompatible change. If new version has any backward incompatible change, you need to recreate all PGroonga indexes to upgrade PGroonga."
+msgstr ""
+
+#: ../../../upgrade/index.md:10
+msgid "Here is a list of compatibility (\"o\" means \"compatible\" and \"x\" means \"incompatible\"):"
+msgstr ""
+
+#: ../../../upgrade/index.md:12
+msgid "  * 3.1.0 -> 3.1.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:14
+msgid "  * 3.0.9 -> 3.1.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:16
+msgid "  * 3.0.8 -> 3.0.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:18
+msgid "  * 3.0.7 -> 3.0.8: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:20
+msgid "  * 3.0.6 -> 3.0.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:22
+msgid "  * 3.0.5 -> 3.0.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:24
+msgid "  * 3.0.4 -> 3.0.5: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:26
+msgid "  * 3.0.3 -> 3.0.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:28
+msgid "  * 3.0.2 -> 3.0.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:30
+msgid "  * 3.0.1 -> 3.0.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:32
+msgid "  * 3.0.0 -> 3.0.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:34
+msgid "  * 2.4.7 -> 3.0.0: x"
+msgstr ""
+
+#: ../../../upgrade/index.md:36
+msgid "    * If you don't use v1 API, 2.4.7 -> 3.0.0 is compatible. So most users must be compatible."
+msgstr ""
+
+#: ../../../upgrade/index.md:38
+msgid "  * 2.4.6 -> 2.4.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:40
+msgid "  * 2.4.5 -> 2.4.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:42
+msgid "  * 2.4.4 -> 2.4.5: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:44
+msgid "  * 2.4.3 -> 2.4.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:46
+msgid "  * 2.4.2 -> 2.4.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:48
+msgid "  * 2.4.1 -> 2.4.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:50
+msgid "  * 2.4.0 -> 2.4.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:52
+msgid "  * 2.3.9 -> 2.4.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:54
+msgid "  * 2.3.8 -> 2.3.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:56
+msgid "  * 2.3.7 -> 2.3.8: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:58
+msgid "  * 2.3.6 -> 2.3.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:60
+msgid "  * 2.3.5 -> 2.3.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:62
+msgid "  * 2.3.4 -> 2.3.5: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:64
+msgid "  * 2.3.3 -> 2.3.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:66
+msgid "  * 2.3.2 -> 2.3.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:68
+msgid "  * 2.3.1 -> 2.3.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:70
+msgid "  * 2.3.0 -> 2.3.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:72
+msgid "  * 2.2.9 -> 2.3.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:74
+msgid "  * 2.2.8 -> 2.2.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:76
+msgid "  * 2.2.7 -> 2.2.8: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:78
+msgid "  * 2.2.6 -> 2.2.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:80
+msgid "  * 2.2.5 -> 2.2.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:82
+msgid "    * But you need to recreate your PGroonga indexes that use `jsonb`."
+msgstr ""
+
+#: ../../../upgrade/index.md:84
+msgid "  * 2.2.4 -> 2.2.5: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:86
+msgid "  * 2.2.3 -> 2.2.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:88
+msgid "  * 2.2.2 -> 2.2.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:90
+msgid "  * 2.2.1 -> 2.2.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:92
+msgid "  * 2.2.0 -> 2.2.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:94
+msgid "  * 2.1.9 -> 2.2.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:96
+msgid "  * 2.1.8 -> 2.1.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:98
+msgid "  * 2.1.7 -> 2.1.8: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:100
+msgid "  * 2.1.6 -> 2.1.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:102
+msgid "  * 2.1.4 -> 2.1.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:104
+msgid "  * 2.1.3 -> 2.1.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:106
+msgid "  * 2.1.2 -> 2.1.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:108
+msgid "  * 2.1.1 -> 2.1.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:110
+msgid "  * 2.1.0 -> 2.1.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:112
+msgid "  * 2.0.9 -> 2.1.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:114
+msgid "  * 2.0.8 -> 2.0.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:116
+msgid "  * 2.0.7 -> 2.0.8: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:118
+msgid "  * 2.0.6 -> 2.0.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:120
+msgid "  * 2.0.5 -> 2.0.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:122
+#: ../../../upgrade/index.md:130
+msgid "    * But you need to recreate your PGroonga indexes that use `timestamp (without time zone)`."
+msgstr ""
+
+#: ../../../upgrade/index.md:124
+msgid "  * 2.0.4 -> 2.0.5: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:126
+msgid "  * 2.0.3 -> 2.0.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:128
+msgid "  * 2.0.2 -> 2.0.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:132
+msgid "    * But you need to recreate your PGroonga indexes that use [`pgroonga_text_array_full_text_search_ops_v2` operator class][text-array-full-text-search-ops-v2]."
+msgstr ""
+
+#: ../../../upgrade/index.md:134
+msgid "  * 2.0.1 -> 2.0.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:136
+msgid "  * 2.0.0 -> 2.0.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:138
+msgid "  * 1.2.3 -> 2.0.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:140
+msgid "  * 1.2.2 -> 1.2.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:142
+msgid "  * 1.2.1 -> 1.2.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:144
+msgid "  * 1.2.0 -> 1.2.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:146
+msgid "  * 1.1.9 -> 1.2.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:148
+msgid "  * 1.1.8 -> 1.1.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:150
+msgid "  * 1.1.7 -> 1.1.8: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:152
+msgid "  * 1.1.6 -> 1.1.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:154
+msgid "  * 1.1.5 -> 1.1.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:156
+msgid "  * 1.1.4 -> 1.1.5: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:158
+msgid "  * 1.1.3 -> 1.1.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:160
+msgid "  * 1.1.2 -> 1.1.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:162
+msgid "  * 1.1.1 -> 1.1.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:164
+msgid "  * 1.1.0 -> 1.1.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:166
+msgid "  * 1.0.9 -> 1.1.0: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:168
+msgid "  * 1.0.8 -> 1.0.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:170
+msgid "  * 1.0.7 -> 1.0.8: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:172
+msgid "  * 1.0.6 -> 1.0.7: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:174
+msgid "  * 1.0.5 -> 1.0.6: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:176
+msgid "  * 1.0.4 -> 1.0.5: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:178
+msgid "  * 1.0.3 -> 1.0.4: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:180
+msgid "  * 1.0.2 -> 1.0.3: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:182
+msgid "  * 1.0.1 -> 1.0.2: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:184
+msgid "  * 1.0 -> 1.0.1: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:186
+msgid "  * 0.9 -> 1.0: x"
+msgstr ""
+
+#: ../../../upgrade/index.md:188
+msgid "  * 0.8 -> 0.9: o"
+msgstr ""
+
+#: ../../../upgrade/index.md:190
+msgid "  * 0.7 -> 0.8: x"
+msgstr ""
+
+#: ../../../upgrade/index.md:192
+msgid "## Incompatible case {#incompatible-case}"
+msgstr ""
+
+#: ../../../upgrade/index.md:194
+#: ../../../upgrade/index.md:224
+msgid "Here are steps to upgrade:"
+msgstr ""
+
+#: ../../../upgrade/index.md:196
+msgid "  1. Drop all PGroonga indexes."
+msgstr ""
+
+#: ../../../upgrade/index.md:198
+msgid "  1. Drop PGroonga extension."
+msgstr ""
+
+#: ../../../upgrade/index.md:200
+#: ../../../upgrade/index.md:228
+msgid "  1. Upgrade PGroonga binary."
+msgstr ""
+
+#: ../../../upgrade/index.md:202
+msgid "  1. Install PGroonga extension."
+msgstr ""
+
+#: ../../../upgrade/index.md:204
+msgid "  1. Create all PGroonga indexes again."
+msgstr ""
+
+#: ../../../upgrade/index.md:206
+msgid "Here is a SQL that drops all PGroonga indexes and PGroonga extension:"
+msgstr ""
+
+#: ../../../upgrade/index.md:208
+msgid "```sql\n"
+"DROP EXTENSION pgroonga CASCADE;\n"
+"```"
+msgstr ""
+
+#: ../../../upgrade/index.md:212
+#: ../../../upgrade/index.md:234
+msgid "You can upgrade PGroonga binary by package. Or you can upgrade by building new PGroonga and override old PGroonga."
+msgstr ""
+
+#: ../../../upgrade/index.md:214
+msgid "Here is a SQL that install PGroonga extension:"
+msgstr ""
+
+#: ../../../upgrade/index.md:216
+msgid "```sql\n"
+"CREATE EXTENSION pgroonga;\n"
+"```"
+msgstr ""
+
+#: ../../../upgrade/index.md:220
+msgid "Use [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html) to create PGroonga indexes."
+msgstr ""
+
+#: ../../../upgrade/index.md:222
+msgid "## Compatible case {#compatible-case}"
+msgstr ""
+
+#: ../../../upgrade/index.md:226
+msgid "  1. Disconnect from all databases that use PGroonga."
+msgstr ""
+
+#: ../../../upgrade/index.md:230
+msgid "  1. Connect to a database that uses PGroonga."
+msgstr ""
+
+#: ../../../upgrade/index.md:232
+msgid "  1. Upgrade PGroonga extension."
+msgstr ""
+
+#: ../../../upgrade/index.md:236
+msgid "Here is a SQL that upgrades PGroonga:"
+msgstr ""
+
+#: ../../../upgrade/index.md:238
+msgid "```sql\n"
+"ALTER EXTENSION pgroonga UPDATE;\n"
+"```"
+msgstr ""
+
+#: ../../../upgrade/index.md:242
+msgid "If you're using [`pgroonga_database` module][pgroonga-database], you also need to run the following SQL to upgrade `pgroonga_database` module:"
+msgstr ""
+
+#: ../../../upgrade/index.md:244
+msgid "```sql\n"
+"ALTER EXTENSION pgroonga_database UPDATE;\n"
+"```"
+msgstr ""
+
+#: ../../../upgrade/index.md:248
+msgid "## See also"
+msgstr ""
+
+#: ../../../upgrade/index.md:250
+msgid "  * [`CREATE EXTENSION`]({{ site.postgresql_doc_base_url.en }}/sql-createextension.html)"
+msgstr ""
+
+#: ../../../upgrade/index.md:252
+msgid "  * [`DROP EXTENSION`]({{ site.postgresql_doc_base_url.en }}/sql-dropextension.html)"
+msgstr ""
+
+#: ../../../upgrade/index.md:254
+msgid "  * [`ALTER EXTENSION`]({{ site.postgresql_doc_base_url.en }}/sql-alterextension.html)"
+msgstr ""
+
+#: ../../../upgrade/index.md:256
+msgid "  * [`CREATE INDEX USING pgroonga`](../reference/create-index-using-pgroonga.html)"
+msgstr ""
+
+#: ../../../upgrade/index.md:258
+msgid "[text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2"
+msgstr ""
+
+#: ../../../upgrade/index.md:260
+msgid "[pgroonga-database]:../reference/modules/pgroonga-database.html"
+msgstr ""
+

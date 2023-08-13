@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../faq/index.md:1
+msgid "---\n"
+"title: FAQ\n"
+"---"
+msgstr ""
+
+#: ../../../faq/index.md:5
+msgid "# FAQ"
+msgstr ""
+
+#: ../../../faq/index.md:7
+msgid "## PGroonga fails to initialize {#fail-initialize}"
+msgstr ""
+
+#: ../../../faq/index.md:9
+msgid "These are some reasons why PGroonga fails to initialize:"
+msgstr ""
+
+#: ../../../faq/index.md:11
+msgid "  * [SELinux](#selinux)"
+msgstr ""
+
+#: ../../../faq/index.md:13
+msgid "If the issue is fixed and PGroonga still returns `pgroonga: already tried to initialize and failed`, please restart PostgreSQL so failed/corrupt `<data dir>/pgrn*` files can be detected and removed."
+msgstr ""
+
+#: ../../../faq/index.md:15
+msgid "### SELinux {#selinux}"
+msgstr ""
+
+#: ../../../faq/index.md:17
+msgid "If you use SELinux then PGroonga needs a policy package. The section [building PGroonga from source](../install/source.html) shows how to create one."
+msgstr ""
+
+#: ../../../faq/index.md:19
+msgid "Before installing the policy package, perhaps your PGroonga installation had failed due to incorrect SELinux permissions. In this case, you must restart PostgreSQL to clean PGroonga failed/corrupt files."
+msgstr ""
+
+#: ../../../faq/index.md:21
+msgid "## Managed service including PGroonga {#managed-pgroonga}"
+msgstr ""
+
+#: ../../../faq/index.md:23
+msgid "There is a DBaaS that includes PGroonga:"
+msgstr ""
+
+#: ../../../faq/index.md:25
+msgid "### Supabase"
+msgstr ""
+
+#: ../../../faq/index.md:27
+msgid "[Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features developers need to build a product: a PostgreSQL database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage."
+msgstr ""
+
+#: ../../../faq/index.md:29
+msgid "PostgreSQL is the core of Supabase, it works natively with more than 40 PostgreSQL extensions, including PGroonga."
+msgstr ""
+

@@ -1,0 +1,405 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-22 14:38+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/operators/match-v2.md:1
+msgid "---\n"
+"title: \"&@ operator\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:6
+msgid "# `&@` operator"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:8
+msgid "Since 1.2.0."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:12
+msgid "`&@` operator performs full text search by one keyword."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:14
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:16
+msgid "There are three signatures:"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:18
+msgid "```sql\n"
+"column &@ keyword\n"
+"column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition\n"
+"column &@ (keyword, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:24
+msgid "The first signature is simpler than others. The first signature is enough for most cases."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:26
+msgid "The second signature is useful to optimize search score. For example, you can implement \"title is more important than content\" for blog application."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:28
+msgid "The second signature is available since 2.0.4."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:30
+msgid "The third signature is useful to optimize more search score. For example, you can take measures against [keyword stuffing][wikipedia-keyword-stuffing]."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:32
+msgid "The third signature is available since 2.0.6."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:34
+msgid "Here is the description of the first signature."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:36
+msgid "```sql\n"
+"column &@ keyword\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:40
+#: ../../../../reference/operators/match-v2.md:50
+#: ../../../../reference/operators/match-v2.md:76
+msgid "`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:42
+#: ../../../../reference/operators/match-v2.md:52
+#: ../../../../reference/operators/match-v2.md:78
+msgid "`keyword` is a keyword for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:44
+msgid "Here is the description of the second signature."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:46
+msgid "```sql\n"
+"column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:54
+#: ../../../../reference/operators/match-v2.md:80
+msgid "`weights` is importance factors of each value. It's `int[]` type."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:56
+#: ../../../../reference/operators/match-v2.md:82
+msgid "If `column` is `text` type or `varchar` type, the first element is used for importance factor of the value. If `column` is `text[]` type, the same position value is used as importance factor."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:58
+#: ../../../../reference/operators/match-v2.md:84
+msgid "`weights` can be `NULL`. Elements of `weights` can also be `NULL`. If the corresponding importance factor is `NULL`, the importance factor is `1`."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:60
+#: ../../../../reference/operators/match-v2.md:86
+msgid "If importance factor is `0`, the value is ignored. For example, `ARRAY[1, 0, 1]` means the second value isn't search target."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:62
+#: ../../../../reference/operators/match-v2.md:104
+msgid "`index_name` is an index name of the corresponding PGroonga index. It's `text` type."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:64
+#: ../../../../reference/operators/match-v2.md:106
+msgid "`index_name` can be `NULL`."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:66
+#: ../../../../reference/operators/match-v2.md:108
+msgid "It's for using the same search options specified in PGroonga index in sequential search."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:68
+#: ../../../../reference/operators/match-v2.md:110
+msgid "It's available since 2.0.6."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:70
+msgid "Here is the description of the third signature."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:72
+msgid "```sql\n"
+"column &@ (keyword, weights, scorers, index_name)::pgroonga_full_text_search_condition\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:88
+msgid "`scorers` is score compute procedures of each value. It's `text[]` type. If `column` is `text` type or `varchar` type, the first element is used to compute score for the value. If `column` is `text[]` type, the same position value is used to compute score for the value."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:90
+msgid "`scorers` can be `NULL`. Elements of `scorers` can also be `NULL`. If the corresponding scorerer is `NULL`, the scorer is the term count scorer."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:92
+msgid "See [scorer][groonga-scorer] document in Groonga for scorer details."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:94
+msgid "Note that you must specify `$index` for the first scorer argument."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:96
+msgid "Example:"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:98
+msgid "```sql\n"
+"'scorer_tf_at_most($index, 0.25)'\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:102
+msgid "It's replaced with the correct Groonga index name internally."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:112
+msgid "## Operator classes"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:114
+msgid "You need to specify one of the following operator classes to use this operator:"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:116
+msgid "  * `pgroonga_text_full_text_search_ops_v2`: Default for `text`"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:118
+msgid "  * `pgroonga_text_array_full_text_search_ops_v2`: Default for `text[]`"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:120
+msgid "  * `pgroonga_varchar_full_text_search_ops_v2`: For `varchar`"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:122
+msgid "  * `pgroonga_text_full_text_search_ops`: For `text`"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:124
+msgid "  * `pgroonga_text_array_full_text_search_ops`: For `text[]`"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:126
+msgid "  * `pgroonga_varchar_full_text_search_ops`: For `varchar`"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:128
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:130
+#: ../../../../reference/operators/match-v2.md:160
+msgid "Here are sample schema and data for examples:"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:132
+msgid "```sql\n"
+"CREATE TABLE memos (\n"
+"  id integer,\n"
+"  content text\n"
+");"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:138
+msgid "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:141
+msgid "```sql\n"
+"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
+"INSERT INTO memos VALUES (4, 'There is groonga command.');\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:148
+msgid "You can perform full text search with one keyword by `&@` operator:"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:150
+msgid "```sql\n"
+"SELECT * FROM memos WHERE content &@ 'engine';\n"
+"--  id |                                content                                 \n"
+"-- ----+------------------------------------------------------------------------\n"
+"--   2 | Groonga is a fast full text search engine that supports all languages.\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:158
+msgid "You can also implement \"title is more important than content\"."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:162
+msgid "```sql\n"
+"DROP TABLE IF EXISTS memos;\n"
+"CREATE TABLE memos (\n"
+"  title text,\n"
+"  content text\n"
+");"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:169
+msgid "CREATE INDEX pgroonga_memos_index\n"
+"    ON memos\n"
+" USING PGroonga ((ARRAY[title, content]));\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:174
+msgid "```sql\n"
+"INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO memos VALUES ('Groonga', 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO memos VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
+"INSERT INTO memos VALUES ('CLI', 'There is groonga command.');\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:181
+msgid "You can find more suitable records against \"`Groonga`\" word with [`pgroonga_score` function][score]:"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:183
+msgid "```sql\n"
+"SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
+"  FROM memos\n"
+" WHERE ARRAY[title, content] &@\n"
+"       ('Groonga',\n"
+"        ARRAY[5, 1],\n"
+"        'pgroonga_memos_index')::pgroonga_full_text_search_condition\n"
+" ORDER BY score DESC;\n"
+"--   title   |                                content                                 | score \n"
+"-- ----------+------------------------------------------------------------------------+-------\n"
+"--  Groonga  | Groonga is a fast full text search engine that supports all languages. |     6\n"
+"--  PGroonga | PGroonga is a PostgreSQL extension that uses Groonga as index.         |     1\n"
+"--  CLI      | There is groonga command.                                              |     1\n"
+"-- -- (3 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:199
+msgid "You can confirm that the record which has \"`Groonga`\" in `title` column has more high score than \"`Groonga`\" in `content` column."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:201
+msgid "You can ignore `content` column data by specifying `0` as the second weight value:"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:203
+msgid "```sql\n"
+"SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
+"  FROM memos\n"
+" WHERE ARRAY[title, content] &@\n"
+"       ('Groonga',\n"
+"        ARRAY[5, 0],\n"
+"        'pgroonga_memos_index')::pgroonga_full_text_search_condition\n"
+" ORDER BY score DESC;\n"
+"--   title  |                                content                                 | score \n"
+"-- ---------+------------------------------------------------------------------------+-------\n"
+"--  Groonga | Groonga is a fast full text search engine that supports all languages. |     5\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:217
+msgid "You can customize how to compute score. For example, you can limit the score of `content` column to `0.5`."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:219
+msgid "```sql\n"
+"SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
+"  FROM memos\n"
+" WHERE ARRAY[title, content] &@\n"
+"       ('Groonga',\n"
+"        ARRAY[5, 1],\n"
+"        ARRAY[NULL, 'scorer_tf_at_most($index, 0.5)'],\n"
+"        'pgroonga_memos_index')::pgroonga_full_text_search_condition_with_scorers\n"
+" ORDER BY score DESC;\n"
+"--   title   |                                content                                 | score \n"
+"-- ----------+------------------------------------------------------------------------+-------\n"
+"--  Groonga  | Groonga is a fast full text search engine that supports all languages. |   5.5\n"
+"--  PGroonga | PGroonga is a PostgreSQL extension that uses Groonga as index.         |   0.5\n"
+"--  CLI      | There is groonga command.                                              |   0.5\n"
+"-- (3 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:236
+msgid "If you want to perform full text search with multiple keywords or AND/OR search, use [`&@~` operator][query-v2]."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:238
+msgid "If you want to perform full text search with multiple keywords OR search, use [`&@|` operator][match-in-v2]."
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:240
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:242
+msgid "  * [`&@~` operator][query-v2]: Full text search by easy to use query language"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:244
+msgid "  * [`&@|` operator][match-in-v2]: Full text search by an array of keywords"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:246
+msgid "[wikipedia-keyword-stuffing]:https://en.wikipedia.org/wiki/Keyword_stuffing"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:248
+msgid "[groonga-scorer]:http://groonga.org/docs/reference/scorer.html"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:250
+msgid "[score]:../functions/pgroonga-score.html"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:252
+msgid "[query-v2]:query-v2.html"
+msgstr ""
+
+#: ../../../../reference/operators/match-v2.md:254
+msgid "[match-in-v2]:match-in-v2.html"
+msgstr ""
+

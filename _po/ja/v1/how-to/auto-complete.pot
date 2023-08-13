@@ -1,0 +1,281 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../v1/how-to/auto-complete.md:1
+msgid "---\n"
+"title: How to implement auto complete feature\n"
+"---"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:5
+msgid "# How to implement auto complete feature"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:7
+msgid "Auto complete is useful feature for easy to use search box. PGroonga has features to implement auto complete."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:9
+msgid "You can implement auto complete by combining the following searches:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:11
+msgid "  * Prefix search"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:13
+msgid "  * Only for Japanese: Prefix RK search for auto complete by readings"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:15
+msgid "  * Loose full text search"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:17
+msgid "## Sample schema and indexes"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:19
+msgid "Here is the sample schema:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:21
+msgid "```sql\n"
+"CREATE TABLE terms (\n"
+"  term text,\n"
+"  readings text[]\n"
+");\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:28
+msgid "Auto complete candidate terms are stored into `term`. Readings of `term` are stored in `readings`. As you know, type of `readings` is `text[]`, multiple readings are stored into `readings`."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:30
+msgid "Here is the sample index definition:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:32
+msgid "```sql\n"
+"CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga\n"
+"  (term pgroonga.text_term_search_ops_v2,\n"
+"   readings pgroonga.text_array_term_search_ops_v2);"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:37
+msgid "CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga\n"
+"  (term pgroonga.text_full_text_search_ops_v2)\n"
+"  WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:42
+msgid "The above indexes are required for prefix search and full text search."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:44
+msgid "`TokenBigramSplitSymbolAlphaDigit` tokenizer is suitable for loose full text search."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:46
+msgid "## Prefix search"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:48
+msgid "There is a simple way to implement auto complete feature. It is prefix search."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:50
+msgid "PGroonga provides operator for it: [`&^` operator][prefix-search-v2]"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:52
+msgid "Here is the sample data for prefix search:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:54
+msgid "```sql\n"
+"INSERT INTO terms (term) VALUES ('auto-complete');\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:58
+msgid "Then, use `&^` against `term` for prefix search. Here is the result of it:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:60
+msgid "```sql\n"
+"SELECT term FROM terms WHERE term &^ 'auto';\n"
+"--      term      \n"
+"-- ---------------\n"
+"--  auto-complete\n"
+"-- (1 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:68
+#: ../../../../v1/how-to/auto-complete.md:144
+msgid "The result contains `auto-complete` as auto complete candidate term."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:70
+msgid "## Only for Japanese: Prefix RK search for auto complete by readings"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:72
+msgid "[Prefix RK search][groonga-prefix-rk-search] is a prefix search variant. It supports searching [katakana][wikipedia-katakana] by [romaji][wikipedia-romaji], [hiragana][wikipedia-hiragana] or katakana. It's useful for Japanese."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:74
+msgid "Here is the sample data for prefix RK search:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:76
+msgid "```sql\n"
+"INSERT INTO terms (term, readings) VALUES ('牛乳', ARRAY['ギュウニュウ', 'ミルク']);\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:80
+msgid "Note that you need insert only katakana in `readings`. This is required to search auto complete candidate terms with prefix RK search."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:82
+msgid "Then use [`&^~` operator][prefix-rk-search-v2] against `readings` for prefix RK search. Here are some examples about prefix RK search."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:84
+msgid "  * Prefix RK search with romaji"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:86
+msgid "  * Prefix RK search with hiragana"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:88
+msgid "  * Prefix RK search with katanaka"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:90
+msgid "You can search \"牛乳\" as auto complete candidate of \"gyu\" (romaji) by prefix RK search:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:92
+msgid "```sql\n"
+"SELECT term FROM terms WHERE readings &^~ 'gyu';\n"
+"--  term \n"
+"-- ------\n"
+"--  牛乳\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:100
+msgid "You can search \"牛乳\" as auto complete candidate of ぎゅう\" (hiragana) by prefix RK search:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:102
+msgid "```sql\n"
+"SELECT term FROM terms WHERE readings &^~ 'ぎゅう';\n"
+"--  term \n"
+"-- ------\n"
+"--  牛乳\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:110
+msgid "You can search \"牛乳\" as auto complete candidate of \"ギュウ\" (katanaka) by prefix RK search."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:112
+msgid "```sql\n"
+"SELECT term FROM terms WHERE readings &^~ 'ギュウ';\n"
+"--  term \n"
+"-- ------\n"
+"--  牛乳\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:120
+msgid "There is an advanced usage of `readings`. If reading of synonym is stored in `readings`, you can also search as auto complete candidate term:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:122
+msgid "```sql\n"
+"SELECT term FROM terms WHERE readings &^~ 'mi';\n"
+"--  term \n"
+"-- ------\n"
+"--  牛乳\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:130
+msgid "\"ミルク\" is a synonym of \"牛乳\". You can search \"牛乳\" by \"mi\" as auto complete candidate term because \"ミルク\" is stored in `readings` column."
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:132
+msgid "## Loose full text search"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:134
+msgid "Use [`&@`][match-v2] against `term` for loose full text search. Here is the result of it:"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:136
+msgid "```sql\n"
+"SELECT term FROM terms WHERE term &@ 'mpl';\n"
+"--      term      \n"
+"-- ---------------\n"
+"--  auto-complete\n"
+"-- (1 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:147
+msgid "[groonga-prefix-rk-search]:http://groonga.org/docs/reference/operations/prefix_rk_search.html"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:149
+msgid "[wikipedia-katakana]:https://en.wikipedia.org/wiki/Katakana"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:151
+msgid "[wikipedia-romaji]:https://en.wikipedia.org/wiki/Romanization_of_Japanese"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:153
+msgid "[wikipedia-hiragana]:https://en.wikipedia.org/wiki/Hiragana"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:155
+msgid "[prefix-search-v2]:../reference/operators/prefix-search-v2.html"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:157
+msgid "[match-v2]:../reference/operators/match-v2.html"
+msgstr ""
+
+#: ../../../../v1/how-to/auto-complete.md:159
+msgid "[prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html"
+msgstr ""
+

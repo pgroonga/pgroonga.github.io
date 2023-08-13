@@ -1,0 +1,246 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../how-to/synonym-expansion.md:1
+msgid "---\n"
+"title: How to use synonym expansion\n"
+"---"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:5
+msgid "## How to use synonym expansion"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:7
+msgid "We need to make a new table for registering synonyms to search synonym."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:9
+msgid "We explain how to register synonyms, delete synonyms, update synonyms, search synonyms, and make a table for register synonyms."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:11
+msgid "### How to make a new table to register synonyms"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:13
+msgid "We make a table to register synonyms as below."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:15
+#: ../../../how-to/synonym-expansion.md:107
+msgid "```sql\n"
+"CREATE TABLE synonyms (\n"
+"  term text PRIMARY KEY,\n"
+"  synonyms text[]\n"
+");"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:21
+#: ../../../how-to/synonym-expansion.md:113
+msgid "CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga_text_term_search_ops_v2);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:24
+msgid "We can get a term that is registered in `synonyms` with a key that is registered in `term`."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:26
+msgid "For example, if we want to also match \"display\" when specifying \"window\" as the search keyword, register \"window\" to `term` and register \"window\" and \"display\" to `synonyms`.\n"
+"Note that we attention to need also register target synonym term to `synonyms`."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:29
+msgid "We set up PGroonga's index to be able to run fast search `term` without case-sensitivity."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:31
+msgid "We can register multiple synonyms into `synonyms` because type of `synonyms` is `text[]`."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:33
+msgid "### Register synonyms"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:35
+msgid "We can register synonyms by inserting data into `synonyms`."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:37
+msgid "For example, if we want to register \"Window\", \"display\", and \"video display\" as synonyms, we can insert these terms into the table that registers synonyms as below."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:39
+#: ../../../how-to/synonym-expansion.md:118
+msgid "```sql\n"
+"INSERT INTO synonyms (term, synonyms) VALUES ('Window', ARRAY['Window', 'display', 'video display']);\n"
+"INSERT INTO synonyms (term, synonyms) VALUES ('display', ARRAY['display', 'Window', 'video display']);\n"
+"INSERT INTO synonyms (term, synonyms) VALUES ('video display', ARRAY['video display', 'Window', 'display']);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:45
+msgid "### Add synonyms"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:47
+msgid "There are three patterns to add synonyms."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:49
+msgid "#### Add new synonyms"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:51
+msgid "We can add synonyms in the same way as register synonyms.\n"
+"For example, if we want to add \"copy\", \"replicate\", and \"simulate\" as synonyms, we insert these terms into the table that registers synonyms as below."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:54
+msgid "```sql\n"
+"INSERT INTO synonyms (term, synonyms) VALUES ('copy', ARRAY['copy', 'replicate', 'simulate']);\n"
+"INSERT INTO synonyms (term, synonyms) VALUES ('replicate', ARRAY['replicate', 'copy', 'simulate']);\n"
+"INSERT INTO synonyms (term, synonyms) VALUES ('simulate', ARRAY['simulate', 'copy', 'replicate']);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:60
+msgid "#### Add new synonyms in existing one"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:62
+msgid "If we want to add new synonyms in the existing one, we update the existing record.\n"
+"For example, if we also want to match \"imitate\" when we use \"copy\" as a search key word."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:65
+msgid "```sql\n"
+"UPDATE synonyms SET synonyms = array_append(synonyms, 'imitate') WHERE term = 'copy';\n"
+"UPDATE synonyms SET synonyms = array_append(synonyms, 'imitate') WHERE term = 'replicate';\n"
+"UPDATE synonyms SET synonyms = array_append(synonyms, 'imitate') WHERE term = 'simulate';\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:71
+msgid "\"imitate\" is new synonym. Therefore we add record into `synonyms` by using `INSERT` as below."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:73
+msgid "```sql\n"
+"INSERT INTO synonyms (term, synonyms) VALUES ('imitate', ARRAY['imitate', 'copy', 'replicate', 'simulate']);\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:77
+msgid "#### Modify existing synonyms"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:79
+msgid "If we want to modify an existing record, we can modify it with UPDATE statement.\n"
+"For example, if we want to modify \"Windows\" to \"Window\", we do as below."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:82
+msgid "```sql\n"
+"UPDATE synonyms SET synonyms = array_replace(synonyms, 'Windows', 'Window') WHERE term = 'display' OR term = 'video display' OR term = 'Windows';\n"
+"UPDATE synonyms SET term = 'Window' WHERE term = 'Windows';\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:87
+msgid "#### Delete synonyms"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:89
+msgid "If we want to delete existing synonyms, we can delete record from `synonyms`.\n"
+"For example, if we want to delete \"Window\" from synonyms, we as below."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:92
+msgid "```sql\n"
+"UPDATE synonyms SET synonyms = array_remove(synonyms, 'Window');\n"
+"DELETE FROM synonyms WHERE term = 'Window';\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:97
+msgid "### How to search of synonyms"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:99
+msgid "We can use [`pgroonga_query_expand` function][pgroonga_query_expand] to search of synonyms."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:101
+msgid "See [`pgroonga_query_expand` function][pgroonga_query_expand] for more details."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:103
+msgid "For example, if we search synonyms of \"window\", we do as below."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:105
+msgid "First, we make a synonyms table."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:116
+msgid "Second, we register synonyms into synonyms table."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:124
+msgid "Third, we execute full-text-search with synonyms."
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:126
+msgid "```sql\n"
+"CREATE TABLE memos (\n"
+"  id integer,\n"
+"  content text\n"
+");\n"
+"INSERT INTO memos VALUES (1, 'Window for PC is very low price!!!');\n"
+"INSERT INTO memos VALUES (2, 'Hight quality video display low price!');\n"
+"INSERT INTO memos VALUES (3, 'This is junk display.');"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:135
+msgid "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:137
+msgid "SELECT * FROM memos\n"
+"  WHERE\n"
+"    content &@~\n"
+"      pgroonga_query_expand('synonyms', 'term', 'synonyms', 'Window');"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:142
+msgid "-- id |                content                 \n"
+"-- ----+----------------------------------------\n"
+"--   1 | Window for PC is very low price!!!\n"
+"--   2 | Hight quality video display low price!\n"
+"--   3 | This is junk display.\n"
+"-- (3 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../how-to/synonym-expansion.md:150
+msgid "[pgroonga_query_expand]:../reference/functions/pgroonga-query-expand.html"
+msgstr ""
+

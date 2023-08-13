@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../install/amazon-linux.md:1
+msgid "---\n"
+"title: Install on Amazon Linux\n"
+"---"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:5
+msgid "# Install on Amazon Linux"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:7
+msgid "This document describes how to install PGroonga on Amazon Linux."
+msgstr ""
+
+#: ../../../install/amazon-linux.md:9
+msgid "## Supported versions"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:11
+msgid "Here are supported Amazon Linux versions:"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:13
+msgid "  * [Amazon Linux 2](#install-on-2)"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:15
+msgid "## How to install on Amazon Linux 2 {#install-on-2}"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:17
+msgid "You can use the following instruction to install PGroonga on Amazon Linux 2."
+msgstr ""
+
+#: ../../../install/amazon-linux.md:19
+msgid "Install `postgresql{{ site.latest_amazon_linux_postgresql_version }}-package`:"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:21
+msgid "```console\n"
+"$ sudo -H amazon-linux-extras install -y epel postgresql{{ site.latest_amazon_linux_postgresql_version }}\n"
+"$ sudo -H yum install -y ca-certificates\n"
+"$ sudo -H yum install -y https://packages.groonga.org/amazon-linux/2/groonga-release-latest.noarch.rpm\n"
+"$ sudo -H yum install -y postgresql{{ site.latest_amazon_linux_postgresql_version }}-pgroonga\n"
+"```"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:28
+msgid "If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:30
+msgid "```console\n"
+"$ sudo -H yum install -y groonga-tokenizer-mecab\n"
+"```"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:34
+msgid "Run PostgreSQL:"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:36
+msgid "```console\n"
+"$ sudo -H postgresql-setup initdb\n"
+"$ sudo -H systemctl enable --now postgresql\n"
+"```"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:41
+msgid "Create a database:"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:43
+msgid "```console\n"
+"$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'\n"
+"```"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:47
+msgid "(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:49
+msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:51
+msgid "```console\n"
+"$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'\n"
+"```"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:55
+msgid "That's all!"
+msgstr ""
+
+#: ../../../install/amazon-linux.md:57
+msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr ""
+

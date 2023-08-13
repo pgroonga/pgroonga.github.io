@@ -1,0 +1,549 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../development/release.md:1
+msgid "---\n"
+"title: Release\n"
+"---"
+msgstr ""
+
+#: ../../../development/release.md:5
+msgid "# Release"
+msgstr ""
+
+#: ../../../development/release.md:7
+msgid "## Requirements"
+msgstr ""
+
+#: ../../../development/release.md:9
+msgid "Use the following enviroment values."
+msgstr ""
+
+#: ../../../development/release.md:11
+msgid "* `GROONGA_REPOSITORY`"
+msgstr ""
+
+#: ../../../development/release.md:13
+msgid "  Specify a path for a latest Groonga repository."
+msgstr ""
+
+#: ../../../development/release.md:15
+msgid "  It is better to clone the Groonga repository for each releases."
+msgstr ""
+
+#: ../../../development/release.md:17
+msgid "  Here is an example to specify `$HOME/work/groonga/groonga.clean` to `GROONGA_REPOSITORY`."
+msgstr ""
+
+#: ../../../development/release.md:19
+msgid "  ```console\n"
+"  $ mkdir -p ~/work/groonga\n"
+"  $ rm -rf ~/work/groonga/groonga.clean\n"
+"  $ git clone --recursive git@github.com:groonga/groonga.git ~/work/groonga/groonga.clean\n"
+"  $ export GROONGA_REPOSITORY=$HOME/work/groonga/groonga.clean\n"
+"  ```"
+msgstr ""
+
+#: ../../../development/release.md:26
+msgid "* `LAUNCHPAD_UPLOADER_PGP_KEY`"
+msgstr ""
+
+#: ../../../development/release.md:28
+msgid "  Specify a key for PPA of Groonga."
+msgstr ""
+
+#: ../../../development/release.md:30
+msgid "  Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa)."
+msgstr ""
+
+#: ../../../development/release.md:32
+msgid "## Bump version"
+msgstr ""
+
+#: ../../../development/release.md:34
+msgid "```console\n"
+"$ rake version:update NEW_VERSION=x.x.x\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:38
+msgid "## Update change log for Debian and CentOS packages"
+msgstr ""
+
+#: ../../../development/release.md:40
+msgid "```console\n"
+"$ rake package:version:update\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:44
+msgid "## Check whether we can make packages or not"
+msgstr ""
+
+#: ../../../development/release.md:46
+msgid "We confirm below CIs green or not."
+msgstr ""
+
+#: ../../../development/release.md:48
+msgid "* [GitHub Actions][github-actions-pgroonga]"
+msgstr ""
+
+#: ../../../development/release.md:50
+msgid "## Check whether we can build packages on `nightly` repository of launchpad.net"
+msgstr ""
+
+#: ../../../development/release.md:52
+#: ../../../development/release.md:100
+msgid "For Ubuntu, packages are provided by PPA on launchpad.net."
+msgstr ""
+
+#: ../../../development/release.md:54
+msgid "We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-ppa] repositories on launchpad.net.\n"
+"`nightly` is for testing, and `ppa` is for distributing."
+msgstr ""
+
+#: ../../../development/release.md:57
+msgid "We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging."
+msgstr ""
+
+#: ../../../development/release.md:59
+msgid "* Create archive file and upload to the `nightly` repository"
+msgstr ""
+
+#: ../../../development/release.md:61
+msgid "  ```console\n"
+"  $ rake dist\n"
+"  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING=\"~groonga/ubuntu/nightly\" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
+"  ```"
+msgstr ""
+
+#: ../../../development/release.md:66
+#: ../../../development/release.md:108
+msgid "* Check the build result"
+msgstr ""
+
+#: ../../../development/release.md:68
+msgid "  When uploading packages into the `nightly` repository is succeeded, \n"
+"  a package build process is executed on launchpad.net.\n"
+"  Then the build result is notified via E-mail if the build fails."
+msgstr ""
+
+#: ../../../development/release.md:72
+msgid "## Tagging for the release"
+msgstr ""
+
+#: ../../../development/release.md:74
+msgid "```console\n"
+"$ rake tag\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:78
+msgid "## Download an archive file"
+msgstr ""
+
+#: ../../../development/release.md:80
+msgid "Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the \n"
+"[GitHub Releases page][pgroonga-releases-page]\n"
+"and move it to a working directory of your local PGroonga repository."
+msgstr ""
+
+#: ../../../development/release.md:84
+msgid "## Upload an archive file"
+msgstr ""
+
+#: ../../../development/release.md:86
+msgid "```console\n"
+"$ rake package:source\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:90
+msgid "## Create packages for the release"
+msgstr ""
+
+#: ../../../development/release.md:92
+msgid "### Debian GNU/Linux"
+msgstr ""
+
+#: ../../../development/release.md:94
+msgid "```console\n"
+"$ rake package:apt\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:98
+msgid "### Ubuntu"
+msgstr ""
+
+#: ../../../development/release.md:102
+msgid "* Upload to the `ppa` repository"
+msgstr ""
+
+#: ../../../development/release.md:104
+msgid "  ```console\n"
+"  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
+"  ```"
+msgstr ""
+
+#: ../../../development/release.md:110
+msgid "  When upload packages succeeded, a package build process is executed on launchpad.net.\n"
+"  Then the build result is notified via E-mail if the build fails.\n"
+"  We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa]."
+msgstr ""
+
+#: ../../../development/release.md:114
+msgid "### CentOS"
+msgstr ""
+
+#: ../../../development/release.md:116
+msgid "```console\n"
+"$ rake package:yum\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:120
+msgid "### Windows"
+msgstr ""
+
+#: ../../../development/release.md:122
+msgid "For Windows packages, we don't need to execute anything."
+msgstr ""
+
+#: ../../../development/release.md:124
+msgid "Windows packages are uploaded automatically by actions of [GitHub Actions][github-actions-pgroonga]."
+msgstr ""
+
+#: ../../../development/release.md:126
+msgid "## Describe the changes"
+msgstr ""
+
+#: ../../../development/release.md:128
+msgid "We need to update https://github.com/pgroonga/pgroonga.github.io/ to announce the new release."
+msgstr ""
+
+#: ../../../development/release.md:130
+msgid "We describe to `news/index.md` summarize changes from before version."
+msgstr ""
+
+#: ../../../development/release.md:132
+msgid "We also update below items in `_config.yml`."
+msgstr ""
+
+#: ../../../development/release.md:134
+msgid "* `pgroonga_version`:"
+msgstr ""
+
+#: ../../../development/release.md:136
+msgid "  * PGroonga latest version."
+msgstr ""
+
+#: ../../../development/release.md:138
+msgid "* `pgroonga_release_date`:"
+msgstr ""
+
+#: ../../../development/release.md:140
+msgid "  * Relase data for the latest version."
+msgstr ""
+
+#: ../../../development/release.md:142
+msgid "* `postgresql_doc_base_url`:"
+msgstr ""
+
+#: ../../../development/release.md:144
+msgid "  * Update if PostgreSQL version changes."
+msgstr ""
+
+#: ../../../development/release.md:146
+msgid "* `windows_postgresql_versions`:"
+msgstr ""
+
+#: ../../../development/release.md:148
+msgid "  * Update if PostgreSQL version for Windows changes."
+msgstr ""
+
+#: ../../../development/release.md:150
+msgid "* `latest_postgresql_version`:"
+msgstr ""
+
+#: ../../../development/release.md:152
+msgid "  * PostgreSQL latest major version."
+msgstr ""
+
+#: ../../../development/release.md:154
+msgid "* `freebsd_postgresql_version`:"
+msgstr ""
+
+#: ../../../development/release.md:156
+msgid "  * PostgreSQL for FreeBSD latest version."
+msgstr ""
+
+#: ../../../development/release.md:158
+msgid "* `amazon_linux_postgresql_version`:"
+msgstr ""
+
+#: ../../../development/release.md:160
+msgid "  * PostgreSQL for AmazonLinux latest version."
+msgstr ""
+
+#: ../../../development/release.md:162
+msgid "* `development_postgresql_version`:"
+msgstr ""
+
+#: ../../../development/release.md:164
+msgid "  * PostgreSQL latest version (include minor version)."
+msgstr ""
+
+#: ../../../development/release.md:166
+msgid "## Update the repository"
+msgstr ""
+
+#: ../../../development/release.md:168
+msgid "We update the repository in the following steps."
+msgstr ""
+
+#: ../../../development/release.md:170
+msgid "Clone the packages.groonga.org repository:"
+msgstr ""
+
+#: ../../../development/release.md:172
+msgid "```console\n"
+"$ git clone git@github.com:groonga/packages.groonga.org.git\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:176
+msgid "Update repositories for Debian GNU/Linux and CentOS:"
+msgstr ""
+
+#: ../../../development/release.md:178
+msgid "```console\n"
+"$ cd packages.groonga.org\n"
+"$ rake apt\n"
+"$ rake yum\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:184
+msgid "### Update Docker images"
+msgstr ""
+
+#: ../../../development/release.md:186
+msgid "We update PGroonga's Docker images of [Docker Hub][pgroonga-docker-hub]."
+msgstr ""
+
+#: ../../../development/release.md:188
+msgid "Clone [PGroonga's Docker repository][pgroonga-docker-repository] and update Dockerfiles in tha repository."
+msgstr ""
+
+#: ../../../development/release.md:190
+msgid "Here is an example for the case that the PGroonga version is `2.4.1`, and the Groonga version is `12.0.9`."
+msgstr ""
+
+#: ../../../development/release.md:192
+msgid "```\n"
+"$ mkdir -p ~/work/pgroonga\n"
+"$ rm -rf ~/work/pgroonga/docker.clean\n"
+"$ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean\n"
+"$ cd ~/work/pgroonga/docker.clean\n"
+"$ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.\n"
+"$ git push --tags\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:201
+msgid "You have to specify the latest versions."
+msgstr ""
+
+#: ../../../development/release.md:203
+msgid "After you check [GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] are succeeded, push tag to remote."
+msgstr ""
+
+#: ../../../development/release.md:205
+msgid "```console\n"
+"$ git push --tags\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:209
+msgid "[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the tag."
+msgstr ""
+
+#: ../../../development/release.md:211
+msgid "## Announce release"
+msgstr ""
+
+#: ../../../development/release.md:213
+msgid "### Announce release for mailing list"
+msgstr ""
+
+#: ../../../development/release.md:215
+msgid "We send release announcement to PostgreSQL mailing list if we have big news."
+msgstr ""
+
+#: ../../../development/release.md:217
+msgid "Your PostgreSQL account must belong to `PGroonga project` for announcement.\n"
+"Please contact a project member in order to join `PGroonga project`."
+msgstr ""
+
+#: ../../../development/release.md:220
+msgid "* [https://www.postgresql.org/list/](https://www.postgresql.org/list/)\n"
+"* [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)"
+msgstr ""
+
+#: ../../../development/release.md:223
+msgid "### Announce release for GitHub Discussions"
+msgstr ""
+
+#: ../../../development/release.md:225
+msgid "We make release announcement in [GitHub Discussions][pgroonga-github-discussions-releases]."
+msgstr ""
+
+#: ../../../development/release.md:227
+msgid "### Announce release for blog"
+msgstr ""
+
+#: ../../../development/release.md:229
+msgid "We make release announce in blogs that are published [https://groonga.org/blog/](https://groonga.org/blog/) and [https://groonga.org/ja/blog/](https://groonga.org/ja/blog/) ."
+msgstr ""
+
+#: ../../../development/release.md:231
+msgid "We update blogs in the following steps."
+msgstr ""
+
+#: ../../../development/release.md:233
+msgid "Clone [blog source repository][groonga-org-repository]."
+msgstr ""
+
+#: ../../../development/release.md:235
+msgid "Make below files in [blog source repository][groonga-org-repository]."
+msgstr ""
+
+#: ../../../development/release.md:237
+msgid "* `groonga.org/en/_post/(release-date)-pgroonga-(pgroonga-version).md`"
+msgstr ""
+
+#: ../../../development/release.md:239
+msgid "* `groonga.org/ja/_post/(release-date)-pgroonga-(pgroonga-version).md`"
+msgstr ""
+
+#: ../../../development/release.md:241
+msgid "We can confirm blogs by the following steps."
+msgstr ""
+
+#: ../../../development/release.md:243
+msgid "Install required libraries:"
+msgstr ""
+
+#: ../../../development/release.md:245
+msgid "```console\n"
+"$ bundle update\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:249
+msgid "Start Web server:"
+msgstr ""
+
+#: ../../../development/release.md:251
+msgid "```console\n"
+"$ jekyll serve --watch\n"
+"```"
+msgstr ""
+
+#: ../../../development/release.md:255
+msgid "We access http://localhost:4000 on our browser."
+msgstr ""
+
+#: ../../../development/release.md:257
+msgid "### Announce release for Facebook"
+msgstr ""
+
+#: ../../../development/release.md:259
+msgid "We have [Groonga group][facebook-groonga] in Facebbok.\n"
+"If you into Groonga group as a member, you can post as a member of [Groonga group][facebook-groonga]."
+msgstr ""
+
+#: ../../../development/release.md:262
+msgid "We post announce based on the blog and news."
+msgstr ""
+
+#: ../../../development/release.md:264
+msgid "### Announce release for twitter"
+msgstr ""
+
+#: ../../../development/release.md:266
+msgid "Click Tweet link in PGroonga blog entry.\n"
+"We can share tweet about latest release.\n"
+"If we use tweet link, title of release announce and URL is embedded into our tweet."
+msgstr ""
+
+#: ../../../development/release.md:270
+msgid "Execute sharing tweet in Japanese and English version of blog entry.\n"
+"Note that this tweet should be done when logged in by groonga account."
+msgstr ""
+
+#: ../../../development/release.md:273
+msgid "[github-actions-workflow-linux]:https://github.com/pgroonga/pgroonga/actions?query=workflow%3ALinux"
+msgstr ""
+
+#: ../../../development/release.md:275
+msgid "[appveyor-pgroonga]:https://ci.appveyor.com/project/groonga/pgroonga"
+msgstr ""
+
+#: ../../../development/release.md:277
+msgid "[github-actions-pgroonga]:https://github.com/pgroonga/pgroonga/actions"
+msgstr ""
+
+#: ../../../development/release.md:279
+msgid "[launchpad-groonga-ppa]:https://launchpad.net/~groonga/+archive/ubuntu/ppa"
+msgstr ""
+
+#: ../../../development/release.md:281
+msgid "[launchpad-groonga-nightly]:https://launchpad.net/~groonga/+archive/ubuntu/nightly"
+msgstr ""
+
+#: ../../../development/release.md:283
+msgid "[groonga-org-repository]:https://github.com/groonga/groonga.org"
+msgstr ""
+
+#: ../../../development/release.md:285
+msgid "[facebook-groonga]:https://www.facebook.com/groonga/"
+msgstr ""
+
+#: ../../../development/release.md:287
+msgid "[pgroonga-docker-repository]:https://github.com/pgroonga/docker"
+msgstr ""
+
+#: ../../../development/release.md:289
+msgid "[github-actions-pgroonga-docker]:https://github.com/pgroonga/docker/actions"
+msgstr ""
+
+#: ../../../development/release.md:291
+msgid "[pgroonga-docker-hub]:https://hub.docker.com/r/groonga/pgroonga"
+msgstr ""
+
+#: ../../../development/release.md:293
+msgid "[pgroonga-releases-page]:https://github.com/pgroonga/pgroonga/releases/latest"
+msgstr ""
+
+#: ../../../development/release.md:295
+msgid "[pgroonga-github-discussions-releases]:https://github.com/pgroonga/pgroonga/discussions/categories/releases"
+msgstr ""
+

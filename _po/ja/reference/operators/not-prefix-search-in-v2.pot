@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:1
+msgid "---\n"
+"title: \"!&^| operator\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:6
+msgid "# `!&^|` operator"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:8
+msgid "Since 2.2.1."
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:12
+msgid "`!&^|` operator performs NOT prefix search by an array of prefixes. If one or more prefixes are matched, the record is NOT matched."
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:14
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:16
+msgid "```sql\n"
+"column !&^| prefixes\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:20
+msgid "`column` is a column to be searched. It's `text` type."
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:22
+msgid "`prefixes` is an array of prefixes to be found. It's `text[]` type."
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:24
+msgid "The operator returns `true` when the `column` value doesn't start with any prefixes in `prefixes`."
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:26
+msgid "## Operator classes"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:28
+msgid "You need to specify one of the following operator classes to use this operator:"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:30
+msgid "  * [`pgroonga_text_term_search_ops_v2`][text-term-search-ops-v2]: For `text`"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:32
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:34
+msgid "Here are sample schema and data for examples:"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:36
+msgid "```sql\n"
+"CREATE TABLE tags (\n"
+"  name text PRIMARY KEY,\n"
+"  alias text\n"
+");"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:42
+msgid "CREATE INDEX pgroonga_tag_alias_index ON tags\n"
+"  USING pgroonga (alias pgroonga_text_term_search_ops_v2);\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:46
+msgid "```sql\n"
+"INSERT INTO tags VALUES ('PostgreSQL', 'PG');\n"
+"INSERT INTO tags VALUES ('Groonga',    'grn');\n"
+"INSERT INTO tags VALUES ('PGroonga',   'pgrn');\n"
+"INSERT INTO tags VALUES ('Mroonga',    'mrn');\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:53
+msgid "You can perform NOT prefix search with prefixes by `!&^|` operator:"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:55
+msgid "```sql\n"
+"SELECT * FROM tags WHERE alias !&^| ARRAY['pg', 'mrn'];\n"
+"--     name    | alias \n"
+"-- ------------+-------\n"
+"--  Groonga | grn\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:63
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:65
+msgid "  * [`&^` operator][prefix-search-v2]: Prefix search"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:67
+msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:69
+msgid "  * [`&^|` operator][prefix-search-in-v2]: Prefix search by an array of prefixes"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:71
+msgid "  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:73
+msgid "[text-term-search-ops-v2]:../#text-term-search-ops-v2"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:75
+msgid "[prefix-search-v2]:prefix-search-v2.html"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:77
+msgid "[prefix-rk-search-v2]:prefix-rk-search-v2.html"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:79
+msgid "[prefix-search-in-v2]:prefix-search-in-v2.html"
+msgstr ""
+
+#: ../../../../reference/operators/not-prefix-search-in-v2.md:81
+msgid "[prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html"
+msgstr ""
+

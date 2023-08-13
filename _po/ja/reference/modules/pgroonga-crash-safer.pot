@@ -1,0 +1,145 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:1
+msgid "---\n"
+"title: pgroonga_crash_safer module\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:6
+msgid "# `pgroonga_crash_safer` module"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:8
+msgid "Since 2.3.3."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:10
+msgid "This is still an experimental feature."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:12
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:14
+msgid "`pgroonga_crash_safer` module provides crash safe features:"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:16
+msgid "  * It recovers internal broken Groonga database by Groonga's WAL automatically."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:18
+msgid "  * It recovers internal broken Groonga database by `REINDEX` automatically."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:20
+msgid "`pgroonga_crash_safer` module starts the auto recovery process when any PGroonga feature is used for the first time after PostgreSQL's crash. Note that it's not started on PostgreSQL startup. If you want to run the auto recovery process on PostgreSQL startup, you can execute simple SQL that uses PGroonga feature such as `SELECT pgroonga_command('status')` immediately after PostgreSQL started."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:22
+msgid "Note that you need to set [`pgroonga.enable_crash_safe` parameter][enable-crash-safe] to `on` to use `pgroonga_crash_safer` module."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:24
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:26
+msgid "You must configure the following parameters to use `pgroonga_crash_safer` module:"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:28
+msgid "  * [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:30
+msgid "  * [`pgroonga.enable_crash_safe` parameter][enable-crash-safe]"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:32
+msgid "For example:"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:34
+msgid "```text\n"
+"shared_preload_libraries = 'pgroonga_crash_safer'\n"
+"pgroonga.enable_crash_safer = on\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:39
+msgid "You may need to increase [`max_worker_processes` parameter][postgresql-max-worker-processes] value. `pgroonga_crash_safer` module always runs 1 worker process. And `pgroonga_crash_safer` module runs 1 or 2 worker processes per database that uses PGroonga. For example, if you have 3 databases that use PGroonga, `pgroonga_crash_safer` module runs up to 7 worker processes:"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:41
+msgid "```text\n"
+"max_worker_processes = 15 # 8 (the default) + 7 (for pgroonga_crash_safer)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:45
+msgid "## Parameters"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:47
+msgid "  * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:49
+msgid "  * [`pgroonga_crash_safer.log_level` parameter][pgroonga-crash-safer-log-level]"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:51
+msgid "  * [`pgroonga_crash_safer.log_path` parameter][pgroonga-crash-safer-log-path]"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:53
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:55
+msgid "  * [Crash safe][crash-safe]"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:57
+msgid "[enable-crash-safe]:../parameters/enable-crash-safe.html"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:59
+msgid "[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:61
+msgid "[postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:63
+msgid "[pgroonga-crash-safer-flush-naptime]:../parameters/pgroonga-crash-safer-flush-naptime.html\n"
+"[pgroonga-crash-safer-log-level]:../parameters/pgroonga-crash-safer-log-level.html\n"
+"[pgroonga-crash-safer-log-path]:../parameters/pgroonga-crash-safer-log-path.html"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-crash-safer.md:67
+msgid "[crash-safe]:../crash-safe.html"
+msgstr ""
+

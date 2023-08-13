@@ -1,0 +1,324 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../install/source.md:1
+msgid "---\n"
+"title: Install from source\n"
+"---"
+msgstr ""
+
+#: ../../../install/source.md:5
+msgid "# Install from source"
+msgstr ""
+
+#: ../../../install/source.md:7
+msgid "This document describes how to build and install PGroonga from source."
+msgstr ""
+
+#: ../../../install/source.md:9
+msgid "Build and install instruction is different between on Windows and on non Windows. This document describes it separately."
+msgstr ""
+
+#: ../../../install/source.md:11
+msgid "  * [On non Windows](#non-windows)"
+msgstr ""
+
+#: ../../../install/source.md:13
+msgid "  * [On Windows](#windows)"
+msgstr ""
+
+#: ../../../install/source.md:15
+msgid "## On non Windows {#non-windows}"
+msgstr ""
+
+#: ../../../install/source.md:17
+msgid "Install PostgreSQL."
+msgstr ""
+
+#: ../../../install/source.md:19
+msgid "[Install Groonga](http://groonga.org/docs/install.html). We recommend that you use package. If you use package to install Groonga, install the following package:"
+msgstr ""
+
+#: ../../../install/source.md:21
+msgid "  * `groonga-devel`: on CentOS\n"
+"  * `libgroonga-dev`: on Debian/GNU Linux and Ubuntu"
+msgstr ""
+
+#: ../../../install/source.md:24
+msgid "Extract PGroonga source:"
+msgstr ""
+
+#: ../../../install/source.md:26
+msgid "```console\n"
+"% wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz\n"
+"% tar xvf pgroonga-{{ site.pgroonga_version }}.tar.gz\n"
+"% cd pgroonga-{{ site.pgroonga_version }}\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:32
+msgid "FYI: If you want to use the unreleased latest version, use the followings:"
+msgstr ""
+
+#: ../../../install/source.md:34
+msgid "```console\n"
+"% git clone --recursive https://github.com/pgroonga/pgroonga.git\n"
+"% cd pgroonga\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:39
+msgid "Build PGroonga. There are some options:"
+msgstr ""
+
+#: ../../../install/source.md:41
+msgid "  * `HAVE_MSGPACK=1`: It's required for WAL support. You need [msgpack-c](https://github.com/msgpack/msgpack-c) 1.4.1 or later. You can use `libmsgpack-dev` package on Debian based platform and `msgpack-devel` package in [EPEL](https://fedoraproject.org/wiki/EPEL) on CentOS 7."
+msgstr ""
+
+#: ../../../install/source.md:43
+msgid "Use the following command line when you want to build with WAL support:"
+msgstr ""
+
+#: ../../../install/source.md:45
+msgid "```console\n"
+"% make HAVE_MSGPACK=1\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:49
+msgid "Use the following command line when you don't need WAL support:"
+msgstr ""
+
+#: ../../../install/source.md:51
+msgid "```console\n"
+"% make\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:55
+msgid "If you get any error, confirm the followings:"
+msgstr ""
+
+#: ../../../install/source.md:57
+msgid "  * `pg_config` command exists at any path in `PATH` environment variable.\n"
+"  * `pkg-config --list-all` includes `groonga`."
+msgstr ""
+
+#: ../../../install/source.md:60
+msgid "If `pg_config` command doesn't exist, you may forget to install the development package of PostgreSQL."
+msgstr ""
+
+#: ../../../install/source.md:62
+msgid "If `pkg-config --list-all` doesn't include `groonga`, you may forget to install the development package of Groonga. Or `groonga.pc` is installed into non-standard directory. You can use `PKG_CONFIG_PATH` environment variable for the case."
+msgstr ""
+
+#: ../../../install/source.md:64
+msgid "Here is an example when you install Groonga with `--prefix=/usr/local`:"
+msgstr ""
+
+#: ../../../install/source.md:66
+msgid "```console\n"
+"% PKG_CONFIG_PATH=/usr/local/lib/pkg-config make\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:70
+msgid "Install PGroonga:"
+msgstr ""
+
+#: ../../../install/source.md:72
+msgid "```console\n"
+"% sudo make install\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:76
+msgid "If you use SELinux, you must create a policy package(.pp) and install it. PGroonga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is not allowed by default. First, install `policycoreutils` and `checkpolicy`."
+msgstr ""
+
+#: ../../../install/source.md:78
+msgid "```console\n"
+"% sudo dnf install policycoreutils checkpolicy\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:82
+msgid "Let's assume that PostgreSQL binaries are of type `postgresql_t` and PostgreSQL data files are of type `postgresql_db_t`. Allow `postgresql_t` type to memory map files of type `postgresql_db_t`. Then compile it (.mod), package it (.pp) and install the resulting policy package."
+msgstr ""
+
+#: ../../../install/source.md:85
+msgid "```console\n"
+"% cat > my-pgroonga.te << EOF\n"
+"module my-pgroonga 1.0;"
+msgstr ""
+
+#: ../../../install/source.md:89
+msgid "require {\n"
+"    type postgresql_t;\n"
+"    type postgresql_db_t;\n"
+"    class file map;\n"
+"}"
+msgstr ""
+
+#: ../../../install/source.md:95
+msgid "allow postgresql_t postgresql_db_t:file map;\n"
+"EOF"
+msgstr ""
+
+#: ../../../install/source.md:98
+msgid "% checkmodule -M -m -o my-pgroonga.mod my-pgroonga.te\n"
+"% semodule_package -o my-pgroonga.pp -m my-pgroonga.mod\n"
+"% sudo semodule -i my-pgroonga.pp\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:103
+#: ../../../install/source.md:167
+msgid "Create a database:"
+msgstr ""
+
+#: ../../../install/source.md:105
+msgid "```console\n"
+"% psql --command 'CREATE DATABASE pgroonga_test'\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:109
+#: ../../../install/source.md:173
+msgid "(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)"
+msgstr ""
+
+#: ../../../install/source.md:111
+#: ../../../install/source.md:175
+msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+msgstr ""
+
+#: ../../../install/source.md:113
+msgid "```console\n"
+"% psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga;'\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:117
+#: ../../../install/source.md:182
+msgid "That's all!"
+msgstr ""
+
+#: ../../../install/source.md:119
+#: ../../../install/source.md:184
+msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr ""
+
+#: ../../../install/source.md:121
+msgid "## On Windows {#windows}"
+msgstr ""
+
+#: ../../../install/source.md:123
+msgid "Here is a list of required software to build and install PGroonga from source. Install them:"
+msgstr ""
+
+#: ../../../install/source.md:125
+msgid "  * PostgreSQL (You can choose installer version or zip version.)"
+msgstr ""
+
+#: ../../../install/source.md:127
+msgid "    * [Installer version](http://www.enterprisedb.com/products-services-training/pgdownload)"
+msgstr ""
+
+#: ../../../install/source.md:129
+msgid "    * [Zip version](http://www.enterprisedb.com/products-services-training/pgbindownload)"
+msgstr ""
+
+#: ../../../install/source.md:131
+msgid "  * [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/downloads/#d-2013-express)"
+msgstr ""
+
+#: ../../../install/source.md:133
+msgid "  * [CMake](http://www.cmake.org/)"
+msgstr ""
+
+#: ../../../install/source.md:135
+msgid "Download PGroonga source archive for Windows from packages.groonga.org. Source archive for Windows is zip file. Source archive for Windows bundles Groonga."
+msgstr ""
+
+#: ../../../install/source.md:137
+msgid "  * [pgroonga-{{ site.pgroonga_version }}](https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)"
+msgstr ""
+
+#: ../../../install/source.md:139
+msgid "Extract the downloaded source archive and move to source folder:"
+msgstr ""
+
+#: ../../../install/source.md:141
+msgid "```text\n"
+"> cd c:\\Users\\%USERNAME%\\Downloads\\pgroonga-{{ site.pgroonga_version }}\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:145
+msgid "Specify build option by `cmake`. The following command line is for building PGroonga for 64bit version PostgreSQL. If you want to build for 32bit version PostgreSQL, use `-G \"Visual Studio 12 2013\"` parameter instead:"
+msgstr ""
+
+#: ../../../install/source.md:147
+msgid "```text\n"
+"pgroonga-{{ site.pgroonga_version }}> cmake . -G \"Visual Studio 12 2013 Win64\" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER% -DGRN_WITH_BUNDLED_LZ4=yes -DGRN_WITH_BUNDLED_MECAB=yes -DGRN_WITH_BUNDLED_MESSAGE_PACK=yes -DGRN_WITH_MRUBY=yes\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:151
+msgid "If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\\Program Files\\PostgreSQL\\%POSTGRESQL_VERSION%`."
+msgstr ""
+
+#: ../../../install/source.md:153
+msgid "If you installed PostgreSQL by zip, `%POSTGRESQL_INSTALL_FOLDER%` is `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\\pgsql`."
+msgstr ""
+
+#: ../../../install/source.md:155
+msgid "Build PGroonga:"
+msgstr ""
+
+#: ../../../install/source.md:157
+msgid "```text\n"
+"pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:161
+msgid "Install PGroonga. You may be required administrator privilege. For example, you installed PostgreSQL by installer, you will be required administrator privilege."
+msgstr ""
+
+#: ../../../install/source.md:163
+msgid "```text\n"
+"pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release --target Install\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:169
+msgid "```text\n"
+"postgres=# CREATE DATABASE pgroonga_test;\n"
+"```"
+msgstr ""
+
+#: ../../../install/source.md:177
+msgid "```text\n"
+"postgres=# \\c pgroonga_test\n"
+"pgroonga_test=# CREATE EXTENSION pgroonga;\n"
+"```"
+msgstr ""
+

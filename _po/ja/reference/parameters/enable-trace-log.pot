@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-22 16:41+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/parameters/enable-trace-log.md:1
+msgid "---\n"
+"title: \"pgroonga.enable_trace_log parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:6
+msgid "# `pgroonga.enable_trace_log` parameter"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:8
+msgid "Since 3.0.8."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:12
+msgid "`pgroonga.enable_trace_log` parameter controls whether trace log is enabled or not."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:14
+msgid "If you enable trace log, PGroonga performance will be decreased."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:16
+msgid "Trace logs are logged as `notice` log level messages."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:18
+msgid "The default value is `off`. It means that trace logs aren't logged."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:20
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:22
+msgid "In SQL:"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:24
+msgid "```sql\n"
+"SET pgroonga.enable_trace_log = boolean;\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:28
+msgid "In `postgresql.conf`:"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:30
+msgid "```text\n"
+"pgroonga.enable_trace_log = boolean\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:34
+msgid "`boolean` is a boolean value. There are some literals for boolean value such as `on`, `off`, `true`, `false`, `yes` and `no`."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:36
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:38
+msgid "Here is an example SQL to enable trace log:"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:40
+msgid "```sql\n"
+"SET pgroonga.enable_trace_log = on;\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:44
+msgid "Here is an example configuration to enable trace log:"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:46
+msgid "```sql\n"
+"pgroonga.enable_trace_log = on\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:50
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:52
+msgid "  * [`pgroonga.log_level` parameter][log-level]"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-trace-log.md:54
+msgid "[log-level]:log-level.html"
+msgstr ""
+

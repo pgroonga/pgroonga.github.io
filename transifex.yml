@@ -1,0 +1,7 @@
+git:
+filters:
+  - file_format: PO
+    filter_type: dynamic
+    source_file_dir: _po/ja/<di>/<file>.pot
+    source_language: en
+    translation_files_expression: _po/<lang>/<dir>/<file>.po

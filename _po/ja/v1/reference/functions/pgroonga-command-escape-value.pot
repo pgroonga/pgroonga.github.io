@@ -1,0 +1,265 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:1
+msgid "---\n"
+"title: pgroonga.command_escape_value function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:6
+msgid "# `pgroonga.command_escape_value` function"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:8
+msgid "Since 1.1.9."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:12
+msgid "`pgroonga.command_escape_value` function escapes special characters in \"value\" part of Groonga command format."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:14
+msgid "Here is an example Groonga command format:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:16
+msgid "```text\n"
+"select --table Logs --match_columns message --query Error\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:20
+msgid "`select` is the command name. `--XXX YYY` is argument name and value. `XXX` is argument name. `YYY` is argument value. For example `table` is argument name and `Logs` is argument value in `--table Logs`."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:22
+msgid "`pgroonga.command_escape_value` function is useful to prevent Groonga command injection via [`pgroonga.command` function](pgroonga-command.html). See also [`pgroonga.query_escape` function](pgroonga-query-escape.html) and [`pgroonga.escape` function](pgroonga-escape.html) for preventing Groonga command injection."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:24
+msgid "If you use `pgroonga.command(command, ARRAY[arguments...])` style, you don't need to use this function. Because the style do the same thing of this function internally."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:26
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:28
+msgid "Here is the syntax of this function:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:30
+msgid "```text\n"
+"text pgroonga.command_escape_value(value)\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:34
+msgid "`value` is a `text` type value. It's a \"value\" part of Groonga command format."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:36
+msgid "`pgroonga.command_escape_value` returns a `text` type value. All special characters in the text are escaped."
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:38
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:40
+msgid "Here are sample schema and data:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:42
+msgid "```sql\n"
+"CREATE TABLE memos (\n"
+"  content text\n"
+");"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:47
+msgid "CREATE INDEX pgroonga_memos_index\n"
+"          ON memos\n"
+"       USING pgroonga (content);"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:51
+msgid "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:54
+msgid "You get an error with the query \"(PostgreSQL\" because \"(\" is a special character:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:56
+msgid "```sql\n"
+"SELECT jsonb_pretty(\n"
+"  pgroonga.command('select ' ||\n"
+"                   '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||\n"
+"                   '--match_columns content ' ||\n"
+"                   '--query (PostgreSQL')::jsonb\n"
+");\n"
+"--                      jsonb_pretty                      \n"
+"-- -------------------------------------------------------\n"
+"--  [                                                    +\n"
+"--      [                                                +\n"
+"--          -22,                                         +\n"
+"--          1480483949.578879,                           +\n"
+"--          0.0002233982086181641,                       +\n"
+"--          \"[select][table] invalid name: <PostgreSQL>\",+\n"
+"--          [                                            +\n"
+"--              [                                        +\n"
+"--                  \"grn_select\",                        +\n"
+"--                  \"proc_select.c\",                     +\n"
+"--                  2973                                 +\n"
+"--              ]                                        +\n"
+"--          ]                                            +\n"
+"--      ]                                                +\n"
+"--  ]\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:83
+msgid "`pgroonga.command_escape_value` function with [`pgroonga.query_escape` function](pgroonga-qurey-escape.html) can prevent the case:"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:85
+msgid "```sql\n"
+"SELECT jsonb_pretty(\n"
+"  pgroonga.command('select ' ||\n"
+"                   '--table ' || pgroonga.table_name('pgroonga_memos_index') || ' ' ||\n"
+"                   '--match_columns content ' ||\n"
+"                   '--query ' || pgroonga.command_escape_value(pgroonga.query_escape('(PostgreSQL')))::jsonb\n"
+");\n"
+"--                         jsonb_pretty                        \n"
+"-- ------------------------------------------------------------\n"
+"--  [                                                         +\n"
+"--      [                                                     +\n"
+"--          0,                                                +\n"
+"--          1480432832.061276,                                +\n"
+"--          0.0252687931060791                                +\n"
+"--      ],                                                    +\n"
+"--      [                                                     +\n"
+"--          [                                                 +\n"
+"--              [                                             +\n"
+"--                  1                                         +\n"
+"--              ],                                            +\n"
+"--              [                                             +\n"
+"--                  [                                         +\n"
+"--                      \"_id\",                                +\n"
+"--                      \"UInt32\"                              +\n"
+"--                  ],                                        +\n"
+"--                  [                                         +\n"
+"--                      \"content\",                            +\n"
+"--                      \"LongText\"                            +\n"
+"--                  ],                                        +\n"
+"--                  [                                         +\n"
+"--                      \"ctid\",                               +\n"
+"--                      \"UInt64\"                              +\n"
+"--                  ]                                         +\n"
+"--              ],                                            +\n"
+"--              [                                             +\n"
+"--                  1,                                        +\n"
+"--                  \"PGroonga (PostgreSQL+Groonga) is great!\",+\n"
+"--                  1                                         +\n"
+"--              ]                                             +\n"
+"--          ]                                                 +\n"
+"--      ]                                                     +\n"
+"--  ]\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:130
+msgid "You can also use arguments array style [`pgroonga.command` function](pgroonga-command.html):"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:132
+msgid "```sql\n"
+"SELECT jsonb_pretty(\n"
+"  pgroonga.command('select',\n"
+"                   ARRAY[\n"
+"                     'table', pgroonga.table_name('pgroonga_memos_index'),\n"
+"                     'match_columns', 'content',\n"
+"                     'query', pgroonga.query_escape('(PostgreSQL')\n"
+"                   ])::jsonb\n"
+");\n"
+"--                         jsonb_pretty                        \n"
+"-- ------------------------------------------------------------\n"
+"--  [                                                         +\n"
+"--      [                                                     +\n"
+"--          0,                                                +\n"
+"--          1480433038.482539,                                +\n"
+"--          0.0001201629638671875                             +\n"
+"--      ],                                                    +\n"
+"--      [                                                     +\n"
+"--          [                                                 +\n"
+"--              [                                             +\n"
+"--                  1                                         +\n"
+"--              ],                                            +\n"
+"--              [                                             +\n"
+"--                  [                                         +\n"
+"--                      \"_id\",                                +\n"
+"--                      \"UInt32\"                              +\n"
+"--                  ],                                        +\n"
+"--                  [                                         +\n"
+"--                      \"content\",                            +\n"
+"--                      \"LongText\"                            +\n"
+"--                  ],                                        +\n"
+"--                  [                                         +\n"
+"--                      \"ctid\",                               +\n"
+"--                      \"UInt64\"                              +\n"
+"--                  ]                                         +\n"
+"--              ],                                            +\n"
+"--              [                                             +\n"
+"--                  1,                                        +\n"
+"--                  \"PGroonga (PostgreSQL+Groonga) is great!\",+\n"
+"--                  1                                         +\n"
+"--              ]                                             +\n"
+"--          ]                                                 +\n"
+"--      ]                                                     +\n"
+"--  ]\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:179
+msgid "## See also"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:181
+msgid "  * [`pgroonga.command` function](pgroonga-command.html)"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:183
+msgid "  * [`pgroonga.query_escape` function](pgroonga-query-escape.html)"
+msgstr ""
+
+#: ../../../../../v1/reference/functions/pgroonga-command-escape-value.md:185
+msgid "  * [`pgroonga.escape` function](pgroonga-escape.html)"
+msgstr ""
+

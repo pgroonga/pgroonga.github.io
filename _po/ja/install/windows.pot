@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:26+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../install/windows.md:1
+msgid "---\n"
+"title: Install on Windows\n"
+"---"
+msgstr ""
+
+#: ../../../install/windows.md:5
+msgid "# Install on Windows"
+msgstr ""
+
+#: ../../../install/windows.md:7
+msgid "This document describes how to install PGroonga on Windows."
+msgstr ""
+
+#: ../../../install/windows.md:9
+msgid "## Supported versions"
+msgstr ""
+
+#: ../../../install/windows.md:11
+msgid "You can use both 32bit version Windows and 64bit version Windows. You can use any Windows that are supported by PostgreSQL."
+msgstr ""
+
+#: ../../../install/windows.md:13
+msgid "## How to install"
+msgstr ""
+
+#: ../../../install/windows.md:15
+msgid "Install PostgreSQL (supported versions: {{ site.windows_postgresql_versions | join: \", \" }}). You can choose [installer version][windows-postgresql-download-installer] or [zip version][windows-postgresql-download-zip]."
+msgstr ""
+
+#: ../../../install/windows.md:17
+msgid "Download PGroonga package:"
+msgstr ""
+
+#: ../../../install/windows.md:19
+msgid "{% for windows_postgresql_version in site.windows_postgresql_versions %}"
+msgstr ""
+
+#: ../../../install/windows.md:21
+msgid "{% assign windows_postgresql_major_version = windows_postgresql_version | split: \".\" | first %}\n"
+"{% if windows_postgresql_major_version == \"9\" or\n"
+"      windows_postgresql_major_version == \"10\" %}"
+msgstr ""
+
+#: ../../../install/windows.md:25
+msgid "  * [For PostgreSQL {{ windows_postgresql_version }} 32bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x86.zip)"
+msgstr ""
+
+#: ../../../install/windows.md:27
+msgid "{% endif %}"
+msgstr ""
+
+#: ../../../install/windows.md:29
+msgid "  * [For PostgreSQL {{ windows_postgresql_version }} 64bit version](https://github.com/pgroonga/pgroonga/releases/download/{{ site.pgroonga_version }}/pgroonga-{{ site.pgroonga_version }}-postgresql-{{ windows_postgresql_version }}-x64.zip)"
+msgstr ""
+
+#: ../../../install/windows.md:31
+msgid "{% endfor %}"
+msgstr ""
+
+#: ../../../install/windows.md:33
+msgid "Extract the downloaded PGroonga package. You need to specify PostgreSQL folder as extract target folder."
+msgstr ""
+
+#: ../../../install/windows.md:35
+msgid "If you installed installer version PostgreSQL, `C:\\Program Files\\PostgreSQL\\%POSTGRESQL_VERSION%` is the extract target folder."
+msgstr ""
+
+#: ../../../install/windows.md:37
+msgid "If you installed zip version PostgreSQL, `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\\pgsql` is the extract target folder."
+msgstr ""
+
+#: ../../../install/windows.md:39
+msgid "Create a database:"
+msgstr ""
+
+#: ../../../install/windows.md:41
+msgid "```text\n"
+"postgres=# CREATE DATABASE pgroonga_test;\n"
+"```"
+msgstr ""
+
+#: ../../../install/windows.md:45
+msgid "(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)"
+msgstr ""
+
+#: ../../../install/windows.md:47
+msgid "Connect to the created database and execute `CREATE EXTENSION pgroonga`:"
+msgstr ""
+
+#: ../../../install/windows.md:49
+msgid "```text\n"
+"postgres=# \\c pgroonga_test\n"
+"pgroonga_test=# CREATE EXTENSION pgroonga;\n"
+"```"
+msgstr ""
+
+#: ../../../install/windows.md:54
+msgid "That's all!"
+msgstr ""
+
+#: ../../../install/windows.md:56
+msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr ""
+
+#: ../../../install/windows.md:58
+msgid "[windows-postgresql-download-installer]: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads\n"
+"[windows-postgresql-download-zip]: https://www.enterprisedb.com/download-postgresql-binaries"
+msgstr ""
+

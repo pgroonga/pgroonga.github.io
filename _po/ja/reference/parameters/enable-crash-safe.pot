@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/parameters/enable-crash-safe.md:1
+msgid "---\n"
+"title: \"pgroonga.enable_crash_safe parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:6
+msgid "# `pgroonga.enable_crash_safe` parameter"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:8
+msgid "Since 2.3.3."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:12
+msgid "`pgroonga.enable_crash_safe` parameter controls whether crash safe feature is enabled or not."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:14
+msgid "Note that you must add [`pgroonga_crash_safer` module][pgroonga-crash-safer] to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] value when you set `on` to `pgroonga.enable_crash_safe` parameter."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:16
+msgid "See also: [Crash safe][crash-safe]"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:18
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:20
+msgid "You must set `pgroonga.enable_crash_safe` in `postgresql.conf`:"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:22
+msgid "```text\n"
+"pgroonga.enable_crash_safe = boolean\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:26
+msgid "`boolean` is a boolean value. There are some literals for boolean value such as `on`, `off`, `true`, `false`, `yes` and `no`."
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:28
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:30
+msgid "Here is an example configration to enable crash safe feature:"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:32
+msgid "```sql\n"
+"shared_preload_libraries = 'pgroonga_crash_safer'\n"
+"pgroonga.enable_crash_safe = on\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:37
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:39
+msgid "  * [Crash safe][crash-safe]"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:41
+msgid "[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:43
+msgid "[crash-safe]:../crash-safe.html"
+msgstr ""
+
+#: ../../../../reference/parameters/enable-crash-safe.md:45
+msgid "[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"
+msgstr ""
+

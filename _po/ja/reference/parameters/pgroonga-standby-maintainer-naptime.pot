@@ -1,0 +1,108 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:1
+msgid "---\n"
+"title: \"pgroonga_standby_maintainer.naptime parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:6
+msgid "# `pgroonga_standby_maintainer.naptime` parameter"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:8
+msgid "Since 2.4.2."
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:10
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:12
+msgid "The `pgroonga_standby_maintainer.naptime` parameter controls execution of [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] interval by [the `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]."
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:14
+msgid "The larger value becomes, the more not applicable PGroonga's WAL and internal unused Groonga tables, columns and records in the standby database increase."
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:16
+msgid "The smaller value, the heavier IO load."
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:18
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:20
+msgid "In `postgresql.conf`:"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:22
+msgid "```text\n"
+"pgroonga_standby_maintainer.naptime = internval\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:26
+msgid "`interval`'s default unit is second. We can change unit to minutes by specify suffix `min` for minutes."
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:28
+msgid "The default is 60 seconds."
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:30
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:32
+msgid "Here is an example to specify 10 minutes:"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:34
+msgid "```text\n"
+"pgroonga_standby_maintainer.naptime = 10min\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:38
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:40
+msgid "  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]\n"
+"  * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]\n"
+"  * [The `pgroonga_vacuum()` function][pgroonga-vacuum]"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:44
+msgid "[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:46
+msgid "[pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html"
+msgstr ""
+
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-naptime.md:48
+msgid "[pgroonga-vacuum]:../functions/pgroonga-vacuum.html"
+msgstr ""
+

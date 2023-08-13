@@ -1,0 +1,170 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:1
+msgid "---\n"
+"title: pgroonga_snippet_html function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:6
+msgid "# `pgroonga_snippet_html` function"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:8
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:10
+msgid "`pgroonga_snippet_html` function returns texts around keywords from target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:12
+msgid "## Syntax"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:14
+msgid "There are two use."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:16
+msgid "```text\n"
+"text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...])\n"
+"text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...], width)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:21
+msgid "The second use is useful when we customize a length of snippet."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:23
+msgid "The second use is available since 2.4.2."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:25
+msgid "Here is the description of the first use."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:27
+msgid "```text\n"
+"text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...])\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:31
+#: ../../../../reference/functions/pgroonga-snippet-html.md:41
+msgid "`target` is a `text` type value. `pgroonga_snippet_html` extracts keywords with around texts from `target`."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:33
+#: ../../../../reference/functions/pgroonga-snippet-html.md:43
+msgid "`keyword1`, `keyword2`, `...` are an array of `text` type. The keywords to be extracted from `target`. You must specify one or more keywords."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:35
+msgid "Here is the description of the second use."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:37
+msgid "```text\n"
+"text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...], width)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:45
+msgid "`width` is a `integer` type value. This argument is an optional argument. The default value of `width` is 200."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:47
+msgid "We can dynamically specify a snippet length with this argument."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:49
+msgid "`pgroonga_snippet_html` returns an array of `text` type. However if we specify a value less than a length of keyword to `width`, no records are output."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:51
+msgid "Element in the returned array is a text around keyword."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:53
+msgid "The keywords are surrounded with `<span class=\"keyword\">` and `</span>`. `<`, `>`, `&` and `\"` in `target` is HTML escaped."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:55
+msgid "The maximum size of part of `target` in each element is 200 bytes. Its unit is byte not the number of characters. Each element may be lager than 200 bytes because each element includes `<span class=\"keyword\">` and `</span>` and may have HTML escaped values. If `<` is HTML escaped to `&lt;`, the byte size is increased to 4 from 1."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:57
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:59
+msgid "For example, if we want to adjust a length of snippet, we use the `width` argument as below."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:61
+msgid "```sql\n"
+"SELECT pgroonga_snippet_html(\n"
+"  'Groonga is a fast and accurate full text search engine based on ' ||\n"
+"  'inverted index. One of the characteristics of Groonga is that a ' ||\n"
+"  'newly registered document instantly appears in search results. ' ||\n"
+"  'Also, Groonga allows updates without read locks. These characteristics ' ||\n"
+"  'result in superior performance on real-time applications.' ||\n"
+"  E'\\n' ||\n"
+"  E'\\n' ||\n"
+"  'Groonga is also a column-oriented database management system (DBMS). ' ||\n"
+"  'Compared with well-known row-oriented systems, such as MySQL and ' ||\n"
+"  'PostgreSQL, column-oriented systems are more suited for aggregate ' ||\n"
+"  'queries. Due to this advantage, Groonga can cover weakness of ' ||\n"
+"  'row-oriented systems.',\n"
+"  ARRAY['Groonga'],\n"
+"  50);"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:78
+msgid "                                                                                                                    pgroonga_snippet_html                                                                                                                     \n"
+"---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+" {\"<span class=\\\"keyword\\\">Groonga</span> is a fast and accurate full text search en\",\"he characteristics of <span class=\\\"keyword\\\">Groonga</span> is that a newly regi\",\"search results. Also, <span class=\\\"keyword\\\">Groonga</span> allows updates witho\"}\n"
+"(1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:84
+msgid "Please also refer to [examples in tutorial](../../tutorial/#snippet)."
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:86
+msgid "## See also"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:88
+msgid "  * [Examples in tutorial](../../tutorial/#snippet)"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:90
+msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
+msgstr ""
+
+#: ../../../../reference/functions/pgroonga-snippet-html.md:92
+msgid "[query-extract-keywords]:pgroonga-query-extract-keywords.html"
+msgstr ""
+

@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../../reference/modules/pgroonga-database.md:1
+msgid "---\n"
+"title: pgroonga_database module\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:6
+msgid "# `pgroonga_database` module"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:8
+msgid "Since 2.1.8."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:10
+msgid "Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-safer] instead."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:12
+msgid "## Summary"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:14
+msgid "`pgroonga_database` module provides functions that manage PGroonga database. Normally, you don't need to use this module."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:16
+msgid "Note that this module provides dangerous functions. You should not enable this module until you need this module."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:18
+msgid "## Usage"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:20
+msgid "You can install `pgroonga_database` module as an extension but you should care which users can use functions provided by this module."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:22
+msgid "You can restrict users who can use functions provided by this module by schema."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:24
+msgid "Here is an example to restrict user \"admin\" by creating `pgroonga_admin` schema and installing `pgroonga_database` module to the `pgroonga_admin` schema:"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:26
+msgid "```sql\n"
+"CREATE ROLE admin LOGIN;\n"
+"CREATE SCHEMA pgroonga_admin AUTHORIZATION admin;\n"
+"CREATE EXTENSION pgroonga_database SCHEMA pgroonga_admin;\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:32
+msgid "In this example, users except the \"admin\" can't use functions provided by this module."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:34
+msgid "The \"admin\" user can use functions provided by this module with `pgroonga_admin.` prefix:"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:36
+msgid "```sql\n"
+"SELECT pgroonga_admin.pgoronga_database_remove();\n"
+"```"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:40
+msgid "See [upgrade][upgrade] document for upgrading `pgroonga_database` module."
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:42
+msgid "## Functions"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:44
+msgid "`pgroonga_database` module provides the following functions:"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:46
+msgid "  * [`pgroonga_database_remove` function][database-remove]"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:49
+msgid "[pgroonga-crash-safer]:pgroonga-crash-safer.html"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:51
+msgid "[database-remove]:../functions/pgroonga-database-remove.html"
+msgstr ""
+
+#: ../../../../reference/modules/pgroonga-database.md:53
+msgid "[upgrade]:../../upgrade/"
+msgstr ""
+

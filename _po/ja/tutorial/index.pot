@@ -1,0 +1,1202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../../tutorial/index.md:1
+msgid "---\n"
+"title: Tutorial\n"
+"---"
+msgstr ""
+
+#: ../../../tutorial/index.md:5
+msgid "# Tutorial"
+msgstr ""
+
+#: ../../../tutorial/index.md:7
+msgid "This document describes how to use PGroonga step by step. If you don't install PGroonga yet, [install][install] PGroonga before you read this document."
+msgstr ""
+
+#: ../../../tutorial/index.md:9
+msgid "You can use PGroonga as fast full text search index. You can also use PGroonga as more general index for equality condition (`=`) and comparison conditions (`<`, `>=` and so on)."
+msgstr ""
+
+#: ../../../tutorial/index.md:11
+msgid "PostgreSQL provides GiST and GIN as bundled indexes. You can use PGroonga as alternative of GiST and GIN. See [PGroonga versus GiST and GIN](../reference/pgroonga-versus-gist-and-gin.html) for differences of them."
+msgstr ""
+
+#: ../../../tutorial/index.md:13
+msgid "This document describes about the followings:"
+msgstr ""
+
+#: ../../../tutorial/index.md:15
+msgid "  * How to use PGroonga as index for full text search"
+msgstr ""
+
+#: ../../../tutorial/index.md:17
+msgid "  * How to use PGroonga as index for regular expression"
+msgstr ""
+
+#: ../../../tutorial/index.md:19
+msgid "  * How to use PGroonga as index for similar search"
+msgstr ""
+
+#: ../../../tutorial/index.md:21
+msgid "  * How to use PGroonga as index for equality condition and comparison conditions"
+msgstr ""
+
+#: ../../../tutorial/index.md:23
+msgid "  * How to use PGroonga as index for array"
+msgstr ""
+
+#: ../../../tutorial/index.md:25
+msgid "  * How to use PGroonga as index for JSON"
+msgstr ""
+
+#: ../../../tutorial/index.md:27
+msgid "  * How to use PGroonga as index for auto complete"
+msgstr ""
+
+#: ../../../tutorial/index.md:29
+msgid "  * How to use Groonga through PGroonga (advanced topic)"
+msgstr ""
+
+#: ../../../tutorial/index.md:32
+msgid "## Full text search"
+msgstr ""
+
+#: ../../../tutorial/index.md:34
+#: ../../../tutorial/index.md:322
+msgid "This section describes about the followings:"
+msgstr ""
+
+#: ../../../tutorial/index.md:36
+msgid "  * How to prepare PGroonga based full text search system\n"
+"  * Operators for full text search\n"
+"  * Score"
+msgstr ""
+
+#: ../../../tutorial/index.md:40
+msgid "### How to prepare PGroonga based full text search system"
+msgstr ""
+
+#: ../../../tutorial/index.md:42
+msgid "This section describes about how to prepare PGroonga based full text search system."
+msgstr ""
+
+#: ../../../tutorial/index.md:44
+msgid "Create a column that you want to enable full text search as `text` type:"
+msgstr ""
+
+#: ../../../tutorial/index.md:46
+msgid "```sql\n"
+"CREATE TABLE memos (\n"
+"  id integer,\n"
+"  content text\n"
+");\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:53
+msgid "`memos.content` column is a full text search target column."
+msgstr ""
+
+#: ../../../tutorial/index.md:55
+msgid "Create a `pgroonga` index against the column:"
+msgstr ""
+
+#: ../../../tutorial/index.md:57
+msgid "```\n"
+"CREATE EXTENSION IF NOT EXISTS pgroonga;\n"
+"CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:62
+msgid "See [CREATE INDEX USING pgroonga](../reference/create-index-using-pgroonga.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:64
+#: ../../../tutorial/index.md:164
+#: ../../../tutorial/index.md:344
+#: ../../../tutorial/index.md:388
+#: ../../../tutorial/index.md:439
+#: ../../../tutorial/index.md:482
+msgid "Insert test data:"
+msgstr ""
+
+#: ../../../tutorial/index.md:66
+msgid "```sql\n"
+"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
+"INSERT INTO memos VALUES (4, 'There is groonga command.');\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:73
+#: ../../../tutorial/index.md:173
+msgid "Disable sequential scan to ensure using `pgroonga` index:"
+msgstr ""
+
+#: ../../../tutorial/index.md:75
+#: ../../../tutorial/index.md:175
+#: ../../../tutorial/index.md:354
+#: ../../../tutorial/index.md:398
+#: ../../../tutorial/index.md:593
+msgid "```sql\n"
+"SET enable_seqscan = off;\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:79
+msgid "NOTE: You should not disable sequential scan on production environment. This is only for test."
+msgstr ""
+
+#: ../../../tutorial/index.md:81
+msgid "### Operators for full text search"
+msgstr ""
+
+#: ../../../tutorial/index.md:83
+msgid "There are the following operators to perform full text search:"
+msgstr ""
+
+#: ../../../tutorial/index.md:85
+msgid "  * `&@`"
+msgstr ""
+
+#: ../../../tutorial/index.md:87
+msgid "  * `&@~`"
+msgstr ""
+
+#: ../../../tutorial/index.md:89
+msgid "  * `LIKE`"
+msgstr ""
+
+#: ../../../tutorial/index.md:91
+msgid "  * `ILIKE`"
+msgstr ""
+
+#: ../../../tutorial/index.md:93
+msgid "#### `&@` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:95
+msgid "You can use `&@` operator to perform full text search by one keyword:"
+msgstr ""
+
+#: ../../../tutorial/index.md:97
+msgid "```sql\n"
+"SELECT * FROM memos WHERE content &@ 'engine';\n"
+"--  id |                                content                                 \n"
+"-- ----+------------------------------------------------------------------------\n"
+"--   2 | Groonga is a fast full text search engine that supports all languages.\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:105
+msgid "See [`&@` operator](../reference/operators/match-v2.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:107
+msgid "#### `&@~` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:109
+msgid "You can use `&@~` operator to perform full text search by query syntax such as `keyword1 OR keyword2`:"
+msgstr ""
+
+#: ../../../tutorial/index.md:111
+msgid "```sql\n"
+"SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';\n"
+"--  id |                            content                             \n"
+"-- ----+----------------------------------------------------------------\n"
+"--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.\n"
+"--   1 | PostgreSQL is a relational database management system.\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:120
+msgid "Query syntax is similar to syntax of Web search engine ( `keyword1 OR keyword2` means `OR` search and `keyword1 keyword2` means `AND` search ).\n"
+"For example, you can use `OR` to merge result sets of performing full text search by two or more words. In the above example, you get a merged result set. The merged result set has records that includes `PGroonga` or `PostgreSQL`."
+msgstr ""
+
+#: ../../../tutorial/index.md:123
+msgid "See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for full query syntax."
+msgstr ""
+
+#: ../../../tutorial/index.md:125
+msgid "See [`&@~` operator](../reference/operators/query-v2.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:127
+msgid "#### `LIKE` operator {#like}"
+msgstr ""
+
+#: ../../../tutorial/index.md:129
+msgid "PGroonga supports `LIKE` operator. You can perform fast full text search by PGroonga without changing existing SQL."
+msgstr ""
+
+#: ../../../tutorial/index.md:131
+msgid "`column LIKE '%keyword%'` almost equals to `column &@ 'keyword'`:"
+msgstr ""
+
+#: ../../../tutorial/index.md:133
+msgid "```sql\n"
+"SELECT * FROM memos WHERE content LIKE '%engine%';\n"
+"--  id |                                content                                 \n"
+"-- ----+------------------------------------------------------------------------\n"
+"--   2 | Groonga is a fast full text search engine that supports all languages.\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:141
+msgid "`LIKE` operator support is convenient because you can improve performance without changing existing applications. But `LIKE` operator is slower than `&@` because `LIKE` operator requires sequential search after index search. The process is called as \"recheck\". It's recommend that you change to `&@` or `&@~` from `LIKE` in your application for more performance."
+msgstr ""
+
+#: ../../../tutorial/index.md:143
+msgid "See [`LIKE` operator](../reference/operators/like.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:145
+msgid "You can also use `ILIKE` operator like `LIKE` operator."
+msgstr ""
+
+#: ../../../tutorial/index.md:147
+msgid "### Score {#score}"
+msgstr ""
+
+#: ../../../tutorial/index.md:149
+msgid "You can use `pgroonga_score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number."
+msgstr ""
+
+#: ../../../tutorial/index.md:151
+msgid "Here is a sample schema that includes primary key into indexed columns:"
+msgstr ""
+
+#: ../../../tutorial/index.md:153
+msgid "```sql\n"
+"CREATE TABLE score_memos (\n"
+"  id integer PRIMARY KEY,\n"
+"  content text\n"
+");"
+msgstr ""
+
+#: ../../../tutorial/index.md:159
+msgid "CREATE INDEX pgroonga_score_memos_content_index\n"
+"          ON score_memos\n"
+"       USING pgroonga (content);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:166
+msgid "```sql\n"
+"INSERT INTO score_memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO score_memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO score_memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
+"INSERT INTO score_memos VALUES (4, 'There is groonga command.');\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:179
+msgid "Perform full text search and get score."
+msgstr ""
+
+#: ../../../tutorial/index.md:181
+msgid "```sql\n"
+"SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
+"  FROM score_memos\n"
+" WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';\n"
+"--  id |                            content                             | score \n"
+"-- ----+----------------------------------------------------------------+-------\n"
+"--   1 | PostgreSQL is a relational database management system.         |     1\n"
+"--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:192
+msgid "You can sort matched records by precision descending by using `pgroonga_score` function in `ORDER BY` clause:"
+msgstr ""
+
+#: ../../../tutorial/index.md:194
+msgid "```sql\n"
+"SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
+"  FROM score_memos\n"
+" WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'\n"
+" ORDER BY pgroonga_score(tableoid, ctid) DESC;\n"
+"--  id |                            content                             | score \n"
+"-- ----+----------------------------------------------------------------+-------\n"
+"--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2\n"
+"--   1 | PostgreSQL is a relational database management system.         |     1\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:206
+msgid "See [`pgroonga_score` function](../reference/functions/pgroonga-score.html) for more details such as how to compute precision."
+msgstr ""
+
+#: ../../../tutorial/index.md:208
+msgid "### Highlight {#highlight}"
+msgstr ""
+
+#: ../../../tutorial/index.md:210
+msgid "You can use `pgroonga_highlight_html` function to get your specified search keywords highlighted easily in the results."
+msgstr ""
+
+#: ../../../tutorial/index.md:212
+msgid "Here is a sample schema:"
+msgstr ""
+
+#: ../../../tutorial/index.md:214
+msgid "```sql\n"
+"-- Just make sure you already enabled PGroonga Extension\n"
+"CREATE EXTENSION IF NOT EXISTS pgroonga;"
+msgstr ""
+
+#: ../../../tutorial/index.md:218
+msgid "-- Create sample table\n"
+"CREATE TABLE sample_texts (\n"
+"  id integer PRIMARY KEY,\n"
+"  content text\n"
+");"
+msgstr ""
+
+#: ../../../tutorial/index.md:224
+msgid "CREATE INDEX pgroonga_sample_content_index\n"
+"          ON sample_texts\n"
+"       USING pgroonga (content);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:229
+msgid "Insert sample data:"
+msgstr ""
+
+#: ../../../tutorial/index.md:231
+msgid "```sql\n"
+"INSERT INTO sample_texts VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO sample_texts VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO sample_texts VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
+"INSERT INTO sample_texts VALUES (4, 'There is groonga command.');\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:238
+msgid "Perform full text search and get your search keywords ('PostgreSQL' and 'database' in this example) highlighted."
+msgstr ""
+
+#: ../../../tutorial/index.md:240
+msgid "```sql\n"
+"SELECT\n"
+"	pgroonga_highlight_html (content,\n"
+"		pgroonga_query_extract_keywords ('PostgreSQL database')) AS highlighted_content\n"
+"FROM\n"
+"	sample_texts\n"
+"WHERE\n"
+"	CONTENT &@~ 'PostgreSQL database';"
+msgstr ""
+
+#: ../../../tutorial/index.md:249
+msgid "--                                                highlighted_content                                                \n"
+"-- ------------------------------------------------------------------------------------------------------------------\n"
+"--  <span class=\"keyword\">PostgreSQL</span> is a relational <span class=\"keyword\">database</span> management system.\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:255
+msgid "See [`pgroonga_highlight_html` function](../reference/functions/pgroonga-highlight-html.html) and [`pgroonga_query_extract_keywords` function](../reference/functions/pgroonga-query-extract-keywords.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:257
+msgid "### Snippet (KWIC, keyword in context) {#snippet}"
+msgstr ""
+
+#: ../../../tutorial/index.md:259
+msgid "You can use `pgroonga_snippet_html` function to get texts around keywords from search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine."
+msgstr ""
+
+#: ../../../tutorial/index.md:261
+msgid "Here is a sample text for description. It's a description about Groonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:263
+msgid "> Groonga is a fast and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Groonga allows updates without read locks. These characteristics result in superior performance on real-time applications."
+msgstr ""
+
+#: ../../../tutorial/index.md:266
+msgid "There are some `fast` keywords. `pgroonga_snippet_html` extracts texts around `fast`. Keywords in extracted texts are surround with `<span class=\"keyword\">` and `</span>`."
+msgstr ""
+
+#: ../../../tutorial/index.md:268
+msgid "`html` in `pgroonga_snippet_html` means that this function returns result for HTML output."
+msgstr ""
+
+#: ../../../tutorial/index.md:270
+msgid "Here is the result of `pgroonga_snippet_html` against the above text:"
+msgstr ""
+
+#: ../../../tutorial/index.md:272
+msgid "> Groonga is a <span class=\"keyword\">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro"
+msgstr ""
+
+#: ../../../tutorial/index.md:274
+msgid "This function can be used for all texts. It's not only for search result by PGroonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:276
+msgid "Here is a sample SQL that describes about it. You can use the function in the following `SELECT` that doesn't have `FROM`. Note that [`unnest`]({{ site.postgresql_doc_base_url.en }}/functions-array.html) is a PostgreSQL function that converts an array to rows."
+msgstr ""
+
+#: ../../../tutorial/index.md:278
+msgid "```sql\n"
+"SELECT unnest(pgroonga_snippet_html(\n"
+"  'Groonga is a fast and accurate full text search engine based on ' ||\n"
+"  'inverted index. One of the characteristics of Groonga is that a ' ||\n"
+"  'newly registered document instantly appears in search results. ' ||\n"
+"  'Also, Groonga allows updates without read locks. These characteristics ' ||\n"
+"  'result in superior performance on real-time applications.' ||\n"
+"  '\\n' ||\n"
+"  '\\n' ||\n"
+"  'Groonga is also a column-oriented database management system (DBMS). ' ||\n"
+"  'Compared with well-known row-oriented systems, such as MySQL and ' ||\n"
+"  'PostgreSQL, column-oriented systems are more suited for aggregate ' ||\n"
+"  'queries. Due to this advantage, Groonga can cover weakness of ' ||\n"
+"  'row-oriented systems.',\n"
+"  ARRAY['fast', 'PostgreSQL']));\n"
+"                                                                                 --                                unnest                                                                                                                 \n"
+"-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+"--  Groonga is a <span class=\"keyword\">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro\n"
+"--  ase management system (DBMS). Compared with well-known row-oriented systems, such as MySQL and <span class=\"keyword\">PostgreSQL</span>, column-oriented systems are more suited for aggregate queries. Due to this advantage, Groonga\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:300
+msgid "See [`pgroonga_snippet_html` function](../reference/functions/pgroonga-snippet-html.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:302
+msgid "### Synonym {#synonym}"
+msgstr ""
+
+#: ../../../tutorial/index.md:304
+msgid "See [How to use synonym expansion](../how-to/synonym-expansion.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:306
+msgid "## Regular expression {#regular-expression}"
+msgstr ""
+
+#: ../../../tutorial/index.md:308
+#: ../../../tutorial/index.md:314
+#: ../../../tutorial/index.md:713
+msgid "TODO"
+msgstr ""
+
+#: ../../../tutorial/index.md:310
+msgid "See [`&~` operator](../reference/operators/regular-expression-v2.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:312
+msgid "## Similar search {#similar-search}"
+msgstr ""
+
+#: ../../../tutorial/index.md:316
+msgid "See [`&@*` operator](../reference/operators/similar-search-v2.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:318
+msgid "## Equality condition and comparison conditions {#equal}"
+msgstr ""
+
+#: ../../../tutorial/index.md:320
+msgid "You can use PGroonga for equality condition and comparison conditions. There are some differences between how to create index for string types and other types. There is no difference between how to write condition for string types and other types."
+msgstr ""
+
+#: ../../../tutorial/index.md:324
+msgid "  * How to use PGroonga for not string types"
+msgstr ""
+
+#: ../../../tutorial/index.md:326
+msgid "  * How to use PGroonga for string types"
+msgstr ""
+
+#: ../../../tutorial/index.md:328
+msgid "### How to use PGroonga for not string types {#equal-not-string}"
+msgstr ""
+
+#: ../../../tutorial/index.md:330
+msgid "You can use PGroonga for not string types such as number. You can use equality condition and comparison conditions against these types."
+msgstr ""
+
+#: ../../../tutorial/index.md:332
+#: ../../../tutorial/index.md:375
+#: ../../../tutorial/index.md:428
+#: ../../../tutorial/index.md:470
+msgid "Create index with `USING pgroonga`:"
+msgstr ""
+
+#: ../../../tutorial/index.md:334
+msgid "```sql\n"
+"CREATE TABLE ids (\n"
+"  id integer\n"
+");"
+msgstr ""
+
+#: ../../../tutorial/index.md:339
+msgid "CREATE INDEX pgroonga_id_index ON ids USING pgroonga (id);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:342
+#: ../../../tutorial/index.md:386
+msgid "The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-tree index to use PGroonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:346
+msgid "```sql\n"
+"INSERT INTO ids VALUES (1);\n"
+"INSERT INTO ids VALUES (2);\n"
+"INSERT INTO ids VALUES (3);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:352
+#: ../../../tutorial/index.md:396
+#: ../../../tutorial/index.md:591
+msgid "Disable sequential scan:"
+msgstr ""
+
+#: ../../../tutorial/index.md:358
+#: ../../../tutorial/index.md:402
+msgid "Search:"
+msgstr ""
+
+#: ../../../tutorial/index.md:360
+msgid "```sql\n"
+"SELECT * FROM ids WHERE id <= 2;\n"
+"--  id\n"
+"-- ----\n"
+"--   1\n"
+"--   2\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:369
+msgid "### How to use PGroonga for string types {#equal-string}"
+msgstr ""
+
+#: ../../../tutorial/index.md:371
+msgid "You need to use `varchar` type to use PGroonga as an index for equality condition and comparison conditions against string."
+msgstr ""
+
+#: ../../../tutorial/index.md:373
+msgid "You must to specify the maximum number of characters of `varchar` to satisfy that the maximum byte size of the column is equal to 4096 byte or smaller. Relation between the maximum number of characters and the maximum byte size is related to encoding. For example, you must to specify 1023 or smaller as the maximum number of characters for UTF-8 encoding. Because UTF-8 encoding `varchar` keeps 4 byte for one character and PostgreSQL uses 4 byte for metadata."
+msgstr ""
+
+#: ../../../tutorial/index.md:377
+msgid "```sql\n"
+"CREATE TABLE tags (\n"
+"  id integer,\n"
+"  tag varchar(1023)\n"
+");"
+msgstr ""
+
+#: ../../../tutorial/index.md:383
+msgid "CREATE INDEX pgroonga_tag_index ON tags USING pgroonga (tag);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:390
+msgid "```sql\n"
+"INSERT INTO tags VALUES (1, 'PostgreSQL');\n"
+"INSERT INTO tags VALUES (2, 'Groonga');\n"
+"INSERT INTO tags VALUES (3, 'Groonga');\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:404
+msgid "```sql\n"
+"SELECT * FROM tags WHERE tag = 'Groonga';\n"
+"--  id |   tag\n"
+"-- ----+---------\n"
+"--   2 | Groonga\n"
+"--   3 | Groonga\n"
+"-- (2 rows)\n"
+"--\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:414
+msgid "## How to use PGroonga for array"
+msgstr ""
+
+#: ../../../tutorial/index.md:416
+msgid "You can use PGroonga as an index for array of `text` type or array of `varchar`."
+msgstr ""
+
+#: ../../../tutorial/index.md:418
+msgid "You can perform full text search against array of `text` type. If one or more elements in an array are matched, the record is matched."
+msgstr ""
+
+#: ../../../tutorial/index.md:420
+msgid "You can perform equality condition against array of `varchar` type. If one or more elements in an array are matched, the record is matched. It's useful for tag search."
+msgstr ""
+
+#: ../../../tutorial/index.md:422
+msgid "  * How to use PGroonga for `text` type of array"
+msgstr ""
+
+#: ../../../tutorial/index.md:424
+msgid "  * How to use PGroonga for `varchar` type of array"
+msgstr ""
+
+#: ../../../tutorial/index.md:426
+msgid "### How to use PGroonga for `text` type of array"
+msgstr ""
+
+#: ../../../tutorial/index.md:430
+msgid "```sql\n"
+"CREATE TABLE docs (\n"
+"  id integer,\n"
+"  sections text[]\n"
+");"
+msgstr ""
+
+#: ../../../tutorial/index.md:436
+msgid "CREATE INDEX pgroonga_sections_index ON docs USING pgroonga (sections);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:441
+msgid "```sql\n"
+"INSERT INTO docs\n"
+"     VALUES (1,\n"
+"             ARRAY['PostgreSQL is a relational database management system.',\n"
+"                   'PostgreSQL supports full text search partially.']);\n"
+"INSERT INTO docs\n"
+"     VALUES (2,\n"
+"             ARRAY['Groonga is a fast full text search engine that supports all languages.',\n"
+"                   'Groonga can be embedded into other systems.']);\n"
+"INSERT INTO docs\n"
+"     VALUES (3,\n"
+"             ARRAY['PGroonga is a PostgreSQL extension that uses Groonga as index.',\n"
+"                   'It adds powerful full text search feature to PostgreSQL.']);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:456
+msgid "You can use `&@` operator or `&@~` operator for full text search. The full text search doesn't care about the position of element."
+msgstr ""
+
+#: ../../../tutorial/index.md:458
+msgid "```sql\n"
+"SELECT * FROM docs WHERE sections &@ 'text';\n"
+"--  id |                                                           sections                                                            \n"
+"-- ----+-------------------------------------------------------------------------------------------------------------------------------\n"
+"--   1 | {\"PostgreSQL is a relational database management system.\",\"PostgreSQL supports full text search partially.\"}\n"
+"--   2 | {\"Groonga is a fast full text search engine that supports all languages.\",\"Groonga can be embedded into other systems.\"}\n"
+"--   3 | {\"PGroonga is a PostgreSQL extension that uses Groonga as index.\",\"It adds powerful full text search feature to PostgreSQL.\"}\n"
+"-- (3 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:468
+msgid "### How to use PGroonga for `varchar` type of array"
+msgstr ""
+
+#: ../../../tutorial/index.md:472
+msgid "```sql\n"
+"CREATE TABLE products (\n"
+"  id integer,\n"
+"  name text,\n"
+"  tags varchar(1023)[]\n"
+");"
+msgstr ""
+
+#: ../../../tutorial/index.md:479
+msgid "CREATE INDEX pgroonga_tags_index ON products USING pgroonga (tags);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:484
+msgid "```sql\n"
+"INSERT INTO products\n"
+"     VALUES (1,\n"
+"             'PostgreSQL',\n"
+"             ARRAY['PostgreSQL', 'RDBMS']);\n"
+"INSERT INTO products\n"
+"     VALUES (2,\n"
+"             'Groonga',\n"
+"             ARRAY['Groonga', 'full-text search']);\n"
+"INSERT INTO products\n"
+"     VALUES (3,\n"
+"             'PGroonga',\n"
+"             ARRAY['PostgreSQL', 'Groonga', 'full-text search']);\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:499
+msgid "You can use `&@` operator to find records that have one or more matched elements. If element's value equals to queried value, the element is treated as matched."
+msgstr ""
+
+#: ../../../tutorial/index.md:501
+msgid "```sql\n"
+"SELECT * FROM products WHERE tags &@ 'PostgreSQL';\n"
+"--  id |    name    |                  tags                   \n"
+"-- ----+------------+-----------------------------------------\n"
+"--   1 | PostgreSQL | {PostgreSQL,RDBMS}\n"
+"--   3 | PGroonga   | {PostgreSQL,Groonga,\"full-text search\"}\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:510
+msgid "## How to use PGroonga for JSON {#json}"
+msgstr ""
+
+#: ../../../tutorial/index.md:512
+msgid "PGroonga also supports `jsonb` type. You can search JSON data by one or more keys and/or one or more values with PGroonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:514
+msgid "You can also search JSON data by full text search against all text values in JSON. It's an unique feature of PGroonga. Built-in PostgreSQL 9 features and [JsQuery](https://github.com/postgrespro/jsquery) don't support it. PostgreSQL 10 supports it as a built-in feature."
+msgstr ""
+
+#: ../../../tutorial/index.md:516
+msgid "Think about the following JSON:"
+msgstr ""
+
+#: ../../../tutorial/index.md:518
+msgid "```json\n"
+"{\n"
+"  \"message\": \"Server is started.\",\n"
+"  \"host\": \"www.example.com\",\n"
+"  \"tags\": [\n"
+"    \"web\",\n"
+"  ]\n"
+"}\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:528
+msgid "You can find the JSON by full text search with `search`, `example` or `web` because all text values are full text search target."
+msgstr ""
+
+#: ../../../tutorial/index.md:530
+msgid "PGroonga provides the following two operators for searching against `jsonb`:"
+msgstr ""
+
+#: ../../../tutorial/index.md:532
+msgid "  * `@>` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:534
+msgid "  * `&@` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:536
+msgid "  * `&@~` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:538
+msgid "  * `` &` `` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:540
+msgid "[`@>` operator is a built-in PostgreSQL operator]({{ site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true when the right hand side `jsonb` is a subset of left hand side `jsonb`."
+msgstr ""
+
+#: ../../../tutorial/index.md:542
+msgid "You can execute `@>` faster by PGroonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:544
+#: ../../../tutorial/index.md:631
+msgid "`&@` operator is a PGroonga original operator. You can perform full text search against all texts in JSON by one keyword."
+msgstr ""
+
+#: ../../../tutorial/index.md:546
+#: ../../../tutorial/index.md:654
+msgid "`&@~` operator is a PGroonga original operator. You can perform full text search against all texts in JSON by query syntax."
+msgstr ""
+
+#: ../../../tutorial/index.md:548
+#: ../../../tutorial/index.md:685
+msgid "`` &` `` operator is a PGroonga original operator. You can write complex condition that can't be written by `@>` operator such as range search."
+msgstr ""
+
+#: ../../../tutorial/index.md:550
+msgid "### Sample schema and data"
+msgstr ""
+
+#: ../../../tutorial/index.md:552
+msgid "Here are sample schema and data for examples:"
+msgstr ""
+
+#: ../../../tutorial/index.md:554
+msgid "```sql\n"
+"CREATE TABLE logs (\n"
+"  record jsonb\n"
+");"
+msgstr ""
+
+#: ../../../tutorial/index.md:559
+msgid "CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
+msgstr ""
+
+#: ../../../tutorial/index.md:561
+msgid "INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"Server is started.\",\n"
+"                \"host\":    \"www.example.com\",\n"
+"                \"tags\": [\n"
+"                  \"web\",\n"
+"                  \"example.com\"\n"
+"                ]\n"
+"              }');\n"
+"INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"GET /\",\n"
+"                \"host\":    \"www.example.com\",\n"
+"                \"code\":    200,\n"
+"                \"tags\": [\n"
+"                  \"web\",\n"
+"                  \"example.com\"\n"
+"                ]\n"
+"              }');\n"
+"INSERT INTO logs\n"
+"     VALUES ('{\n"
+"                \"message\": \"Send to <info@example.com>.\",\n"
+"                \"host\":    \"mail.example.net\",\n"
+"                \"tags\": [\n"
+"                  \"mail\",\n"
+"                  \"example.net\"\n"
+"                ]\n"
+"              }');\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:597
+msgid "### `@>` operator {#jsonb-contain}"
+msgstr ""
+
+#: ../../../tutorial/index.md:599
+msgid "`@>` operator specify search condition by `jsonb` value. If condition `jsonb` value is a subset of the search target `jsonb` value, `@>` operator returns `true`."
+msgstr ""
+
+#: ../../../tutorial/index.md:601
+msgid "Here is an example:"
+msgstr ""
+
+#: ../../../tutorial/index.md:603
+msgid "```sql\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record @> '{\"host\": \"www.example.com\"}'::jsonb;\n"
+"--             jsonb_pretty             \n"
+"-- -------------------------------------\n"
+"--  {                                  +\n"
+"--      \"host\": \"www.example.com\",     +\n"
+"--      \"tags\": [                      +\n"
+"--          \"web\",                     +\n"
+"--          \"example.com\"              +\n"
+"--      ],                             +\n"
+"--      \"message\": \"Server is started.\"+\n"
+"--  }\n"
+"--  {                                  +\n"
+"--      \"code\": 200,                   +\n"
+"--      \"host\": \"www.example.com\",     +\n"
+"--      \"tags\": [                      +\n"
+"--          \"web\",                     +\n"
+"--          \"example.com\"              +\n"
+"--      ],                             +\n"
+"--      \"message\": \"GET /\"             +\n"
+"--  }\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:627
+msgid "See [`@>` operator](../reference/operators/jsonb-contain.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:629
+msgid "### `&@` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:633
+msgid "Here is an example to search \"server\" in JSON:"
+msgstr ""
+
+#: ../../../tutorial/index.md:635
+msgid "```sql\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &@ 'server';\n"
+"--             jsonb_pretty             \n"
+"-- -------------------------------------\n"
+"--  {                                  +\n"
+"--      \"host\": \"www.example.com\",     +\n"
+"--      \"tags\": [                      +\n"
+"--          \"web\",                     +\n"
+"--          \"example.com\"              +\n"
+"--      ],                             +\n"
+"--      \"message\": \"Server is started.\"+\n"
+"--  }\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:650
+msgid "See [`&@` operator for `jsonb`](../reference/operators/match-jsonb-v2.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:652
+msgid "### `&@~` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:656
+msgid "Here is an example to search \"server\" or \"send\" in JSON:"
+msgstr ""
+
+#: ../../../tutorial/index.md:658
+msgid "```sql\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR send';\n"
+"--                  jsonb_pretty                 \n"
+"-- ----------------------------------------------\n"
+"--  {                                           +\n"
+"--      \"host\": \"www.example.com\",              +\n"
+"--      \"tags\": [                               +\n"
+"--          \"web\",                              +\n"
+"--          \"example.com\"                       +\n"
+"--      ],                                      +\n"
+"--      \"message\": \"Server is started.\"         +\n"
+"--  }\n"
+"--  {                                           +\n"
+"--      \"host\": \"mail.example.net\",             +\n"
+"--      \"tags\": [                               +\n"
+"--          \"mail\",                             +\n"
+"--          \"example.net\"                       +\n"
+"--      ],                                      +\n"
+"--      \"message\": \"Send to <info@example.com>.\"+\n"
+"--  }\n"
+"-- (2 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:681
+msgid "See [`&@~` operator for `jsonb`](../reference/operators/query-jsonb-v2.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:683
+msgid "### `` &` `` operator"
+msgstr ""
+
+#: ../../../tutorial/index.md:687
+msgid "Here is an example for range search. The `SELECT` returns records that is matched with the following conditions:"
+msgstr ""
+
+#: ../../../tutorial/index.md:689
+msgid "  * `code` key exists at the top-level object"
+msgstr ""
+
+#: ../../../tutorial/index.md:691
+msgid "  * Value of the `code` is greater than or equal to `200` and less than `300`"
+msgstr ""
+
+#: ../../../tutorial/index.md:693
+msgid "```sql\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ \".code\" && number >= 200 && number < 300';\n"
+"--           jsonb_pretty          \n"
+"-- --------------------------------\n"
+"--  {                             +\n"
+"--      \"code\": 200,              +\n"
+"--      \"host\": \"www.example.com\",+\n"
+"--      \"tags\": [                 +\n"
+"--          \"web\",                +\n"
+"--          \"example.com\"         +\n"
+"--      ],                        +\n"
+"--      \"message\": \"GET /\"        +\n"
+"--  }\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:709
+msgid "See [`` &` `` operator for `jsonb`](../reference/operators/script-jsonb-v2.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:711
+msgid "## Auto complete"
+msgstr ""
+
+#: ../../../tutorial/index.md:715
+msgid "See [how to implement auto complete feature][how-to-auto-complete] for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:717
+msgid "## How to use Groonga through PGroonga {#groonga}"
+msgstr ""
+
+#: ../../../tutorial/index.md:719
+msgid "This is an advanced topic."
+msgstr ""
+
+#: ../../../tutorial/index.md:721
+msgid "In most cases, Groonga is faster than PostgreSQL."
+msgstr ""
+
+#: ../../../tutorial/index.md:723
+msgid "For example, [drilldown feature](http://groonga.org/docs/reference/commands/select.html#drilldown) in Groonga is faster than one `SELECT` and multiple `GROUP BY`s (or one `GROUP BY GROUPING SET`) by PostgreSQL. Because all needed results can be done by one query in Groonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:725
+msgid "In another instance, Groonga can perform query that doesn't use all columns in record faster than PostgreSQL. Because Groonga has column oriented data store. Column oriented data store (Groonga) is faster than row oriented data store (PostgreSQL) for accessing some columns. Row oriented data store needs to read all columns in record to access only partial columns. Column oriented data store just need to read only target columns in record."
+msgstr ""
+
+#: ../../../tutorial/index.md:727
+msgid "You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. But PGroonga provides a feature to use Groonga directly through SQL."
+msgstr ""
+
+#: ../../../tutorial/index.md:729
+msgid "### `pgroonga_command` function"
+msgstr ""
+
+#: ../../../tutorial/index.md:731
+msgid "You can execute [Groonga commands](http://groonga.org/docs/reference/command.html) and get the result of the execution as string by `pgroonga_command` function."
+msgstr ""
+
+#: ../../../tutorial/index.md:733
+msgid "Here is an example that executes [`status` command](http://groonga.org/docs/reference/commands/status.html):"
+msgstr ""
+
+#: ../../../tutorial/index.md:735
+msgid "```sql\n"
+"SELECT pgroonga_command('status') AS command;\n"
+"--                                   command                                                                                                                  \n"
+"-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+"--  [[0,1423911561.69344,6.15119934082031e-05],{\"alloc_count\":164,\"starttime\":1423911561,\"uptime\":0,\"version\":\"5.0.0-6-g17847c9\",\"n_queries\":0,\"cache_hit_rate\":0.0,\"command_version\":1,\"default_command_version\":1,\"max_command_version\":2}]\n"
+"-- (1 row)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:743
+msgid "Result from Groonga is JSON. You can use JSON related functions provided by PostgreSQL to access result from Groonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:745
+msgid "Here is an example to map one key value pair in the result of `status` command to one row:"
+msgstr ""
+
+#: ../../../tutorial/index.md:747
+msgid "```sql\n"
+"SELECT * FROM json_each(pgroonga_command('status')::json->1);\n"
+"--            key           |       value        \n"
+"-- -------------------------+--------------------\n"
+"--  alloc_count             | 168\n"
+"--  starttime               | 1423911561\n"
+"--  uptime                  | 221\n"
+"--  version                 | \"5.0.0-6-g17847c9\"\n"
+"--  n_queries               | 0\n"
+"--  cache_hit_rate          | 0.0\n"
+"--  command_version         | 1\n"
+"--  default_command_version | 1\n"
+"--  max_command_version     | 2\n"
+"-- (9 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:763
+msgid "See [`pgroonga_command` function](../reference/functions/pgroonga-command.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:765
+msgid "### `pgroonga_table_name` function {#pgroonga-table-name}"
+msgstr ""
+
+#: ../../../tutorial/index.md:767
+msgid "PGroonga stores values of index target columns. You can use these values to search and output by [`select` Groonga command](http://groonga.org/docs/reference/commands/select.html)."
+msgstr ""
+
+#: ../../../tutorial/index.md:769
+msgid "`select` Groonga command needs table name. You can use `pgroonga_table_name` function to convert index name in PostgreSQL to table name in Groonga."
+msgstr ""
+
+#: ../../../tutorial/index.md:771
+msgid "Here is an example to use `select` command with `pgroonga_table_name` function:"
+msgstr ""
+
+#: ../../../tutorial/index.md:773
+msgid "```sql\n"
+"SELECT *\n"
+"  FROM json_array_elements(pgroonga_command('select ' || pgroonga_table_name('pgroonga_content_index'))::json->1->0);\n"
+"--                                      value                                      \n"
+"-- --------------------------------------------------------------------------------\n"
+"--  [4]\n"
+"--  [[\"_id\",\"UInt32\"],[\"content\",\"LongText\"],[\"ctid\",\"UInt64\"]]\n"
+"--  [1,\"PostgreSQL is a relational database management system.\",1]\n"
+"--  [2,\"Groonga is a fast full text search engine that supports all languages.\",2]\n"
+"--  [3,\"PGroonga is a PostgreSQL extension that uses Groonga as index.\",3]\n"
+"--  [4,\"There is groonga command.\",4]\n"
+"-- (6 rows)\n"
+"```"
+msgstr ""
+
+#: ../../../tutorial/index.md:787
+msgid "See [`pgroonga_table_name` function](../reference/functions/pgroonga-table-name.html) for more details."
+msgstr ""
+
+#: ../../../tutorial/index.md:789
+msgid "## Next step"
+msgstr ""
+
+#: ../../../tutorial/index.md:791
+msgid "Now, you knew all PGroonga features! If you want to understand each feature, see [reference manual][reference] for each feature."
+msgstr ""
+
+#: ../../../tutorial/index.md:793
+msgid "[How to][how-to] may help you to use PGroonga for specific situation."
+msgstr ""
+
+#: ../../../tutorial/index.md:795
+msgid "If you get a problem or want to share your useful information, please contact [PGroonga community][community]."
+msgstr ""
+
+#: ../../../tutorial/index.md:797
+msgid "[install]:../install/"
+msgstr ""
+
+#: ../../../tutorial/index.md:799
+msgid "[reference]:../reference/"
+msgstr ""
+
+#: ../../../tutorial/index.md:801
+msgid "[how-to]:../how-to/"
+msgstr ""
+
+#: ../../../tutorial/index.md:803
+msgid "[how-to-auto-complete]:../how-to/auto-complete.html"
+msgstr ""
+
+#: ../../../tutorial/index.md:805
+msgid "[community]:../community/"
+msgstr ""
+

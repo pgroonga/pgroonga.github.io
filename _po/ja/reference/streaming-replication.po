@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../reference/streaming-replication.md:1
 msgid ""
 "---\n"
 "title: Streaming replication\n"
@@ -17,15 +31,23 @@ msgstr ""
 "title: ストリーミングレプリケーション\n"
 "---"
 
+#: ../../../reference/streaming-replication.md:5
 msgid "# Streaming replication"
 msgstr "# ストリーミングレプリケーション"
 
-msgid "PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6."
-msgstr "PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]をサポートしています。"
+#: ../../../reference/streaming-replication.md:7
+msgid ""
+"PGroonga supports PostgreSQL built-in [WAL based streaming "
+"replication][postgresql-wal] since 1.1.6."
+msgstr ""
+"PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-"
+"wal]をサポートしています。"
 
+#: ../../../reference/streaming-replication.md:9
 msgid "PGroonga's WAL send to standby server from primary server as below."
 msgstr "PGroongaのWALは以下のようにスタンバイのサーバーへ送信されます。"
 
+#: ../../../reference/streaming-replication.md:11
 msgid ""
 "```mermaid\n"
 "sequenceDiagram\n"
@@ -39,99 +61,177 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`][postgresql-reindex]."
-msgstr "WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。"
+#: ../../../reference/streaming-replication.md:22
+msgid ""
+"Note that WAL support doesn't mean crash safe. It just supports WAL based "
+"streaming replication. If PostgreSQL is crashed while PGroonga index update,"
+" the PGroonga index may be broken. If the PGroonga index is broken, you need"
+" to recreate the PGroonga index by [`REINDEX`][postgresql-reindex]."
+msgstr ""
+"WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-"
+"reindex]で作り直さなければいけません。"
 
+#: ../../../reference/streaming-replication.md:24
 msgid "See also: [Crash safe][crash-safe]"
 msgstr "参考：[クラッシュセーフ][crash-safe]"
 
-msgid "This document describes how to configure PostgreSQL built-in WAL based streaming replication for PGroonga. Most of steps are normal steps. There are some PGroonga specific steps."
-msgstr "このドキュメントではPostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する方法を説明します。多くの手順は通常のストリーミングレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。"
+#: ../../../reference/streaming-replication.md:26
+msgid ""
+"This document describes how to configure PostgreSQL built-in WAL based "
+"streaming replication for PGroonga. Most of steps are normal steps. There "
+"are some PGroonga specific steps."
+msgstr ""
+"このドキュメントではPostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する方法を説明します。多くの手順は通常のストリーミングレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。"
 
+#: ../../../reference/streaming-replication.md:28
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "Here are steps to configure PostgreSQL built-in WAL based streaming replication for PGroonga. \"[normal]\" tag means that the step is a normal step for streaming replication. \"[special]\" tag means that the step is a PGroonga specific step."
-msgstr "PostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する手順は次の通りです。「[通常]」タグは通常のストリーミングレプリケーション用の手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。"
+#: ../../../reference/streaming-replication.md:30
+msgid ""
+"Here are steps to configure PostgreSQL built-in WAL based streaming "
+"replication for PGroonga. \"[normal]\" tag means that the step is a normal "
+"step for streaming replication. \"[special]\" tag means that the step is a "
+"PGroonga specific step."
+msgstr ""
+"PostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga用に設定する手順は次の通りです。「[通常]」タグは通常のストリーミングレプリケーション用の手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。"
 
-msgid "  1. [normal] [Install PostgreSQL on both primary and standbys](#install-postgresql)"
+#: ../../../reference/streaming-replication.md:32
+msgid ""
+"  1. [normal] [Install PostgreSQL on both primary and standbys](#install-"
+"postgresql)"
 msgstr "  1. [通常] [プライマリーとスタンバイでPostgreSQLをインストールする](#install-postgresql)"
 
-msgid "  2. [special] [Install PGroonga on both primary and standbys](#install-pgroonga)"
+#: ../../../reference/streaming-replication.md:34
+msgid ""
+"  2. [special] [Install PGroonga on both primary and standbys](#install-"
+"pgroonga)"
 msgstr "  2. [固有] [プライマリーとスタンバイでPGroongaをインストールする](#install-pgroonga)"
 
-msgid "  3. [normal] [Configure PostgreSQL for streaming replication on primary](#configure-replication-primary)"
-msgstr "  3. [通常] [プライマリーでストリーミングレプリケーション用にPostgreSQLを設定する](#configure-replication-primary)"
+#: ../../../reference/streaming-replication.md:36
+msgid ""
+"  3. [normal] [Configure PostgreSQL for streaming replication on "
+"primary](#configure-replication-primary)"
+msgstr ""
+"  3. [通常] [プライマリーでストリーミングレプリケーション用にPostgreSQLを設定する](#configure-replication-"
+"primary)"
 
-msgid "  4. [special] [Configure PostgreSQL for PGroonga on primary](#configure-pgroonga-primary)"
-msgstr "  4. [固有] [プライマリーでPGroonga用にPostgreSQLを設定する](#configure-pgroonga-primary)"
+#: ../../../reference/streaming-replication.md:38
+msgid ""
+"  4. [special] [Configure PostgreSQL for PGroonga on primary](#configure-"
+"pgroonga-primary)"
+msgstr ""
+"  4. [固有] [プライマリーでPGroonga用にPostgreSQLを設定する](#configure-pgroonga-primary)"
 
+#: ../../../reference/streaming-replication.md:40
 msgid "  5. [normal] [Insert data on primary](#insert-primary)"
 msgstr "  5. [通常] [プライマリーでデータを追加する](#insert-primary)"
 
-msgid "  6. [special] [Create a PGroonga index on primary](#create-pgroonga-index-primary)"
+#: ../../../reference/streaming-replication.md:42
+msgid ""
+"  6. [special] [Create a PGroonga index on primary](#create-pgroonga-index-"
+"primary)"
 msgstr "  6. [固有] [プライマリーでPGroongaのインデックスを作る](#create-pgroonga-index-primary)"
 
-msgid "  7. [special] [Flush PGroonga related data on primary](#flush-pgroonga-data-primary)"
+#: ../../../reference/streaming-replication.md:44
+msgid ""
+"  7. [special] [Flush PGroonga related data on primary](#flush-pgroonga-"
+"data-primary)"
 msgstr "  7. [固有] [プライマリーでPGroonga関連のデータを書き出す](#flush-pgroonga-data-primary)"
 
-msgid "  8. [normal] [Run `pg_basebackup` on standbys](#pg-basebackup-standbys)"
+#: ../../../reference/streaming-replication.md:46
+msgid ""
+"  8. [normal] [Run `pg_basebackup` on standbys](#pg-basebackup-standbys)"
 msgstr "  8. [通常] [スタンバイで`pg_basebackup`を実行する](#pg-basebackup-standbys)"
 
-msgid "  9. [special] [Configure PostgreSQL for PGroonga on standbys](#configure-pgroonga-standbys)"
-msgstr "  9. [固有] [スタンバイでPGroonga用にPostgreSQLを設定する](#configure-pgroonga-standbys)"
+#: ../../../reference/streaming-replication.md:48
+msgid ""
+"  9. [special] [Configure PostgreSQL for PGroonga on standbys](#configure-"
+"pgroonga-standbys)"
+msgstr ""
+"  9. [固有] [スタンバイでPGroonga用にPostgreSQLを設定する](#configure-pgroonga-standbys)"
 
+#: ../../../reference/streaming-replication.md:50
 msgid "  10. [normal] [Start PostgreSQL on standbys](#start-standbys)"
 msgstr "  10. [通常] [スタンバイでPostgreSQLを起動する](#start-standbys)"
 
+#: ../../../reference/streaming-replication.md:52
 msgid "## Example environment"
 msgstr "## 例で使う環境"
 
+#: ../../../reference/streaming-replication.md:54
 msgid "This document uses the following environment:"
 msgstr "このドキュメントでは次の環境を使います。"
 
+#: ../../../reference/streaming-replication.md:56
 msgid "  * Primary:"
 msgstr "  * プライマリー："
 
+#: ../../../reference/streaming-replication.md:58
+#: ../../../reference/streaming-replication.md:70
+#: ../../../reference/streaming-replication.md:76
 msgid "    * OS: Ubuntu 22.04"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:60
 msgid "    * IP address: 192.168.0.30"
 msgstr "    * IPアドレス：192.168.0.30"
 
+#: ../../../reference/streaming-replication.md:62
 msgid "    * Database name: `blog`"
 msgstr "    * データベース名：`blog`"
 
+#: ../../../reference/streaming-replication.md:64
 msgid "    * Replication user name: `replicator`"
 msgstr "    * レプリケーションユーザー名：`replicator`"
 
+#: ../../../reference/streaming-replication.md:66
 msgid "    * Replication user password: `passw0rd`"
 msgstr "    * レプリケーションユーザーのパスワード：`passw0rd`"
 
+#: ../../../reference/streaming-replication.md:68
 msgid "  * Standby1:"
 msgstr "  * スタンバイ1："
 
+#: ../../../reference/streaming-replication.md:72
 msgid "    * IP address: 192.168.0.31"
 msgstr "    * IPアドレス：192.168.0.31"
 
+#: ../../../reference/streaming-replication.md:74
 msgid "  * Standby2:"
 msgstr "  * スタンバイ2："
 
+#: ../../../reference/streaming-replication.md:78
 msgid "    * IP address: 192.168.0.32"
 msgstr "    * IPアドレス：192.168.0.32"
 
-msgid "This document shows command lines for Ubuntu 22.04. If you're using other platforms, adjust command lines by yourself."
-msgstr "このドキュメントではUbuntu 22.04用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。"
+#: ../../../reference/streaming-replication.md:80
+msgid ""
+"This document shows command lines for Ubuntu 22.04. If you're using other "
+"platforms, adjust command lines by yourself."
+msgstr ""
+"このドキュメントではUbuntu "
+"22.04用のコマンドラインを書いています。もし、他のプラットフォームを使っている場合は自分でコマンドラインを調整してください。"
 
-msgid "## [normal] Install PostgreSQL on both primary and standbys {#install-postgresql}"
+#: ../../../reference/streaming-replication.md:82
+msgid ""
+"## [normal] Install PostgreSQL on both primary and standbys {#install-"
+"postgresql}"
 msgstr "## [通常] プライマリーとスタンバイでPostgreSQLをインストールする {#install-postgresql}"
 
+#: ../../../reference/streaming-replication.md:84
+#: ../../../reference/streaming-replication.md:115
+#: ../../../reference/streaming-replication.md:216
+#: ../../../reference/streaming-replication.md:313
+#: ../../../reference/streaming-replication.md:370
 msgid "This is a normal step."
 msgstr "これは通常の手順です。"
 
+#: ../../../reference/streaming-replication.md:86
 msgid "Install PostgreSQL 15 on both primary and standbys:"
 msgstr "プライマリーとスタンバイでPostgreSQL 15をインストールします。"
 
+#: ../../../reference/streaming-replication.md:88
 msgid ""
 "```bash\n"
 "sudo apt install -y gpg lsb-release wget\n"
@@ -142,15 +242,25 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## [special] Install PGroonga on both primary and standbys {#install-pgroonga}"
+#: ../../../reference/streaming-replication.md:96
+msgid ""
+"## [special] Install PGroonga on both primary and standbys {#install-"
+"pgroonga}"
 msgstr "## [固有] プライマリーとスタンバイでPGroongaをインストールする {#install-pgroonga}"
 
+#: ../../../reference/streaming-replication.md:98
+#: ../../../reference/streaming-replication.md:172
+#: ../../../reference/streaming-replication.md:257
+#: ../../../reference/streaming-replication.md:291
+#: ../../../reference/streaming-replication.md:329
 msgid "This is a PGroonga specific step."
 msgstr "これはPGroonga固有の手順です。"
 
+#: ../../../reference/streaming-replication.md:100
 msgid "Install PGroonga on both primary and standbys."
 msgstr "プライマリーとスタンバイでPGroongaをインストールします。"
 
+#: ../../../reference/streaming-replication.md:102
 msgid ""
 "```bash\n"
 "sudo apt install -y software-properties-common\n"
@@ -164,51 +274,87 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## [normal] Configure PostgreSQL for streaming replication on primary {#configure-replication-primary}"
-msgstr "## [通常] プライマリーでストリーミングレプリケーション用にPostgreSQLを設定する {#configure-replication-primary}"
+#: ../../../reference/streaming-replication.md:113
+msgid ""
+"## [normal] Configure PostgreSQL for streaming replication on primary "
+"{#configure-replication-primary}"
+msgstr ""
+"## [通常] プライマリーでストリーミングレプリケーション用にPostgreSQLを設定する {#configure-replication-"
+"primary}"
 
-msgid "Add the following streaming replication configurations to `postgresql.conf` on only primary:"
+#: ../../../reference/streaming-replication.md:117
+msgid ""
+"Add the following streaming replication configurations to `postgresql.conf` "
+"on only primary:"
 msgstr "プライマリーでだけ次のストリーミングレプリケーション用の設定を`postgresql.conf`に追加します。"
 
+#: ../../../reference/streaming-replication.md:119
 msgid "  * `listen_addresses = 'localhost,192.168.0.30'`"
 msgstr ""
 
-msgid "If you have many standbys, you need to specify `max_wal_senders` too. The default `max_wal_senders` is `10`. `10` is enough value for 2 standbys."
-msgstr "多くのスタンバイがいる場合は`max_wal_senders`も設定する必要があります。`max_wal_senders`のデフォルト値は`10`です。スタンバイ2台では`10`で十分です。"
+#: ../../../reference/streaming-replication.md:121
+msgid ""
+"If you have many standbys, you need to specify `max_wal_senders` too. The "
+"default `max_wal_senders` is `10`. `10` is enough value for 2 standbys."
+msgstr ""
+"多くのスタンバイがいる場合は`max_wal_senders`も設定する必要があります。`max_wal_senders`のデフォルト値は`10`です。スタンバイ2台では`10`で十分です。"
 
-msgid "See also [PostgreSQL: Documentation: Replication][postgresql-replication]."
+#: ../../../reference/streaming-replication.md:123
+msgid ""
+"See also [PostgreSQL: Documentation: Replication][postgresql-replication]."
 msgstr "[PostgreSQL：ドキュメント：レプリケーション][postgresql-replication]も参照してください。"
 
+#: ../../../reference/streaming-replication.md:125
+#: ../../../reference/streaming-replication.md:182
+#: ../../../reference/streaming-replication.md:343
 msgid "`/etc/postgresql/15/main/postgresql.conf`:"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:127
+#: ../../../reference/streaming-replication.md:145
+#: ../../../reference/streaming-replication.md:184
+#: ../../../reference/streaming-replication.md:345
 msgid "Before:"
 msgstr "変更前："
 
+#: ../../../reference/streaming-replication.md:129
 msgid ""
 "```vim\n"
 "#listen_addresses = 'localhost'\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:133
+#: ../../../reference/streaming-replication.md:153
+#: ../../../reference/streaming-replication.md:190
+#: ../../../reference/streaming-replication.md:351
 msgid "After:"
 msgstr "変更後："
 
+#: ../../../reference/streaming-replication.md:135
 msgid ""
 "```vim\n"
 "listen_addresses = 'localhost,192.168.0.30'\n"
 "```"
 msgstr ""
 
-msgid "Add the following streaming replication configurations to `pg_hba.conf` on only primary:"
+#: ../../../reference/streaming-replication.md:139
+msgid ""
+"Add the following streaming replication configurations to `pg_hba.conf` on "
+"only primary:"
 msgstr "プライマリーでだけ以下のストリーミングレプリケーション用の設定を`pg_hba.conf`に追加します。"
 
-msgid "  * Accept replication connection by the replication user `replicator` from `192.168.0.0/24`."
+#: ../../../reference/streaming-replication.md:141
+msgid ""
+"  * Accept replication connection by the replication user `replicator` from "
+"`192.168.0.0/24`."
 msgstr "  * `192.168.0.0/24`からのレプリケーションユーザー`replicator`でのレプリケーション接続を許可します。"
 
+#: ../../../reference/streaming-replication.md:143
 msgid "`/etc/postgresql/15/main/pg_hba.conf`:"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:147
 msgid ""
 "```vim\n"
 "local   replication     all                                     peer\n"
@@ -217,6 +363,7 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:155
 msgid ""
 "```vim\n"
 "local   replication     all                                     peer\n"
@@ -226,9 +373,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:162
 msgid "Create the user for replication on only primary:"
 msgstr "プライマリーでだけレプリケーションユーザーを作成します。"
 
+#: ../../../reference/streaming-replication.md:164
 msgid ""
 "```console\n"
 "$ sudo -u postgres -H createuser --pwprompt --replication replicator\n"
@@ -237,36 +386,69 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## [special] Configure PostgreSQL for PGroonga on primary {#configure-pgroonga-primary}"
-msgstr "## [固有] プライマリーでPGroonga用にPostgreSQLを設定する {#configure-pgroonga-primary}"
+#: ../../../reference/streaming-replication.md:170
+msgid ""
+"## [special] Configure PostgreSQL for PGroonga on primary {#configure-"
+"pgroonga-primary}"
+msgstr ""
+"## [固有] プライマリーでPGroonga用にPostgreSQLを設定する {#configure-pgroonga-primary}"
 
-msgid "You need to add PGroonga's WAL related configurations and crash safe related configurations."
+#: ../../../reference/streaming-replication.md:174
+msgid ""
+"You need to add PGroonga's WAL related configurations and crash safe related"
+" configurations."
 msgstr "PGroongaのWAL関連の設定とクラッシュセーフ関連の設定を追加する必要があります。"
 
-msgid "For PGroonga's WAL, you need to add [`pgronga.enable_wal` parameter][enable-wal] and [`pgroonga.max_wal_size` parameter][max-wal-size] configurations:"
-msgstr "PGroongaのWAL用には、[`pgronga.enable_wal`パラメーター][enable-wal]と[`pgroonga.max_wal_size`パラメーター][max-wal-size]を設定する必要があります。"
+#: ../../../reference/streaming-replication.md:176
+msgid ""
+"For PGroonga's WAL, you need to add [`pgronga.enable_wal` parameter][enable-"
+"wal] and [`pgroonga.max_wal_size` parameter][max-wal-size] configurations:"
+msgstr ""
+"PGroongaのWAL用には、[`pgronga.enable_wal`パラメーター][enable-"
+"wal]と[`pgroonga.max_wal_size`パラメーター][max-wal-size]を設定する必要があります。"
 
-msgid "For crash safe, you need to add [`pgroonga_crash_safer` module][pgroonga-crash-safer] module to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add `pgroonga.crash_safe = on`."
-msgstr "クラッシュセーフ用には、[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して`pgroonga.crash_safe = on`も追加する必要があります。"
+#: ../../../reference/streaming-replication.md:178
+msgid ""
+"For crash safe, you need to add [`pgroonga_crash_safer` module][pgroonga-"
+"crash-safer] module to [`shared_preload_libraries` parameter][postgresql-"
+"shared-preload-libraries] and add `pgroonga.crash_safe = on`."
+msgstr ""
+"クラッシュセーフ用には、[`pgroonga_crash_safer`モジュール][pgroonga-crash-"
+"safer]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-"
+"libraries]に追加して`pgroonga.crash_safe = on`も追加する必要があります。"
 
-msgid "NOTE: `pgroonga_crash_safer` module reduces write performance. There is a trade-off for easy to maintain and performance. If you need maximum write performance, you can't use this module. See also [Crash safe][crash-safe] for the trade-off."
-msgstr "注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフ人ついては[クラッシュセーフ][crash-safe]も参照してください。"
+#: ../../../reference/streaming-replication.md:180
+#: ../../../reference/streaming-replication.md:339
+msgid ""
+"NOTE: `pgroonga_crash_safer` module reduces write performance. There is a "
+"trade-off for easy to maintain and performance. If you need maximum write "
+"performance, you can't use this module. See also [Crash safe][crash-safe] "
+"for the trade-off."
+msgstr ""
+"注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフ人ついては[クラッシュセーフ][crash-"
+"safe]も参照してください。"
 
+#: ../../../reference/streaming-replication.md:186
+#: ../../../reference/streaming-replication.md:347
 msgid ""
 "```vim\n"
 "#shared_preload_libraries = ''\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:192
 msgid ""
 "```vim\n"
 "shared_preload_libraries = 'pgroonga_crash_safer'\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:196
+#: ../../../reference/streaming-replication.md:359
 msgid "`/etc/postgresql/15/main/conf.d/pgroonga.conf`:"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:198
 msgid ""
 "```vim\n"
 "pgroonga.enable_wal = on\n"
@@ -275,57 +457,82 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "If your system has many write, you may need more size for `pgroonga.max_wal_size`."
+#: ../../../reference/streaming-replication.md:204
+msgid ""
+"If your system has many write, you may need more size for "
+"`pgroonga.max_wal_size`."
 msgstr "書き込みが激しいシステムでは`pgroonga.max_wal_size`の値をもっと大きくしないといけないかもしれません。"
 
-msgid "If you don't use `pgroonga_crash_safer` module, you need to remove `pgroonga_crash_safer` from `shared_preload_libraries` and remove `pgroonga.enable_crash_safe = on`."
-msgstr "`pgroonga_crash_safer`モジュールを使わない場合は、`shared_preload_libraries`から`pgroonga_crash_safer`を除いて、`pgroonga.enable_crash_safe = on`も消します。"
+#: ../../../reference/streaming-replication.md:206
+#: ../../../reference/streaming-replication.md:366
+msgid ""
+"If you don't use `pgroonga_crash_safer` module, you need to remove "
+"`pgroonga_crash_safer` from `shared_preload_libraries` and remove "
+"`pgroonga.enable_crash_safe = on`."
+msgstr ""
+"`pgroonga_crash_safer`モジュールを使わない場合は、`shared_preload_libraries`から`pgroonga_crash_safer`を除いて、`pgroonga.enable_crash_safe"
+" = on`も消します。"
 
+#: ../../../reference/streaming-replication.md:208
 msgid "Restart PostgreSQL to apply the configuration:"
 msgstr "この設定を反映するためにPostgreSQLを再起動します。"
 
+#: ../../../reference/streaming-replication.md:210
 msgid ""
 "```bash\n"
 "sudo -H systemctl restart postgresql\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:214
 msgid "## [normal] Insert data on primary {#insert-primary}"
 msgstr "## [通常] プライマリーでデータを挿入する {#insert-primary}"
 
+#: ../../../reference/streaming-replication.md:218
 msgid "Create a normal user on only primary:"
 msgstr "プライマリーでだけ一般ユーザーを作成します。"
 
+#: ../../../reference/streaming-replication.md:220
 msgid ""
 "```bash\n"
 "sudo -u postgres -H createuser ${USER}\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:224
 msgid "Create a database on only primary:"
 msgstr "プライマリーでだけデータベースを作成します。"
 
+#: ../../../reference/streaming-replication.md:226
 msgid ""
 "```bash\n"
 "sudo -u postgres -H createdb --template template0 --locale C --encoding UTF-8 --owner ${USER} blog\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:230
 msgid "Create a table in the created database on only primary."
 msgstr "プライマリーでだけ作成したデータベースにテーブルを追加します。"
 
+#: ../../../reference/streaming-replication.md:232
 msgid "Connect to the created `blog` database:"
 msgstr "作成した`blog`データベースに接続します。"
 
+#: ../../../reference/streaming-replication.md:234
+#: ../../../reference/streaming-replication.md:268
+#: ../../../reference/streaming-replication.md:382
+#: ../../../reference/streaming-replication.md:416
 msgid ""
 "```bash\n"
 "psql blog\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:238
 msgid "Create `entries` table:"
 msgstr "`entries`テーブルを作成します。"
 
+#: ../../../reference/streaming-replication.md:240
 msgid ""
 "```sql\n"
 "CREATE TABLE entries (\n"
@@ -335,9 +542,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:247
 msgid "Insert data to the created `entries` table:"
 msgstr "作成した`entries`テーブルにデータを追加します。"
 
+#: ../../../reference/streaming-replication.md:249
 msgid ""
 "```sql\n"
 "INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');\n"
@@ -346,12 +555,17 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## [special] Create a PGroonga index on primary {#create-pgroonga-index-primary}"
+#: ../../../reference/streaming-replication.md:255
+msgid ""
+"## [special] Create a PGroonga index on primary {#create-pgroonga-index-"
+"primary}"
 msgstr "## [固有] プライマリーでPGroongaのインデックスを作成する {#create-pgroonga-index-primary}"
 
+#: ../../../reference/streaming-replication.md:259
 msgid "Install PGroonga to the database. It requires superuser privilege:"
 msgstr "このデータベースにPGroongaをインストールします。スーパーユーザー権限が必要です。"
 
+#: ../../../reference/streaming-replication.md:261
 msgid ""
 "```bash\n"
 "sudo -u postgres -H psql blog --command \"CREATE EXTENSION pgroonga;\"\n"
@@ -359,21 +573,27 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:266
 msgid "Connect to PostgreSQL by a normal user again:"
 msgstr "再度一般ユーザーでPostgreSQLに接続します。"
 
+#: ../../../reference/streaming-replication.md:272
 msgid "Create a PGroonga index on only primary:"
 msgstr "プライマリーでPGroongaのインデックスを作成します。"
 
+#: ../../../reference/streaming-replication.md:274
 msgid ""
 "```sql\n"
 "CREATE INDEX entries_full_text_search ON entries USING pgroonga (title, body);\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:278
 msgid "Confirm the index:"
 msgstr "作成したインデックスを確認します。"
 
+#: ../../../reference/streaming-replication.md:280
+#: ../../../reference/streaming-replication.md:386
 msgid ""
 "```sql\n"
 "SET enable_seqscan TO off;\n"
@@ -385,21 +605,32 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## [special] Flush PGroonga related data on primary {#flush-pgroonga-data-primary}"
-msgstr "## [固有] プライマリーでだけPGroonga関連のデータをフラッシュする {#flush-pgroonga-data-primary}"
+#: ../../../reference/streaming-replication.md:289
+msgid ""
+"## [special] Flush PGroonga related data on primary {#flush-pgroonga-data-"
+"primary}"
+msgstr ""
+"## [固有] プライマリーでだけPGroonga関連のデータをフラッシュする {#flush-pgroonga-data-primary}"
 
-msgid "Ensure writing PGroonga related data on memory to disk on only primary. You can choose one of them:"
+#: ../../../reference/streaming-replication.md:293
+msgid ""
+"Ensure writing PGroonga related data on memory to disk on only primary. You "
+"can choose one of them:"
 msgstr "プライマリーでだけメモリー上にあるPGroonga関連のデータを確実にディスクに書き出します。以下のどれかの方法を使います。"
 
+#: ../../../reference/streaming-replication.md:295
 msgid "  1. Run `SELECT pgroonga_command('io_flush');`"
 msgstr "  1. `SELECT pgroonga_command('io_flush');`を実行する"
 
+#: ../../../reference/streaming-replication.md:297
 msgid "  2. Disconnect all connections"
 msgstr "  2. すべての接続を切断する"
 
+#: ../../../reference/streaming-replication.md:299
 msgid "Here is an example to use `pgroonga_command('io_flush')`:"
 msgstr "`pgroonga_command('io_flush')`を使う場合は次のようになります。"
 
+#: ../../../reference/streaming-replication.md:301
 msgid ""
 "```sql\n"
 "SELECT pgroonga_command('io_flush') AS command;\n"
@@ -410,18 +641,31 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You must not change tables that use PGroonga indexes on primary until the next `pg_basebackup` step is finished."
-msgstr "プライマリーでは、次の`pg_basebackup`の手順が終わるまではPGroongaのインデックスを使っているテーブルを変更してはいけません。"
+#: ../../../reference/streaming-replication.md:309
+msgid ""
+"You must not change tables that use PGroonga indexes on primary until the "
+"next `pg_basebackup` step is finished."
+msgstr ""
+"プライマリーでは、次の`pg_basebackup`の手順が終わるまではPGroongaのインデックスを使っているテーブルを変更してはいけません。"
 
+#: ../../../reference/streaming-replication.md:311
 msgid "## [normal] Run `pg_basebackup` on standbys {#pg-basebackup-standbys}"
 msgstr "## [通常] スタンバイで`pg_basebackup`を実行する {#pg-basebackup-standbys}"
 
-msgid "Run `pg_basebackup` on only standbys. It copies the current database from primary."
-msgstr "スタンバイでだけ`pg_basebackup`を実行します。`pg_basebackup`はプライマリーから現在のデータベースをコピーします。"
+#: ../../../reference/streaming-replication.md:315
+msgid ""
+"Run `pg_basebackup` on only standbys. It copies the current database from "
+"primary."
+msgstr ""
+"スタンバイでだけ`pg_basebackup`を実行します。`pg_basebackup`はプライマリーから現在のデータベースをコピーします。"
 
+#: ../../../reference/streaming-replication.md:317
+#: ../../../reference/streaming-replication.md:341
+#: ../../../reference/streaming-replication.md:357
 msgid "Standbys:"
 msgstr "スタンバイ："
 
+#: ../../../reference/streaming-replication.md:319
 msgid ""
 "```console\n"
 "$ sudo -H systemctl stop postgresql\n"
@@ -432,27 +676,42 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## [special] Configure PostgreSQL for PGroonga on standbys {#configure-pgroonga-standbys}"
-msgstr "## [固有] スタンバイでPGroonga用にPostgreSQLを設定する {#configure-pgroonga-standbys}"
+#: ../../../reference/streaming-replication.md:327
+msgid ""
+"## [special] Configure PostgreSQL for PGroonga on standbys {#configure-"
+"pgroonga-standbys}"
+msgstr ""
+"## [固有] スタンバイでPGroonga用にPostgreSQLを設定する {#configure-pgroonga-standbys}"
 
+#: ../../../reference/streaming-replication.md:331
 msgid "Since 2.4.2."
 msgstr "2.4.2で追加。"
 
-msgid "Add the following modules to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]:"
-msgstr "次のモジュールを[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加します。"
+#: ../../../reference/streaming-replication.md:333
+msgid ""
+"Add the following modules to [`shared_preload_libraries` "
+"parameter][postgresql-shared-preload-libraries]:"
+msgstr ""
+"次のモジュールを[`shared_preload_libraries`パラメーター][postgresql-shared-preload-"
+"libraries]に追加します。"
 
-msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
+#: ../../../reference/streaming-replication.md:335
+msgid ""
+"  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
 msgstr "  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]"
 
+#: ../../../reference/streaming-replication.md:337
 msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
 msgstr "  * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]"
 
+#: ../../../reference/streaming-replication.md:353
 msgid ""
 "```vim\n"
 "shared_preload_libraries = 'pgroonga_standby_maintainer,pgroonga_crash_safer'\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:361
 msgid ""
 "```vim\n"
 "pgroonga.enable_wal = on\n"
@@ -460,36 +719,48 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:368
 msgid "## [normal] Start PostgreSQL on standbys {#start-standbys}"
 msgstr "## [通常] スタンバイでPostgreSQLを起動する {#start-standbys}"
 
+#: ../../../reference/streaming-replication.md:372
 msgid "Start PostgreSQL on standbys:"
 msgstr "スタンバイでPostgreSQLを起動します。"
 
+#: ../../../reference/streaming-replication.md:374
 msgid ""
 "```bash\n"
 "sudo -H systemctl start postgresql\n"
 "```"
 msgstr ""
 
-msgid "Now, you can search data inserted on primary by PGroonga index created on primary."
+#: ../../../reference/streaming-replication.md:378
+msgid ""
+"Now, you can search data inserted on primary by PGroonga index created on "
+"primary."
 msgstr "これで、プライマリーで挿入したデータをプライマリーで作成したPGroongaのインデックスで検索できます。"
 
+#: ../../../reference/streaming-replication.md:380
+#: ../../../reference/streaming-replication.md:403
 msgid "Standby1:"
 msgstr "スタンバイ1："
 
+#: ../../../reference/streaming-replication.md:395
 msgid "You can also search data inserted on primary after `pg_basebackup`."
 msgstr "`pg_basebacup`以降にプライマリーで追加したデータも検索できます。"
 
+#: ../../../reference/streaming-replication.md:397
 msgid "Primary:"
 msgstr "プライマリー："
 
+#: ../../../reference/streaming-replication.md:399
 msgid ""
 "```sql\n"
 "INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL supports generic WAL since 9.6. It is required for replication for PGroonga.');\n"
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:405
 msgid ""
 "```sql\n"
 "SELECT title FROM entries WHERE title &@~ 'replication';\n"
@@ -501,9 +772,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../reference/streaming-replication.md:414
 msgid "Standby2:"
 msgstr "スタンバイ2："
 
+#: ../../../reference/streaming-replication.md:420
 msgid ""
 "```sql\n"
 "SET enable_seqscan TO off;\n"
@@ -516,22 +789,48 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html"
-msgstr "[postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html"
+#: ../../../reference/streaming-replication.md:430
+msgid ""
+"[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html"
+msgstr ""
+"[postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html"
 
-msgid "[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html"
-msgstr "[postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html"
+#: ../../../reference/streaming-replication.md:432
+msgid ""
+"[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html"
+msgstr ""
+"[postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html"
 
+#: ../../../reference/streaming-replication.md:434
 msgid "[crash-safe]:crash-safe.html"
 msgstr ""
 
-msgid "[postgresql-replication]:{{ site.postgresql_doc_base_url.en }}/runtime-config-replication.html"
-msgstr "[postgresql-replication]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-replication.html"
+#: ../../../reference/streaming-replication.md:436
+msgid ""
+"[postgresql-replication]:{{ site.postgresql_doc_base_url.en }}/runtime-"
+"config-replication.html"
+msgstr ""
+"[postgresql-replication]:{{ site.postgresql_doc_base_url.ja }}/runtime-"
+"config-replication.html"
 
+#: ../../../reference/streaming-replication.md:438
 msgid ""
 "[enable-wal]:parameters/enable-wal.html\n"
 "[max-wal-size]:parameters/max-wal-size.html"
 msgstr ""
 
-msgid "[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"
-msgstr "[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"
+#: ../../../reference/streaming-replication.md:441
+msgid "[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html"
+msgstr ""
+
+#: ../../../reference/streaming-replication.md:443
+msgid "[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html"
+msgstr ""
+
+#: ../../../reference/streaming-replication.md:445
+msgid ""
+"[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en "
+"}}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"
+msgstr ""
+"[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.ja "
+"}}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"

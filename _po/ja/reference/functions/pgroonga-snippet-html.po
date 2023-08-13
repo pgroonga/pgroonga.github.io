@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:1
 msgid ""
 "---\n"
 "title: pgroonga_snippet_html function\n"
@@ -19,21 +33,33 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:6
 msgid "# `pgroonga_snippet_html` function"
 msgstr "# `pgroonga_snippet_html`関数"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_snippet_html` function returns texts around keywords from target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in context). You can see it in search result on Web search engine."
-msgstr "`pgroonga_snippet_html`関数は対象テキストの中からキーワード周辺のテキストを抽出して返します。これは[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword in context）とも呼ばれています。Web検索エンジンの結果で使われていることが多いので見たことが多い人も多いでしょう。"
+#: ../../../../reference/functions/pgroonga-snippet-html.md:10
+msgid ""
+"`pgroonga_snippet_html` function returns texts around keywords from target "
+"text. It's also known as "
+"[KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in "
+"context). You can see it in search result on Web search engine."
+msgstr ""
+"`pgroonga_snippet_html`関数は対象テキストの中からキーワード周辺のテキストを抽出して返します。これは[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword"
+" in context）とも呼ばれています。Web検索エンジンの結果で使われていることが多いので見たことが多い人も多いでしょう。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:12
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:14
 msgid "There are two use."
 msgstr "使い方は2つあります。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:16
 msgid ""
 "```text\n"
 "text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...])\n"
@@ -41,60 +67,107 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:21
 msgid "The second use is useful when we customize a length of snippet."
 msgstr "2番めの使い方は、スニペットの長さをカスタマイズするときに便利です。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:23
 msgid "The second use is available since 2.4.2."
 msgstr "2番めの使い方は 2.4.2 から使えます。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:25
 msgid "Here is the description of the first use."
 msgstr "以下は1つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:27
 msgid ""
 "```text\n"
 "text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...])\n"
 "```"
 msgstr ""
 
-msgid "`target` is a `text` type value. `pgroonga_snippet_html` extracts keywords with around texts from `target`."
-msgstr "`target`は`text`型の値です。`pgroonga_snippet_html`は`target`の中からキーワード周辺のテキストを抽出します。"
+#: ../../../../reference/functions/pgroonga-snippet-html.md:31
+#: ../../../../reference/functions/pgroonga-snippet-html.md:41
+msgid ""
+"`target` is a `text` type value. `pgroonga_snippet_html` extracts keywords "
+"with around texts from `target`."
+msgstr ""
+"`target`は`text`型の値です。`pgroonga_snippet_html`は`target`の中からキーワード周辺のテキストを抽出します。"
 
-msgid "`keyword1`, `keyword2`, `...` are an array of `text` type. The keywords to be extracted from `target`. You must specify one or more keywords."
-msgstr "`keyword1`, `keyword2`, `...`は`text`型の配列です。これらのキーワードを`target`から抽出します。1つ以上のキーワードを指定する必要があります。"
+#: ../../../../reference/functions/pgroonga-snippet-html.md:33
+#: ../../../../reference/functions/pgroonga-snippet-html.md:43
+msgid ""
+"`keyword1`, `keyword2`, `...` are an array of `text` type. The keywords to "
+"be extracted from `target`. You must specify one or more keywords."
+msgstr ""
+"`keyword1`, `keyword2`, "
+"`...`は`text`型の配列です。これらのキーワードを`target`から抽出します。1つ以上のキーワードを指定する必要があります。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:35
 msgid "Here is the description of the second use."
 msgstr "以下は2つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:37
 msgid ""
 "```text\n"
 "text[] pgroonga_snippet_html(target, ARRAY[keyword1, keyword2, ...], width)\n"
 "```"
 msgstr ""
 
-msgid "`width` is a `integer` type value. This argument is an optional argument. The default value of `width` is 200."
+#: ../../../../reference/functions/pgroonga-snippet-html.md:45
+msgid ""
+"`width` is a `integer` type value. This argument is an optional argument. "
+"The default value of `width` is 200."
 msgstr "`width` は `integer`型の値です。この引数は省略可能です。 `width` のデフォルト値は 200 です。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:47
 msgid "We can dynamically specify a snippet length with this argument."
 msgstr "この引数でスニペットの長さを動的に指定できます。"
 
-msgid "`pgroonga_snippet_html` returns an array of `text` type. However if we specify a value less than a length of keyword to `width`, no records are output."
-msgstr "`pgroonga_snippet_html`は`text`型の配列を返しますが、 `width` にキーワードより少ない長さを指定するとレコードを出力しません。"
+#: ../../../../reference/functions/pgroonga-snippet-html.md:49
+msgid ""
+"`pgroonga_snippet_html` returns an array of `text` type. However if we "
+"specify a value less than a length of keyword to `width`, no records are "
+"output."
+msgstr ""
+"`pgroonga_snippet_html`は`text`型の配列を返しますが、 `width` "
+"にキーワードより少ない長さを指定するとレコードを出力しません。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:51
 msgid "Element in the returned array is a text around keyword."
 msgstr "返ってくる配列の各要素はキーワード周辺のテキストです。"
 
-msgid "The keywords are surrounded with `<span class=\"keyword\">` and `</span>`. `<`, `>`, `&` and `\"` in `target` is HTML escaped."
-msgstr "キーワードは`<span class=\"keyword\">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`\"`はHTMLエスケープされます。"
+#: ../../../../reference/functions/pgroonga-snippet-html.md:53
+msgid ""
+"The keywords are surrounded with `<span class=\"keyword\">` and `</span>`. "
+"`<`, `>`, `&` and `\"` in `target` is HTML escaped."
+msgstr ""
+"キーワードは`<span "
+"class=\"keyword\">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`\"`はHTMLエスケープされます。"
 
-msgid "The maximum size of part of `target` in each element is 200 bytes. Its unit is byte not the number of characters. Each element may be lager than 200 bytes because each element includes `<span class=\"keyword\">` and `</span>` and may have HTML escaped values. If `<` is HTML escaped to `&lt;`, the byte size is increased to 4 from 1."
-msgstr "各要素の`target`由来の部分の最大サイズは200バイトです。単位は文字数ではなくバイトです。各要素は200バイトより大きくなることがあります。なぜなら、各要素には`<span class=\"keyword\">`と`</span>`が含まれますし、HTMLエスケープした値が含まれることもあるからです。もし、`<`がHTMLエスケープされると`&lt;`になり、バイトサイズは1から4に増えます。"
+#: ../../../../reference/functions/pgroonga-snippet-html.md:55
+msgid ""
+"The maximum size of part of `target` in each element is 200 bytes. Its unit "
+"is byte not the number of characters. Each element may be lager than 200 "
+"bytes because each element includes `<span class=\"keyword\">` and `</span>`"
+" and may have HTML escaped values. If `<` is HTML escaped to `&lt;`, the "
+"byte size is increased to 4 from 1."
+msgstr ""
+"各要素の`target`由来の部分の最大サイズは200バイトです。単位は文字数ではなくバイトです。各要素は200バイトより大きくなることがあります。なぜなら、各要素には`<span"
+" "
+"class=\"keyword\">`と`</span>`が含まれますし、HTMLエスケープした値が含まれることもあるからです。もし、`<`がHTMLエスケープされると`&lt;`になり、バイトサイズは1から4に増えます。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:57
 msgid "## Usage"
 msgstr "## 使い方"
 
-msgid "For example, if we want to adjust a length of snippet, we use the `width` argument as below."
+#: ../../../../reference/functions/pgroonga-snippet-html.md:59
+msgid ""
+"For example, if we want to adjust a length of snippet, we use the `width` "
+"argument as below."
 msgstr "例えば、スニペットの長さを調整したい場合は、 `width` 引数を以下のように使います。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:61
 msgid ""
 "```sql\n"
 "SELECT pgroonga_snippet_html(\n"
@@ -114,6 +187,7 @@ msgid ""
 "  50);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:78
 msgid ""
 "                                                                                                                    pgroonga_snippet_html                                                                                                                     \n"
 "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
@@ -122,17 +196,23 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:84
 msgid "Please also refer to [examples in tutorial](../../tutorial/#snippet)."
 msgstr "[チュートリアルの中の例](../../tutorial/#snippet) も参照してください。"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:86
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:88
 msgid "  * [Examples in tutorial](../../tutorial/#snippet)"
 msgstr "  * [チュートリアルの中の例](../../tutorial/#snippet)"
 
-msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
+#: ../../../../reference/functions/pgroonga-snippet-html.md:90
+msgid ""
+"  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr "  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]"
 
+#: ../../../../reference/functions/pgroonga-snippet-html.md:92
 msgid "[query-extract-keywords]:pgroonga-query-extract-keywords.html"
 msgstr ""

@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:1
 msgid ""
 "---\n"
 "title: \"&~| operator\"\n"
@@ -19,156 +33,188 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:6
 msgid "# `&~|` operator"
 msgstr "# `&~|`演算子"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:8
 msgid "Since 2.2.1."
 msgstr "2.2.1で追加。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:12
 msgid ""
-"`&~|` operator performs regular expression search by an array of regular expre"
-"ssions. If one or more regular expressions are matched, the record is matched."
+"`&~|` operator performs regular expression search by an array of regular "
+"expressions. If one or more regular expressions are matched, the record is "
+"matched."
 msgstr "`&~|`演算子は正規表現の配列を使った正規表現検索をします。もし1つ以上の正規表現がマッチしたらそのレコードはマッチします。"
 
-msgid "PostgreSQL provides the following built-in regular expression operators:"
+#: ../../../../reference/operators/regular-expression-in-v2.md:14
+msgid ""
+"PostgreSQL provides the following built-in regular expression operators:"
 msgstr "PostgreSQLは次のような組み込みの正規表現演算子を提供しています。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:16
 msgid "  * [`SIMILAR TO`][postgresql-similar-to]"
 msgstr ""
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:18
 msgid "  * [POSIX Regular Expression][postgresql-regexp]"
 msgstr "  * [POSIX正規表現][postgresql-regexp]"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:20
 msgid ""
-"`SIMILAR TO` is based on SQL standard. \"POSIX Regular Expression\" is based on "
-"POSIX. They use different regular expression syntax."
+"`SIMILAR TO` is based on SQL standard. \"POSIX Regular Expression\" is based"
+" on POSIX. They use different regular expression syntax."
 msgstr ""
-"`SIMILAR TO`はSQL標準をベースにしています。「POSIX正規表現」はPOSIXをベースにしています。これらはそれぞれ違う正規表現の構文を使いま"
-"す。"
+"`SIMILAR "
+"TO`はSQL標準をベースにしています。「POSIX正規表現」はPOSIXをベースにしています。これらはそれぞれ違う正規表現の構文を使います。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:22
 msgid ""
-"This operator uses another regular expression syntax. This operator uses synta"
-"x that is used in [Ruby][ruby]. Because PGroonga uses the same regular express"
-"ion engine that is used in Ruby. It's [Onigmo][onigmo]. See [Onigmo document]["
-"onigmo-document] for full syntax definition."
+"This operator uses another regular expression syntax. This operator uses "
+"syntax that is used in [Ruby][ruby]. Because PGroonga uses the same regular "
+"expression engine that is used in Ruby. It's [Onigmo][onigmo]. See [Onigmo "
+"document][onigmo-document] for full syntax definition."
 msgstr ""
-"この演算子はさらに別の正規表現の構文を使います。この演算子は[Ruby][ruby]で使われている構文を使います。なぜなら、PGroongaはRubyが使っ"
-"ている正規表現エンジンと同じエンジンを使っているからです。そのエンジンは[Onigmo][onigmo]です。完全な構文定義は[Onigmoのドキュメント]"
-"[onigmo-document]を参照してください。"
+"この演算子はさらに別の正規表現の構文を使います。この演算子は[Ruby][ruby]で使われている構文を使います。なぜなら、PGroongaはRubyが使っている正規表現エンジンと同じエンジンを使っているからです。そのエンジンは[Onigmo][onigmo]です。完全な構文定義は[Onigmoのドキュメント][onigmo-"
+"document]を参照してください。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:24
 msgid ""
-"This operator normalizes target text before matching. It's similar to `~*` ope"
-"rator in \"POSIX Regular Expression\". It performs case insensitive match."
+"This operator normalizes target text before matching. It's similar to `~*` "
+"operator in \"POSIX Regular Expression\". It performs case insensitive "
+"match."
 msgstr ""
-"この演算子はマッチ前に対象文字列を正規化します。これは「POSIX正規表現」の`~*`演算子と似ています。`~*`演算子は大文字小文字の違いを無視してマッチ"
-"しているかを判断します。"
+"この演算子はマッチ前に対象文字列を正規化します。これは「POSIX正規表現」の`~*`演算子と似ています。`~*`演算子は大文字小文字の違いを無視してマッチしているかを判断します。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:26
 msgid ""
-"Normalization is different from case insensitive. Normally, normalization is m"
-"ore powerful."
+"Normalization is different from case insensitive. Normally, normalization is"
+" more powerful."
 msgstr "正規化と大文字小文字の違いを無視することは違います。通常、正規化のほうがよりパワフルです。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:28
 msgid ""
-"Example1: All of \"`A`\", \"`a`\", \"`Ａ`\" (U+FF21 FULLWIDTH LATIN CAPITAL LETTER A)"
-", \"`ａ`\" (U+FF41 FULLWIDTH LATIN SMALL LETTER A) are normalized to \"`a`\"."
+"Example1: All of \"`A`\", \"`a`\", \"`Ａ`\" (U+FF21 FULLWIDTH LATIN CAPITAL "
+"LETTER A), \"`ａ`\" (U+FF41 FULLWIDTH LATIN SMALL LETTER A) are normalized to"
+" \"`a`\"."
 msgstr ""
-"例1：「`A`」も「`a`」も「`Ａ`」（U+FF21 FULLWIDTH LATIN CAPITAL LETTER A）も「`ａ`」（U+FF41 FUL"
-"LWIDTH LATIN SMALL LETTER A）もすべて「`a`」に正規化されます。"
+"例1：「`A`」も「`a`」も「`Ａ`」（U+FF21 FULLWIDTH LATIN CAPITAL LETTER A）も「`ａ`」（U+FF41 "
+"FULLWIDTH LATIN SMALL LETTER A）もすべて「`a`」に正規化されます。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:30
 msgid ""
-"Example2: Both of full-width Katakana and half-width Katakana are normalized t"
-"o full-width Katakana. For example, both of \"`ア`\" (U+30A2 KATAKANA LETTER A) a"
-"nd \"`ｱ`\" (U+FF71 HALFWIDTH KATAKANA LETTER A) are normalized to \"`ア`\" (U+30A2 "
-"KATAKANA LETTER A)."
+"Example2: Both of full-width Katakana and half-width Katakana are normalized"
+" to full-width Katakana. For example, both of \"`ア`\" (U+30A2 KATAKANA "
+"LETTER A) and \"`ｱ`\" (U+FF71 HALFWIDTH KATAKANA LETTER A) are normalized to"
+" \"`ア`\" (U+30A2 KATAKANA LETTER A)."
 msgstr ""
-"例2：いわゆる全角カタカナも半角カタカナもどちらも全角カタカナに正規化されます。たとえば、「`ア`」（U+30A2 KATAKANA LETTER A）も「"
-"`ｱ`」（U+FF71 HALFWIDTH KATAKANA LETTER A）もどちらも「`ア`」（U+30A2 KATAKANA LETTER A）に正"
-"規化されます。"
+"例2：いわゆる全角カタカナも半角カタカナもどちらも全角カタカナに正規化されます。たとえば、「`ア`」（U+30A2 KATAKANA LETTER "
+"A）も「`ｱ`」（U+FF71 HALFWIDTH KATAKANA LETTER A）もどちらも「`ア`」（U+30A2 KATAKANA "
+"LETTER A）に正規化されます。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:32
 msgid ""
-"Note that this operator doesn't normalize regular expression pattern. It only "
-"normalizes target text. It means that you must use normalized characters in re"
-"gular expression pattern."
+"Note that this operator doesn't normalize regular expression pattern. It "
+"only normalizes target text. It means that you must use normalized "
+"characters in regular expression pattern."
 msgstr ""
-"この演算子は正規表現パターンは正規化しないことに注意してください。マッチ対象のテキストだけを正規化します。これは正規表現パターンのなかでは正規化された文字だ"
-"けを使うべきだということです。"
+"この演算子は正規表現パターンは正規化しないことに注意してください。マッチ対象のテキストだけを正規化します。これは正規表現パターンのなかでは正規化された文字だけを使うべきだということです。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:34
 msgid ""
-"For example, you must not use \"`Groonga`\" as pattern. You must use \"`groonga`\""
-" as pattern. Because \"`G`\" in target text is normalized to \"`g`\". \"`Groonga`\" "
-"is never appeared in target text."
+"For example, you must not use \"`Groonga`\" as pattern. You must use "
+"\"`groonga`\" as pattern. Because \"`G`\" in target text is normalized to "
+"\"`g`\". \"`Groonga`\" is never appeared in target text."
 msgstr ""
-"たとえば、パターンに「`Groonga`」を使ってはいけません。そうではなく、「`groonga`」を使うべきです。なぜなら、対象テキスト中の「`G`」は「"
-"`g`」に正規化されるからです。対象テキスト中に「`Groonga`」という文字列は決して現れません。"
+"たとえば、パターンに「`Groonga`」を使ってはいけません。そうではなく、「`groonga`」を使うべきです。なぜなら、対象テキスト中の「`G`」は「`g`」に正規化されるからです。対象テキスト中に「`Groonga`」という文字列は決して現れません。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:36
 msgid ""
-"Some simple regular expression patterns can be searched by index in Groonga. I"
-"f index is used, the search is very fast. See [Groonga's regular expression do"
-"cument][groonga-regular-expression] for index searchable patterns."
+"Some simple regular expression patterns can be searched by index in Groonga."
+" If index is used, the search is very fast. See [Groonga's regular "
+"expression document][groonga-regular-expression] for index searchable "
+"patterns."
 msgstr ""
-"いくつかのシンプルな正規表現のパターンはGroonga内でインデックスを使って検索します。インデックスを使った場合は非常に高速です。インデックスを使って検索"
-"可能なパターンの詳細は[Groongaの正規表現のドキュメント][groonga-regular-expression]を参照してください。"
+"いくつかのシンプルな正規表現のパターンはGroonga内でインデックスを使って検索します。インデックスを使った場合は非常に高速です。インデックスを使って検索可能なパターンの詳細は[Groongaの正規表現のドキュメント][groonga-"
+"regular-expression]を参照してください。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:38
 msgid ""
-"If a regular expression pattern can't be searchable by index, it's searched by"
-" sequential scan in Groonga."
+"If a regular expression pattern can't be searchable by index, it's searched "
+"by sequential scan in Groonga."
 msgstr "もし、正規表現のパターンをインデックスを使って検索できない場合、Groonga内でシーケンシャルスキャンで検索します。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:40
 msgid ""
-"Note that Groonga may search with regular expression pattern by sequential sca"
-"n even when `EXPLAIN` reports PostgreSQL uses PGroonga index."
+"Note that Groonga may search with regular expression pattern by sequential "
+"scan even when `EXPLAIN` reports PostgreSQL uses PGroonga index."
 msgstr ""
-"`EXPLAIN`でPostgreSQLがPGroongaのインデックスを使っているとレポートするときでも、Groongaは正規表現のパターンを使った検索を"
-"シーケンシャルスキャンで実現するかもしれないことに注意してください。"
+"`EXPLAIN`でPostgreSQLがPGroongaのインデックスを使っているとレポートするときでも、Groongaは正規表現のパターンを使った検索をシーケンシャルスキャンで実現するかもしれないことに注意してください。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:42
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:44
 msgid ""
 "```sql\n"
 "column &~| regular_expressions\n"
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type or `varchar` type."
+#: ../../../../reference/operators/regular-expression-in-v2.md:48
+msgid ""
+"`column` is a column to be searched. It's `text` type or `varchar` type."
 msgstr "`column`は検索対象のカラムです。型は`text`型か`varchar`型です。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:50
 msgid ""
-"`regular_expressions` is an array of regular expressions to be used as pattern"
-". It's `text[]` type for `text` type `column`. It's `varchar[]` type for `varc"
-"har` type `column`."
+"`regular_expressions` is an array of regular expressions to be used as "
+"pattern. It's `text[]` type for `text` type `column`. It's `varchar[]` type "
+"for `varchar` type `column`."
 msgstr ""
-"`regular_expressions`はパターンとして使う正規表現の配列です。`column`が`text`型の場合は`text[]`型です。`colu"
-"mn`の型が`varchar`の場合`varchar[]`型です。"
+"`regular_expressions`はパターンとして使う正規表現の配列です。`column`が`text`型の場合は`text[]`型です。`column`の型が`varchar`の場合`varchar[]`型です。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:52
 msgid ""
-"If `column` value is matched against one or more patterns in `regular_expressi"
-"ons`, the expression returns `true`."
+"If `column` value is matched against one or more patterns in "
+"`regular_expressions`, the expression returns `true`."
 msgstr "`column`の値が`regular_expression`内の1つ以上のパターンにマッチしたらその式は`true`になります。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:54
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:56
 msgid ""
-"You need to specify one of the following operator classes to use this operator"
-":"
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:58
 msgid "  * [`pgroonga_text_regexp_ops_v2`][text-regexp-ops-v2]: For `text`"
 msgstr "  * [`pgroonga_text_regexp_ops_v2`][text-regexp-ops-v2]：`text`型用"
 
-msgid "  * [`pgroonga_varchar_regexp_ops_v2`][varchar-regexp-ops-v2]: For `varchar`"
-msgstr "  * [`pgroonga_varchar_regexp_ops_v2`][varchar-regexp-ops-v2]：`varchar`型用"
+#: ../../../../reference/operators/regular-expression-in-v2.md:60
+msgid ""
+"  * [`pgroonga_varchar_regexp_ops_v2`][varchar-regexp-ops-v2]: For `varchar`"
+msgstr ""
+"  * [`pgroonga_varchar_regexp_ops_v2`][varchar-regexp-ops-v2]：`varchar`型用"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:62
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:64
 msgid "Here are sample schema for examples:"
 msgstr "以下は例で使うサンプルスキーマです。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:66
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -177,30 +223,33 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:72
 msgid ""
 "CREATE INDEX pgroonga_content_index ON memos\n"
 "  USING pgroonga (content pgroonga_text_regexp_ops_v2);\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:76
 msgid "Here are data for examples:"
 msgstr "以下は例で使うデータです。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:78
 msgid ""
 "```sql\n"
-"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management s"
-"ystem');\n"
-"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that s"
-"upports all languages');\n"
-"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Gro"
-"onga as index');\n"
+"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system');\n"
+"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages');\n"
+"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index');\n"
 "INSERT INTO memos VALUES (4, '*.pgn* files are used by PGroonga');\n"
 "```"
 msgstr ""
 
-msgid "You can perform regular expression search with patterns by `&~|` operator:"
+#: ../../../../reference/operators/regular-expression-in-v2.md:85
+msgid ""
+"You can perform regular expression search with patterns by `&~|` operator:"
 msgstr "`&~|`演算子で正規表現の配列を使って正規表現検索をできます。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:87
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &~| ARRAY['\\Apostgresql', 'pgroonga\\z'];\n"
@@ -212,109 +261,129 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:96
 msgid ""
-"\"`\\A`\" in \"`\\Apostgresql`\" is a special notation in Ruby regular expression sy"
-"ntax. It means that the beginning of text. The pattern means that \"`postgresql"
-"`\" must be appeared in the beginning of text."
+"\"`\\A`\" in \"`\\Apostgresql`\" is a special notation in Ruby regular "
+"expression syntax. It means that the beginning of text. The pattern means "
+"that \"`postgresql`\" must be appeared in the beginning of text."
 msgstr ""
-"「`\\Apostgresql`」の中の「`\\A`」はRubyの正規表現構文では特別な記法です。これはテキストの最初という意味です。つまり、このパターンは「`"
-"postgresql`」がテキストの最初に現れること、という意味です。"
+"「`\\Apostgresql`」の中の「`\\A`」はRubyの正規表現構文では特別な記法です。これはテキストの最初という意味です。つまり、このパターンは「`postgresql`」がテキストの最初に現れること、という意味です。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:98
 msgid ""
-"\"`\\z`\" in \"`pgroonga\\z`\" is a special notation in Ruby regular expression synt"
-"ax. It means that the ending of text. The pattern means that \"`pgroonga`\" must"
-" be appeared in the ending of text."
+"\"`\\z`\" in \"`pgroonga\\z`\" is a special notation in Ruby regular "
+"expression syntax. It means that the ending of text. The pattern means that "
+"\"`pgroonga`\" must be appeared in the ending of text."
 msgstr ""
-"「`pgroonga\\z`」の中の「`\\z`」はRubyの正規表現構文では特別な記法です。これはテキストの最後という意味です。つまり、このパターンは「`pg"
-"roonga`」がテキストの最後に現れること、という意味です。"
+"「`pgroonga\\z`」の中の「`\\z`」はRubyの正規表現構文では特別な記法です。これはテキストの最後という意味です。つまり、このパターンは「`pgroonga`」がテキストの最後に現れること、という意味です。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:100
 msgid ""
-"Why is \"`PostgreSQL is a ...`\" record matched? Remember that this operator nor"
-"malizes target text before matching. It means that \"`PostgreSQL is a ...`\" tex"
-"t is normalized to \"`postgresql is a ...`\" text before matching. The normalize"
-"d text is started with \"`postgresql`\". So \"`\\Apostgresql`\" regular expression "
-"matches to the record."
+"Why is \"`PostgreSQL is a ...`\" record matched? Remember that this operator"
+" normalizes target text before matching. It means that \"`PostgreSQL is a "
+"...`\" text is normalized to \"`postgresql is a ...`\" text before matching."
+" The normalized text is started with \"`postgresql`\". So "
+"\"`\\Apostgresql`\" regular expression matches to the record."
 msgstr ""
-"どうして「`PostgreSQLは...`」レコードがマッチしているのでしょうか？この演算子はマッチ前にマッチ対象のテキストを正規化することを思い出してくだ"
-"さい。つまり、「`PostgreSQLは...`」テキストはマッチ前に「`postgresqlは...`」と正規化されるということです。正規化されたテキスト"
-"は「`postgresql`」で始まっています。そのため、「`\\Apostgresql`」正規表現はこのレコードにマッチします。"
+"どうして「`PostgreSQLは...`」レコードがマッチしているのでしょうか？この演算子はマッチ前にマッチ対象のテキストを正規化することを思い出してください。つまり、「`PostgreSQLは...`」テキストはマッチ前に「`postgresqlは...`」と正規化されるということです。正規化されたテキストは「`postgresql`」で始まっています。そのため、「`\\Apostgresql`」正規表現はこのレコードにマッチします。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:102
 msgid ""
-"\"`PGroonga is a PostgreSQL ...`\" record isn't matched. It includes \"`postgresq"
-"l`\" in normalized text but \"`postgresql`\" isn't appeared at the beginning of t"
-"ext. So it's not matched."
+"\"`PGroonga is a PostgreSQL ...`\" record isn't matched. It includes "
+"\"`postgresql`\" in normalized text but \"`postgresql`\" isn't appeared at "
+"the beginning of text. So it's not matched."
 msgstr ""
-"「`PGroongaはPostgreSQLの...`」レコードはマッチしません。このレコードは正規化後のテキストに「`postgresql`」を含んでいます"
-"が、「`postgresql`」はテキストの先頭には現れていません。そのためマッチしません。"
+"「`PGroongaはPostgreSQLの...`」レコードはマッチしません。このレコードは正規化後のテキストに「`postgresql`」を含んでいますが、「`postgresql`」はテキストの先頭には現れていません。そのためマッチしません。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:104
 msgid ""
-"Why is \"`... used by PGroonga`\" record matched? Remember that this operator no"
-"rmalizes target text before matching. It means that \"`... used by PGroonga`\" t"
-"ext is normalized to \"`... used by pgroonga`\" text before matching. The normal"
-"ized text is ended with \"`pgroonga`\". So \"`pgroonga\\z`\" regular expression mat"
-"ches to the record."
+"Why is \"`... used by PGroonga`\" record matched? Remember that this "
+"operator normalizes target text before matching. It means that \"`... used "
+"by PGroonga`\" text is normalized to \"`... used by pgroonga`\" text before "
+"matching. The normalized text is ended with \"`pgroonga`\". So "
+"\"`pgroonga\\z`\" regular expression matches to the record."
 msgstr ""
-"どうして「`... used by PGroonga`」レコードがマッチしているのでしょうか？この演算子はマッチ前にマッチ対象のテキストを正規化することを思"
-"い出してください。つまり、「`... used by PGroonga`」テキストはマッチ前に「`... used by pgroonga`」と正規化される"
-"ということです。正規化されたテキストは「`pgroonga`」で終わっています。そのため、「`pgroonga\\z`」正規表現はこのレコードにマッチします。"
+"どうして「`... used by "
+"PGroonga`」レコードがマッチしているのでしょうか？この演算子はマッチ前にマッチ対象のテキストを正規化することを思い出してください。つまり、「`..."
+" used by PGroonga`」テキストはマッチ前に「`... used by "
+"pgroonga`」と正規化されるということです。正規化されたテキストは「`pgroonga`」で終わっています。そのため、「`pgroonga\\z`」正規表現はこのレコードにマッチします。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:106
 msgid ""
-"\"`PGroonga is a PostgreSQL ...`\" record isn't matched. It includes \"`pgroonga`"
-"\" in normalized text but \"`pgroonga`\" isn't appeared at the ending of text. So"
-" it's not matched."
+"\"`PGroonga is a PostgreSQL ...`\" record isn't matched. It includes "
+"\"`pgroonga`\" in normalized text but \"`pgroonga`\" isn't appeared at the "
+"ending of text. So it's not matched."
 msgstr ""
-"「`PGroonga is a PostgreSQL ...`」レコードはマッチしません。このレコードは正規化後のテキストに「`pgroonga`」を含んで"
-"いますが、「`pgroonga`」はテキストの最後に現れていません。そのためマッチしません。"
+"「`PGroonga is a PostgreSQL "
+"...`」レコードはマッチしません。このレコードは正規化後のテキストに「`pgroonga`」を含んでいますが、「`pgroonga`」はテキストの最後に現れていません。そのためマッチしません。"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:108
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`&~` operator][regular-expression-v2]: Search by a regular expression"
+#: ../../../../reference/operators/regular-expression-in-v2.md:110
+msgid ""
+"  * [`&~` operator][regular-expression-v2]: Search by a regular expression"
 msgstr "  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:112
 msgid "  * [Onigmo's regular expression syntax document][onigmo-document]"
 msgstr "  * [Onigmoの正規表現構文のドキュメント][onigmo-document]"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:114
 msgid ""
-"  * [Groonga's regular expression support document][groonga-regular-expression"
-"]"
+"  * [Groonga's regular expression support document][groonga-regular-"
+"expression]"
 msgstr "  * [Groongaの正規表現サポートに関するドキュメント][groonga-regular-expression]"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:116
 msgid ""
-"[postgresql-similar-to]:{{ site.postgresql_doc_base_url.en }}/functions-matchi"
-"ng.html#FUNCTIONS-SIMILARTO-REGEXP"
+"[postgresql-similar-to]:{{ site.postgresql_doc_base_url.en }}/functions-"
+"matching.html#FUNCTIONS-SIMILARTO-REGEXP"
 msgstr ""
-"[postgresql-similar-to]:{{ site.postgresql_doc_base_url.ja }}/functions-matchi"
-"ng.html#FUNCTIONS-SIMILARTO-REGEXP"
+"[postgresql-similar-to]:{{ site.postgresql_doc_base_url.ja }}/functions-"
+"matching.html#FUNCTIONS-SIMILARTO-REGEXP"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:118
 msgid ""
-"[postgresql-regexp]:{{ site.postgresql_doc_base_url.en }}/functions-matching.h"
-"tml#FUNCTIONS-POSIX-REGEXP"
+"[postgresql-regexp]:{{ site.postgresql_doc_base_url.en }}/functions-"
+"matching.html#FUNCTIONS-POSIX-REGEXP"
 msgstr ""
-"[postgresql-regexp]:{{ site.postgresql_doc_base_url.ja }}/functions-matching.h"
-"tml#FUNCTIONS-POSIX-REGEXP"
+"[postgresql-regexp]:{{ site.postgresql_doc_base_url.ja }}/functions-"
+"matching.html#FUNCTIONS-POSIX-REGEXP"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:120
 msgid "[ruby]:https://www.ruby-lang.org/"
 msgstr "[ruby]:https://www.ruby-lang.org/ja/"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:122
 msgid "[onigmo]:https://github.com/k-takata/Onigmo"
 msgstr ""
 
-msgid "[onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE"
-msgstr "[onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE.ja"
-
+#: ../../../../reference/operators/regular-expression-in-v2.md:124
 msgid ""
-"[groonga-regular-expression]:http://groonga.org/docs/reference/regular_express"
-"ion.html#regular-expression-index"
+"[onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE"
 msgstr ""
-"[groonga-regular-expression]:http://groonga.org/ja/docs/reference/regular_expr"
-"ession.html#regular-expression-index"
+"[onigmo-document]:https://github.com/k-takata/Onigmo/blob/master/doc/RE.ja"
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:126
+msgid ""
+"[groonga-regular-"
+"expression]:http://groonga.org/docs/reference/regular_expression.html#regular-"
+"expression-index"
+msgstr ""
+"[groonga-regular-"
+"expression]:http://groonga.org/ja/docs/reference/regular_expression.html#regular-"
+"expression-index"
+
+#: ../../../../reference/operators/regular-expression-in-v2.md:128
 msgid "[regular-expression-v2]:regular-expression-v2.html"
 msgstr ""
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:130
 msgid "[text-regexp-ops-v2]:../#text-regexp-ops-v2"
 msgstr ""
 
+#: ../../../../reference/operators/regular-expression-in-v2.md:132
 msgid "[varchar-regexp-ops-v2]:../#varchar-regexp-ops-v2"
 msgstr ""

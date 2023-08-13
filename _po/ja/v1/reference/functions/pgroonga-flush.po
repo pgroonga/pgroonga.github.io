@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:1
 msgid ""
 "---\n"
 "title: pgroonga.flush function\n"
@@ -19,79 +33,88 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:6
 msgid "# `pgroonga.flush` function"
 msgstr "# `pgroonga.flush`関数"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:10
 msgid ""
-"`pgroonga.flush` function ensuring writing changes only in memory into disk. N"
-"ormally, you don't need to this function because it's done automatically. But "
-"you may need to use this function when you want to prevent breaking PGroonga i"
-"ndexes on crash or force shutdown."
+"`pgroonga.flush` function ensuring writing changes only in memory into disk."
+" Normally, you don't need to this function because it's done automatically. "
+"But you may need to use this function when you want to prevent breaking "
+"PGroonga indexes on crash or force shutdown."
 msgstr ""
-"`pgroonga.flush`関数はメモリー上にだけある変更を確実にディスクに書き込みます。この処理は自動的に行われるので、通常、この関数を使う必要はあり"
-"ません。しかし、クラッシュ・強制終了によるPGroongaインデックスの破損を防ぎたい場合はこの関数を使う必要があるかもしれません。"
+"`pgroonga.flush`関数はメモリー上にだけある変更を確実にディスクに書き込みます。この処理は自動的に行われるので、通常、この関数を使う必要はありません。しかし、クラッシュ・強制終了によるPGroongaインデックスの破損を防ぎたい場合はこの関数を使う必要があるかもしれません。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:12
 msgid ""
-"Normally, users shouldn't shut down server forcibly but some users do in some "
-"cases. For example, Windows update may restart Windows server unexpectedly."
+"Normally, users shouldn't shut down server forcibly but some users do in "
+"some cases. For example, Windows update may restart Windows server "
+"unexpectedly."
 msgstr ""
-"通常、ユーザーはサーバーを強制終了してはいけません。しかし、いくつか強制終了してしまうケースがあります。たとえば、Windowsアップデートにより意図せずに"
-"Windowsサーバーが再起動することがあるかもしれません。"
+"通常、ユーザーはサーバーを強制終了してはいけません。しかし、いくつか強制終了してしまうケースがあります。たとえば、Windowsアップデートにより意図せずにWindowsサーバーが再起動することがあるかもしれません。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:14
 msgid ""
-"If PostgreSQL with PGroonga is shut down forcibly, changes only in memory may "
-"be lost. If you call `pgroonga.flush` function before force shutdown, there ar"
-"e no changes only in memory. It means that PGroonga indexes aren't broken even"
-" if users shut down PostgreSQL with PGroonga forcibly."
+"If PostgreSQL with PGroonga is shut down forcibly, changes only in memory "
+"may be lost. If you call `pgroonga.flush` function before force shutdown, "
+"there are no changes only in memory. It means that PGroonga indexes aren't "
+"broken even if users shut down PostgreSQL with PGroonga forcibly."
 msgstr ""
-"もし、PGroongaを使っているPostgreSQLが強制終了したらメモリー上にだけある変更が失われるかもしれません。強制終了の前に`pgroonga.f"
-"lush`関数を呼べばメモリー上にだけある変更がなくなります。つまり、ユーザーがPGroongaを使っているPostgreSQLを強制終了してもPGroon"
-"gaのインデックスは壊れないということです。"
+"もし、PGroongaを使っているPostgreSQLが強制終了したらメモリー上にだけある変更が失われるかもしれません。強制終了の前に`pgroonga.flush`関数を呼べばメモリー上にだけある変更がなくなります。つまり、ユーザーがPGroongaを使っているPostgreSQLを強制終了してもPGroongaのインデックスは壊れないということです。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:16
 msgid ""
-"If there are many changes only in memory, `pgroonga.flush` may take a long tim"
-"e. It's depend on write performance of your disk."
+"If there are many changes only in memory, `pgroonga.flush` may take a long "
+"time. It's depend on write performance of your disk."
 msgstr ""
-"もし、メモリー上にだけある変更が多い場合、`pgroonga.flush`の実行時間が長くなるかもしれません。これは使用しているディスクの書き込み性能に依存"
-"します。"
+"もし、メモリー上にだけある変更が多い場合、`pgroonga.flush`の実行時間が長くなるかもしれません。これは使用しているディスクの書き込み性能に依存します。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:18
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:20
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:22
 msgid ""
 "```text\n"
 "bool pgroonga.flush(pgroonga_index_name)\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:26
 msgid ""
-"`pgroonga_index_name` is a `text` type value. It's an index name to be flushed"
-". The index should be created with `USING pgroonga`."
+"`pgroonga_index_name` is a `text` type value. It's an index name to be "
+"flushed. The index should be created with `USING pgroonga`."
 msgstr ""
-"`pgroonga_index_name`は`text`型の値です。フラッシュ対象のインデックス名です。このインデックスは`USING pgroonga`付"
-"きで作成してある必要があります。"
+"`pgroonga_index_name`は`text`型の値です。フラッシュ対象のインデックス名です。このインデックスは`USING "
+"pgroonga`付きで作成してある必要があります。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:28
 msgid ""
-"`pgroonga.flush` returns always `true`. Because if `pgroonga.flush` is failed,"
-" it raises an error instead of returning result."
+"`pgroonga.flush` returns always `true`. Because if `pgroonga.flush` is "
+"failed, it raises an error instead of returning result."
 msgstr ""
-"`pgroonga.flush`は常に`true`を返します。なぜなら、もし`pgroonga.flush`が失敗したら値を返すのではなくエラーになるからで"
-"す。"
+"`pgroonga.flush`は常に`true`を返します。なぜなら、もし`pgroonga.flush`が失敗したら値を返すのではなくエラーになるからです。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:30
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:32
 msgid ""
-"Here are sample schema and data. In the schema, both search target data and ou"
-"tput data are index target columns:"
+"Here are sample schema and data. In the schema, both search target data and "
+"output data are index target columns:"
 msgstr "以下はサンプルのスキーマとデータです。このスキーマでは、検索対象のデータと出力対象のデータはどちらもインデックス対象のカラムです。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:34
 msgid ""
 "```sql\n"
 "CREATE TABLE terms (\n"
@@ -101,6 +124,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:41
 msgid ""
 "CREATE INDEX pgroonga_terms_index\n"
 "          ON terms\n"
@@ -108,13 +132,14 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:46
 msgid ""
-"You can flush `pgroonga_terms_index` related changes only in memory by the fol"
-"lowing `pgroonga.flush` call:"
+"You can flush `pgroonga_terms_index` related changes only in memory by the "
+"following `pgroonga.flush` call:"
 msgstr ""
-"以下のように`pgroonga.flush`を呼び出すことでメモリー上にだけある`pgroonga_terms_index`関連の変更をディスクに書き出すこ"
-"とができます。"
+"以下のように`pgroonga.flush`を呼び出すことでメモリー上にだけある`pgroonga_terms_index`関連の変更をディスクに書き出すことができます。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:48
 msgid ""
 "```sql\n"
 "SELECT pgroonga.flush('pgroonga_terms_index');\n"
@@ -125,9 +150,12 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "If you specify nonexistent index name, `pgroonga.flush` raises an error:"
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:56
+msgid ""
+"If you specify nonexistent index name, `pgroonga.flush` raises an error:"
 msgstr "存在しないインデックス名を指定すると`pgroonga.flush`はエラーになります。"
 
+#: ../../../../../v1/reference/functions/pgroonga-flush.md:58
 msgid ""
 "```sql\n"
 "SELECT pgroonga.flush('nonexistent');\n"

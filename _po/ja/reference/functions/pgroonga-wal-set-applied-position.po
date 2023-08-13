@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-31 08:49+0900\n"
+"PO-Revision-Date: 2023-08-13 00:18+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:1
 msgid ""
 "---\n"
 "title: pgroonga_wal_set_applied_position function\n"
@@ -19,24 +33,35 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:6
 msgid "# `pgroonga_wal_set_applied_position` function"
 msgstr "# `pgroonga_wal_set_applied_position`関数"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:8
 msgid "Since 3.1.5."
 msgstr "3.1.5で追加。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_wal_set_applied_position` function sets WAL position that is already applied. Normally, you don't need to use this function because WAL position that is already applied isn't invalid."
-msgstr "`pgroonga_wal_set_applied_position`関数はすでに適用済みのWALの位置を設定します。通常、この関数を使う必要はありません。なぜなら適用済みのWALの位置が不正な値にならないからです。"
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:12
+msgid ""
+"`pgroonga_wal_set_applied_position` function sets WAL position that is "
+"already applied. Normally, you don't need to use this function because WAL "
+"position that is already applied isn't invalid."
+msgstr ""
+"`pgroonga_wal_set_applied_position`関数はすでに適用済みのWALの位置を設定します。通常、この関数を使う必要はありません。なぜなら適用済みのWALの位置が不正な値にならないからです。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:14
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:16
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:18
 msgid ""
 "```text\n"
 "bool pgroonga_wal_set_applied_position()\n"
@@ -46,49 +71,76 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to be set WAL applied position. If this is omitted, all PGroonga indexes are targeted."
-msgstr "`pgroonga_index_name`は`text`型の値です。適用済みのWALの位置を設定するPGroongaのインデックス名を指定します。省略するとすべてのPGroongaのインデックスが対象になります。"
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:25
+msgid ""
+"`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to "
+"be set WAL applied position. If this is omitted, all PGroonga indexes are "
+"targeted."
+msgstr ""
+"`pgroonga_index_name`は`text`型の値です。適用済みのWALの位置を設定するPGroongaのインデックス名を指定します。省略するとすべてのPGroongaのインデックスが対象になります。"
 
-msgid "`block` and `offset` are `bigint` type values. They specify position by a block number and an offset in the block. If they are omitted, this function sets the last block and offset. It means that all existing WAL are applied. Normally, they are omitted because specifying valid block and offset is difficult."
-msgstr "`block`と`offset`は`bigint`型の値です。これらは位置を指定します。`block`が対象のブロック番号で、`offset`がそのブロック内での位置です。省略すると最後のブロックとオフセットを設定します。最後のブロックとオフセットを設定するということはすべてのWALを適用済みとすることになります。通常、これらを省略します。なぜなら妥当なブロックとオフセットを指定することは難しいからです。"
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:27
+msgid ""
+"`block` and `offset` are `bigint` type values. They specify position by a "
+"block number and an offset in the block. If they are omitted, this function "
+"sets the last block and offset. It means that all existing WAL are applied. "
+"Normally, they are omitted because specifying valid block and offset is "
+"difficult."
+msgstr ""
+"`block`と`offset`は`bigint`型の値です。これらは位置を指定します。`block`が対象のブロック番号で、`offset`がそのブロック内での位置です。省略すると最後のブロックとオフセットを設定します。最後のブロックとオフセットを設定するということはすべてのWALを適用済みとすることになります。通常、これらを省略します。なぜなら妥当なブロックとオフセットを指定することは難しいからです。"
 
-msgid "Note that you can see the current WAL positions by [`pgroonga_wal_status` function][wal-status]."
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:29
+msgid ""
+"Note that you can see the current WAL positions by [`pgroonga_wal_status` "
+"function][wal-status]."
 msgstr "なお、[`pgroonga_wal_status`関数][wal-status]を使うと現在のWALの位置を確認できます。"
 
-msgid "It returns `true` on success, `false` otherwise. But `false` will not be returned because an error is raised on error."
-msgstr "成功時は`true`を返し、失敗時は`false`を返します。しかし、`false`が返されることはないでしょう。なぜなら失敗時はエラーが発生するからです。"
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:31
+msgid ""
+"It returns `true` on success, `false` otherwise. But `false` will not be "
+"returned because an error is raised on error."
+msgstr ""
+"成功時は`true`を返し、失敗時は`false`を返します。しかし、`false`が返されることはないでしょう。なぜなら失敗時はエラーが発生するからです。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:33
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:35
 msgid "Here are sample schema and data:"
 msgstr "サンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:37
 msgid ""
 "```sql\n"
 "SET pgroonga.enable_wal = yes;"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:40
 msgid ""
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:44
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (content);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:48
 msgid ""
 "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:51
 msgid "Simulate a PGroonga index is removed but WAL is still alive situation:"
 msgstr "PGroongaのインデックスが削除されたがWALは生きている状況を再現します。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:53
 msgid ""
 "```sql\n"
 "SELECT pgroonga_command('table_remove',\n"
@@ -112,9 +164,12 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "In this situation, `SELECT` that uses the PGroonga index raises an error:"
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:74
+msgid ""
+"In this situation, `SELECT` that uses the PGroonga index raises an error:"
 msgstr "この状況では、このPGroongaのインデックスを使う`SELECT`がエラーを発生させます。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:76
 msgid ""
 "```sql\n"
 "SET enable_seqscan = no;\n"
@@ -123,9 +178,15 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "We can re-create the removed index by re-applying existing WAL. To do this, we can set WAL applied position to the beginning (both of `block` and `offset` are `0`):"
-msgstr "この削除されたインデックスは既存のWALを再適用することで再作成できます。これをするためには、適用済みのWALの位置を先頭（`block`と`offset`が`0`）に設定します。"
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:82
+msgid ""
+"We can re-create the removed index by re-applying existing WAL. To do this, "
+"we can set WAL applied position to the beginning (both of `block` and "
+"`offset` are `0`):"
+msgstr ""
+"この削除されたインデックスは既存のWALを再適用することで再作成できます。これをするためには、適用済みのWALの位置を先頭（`block`と`offset`が`0`）に設定します。"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:84
 msgid ""
 "```sql\n"
 "SELECT pgroonga_wal_set_applied_position('pgroonga_memos_index', 0, 0);\n"
@@ -136,9 +197,12 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "The pending WAL are automatically applied when the PGroonga index is used:"
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:92
+msgid ""
+"The pending WAL are automatically applied when the PGroonga index is used:"
 msgstr "このPGroongaのインデックスを使うと自動で未適用のWALが適用されます"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:94
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &@~ 'PGroonga';\n"
@@ -149,17 +213,22 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:102
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:104
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:106
 msgid "  * [`pgroonga_wal_status` function][wal-status]"
 msgstr "  * [`pgroonga_wal_status`関数][wal-status]"
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:108
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-set-applied-position.md:110
 msgid "[wal-status]:pgroonga-wal-status.html"
 msgstr ""

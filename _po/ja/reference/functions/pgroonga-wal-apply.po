@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-29 08:49+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:1
 msgid ""
 "---\n"
 "title: pgroonga_wal_apply function\n"
@@ -19,83 +33,103 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:6
 msgid "# `pgroonga_wal_apply` function"
 msgstr "# `pgroonga_wal_apply`関数"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:10
 msgid ""
-"`pgroonga_wal_apply` function applies pending WAL. Normally, you don't need to"
-" use this function because PGroonga applies pending WAL automatically when `IN"
-"SERT`, `DELETE`, `UPDATE`, `SELECT` and so on are executed."
+"`pgroonga_wal_apply` function applies pending WAL. Normally, you don't need "
+"to use this function because PGroonga applies pending WAL automatically when"
+" `INSERT`, `DELETE`, `UPDATE`, `SELECT` and so on are executed."
 msgstr ""
-"`pgroonga_wal_apply`関数は未適用のWALを適用します。通常、この関数を使う必要はありません。なぜなら、PGroongaは`INSERT`"
-"、`DELETE`、`UPDATE`、`SELECT`のときなど自動的に未適用のWALを適用するからです。"
+"`pgroonga_wal_apply`関数は未適用のWALを適用します。通常、この関数を使う必要はありません。なぜなら、PGroongaは`INSERT`、`DELETE`、`UPDATE`、`SELECT`のときなど自動的に未適用のWALを適用するからです。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:12
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:14
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:16
 msgid ""
 "```text\n"
 "bigint pgroonga_wal_apply(pgroonga_index_name)\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:20
 msgid ""
-"`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to be"
-" applied pending WAL."
-msgstr "`pgroonga_index_name`は`text`型の値です。未適用のWALを適用したいPGroognaのインデックスの名前を指定します。"
+"`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to "
+"be applied pending WAL."
+msgstr ""
+"`pgroonga_index_name`は`text`型の値です。未適用のWALを適用したいPGroognaのインデックスの名前を指定します。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:22
+#: ../../../../reference/functions/pgroonga-wal-apply.md:32
 msgid "It returns the number of applied operations."
 msgstr "適用した操作数を返します。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:24
 msgid "Here is another syntax of this function:"
 msgstr "この関数の別の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:26
 msgid ""
 "```text\n"
 "bigint pgroonga_wal_apply()\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:30
 msgid "It applies pending WAL of all PGroonga indexes."
 msgstr "すべてのPGroongaのインデックスに対して未適用のWALを適用します。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:34
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:36
 msgid "Here are sample schema and data:"
 msgstr "サンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:38
 msgid ""
 "```sql\n"
 "SET pgroonga.enable_wal = yes;"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:41
 msgid ""
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:45
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (content);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:49
 msgid ""
 "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:52
 msgid "Simulate PGroonga database is destroyed situation:"
 msgstr "PGroongaのデータベースが壊れた状況を再現します。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:54
 msgid ""
 "```sql\n"
 "SELECT pgroonga_command('delete',\n"
@@ -128,9 +162,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:84
 msgid "Now, there are pending WAL. You can apply the pending WAL explicitly:"
 msgstr "これで未適用のWALがある状態になりました。明示的に未適用のWALを適用できます。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:86
 msgid ""
 "```sql\n"
 "SELECT pgroonga_wal_apply('pgroonga_memos_index');\n"
@@ -141,13 +177,14 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:94
 msgid ""
-"You can omit PGroonga index name. If you omit PGroonga index name, all pending"
-" WAL for all PGroonga indexes are applied explicitly:"
+"You can omit PGroonga index name. If you omit PGroonga index name, all "
+"pending WAL for all PGroonga indexes are applied explicitly:"
 msgstr ""
-"PGroongaのインデックスの名前を省略できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべての未適用"
-"のWALを明示的に適用します。"
+"PGroongaのインデックスの名前を省略できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべての未適用のWALを明示的に適用します。"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:96
 msgid ""
 "```sql\n"
 "SELECT pgroonga_wal_apply();\n"
@@ -158,17 +195,22 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:104
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:106
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:108
 msgid "  * [`pgroonga_wal_truncate` function][wal-truncate]"
 msgstr "  * [`pgroonga_wal_truncate`関数][wal-truncate]"
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:110
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-apply.md:112
 msgid "[wal-truncate]:pgroonga-wal-truncate.html"
 msgstr ""

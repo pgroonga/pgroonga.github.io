@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
+"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
 msgid ""
 "---\n"
@@ -28,9 +28,7 @@ msgstr "1.2.1で追加。"
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid ""
-"`&^|` operator performs prefix search by an array of prefixes. If one or more "
-"prefixes are matched, the record is matched."
+msgid "`&^|` operator performs prefix search by an array of prefixes. If one or more prefixes are matched, the record is matched."
 msgstr "`&^|`演算子はプレフィックスの配列を使って前方一致検索をします。配列の中の1つ以上のプレフィックスがマッチしたらそのレコードはマッチしたことになります。"
 
 msgid "Prefix search is useful for implementing input completion."
@@ -51,17 +49,13 @@ msgstr "`column`は検索対象のカラムです。型は`text`型か`text[]`�
 msgid "`prefixes` is an array of prefixes to be found. It's `text[]` type."
 msgstr "`prefixes`は検索したいプレフィックスの配列です。型は`text[]`型です。"
 
-msgid ""
-"The operator returns `true` when the `column` value starts with one or more pr"
-"efixes in `prefixes`."
+msgid "The operator returns `true` when the `column` value starts with one or more prefixes in `prefixes`."
 msgstr "この演算子は`column`の値が`prefixes`中の1つ以上のプレフィックスから始まっていれば`true`を返します。"
 
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
-msgid ""
-"You need to specify one of the following operator classes to use this operator"
-":"
+msgid "You need to specify one of the following operator classes to use this operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
 msgid "  * `pgroonga_text_term_search_ops_v2`: For `text`"
@@ -126,14 +120,10 @@ msgstr "  * [`&^`演算子][prefix-search-v2]：前方一致検索"
 msgid "  * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search"
 msgstr "  * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索"
 
-msgid ""
-"  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array "
-"of prefixes"
+msgid "  * [`!&^|` operator][not-prefix-search-in-v2]: NOT prefix search by an array of prefixes"
 msgstr "  * [`!&^|`演算子][not-prefix-search-in-v2]：プレフィックスの配列での否定前方一致検索"
 
-msgid ""
-"  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of"
-" prefixes"
+msgid "  * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes"
 msgstr "  * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索"
 
 msgid "[prefix-search-v2]:prefix-search-v2.html"

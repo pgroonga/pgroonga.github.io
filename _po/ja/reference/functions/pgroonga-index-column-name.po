@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:1
 msgid ""
 "---\n"
 "title: pgroonga_index_column_name function\n"
@@ -18,33 +33,40 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:6
 msgid "# `pgroonga_index_column_name` function"
 msgstr "# `pgroonga_index_column_name` 関数"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:8
 msgid "Since 2.2.6."
 msgstr "2.2.6で追加。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:12
 msgid ""
-"`pgroonga_index_column_name` function converts PGroonga's index name to Groong"
-"a's index column name. Groonga's index column name is useful to use [`object_i"
-"nspect` Groonga command][groonga-object-inspect] by [`pgroonga_command` functi"
-"on][command]. `object_inspect` Groonga command against PGroonga's index column"
-" requires Groonga's index column name."
+"`pgroonga_index_column_name` function converts PGroonga's index name to "
+"Groonga's index column name. Groonga's index column name is useful to use "
+"[`object_inspect` Groonga command][groonga-object-inspect] by "
+"[`pgroonga_command` function][command]. `object_inspect` Groonga command "
+"against PGroonga's index column requires Groonga's index column name."
 msgstr ""
-"`pgroonga_index_column_name`関数はPGroongaのインデックス名をGroongaのインデックスカラム名に変換します。Groon"
-"gaのインデックスカラム名は[`pgroonga_command`関数][command]で[`object_inspect` Groongaコマンド][g"
-"roonga-object-inspect]を使うときに有用です。PGroongaのインデックスに対して`object_inspect` Groongaコマ"
-"ンドを使うときはGroongaのインデックスカラム名が必要です。"
+"`pgroonga_index_column_name`関数はPGroongaのインデックス名をGroongaのインデックスカラム名に変換します。Groongaのインデックスカラム名は[`pgroonga_command`関数][command]で[`object_inspect`"
+" Groongaコマンド][groonga-object-"
+"inspect]を使うときに有用です。PGroongaのインデックスに対して`object_inspect` "
+"Groongaコマンドを使うときはGroongaのインデックスカラム名が必要です。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:14
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:16
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:18
 msgid ""
 "```text\n"
 "text pgroonga_index_column_name(pgroonga_index_name, column_name)\n"
@@ -52,30 +74,37 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:23
 msgid ""
-"`pgroonga_index_name` is a `text` type value. It's an index name to be convert"
-"ed to Groonga's index column name. The index must be created with `USING pgroo"
-"nga`."
+"`pgroonga_index_name` is a `text` type value. It's an index name to be "
+"converted to Groonga's index column name. The index must be created with "
+"`USING pgroonga`."
 msgstr ""
-"`pgroonga_index_name`は`text`型の値です。これはGroongaのインデックスカラム名に変換したいインデックス名です。このインデック"
-"スは`USING pgroonga`付きで作られたインデックスでなければいけません。"
+"`pgroonga_index_name`は`text`型の値です。これはGroongaのインデックスカラム名に変換したいインデックス名です。このインデックスは`USING"
+" pgroonga`付きで作られたインデックスでなければいけません。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:25
 msgid ""
-"`column_name` is a `text` type value. It's the target column name in the targe"
-"t PGroonga's index."
+"`column_name` is a `text` type value. It's the target column name in the "
+"target PGroonga's index."
 msgstr "`column_name`は`text`型の値です。対象のPGroongaのインデックス内の対象のカラム名を指定します。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:27
 msgid ""
-"`column_index` is a `int4` type value. It's the target position in the target "
-"PGroonga's index. The position uses zero-based indexing."
-msgstr "`column_index`は`int4`型の値です。これは対象のPGroongaのインデックス内の対象カラムの位置です。最初のカラムの位置は0です。"
+"`column_index` is a `int4` type value. It's the target position in the "
+"target PGroonga's index. The position uses zero-based indexing."
+msgstr ""
+"`column_index`は`int4`型の値です。これは対象のPGroongaのインデックス内の対象カラムの位置です。最初のカラムの位置は0です。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:29
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:31
 msgid "Here are sample schema:"
 msgstr "以下はサンプルスキーマです。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:33
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -90,9 +119,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:45
 msgid "Here is a sample to use `column_index`:"
 msgstr "以下は`column_index`を使う例です。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:47
 msgid ""
 "```sql\n"
 "SELECT pgroonga_index_column_name('pgroonga_index', 2);\n"
@@ -103,9 +134,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:55
 msgid "Here is a sample to use `column_name`:"
 msgstr "以下は`column_name`を使う例です。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:57
 msgid ""
 "```sql\n"
 "SELECT pgroonga_index_column_name('pgroonga_index', 'tag');\n"
@@ -116,20 +149,21 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:65
 msgid ""
-"Here is a sample to use `pgroonga_index_column_name()` for [`object_inspect` G"
-"roonga command][groonga-object-inspect]:"
+"Here is a sample to use `pgroonga_index_column_name()` for [`object_inspect`"
+" Groonga command][groonga-object-inspect]:"
 msgstr ""
-"以下は[`object_inspect` Groongaコマンド][groonga-object-inspect]用に`pgroonga_index_col"
-"umn_name()`を使う例です。"
+"以下は[`object_inspect` Groongaコマンド][groonga-object-"
+"inspect]用に`pgroonga_index_column_name()`を使う例です。"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:67
 msgid ""
 "```sql\n"
 "SELECT jsonb_pretty(\n"
 "  pgroonga_command('object_inspect',\n"
 "                   ARRAY[\n"
-"                     'name', pgroonga_index_column_name('pgroonga_index', 'tag"
-"')\n"
+"                     'name', pgroonga_index_column_name('pgroonga_index', 'tag')\n"
 "                   ])::jsonb\n"
 ");\n"
 "                     jsonb_pretty                     \n"
@@ -263,18 +297,22 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:204
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:206
 msgid "  * [`pgroonga_command` function][command]"
 msgstr "  * [`pgroonga_command`関数][command]"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:208
 msgid ""
-"[groonga-object-inspect]:https://groonga.org/docs/reference/commands/object_in"
-"spect.html"
+"[groonga-object-"
+"inspect]:https://groonga.org/docs/reference/commands/object_inspect.html"
 msgstr ""
-"[groonga-object-inspect]:https://groonga.org/ja/docs/reference/commands/object"
-"_inspect.html"
+"[groonga-object-"
+"inspect]:https://groonga.org/ja/docs/reference/commands/object_inspect.html"
 
+#: ../../../../reference/functions/pgroonga-index-column-name.md:210
 msgid "[command]:pgroonga-command.html"
 msgstr ""

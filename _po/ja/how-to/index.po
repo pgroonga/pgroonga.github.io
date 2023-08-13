@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-12 15:04+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../how-to/index.md:1
 msgid ""
 "---\n"
 "title: How to\n"
@@ -16,75 +31,98 @@ msgstr ""
 "title: ハウツー\n"
 "---"
 
+#: ../../../how-to/index.md:5
 msgid "# How to"
 msgstr "# ハウツー"
 
-msgid "This document describes about useful information for specific situations."
+#: ../../../how-to/index.md:7
+msgid ""
+"This document describes about useful information for specific situations."
 msgstr "このドキュメントは特定用途向けの有用な情報を説明します。"
 
+#: ../../../how-to/index.md:9
 msgid ""
-"If you have useful information that isn't listed in this page, please send a p"
-"ull request to [pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroo"
-"nga.github.io). Please share your useful information!"
+"If you have useful information that isn't listed in this page, please send a"
+" pull request to "
+"[pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io)."
+" Please share your useful information!"
 msgstr ""
-"このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgro"
-"onga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！"
+"このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！"
 
+#: ../../../how-to/index.md:11
 msgid "## How to tune PGroonga"
 msgstr "## PGroongaのチューニング方法"
 
+#: ../../../how-to/index.md:13
 msgid "  * [How to tune PGroonga](tuning.html)"
 msgstr "  * [PGroongaのチューニング方法](tuning.html)"
 
+#: ../../../how-to/index.md:15
 msgid "## How to implement auto complete feature"
 msgstr "## オートコンプリートの実装方法"
 
+#: ../../../how-to/index.md:17
 msgid "  * [How to implement auto complete feature](auto-complete.html)"
 msgstr "  * [オートコンプリートの実装方法](auto-complete.html)"
 
+#: ../../../how-to/index.md:19
 msgid "## How to use PGroonga with Web application framework"
 msgstr "## Webアプリケーションフレームワークと一緒にPGroongaを使う方法"
 
+#: ../../../how-to/index.md:21
 msgid "  * How to use with Ruby on Rails: TODO"
 msgstr "  * Ruby on Railsと一緒に使う方法：TODO"
 
+#: ../../../how-to/index.md:23
 msgid "  * [How to use with Laravel](laravel.html)"
 msgstr "  * [Laravelと一緒に使う方法](laravel.html)"
 
+#: ../../../how-to/index.md:25
 msgid "  * [How to use with PostgREST](postgrest.html)"
 msgstr "  * [PostgRESTと一緒に使う方法](postgrest.html)"
 
+#: ../../../how-to/index.md:27 ../../../how-to/index.md:49
 msgid "  * ..."
 msgstr ""
 
+#: ../../../how-to/index.md:29
 msgid "## Continuous integration"
 msgstr "## 継続的インテグレーション（CI）"
 
+#: ../../../how-to/index.md:31
 msgid "  * [How to use PGroonga on Travis CI](travis-ci.html)"
 msgstr "  * [Travis CI上でPGroongaを使う方法](travis-ci.html)"
 
+#: ../../../how-to/index.md:33
 msgid "## How to use on `jsonb` type column"
 msgstr "## `jsonb`型のカラムで使う方法"
 
+#: ../../../how-to/index.md:35
 msgid "  * [How to use on `jsonb` type column](jsonb.html)"
 msgstr "  * [`jsonb`型のカラムで使う方法](jsonb.html)"
 
+#: ../../../how-to/index.md:37
 msgid "## How to use synonym expansion"
 msgstr "## 同義語展開の使い方"
 
+#: ../../../how-to/index.md:39
 msgid "  * [How to use synonym expansion](synonym-expansion.html)"
 msgstr "  * [同義語展開の使い方](synonym-expansion.html)"
 
+#: ../../../how-to/index.md:41
 msgid ""
-"  * [How to use Sudachi dictionary for synonym expansion](sudachi-dictionary.h"
-"tml)"
+"  * [How to use Sudachi dictionary for synonym expansion](sudachi-"
+"dictionary.html)"
 msgstr "  * [同義語展開にSudachiの辞書を使う方法](sudachi-dictionary.html)"
 
+#: ../../../how-to/index.md:43
 msgid "## How to use with Spring/Hibernate"
 msgstr "## Spring/Hibernateと一緒に使う方法"
 
+#: ../../../how-to/index.md:45
 msgid "  * [How to use with Spring/Hibernate](spring-hibernate.html)"
 msgstr "  * [Spring/Hibernateと一緒に使う方法](spring-hibernate.html)"
 
+#: ../../../how-to/index.md:47
 msgid "## ..."
 msgstr ""

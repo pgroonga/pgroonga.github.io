@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:1
 msgid ""
 "---\n"
 "title: pgroonga_wal_truncate function\n"
@@ -18,116 +33,140 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:6
 msgid "# `pgroonga_wal_truncate` function"
 msgstr "# `pgroonga_wal_truncate`関数"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:10
 msgid ""
-"`pgroonga_wal_truncate` function truncates PGroonga's WAL. It's not PostgreSQL"
-"'s WAL. PGroonga's WAL isn't deleted unless you call this function. You can de"
-"lete PGroonga's WAL if you have backup."
+"`pgroonga_wal_truncate` function truncates PGroonga's WAL. It's not "
+"PostgreSQL's WAL. PGroonga's WAL isn't deleted unless you call this "
+"function. You can delete PGroonga's WAL if you have backup."
 msgstr ""
-"`pgroonga_wal_truncate`関数はPGroongaのWALをすべて削除します。PostgreSQLのWALではなくPGroongaのWAL"
-"であることに注意してください。PGroongaのWALはこの関数を呼ばない限り削除されません。バックアップをとっていればPGroongaのWALを削除できま"
-"す。"
+"`pgroonga_wal_truncate`関数はPGroongaのWALをすべて削除します。PostgreSQLのWALではなくPGroongaのWALであることに注意してください。PGroongaのWALはこの関数を呼ばない限り削除されません。バックアップをとっていればPGroongaのWALを削除できます。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:12
 msgid ""
-"Note that disk usage for PGroonga's WAL isn't reduced after you truncate PGroo"
-"nga's WAL. The disk space already used is just reused for newly added WAL."
+"Note that disk usage for PGroonga's WAL isn't reduced after you truncate "
+"PGroonga's WAL. The disk space already used is just reused for newly added "
+"WAL."
 msgstr ""
-"PGroongaのWALをすべて削除してもPGroongaのWALが使っているディスク使用量は減らないことに注意してください。使用されていたディスク領域は新"
-"しく追加するWALが再利用します。"
+"PGroongaのWALをすべて削除してもPGroongaのWALが使っているディスク使用量は減らないことに注意してください。使用されていたディスク領域は新しく追加するWALが再利用します。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:14
 msgid ""
-"If you use PGroonga's WAL, you should consider about disk usage of PGroonga's "
-"WAL. If you do nothing, PGroonga's WAL keeps growing. You can choose one of th"
-"em:"
+"If you use PGroonga's WAL, you should consider about disk usage of "
+"PGroonga's WAL. If you do nothing, PGroonga's WAL keeps growing. You can "
+"choose one of them:"
 msgstr ""
-"PGroongaのWALを使う場合、PGroongaのWALのディスク使用量について検討する必要があります。なにもしないとPGroongaのWALは増え続け"
-"ます。対策は次のどちらかです。"
+"PGroongaのWALを使う場合、PGroongaのWALのディスク使用量について検討する必要があります。なにもしないとPGroongaのWALは増え続けます。対策は次のどちらかです。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:16
 msgid "  1. You create backup and delete PGroonga's WAL periodically."
 msgstr "  1. 定期的にバックアップをとり、PGroongaのWALを削除する。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:18
 msgid ""
-"  2. You recreate PGroonga indexes periodically. PGroonga's WAL will be delete"
-"d at the next `VACUUM`."
+"  2. You recreate PGroonga indexes periodically. PGroonga's WAL will be "
+"deleted at the next `VACUUM`."
 msgstr "  2. 定期的にPGroongaのインデックスを再作成する。PGroongaのWALは次の`VACUUM`時に削除される。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:20
 msgid ""
-"  3. Configure [`pgroonga_wal_applier` module][wal-applier] and [`pgroonga.max"
-"_wal_size` parameter][max-wal-size]."
+"  3. Configure [`pgroonga_wal_applier` module][wal-applier] and "
+"[`pgroonga.max_wal_size` parameter][max-wal-size]."
 msgstr ""
-"  3. [`pgroonga_wal_applier`モジュール][wal-applier]と[`pgroonga.max_wal_size`パラメーター"
-"][max-wal-size]を設定する。"
+"  3. [`pgroonga_wal_applier`モジュール][wal-"
+"applier]と[`pgroonga.max_wal_size`パラメーター][max-wal-size]を設定する。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:22
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:24
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:26
 msgid ""
 "```text\n"
 "bigint pgroonga_wal_truncate(pgroonga_index_name)\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:30
 msgid ""
-"`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to be"
-" truncated."
-msgstr "`pgroonga_index_name`は`text`型の値です。すべてのWALを削除したいPGroongaのインデックスの名前を指定します。"
+"`pgroonga_index_name` is a `text` type value. It's a PGroonga index name to "
+"be truncated."
+msgstr ""
+"`pgroonga_index_name`は`text`型の値です。すべてのWALを削除したいPGroongaのインデックスの名前を指定します。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:32
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:42
 msgid ""
-"It returns the number of truncated PostgreSQL data blocks. PGroonga's WAL is s"
-"tored in PostgreSQL data blocks."
-msgstr "削除したPostgreSQLのデータブロック数を返します。PGroongaのWALはPostgreSQLのデータブロックに記録してあります。"
+"It returns the number of truncated PostgreSQL data blocks. PGroonga's WAL is"
+" stored in PostgreSQL data blocks."
+msgstr ""
+"削除したPostgreSQLのデータブロック数を返します。PGroongaのWALはPostgreSQLのデータブロックに記録してあります。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:34
 msgid "Here is another syntax of this function:"
 msgstr "この関数の別の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:36
 msgid ""
 "```text\n"
 "bigint pgroonga_wal_truncate()\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:40
 msgid "It truncates all WAL of all PGroonga indexes."
 msgstr "すべてのPGroongaのインデックスのすべてのWALを削除します。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:44
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:46
 msgid "Here are sample schema and data:"
 msgstr "サンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:48
 msgid ""
 "```sql\n"
 "SET pgroonga.enable_wal = yes;"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:51
 msgid ""
 "CREATE TABLE memos (\n"
 "  content text\n"
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:55
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (content);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:59
 msgid ""
 "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:62
 msgid "Simulate PGroonga database is destroyed situation:"
 msgstr "PGroongaのデータベースが壊れた状況を再現します。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:64
 msgid ""
 "```sql\n"
 "SELECT pgroonga_command('delete',\n"
@@ -160,15 +199,16 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:94
 msgid ""
-"Normally, you can recover the PGroonga index from PGroonga's WAL automatically"
-". But you can't recover the PGroonga index automatically when PGroonga's WAL o"
-"f the PGroonga's index is deleted (You can recover the PGroonga index by recre"
-"ating the index explicitly):"
+"Normally, you can recover the PGroonga index from PGroonga's WAL "
+"automatically. But you can't recover the PGroonga index automatically when "
+"PGroonga's WAL of the PGroonga's index is deleted (You can recover the "
+"PGroonga index by recreating the index explicitly):"
 msgstr ""
-"通常、PGroongaのWALを使って自動的にPGroongaのインデックスを復旧できます。しかし、PGroongaのインデックスに対するPGroongaの"
-"WALが削除されている場合は自動で復旧できません。（明示的に再作成することで壊れたPGroongaのインデックスを復旧することはできます。）"
+"通常、PGroongaのWALを使って自動的にPGroongaのインデックスを復旧できます。しかし、PGroongaのインデックスに対するPGroongaのWALが削除されている場合は自動で復旧できません。（明示的に再作成することで壊れたPGroongaのインデックスを復旧することはできます。）"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:96
 msgid ""
 "```sql\n"
 "SELECT pgroonga_wal_truncate('pgroonga_memos_index');\n"
@@ -181,13 +221,14 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:106
 msgid ""
-"You can omit PGroonga index name. If you omit PGroonga index name, all WAL for"
-" all PGroonga indexes are truncated:"
+"You can omit PGroonga index name. If you omit PGroonga index name, all WAL "
+"for all PGroonga indexes are truncated:"
 msgstr ""
-"PGroongaのインデックスの名前は省略できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべてのWAL"
-"を削除します。"
+"PGroongaのインデックスの名前は省略できます。PGroongaのインデックスの名前を省略すると、すべてのPGroongaのインデックスのすべてのWALを削除します。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:108
 msgid ""
 "```sql\n"
 "SELECT pgroonga_wal_truncate();\n"
@@ -198,29 +239,38 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## Backup and PGroonga's WAL truncation {#backup-and-pgroonga-wal-truncation}"
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:116
+msgid ""
+"## Backup and PGroonga's WAL truncation {#backup-and-pgroonga-wal-"
+"truncation}"
 msgstr "## バックアップとPGroongaのWALの削除 {#backup-and-pgroonga-wal-truncation}"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:118
 msgid ""
-"PGroonga's data isn't crash safe. You just create backup only for PGroonga's d"
-"ata to reduce recover time from crash when you enable PGroonga's WAL. You don'"
-"t need to create backup all PostgreSQL data. You can use [`rsync`][rsync] for "
-"backup."
+"PGroonga's data isn't crash safe. You just create backup only for PGroonga's"
+" data to reduce recover time from crash when you enable PGroonga's WAL. You "
+"don't need to create backup all PostgreSQL data. You can use "
+"[`rsync`][rsync] for backup."
 msgstr ""
-"PGroongaのデータはクラッシュセーフではありません。PGroongaのWALを有効にしている場合はPGroongaのデータだけバックアップをとればより"
-"速く復旧できます。PostgreSQL全体のデータをバックアップする必要はありません。バックアップには[`rsync`][rsync]が便利です。"
+"PGroongaのデータはクラッシュセーフではありません。PGroongaのWALを有効にしている場合はPGroongaのデータだけバックアップをとればより速く復旧できます。PostgreSQL全体のデータをバックアップする必要はありません。バックアップには[`rsync`][rsync]が便利です。"
 
-msgid "Note that you must create PostgreSQL backup into other host for storage crash."
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:120
+msgid ""
+"Note that you must create PostgreSQL backup into other host for storage "
+"crash."
 msgstr "ストレージ故障に対応するために別のホストにPostgreSQLのバックアップを作るべきだということは忘れないでください。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:122
 msgid "Here are sample shell script to create backup and restore from backup:"
 msgstr "以下はバックアップを作成し、リストアするシェルスクリプトの例です。"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:124
 msgid ""
 "```shell\n"
 "db_name=\"YOUR_DB_NAME\""
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:127
 msgid ""
 "# Detect database information\n"
 "db_oid=$(psql \\\n"
@@ -237,32 +287,38 @@ msgid ""
 "  -c \"SHOW data_directory\")"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:141
 msgid ""
 "# Define directories\n"
 "db_dir=${data_dir}/base/${db_oid}\n"
 "backup_dir=${data_dir}/../../backup"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:145
 msgid ""
 "# Create backup directory\n"
 "mkdir -p ${backup_dir}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:148
 msgid ""
 "# Stop PostgreSQL\n"
 "systemctl stop postgresql-10"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:151
 msgid ""
 "# Create backup\n"
 "rsync -a --include '/pgrn*' --exclude '*' --delete ${db_dir}/ ${backup_dir}/"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:154
 msgid ""
 "# Run PostgreSQL\n"
 "systemctl start postgresql-10"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:157
 msgid ""
 "# Remove PGroonga's WAL\n"
 "#\n"
@@ -271,46 +327,59 @@ msgid ""
 "psql --dbname ${db_name} -c \"SELECT pgroonga_wal_truncate()\""
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:163
 msgid "# ...PostgreSQL is crashed..."
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:165
 msgid ""
 "# Restore from backup\n"
 "rsync -a --include '/pgrn*' --exclude '*' --delete ${backup_dir}/ ${db_dir}/"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:168
 msgid ""
 "# Run PostgreSQL again\n"
 "systemctl restart postgresql-10\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:172
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:174
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:176
 msgid "  * [`pgroonga_wal_apply` function][wal-apply]"
 msgstr "  * [`pgroonga_wal_apply`関数][wal-apply]"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:178
 msgid "  * [`pgroonga_set_writable` function][set-writable]"
 msgstr "  * [`pgroonga_set_writable`関数][set-writable]"
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:180
 msgid "[wal-applier]:../modules/pgroonga-wal-applier.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:182
 msgid "[max-wal-size]:../parameters/max-wal-size.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:184
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:186
 msgid "[wal-apply]:pgroonga-wal-apply.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:188
 msgid "[set-writable]:pgroonga-set-writable.html"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-wal-truncate.md:190
 msgid "[rsync]:https://rsync.samba.org/"
 msgstr ""

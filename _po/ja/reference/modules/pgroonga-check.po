@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:18+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/modules/pgroonga-check.md:1
 msgid ""
 "---\n"
 "title: pgroonga_check module\n"
@@ -19,44 +33,81 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/modules/pgroonga-check.md:6
 msgid "# `pgroonga_check` module"
 msgstr "# `pgroonga_check`モジュール"
 
+#: ../../../../reference/modules/pgroonga-check.md:8
 msgid "Since 1.2.0."
 msgstr "1.2.0で追加。"
 
-msgid "Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-safer] instead."
-msgstr "2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。"
+#: ../../../../reference/modules/pgroonga-check.md:10
+msgid ""
+"Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-"
+"safer] instead."
+msgstr ""
+"2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-"
+"safer]を使ってください。"
 
+#: ../../../../reference/modules/pgroonga-check.md:12
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_check` module checkes PGroonga database consistency on startup. If PGroonga database is broken, it tries to recover the database."
-msgstr "`pgroonga_check`モジュールは起動時にPGroongaのデータベースの一貫性をチェックします。PGroongaのデータベースが壊れている場合は自動でそのデータベースを復旧します。"
+#: ../../../../reference/modules/pgroonga-check.md:14
+msgid ""
+"`pgroonga_check` module checkes PGroonga database consistency on startup. If"
+" PGroonga database is broken, it tries to recover the database."
+msgstr ""
+"`pgroonga_check`モジュールは起動時にPGroongaのデータベースの一貫性をチェックします。PGroongaのデータベースが壊れている場合は自動でそのデータベースを復旧します。"
 
+#: ../../../../reference/modules/pgroonga-check.md:16
 msgid "## Configuration"
 msgstr "## 設定"
 
-msgid "You need to add `pgroonga_check` to [`shared_preload_libraries`]({{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES) in `postgresql.conf`:"
-msgstr "`postgresql.conf`の[`shared_preload_libraries`]({{ site.postgresql_doc_base_url.ja }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES)に`pgroonga_check`を追加します。"
+#: ../../../../reference/modules/pgroonga-check.md:18
+msgid ""
+"You need to add `pgroonga_check` to [`shared_preload_libraries`]({{ "
+"site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-"
+"PRELOAD-LIBRARIES) in `postgresql.conf`:"
+msgstr ""
+"`postgresql.conf`の[`shared_preload_libraries`]({{ "
+"site.postgresql_doc_base_url.ja }}/runtime-config-client.html#GUC-SHARED-"
+"PRELOAD-LIBRARIES)に`pgroonga_check`を追加します。"
 
+#: ../../../../reference/modules/pgroonga-check.md:20
 msgid ""
 "```text\n"
 "shared_preload_libraries = 'pgroonga_check'\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/modules/pgroonga-check.md:24
 msgid "You need to restart your PostgreSQL to apply the change."
 msgstr "この変更を反映するためにPostgreSQLを再起動する必要があります。"
 
+#: ../../../../reference/modules/pgroonga-check.md:26
 msgid "## Usage"
 msgstr "## 使い方"
 
-msgid "You don't do anything. `pgroonga_check` module checks all PGroonga databases on PostgreSQL startup. If `pgroonga_check` module finds any broken PGroonga databases, it tries to recover them automatically."
-msgstr "何もする必要はありません。`pgroonga_check`モジュールはPostgreSQL起動時にすべてのPGroongaのデータベースをチェックします。もし、`pgroonga_check`モジュールが壊れているPGroongaのデータベースを見つけたら、自動で復旧します。"
+#: ../../../../reference/modules/pgroonga-check.md:28
+msgid ""
+"You don't do anything. `pgroonga_check` module checks all PGroonga databases"
+" on PostgreSQL startup. If `pgroonga_check` module finds any broken PGroonga"
+" databases, it tries to recover them automatically."
+msgstr ""
+"何もする必要はありません。`pgroonga_check`モジュールはPostgreSQL起動時にすべてのPGroongaのデータベースをチェックします。もし、`pgroonga_check`モジュールが壊れているPGroongaのデータベースを見つけたら、自動で復旧します。"
 
-msgid "If it can't recover, it removes all unrecoverable PGroonga databases automatically. There are no unrecoverable data in PGroonga databases. You can recover PGroonga databases by running [`REINDEX`]({{ site.postgresql_doc_base_url.en }}/sql-reindex.html) manually."
-msgstr "復旧に失敗した場合は該当PGroongaデータベースを自動で削除します。PGroongaのデータベース内には復旧不可能なデータはありません。手動で[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-reindex.html)を実行することでPGroongaのデータベースを復旧できます。"
+#: ../../../../reference/modules/pgroonga-check.md:30
+msgid ""
+"If it can't recover, it removes all unrecoverable PGroonga databases "
+"automatically. There are no unrecoverable data in PGroonga databases. You "
+"can recover PGroonga databases by running [`REINDEX`]({{ "
+"site.postgresql_doc_base_url.en }}/sql-reindex.html) manually."
+msgstr ""
+"復旧に失敗した場合は該当PGroongaデータベースを自動で削除します。PGroongaのデータベース内には復旧不可能なデータはありません。手動で[`REINDEX`]({{"
+" site.postgresql_doc_base_url.ja }}/sql-"
+"reindex.html)を実行することでPGroongaのデータベースを復旧できます。"
 
+#: ../../../../reference/modules/pgroonga-check.md:32
 msgid "[pgroonga-crash-safer]:pgroonga-crash-safer.html"
 msgstr ""

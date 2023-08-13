@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../tutorial/index.md:1
 msgid ""
 "---\n"
 "title: Tutorial\n"
@@ -17,66 +31,83 @@ msgstr ""
 "title: チュートリアル\n"
 "---"
 
+#: ../../../tutorial/index.md:5
 msgid "# Tutorial"
 msgstr "# チュートリアル"
 
+#: ../../../tutorial/index.md:7
 msgid ""
-"This document describes how to use PGroonga step by step. If you don't install"
-" PGroonga yet, [install][install] PGroonga before you read this document."
+"This document describes how to use PGroonga step by step. If you don't "
+"install PGroonga yet, [install][install] PGroonga before you read this "
+"document."
 msgstr ""
-"このドキュメントはPGroongaの使い方を段階を追って説明します。まだPGroongaをインストールしていない場合は、このドキュメントを読む前にPGroo"
-"ngaを[インストール][install]してください。"
+"このドキュメントはPGroongaの使い方を段階を追って説明します。まだPGroongaをインストールしていない場合は、このドキュメントを読む前にPGroongaを[インストール][install]してください。"
 
+#: ../../../tutorial/index.md:9
 msgid ""
-"You can use PGroonga as fast full text search index. You can also use PGroonga"
-" as more general index for equality condition (`=`) and comparison conditions "
-"(`<`, `>=` and so on)."
-msgstr "PGroongaは高速な全文検索インデックスを提供します。さらに、等価条件（`=`）・比較条件（`<`や`>=`など）用の一般的なインデックスも提供します。"
-
-msgid ""
-"PostgreSQL provides GiST and GIN as bundled indexes. You can use PGroonga as a"
-"lternative of GiST and GIN. See [PGroonga versus GiST and GIN](../reference/pg"
-"roonga-versus-gist-and-gin.html) for differences of them."
+"You can use PGroonga as fast full text search index. You can also use "
+"PGroonga as more general index for equality condition (`=`) and comparison "
+"conditions (`<`, `>=` and so on)."
 msgstr ""
-"PostgreSQLは組み込みのインデックスとしてGiSTとGINを提供しています。PGroongaはGiST・GINの代わりに使うことができます。PGro"
-"ongaとGiST・GINの違いは[PGroonga対GiST・GIN](../reference/pgroonga-versus-gist-and-gin"
-".html)を参照してください。"
+"PGroongaは高速な全文検索インデックスを提供します。さらに、等価条件（`=`）・比較条件（`<`や`>=`など）用の一般的なインデックスも提供します。"
 
+#: ../../../tutorial/index.md:11
+msgid ""
+"PostgreSQL provides GiST and GIN as bundled indexes. You can use PGroonga as"
+" alternative of GiST and GIN. See [PGroonga versus GiST and "
+"GIN](../reference/pgroonga-versus-gist-and-gin.html) for differences of "
+"them."
+msgstr ""
+"PostgreSQLは組み込みのインデックスとしてGiSTとGINを提供しています。PGroongaはGiST・GINの代わりに使うことができます。PGroongaとGiST・GINの違いは[PGroonga対GiST・GIN](../reference/pgroonga-"
+"versus-gist-and-gin.html)を参照してください。"
+
+#: ../../../tutorial/index.md:13
 msgid "This document describes about the followings:"
 msgstr "このドキュメントは次のことを説明します。"
 
+#: ../../../tutorial/index.md:15
 msgid "  * How to use PGroonga as index for full text search"
 msgstr "  * PGroongaを全文検索用インデックスとして使う方法"
 
+#: ../../../tutorial/index.md:17
 msgid "  * How to use PGroonga as index for regular expression"
 msgstr "  * PGroongaを正規表現用インデックスとして使う方法"
 
+#: ../../../tutorial/index.md:19
 msgid "  * How to use PGroonga as index for similar search"
 msgstr "  * PGroongaを類似文書用インデックスとして使う方法"
 
+#: ../../../tutorial/index.md:21
 msgid ""
-"  * How to use PGroonga as index for equality condition and comparison conditi"
-"ons"
+"  * How to use PGroonga as index for equality condition and comparison "
+"conditions"
 msgstr "  * PGroongaを等価条件・比較条件用インデックスとして使う方法"
 
+#: ../../../tutorial/index.md:23
 msgid "  * How to use PGroonga as index for array"
 msgstr "  * PGroongaを配列用インデックスとして使う方法"
 
+#: ../../../tutorial/index.md:25
 msgid "  * How to use PGroonga as index for JSON"
 msgstr "  * PGroongaをJSON用インデックスとして使う方法"
 
+#: ../../../tutorial/index.md:27
 msgid "  * How to use PGroonga as index for auto complete"
 msgstr "  * PGroongaをオートコンプリート用インデックスとして使う方法"
 
+#: ../../../tutorial/index.md:29
 msgid "  * How to use Groonga through PGroonga (advanced topic)"
 msgstr "  * PGroonga経由でGroongaを使う方法（高度な話題）"
 
+#: ../../../tutorial/index.md:32
 msgid "## Full text search"
 msgstr "## 全文検索"
 
+#: ../../../tutorial/index.md:34 ../../../tutorial/index.md:322
 msgid "This section describes about the followings:"
 msgstr "このセクションでは次のことを説明します。"
 
+#: ../../../tutorial/index.md:36
 msgid ""
 "  * How to prepare PGroonga based full text search system\n"
 "  * Operators for full text search\n"
@@ -86,17 +117,22 @@ msgstr ""
 "  * 全文検索用の演算子\n"
 "  * スコアー"
 
+#: ../../../tutorial/index.md:40
 msgid "### How to prepare PGroonga based full text search system"
 msgstr "### PGroongaベースの全文検索システムの準備方法"
 
+#: ../../../tutorial/index.md:42
 msgid ""
-"This section describes about how to prepare PGroonga based full text search sy"
-"stem."
+"This section describes about how to prepare PGroonga based full text search "
+"system."
 msgstr "このセクションはPGroongaベースの全文検索システムの準備方法を説明します。"
 
-msgid "Create a column that you want to enable full text search as `text` type:"
+#: ../../../tutorial/index.md:44
+msgid ""
+"Create a column that you want to enable full text search as `text` type:"
 msgstr "全文検索をしたいカラムを`text`型のカラムとして作ります。"
 
+#: ../../../tutorial/index.md:46
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -106,12 +142,15 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:53
 msgid "`memos.content` column is a full text search target column."
 msgstr "`memos.content`カラムが全文検索対象のカラムです。"
 
+#: ../../../tutorial/index.md:55
 msgid "Create a `pgroonga` index against the column:"
 msgstr "このカラムに対して`pgroonga`インデックスを作ります。"
 
+#: ../../../tutorial/index.md:57
 msgid ""
 "```\n"
 "CREATE EXTENSION IF NOT EXISTS pgroonga;\n"
@@ -119,82 +158,94 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:62
 msgid ""
-"See [CREATE INDEX USING pgroonga](../reference/create-index-using-pgroonga.htm"
-"l) for more details."
+"See [CREATE INDEX USING pgroonga](../reference/create-index-using-"
+"pgroonga.html) for more details."
 msgstr ""
-"詳細は[CREATE INDEX USING pgroonga](../reference/create-index-using-pgroonga.html"
-")を参照してください。"
+"詳細は[CREATE INDEX USING pgroonga](../reference/create-index-using-"
+"pgroonga.html)を参照してください。"
 
+#: ../../../tutorial/index.md:64 ../../../tutorial/index.md:164
+#: ../../../tutorial/index.md:344 ../../../tutorial/index.md:388
+#: ../../../tutorial/index.md:439 ../../../tutorial/index.md:482
 msgid "Insert test data:"
 msgstr "テストデータを挿入します。"
 
+#: ../../../tutorial/index.md:66
 msgid ""
 "```sql\n"
-"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management s"
-"ystem.');\n"
-"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that s"
-"upports all languages.');\n"
-"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Gro"
-"onga as index.');\n"
+"INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
 "INSERT INTO memos VALUES (4, 'There is groonga command.');\n"
 "```"
 msgstr ""
 "```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');\n"
 "INSERT INTO memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。');\n"
-"INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です"
-"。');\n"
+"INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');\n"
 "INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');\n"
 "```"
 
+#: ../../../tutorial/index.md:73 ../../../tutorial/index.md:173
 msgid "Disable sequential scan to ensure using `pgroonga` index:"
 msgstr "確実に`pgroonga`インデックスを使うためにシーケンシャルスキャンを無効にします。"
 
+#: ../../../tutorial/index.md:75 ../../../tutorial/index.md:175
+#: ../../../tutorial/index.md:354 ../../../tutorial/index.md:398
+#: ../../../tutorial/index.md:593
 msgid ""
 "```sql\n"
 "SET enable_seqscan = off;\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:79
 msgid ""
-"NOTE: You should not disable sequential scan on production environment. This i"
-"s only for test."
+"NOTE: You should not disable sequential scan on production environment. This"
+" is only for test."
 msgstr "注意：本番環境ではシーケンシャルスキャンを無効にするべきではありません。これはテスト用の設定です。"
 
+#: ../../../tutorial/index.md:81
 msgid "### Operators for full text search"
 msgstr "### 全文検索用演算子"
 
+#: ../../../tutorial/index.md:83
 msgid "There are the following operators to perform full text search:"
 msgstr "全文検索をする場合は次の演算子を使います。"
 
+#: ../../../tutorial/index.md:85
 msgid "  * `&@`"
 msgstr ""
 
+#: ../../../tutorial/index.md:87
 msgid "  * `&@~`"
 msgstr ""
 
+#: ../../../tutorial/index.md:89
 msgid "  * `LIKE`"
 msgstr ""
 
+#: ../../../tutorial/index.md:91
 msgid "  * `ILIKE`"
 msgstr ""
 
+#: ../../../tutorial/index.md:93
 msgid "#### `&@` operator"
 msgstr "#### `&@`演算子"
 
+#: ../../../tutorial/index.md:95
 msgid "You can use `&@` operator to perform full text search by one keyword:"
 msgstr "1つのキーワードで全文検索をする場合は`&@`演算子を使います。"
 
+#: ../../../tutorial/index.md:97
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &@ 'engine';\n"
-"--  id |                                content                               "
-"  \n"
-"-- ----+----------------------------------------------------------------------"
-"--\n"
-"--   2 | Groonga is a fast full text search engine that supports all languages"
-".\n"
+"--  id |                                content                                 \n"
+"-- ----+------------------------------------------------------------------------\n"
+"--   2 | Groonga is a fast full text search engine that supports all languages.\n"
 "-- (1 row)\n"
 "```"
 msgstr ""
@@ -206,17 +257,22 @@ msgstr ""
 "-- (1 row)\n"
 "```"
 
-msgid "See [`&@` operator](../reference/operators/match-v2.html) for more details."
+#: ../../../tutorial/index.md:105
+msgid ""
+"See [`&@` operator](../reference/operators/match-v2.html) for more details."
 msgstr "詳細は[`&@`演算子](../reference/operators/match-v2.html)を参照してください。"
 
+#: ../../../tutorial/index.md:107
 msgid "#### `&@~` operator"
 msgstr "#### `&@~`演算子"
 
+#: ../../../tutorial/index.md:109
 msgid ""
-"You can use `&@~` operator to perform full text search by query syntax such as"
-" `keyword1 OR keyword2`:"
+"You can use `&@~` operator to perform full text search by query syntax such "
+"as `keyword1 OR keyword2`:"
 msgstr "`キーワード1 OR キーワード2`というようなクエリー構文を使って全文検索をする場合は`&@~`演算子を使えます。"
 
+#: ../../../tutorial/index.md:111
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';\n"
@@ -230,55 +286,55 @@ msgstr ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &@~ 'PGroonga OR PostgreSQL';\n"
 "--  id |                                  content\n"
-"-- ----+----------------------------------------------------------------------"
-"-----\n"
+"-- ----+---------------------------------------------------------------------------\n"
 "--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。\n"
 "--   1 | PostgreSQLはリレーショナル・データベース管理システムです。\n"
 "-- (2 rows)\n"
 "```"
 
+#: ../../../tutorial/index.md:120
 msgid ""
-"Query syntax is similar to syntax of Web search engine ( `keyword1 OR keyword2"
-"` means `OR` search and `keyword1 keyword2` means `AND` search ).\n"
-"For example, you can use `OR` to merge result sets of performing full text sea"
-"rch by two or more words. In the above example, you get a merged result set. T"
-"he merged result set has records that includes `PGroonga` or `PostgreSQL`."
+"Query syntax is similar to syntax of Web search engine ( `keyword1 OR keyword2` means `OR` search and `keyword1 keyword2` means `AND` search ).\n"
+"For example, you can use `OR` to merge result sets of performing full text search by two or more words. In the above example, you get a merged result set. The merged result set has records that includes `PGroonga` or `PostgreSQL`."
 msgstr ""
-"クエリーの構文はWeb検索エンジンで使われている構文と似ています。( `keyword1 OR keyword2`は`OR`検索で、`keyword1 ke"
-"yword2`は`AND` 検索です)\n"
-"たとえば、`OR`を使うと複数のキーワードでの全文検索結果をマージできます。上の例ではマージされた結果が返ってきています。`PGroonga`または`Pos"
-"tgreSQL`を含むレコードがマージされた結果になります。"
+"クエリーの構文はWeb検索エンジンで使われている構文と似ています。( `keyword1 OR keyword2`は`OR`検索で、`keyword1 keyword2`は`AND` 検索です)\n"
+"たとえば、`OR`を使うと複数のキーワードでの全文検索結果をマージできます。上の例ではマージされた結果が返ってきています。`PGroonga`または`PostgreSQL`を含むレコードがマージされた結果になります。"
 
+#: ../../../tutorial/index.md:123
 msgid ""
-"See [Groonga document](http://groonga.org/docs/reference/grn_expr/query_syntax"
-".html) for full query syntax."
+"See [Groonga "
+"document](http://groonga.org/docs/reference/grn_expr/query_syntax.html) for "
+"full query syntax."
 msgstr ""
-"クエリー構文の詳細は[Groongaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query"
-"_syntax.html)を参照してください。"
+"クエリー構文の詳細は[Groongaのドキュメント](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を参照してください。"
 
-msgid "See [`&@~` operator](../reference/operators/query-v2.html) for more details."
+#: ../../../tutorial/index.md:125
+msgid ""
+"See [`&@~` operator](../reference/operators/query-v2.html) for more details."
 msgstr "詳細は[`&@~`演算子](../reference/operators/query-v2.html)を参照してください。"
 
+#: ../../../tutorial/index.md:127
 msgid "#### `LIKE` operator {#like}"
 msgstr "#### `LIKE`演算子 {#like}"
 
+#: ../../../tutorial/index.md:129
 msgid ""
-"PGroonga supports `LIKE` operator. You can perform fast full text search by PG"
-"roonga without changing existing SQL."
-msgstr "PGroongaは`LIKE`演算子をサポートしています。既存のSQLを変更しなくてもPGroongaを使った高速な全文検索を実現できます。"
+"PGroonga supports `LIKE` operator. You can perform fast full text search by "
+"PGroonga without changing existing SQL."
+msgstr ""
+"PGroongaは`LIKE`演算子をサポートしています。既存のSQLを変更しなくてもPGroongaを使った高速な全文検索を実現できます。"
 
+#: ../../../tutorial/index.md:131
 msgid "`column LIKE '%keyword%'` almost equals to `column &@ 'keyword'`:"
 msgstr "`column LIKE '%キーワード%'`は`column &@ 'キーワード'`とほぼ同じです。"
 
+#: ../../../tutorial/index.md:133
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content LIKE '%engine%';\n"
-"--  id |                                content                               "
-"  \n"
-"-- ----+----------------------------------------------------------------------"
-"--\n"
-"--   2 | Groonga is a fast full text search engine that supports all languages"
-".\n"
+"--  id |                                content                                 \n"
+"-- ----+------------------------------------------------------------------------\n"
+"--   2 | Groonga is a fast full text search engine that supports all languages.\n"
 "-- (1 row)\n"
 "```"
 msgstr ""
@@ -290,36 +346,43 @@ msgstr ""
 "-- (1 row)\n"
 "```"
 
+#: ../../../tutorial/index.md:141
 msgid ""
-"`LIKE` operator support is convenient because you can improve performance with"
-"out changing existing applications. But `LIKE` operator is slower than `&@` be"
-"cause `LIKE` operator requires sequential search after index search. The proce"
-"ss is called as \"recheck\". It's recommend that you change to `&@` or `&@~` fro"
-"m `LIKE` in your application for more performance."
+"`LIKE` operator support is convenient because you can improve performance "
+"without changing existing applications. But `LIKE` operator is slower than "
+"`&@` because `LIKE` operator requires sequential search after index search. "
+"The process is called as \"recheck\". It's recommend that you change to `&@`"
+" or `&@~` from `LIKE` in your application for more performance."
 msgstr ""
-"`LIKE`演算子のサポートは既存のアプリケーションを変更せずに性能を改善できるので便利です。しかし、`LIKE`演算子は`&@`よりも遅いです。なぜなら、"
-"`LIKE`演算子はインデックスを使った検索のあとにシーケンシャルサーチする必要があるからです。この処理は「recheck」と呼ばれています。より性能を出す"
-"ためにアプリケーション中の`LIKE`を`&@`または`&@~`に変更することをオススメします。"
+"`LIKE`演算子のサポートは既存のアプリケーションを変更せずに性能を改善できるので便利です。しかし、`LIKE`演算子は`&@`よりも遅いです。なぜなら、`LIKE`演算子はインデックスを使った検索のあとにシーケンシャルサーチする必要があるからです。この処理は「recheck」と呼ばれています。より性能を出すためにアプリケーション中の`LIKE`を`&@`または`&@~`に変更することをオススメします。"
 
-msgid "See [`LIKE` operator](../reference/operators/like.html) for more details."
+#: ../../../tutorial/index.md:143
+msgid ""
+"See [`LIKE` operator](../reference/operators/like.html) for more details."
 msgstr "詳細は[`LIKE`演算子](../reference/operators/like.html)を参照してください。"
 
+#: ../../../tutorial/index.md:145
 msgid "You can also use `ILIKE` operator like `LIKE` operator."
 msgstr "`LIKE`演算子のように`ILIKE`演算子を使うこともできます。"
 
+#: ../../../tutorial/index.md:147
 msgid "### Score {#score}"
 msgstr "### スコアー {#score}"
 
+#: ../../../tutorial/index.md:149
 msgid ""
-"You can use `pgroonga_score` function to get precision as a number. If a recor"
-"d is more precision against searched query, the record has more higher number."
+"You can use `pgroonga_score` function to get precision as a number. If a "
+"record is more precision against searched query, the record has more higher "
+"number."
 msgstr ""
-"`pgroonga_score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値に"
-"なります。"
+"`pgroonga_score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。"
 
-msgid "Here is a sample schema that includes primary key into indexed columns:"
+#: ../../../tutorial/index.md:151
+msgid ""
+"Here is a sample schema that includes primary key into indexed columns:"
 msgstr "以下はインデックス対象のカラムにプライマリーキーが入っているスキーマの例です。"
 
+#: ../../../tutorial/index.md:153
 msgid ""
 "```sql\n"
 "CREATE TABLE score_memos (\n"
@@ -328,6 +391,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../tutorial/index.md:159
 msgid ""
 "CREATE INDEX pgroonga_score_memos_content_index\n"
 "          ON score_memos\n"
@@ -335,41 +399,36 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:166
 msgid ""
 "```sql\n"
-"INSERT INTO score_memos VALUES (1, 'PostgreSQL is a relational database manage"
-"ment system.');\n"
-"INSERT INTO score_memos VALUES (2, 'Groonga is a fast full text search engine "
-"that supports all languages.');\n"
-"INSERT INTO score_memos VALUES (3, 'PGroonga is a PostgreSQL extension that us"
-"es Groonga as index.');\n"
+"INSERT INTO score_memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO score_memos VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO score_memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
 "INSERT INTO score_memos VALUES (4, 'There is groonga command.');\n"
 "```"
 msgstr ""
 "```sql\n"
 "INSERT INTO score_memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。');\n"
 "INSERT INTO score_memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。');\n"
-"INSERT INTO score_memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの"
-"拡張機能です。');\n"
+"INSERT INTO score_memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');\n"
 "INSERT INTO score_memos VALUES (4, 'groongaコマンドがあります。');\n"
 "```"
 
+#: ../../../tutorial/index.md:179
 msgid "Perform full text search and get score."
 msgstr "全文検索を実行してスコアーを取得します。"
 
+#: ../../../tutorial/index.md:181
 msgid ""
 "```sql\n"
 "SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
 "  FROM score_memos\n"
 " WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';\n"
-"--  id |                            content                             | scor"
-"e \n"
-"-- ----+----------------------------------------------------------------+-----"
-"--\n"
-"--   1 | PostgreSQL is a relational database management system.         |     "
-"1\n"
-"--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     "
-"2\n"
+"--  id |                            content                             | score \n"
+"-- ----+----------------------------------------------------------------+-------\n"
+"--   1 | PostgreSQL is a relational database management system.         |     1\n"
+"--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2\n"
 "-- (2 rows)\n"
 "```"
 msgstr ""
@@ -377,34 +436,30 @@ msgstr ""
 "SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
 "  FROM score_memos\n"
 " WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL';\n"
-"--  id |                                  content                             "
-"     | score \n"
-"-- ----+----------------------------------------------------------------------"
-"-----+-------\n"
+"--  id |                                  content                                  | score \n"
+"-- ----+---------------------------------------------------------------------------+-------\n"
 "--   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1\n"
 "--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2\n"
 "-- (2 rows)\n"
 "```"
 
+#: ../../../tutorial/index.md:192
 msgid ""
-"You can sort matched records by precision descending by using `pgroonga_score`"
-" function in `ORDER BY` clause:"
+"You can sort matched records by precision descending by using "
+"`pgroonga_score` function in `ORDER BY` clause:"
 msgstr "`ORDER BY`節で`pgroonga_score`関数を使うことでスコアー順にマッチしたレコードをソートできます。"
 
+#: ../../../tutorial/index.md:194
 msgid ""
 "```sql\n"
 "SELECT *, pgroonga_score(tableoid, ctid) AS score\n"
 "  FROM score_memos\n"
 " WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'\n"
 " ORDER BY pgroonga_score(tableoid, ctid) DESC;\n"
-"--  id |                            content                             | scor"
-"e \n"
-"-- ----+----------------------------------------------------------------+-----"
-"--\n"
-"--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     "
-"2\n"
-"--   1 | PostgreSQL is a relational database management system.         |     "
-"1\n"
+"--  id |                            content                             | score \n"
+"-- ----+----------------------------------------------------------------+-------\n"
+"--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index. |     2\n"
+"--   1 | PostgreSQL is a relational database management system.         |     1\n"
 "-- (2 rows)\n"
 "```"
 msgstr ""
@@ -413,33 +468,36 @@ msgstr ""
 "  FROM score_memos\n"
 " WHERE content &@ 'PGroonga' OR content &@ 'PostgreSQL'\n"
 " ORDER BY pgroonga_score(tableoid, ctid) DESC;\n"
-"--  id |                                  content                             "
-"     | score \n"
-"-- ----+----------------------------------------------------------------------"
-"-----+-------\n"
+"--  id |                                  content                                  | score \n"
+"-- ----+---------------------------------------------------------------------------+-------\n"
 "--   3 | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2\n"
 "--   1 | PostgreSQLはリレーショナル・データベース管理システムです。                |     1\n"
 "-- (2 rows)\n"
 "```"
 
+#: ../../../tutorial/index.md:206
 msgid ""
-"See [`pgroonga_score` function](../reference/functions/pgroonga-score.html) fo"
-"r more details such as how to compute precision."
+"See [`pgroonga_score` function](../reference/functions/pgroonga-score.html) "
+"for more details such as how to compute precision."
 msgstr ""
-"マッチした度合いの計算方法など詳細は[`pgroonga_score`関数](../reference/functions/pgroonga-score.h"
-"tml)を参照してください。"
+"マッチした度合いの計算方法など詳細は[`pgroonga_score`関数](../reference/functions/pgroonga-"
+"score.html)を参照してください。"
 
+#: ../../../tutorial/index.md:208
 msgid "### Highlight {#highlight}"
 msgstr "### ハイライト {#highlight}"
 
+#: ../../../tutorial/index.md:210
 msgid ""
-"You can use `pgroonga_highlight_html` function to get your specified search ke"
-"ywords highlighted easily in the results."
+"You can use `pgroonga_highlight_html` function to get your specified search "
+"keywords highlighted easily in the results."
 msgstr "`pgroonga_highlight_html` 関数を使うことで検索結果の中身を手軽に検索キーワードでハイライトすることができます。"
 
+#: ../../../tutorial/index.md:212
 msgid "Here is a sample schema:"
 msgstr "サンプルスキーマは以下の通りです:"
 
+#: ../../../tutorial/index.md:214
 msgid ""
 "```sql\n"
 "-- Just make sure you already enabled PGroonga Extension\n"
@@ -449,6 +507,7 @@ msgstr ""
 "-- PGroonga Extensionが既にあるかをチェックし、無ければ追加\n"
 "CREATE EXTENSION IF NOT EXISTS pgroonga;"
 
+#: ../../../tutorial/index.md:218
 msgid ""
 "-- Create sample table\n"
 "CREATE TABLE sample_texts (\n"
@@ -462,6 +521,7 @@ msgstr ""
 "  content text\n"
 ");"
 
+#: ../../../tutorial/index.md:224
 msgid ""
 "CREATE INDEX pgroonga_sample_content_index\n"
 "          ON sample_texts\n"
@@ -469,127 +529,138 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:229
 msgid "Insert sample data:"
 msgstr "サンプルデータを挿入します。"
 
+#: ../../../tutorial/index.md:231
 msgid ""
 "```sql\n"
-"INSERT INTO sample_texts VALUES (1, 'PostgreSQL is a relational database manag"
-"ement system.');\n"
-"INSERT INTO sample_texts VALUES (2, 'Groonga is a fast full text search engine"
-" that supports all languages.');\n"
-"INSERT INTO sample_texts VALUES (3, 'PGroonga is a PostgreSQL extension that u"
-"ses Groonga as index.');\n"
+"INSERT INTO sample_texts VALUES (1, 'PostgreSQL is a relational database management system.');\n"
+"INSERT INTO sample_texts VALUES (2, 'Groonga is a fast full text search engine that supports all languages.');\n"
+"INSERT INTO sample_texts VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');\n"
 "INSERT INTO sample_texts VALUES (4, 'There is groonga command.');\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:238
 msgid ""
-"Perform full text search and get your search keywords ('PostgreSQL' and 'datab"
-"ase' in this example) highlighted."
+"Perform full text search and get your search keywords ('PostgreSQL' and "
+"'database' in this example) highlighted."
 msgstr "全文検索を実施し、検索キーワード（この例では’PostgreSQL’と’database’ですね）をハイライト表示させます。"
 
+#: ../../../tutorial/index.md:240
 msgid ""
 "```sql\n"
 "SELECT\n"
 "\tpgroonga_highlight_html (content,\n"
-"\t\tpgroonga_query_extract_keywords ('PostgreSQL database')) AS highlighted_cont"
-"ent\n"
+"\t\tpgroonga_query_extract_keywords ('PostgreSQL database')) AS highlighted_content\n"
 "FROM\n"
 "\tsample_texts\n"
 "WHERE\n"
 "\tCONTENT &@~ 'PostgreSQL database';"
 msgstr ""
 
+#: ../../../tutorial/index.md:249
 msgid ""
-"--                                                highlighted_content         "
-"                                       \n"
-"-- ---------------------------------------------------------------------------"
-"---------------------------------------\n"
-"--  <span class=\"keyword\">PostgreSQL</span> is a relational <span class=\"keywo"
-"rd\">database</span> management system.\n"
+"--                                                highlighted_content                                                \n"
+"-- ------------------------------------------------------------------------------------------------------------------\n"
+"--  <span class=\"keyword\">PostgreSQL</span> is a relational <span class=\"keyword\">database</span> management system.\n"
 "-- (1 row)\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:255
 msgid ""
-"See [`pgroonga_highlight_html` function](../reference/functions/pgroonga-highl"
-"ight-html.html) and [`pgroonga_query_extract_keywords` function](../reference/"
-"functions/pgroonga-query-extract-keywords.html) for more details."
+"See [`pgroonga_highlight_html` function](../reference/functions/pgroonga-"
+"highlight-html.html) and [`pgroonga_query_extract_keywords` "
+"function](../reference/functions/pgroonga-query-extract-keywords.html) for "
+"more details."
 msgstr ""
-"詳細は [`pgroonga_highlight_html` 関数](../reference/functions/pgroonga-highlight-h"
-"tml.html) と [`pgroonga_query_extract_keywords` 関数](../reference/functions/pgro"
-"onga-query-extract-keywords.html) を参照してください。"
+"詳細は [`pgroonga_highlight_html` 関数](../reference/functions/pgroonga-"
+"highlight-html.html) と [`pgroonga_query_extract_keywords` "
+"関数](../reference/functions/pgroonga-query-extract-keywords.html) を参照してください。"
 
+#: ../../../tutorial/index.md:257
 msgid "### Snippet (KWIC, keyword in context) {#snippet}"
 msgstr "### スニペット（KWIC、keyword in context） {#snippet}"
 
+#: ../../../tutorial/index.md:259
 msgid ""
-"You can use `pgroonga_snippet_html` function to get texts around keywords from"
-" search target text. It's also known as [KWIC](https://en.wikipedia.org/wiki/K"
-"ey_Word_in_Context) (keyword in context). You can see it in search result on W"
-"eb search engine."
+"You can use `pgroonga_snippet_html` function to get texts around keywords "
+"from search target text. It's also known as "
+"[KWIC](https://en.wikipedia.org/wiki/Key_Word_in_Context) (keyword in "
+"context). You can see it in search result on Web search engine."
 msgstr ""
-"`pgroonga_snippet_html`関数を使うと検索対象のテキストからキーワード周辺のテキストを抽出できます。この処理を[KWIC](https:"
-"//ja.wikipedia.org/wiki/KWIC)（keyword in context）とも言います。Webの検索エンジンの検索結果でみたことがあ"
-"る人も多いでしょう。"
+"`pgroonga_snippet_html`関数を使うと検索対象のテキストからキーワード周辺のテキストを抽出できます。この処理を[KWIC](https://ja.wikipedia.org/wiki/KWIC)（keyword"
+" in context）とも言います。Webの検索エンジンの検索結果でみたことがある人も多いでしょう。"
 
-msgid "Here is a sample text for description. It's a description about Groonga."
+#: ../../../tutorial/index.md:261
+msgid ""
+"Here is a sample text for description. It's a description about Groonga."
 msgstr "説明用のサンプルテキストは次の通りです。なお、これはGroongaの説明文です。"
 
+#: ../../../tutorial/index.md:263
 msgid ""
-"> Groonga is a fast and accurate full text search engine based on inverted ind"
-"ex. One of the characteristics of Groonga is that a newly registered document "
-"instantly appears in search results. Also, Groonga allows updates without read"
-" locks. These characteristics result in superior performance on real-time appl"
-"ications."
+"> Groonga is a fast and accurate full text search engine based on inverted "
+"index. One of the characteristics of Groonga is that a newly registered "
+"document instantly appears in search results. Also, Groonga allows updates "
+"without read locks. These characteristics result in superior performance on "
+"real-time applications."
 msgstr ""
 
+#: ../../../tutorial/index.md:266
 msgid ""
-"There are some `fast` keywords. `pgroonga_snippet_html` extracts texts around "
-"`fast`. Keywords in extracted texts are surround with `<span class=\"keyword\">`"
-" and `</span>`."
+"There are some `fast` keywords. `pgroonga_snippet_html` extracts texts "
+"around `fast`. Keywords in extracted texts are surround with `<span "
+"class=\"keyword\">` and `</span>`."
 msgstr ""
-"この中には`fast`というキーワードがいくつか出現しています。`pgroonga_snippet_html`は`fast`周辺のテキストを抽出します。抽出"
-"されたテキスト内のキーワードは`<span class=\"keyword\">`と`</span>`で囲まれています。"
+"この中には`fast`というキーワードがいくつか出現しています。`pgroonga_snippet_html`は`fast`周辺のテキストを抽出します。抽出されたテキスト内のキーワードは`<span"
+" class=\"keyword\">`と`</span>`で囲まれています。"
 
+#: ../../../tutorial/index.md:268
 msgid ""
-"`html` in `pgroonga_snippet_html` means that this function returns result for "
-"HTML output."
+"`html` in `pgroonga_snippet_html` means that this function returns result "
+"for HTML output."
 msgstr "`pgroonga_snippet_html`という関数名の中の`html`は、この関数はHTML出力用の結果を返す、という意味です。"
 
+#: ../../../tutorial/index.md:270
 msgid "Here is the result of `pgroonga_snippet_html` against the above text:"
 msgstr "上述のテキストに対して`pgroonga_snippet_html`を実行した結果は次の通りです。"
 
+#: ../../../tutorial/index.md:272
 msgid ""
-"> Groonga is a <span class=\"keyword\">fast</span> and accurate full text search"
-" engine based on inverted index. One of the characteristics of Groonga is that"
-" a newly registered document instantly appears in search results. Also, Gro"
+"> Groonga is a <span class=\"keyword\">fast</span> and accurate full text "
+"search engine based on inverted index. One of the characteristics of Groonga"
+" is that a newly registered document instantly appears in search results. "
+"Also, Gro"
 msgstr ""
 
+#: ../../../tutorial/index.md:274
 msgid ""
-"This function can be used for all texts. It's not only for search result by PG"
-"roonga."
+"This function can be used for all texts. It's not only for search result by "
+"PGroonga."
 msgstr "この関数はすべてのテキストに対して使うことができます。PGroongaでの検索結果以外にも使えるということです。"
 
+#: ../../../tutorial/index.md:276
 msgid ""
-"Here is a sample SQL that describes about it. You can use the function in the "
-"following `SELECT` that doesn't have `FROM`. Note that [`unnest`]({{ site.post"
-"gresql_doc_base_url.en }}/functions-array.html) is a PostgreSQL function that "
-"converts an array to rows."
+"Here is a sample SQL that describes about it. You can use the function in "
+"the following `SELECT` that doesn't have `FROM`. Note that [`unnest`]({{ "
+"site.postgresql_doc_base_url.en }}/functions-array.html) is a PostgreSQL "
+"function that converts an array to rows."
 msgstr ""
-"この挙動を説明するサンプルSQLは次の通りです。`FROM`がない次の`SELECT`でもこの関数を使えます。[`unnest`]({{ site.post"
-"gresql_doc_base_url.ja }}/functions-array.html)は配列を列に変換するPostgreSQLの関数であることに注意"
-"してください。"
+"この挙動を説明するサンプルSQLは次の通りです。`FROM`がない次の`SELECT`でもこの関数を使えます。[`unnest`]({{ "
+"site.postgresql_doc_base_url.ja }}/functions-"
+"array.html)は配列を列に変換するPostgreSQLの関数であることに注意してください。"
 
+#: ../../../tutorial/index.md:278
 msgid ""
 "```sql\n"
 "SELECT unnest(pgroonga_snippet_html(\n"
 "  'Groonga is a fast and accurate full text search engine based on ' ||\n"
 "  'inverted index. One of the characteristics of Groonga is that a ' ||\n"
 "  'newly registered document instantly appears in search results. ' ||\n"
-"  'Also, Groonga allows updates without read locks. These characteristics ' ||"
-"\n"
+"  'Also, Groonga allows updates without read locks. These characteristics ' ||\n"
 "  'result in superior performance on real-time applications.' ||\n"
 "  '\\n' ||\n"
 "  '\\n' ||\n"
@@ -599,87 +670,96 @@ msgid ""
 "  'queries. Due to this advantage, Groonga can cover weakness of ' ||\n"
 "  'row-oriented systems.',\n"
 "  ARRAY['fast', 'PostgreSQL']));\n"
-"                                                                              "
-"   --                                unnest                                   "
-"                                                                              "
-"\n"
-"-- ---------------------------------------------------------------------------"
-"------------------------------------------------------------------------------"
-"------------------------------------------------------------------------------"
-"\n"
-"--  Groonga is a <span class=\"keyword\">fast</span> and accurate full text sear"
-"ch engine based on inverted index. One of the characteristics of Groonga is th"
-"at a newly registered document instantly appears in search results. Also, Gro\n"
-"--  ase management system (DBMS). Compared with well-known row-oriented system"
-"s, such as MySQL and <span class=\"keyword\">PostgreSQL</span>, column-oriented "
-"systems are more suited for aggregate queries. Due to this advantage, Groonga\n"
+"                                                                                 --                                unnest                                                                                                                 \n"
+"-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+"--  Groonga is a <span class=\"keyword\">fast</span> and accurate full text search engine based on inverted index. One of the characteristics of Groonga is that a newly registered document instantly appears in search results. Also, Gro\n"
+"--  ase management system (DBMS). Compared with well-known row-oriented systems, such as MySQL and <span class=\"keyword\">PostgreSQL</span>, column-oriented systems are more suited for aggregate queries. Due to this advantage, Groonga\n"
 "-- (2 rows)\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:300
 msgid ""
-"See [`pgroonga_snippet_html` function](../reference/functions/pgroonga-snippet"
-"-html.html) for more details."
+"See [`pgroonga_snippet_html` function](../reference/functions/pgroonga-"
+"snippet-html.html) for more details."
 msgstr ""
-"詳細は[`pgroonga_snippet_html`関数](../reference/functions/pgroonga-snippet-html.ht"
-"ml)を参照してください。"
+"詳細は[`pgroonga_snippet_html`関数](../reference/functions/pgroonga-snippet-"
+"html.html)を参照してください。"
 
+#: ../../../tutorial/index.md:302
 msgid "### Synonym {#synonym}"
 msgstr "### 同義語 {#synonym}"
 
+#: ../../../tutorial/index.md:304
 msgid ""
-"See [How to use synonym expansion](../how-to/synonym-expansion.html) for more "
-"details."
+"See [How to use synonym expansion](../how-to/synonym-expansion.html) for "
+"more details."
 msgstr "詳細は[同義語展開の使い方](../how-to/synonym-expansion.html)を参照してください。"
 
+#: ../../../tutorial/index.md:306
 msgid "## Regular expression {#regular-expression}"
 msgstr "## 正規表現 {#regular-expression}"
 
+#: ../../../tutorial/index.md:308 ../../../tutorial/index.md:314
+#: ../../../tutorial/index.md:713
 msgid "TODO"
 msgstr ""
 
+#: ../../../tutorial/index.md:310
 msgid ""
-"See [`&~` operator](../reference/operators/regular-expression-v2.html) for mor"
-"e details."
-msgstr "詳細は[`&~`演算子](../reference/operators/regular-expression-v2.html)を参照してください。"
+"See [`&~` operator](../reference/operators/regular-expression-v2.html) for "
+"more details."
+msgstr ""
+"詳細は[`&~`演算子](../reference/operators/regular-expression-v2.html)を参照してください。"
 
+#: ../../../tutorial/index.md:312
 msgid "## Similar search {#similar-search}"
 msgstr "## 類似文書検索 {#similar-search}"
 
+#: ../../../tutorial/index.md:316
 msgid ""
-"See [`&@*` operator](../reference/operators/similar-search-v2.html) for more d"
-"etails."
-msgstr "詳細は[`&@*`演算子](../reference/operators/similar-search-v2.html)を参照してください。"
+"See [`&@*` operator](../reference/operators/similar-search-v2.html) for more"
+" details."
+msgstr ""
+"詳細は[`&@*`演算子](../reference/operators/similar-search-v2.html)を参照してください。"
 
+#: ../../../tutorial/index.md:318
 msgid "## Equality condition and comparison conditions {#equal}"
 msgstr "## 等価条件と比較条件 {#equal}"
 
+#: ../../../tutorial/index.md:320
 msgid ""
-"You can use PGroonga for equality condition and comparison conditions. There a"
-"re some differences between how to create index for string types and other typ"
-"es. There is no difference between how to write condition for string types and"
-" other types."
+"You can use PGroonga for equality condition and comparison conditions. There"
+" are some differences between how to create index for string types and other"
+" types. There is no difference between how to write condition for string "
+"types and other types."
 msgstr ""
-"等価条件と比較条件にもPGroongaを使うことができます。この使い方をする場合、文字列型と他の型でインデックスの作り方が異なります。条件の書き方は文字列型"
-"でも他の型でも違いはありません。"
+"等価条件と比較条件にもPGroongaを使うことができます。この使い方をする場合、文字列型と他の型でインデックスの作り方が異なります。条件の書き方は文字列型でも他の型でも違いはありません。"
 
+#: ../../../tutorial/index.md:324
 msgid "  * How to use PGroonga for not string types"
 msgstr "  * 文字列型以外の型に対してPGroongaを使う方法"
 
+#: ../../../tutorial/index.md:326
 msgid "  * How to use PGroonga for string types"
 msgstr "  * 文字列型に対してPGroongaを使う方法"
 
+#: ../../../tutorial/index.md:328
 msgid "### How to use PGroonga for not string types {#equal-not-string}"
 msgstr "### 文字列型以外の型に対してPGroongaを使う方法 {#equal-not-string}"
 
+#: ../../../tutorial/index.md:330
 msgid ""
-"You can use PGroonga for not string types such as number. You can use equality"
-" condition and comparison conditions against these types."
+"You can use PGroonga for not string types such as number. You can use "
+"equality condition and comparison conditions against these types."
 msgstr "数値型のように文字列型以外の型にPGroongaを使うことができます。対象の型に対して等価条件と比較条件を使うことができます。"
 
+#: ../../../tutorial/index.md:332 ../../../tutorial/index.md:375
+#: ../../../tutorial/index.md:428 ../../../tutorial/index.md:470
 msgid "Create index with `USING pgroonga`:"
 msgstr "`USING pgroonga`付きでインデックスを作成します。"
 
+#: ../../../tutorial/index.md:334
 msgid ""
 "```sql\n"
 "CREATE TABLE ids (\n"
@@ -687,18 +767,21 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../tutorial/index.md:339
 msgid ""
 "CREATE INDEX pgroonga_id_index ON ids USING pgroonga (id);\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:342 ../../../tutorial/index.md:386
 msgid ""
-"The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for B-"
-"tree index to use PGroonga."
+"The special SQL to use PGroonga is only `CREATE INDEX`. You can use SQL for "
+"B-tree index to use PGroonga."
 msgstr ""
-"PGroongaを使うために必要になる特別なSQLの書き方は`CREATE INDEX`の書き方だけです。PGroongaを使うときはBツリーのインデックス"
-"を使うときのSQLと同じSQLを使えます。"
+"PGroongaを使うために必要になる特別なSQLの書き方は`CREATE "
+"INDEX`の書き方だけです。PGroongaを使うときはBツリーのインデックスを使うときのSQLと同じSQLを使えます。"
 
+#: ../../../tutorial/index.md:346
 msgid ""
 "```sql\n"
 "INSERT INTO ids VALUES (1);\n"
@@ -707,12 +790,16 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:352 ../../../tutorial/index.md:396
+#: ../../../tutorial/index.md:591
 msgid "Disable sequential scan:"
 msgstr "シーケンシャルスキャンを無効にします。"
 
+#: ../../../tutorial/index.md:358 ../../../tutorial/index.md:402
 msgid "Search:"
 msgstr "検索します。"
 
+#: ../../../tutorial/index.md:360
 msgid ""
 "```sql\n"
 "SELECT * FROM ids WHERE id <= 2;\n"
@@ -724,26 +811,29 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:369
 msgid "### How to use PGroonga for string types {#equal-string}"
 msgstr "### 文字列型に対してPGroongaを使う方法 {#equal-string}"
 
+#: ../../../tutorial/index.md:371
 msgid ""
-"You need to use `varchar` type to use PGroonga as an index for equality condit"
-"ion and comparison conditions against string."
+"You need to use `varchar` type to use PGroonga as an index for equality "
+"condition and comparison conditions against string."
 msgstr "文字列に対する等価条件・比較条件用のインデックスとしてPGroongaを使うためには`varchar`型を使う必要があります。"
 
+#: ../../../tutorial/index.md:373
 msgid ""
-"You must to specify the maximum number of characters of `varchar` to satisfy t"
-"hat the maximum byte size of the column is equal to 4096 byte or smaller. Rela"
-"tion between the maximum number of characters and the maximum byte size is rel"
-"ated to encoding. For example, you must to specify 1023 or smaller as the maxi"
-"mum number of characters for UTF-8 encoding. Because UTF-8 encoding `varchar` "
-"keeps 4 byte for one character and PostgreSQL uses 4 byte for metadata."
+"You must to specify the maximum number of characters of `varchar` to satisfy"
+" that the maximum byte size of the column is equal to 4096 byte or smaller. "
+"Relation between the maximum number of characters and the maximum byte size "
+"is related to encoding. For example, you must to specify 1023 or smaller as "
+"the maximum number of characters for UTF-8 encoding. Because UTF-8 encoding "
+"`varchar` keeps 4 byte for one character and PostgreSQL uses 4 byte for "
+"metadata."
 msgstr ""
-"`varchar`型の最大文字数は最大バイト数が4096バイト以下になるように指定する必要があります。たとえば、UTF-8エンコーディングを使う場合は最大文"
-"字数は1023文字以下にする必要があります。なぜなら、UTF-8エンコーディングの`varchar`は1文字あたり4バイト確保し、PostgreSQLはメタ"
-"データ用に4バイトを確保するからです。"
+"`varchar`型の最大文字数は最大バイト数が4096バイト以下になるように指定する必要があります。たとえば、UTF-8エンコーディングを使う場合は最大文字数は1023文字以下にする必要があります。なぜなら、UTF-8エンコーディングの`varchar`は1文字あたり4バイト確保し、PostgreSQLはメタデータ用に4バイトを確保するからです。"
 
+#: ../../../tutorial/index.md:377
 msgid ""
 "```sql\n"
 "CREATE TABLE tags (\n"
@@ -752,11 +842,13 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../tutorial/index.md:383
 msgid ""
 "CREATE INDEX pgroonga_tag_index ON tags USING pgroonga (tag);\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:390
 msgid ""
 "```sql\n"
 "INSERT INTO tags VALUES (1, 'PostgreSQL');\n"
@@ -765,6 +857,7 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:404
 msgid ""
 "```sql\n"
 "SELECT * FROM tags WHERE tag = 'Groonga';\n"
@@ -777,36 +870,43 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:414
 msgid "## How to use PGroonga for array"
 msgstr "## 配列に対してPGroongaを使う方法"
 
+#: ../../../tutorial/index.md:416
 msgid ""
-"You can use PGroonga as an index for array of `text` type or array of `varchar"
-"`."
+"You can use PGroonga as an index for array of `text` type or array of "
+"`varchar`."
 msgstr "`text`型の配列または`varchar`型の配列のインデックスとしてPGroongaを使うことができます。"
 
+#: ../../../tutorial/index.md:418
 msgid ""
-"You can perform full text search against array of `text` type. If one or more "
-"elements in an array are matched, the record is matched."
+"You can perform full text search against array of `text` type. If one or "
+"more elements in an array are matched, the record is matched."
 msgstr "`text`型の配列に対して全文検索することができます。配列の中の1つ以上の要素がマッチしたらそのレコードはマッチしたことになります。"
 
+#: ../../../tutorial/index.md:420
 msgid ""
-"You can perform equality condition against array of `varchar` type. If one or "
-"more elements in an array are matched, the record is matched. It's useful for "
-"tag search."
+"You can perform equality condition against array of `varchar` type. If one "
+"or more elements in an array are matched, the record is matched. It's useful"
+" for tag search."
 msgstr ""
-"`varchar`型の配列に対して等価条件で検索することができます。配列の中の1つ以上の要素がマッチしたらそのレコードはマッチしたことになります。これはタグ"
-"検索で有用です。"
+"`varchar`型の配列に対して等価条件で検索することができます。配列の中の1つ以上の要素がマッチしたらそのレコードはマッチしたことになります。これはタグ検索で有用です。"
 
+#: ../../../tutorial/index.md:422
 msgid "  * How to use PGroonga for `text` type of array"
 msgstr "  * `text`型の配列に対してPGroongaを使う方法"
 
+#: ../../../tutorial/index.md:424
 msgid "  * How to use PGroonga for `varchar` type of array"
 msgstr "  * `varchar`型の配列に対してPGroongaを使う方法"
 
+#: ../../../tutorial/index.md:426
 msgid "### How to use PGroonga for `text` type of array"
 msgstr "### `text`型の配列に対してPGroongaを使う方法"
 
+#: ../../../tutorial/index.md:430
 msgid ""
 "```sql\n"
 "CREATE TABLE docs (\n"
@@ -815,11 +915,13 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../tutorial/index.md:436
 msgid ""
 "CREATE INDEX pgroonga_sections_index ON docs USING pgroonga (sections);\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:441
 msgid ""
 "```sql\n"
 "INSERT INTO docs\n"
@@ -828,15 +930,12 @@ msgid ""
 "                   'PostgreSQL supports full text search partially.']);\n"
 "INSERT INTO docs\n"
 "     VALUES (2,\n"
-"             ARRAY['Groonga is a fast full text search engine that supports al"
-"l languages.',\n"
+"             ARRAY['Groonga is a fast full text search engine that supports all languages.',\n"
 "                   'Groonga can be embedded into other systems.']);\n"
 "INSERT INTO docs\n"
 "     VALUES (3,\n"
-"             ARRAY['PGroonga is a PostgreSQL extension that uses Groonga as in"
-"dex.',\n"
-"                   'It adds powerful full text search feature to PostgreSQL.']"
-");\n"
+"             ARRAY['PGroonga is a PostgreSQL extension that uses Groonga as index.',\n"
+"                   'It adds powerful full text search feature to PostgreSQL.']);\n"
 "```"
 msgstr ""
 "```sql\n"
@@ -854,43 +953,39 @@ msgstr ""
 "                   'PostgreSQLに高機能な全文検索機能を追加します。']);\n"
 "```"
 
+#: ../../../tutorial/index.md:456
 msgid ""
-"You can use `&@` operator or `&@~` operator for full text search. The full tex"
-"t search doesn't care about the position of element."
+"You can use `&@` operator or `&@~` operator for full text search. The full "
+"text search doesn't care about the position of element."
 msgstr "全文検索には`&@`演算子または`&@~`演算子を使います。全文検索では何番目の要素かは考慮しません。"
 
+#: ../../../tutorial/index.md:458
 msgid ""
 "```sql\n"
 "SELECT * FROM docs WHERE sections &@ 'text';\n"
-"--  id |                                                           sections   "
-"                                                         \n"
-"-- ----+----------------------------------------------------------------------"
-"---------------------------------------------------------\n"
-"--   1 | {\"PostgreSQL is a relational database management system.\",\"PostgreSQL"
-" supports full text search partially.\"}\n"
-"--   2 | {\"Groonga is a fast full text search engine that supports all languag"
-"es.\",\"Groonga can be embedded into other systems.\"}\n"
-"--   3 | {\"PGroonga is a PostgreSQL extension that uses Groonga as index.\",\"It"
-" adds powerful full text search feature to PostgreSQL.\"}\n"
+"--  id |                                                           sections                                                            \n"
+"-- ----+-------------------------------------------------------------------------------------------------------------------------------\n"
+"--   1 | {\"PostgreSQL is a relational database management system.\",\"PostgreSQL supports full text search partially.\"}\n"
+"--   2 | {\"Groonga is a fast full text search engine that supports all languages.\",\"Groonga can be embedded into other systems.\"}\n"
+"--   3 | {\"PGroonga is a PostgreSQL extension that uses Groonga as index.\",\"It adds powerful full text search feature to PostgreSQL.\"}\n"
 "-- (3 rows)\n"
 "```"
 msgstr ""
 "```sql\n"
 "SELECT * FROM docs WHERE sections &@ '全文検索';\n"
-"--  id |                                                          sections    "
-"                                                      \n"
-"-- ----+----------------------------------------------------------------------"
-"------------------------------------------------------\n"
+"--  id |                                                          sections                                                          \n"
+"-- ----+----------------------------------------------------------------------------------------------------------------------------\n"
 "--   1 | {PostgreSQLはリレーショナル・データベース管理システムです。,PostgreSQLは部分的に全文検索をサポートしています。}\n"
 "--   2 | {Groongaは日本語対応の高速な全文検索エンジンです。,Groongaは他のシステムに組み込むことができます。}\n"
-"--   3 | {PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。,PostgreSQLに高機能な全文検"
-"索機能を追加します。}\n"
+"--   3 | {PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。,PostgreSQLに高機能な全文検索機能を追加します。}\n"
 "-- (3 rows)\n"
 "```"
 
+#: ../../../tutorial/index.md:468
 msgid "### How to use PGroonga for `varchar` type of array"
 msgstr "### `varchar`型の配列に対してPGroongaを使う方法"
 
+#: ../../../tutorial/index.md:472
 msgid ""
 "```sql\n"
 "CREATE TABLE products (\n"
@@ -900,11 +995,13 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../tutorial/index.md:479
 msgid ""
 "CREATE INDEX pgroonga_tags_index ON products USING pgroonga (tags);\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:484
 msgid ""
 "```sql\n"
 "INSERT INTO products\n"
@@ -922,12 +1019,14 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:499
 msgid ""
-"You can use `&@` operator to find records that have one or more matched elemen"
-"ts. If element's value equals to queried value, the element is treated as matc"
-"hed."
+"You can use `&@` operator to find records that have one or more matched "
+"elements. If element's value equals to queried value, the element is treated"
+" as matched."
 msgstr "指定した要素を含むレコードを検索するには`&@`演算子を使います。要素の値が指定した値と同じなら、その要素はマッチしたことになります。"
 
+#: ../../../tutorial/index.md:501
 msgid ""
 "```sql\n"
 "SELECT * FROM products WHERE tags &@ 'PostgreSQL';\n"
@@ -939,27 +1038,32 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:510
 msgid "## How to use PGroonga for JSON {#json}"
 msgstr "## JSONに対してPGroongaを使う方法 {#json}"
 
+#: ../../../tutorial/index.md:512
 msgid ""
-"PGroonga also supports `jsonb` type. You can search JSON data by one or more k"
-"eys and/or one or more values with PGroonga."
+"PGroonga also supports `jsonb` type. You can search JSON data by one or more"
+" keys and/or one or more values with PGroonga."
 msgstr "PGroongaは`jsonb`型にも対応しています。PGroongaを使うとJSON中のキー・値に対して検索することができます。"
 
+#: ../../../tutorial/index.md:514
 msgid ""
-"You can also search JSON data by full text search against all text values in J"
-"SON. It's an unique feature of PGroonga. Built-in PostgreSQL 9 features and [J"
-"sQuery](https://github.com/postgrespro/jsquery) don't support it. PostgreSQL 1"
-"0 supports it as a built-in feature."
+"You can also search JSON data by full text search against all text values in"
+" JSON. It's an unique feature of PGroonga. Built-in PostgreSQL 9 features "
+"and [JsQuery](https://github.com/postgrespro/jsquery) don't support it. "
+"PostgreSQL 10 supports it as a built-in feature."
 msgstr ""
-"JSON中のすべてのテキスト値に対して全文検索することもできます。これはPGroonga独自の機能です。PostgreSQL 9の組み込みの機能でも[JsQ"
-"uery](https://github.com/postgrespro/jsquery)でもこの機能はサポートしていません。PostgreSQL 10では"
-"組み込みの機能でサポートしています。"
+"JSON中のすべてのテキスト値に対して全文検索することもできます。これはPGroonga独自の機能です。PostgreSQL "
+"9の組み込みの機能でも[JsQuery](https://github.com/postgrespro/jsquery)でもこの機能はサポートしていません。PostgreSQL"
+" 10では組み込みの機能でサポートしています。"
 
+#: ../../../tutorial/index.md:516
 msgid "Think about the following JSON:"
 msgstr "次のJSONを考えてください。"
 
+#: ../../../tutorial/index.md:518
 msgid ""
 "```json\n"
 "{\n"
@@ -972,60 +1076,76 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:528
 msgid ""
-"You can find the JSON by full text search with `search`, `example` or `web` be"
-"cause all text values are full text search target."
+"You can find the JSON by full text search with `search`, `example` or `web` "
+"because all text values are full text search target."
 msgstr ""
-"`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だから"
-"です。"
+"`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だからです。"
 
-msgid "PGroonga provides the following two operators for searching against `jsonb`:"
+#: ../../../tutorial/index.md:530
+msgid ""
+"PGroonga provides the following two operators for searching against `jsonb`:"
 msgstr "PGroongaは`jsonb`に対して検索するために次の2つの演算子を提供しています。"
 
+#: ../../../tutorial/index.md:532
 msgid "  * `@>` operator"
 msgstr "  * `@>`演算子"
 
+#: ../../../tutorial/index.md:534
 msgid "  * `&@` operator"
 msgstr "  * `&@`演算子"
 
+#: ../../../tutorial/index.md:536
 msgid "  * `&@~` operator"
 msgstr "  * `&@~`演算子"
 
+#: ../../../tutorial/index.md:538
 msgid "  * `` &` `` operator"
 msgstr "  * `` &` ``演算子"
 
+#: ../../../tutorial/index.md:540
 msgid ""
-"[`@>` operator is a built-in PostgreSQL operator]({{ site.postgresql_doc_base_"
-"url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-TABLE). `@>` returns true whe"
-"n the right hand side `jsonb` is a subset of left hand side `jsonb`."
+"[`@>` operator is a built-in PostgreSQL operator]({{ "
+"site.postgresql_doc_base_url.en }}/functions-json.html#FUNCTIONS-JSONB-OP-"
+"TABLE). `@>` returns true when the right hand side `jsonb` is a subset of "
+"left hand side `jsonb`."
 msgstr ""
-"[`@>`演算子はPostgreSQL組み込みの演算子]({{ site.postgresql_doc_base_url.ja }}/functions-j"
-"son.html#functions-jsonb-op-table)です。`@>`は右辺の`jsonb`が左辺の`jsonb`のサブセットなら真を返します。"
+"[`@>`演算子はPostgreSQL組み込みの演算子]({{ site.postgresql_doc_base_url.ja "
+"}}/functions-json.html#functions-jsonb-op-"
+"table)です。`@>`は右辺の`jsonb`が左辺の`jsonb`のサブセットなら真を返します。"
 
+#: ../../../tutorial/index.md:542
 msgid "You can execute `@>` faster by PGroonga."
 msgstr "PGroongaを使うことで高速に`@>`を実行出来ます。"
 
+#: ../../../tutorial/index.md:544 ../../../tutorial/index.md:631
 msgid ""
-"`&@` operator is a PGroonga original operator. You can perform full text searc"
-"h against all texts in JSON by one keyword."
+"`&@` operator is a PGroonga original operator. You can perform full text "
+"search against all texts in JSON by one keyword."
 msgstr "`&@`演算子はPGroonga独自の演算子です。JSON中のすべてのテキストを対象に指定した1つのキーワードを全文検索できます。"
 
+#: ../../../tutorial/index.md:546 ../../../tutorial/index.md:654
 msgid ""
-"`&@~` operator is a PGroonga original operator. You can perform full text sear"
-"ch against all texts in JSON by query syntax."
+"`&@~` operator is a PGroonga original operator. You can perform full text "
+"search against all texts in JSON by query syntax."
 msgstr "`&@~`演算子はPGroonga独自の演算子です。JSON中のすべてのテキストを対象にクエリー構文を使って全文検索できます。"
 
+#: ../../../tutorial/index.md:548 ../../../tutorial/index.md:685
 msgid ""
-"`` &` `` operator is a PGroonga original operator. You can write complex condi"
-"tion that can't be written by `@>` operator such as range search."
+"`` &` `` operator is a PGroonga original operator. You can write complex "
+"condition that can't be written by `@>` operator such as range search."
 msgstr "`` &` ``演算子はPGroonga独自の演算子です。`@>`演算子では記述できない範囲検索のような複雑な条件も書けます。"
 
+#: ../../../tutorial/index.md:550
 msgid "### Sample schema and data"
 msgstr "### サンプルスキーマとデータ"
 
+#: ../../../tutorial/index.md:552
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../tutorial/index.md:554
 msgid ""
 "```sql\n"
 "CREATE TABLE logs (\n"
@@ -1033,9 +1153,11 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../tutorial/index.md:559
 msgid "CREATE INDEX pgroonga_logs_index ON logs USING pgroonga (record);"
 msgstr ""
 
+#: ../../../tutorial/index.md:561
 msgid ""
 "INSERT INTO logs\n"
 "     VALUES ('{\n"
@@ -1068,24 +1190,26 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:597
 msgid "### `@>` operator {#jsonb-contain}"
 msgstr "### `@>`演算子 {#jsonb-contain}"
 
+#: ../../../tutorial/index.md:599
 msgid ""
-"`@>` operator specify search condition by `jsonb` value. If condition `jsonb` "
-"value is a subset of the search target `jsonb` value, `@>` operator returns `t"
-"rue`."
+"`@>` operator specify search condition by `jsonb` value. If condition "
+"`jsonb` value is a subset of the search target `jsonb` value, `@>` operator "
+"returns `true`."
 msgstr ""
-"`@>`演算子は`jsonb`の値で検索条件を指定します。もし、条件に指定した`jsonb`の値が検索対象の`jsonb`の値のサブセットなら`@>`演算子"
-"は`true`を返します。"
+"`@>`演算子は`jsonb`の値で検索条件を指定します。もし、条件に指定した`jsonb`の値が検索対象の`jsonb`の値のサブセットなら`@>`演算子は`true`を返します。"
 
+#: ../../../tutorial/index.md:601
 msgid "Here is an example:"
 msgstr "例です。"
 
+#: ../../../tutorial/index.md:603
 msgid ""
 "```sql\n"
-"SELECT jsonb_pretty(record) FROM logs WHERE record @> '{\"host\": \"www.example.c"
-"om\"}'::jsonb;\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record @> '{\"host\": \"www.example.com\"}'::jsonb;\n"
 "--             jsonb_pretty             \n"
 "-- -------------------------------------\n"
 "--  {                                  +\n"
@@ -1109,17 +1233,21 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:627
 msgid ""
-"See [`@>` operator](../reference/operators/jsonb-contain.html) for more detail"
-"s."
+"See [`@>` operator](../reference/operators/jsonb-contain.html) for more "
+"details."
 msgstr "詳細は[`@>`演算子](../reference/operators/jsonb-contain.html)を参照してください。"
 
+#: ../../../tutorial/index.md:629
 msgid "### `&@` operator"
 msgstr "### `&@`演算子"
 
+#: ../../../tutorial/index.md:633
 msgid "Here is an example to search \"server\" in JSON:"
 msgstr "以下はJSON中の「server」を検索する例です。"
 
+#: ../../../tutorial/index.md:635
 msgid ""
 "```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record &@ 'server';\n"
@@ -1137,17 +1265,22 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:650
 msgid ""
-"See [`&@` operator for `jsonb`](../reference/operators/match-jsonb-v2.html) fo"
-"r more details."
-msgstr "詳細は[`jsonb`用の`&@`演算子](../reference/operators/match-jsonb-v2.html)を参照してください。"
+"See [`&@` operator for `jsonb`](../reference/operators/match-jsonb-v2.html) "
+"for more details."
+msgstr ""
+"詳細は[`jsonb`用の`&@`演算子](../reference/operators/match-jsonb-v2.html)を参照してください。"
 
+#: ../../../tutorial/index.md:652
 msgid "### `&@~` operator"
 msgstr "### `&@~`演算子"
 
+#: ../../../tutorial/index.md:656
 msgid "Here is an example to search \"server\" or \"send\" in JSON:"
 msgstr "以下はJSON中の「server」または「send」を検索する例です。"
 
+#: ../../../tutorial/index.md:658
 msgid ""
 "```sql\n"
 "SELECT jsonb_pretty(record) FROM logs WHERE record &@~ 'server OR send';\n"
@@ -1173,29 +1306,37 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:681
 msgid ""
-"See [`&@~` operator for `jsonb`](../reference/operators/query-jsonb-v2.html) f"
-"or more details."
-msgstr "詳細は[`jsonb`用の`&@~`演算子](../reference/operators/query-jsonb-v2.html)を参照してください。"
+"See [`&@~` operator for `jsonb`](../reference/operators/query-jsonb-v2.html)"
+" for more details."
+msgstr ""
+"詳細は[`jsonb`用の`&@~`演算子](../reference/operators/query-jsonb-v2.html)を参照してください。"
 
+#: ../../../tutorial/index.md:683
 msgid "### `` &` `` operator"
 msgstr "### `` &` ``演算子"
 
+#: ../../../tutorial/index.md:687
 msgid ""
-"Here is an example for range search. The `SELECT` returns records that is matc"
-"hed with the following conditions:"
+"Here is an example for range search. The `SELECT` returns records that is "
+"matched with the following conditions:"
 msgstr "範囲検索をする例です。この`SELECT`は次の条件にマッチするレコードを返します。"
 
+#: ../../../tutorial/index.md:689
 msgid "  * `code` key exists at the top-level object"
 msgstr "  * トップレベルのオブジェクトに`code`というキーが存在する"
 
-msgid "  * Value of the `code` is greater than or equal to `200` and less than `300`"
+#: ../../../tutorial/index.md:691
+msgid ""
+"  * Value of the `code` is greater than or equal to `200` and less than "
+"`300`"
 msgstr "  * その`code`の値が`200`以上`300`未満である"
 
+#: ../../../tutorial/index.md:693
 msgid ""
 "```sql\n"
-"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ \".code\" && numb"
-"er >= 200 && number < 300';\n"
+"SELECT jsonb_pretty(record) FROM logs WHERE record &` 'paths @ \".code\" && number >= 200 && number < 300';\n"
 "--           jsonb_pretty          \n"
 "-- --------------------------------\n"
 "--  {                             +\n"
@@ -1211,108 +1352,111 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:709
 msgid ""
-"See [`` &` `` operator for `jsonb`](../reference/operators/script-jsonb-v2.htm"
-"l) for more details."
+"See [`` &` `` operator for `jsonb`](../reference/operators/script-"
+"jsonb-v2.html) for more details."
 msgstr ""
-"詳細は[`jsonb`用の`` &` ``演算子](../reference/operators/script-jsonb-v2.html)を参照してくださ"
-"い。"
+"詳細は[`jsonb`用の`` &` ``演算子](../reference/operators/script-"
+"jsonb-v2.html)を参照してください。"
 
+#: ../../../tutorial/index.md:711
 msgid "## Auto complete"
 msgstr "## オートコンプリート"
 
+#: ../../../tutorial/index.md:715
 msgid ""
-"See [how to implement auto complete feature][how-to-auto-complete] for more de"
-"tails."
+"See [how to implement auto complete feature][how-to-auto-complete] for more "
+"details."
 msgstr "詳細は[オートコンプリート機能の実装方法][how-to-auto-complete]を参照してください。"
 
+#: ../../../tutorial/index.md:717
 msgid "## How to use Groonga through PGroonga {#groonga}"
 msgstr "## PGroonga経由でGroongaを使う方法 {#groonga}"
 
+#: ../../../tutorial/index.md:719
 msgid "This is an advanced topic."
 msgstr "これは上級者向けの内容です。"
 
+#: ../../../tutorial/index.md:721
 msgid "In most cases, Groonga is faster than PostgreSQL."
 msgstr "多くの場合、GroongaはPostgreSQLより高速です。"
 
+#: ../../../tutorial/index.md:723
 msgid ""
-"For example, [drilldown feature](http://groonga.org/docs/reference/commands/se"
-"lect.html#drilldown) in Groonga is faster than one `SELECT` and multiple `GROU"
-"P BY`s (or one `GROUP BY GROUPING SET`) by PostgreSQL. Because all needed resu"
-"lts can be done by one query in Groonga."
+"For example, [drilldown "
+"feature](http://groonga.org/docs/reference/commands/select.html#drilldown) "
+"in Groonga is faster than one `SELECT` and multiple `GROUP BY`s (or one "
+"`GROUP BY GROUPING SET`) by PostgreSQL. Because all needed results can be "
+"done by one query in Groonga."
 msgstr ""
-"たとえば、Groongaの[ドリルダウン機能](http://groonga.org/ja/docs/reference/commands/select.h"
-"tml#drilldown)はPostgreSQLで`SELECT`1回と複数の`GROUP BY`（または1回の`GROUP BY GROUPING SE"
-"T`）を実行するよりも速いです。なぜならGroongaでは1回のクエリーで必要な結果をすべて返すからです。"
+"たとえば、Groongaの[ドリルダウン機能](http://groonga.org/ja/docs/reference/commands/select.html#drilldown)はPostgreSQLで`SELECT`1回と複数の`GROUP"
+" BY`（または1回の`GROUP BY GROUPING "
+"SET`）を実行するよりも速いです。なぜならGroongaでは1回のクエリーで必要な結果をすべて返すからです。"
 
+#: ../../../tutorial/index.md:725
 msgid ""
-"In another instance, Groonga can perform query that doesn't use all columns in"
-" record faster than PostgreSQL. Because Groonga has column oriented data store"
-". Column oriented data store (Groonga) is faster than row oriented data store "
-"(PostgreSQL) for accessing some columns. Row oriented data store needs to read"
-" all columns in record to access only partial columns. Column oriented data st"
-"ore just need to read only target columns in record."
+"In another instance, Groonga can perform query that doesn't use all columns "
+"in record faster than PostgreSQL. Because Groonga has column oriented data "
+"store. Column oriented data store (Groonga) is faster than row oriented data"
+" store (PostgreSQL) for accessing some columns. Row oriented data store "
+"needs to read all columns in record to access only partial columns. Column "
+"oriented data store just need to read only target columns in record."
 msgstr ""
-"別の例も紹介します。レコード中の一部のカラムしか使わないクエリーの実行はPostgreSQLよりGroongaの方が速いです。なぜなら、Groongaはカラ"
-"ム指向（列指向）のデータストアを実装しているからです。カラム指向のデータストア（Groonga）は行指向のデータストア（PostgreSQL）よりも一部のカ"
-"ラムにアクセスするのが速いのです。行指向のデータストアは一部のカラムにアクセスするだけでよい場合でもすべてのカラムを読み込む必要があります。一方、カラム指向"
-"のデータストアは必要なカラムだけを読み込むことができます。"
+"別の例も紹介します。レコード中の一部のカラムしか使わないクエリーの実行はPostgreSQLよりGroongaの方が速いです。なぜなら、Groongaはカラム指向（列指向）のデータストアを実装しているからです。カラム指向のデータストア（Groonga）は行指向のデータストア（PostgreSQL）よりも一部のカラムにアクセスするのが速いのです。行指向のデータストアは一部のカラムにアクセスするだけでよい場合でもすべてのカラムを読み込む必要があります。一方、カラム指向のデータストアは必要なカラムだけを読み込むことができます。"
 
+#: ../../../tutorial/index.md:727
 msgid ""
-"You can't use SQL to use Groonga directory. It's not PostgrSQL user friendly. "
-"But PGroonga provides a feature to use Groonga directly through SQL."
+"You can't use SQL to use Groonga directory. It's not PostgrSQL user "
+"friendly. But PGroonga provides a feature to use Groonga directly through "
+"SQL."
 msgstr ""
-"GroongaそのものはSQLのインターフェイスを提供していません。これはPostgreSQLユーザーには使いづらいです。しかし、PGroongaはSQL経"
-"由でGroongaを使う機能を提供しています。"
+"GroongaそのものはSQLのインターフェイスを提供していません。これはPostgreSQLユーザーには使いづらいです。しかし、PGroongaはSQL経由でGroongaを使う機能を提供しています。"
 
+#: ../../../tutorial/index.md:729
 msgid "### `pgroonga_command` function"
 msgstr "### `pgroonga_command`関数"
 
+#: ../../../tutorial/index.md:731
 msgid ""
-"You can execute [Groonga commands](http://groonga.org/docs/reference/command.h"
-"tml) and get the result of the execution as string by `pgroonga_command` funct"
-"ion."
+"You can execute [Groonga "
+"commands](http://groonga.org/docs/reference/command.html) and get the result"
+" of the execution as string by `pgroonga_command` function."
 msgstr ""
-"`pgroonga_command`関数を使うと[Groongaのコマンド](http://groonga.org/ja/docs/reference/co"
-"mmand.html)を実行し、その結果を文字列で取得できます。"
+"`pgroonga_command`関数を使うと[Groongaのコマンド](http://groonga.org/ja/docs/reference/command.html)を実行し、その結果を文字列で取得できます。"
 
+#: ../../../tutorial/index.md:733
 msgid ""
-"Here is an example that executes [`status` command](http://groonga.org/docs/re"
-"ference/commands/status.html):"
+"Here is an example that executes [`status` "
+"command](http://groonga.org/docs/reference/commands/status.html):"
 msgstr ""
-"以下は[`status`コマンド](http://groonga.org/ja/docs/reference/commands/status.html)を実"
-"行する例です。"
+"以下は[`status`コマンド](http://groonga.org/ja/docs/reference/commands/status.html)を実行する例です。"
 
+#: ../../../tutorial/index.md:735
 msgid ""
 "```sql\n"
 "SELECT pgroonga_command('status') AS command;\n"
-"--                                   command                                  "
-"                                                                              "
-"  \n"
-"-- ---------------------------------------------------------------------------"
-"------------------------------------------------------------------------------"
-"------------------------------------------------------------------------------"
-"----\n"
-"--  [[0,1423911561.69344,6.15119934082031e-05],{\"alloc_count\":164,\"starttime\":"
-"1423911561,\"uptime\":0,\"version\":\"5.0.0-6-g17847c9\",\"n_queries\":0,\"cache_hit_ra"
-"te\":0.0,\"command_version\":1,\"default_command_version\":1,\"max_command_version\":"
-"2}]\n"
+"--                                   command                                                                                                                  \n"
+"-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+"--  [[0,1423911561.69344,6.15119934082031e-05],{\"alloc_count\":164,\"starttime\":1423911561,\"uptime\":0,\"version\":\"5.0.0-6-g17847c9\",\"n_queries\":0,\"cache_hit_rate\":0.0,\"command_version\":1,\"default_command_version\":1,\"max_command_version\":2}]\n"
 "-- (1 row)\n"
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:743
 msgid ""
-"Result from Groonga is JSON. You can use JSON related functions provided by Po"
-"stgreSQL to access result from Groonga."
+"Result from Groonga is JSON. You can use JSON related functions provided by "
+"PostgreSQL to access result from Groonga."
 msgstr ""
-"Groongaから返ってくる結果はJSONです。Groongaから返ってくる結果にアクセスするためにPostgreSQLが提供するJSON関連の関数を使うこ"
-"とができます。"
+"Groongaから返ってくる結果はJSONです。Groongaから返ってくる結果にアクセスするためにPostgreSQLが提供するJSON関連の関数を使うことができます。"
 
+#: ../../../tutorial/index.md:745
 msgid ""
-"Here is an example to map one key value pair in the result of `status` command"
-" to one row:"
+"Here is an example to map one key value pair in the result of `status` "
+"command to one row:"
 msgstr "以下は`status`コマンドの結果のキーと値のペアそれぞれを列に変換する例です。"
 
+#: ../../../tutorial/index.md:747
 msgid ""
 "```sql\n"
 "SELECT * FROM json_each(pgroonga_command('status')::json->1);\n"
@@ -1331,50 +1475,50 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../tutorial/index.md:763
 msgid ""
-"See [`pgroonga_command` function](../reference/functions/pgroonga-command.html"
-") for more details."
+"See [`pgroonga_command` function](../reference/functions/pgroonga-"
+"command.html) for more details."
 msgstr ""
-"詳細は[`pgroonga_command`関数](../reference/functions/pgroonga-command.html)を参照してくだ"
-"さい。"
+"詳細は[`pgroonga_command`関数](../reference/functions/pgroonga-"
+"command.html)を参照してください。"
 
+#: ../../../tutorial/index.md:765
 msgid "### `pgroonga_table_name` function {#pgroonga-table-name}"
 msgstr "### `pgroonga_table_name`関数 {#pgroonga-table-name}"
 
+#: ../../../tutorial/index.md:767
 msgid ""
-"PGroonga stores values of index target columns. You can use these values to se"
-"arch and output by [`select` Groonga command](http://groonga.org/docs/referenc"
-"e/commands/select.html)."
+"PGroonga stores values of index target columns. You can use these values to "
+"search and output by [`select` Groonga "
+"command](http://groonga.org/docs/reference/commands/select.html)."
 msgstr ""
-"PGroongaはインデックス対象のカラムの値を保存しています。これらの値を[Groongaの`select`コマンド](http://groonga.or"
-"g/ja/docs/reference/commands/select.html)で検索・出力するために使うことができます。"
+"PGroongaはインデックス対象のカラムの値を保存しています。これらの値を[Groongaの`select`コマンド](http://groonga.org/ja/docs/reference/commands/select.html)で検索・出力するために使うことができます。"
 
+#: ../../../tutorial/index.md:769
 msgid ""
-"`select` Groonga command needs table name. You can use `pgroonga_table_name` f"
-"unction to convert index name in PostgreSQL to table name in Groonga."
+"`select` Groonga command needs table name. You can use `pgroonga_table_name`"
+" function to convert index name in PostgreSQL to table name in Groonga."
 msgstr ""
-"Groongaの`select`コマンドを使うにはテーブル名が必要です。`pgroonga_table_name`関数を使うとPostgreSQLでのインデ"
-"ックス名をGroongaでのテーブル名に変換できます。"
+"Groongaの`select`コマンドを使うにはテーブル名が必要です。`pgroonga_table_name`関数を使うとPostgreSQLでのインデックス名をGroongaでのテーブル名に変換できます。"
 
+#: ../../../tutorial/index.md:771
 msgid ""
-"Here is an example to use `select` command with `pgroonga_table_name` function"
-":"
+"Here is an example to use `select` command with `pgroonga_table_name` "
+"function:"
 msgstr "以下は`pgroonga_table_name`関数を使って`select`コマンドを実行する例です。"
 
+#: ../../../tutorial/index.md:773
 msgid ""
 "```sql\n"
 "SELECT *\n"
-"  FROM json_array_elements(pgroonga_command('select ' || pgroonga_table_name('"
-"pgroonga_content_index'))::json->1->0);\n"
-"--                                      value                                 "
-"     \n"
-"-- ---------------------------------------------------------------------------"
-"-----\n"
+"  FROM json_array_elements(pgroonga_command('select ' || pgroonga_table_name('pgroonga_content_index'))::json->1->0);\n"
+"--                                      value                                      \n"
+"-- --------------------------------------------------------------------------------\n"
 "--  [4]\n"
 "--  [[\"_id\",\"UInt32\"],[\"content\",\"LongText\"],[\"ctid\",\"UInt64\"]]\n"
 "--  [1,\"PostgreSQL is a relational database management system.\",1]\n"
-"--  [2,\"Groonga is a fast full text search engine that supports all languages."
-"\",2]\n"
+"--  [2,\"Groonga is a fast full text search engine that supports all languages.\",2]\n"
 "--  [3,\"PGroonga is a PostgreSQL extension that uses Groonga as index.\",3]\n"
 "--  [4,\"There is groonga command.\",4]\n"
 "-- (6 rows)\n"
@@ -1382,12 +1526,9 @@ msgid ""
 msgstr ""
 "```sql\n"
 "SELECT *\n"
-"  FROM json_array_elements(pgroonga_command('select ' || pgroonga_table_name('"
-"pgroonga_content_index'))::json->1->0);\n"
-"--                                        value                               "
-"        \n"
-"-- ---------------------------------------------------------------------------"
-"--------\n"
+"  FROM json_array_elements(pgroonga_command('select ' || pgroonga_table_name('pgroonga_content_index'))::json->1->0);\n"
+"--                                        value                                       \n"
+"-- -----------------------------------------------------------------------------------\n"
 "--  [4]\n"
 "--  [[\"_id\",\"UInt32\"],[\"_key\",\"UInt64\"],[\"content\",\"LongText\"]]\n"
 "--  [1,1,\"PostgreSQLはリレーショナル・データベース管理システムです。\"]\n"
@@ -1397,42 +1538,51 @@ msgstr ""
 "-- (6 rows)\n"
 "```"
 
+#: ../../../tutorial/index.md:787
 msgid ""
-"See [`pgroonga_table_name` function](../reference/functions/pgroonga-table-nam"
-"e.html) for more details."
+"See [`pgroonga_table_name` function](../reference/functions/pgroonga-table-"
+"name.html) for more details."
 msgstr ""
-"詳細は[`pgroonga_table_name`関数](../reference/functions/pgroonga-table-name.html)を"
-"参照してください。"
+"詳細は[`pgroonga_table_name`関数](../reference/functions/pgroonga-table-"
+"name.html)を参照してください。"
 
+#: ../../../tutorial/index.md:789
 msgid "## Next step"
 msgstr "## 次のステップ"
 
+#: ../../../tutorial/index.md:791
 msgid ""
-"Now, you knew all PGroonga features! If you want to understand each feature, s"
-"ee [reference manual][reference] for each feature."
+"Now, you knew all PGroonga features! If you want to understand each feature,"
+" see [reference manual][reference] for each feature."
 msgstr ""
-"これでPGroongaのすべての機能を知ったことになります！各機能を理解したい場合は各機能の[リファレンスマニュアル][reference]を参照しくてくだ"
-"さい。"
+"これでPGroongaのすべての機能を知ったことになります！各機能を理解したい場合は各機能の[リファレンスマニュアル][reference]を参照しくてください。"
 
+#: ../../../tutorial/index.md:793
 msgid "[How to][how-to] may help you to use PGroonga for specific situation."
 msgstr "[ハウツー][how-to]は特定用途向けのPGroongaの使い方を紹介しています。"
 
+#: ../../../tutorial/index.md:795
 msgid ""
-"If you get a problem or want to share your useful information, please contact "
-"[PGroonga community][community]."
+"If you get a problem or want to share your useful information, please "
+"contact [PGroonga community][community]."
 msgstr "なにか問題にぶつかった、有用な情報を持っている、そんな方は[PGroongaのコミュニティー][community]に参加してください。"
 
+#: ../../../tutorial/index.md:797
 msgid "[install]:../install/"
 msgstr ""
 
+#: ../../../tutorial/index.md:799
 msgid "[reference]:../reference/"
 msgstr ""
 
+#: ../../../tutorial/index.md:801
 msgid "[how-to]:../how-to/"
 msgstr ""
 
+#: ../../../tutorial/index.md:803
 msgid "[how-to-auto-complete]:../how-to/auto-complete.html"
 msgstr ""
 
+#: ../../../tutorial/index.md:805
 msgid "[community]:../community/"
 msgstr ""

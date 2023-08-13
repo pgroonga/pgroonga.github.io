@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-25 16:49+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:1
 msgid ""
 "---\n"
 "title: pgroonga_highlight_html function\n"
@@ -19,24 +33,36 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:6
 msgid "# `pgroonga_highlight_html` function"
 msgstr "# `pgroonga_highlight_html`関数"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:8
 msgid "Since 1.0.7."
 msgstr "1.0.7で追加。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_highlight_html` function surrounds the specified keywords in the specified text by `<span class=\"keyword\">` and `</span>`. HTML special characters such as `&` in the specified text are escaped."
-msgstr "`pgroonga_highlight_html`関数は指定したテキスト中にある指定したキーワードを`<span class=\"keyword\">`と`</span>`で囲みます。指定したテキスト中にある`&`などのHTMLの特別な文字はエスケープされます。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:12
+msgid ""
+"`pgroonga_highlight_html` function surrounds the specified keywords in the "
+"specified text by `<span class=\"keyword\">` and `</span>`. HTML special "
+"characters such as `&` in the specified text are escaped."
+msgstr ""
+"`pgroonga_highlight_html`関数は指定したテキスト中にある指定したキーワードを`<span "
+"class=\"keyword\">`と`</span>`で囲みます。指定したテキスト中にある`&`などのHTMLの特別な文字はエスケープされます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:14
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:16
 msgid "There are two signatures:"
 msgstr "使い方は2つあります。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:18
 msgid ""
 "```text\n"
 "text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])\n"
@@ -48,66 +74,122 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "The first signature is simpler than others. The first signature is enough for most cases."
+#: ../../../../reference/functions/pgroonga-highlight-html.md:27
+msgid ""
+"The first signature is simpler than others. The first signature is enough "
+"for most cases."
 msgstr "1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:29
 msgid "The second signature is useful when you use custom normalizer."
 msgstr "2つ目の使い方はノーマライザーを変更しているときに便利です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:31
 msgid "The second signature is available since 2.0.7."
 msgstr "2つ目の使い方は2.0.7から使えます。"
 
-msgid "The third and fourth signatures are `text[]` versions of the first and second signatures."
+#: ../../../../reference/functions/pgroonga-highlight-html.md:33
+msgid ""
+"The third and fourth signatures are `text[]` versions of the first and "
+"second signatures."
 msgstr "3つ目と4つ目の使い方は1つ目と2つ目の使い方の`text[]`バージョンです。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:35
 msgid "The third and fourth signatures are available since 2.4.3."
 msgstr "3つ目と4つ目の使い方は2.4.3から使えます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:37
 msgid "Here is the description of the first signature."
 msgstr "以下は1つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:39
 msgid ""
 "```text\n"
 "text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...])\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:43
+#: ../../../../reference/functions/pgroonga-highlight-html.md:57
 msgid "`target` is a text to be highlighted. It's `text` type."
 msgstr "`target`はハイライト対象のテキストです。型は`text`です。"
 
-msgid "`keyword1`, `keyword2`, `...` are keywords to be highlighted. They're an array of `text` type. You must specify one or more keywords."
-msgstr "キーワードは`<span class=\"keyword\">`と`</span>`で囲まれています。`target`中の`<`、`>`、`&`、`\"`はHTMLエスケープされます。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:45
+#: ../../../../reference/functions/pgroonga-highlight-html.md:59
+#: ../../../../reference/functions/pgroonga-highlight-html.md:110
+#: ../../../../reference/functions/pgroonga-highlight-html.md:137
+msgid ""
+"`keyword1`, `keyword2`, `...` are keywords to be highlighted. They're an "
+"array of `text` type. You must specify one or more keywords."
+msgstr ""
+"キーワードは`<span "
+"class=\"keyword\">`と`</span>`で囲まれています。`target`中の`<`、`>`、`&`、`\"`はHTMLエスケープされます。"
 
-msgid "`pgroonga_highlight_html` markups the keywords in `target`. It's type is `text` type."
+#: ../../../../reference/functions/pgroonga-highlight-html.md:47
+#: ../../../../reference/functions/pgroonga-highlight-html.md:95
+msgid ""
+"`pgroonga_highlight_html` markups the keywords in `target`. It's type is "
+"`text` type."
 msgstr "`pgroonga_highlight_html`は`target`中のキーワードをマークアップします。型は`text`です。"
 
-msgid "The keywords are surrounded with `<span class=\"keyword\">` and `</span>`. `<`, `>`, `&` and `\"` in `target` is HTML escaped."
-msgstr "キーワードは`<span class=\"keyword\">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`\"`はHTMLエスケープされます。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:49
+#: ../../../../reference/functions/pgroonga-highlight-html.md:97
+#: ../../../../reference/functions/pgroonga-highlight-html.md:114
+#: ../../../../reference/functions/pgroonga-highlight-html.md:149
+msgid ""
+"The keywords are surrounded with `<span class=\"keyword\">` and `</span>`. "
+"`<`, `>`, `&` and `\"` in `target` is HTML escaped."
+msgstr ""
+"キーワードは`<span "
+"class=\"keyword\">`と`</span>`で囲まれます。`target`中の`<`、`>`、`&`、`\"`はHTMLエスケープされます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:51
 msgid "Here is the description of the second signature."
 msgstr "以下は2つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:53
 msgid ""
 "```text\n"
 "text pgroonga_highlight_html(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
 "```"
 msgstr ""
 
-msgid "`index_name` is an index name of the corresponding PGroonga index. It's `text` type."
+#: ../../../../reference/functions/pgroonga-highlight-html.md:61
+#: ../../../../reference/functions/pgroonga-highlight-html.md:139
+msgid ""
+"`index_name` is an index name of the corresponding PGroonga index. It's "
+"`text` type."
 msgstr "`index_name`は対応するPGroongaのインデックス名です。`text`型です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:63
+#: ../../../../reference/functions/pgroonga-highlight-html.md:141
 msgid "`index_name` can be `NULL`."
 msgstr "`index_name`には`NULL`を指定できます。"
 
-msgid "If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result."
-msgstr "`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。この関数はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:65
+#: ../../../../reference/functions/pgroonga-highlight-html.md:143
+msgid ""
+"If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`,"
+" it's better that you use `index_name`. This function uses `NormalizerAuto` "
+"normalizer by default. It may cause unexpected result."
+msgstr ""
+"`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。この関数はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。"
 
-msgid "If you specify `index_name`, the specified PGroonga index must have `TokenNgram` tokenizer with `\"report_source_location\"` option."
-msgstr "`index_name`を指定した場合は、指定したPGroongaのインデックスには`\"report_source_location\"`オプションを指定した`TokenNgram`トークナイザーを指定しないといけません。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:67
+#: ../../../../reference/functions/pgroonga-highlight-html.md:145
+msgid ""
+"If you specify `index_name`, the specified PGroonga index must have "
+"`TokenNgram` tokenizer with `\"report_source_location\"` option."
+msgstr ""
+"`index_name`を指定した場合は、指定したPGroongaのインデックスには`\"report_source_location\"`オプションを指定した`TokenNgram`トークナイザーを指定しないといけません。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:69
 msgid "Here is an example:"
 msgstr "例です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:71
+#: ../../../../reference/functions/pgroonga-highlight-html.md:225
+#: ../../../../reference/functions/pgroonga-highlight-html.md:309
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -115,6 +197,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:76
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -124,9 +207,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:83
 msgid "Now, you can use `pgroonga_content_index` as `index_name`:"
 msgstr "これで`index_name`に`pgroonga_content_index`を指定できます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:85
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html('one two three four five',\n"
@@ -139,12 +224,15 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:99
 msgid "It's available since 2.0.7."
 msgstr "2.0.7から使えます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:101
 msgid "Here is the description of the third signature."
 msgstr "以下は3つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:103
 msgid ""
 "```text\n"
 "text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],\n"
@@ -152,12 +240,23 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "`target1`, `target2`, `...` are texts to be highlighted. They're an array of `text` type."
+#: ../../../../reference/functions/pgroonga-highlight-html.md:108
+#: ../../../../reference/functions/pgroonga-highlight-html.md:135
+msgid ""
+"`target1`, `target2`, `...` are texts to be highlighted. They're an array of"
+" `text` type."
 msgstr "`target1`、`target2`、`...`はハイライト対象のテキストです。型は`text`の配列です。"
 
-msgid "`pgroonga_highlight_html` markups the keywords in for each `target`. `pgroonga_highlight_html` returns an array of `text` type. If a `target` is `NULL`, corresponding element in the returned array is also `NULL`."
-msgstr "`pgroonga_highlight_html`は各`target`中のキーワードをマークアップします。`pgroonga_highlight_html`は`text`型の配列を返します。もし、ある`target`が`NULL`の場合は返ってくる配列の中の対応する要素も`NULL`になります。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:112
+#: ../../../../reference/functions/pgroonga-highlight-html.md:147
+msgid ""
+"`pgroonga_highlight_html` markups the keywords in for each `target`. "
+"`pgroonga_highlight_html` returns an array of `text` type. If a `target` is "
+"`NULL`, corresponding element in the returned array is also `NULL`."
+msgstr ""
+"`pgroonga_highlight_html`は各`target`中のキーワードをマークアップします。`pgroonga_highlight_html`は`text`型の配列を返します。もし、ある`target`が`NULL`の場合は返ってくる配列の中の対応する要素も`NULL`になります。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:116
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html(ARRAY['one two three', NULL, 'five', 'six three'],\n"
@@ -169,12 +268,16 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:125
+#: ../../../../reference/functions/pgroonga-highlight-html.md:153
 msgid "It's available since 2.4.2."
 msgstr "2.4.2から使えます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:127
 msgid "Here is the description of the fourth signature."
 msgstr "以下は4つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:129
 msgid ""
 "```text\n"
 "text[] pgroonga_highlight_html(ARRAY[target1, target2, ...],\n"
@@ -183,15 +286,19 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:151
 msgid "See also the example of the second signature and the third signature."
 msgstr "2つ目の使い方の例と3つ目の使い方の例も見てください。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:155
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:157
 msgid "You need to specify at least one keyword:"
 msgstr "少なくとも1つキーワードを指定しなければいけません。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:159
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',\n"
@@ -203,9 +310,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:168
 msgid "You can specify multiple keywords:"
 msgstr "複数のキーワードを指定できます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:170
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',\n"
@@ -217,9 +326,15 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You can extract keywords from query by [`pgroonga_query_extract_keywords` function](pgroonga-query-extract-keywords.html):"
-msgstr "[`pgroonga_query_extract_keywords`関数](pgroonga-query-extract-keywords.html)を使うとクエリーからキーワードを抽出できます。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:179
+msgid ""
+"You can extract keywords from query by [`pgroonga_query_extract_keywords` "
+"function](pgroonga-query-extract-keywords.html):"
+msgstr ""
+"[`pgroonga_query_extract_keywords`関数](pgroonga-query-extract-"
+"keywords.html)を使うとクエリーからキーワードを抽出できます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:181
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html('PGroonga is a PostgreSQL extension.',\n"
@@ -231,9 +346,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:190
 msgid "HTML special characters are escaped automatically:"
 msgstr "HTMLの特別な文字は自動でエスケープされます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:192
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html('<p>PGroonga is Groonga & PostgreSQL.</p>',\n"
@@ -245,9 +362,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:201
 msgid "Characters are normalized:"
 msgstr "文字は正規化されます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:203
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html('PGroonga + pglogical = replicatable!',\n"
@@ -259,9 +378,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:212
 msgid "Multibyte characters are also supported:"
 msgstr "マルチバイト文字にも対応しています。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:214
 msgid ""
 "```sql\n"
 "SELECT pgroonga_highlight_html('10㌖先にある100ｷﾛグラムの米',\n"
@@ -273,9 +394,13 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Custom tokenizer and normalizer can be used by specifying a PGroonga index name:"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:223
+msgid ""
+"Custom tokenizer and normalizer can be used by specifying a PGroonga index "
+"name:"
 msgstr "PGroongaのインデックス名を指定するとトークナイザーとノーマライザーをカスタマイズできます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:230
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -284,6 +409,7 @@ msgid ""
 "              normalizer='NormalizerNFKC100');"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:236
 msgid ""
 "SELECT pgroonga_highlight_html('one two three four five',\n"
 "                               ARRAY['two three', 'five'],\n"
@@ -295,15 +421,24 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:245
 msgid "## Practical example 1: keyword search and highlight"
 msgstr "## 実例1：キーワード検索とハイライト"
 
-msgid "Here is an example of implementing keyword search feature with `pgroonga_highlight_html`."
+#: ../../../../reference/functions/pgroonga-highlight-html.md:247
+msgid ""
+"Here is an example of implementing keyword search feature with "
+"`pgroonga_highlight_html`."
 msgstr "以下は`pgroonga_highlight_html`を使ってキーワード検索機能を実装する例です。"
 
-msgid "Imagine you are building a blog, and for simplicity, this blog's post model only has `id`, `title` and `body` fields."
-msgstr "ブログを開発することを想像してください。単純にするために、このブログの記事のモデルは`id`、`title`、`body`フィールドしかありません。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:249
+msgid ""
+"Imagine you are building a blog, and for simplicity, this blog's post model "
+"only has `id`, `title` and `body` fields."
+msgstr ""
+"ブログを開発することを想像してください。単純にするために、このブログの記事のモデルは`id`、`title`、`body`フィールドしかありません。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:251
 msgid ""
 "```sql\n"
 "CREATE TABLE posts (\n"
@@ -313,6 +448,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:258
 msgid ""
 "-- Create PGroonga Index\n"
 "CREATE INDEX pgroonga_posts_index\n"
@@ -320,6 +456,7 @@ msgid ""
 "       USING pgroonga (title, body);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:263
 msgid ""
 "-- Insert some sample data\n"
 "INSERT INTO posts VALUES (1, 'Quote of the day one', 'Design is not just what it looks like and feels like. Design is how it works.');\n"
@@ -328,9 +465,14 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Then you may use `pgroonga_highlight_html` function to search through your blog posts, and get the result with keywords highlighted like this:"
-msgstr "ブログ記事を検索し、検索キーワードがハイライトされた結果を返すために、次のように`pgroonga_highlight_html`関数を使えます。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:270
+msgid ""
+"Then you may use `pgroonga_highlight_html` function to search through your "
+"blog posts, and get the result with keywords highlighted like this:"
+msgstr ""
+"ブログ記事を検索し、検索キーワードがハイライトされた結果を返すために、次のように`pgroonga_highlight_html`関数を使えます。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:272
 msgid ""
 "```sql\n"
 "SELECT\n"
@@ -339,6 +481,7 @@ msgid ""
 "   from posts where title &@~ 'thousand' or body &@~ 'thousand';"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:278
 msgid ""
 "--    highlighted_title    |                            highlighted_body                            \n"
 "-- ------------------------+------------------------------------------------------------------------\n"
@@ -347,12 +490,25 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "If you have a lot of data to search through and return the result with pagination, it is not wise to use `pgroonga_highlight_html()` on that query. Because `pgroonga_highlight_html()` only works in sequentially, the more number of records for processing in `pgroonga_highlight_html()` you have, slower it gets in performance."
-msgstr "もし、検索対象のページがたくさん会ってページネーションを使って結果を返す必要がある場合、そのクエリーで`pgroonga_highlight_html()`を使わないほうがいいかもしれません。なぜなら`pgroonga_highlight_html()`はシーケンシャルにしか動かないからです。`pgroonga_highlight_html()`で処理しなければいけないレコード数が増えるほど遅くなります。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:284
+msgid ""
+"If you have a lot of data to search through and return the result with "
+"pagination, it is not wise to use `pgroonga_highlight_html()` on that query."
+" Because `pgroonga_highlight_html()` only works in sequentially, the more "
+"number of records for processing in `pgroonga_highlight_html()` you have, "
+"slower it gets in performance."
+msgstr ""
+"もし、検索対象のページがたくさん会ってページネーションを使って結果を返す必要がある場合、そのクエリーで`pgroonga_highlight_html()`を使わないほうがいいかもしれません。なぜなら`pgroonga_highlight_html()`はシーケンシャルにしか動かないからです。`pgroonga_highlight_html()`で処理しなければいけないレコード数が増えるほど遅くなります。"
 
-msgid "To avoid this problem, in the following example, we reduce the number of records for processing in `pgroonga_highlight_html()` by using `pgroonga_highlight_html()` on the result of your keyword search instead."
-msgstr "この問題を避けるために、次の例では`pgroonga_highlight_html()`対象のレコードを減らしています。サブクエリーで返却対象のレコード数を絞り込んでから`pgroonga_highlight_html()`を使っています。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:286
+msgid ""
+"To avoid this problem, in the following example, we reduce the number of "
+"records for processing in `pgroonga_highlight_html()` by using "
+"`pgroonga_highlight_html()` on the result of your keyword search instead."
+msgstr ""
+"この問題を避けるために、次の例では`pgroonga_highlight_html()`対象のレコードを減らしています。サブクエリーで返却対象のレコード数を絞り込んでから`pgroonga_highlight_html()`を使っています。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:288
 msgid ""
 "```sql\n"
 "-- Good Performance\n"
@@ -363,6 +519,7 @@ msgid ""
 "   (SELECT id FROM posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:296
 msgid ""
 "-- Do not do this. You may experience some performance issue.\n"
 "SELECT\n"
@@ -372,15 +529,37 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## Practical example 2: keyword search and highlight using with `NormalizerTable`"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:303
+msgid ""
+"## Practical example 2: keyword search and highlight using with "
+"`NormalizerTable`"
 msgstr "## 実例2：`NormalizerTable`を使うときのキーワード検索とハイライト"
 
-msgid "If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga` document ([How to use `NormalizerTable` with `pgroonga_highlight_html` section][create-index-using-pgroonga-normalizer-table-highlight-html]), the specified PGroonga index must have not only `TokenNgram` with `\"report_source_location\", true\"` option but also both `NormalizerNFKC*` and `NormalizerTable` with `\"report_source_offset\", true\"` option for each."
-msgstr "`CREATE INDEX USING pgroonga`のドキュメント（[`pgroonga_highlight_html`と一緒に`NormalizerTable`を使う方法セクション][create-index-using-pgroonga-normalizer-table-highlight-html]）のように`NormalizerTable`を指定した場合、指定したPGroongaのインデックスは`TokenNgram`に`\"report_source_location\", true\"`オプションを指定するだけではなく`NormalizerNFKC*`と`NormalizerTable`の両方にそれぞれ`\"report_source_offset\", true\"`オプションを指定してしなければいけません。"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:305
+msgid ""
+"If you specify `NormalizerTable`, like in this `CREATE INDEX USING pgroonga`"
+" document ([How to use `NormalizerTable` with `pgroonga_highlight_html` "
+"section][create-index-using-pgroonga-normalizer-table-highlight-html]), the "
+"specified PGroonga index must have not only `TokenNgram` with "
+"`\"report_source_location\", true\"` option but also both `NormalizerNFKC*` "
+"and `NormalizerTable` with `\"report_source_offset\", true\"` option for "
+"each."
+msgstr ""
+"`CREATE INDEX USING "
+"pgroonga`のドキュメント（[`pgroonga_highlight_html`と一緒に`NormalizerTable`を使う方法セクション][create-"
+"index-using-pgroonga-normalizer-table-highlight-"
+"html]）のように`NormalizerTable`を指定した場合、指定したPGroongaのインデックスは`TokenNgram`に`\"report_source_location\","
+" "
+"true\"`オプションを指定するだけではなく`NormalizerNFKC*`と`NormalizerTable`の両方にそれぞれ`\"report_source_offset\","
+" true\"`オプションを指定してしなければいけません。"
 
-msgid "Here is an example (We use Japanese Name 'Saito' (`斉藤`) which has many variants):"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:307
+msgid ""
+"Here is an example (We use Japanese Name 'Saito' (`斉藤`) which has many "
+"variants):"
 msgstr "以下は指定する例です。ここではたくさんの表記がある`斉藤`を使います。"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:314
 msgid ""
 "CREATE TABLE synonyms (\n"
 "   \"target\" text not null,\n"
@@ -388,24 +567,28 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:319
 msgid ""
 "INSERT INTO synonyms VALUES ('齊', '斉');\n"
 "INSERT INTO synonyms VALUES ('斎', '斉');\n"
 "INSERT INTO synonyms VALUES ('齋', '斉');"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:323
 msgid ""
 "INSERT INTO memos  (content)  VALUES ('斎藤さんの恋愛');\n"
 "INSERT INTO memos  (content)  VALUES ('斉藤さんの失恋');\n"
 "INSERT INTO memos  (content)  VALUES ('齋藤さんの片想い');"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:327
 msgid ""
 "CREATE INDEX pgroonga_synonyms_index ON synonyms\n"
 " USING pgroonga (target pgroonga_text_term_search_ops_v2)\n"
 "                INCLUDE (normalized);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:331
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
@@ -428,6 +611,7 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:351
 msgid ""
 "```sql\n"
 "select pgroonga_highlight_html(content, '{斉藤}', 'pgroonga_memos_index')\n"
@@ -441,12 +625,16 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:363
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
+#: ../../../../reference/functions/pgroonga-highlight-html.md:365
+msgid ""
+"  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr "  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]"
 
+#: ../../../../reference/functions/pgroonga-highlight-html.md:367
 msgid ""
 "[query-extract-keywords]:pgroonga-query-extract-keywords.html\n"
 "[create-index-using-pgroonga-normalizer-table-highlight-html]:../create-index-using-pgroonga.html#normalizer-table-highlight-html"

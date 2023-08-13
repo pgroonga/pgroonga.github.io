@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../overview/index.md:1
 msgid ""
 "---\n"
 "title: Overview\n"
@@ -17,129 +31,148 @@ msgstr ""
 "title: 概要\n"
 "---"
 
+#: ../../../overview/index.md:5
 msgid "# Overview"
 msgstr "# 概要"
 
+#: ../../../overview/index.md:7
 msgid ""
-"PGroonga is a PostgreSQL extension. PGroonga provides a new index access metho"
-"d that uses [Groonga](http://groonga.org/)."
+"PGroonga is a PostgreSQL extension. PGroonga provides a new index access "
+"method that uses [Groonga](http://groonga.org/)."
 msgstr ""
-"PGroongaはPostgreSQLの拡張機能です。PGroongaは[Groonga](http://groonga.org/ja/)を使った新しいイン"
-"デックスアクセスメソッドを提供します。"
+"PGroongaはPostgreSQLの拡張機能です。PGroongaは[Groonga](http://groonga.org/ja/)を使った新しいインデックスアクセスメソッドを提供します。"
 
+#: ../../../overview/index.md:9
 msgid ""
-"Groonga is an embeddable super fast full text search engine. It can be embedde"
-"d into MySQL. [Mroonga](http://mroonga.org/) is a storage engine that is based"
-" on Groonga. Groonga can also work as standalone search engine."
+"Groonga is an embeddable super fast full text search engine. It can be "
+"embedded into MySQL. [Mroonga](http://mroonga.org/) is a storage engine that"
+" is based on Groonga. Groonga can also work as standalone search engine."
 msgstr ""
-"Groongaは組み込み可能な超高速全文検索エンジンです。GroongaはMySQLにも組み込めます。[Mroonga](http://mroonga.or"
-"g/ja/)はGroongaベースのストレージエンジンです。Groongaはスタンドアローンの検索エンジンとしても使えます。"
+"Groongaは組み込み可能な超高速全文検索エンジンです。GroongaはMySQLにも組み込めます。[Mroonga](http://mroonga.org/ja/)はGroongaベースのストレージエンジンです。Groongaはスタンドアローンの検索エンジンとしても使えます。"
 
+#: ../../../overview/index.md:11
 msgid ""
-"PostgreSQL supports full text search against languages that use only alphabet "
-"and digit. It means that PostgreSQL doesn't support full text search against J"
-"apanese, Chinese and so on. You can use super fast full text search feature ag"
-"ainst all languages by installing PGroonga into your PostgreSQL!"
+"PostgreSQL supports full text search against languages that use only "
+"alphabet and digit. It means that PostgreSQL doesn't support full text "
+"search against Japanese, Chinese and so on. You can use super fast full text"
+" search feature against all languages by installing PGroonga into your "
+"PostgreSQL!"
 msgstr ""
-"PostgreSQLはアルファベットと数値だけを使った言語の全文検索だけをサポートしています。これは、日本語や中国語などはサポートしていないということです。"
-"PGroongaをPostgreSQLにインストールすると全言語対応の超高速全文検索機能を使えるようになります！"
+"PostgreSQLはアルファベットと数値だけを使った言語の全文検索だけをサポートしています。これは、日本語や中国語などはサポートしていないということです。PGroongaをPostgreSQLにインストールすると全言語対応の超高速全文検索機能を使えるようになります！"
 
+#: ../../../overview/index.md:13
 msgid ""
-"And more, PGroonga supports full text search against all text values in JSON. "
-"It's an unique feature. Built-in PostgreSQL features and [JsQuery](https://git"
-"hub.com/postgrespro/jsquery) don't support it."
+"And more, PGroonga supports full text search against all text values in "
+"JSON. It's an unique feature. Built-in PostgreSQL features and "
+"[JsQuery](https://github.com/postgrespro/jsquery) don't support it."
 msgstr ""
-"さらに、PGroongaはJSON内のすべてのテキスト値に対する全文検索もサポートしています。これは他にはない機能です。組み込みのPostgreSQLの機能"
-"でも[JsQuery](https://github.com/postgrespro/jsquery)でもサポートしていません。"
+"さらに、PGroongaはJSON内のすべてのテキスト値に対する全文検索もサポートしています。これは他にはない機能です。組み込みのPostgreSQLの機能でも[JsQuery](https://github.com/postgrespro/jsquery)でもサポートしていません。"
 
+#: ../../../overview/index.md:15
 msgid "## Related extensions"
 msgstr "## 関連する拡張機能"
 
+#: ../../../overview/index.md:17
 msgid ""
-"There are some extensions that implements full text search against all languag"
-"es:"
+"There are some extensions that implements full text search against all "
+"languages:"
 msgstr "あらゆる言語をサポートした全文検索を実現するための拡張機能がいくつかあります。"
 
+#: ../../../overview/index.md:19
 msgid "  * [pg\\_trgm]({{ site.postgresql_doc_base_url.en }}/pgtrgm.html)"
 msgstr "  * [pg\\_trgm]({{ site.postgresql_doc_base_url.ja }}/pgtrgm.html)"
 
+#: ../../../overview/index.md:21
 msgid "    * It's bundled with PostgreSQL but it's not installed as default."
 msgstr "    * PostgreSQLにバンドルされていますが、デフォルトではインストールされていません。"
 
+#: ../../../overview/index.md:23
 msgid "    * You need to change pg\\_trgm source code to support all languages."
 msgstr "    * あらゆる言語に対応するためにはpg\\_trgmのソースコードを変更する必要があります。"
 
+#: ../../../overview/index.md:25
 msgid "  * [pg\\_bigm](http://pgbigm.osdn.jp/)"
 msgstr ""
 
+#: ../../../overview/index.md:27
 msgid ""
-"    * It supports full text search against all languages without changing sour"
-"ce code."
+"    * It supports full text search against all languages without changing "
+"source code."
 msgstr "    * ソースコードを変更しなくてもあらゆる言語をサポートした全文検索を実現できます。"
 
+#: ../../../overview/index.md:29
 msgid ""
-"    * It requires [Recheck](http://pgbigm.osdn.jp/pg_bigm_en-1-1.html#enable_r"
-"echeck) to remove false positives."
+"    * It requires "
+"[Recheck](http://pgbigm.osdn.jp/pg_bigm_en-1-1.html#enable_recheck) to "
+"remove false positives."
 msgstr ""
-"    * 誤検出を防ぐために[Recheck](http://pgbigm.osdn.jp/pg_bigm-1-2.html#enable_recheck"
-")をする必要があります。"
+"    * "
+"誤検出を防ぐために[Recheck](http://pgbigm.osdn.jp/pg_bigm-1-2.html#enable_recheck)をする必要があります。"
 
+#: ../../../overview/index.md:31
 msgid ""
-"    * Recheck is slow for many hits case. Because Recheck does sequential sear"
-"ch against records found by index search."
+"    * Recheck is slow for many hits case. Because Recheck does sequential "
+"search against records found by index search."
 msgstr ""
-"    * Recheckはヒット数が多くなるほど遅くなります。なぜならRecheckはインデックスを使った検索でマッチしたレコードに対してシーケンシャルサ"
-"ーチをするからです。\n"
+"    * "
+"Recheckはヒット数が多くなるほど遅くなります。なぜならRecheckはインデックスを使った検索でマッチしたレコードに対してシーケンシャルサーチをするからです。\n"
 
+#: ../../../overview/index.md:33
 msgid "    * If you disables Recheck, you may get false positives."
 msgstr "    * Recheckを無効にすると誤検出したレコードも返ってくる可能性があります。"
 
+#: ../../../overview/index.md:35
 msgid ""
-"PGroonga supports full text search against all languages without changing sour"
-"ce code."
+"PGroonga supports full text search against all languages without changing "
+"source code."
 msgstr "PGroongaはソースコードを変更しなくてもあらゆる言語をサポートした全文検索を実現できます。"
 
+#: ../../../overview/index.md:37
 msgid ""
-"PGroonga works without Recheck. PGroonga can find exact records only by index "
-"search. PGroonga is fast for many hits case."
+"PGroonga works without Recheck. PGroonga can find exact records only by "
+"index search. PGroonga is fast for many hits case."
 msgstr ""
-"PGroongaはRecheckなしで動きます。インデックスを使った検索で誤検出をしないからです。そのため、PGroongaはヒット数が多くなる場合でも高速"
-"です。"
+"PGroongaはRecheckなしで動きます。インデックスを使った検索で誤検出をしないからです。そのため、PGroongaはヒット数が多くなる場合でも高速です。"
 
+#: ../../../overview/index.md:39
 msgid ""
-"PGroonga supports [replication](../reference/replication.html) with PostgreSQL"
-" 9.6 or later."
+"PGroonga supports [replication](../reference/replication.html) with "
+"PostgreSQL 9.6 or later."
 msgstr ""
-"PGroongaは[レプリケーション](../reference/replication.html)をサポートしています。レプリケーション機能を使うにはPo"
-"stgreSQL 9.6以降が必要です。"
+"PGroongaは[レプリケーション](../reference/replication.html)をサポートしています。レプリケーション機能を使うにはPostgreSQL"
+" 9.6以降が必要です。"
 
+#: ../../../overview/index.md:41
 msgid ""
-"PGroonga isn't crash safe. If your PostgreSQL process is crashed while updatin"
-"g, your PGroonga indexes may be broken. If your PGroonga indexes are broken, y"
-"ou need to recreate PGroonga indexes by [`REINDEX`]({{ site.postgresql_doc_bas"
-"e_url.en }}/sql-reindex.html)."
+"PGroonga isn't crash safe. If your PostgreSQL process is crashed while "
+"updating, your PGroonga indexes may be broken. If your PGroonga indexes are "
+"broken, you need to recreate PGroonga indexes by [`REINDEX`]({{ "
+"site.postgresql_doc_base_url.en }}/sql-reindex.html)."
 msgstr ""
-"PGroongaはクラッシュセーフではありません。更新中にPostgreSQLのプロセスがクラッシュした場合はPGroongaのインデックスが壊れるかもしれ"
-"ません。PGroongaのインデックスが壊れたら[`REINDEX`]({{ site.postgresql_doc_base_url.ja }}/sql-"
+"PGroongaはクラッシュセーフではありません。更新中にPostgreSQLのプロセスがクラッシュした場合はPGroongaのインデックスが壊れるかもしれません。PGroongaのインデックスが壊れたら[`REINDEX`]({{"
+" site.postgresql_doc_base_url.ja }}/sql-"
 "reindex.html)PGroongaのインデックスを再作成する必要があります。"
 
+#: ../../../overview/index.md:43
 msgid "## History"
 msgstr "## 歴史"
 
+#: ../../../overview/index.md:45
 msgid ""
-"PGroonga is based on [textsearch_groonga](http://textsearch-ja.projects.pgfoun"
-"dry.org/textsearch_groonga.html) that was developed by Itagaki Takahiro. Thank"
-"s for the works!"
+"PGroonga is based on [textsearch_groonga](http://textsearch-"
+"ja.projects.pgfoundry.org/textsearch_groonga.html) that was developed by "
+"Itagaki Takahiro. Thanks for the works!"
 msgstr ""
-"PGroongaは[textsearch_groonga](http://textsearch-ja.projects.pgfoundry.org/text"
-"search_groonga.html)をベースにしています。textsearch\\_groongaは板垣貴裕さんが開発しました。感謝します。"
+"PGroongaは[textsearch_groonga](http://textsearch-"
+"ja.projects.pgfoundry.org/textsearch_groonga.html)をベースにしています。textsearch\\_groongaは板垣貴裕さんが開発しました。感謝します。"
 
+#: ../../../overview/index.md:47
 msgid "## The next step"
 msgstr "## 次のステップ"
 
+#: ../../../overview/index.md:49
 msgid ""
-"Interested? [Install](../install/) PGroonga and try [tutorial](../tutorial/). "
-"You can understand more about PGroonga."
+"Interested? [Install](../install/) PGroonga and try "
+"[tutorial](../tutorial/). You can understand more about PGroonga."
 msgstr ""
-"使ってみたくなりましたか？PGroongaを[インストール](../install/)して[チュートリアル](../tutorial/)を試してください。P"
-"Groongaについてもっと理解できるはずです。"
+"使ってみたくなりましたか？PGroongaを[インストール](../install/)して[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。"

@@ -1,12 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../../reference/parameters/log-level.md:1
 msgid ""
 "---\n"
 "title: \"pgroonga.log_level parameter\"\n"
@@ -18,18 +33,24 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/parameters/log-level.md:6
 msgid "# `pgroonga.log_level` parameter"
 msgstr "# `pgroonga.log_level`パラメーター"
 
+#: ../../../../reference/parameters/log-level.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/parameters/log-level.md:10
 msgid "`pgroonga.log_level` parameter controls which logs are recorded."
 msgstr "`pgroonga.log_level`パラメーターはどのログを記録するかを制御します。"
 
+#: ../../../../reference/parameters/log-level.md:12
 msgid "You can choose one the following log levels:"
 msgstr "次のログレベルの中からどれかを選びます。"
 
+#: ../../../../reference/parameters/log-level.md:14
+#: ../../../../reference/parameters/log-level.md:45
 msgid ""
 "  * `none`\n"
 "  * `emergency`\n"
@@ -43,51 +64,64 @@ msgid ""
 "  * `dump`"
 msgstr ""
 
+#: ../../../../reference/parameters/log-level.md:25
 msgid "The log level list is sorted by less logs to more logs."
 msgstr "このログレベルのリストはログが少ない順から多い順に並んでいます。"
 
+#: ../../../../reference/parameters/log-level.md:27
 msgid "The default log level is `notice`."
 msgstr "デフォルトのログレベルは`notice`です。"
 
+#: ../../../../reference/parameters/log-level.md:29
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/parameters/log-level.md:31
 msgid "In SQL:"
 msgstr "SQLの場合："
 
+#: ../../../../reference/parameters/log-level.md:33
 msgid ""
 "```sql\n"
 "SET pgroonga.log_level = level;\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/log-level.md:37
 msgid "In `postgresql.conf`:"
 msgstr "`postgresql.conf`の場合："
 
+#: ../../../../reference/parameters/log-level.md:39
 msgid ""
 "```text\n"
 "pgroonga.log_level = level\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/log-level.md:43
 msgid "`level` is an enum value. It means that you must choose one of them:"
 msgstr "`level`は列挙型の値です。これは次のどれかの値を選ばないといけないということです。"
 
+#: ../../../../reference/parameters/log-level.md:56
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/parameters/log-level.md:58
 msgid "Here is an example to disable log:"
 msgstr "ログを無効にする例です。"
 
+#: ../../../../reference/parameters/log-level.md:60
 msgid ""
 "```sql\n"
 "SET pgroonga.log_level = none;\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/log-level.md:64
 msgid "Here is an example to enable almost log messages:"
 msgstr "ほとんどのログメッセージを有効にする例です。"
 
+#: ../../../../reference/parameters/log-level.md:66
 msgid ""
 "```sql\n"
 "SET pgroonga.log_level = debug;\n"

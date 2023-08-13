@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../reference/modules/pgroonga-database.md:1
 msgid ""
 "---\n"
 "title: pgroonga_database module\n"
@@ -19,52 +33,65 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/modules/pgroonga-database.md:6
 msgid "# `pgroonga_database` module"
 msgstr "# `pgroonga_database`モジュール"
 
+#: ../../../../reference/modules/pgroonga-database.md:8
 msgid "Since 2.1.8."
 msgstr "2.1.8で追加。"
 
+#: ../../../../reference/modules/pgroonga-database.md:10
 msgid ""
-"Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-saf"
-"er] instead."
-msgstr "2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を使ってください。"
+"Deprecated since 2.3.3. Use [`pgroonga_crash_safer` module][pgroonga-crash-"
+"safer] instead."
+msgstr ""
+"2.3.3から非推奨です。代わりに[`pgroonga_crash_safer`モジュール][pgroonga-crash-"
+"safer]を使ってください。"
 
+#: ../../../../reference/modules/pgroonga-database.md:12
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/modules/pgroonga-database.md:14
 msgid ""
-"`pgroonga_database` module provides functions that manage PGroonga database. N"
-"ormally, you don't need to use this module."
-msgstr "`pgroonga_database`モジュールはPGroongaのデータベースを管理する関数を提供します。通常、このモジュールを使う必要はありません。"
+"`pgroonga_database` module provides functions that manage PGroonga database."
+" Normally, you don't need to use this module."
+msgstr ""
+"`pgroonga_database`モジュールはPGroongaのデータベースを管理する関数を提供します。通常、このモジュールを使う必要はありません。"
 
+#: ../../../../reference/modules/pgroonga-database.md:16
 msgid ""
-"Note that this module provides dangerous functions. You should not enable this"
-" module until you need this module."
+"Note that this module provides dangerous functions. You should not enable "
+"this module until you need this module."
 msgstr "このモジュールは危険な関数を提供するので気をつけてください。必要になるまでこのモジュールは有効にしないでください。"
 
+#: ../../../../reference/modules/pgroonga-database.md:18
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/modules/pgroonga-database.md:20
 msgid ""
-"You can install `pgroonga_database` module as an extension but you should care"
-" which users can use functions provided by this module."
+"You can install `pgroonga_database` module as an extension but you should "
+"care which users can use functions provided by this module."
 msgstr ""
-"`pgroonga_database`モジュールは拡張機能としてインストールできます。しかし、このモジュールが提供する関数をどのユーザーで使えるようにするか"
-"は注意深く検討してください。"
+"`pgroonga_database`モジュールは拡張機能としてインストールできます。しかし、このモジュールが提供する関数をどのユーザーで使えるようにするかは注意深く検討してください。"
 
+#: ../../../../reference/modules/pgroonga-database.md:22
 msgid ""
-"You can restrict users who can use functions provided by this module by schema"
-"."
+"You can restrict users who can use functions provided by this module by "
+"schema."
 msgstr "スキーマを使うとこのモジュールが提供する関数を使えるユーザーを制限できます。"
 
+#: ../../../../reference/modules/pgroonga-database.md:24
 msgid ""
-"Here is an example to restrict user \"admin\" by creating `pgroonga_admin` schem"
-"a and installing `pgroonga_database` module to the `pgroonga_admin` schema:"
+"Here is an example to restrict user \"admin\" by creating `pgroonga_admin` "
+"schema and installing `pgroonga_database` module to the `pgroonga_admin` "
+"schema:"
 msgstr ""
-"以下は、`pgroonga_admin`スキーマを作ってそこに`pgroonga_database`モジュールをインストールすることで「admin」ユーザー"
-"だけ使えるように制限する例です。"
+"以下は、`pgroonga_admin`スキーマを作ってそこに`pgroonga_database`モジュールをインストールすることで「admin」ユーザーだけ使えるように制限する例です。"
 
+#: ../../../../reference/modules/pgroonga-database.md:26
 msgid ""
 "```sql\n"
 "CREATE ROLE admin LOGIN;\n"
@@ -73,39 +100,50 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/modules/pgroonga-database.md:32
 msgid ""
-"In this example, users except the \"admin\" can't use functions provided by this"
-" module."
+"In this example, users except the \"admin\" can't use functions provided by "
+"this module."
 msgstr "この例では「admin」ユーザー以外はこのモジュールが提供する関数を使えません。"
 
+#: ../../../../reference/modules/pgroonga-database.md:34
 msgid ""
-"The \"admin\" user can use functions provided by this module with `pgroonga_admi"
-"n.` prefix:"
+"The \"admin\" user can use functions provided by this module with "
+"`pgroonga_admin.` prefix:"
 msgstr "「admin」ユーザーは`pgroonga_admin.`プレフィクスをつけるとこのモジュールの関数を使えます。"
 
+#: ../../../../reference/modules/pgroonga-database.md:36
 msgid ""
 "```sql\n"
 "SELECT pgroonga_admin.pgoronga_database_remove();\n"
 "```"
 msgstr ""
 
-msgid "See [upgrade][upgrade] document for upgrading `pgroonga_database` module."
+#: ../../../../reference/modules/pgroonga-database.md:40
+msgid ""
+"See [upgrade][upgrade] document for upgrading `pgroonga_database` module."
 msgstr "`pgroonga_database`のアップグレード方法は[アップグレード][upgrade]ドキュメントを参照してください。"
 
+#: ../../../../reference/modules/pgroonga-database.md:42
 msgid "## Functions"
 msgstr "## 関数"
 
+#: ../../../../reference/modules/pgroonga-database.md:44
 msgid "`pgroonga_database` module provides the following functions:"
 msgstr "`pgroonga_database`モジュールは次の関数を提供します。"
 
+#: ../../../../reference/modules/pgroonga-database.md:46
 msgid "  * [`pgroonga_database_remove` function][database-remove]"
 msgstr "  * [`pgroonga_database_remove`関数][database-remove]"
 
+#: ../../../../reference/modules/pgroonga-database.md:49
 msgid "[pgroonga-crash-safer]:pgroonga-crash-safer.html"
 msgstr ""
 
+#: ../../../../reference/modules/pgroonga-database.md:51
 msgid "[database-remove]:../functions/pgroonga-database-remove.html"
 msgstr ""
 
+#: ../../../../reference/modules/pgroonga-database.md:53
 msgid "[upgrade]:../../upgrade/"
 msgstr ""

@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/parameters/libgroonga-version.md:1
 msgid ""
 "---\n"
 "title: \"pgroonga.libgroonga_version parameter\"\n"
@@ -19,36 +33,48 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/parameters/libgroonga-version.md:6
 msgid "# `pgroonga.libgroonga_version` parameter"
 msgstr "# `pgroonga.libgroonga_version`パラメーター"
 
+#: ../../../../reference/parameters/libgroonga-version.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga.libgroonga_version` parameter shows the Groonga version what you're using."
+#: ../../../../reference/parameters/libgroonga-version.md:10
+msgid ""
+"`pgroonga.libgroonga_version` parameter shows the Groonga version what "
+"you're using."
 msgstr "`pgroonga.libgroonga_version`パラメーターには使っているGroongaのバージョンが入っています。"
 
+#: ../../../../reference/parameters/libgroonga-version.md:12
 msgid "This parameter is read-only parameter."
 msgstr "このパラメーターは読み込み専用です。"
 
+#: ../../../../reference/parameters/libgroonga-version.md:15
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/parameters/libgroonga-version.md:17
 msgid "Here is the syntax to show the value of this parameter:"
 msgstr "このパラメーターの値を表示する構文は以下の通りです。"
 
+#: ../../../../reference/parameters/libgroonga-version.md:19
 msgid ""
 "```sql\n"
 "SHOW pgroonga.libgroonga_version;\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/libgroonga-version.md:23
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/parameters/libgroonga-version.md:25
 msgid "Here is an example:"
 msgstr "例です。"
 
+#: ../../../../reference/parameters/libgroonga-version.md:27
 msgid ""
 "```sql\n"
 "SHOW pgroonga.libgroonga_version;\n"

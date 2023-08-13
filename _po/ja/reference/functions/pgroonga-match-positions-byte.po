@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:1
 msgid ""
 "---\n"
 "title: pgroonga_match_positions_byte function\n"
@@ -19,27 +33,49 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:6
 msgid "# `pgroonga_match_positions_byte` function"
 msgstr "# `pgroonga_match_positions_byte`関数"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:8
 msgid "Since 1.0.7."
 msgstr "1.0.7で追加。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_match_positions_byte` function returns positions of the specified keywords in the specified text. The unit of position is byte. If you want to highlight keywords for HTML output, [`pgroonga_snippet_html` function](pgroonga-snippet-html.html) or [`pgroonga_highlight_html` function](pgroonga-highlight-html.html) will be suitable. `pgroonga_match_positions_byte` function is for advanced use."
-msgstr "`pgroonga_match_positions_byte`関数は指定したテキスト中にある指定したキーワードの位置を返します。単位はバイトです。HTML出力用にキーワードをハイライトしたいなら[`pgroonga_snippet_html`関数](pgroonga-snippet-html.html)または[`pgroonga_highlight_html`関数](pgroonga-highlight-html.html)の方が適しているでしょう。`pgroonga_match_positions_byte`関数は高度な用途向けです。"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:12
+msgid ""
+"`pgroonga_match_positions_byte` function returns positions of the specified "
+"keywords in the specified text. The unit of position is byte. If you want to"
+" highlight keywords for HTML output, [`pgroonga_snippet_html` "
+"function](pgroonga-snippet-html.html) or [`pgroonga_highlight_html` "
+"function](pgroonga-highlight-html.html) will be suitable. "
+"`pgroonga_match_positions_byte` function is for advanced use."
+msgstr ""
+"`pgroonga_match_positions_byte`関数は指定したテキスト中にある指定したキーワードの位置を返します。単位はバイトです。HTML出力用にキーワードをハイライトしたいなら[`pgroonga_snippet_html`関数](pgroonga-"
+"snippet-html.html)または[`pgroonga_highlight_html`関数](pgroonga-highlight-"
+"html.html)の方が適しているでしょう。`pgroonga_match_positions_byte`関数は高度な用途向けです。"
 
-msgid "If you want in character version, see [`pgroonga_match_positions_character`](pgroonga-match-positions-character.html) instead."
-msgstr "文字単位バージョンが欲しい場合は代わりに[`pgroonga_match_positions_character`](pgroonga-match-positions-character.html)を参照してください。"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:14
+msgid ""
+"If you want in character version, see "
+"[`pgroonga_match_positions_character`](pgroonga-match-positions-"
+"character.html) instead."
+msgstr ""
+"文字単位バージョンが欲しい場合は代わりに[`pgroonga_match_positions_character`](pgroonga-match-"
+"positions-character.html)を参照してください。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:16
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:18
 msgid "There are two signatures:"
 msgstr "使い方は2つあります。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:20
 msgid ""
 "```text\n"
 "integer[2][] pgroonga_match_positions_byte(target, ARRAY[keyword1, keyword2, ...])\n"
@@ -47,57 +83,93 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "The first signature is simpler than others. The first signature is enough for most cases."
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:25
+msgid ""
+"The first signature is simpler than others. The first signature is enough "
+"for most cases."
 msgstr "1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:27
 msgid "The second signature is useful when you use custom normalizer."
 msgstr "2つ目の使い方はノーマライザーを変更しているときに便利です。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:29
 msgid "The second signature is available since 2.2.8."
 msgstr "2つ目の使い方は2.2.8以降で使えます。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:31
 msgid "Here is the description of the first signature."
 msgstr "以下は1つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:33
 msgid ""
 "```text\n"
 "integer[2][] pgroonga_match_positions_byte(target, ARRAY[keyword1, keyword2, ...])\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:37
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:51
 msgid "`target` is a text to be searched. It's `text` type."
 msgstr "`target`はキーワード検索対象のテキストです。型は`text`です。"
 
-msgid "`keyword1`, `keyword2`, `...` are keywords to be found. They're an array of `text` type. You must specify one or more keywords."
-msgstr "`keyword1`、`keyword2`、`...`は見つけたいキーワードです。型は`text`の配列です。1つ以上のキーワードを指定しなければいけません。"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:39
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:53
+msgid ""
+"`keyword1`, `keyword2`, `...` are keywords to be found. They're an array of "
+"`text` type. You must specify one or more keywords."
+msgstr ""
+"`keyword1`、`keyword2`、`...`は見つけたいキーワードです。型は`text`の配列です。1つ以上のキーワードを指定しなければいけません。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:41
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:87
 msgid "`pgroonga_match_positions_byte` returns an array of positions."
 msgstr "`pgroonga_match_positions_byte`は位置の配列を返します。"
 
-msgid "Position consists of offset and length. Offset is the start byte from the beginning. Length is the number of bytes of matched text. Length may be different size with the length of keyword. Because keyword and matched text are normalized."
-msgstr "位置は「オフセット」と「長さ」で表現します。「オフセット」は先頭からキーワードが現れた位置までのバイト数です。「長さ」はマッチしたテキストのバイト数です。「長さ」はキーワードの長さと違うかもしれません。これはキーワードもマッチしたテキストも正規化されるからです。"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:43
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:89
+msgid ""
+"Position consists of offset and length. Offset is the start byte from the "
+"beginning. Length is the number of bytes of matched text. Length may be "
+"different size with the length of keyword. Because keyword and matched text "
+"are normalized."
+msgstr ""
+"位置は「オフセット」と「長さ」で表現します。「オフセット」は先頭からキーワードが現れた位置までのバイト数です。「長さ」はマッチしたテキストのバイト数です。「長さ」はキーワードの長さと違うかもしれません。これはキーワードもマッチしたテキストも正規化されるからです。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:45
 msgid "Here is the description of the second signature."
 msgstr "以下は2つ目の使い方の説明です。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:47
 msgid ""
 "```text\n"
 "integer[2][] pgroonga_match_positions_byte(target, ARRAY[keyword1, keyword2, ...], index_name)\n"
 "```"
 msgstr ""
 
-msgid "`index_name` is an index name of the corresponding PGroonga index. It's `text` type."
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:55
+msgid ""
+"`index_name` is an index name of the corresponding PGroonga index. It's "
+"`text` type."
 msgstr "`index_name`は対応するPGroongaのインデックス名です。`text`型です。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:57
 msgid "`index_name` can be `NULL`."
 msgstr "`index_name`には`NULL`を指定できます。"
 
-msgid "If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`, it's better that you use `index_name`. This function uses `NormalizerAuto` normalizer by default. It may cause unexpected result."
-msgstr "`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。この関数はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:59
+msgid ""
+"If you aren't using `NormalizerAuto` normalizer such as `NormalizerNFKC100`,"
+" it's better that you use `index_name`. This function uses `NormalizerAuto` "
+"normalizer by default. It may cause unexpected result."
+msgstr ""
+"`NormalizerNFKC100`のように`NormalizerAuto`以外のノーマライザーを使っている場合は、`index_name`を使うとよいです。この関数はデフォルトで`NormalizerAuto`ノーマライザーを使います。これにより意図しない結果になることがあります。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:61
 msgid "Here is an example:"
 msgstr "例です。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:63
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -105,6 +177,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:68
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -113,9 +186,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:74
 msgid "Now, you can use `pgroonga_content_index` as `index_name`:"
 msgstr "これで`index_name`に`pgroonga_content_index`を指定できます。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:76
 msgid ""
 "{% raw %}\n"
 "```sql\n"
@@ -129,15 +204,19 @@ msgid ""
 "{% endraw %}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:91
 msgid "It's available since 2.2.8."
 msgstr "これは2.2.8以降で使えます。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:93
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:95
 msgid "You need to specify at least one keyword:"
 msgstr "少なくとも1つキーワードを指定しなければいけません。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:97
 msgid ""
 "{% raw %}\n"
 "```sql\n"
@@ -151,9 +230,11 @@ msgid ""
 "{% endraw %}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:108
 msgid "You can specify multiple keywords:"
 msgstr "複数のキーワードを指定できます。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:110
 msgid ""
 "{% raw %}\n"
 "```sql\n"
@@ -167,9 +248,15 @@ msgid ""
 "{% endraw %}"
 msgstr ""
 
-msgid "You can extract keywords from query by [`pgroonga_query_extract_keywords` function](pgroonga-query-extract-keywords.html):"
-msgstr "[`pgroonga_query_extract_keywords`関数](pgroonga-query-extract-keywords.html)を使うとクエリーからキーワードを抽出できます。"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:121
+msgid ""
+"You can extract keywords from query by [`pgroonga_query_extract_keywords` "
+"function](pgroonga-query-extract-keywords.html):"
+msgstr ""
+"[`pgroonga_query_extract_keywords`関数](pgroonga-query-extract-"
+"keywords.html)を使うとクエリーからキーワードを抽出できます。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:123
 msgid ""
 "{% raw %}\n"
 "```sql\n"
@@ -183,9 +270,11 @@ msgid ""
 "{% endraw %}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:134
 msgid "Characters are normalized:"
 msgstr "文字は正規化されます。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:136
 msgid ""
 "{% raw %}\n"
 "```sql\n"
@@ -199,9 +288,11 @@ msgid ""
 "{% endraw %}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:147
 msgid "Multibyte characters are also supported:"
 msgstr "マルチバイト文字にも対応しています。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:149
 msgid ""
 "{% raw %}\n"
 "```sql\n"
@@ -215,9 +306,11 @@ msgid ""
 "{% endraw %}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:160
 msgid "Custom normalizer can be used by specifying a PGroonga index name:"
 msgstr "PGroongaのインデックス名を指定するとノーマライザーをカスタマイズできます。"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:162
 msgid ""
 "{% raw %}\n"
 "```sql\n"
@@ -226,6 +319,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:168
 msgid ""
 "CREATE INDEX pgroonga_content_index\n"
 "          ON memos\n"
@@ -233,6 +327,7 @@ msgid ""
 "        WITH (normalizer='NormalizerNFKC121');"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:173
 msgid ""
 "SELECT pgroonga_match_positions_byte('Reiwa: ㋿',\n"
 "                                     ARRAY['令和'],\n"
@@ -245,21 +340,31 @@ msgid ""
 "{% endraw %}"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:183
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`pgroonga_match_positions_character` function][match-positions-character]"
-msgstr "  * [`pgroonga_match_positions_character`関数][match-positions-character]"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:185
+msgid ""
+"  * [`pgroonga_match_positions_character` function][match-positions-"
+"character]"
+msgstr ""
+"  * [`pgroonga_match_positions_character`関数][match-positions-character]"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:187
 msgid "  * [`pgroonga_snippet_html` function][query-snippet-html]"
 msgstr "  * [`pgroonga_snippet_html`関数](pgroonga-query-snippet-html.html)"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:189
 msgid "  * [`pgroonga_highlight_html` function][query-highlight-html]"
 msgstr "  * [`pgroonga_highlight_html`関数](pgroonga-query-highlight-html.html)"
 
-msgid "  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:191
+msgid ""
+"  * [`pgroonga_query_extract_keywords` function][query-extract-keywords]"
 msgstr "  * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]"
 
+#: ../../../../reference/functions/pgroonga-match-positions-byte.md:193
 msgid ""
 "[match-positions-character]:pgroonga-match-positions-character.html\n"
 "[query-snippet-html]:pgroonga-query-snippet-html.html\n"

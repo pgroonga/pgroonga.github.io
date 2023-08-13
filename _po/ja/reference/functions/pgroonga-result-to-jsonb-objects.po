@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:1
 msgid ""
 "---\n"
 "title: pgroonga_result_to_jsonb_objects function\n"
@@ -19,54 +33,91 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:6
 msgid "# `pgroonga_result_to_jsonb_objects` function"
 msgstr "# `pgroonga_result_to_jsonb_objects`関数"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:8
 msgid "Since 2.3.0."
 msgstr "2.3.0で追加。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_result_to_jsonb_objects` function is similar to [`pgroonga_result_to_recordset` function][pgroonga-result-to-recordset]."
-msgstr "`pgroonga_result_to_jsonb_objects`関数は[`pgroonga_result_to_recordset`関数][pgroonga-result-to-recordset]と似ています"
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:12
+msgid ""
+"`pgroonga_result_to_jsonb_objects` function is similar to "
+"[`pgroonga_result_to_recordset` function][pgroonga-result-to-recordset]."
+msgstr ""
+"`pgroonga_result_to_jsonb_objects`関数は[`pgroonga_result_to_recordset`関数][pgroonga-"
+"result-to-recordset]と似ています"
 
-msgid "`pgroonga_result_to_jsonb_objects` function converts [`pgroonga_command` function][pgroonga-command]'s result JSON to a `jsonb` data that is an array of objects. You can convert the converted `jsonb` data to set of `jsonb` objects by PostgreSQL's [`jsonb_array_elements` function][postgresql-jsonb-array-elements]. Generally, the converted `jsonb` data is is easier to handle rather than result JSON."
-msgstr "`pgroonga_result_to_jsonb_objects`関数は[`pgroonga_command`関数][pgroonga-command]の結果のJSONをオブジェクトの配列の`jsonb`データに変換します。変換された`jsonb`データはPostgreSQLの[`jsonb_array_elements`関数][postgresql-jsonb-array-elements]を使うと`jsonb`のオブジェクトの集合に変換できます。一般的に、変換語の`jsonb`データのほうが結果のJSONよりも扱いやすいです。"
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:14
+msgid ""
+"`pgroonga_result_to_jsonb_objects` function converts [`pgroonga_command` "
+"function][pgroonga-command]'s result JSON to a `jsonb` data that is an array"
+" of objects. You can convert the converted `jsonb` data to set of `jsonb` "
+"objects by PostgreSQL's [`jsonb_array_elements` function][postgresql-jsonb-"
+"array-elements]. Generally, the converted `jsonb` data is is easier to "
+"handle rather than result JSON."
+msgstr ""
+"`pgroonga_result_to_jsonb_objects`関数は[`pgroonga_command`関数][pgroonga-"
+"command]の結果のJSONをオブジェクトの配列の`jsonb`データに変換します。変換された`jsonb`データはPostgreSQLの[`jsonb_array_elements`関数][postgresql-"
+"jsonb-array-"
+"elements]を使うと`jsonb`のオブジェクトの集合に変換できます。一般的に、変換語の`jsonb`データのほうが結果のJSONよりも扱いやすいです。"
 
-msgid "This will support all result JSON formats of Groonga command but the following commands are only supported for now:"
-msgstr "将来的にはGroongaのコマンドのすべての結果JSONフォーマットをサポートする予定ですが、現時点では次のコマンドだけサポートしています。"
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:16
+msgid ""
+"This will support all result JSON formats of Groonga command but the "
+"following commands are only supported for now:"
+msgstr ""
+"将来的にはGroongaのコマンドのすべての結果JSONフォーマットをサポートする予定ですが、現時点では次のコマンドだけサポートしています。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:18
 msgid "  * `select`: `command_version=1`"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:20
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:24
 msgid "    * But drilldown results and slice results are ignored."
 msgstr "    * ただし、ドリルダウン結果とスライス結果は無視します。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:22
 msgid "  * `select`: `command_version=3`"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:26
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:28
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:30
 msgid ""
 "```text\n"
 "jsonb pgroonga_result_to_jsonb_objects(result)\n"
 "```"
 msgstr ""
 
-msgid "`result` is a `jsonb` type value. You can cast `pgroonga_command` function's result `text` to `jsonb` to pass it to this function."
-msgstr "`result`は`jsonb`型の値です。`pgroonga_command`関数の結果の`text`を`jsonb`にキャストすればこの関数に渡せます。"
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:34
+msgid ""
+"`result` is a `jsonb` type value. You can cast `pgroonga_command` function's"
+" result `text` to `jsonb` to pass it to this function."
+msgstr ""
+"`result`は`jsonb`型の値です。`pgroonga_command`関数の結果の`text`を`jsonb`にキャストすればこの関数に渡せます。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:36
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:38
 msgid "Here are sample schema and data:"
 msgstr "サンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:40
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -74,21 +125,25 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:45
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "          ON memos\n"
 "       USING pgroonga (content);"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:49
 msgid ""
 "INSERT INTO memos VALUES ('PGroonga (PostgreSQL+Groonga) is great!');\n"
 "INSERT INTO memos VALUES ('Groonga is an embeddable full text search engine.');\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:53
 msgid "Here is an example to return `jsonb` data:"
 msgstr "以下は`jsonb`データを返す例です。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:55
 msgid ""
 "```sql\n"
 "SELECT jsonb_pretty(\n"
@@ -119,9 +174,16 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "You can use PostgreSQL's [`jsonb_array_elements` function][postgresql-jsonb-array-elements] to convert the converted `jsonb` data to set of `jsonb` objects:"
-msgstr "PostgreSQLの[`jsonb_array_elements`関数][postgresql-jsonb-array-elements]を使うと変換後の`jsonb`データを`josnb`のオブジェクトの集合に変換できます。"
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:83
+msgid ""
+"You can use PostgreSQL's [`jsonb_array_elements` function][postgresql-jsonb-"
+"array-elements] to convert the converted `jsonb` data to set of `jsonb` "
+"objects:"
+msgstr ""
+"PostgreSQLの[`jsonb_array_elements`関数][postgresql-jsonb-array-"
+"elements]を使うと変換後の`jsonb`データを`josnb`のオブジェクトの集合に変換できます。"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:85
 msgid ""
 "```sql\n"
 "SELECT jsonb_array_elements(\n"
@@ -142,23 +204,34 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:103
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`pgroonga_result_to_recordset` function][pgroonga-result-to-recordset]"
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:105
+msgid ""
+"  * [`pgroonga_result_to_recordset` function][pgroonga-result-to-recordset]"
 msgstr "  * [`pgroonga_result_to_recordset`関数][pgroonga-result-to-recordset]"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:107
 msgid "  * [`pgroonga_command` function][pgroonga-command]"
 msgstr "  * [`pgroonga_command`関数][pgroonga-command]"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:109
 msgid "  * [`pgroonga_table_name` function][pgroonga-table-name]"
 msgstr "  * [`pgroonga_table_name`関数][pgroonga-table-name]"
 
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:111
 msgid ""
 "[pgroonga-result-to-recordset]:pgroonga-result-to-recordset.html\n"
 "[pgroonga-command]:pgroonga-command.html\n"
 "[pgroonga-table-name]:pgroonga-table-name.html"
 msgstr ""
 
-msgid "[postgresql-jsonb-array-elements]:{{ site.postgresql_doc_base_url.en }}/functions-json.html"
-msgstr "[postgresql-jsonb-array-elements]:{{ site.postgresql_doc_base_url.ja }}/functions-json.html"
+#: ../../../../reference/functions/pgroonga-result-to-jsonb-objects.md:115
+msgid ""
+"[postgresql-jsonb-array-elements]:{{ site.postgresql_doc_base_url.en "
+"}}/functions-json.html"
+msgstr ""
+"[postgresql-jsonb-array-elements]:{{ site.postgresql_doc_base_url.ja "
+"}}/functions-json.html"

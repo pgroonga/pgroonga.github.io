@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:17+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:1
 msgid ""
 "---\n"
 "title: pgroonga.score function\n"
@@ -19,33 +33,49 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:6
 msgid "# `pgroonga.score` function"
 msgstr "# `pgroonga.score`関数"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:8
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga.score` function returns precision as a number. If a record is more precision against searched query, the record has more higher number."
-msgstr "`pgroonga.score`関数はマッチした度合いを数値で返します。もし、検索したクエリーに対してそのレコードがマッチしているほどそのレコードのスコアーは高い数値になります。"
+#: ../../../../../v1/reference/functions/pgroonga-score.md:10
+msgid ""
+"`pgroonga.score` function returns precision as a number. If a record is more"
+" precision against searched query, the record has more higher number."
+msgstr ""
+"`pgroonga.score`関数はマッチした度合いを数値で返します。もし、検索したクエリーに対してそのレコードがマッチしているほどそのレコードのスコアーは高い数値になります。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:12
 msgid "## Syntax"
 msgstr "## 構文"
 
-msgid "You can use `pgroonga.score` function to get precision as a number. If a record is more precision against searched query, the record has more higher number."
-msgstr "`pgroonga.score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。"
+#: ../../../../../v1/reference/functions/pgroonga-score.md:14
+msgid ""
+"You can use `pgroonga.score` function to get precision as a number. If a "
+"record is more precision against searched query, the record has more higher "
+"number."
+msgstr ""
+"`pgroonga.score`関数を使うとマッチした度合いを数値で取得することができます。検索したクエリーに対してよりマッチしているレコードほど高い数値になります。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:16
 msgid ""
 "```text\n"
 "double precision pgroonga.score(record)\n"
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:20
 msgid "`record` is a table name."
 msgstr "`record`はテーブル名です。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:22
 msgid "Assume that you have the following schema:"
 msgstr "次のスキーマが定義されているとします。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:24
 msgid ""
 "```sql\n"
 "CREATE TABLE score_memos (\n"
@@ -54,6 +84,7 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:30
 msgid ""
 "CREATE INDEX pgroonga_score_memos_content_index\n"
 "          ON score_memos\n"
@@ -61,9 +92,11 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:35
 msgid "`record` must be `score_memos`:"
 msgstr "`record`は`score_memos`にします。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:37
 msgid ""
 "```sql\n"
 "SELECT *, pgroonga.score(tableoid, ctid)\n"
@@ -72,21 +105,38 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "`pgroonga_score` function return precision as `double precision` type value."
+#: ../../../../../v1/reference/functions/pgroonga-score.md:43
+msgid ""
+"`pgroonga_score` function return precision as `double precision` type value."
 msgstr "`pgroonga_score`関数は`double precision`型の値でマッチした度合いを返します。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:45
 msgid "## Usage"
 msgstr "## 使い方"
 
-msgid "You need to add primary key column into `pgroonga` index to use `pgroonga.score` function. If you don't add primary key column into `pgroonga` index, `pgroonga.score` function always returns `0.0`."
-msgstr "`pgroonga.score`関数を使うには、`pgroonga`インデックスにプライマリーキーに指定したカラムを追加する必要があります。もし、プライマリーキーに指定したカラムを`pgroonga`インデックスに追加していない場合は、`pgroonga.score`関数は常に`0.0`を返します。"
+#: ../../../../../v1/reference/functions/pgroonga-score.md:47
+msgid ""
+"You need to add primary key column into `pgroonga` index to use "
+"`pgroonga.score` function. If you don't add primary key column into "
+"`pgroonga` index, `pgroonga.score` function always returns `0.0`."
+msgstr ""
+"`pgroonga.score`関数を使うには、`pgroonga`インデックスにプライマリーキーに指定したカラムを追加する必要があります。もし、プライマリーキーに指定したカラムを`pgroonga`インデックスに追加していない場合は、`pgroonga.score`関数は常に`0.0`を返します。"
 
-msgid "`pgroonga.score` function always returns `0.0` when full text search isn't performed by index. In other words, `pgroonga.score` function always returns `0.0` when full text search is performed by sequential scan."
-msgstr "`pgroonga.score`関数はインデックスを使わずに全文検索した場合は常に`0.0`を返します。言い換えると、`pgroonga.score`関数はシーケンシャルスキャンで全文検索を実行した場合は常に`0.0`を返します。"
+#: ../../../../../v1/reference/functions/pgroonga-score.md:49
+msgid ""
+"`pgroonga.score` function always returns `0.0` when full text search isn't "
+"performed by index. In other words, `pgroonga.score` function always returns"
+" `0.0` when full text search is performed by sequential scan."
+msgstr ""
+"`pgroonga.score`関数はインデックスを使わずに全文検索した場合は常に`0.0`を返します。言い換えると、`pgroonga.score`関数はシーケンシャルスキャンで全文検索を実行した場合は常に`0.0`を返します。"
 
-msgid "If `pgroonga.score` function returns `0.0` unexpectedly, confirm the followings:"
+#: ../../../../../v1/reference/functions/pgroonga-score.md:51
+msgid ""
+"If `pgroonga.score` function returns `0.0` unexpectedly, confirm the "
+"followings:"
 msgstr "もし、`pgroonga.score`関数が意図せずに`0.0`を返しているときは、次のことを確認してください。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:53
 msgid ""
 "  * Whether the column that is specified as primary key is included in index targets of the PGroonga index or not\n"
 "  * Whether the full text search is performed by index or not"
@@ -94,14 +144,23 @@ msgstr ""
 "  * プライマリーキーに指定しているカラムがPGroongaのインデックス対象に含まれているかどうか\n"
 "  * インデックスを使って全文検索されているかどうか"
 
-msgid "Score is \"how many keywords are included\" (TF, Term Frequency) for now. Groonga supports customizing how to score. But PGroonga doesn't support yet it for now."
-msgstr "現在のところ、スコアーの値は「何個キーワードが含まれていたか」（TF、Term Frequency）です。Groongaはどのようにスコアーを計算するかをカスタマイズすることができます。しかし、PGroongaはまだその機能をサポートしていません。"
+#: ../../../../../v1/reference/functions/pgroonga-score.md:56
+msgid ""
+"Score is \"how many keywords are included\" (TF, Term Frequency) for now. "
+"Groonga supports customizing how to score. But PGroonga doesn't support yet "
+"it for now."
+msgstr ""
+"現在のところ、スコアーの値は「何個キーワードが含まれていたか」（TF、Term "
+"Frequency）です。Groongaはどのようにスコアーを計算するかをカスタマイズすることができます。しかし、PGroongaはまだその機能をサポートしていません。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:58
 msgid "See [examples in tutorial](../../tutorial/#score)."
 msgstr "[チュートリアルの中の例](../../tutorial/#score)を参考にしてください。"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:60
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../../v1/reference/functions/pgroonga-score.md:62
 msgid "  * [Examples in tutorial](../../tutorial/#score)"
 msgstr "  * [チュートリアルの中の例](../../tutorial/#score)"

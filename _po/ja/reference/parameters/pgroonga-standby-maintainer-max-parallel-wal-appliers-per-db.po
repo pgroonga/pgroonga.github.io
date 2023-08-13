@@ -1,16 +1,30 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-10 12:41+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:1
 msgid ""
 "---\n"
-"title: \"pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db parameter"
-"\"\n"
+"title: \"pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db parameter\"\n"
 "upper_level: ../\n"
 "---"
 msgstr ""
@@ -19,111 +33,136 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
-msgid "# `pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter"
-msgstr "# `pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター"
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:6
+msgid ""
+"# `pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter"
+msgstr ""
+"# `pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:8
 msgid "Since 3.1.2."
 msgstr "3.1.2で追加。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:12
 msgid ""
-"The `pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter c"
-"ontrols parallel level of [the `pgroonga_wal_apply()` function][pgroonga-wal-a"
-"pply] execution by [the `pgroonga_standby_maintainer` module][pgroonga-standby"
-"-maintainer]."
+"The `pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter"
+" controls parallel level of [the `pgroonga_wal_apply()` function][pgroonga-"
+"wal-apply] execution by [the `pgroonga_standby_maintainer` module][pgroonga-"
+"standby-maintainer]."
 msgstr ""
-"`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーターは[`pgroong"
-"a_standby_maintainer`モジュール][pgroonga-standby-maintainer]による[`pgroonga_wal_appl"
-"y()`関数][pgroonga-wal-apply]実行の並列度を制御します。"
+"`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーターは[`pgroonga_standby_maintainer`モジュール][pgroonga-"
+"standby-maintainer]による[`pgroonga_wal_apply()`関数][pgroonga-wal-"
+"apply]実行の並列度を制御します。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:14
 msgid ""
-"If this value is 1 or larger, `pgroonga_wal_apply()` for each PGroonga index i"
-"s executed in a new background worker process. If you have enough resource to "
-"run `pgroonga_wal_apply()` in parallel, you can reduce total WAL application t"
-"ime by specifying a large value such as 6."
+"If this value is 1 or larger, `pgroonga_wal_apply()` for each PGroonga index"
+" is executed in a new background worker process. If you have enough resource"
+" to run `pgroonga_wal_apply()` in parallel, you can reduce total WAL "
+"application time by specifying a large value such as 6."
 msgstr ""
-"この値が1以上の場合、各PGroongaインデックスに対する`pgroonga_wal_apply()`は新しいバックグランドワーカープロセスが実行します。"
-"並列に`pgroonga_wal_apply()`を実行するために十分なリソースがある場合は、6のように大きな値を指定することでトータルのWAL適用時間を削"
-"減できます。"
+"この値が1以上の場合、各PGroongaインデックスに対する`pgroonga_wal_apply()`は新しいバックグランドワーカープロセスが実行します。並列に`pgroonga_wal_apply()`を実行するために十分なリソースがある場合は、6のように大きな値を指定することでトータルのWAL適用時間を削減できます。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:16
 msgid ""
-"Note that you may need to increase [`max_worker_processes`][postgresql-max-wor"
-"ker-processes] when you specify a large value to this parameter. If you specif"
-"y a large value, you may need to use many worker processes at the same time."
+"Note that you may need to increase [`max_worker_processes`][postgresql-max-"
+"worker-processes] when you specify a large value to this parameter. If you "
+"specify a large value, you may need to use many worker processes at the same"
+" time."
 msgstr ""
-"このパラメーターに大きな値を指定した場合、[`max_worker_processes`][postgresql-max-worker-processes]"
-"も増やさなければいけないことに注意してください。大きな値を指定した場合、同時にたくさんのワーカープロセスが必要になるかもしれません。"
+"このパラメーターに大きな値を指定した場合、[`max_worker_processes`][postgresql-max-worker-"
+"processes]も増やさなければいけないことに注意してください。大きな値を指定した場合、同時にたくさんのワーカープロセスが必要になるかもしれません。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:18
 msgid ""
-"Note that this parameter controls parallel level per database. If you have 2 d"
-"atabases that use PGroonga and specify 6 to this parameter, 12 background work"
-"er processes may be used for `pgroonga_wal_apply()` at the same time."
+"Note that this parameter controls parallel level per database. If you have 2"
+" databases that use PGroonga and specify 6 to this parameter, 12 background "
+"worker processes may be used for `pgroonga_wal_apply()` at the same time."
 msgstr ""
-"このパラメーターはデータベース単位の並列度を制御することに注意してください。もし、PGroongaを使っているデータベースが2つあり、このパラメーターに6を"
-"指定した場合、`pgroonga_wal_apply()`用に同時に12個のバックグランドワーカープロセスが起動するかもしれません。"
+"このパラメーターはデータベース単位の並列度を制御することに注意してください。もし、PGroongaを使っているデータベースが2つあり、このパラメーターに6を指定した場合、`pgroonga_wal_apply()`用に同時に12個のバックグランドワーカープロセスが起動するかもしれません。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:20
 msgid ""
-"The default value is 0. It means that `pgroonga_wal_apply()` is executed seque"
-"ntially. No new background worker processes aren't used."
+"The default value is 0. It means that `pgroonga_wal_apply()` is executed "
+"sequentially. No new background worker processes aren't used."
 msgstr ""
-"デフォルト値は0です。これは`pgroonga_wal_apply()`はシーケンシャルに実行するという意味になります。追加のバックグランドワーカープロセス"
-"は使われません。"
+"デフォルト値は0です。これは`pgroonga_wal_apply()`はシーケンシャルに実行するという意味になります。追加のバックグランドワーカープロセスは使われません。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:22
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:24
 msgid "In `postgresql.conf`:"
 msgstr "`postgresql.conf`の場合："
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:26
 msgid ""
 "```text\n"
 "pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db = max\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:30
 msgid "`max` is 0 or positive integer that controls parallel level."
 msgstr "`max`は0あるいは正の整数です。並列度を制御します。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:32
 msgid "The default is 0."
 msgstr "デフォルトは0です。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:34
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:36
 msgid ""
-"Here is an example to use at most 6 background worker processes for parallel `"
-"pgroonga_wal_apply()` per database:"
+"Here is an example to use at most 6 background worker processes for parallel"
+" `pgroonga_wal_apply()` per database:"
 msgstr "以下はデータベースごとに並列`pgroonga_wal_apply()`のために最大で6ワーカーを使う例です。"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:38
 msgid ""
 "```text\n"
 "pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db = 6\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:42
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:44
+msgid ""
+"  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
 msgstr "  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]"
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:46
 msgid "  * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]"
 msgstr "  * [`pgroonga_wal_apply()`関数][pgroonga-wal-apply]"
 
-msgid "  * [The `max_worker_processes` parameter][postgresql-max-worker-processes]"
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:48
+msgid ""
+"  * [The `max_worker_processes` parameter][postgresql-max-worker-processes]"
 msgstr "  * [`max_worker_processes`パラメーター][postgresql-max-worker-processes]"
 
-msgid "[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:50
+msgid ""
+"[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
 msgstr ""
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:52
 msgid "[pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html"
 msgstr ""
 
+#: ../../../../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.md:54
 msgid ""
-"[postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en }}/runtim"
-"e-config-resource.html#GUC-MAX-WORKER-PROCESSES"
+"[postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en "
+"}}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES"
 msgstr ""
-"[postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.ja }}/runtim"
-"e-config-resource.html#GUC-MAX-WORKER-PROCESSES"
+"[postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.ja "
+"}}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES"

@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:18+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/operators/script-v2.md:1
 msgid ""
 "---\n"
 "title: \"&` operator\"\n"
@@ -19,57 +33,89 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/operators/script-v2.md:6
 msgid "# `` &` `` operator"
 msgstr "# `` &` ``演算子"
 
+#: ../../../../reference/operators/script-v2.md:8
 msgid "Since 1.2.1."
 msgstr "1.2.1で追加。"
 
+#: ../../../../reference/operators/script-v2.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`` &` `` operator searches records with search condition written in [script syntax][groonga-script-syntax]. Script syntax is a powerful syntax. You can use many operations such as full text search, prefix search, range search and so on."
-msgstr "`` &` ``演算子は[スクリプト構文][groonga-script-syntax]で書かれた検索条件で検索します。スクリプト構文は強力な構文です。全文検索、前方一致検索、範囲検索といった多くの演算ができます。"
+#: ../../../../reference/operators/script-v2.md:12
+msgid ""
+"`` &` `` operator searches records with search condition written in [script "
+"syntax][groonga-script-syntax]. Script syntax is a powerful syntax. You can "
+"use many operations such as full text search, prefix search, range search "
+"and so on."
+msgstr ""
+"`` &` ``演算子は[スクリプト構文][groonga-script-"
+"syntax]で書かれた検索条件で検索します。スクリプト構文は強力な構文です。全文検索、前方一致検索、範囲検索といった多くの演算ができます。"
 
+#: ../../../../reference/operators/script-v2.md:14
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/operators/script-v2.md:16
 msgid ""
 "```sql\n"
 "column &` script\n"
 "```"
 msgstr ""
 
-msgid "`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type."
+#: ../../../../reference/operators/script-v2.md:20
+msgid ""
+"`column` is a column to be searched. It's `text` type, `text[]` type or "
+"`varchar` type."
 msgstr "`column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。"
 
-msgid "`script` is a script that specifies search conditions. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`."
-msgstr "`script`は検索条件を指定するスクリプトです。`column`が`text`型または`text[]`の場合は型は`text`型になります。`column`が`varchar`型の場合は型は`varchar`型になります。"
+#: ../../../../reference/operators/script-v2.md:22
+msgid ""
+"`script` is a script that specifies search conditions. It's `text` type for "
+"`text` type or `text[]` type `column`. It's `varchar` type for `varchar` "
+"type `column`."
+msgstr ""
+"`script`は検索条件を指定するスクリプトです。`column`が`text`型または`text[]`の場合は型は`text`型になります。`column`が`varchar`型の場合は型は`varchar`型になります。"
 
+#: ../../../../reference/operators/script-v2.md:24
 msgid "Syntax in `script` is [script syntax][groonga-script-syntax]."
 msgstr "`script`の構文は[スクリプト構文][groonga-script-syntax]です。"
 
+#: ../../../../reference/operators/script-v2.md:26
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
-msgid "You need to specify one of the following operator classes to use this operator:"
+#: ../../../../reference/operators/script-v2.md:28
+msgid ""
+"You need to specify one of the following operator classes to use this "
+"operator:"
 msgstr "この演算子を使うには次のどれかの演算子クラスを指定する必要があります。"
 
+#: ../../../../reference/operators/script-v2.md:30
 msgid "  * `pgroonga_text_full_text_search_ops_v2`: Default for `text`"
 msgstr "  * `pgroonga_text_full_text_search_ops_v2`：`text`型のデフォルト"
 
-msgid "  * `pgroonga_text_array_full_text_search_ops_v2`: Default for `text[]`"
+#: ../../../../reference/operators/script-v2.md:32
+msgid ""
+"  * `pgroonga_text_array_full_text_search_ops_v2`: Default for `text[]`"
 msgstr "  * `pgroonga_text_array_full_text_search_ops_v2`：`text[]`型のデフォルト"
 
+#: ../../../../reference/operators/script-v2.md:34
 msgid "  * `pgroonga_varchar_full_text_search_ops_v2`: For `varchar`"
 msgstr "  * `pgroonga_varchar_full_text_search_ops_v2`：`varchar`用"
 
+#: ../../../../reference/operators/script-v2.md:36
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/operators/script-v2.md:38
 msgid "Here are sample schema and data for examples:"
 msgstr "例に使うサンプルスキーマとデータは次の通りです。"
 
+#: ../../../../reference/operators/script-v2.md:40
 msgid ""
 "```sql\n"
 "CREATE TABLE memos (\n"
@@ -78,12 +124,14 @@ msgid ""
 ");"
 msgstr ""
 
+#: ../../../../reference/operators/script-v2.md:46
 msgid ""
 "CREATE INDEX pgroonga_content_index ON memos\n"
 "  USING pgroonga (id, content);\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/operators/script-v2.md:50
 msgid ""
 "```sql\n"
 "INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');\n"
@@ -99,9 +147,11 @@ msgstr ""
 "INSERT INTO memos VALUES (4, 'groongaコマンドがあります。');\n"
 "```"
 
+#: ../../../../reference/operators/script-v2.md:57
 msgid "You can specify complex conditions by `` &` `` operator:"
 msgstr "`` &` ``演算子を使うことで複雑な条件を指定できます。"
 
+#: ../../../../reference/operators/script-v2.md:59
 msgid ""
 "```sql\n"
 "SELECT * FROM memos WHERE content &` 'id >= 2 && (content @ \"engine\" || content @ \"rdbms\")';\n"
@@ -119,26 +169,42 @@ msgstr ""
 "-- (1 row)\n"
 "```"
 
-msgid "The specified script `'id >= 2 && (content @ \"engine\" || content @ \"rdbms\")'` means:"
-msgstr "指定したスクリプト`'id >= 2 && (content @ \"全文検索\" || content @ \"MySQL\")'`は次のような意味です。"
+#: ../../../../reference/operators/script-v2.md:67
+msgid ""
+"The specified script `'id >= 2 && (content @ \"engine\" || content @ "
+"\"rdbms\")'` means:"
+msgstr ""
+"指定したスクリプト`'id >= 2 && (content @ \"全文検索\" || content @ "
+"\"MySQL\")'`は次のような意味です。"
 
+#: ../../../../reference/operators/script-v2.md:69
 msgid "  * `id` must be 2 or more larger (range search)"
 msgstr "  * `id`は2以上（範囲検索）"
 
+#: ../../../../reference/operators/script-v2.md:71
 msgid "  * `content` must contain `\"engine\"` or `\"rdbms\"` (full text search)"
 msgstr "  * `content`は`\"全文検索\"`または`\"MySQL\"`を含んでいること（全文検索）"
 
+#: ../../../../reference/operators/script-v2.md:73
 msgid "You can also use [functions][groonga-functions] in the script."
 msgstr "スクリプト中では[関数][groonga-functions]を使うこともできます。"
 
+#: ../../../../reference/operators/script-v2.md:75
 msgid "## Sequential scan"
 msgstr "## シーケンシャルスキャン"
 
+#: ../../../../reference/operators/script-v2.md:77
 msgid "You can't use this operator with sequential scan."
 msgstr "シーケンシャルスキャン時にはこの演算子を使うことはできません。"
 
-msgid "[groonga-script-syntax]:http://groonga.org/docs/reference/grn_expr/script_syntax.html"
-msgstr "[groonga-script-syntax]:http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html"
+#: ../../../../reference/operators/script-v2.md:79
+msgid ""
+"[groonga-script-"
+"syntax]:http://groonga.org/docs/reference/grn_expr/script_syntax.html"
+msgstr ""
+"[groonga-script-"
+"syntax]:http://groonga.org/ja/docs/reference/grn_expr/script_syntax.html"
 
+#: ../../../../reference/operators/script-v2.md:81
 msgid "[groonga-functions]:http://groonga.org/docs/reference/function.html"
 msgstr ""

@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:18+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
 
+#: ../../../../reference/parameters/force-match-escalation.md:1
 msgid ""
 "---\n"
 "title: \"pgroonga.force_match_escalation parameter\"\n"
@@ -19,83 +33,125 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/parameters/force-match-escalation.md:6
 msgid "# `pgroonga.force_match_escalation` parameter"
 msgstr "# `pgroonga.force_match_escalation`パラメーター"
 
+#: ../../../../reference/parameters/force-match-escalation.md:8
 msgid "Since 2.2.8."
 msgstr "2.2.8で追加。"
 
+#: ../../../../reference/parameters/force-match-escalation.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga.force_match_escalation` parameter controls whether match escalation is always used or not."
+#: ../../../../reference/parameters/force-match-escalation.md:12
+msgid ""
+"`pgroonga.force_match_escalation` parameter controls whether match "
+"escalation is always used or not."
 msgstr "`pgroonga.force_match_escalation`パラメーターは常にマッチエスカレーションを使うかどうかを制御します。"
 
-msgid "Match escalation is auto loose search. If this parameter is `on`, match escalation is always used."
-msgstr "マッチエスカレーションとは自動で条件のゆるい検索をする機能のことです。このパラメーターが`on`の場合は常にマッチエスカレーションを使います。"
+#: ../../../../reference/parameters/force-match-escalation.md:14
+msgid ""
+"Match escalation is auto loose search. If this parameter is `on`, match "
+"escalation is always used."
+msgstr ""
+"マッチエスカレーションとは自動で条件のゆるい検索をする機能のことです。このパラメーターが`on`の場合は常にマッチエスカレーションを使います。"
 
-msgid "The default is `off`. It means that match escalation is used conditionally."
+#: ../../../../reference/parameters/force-match-escalation.md:16
+msgid ""
+"The default is `off`. It means that match escalation is used conditionally."
 msgstr "デフォルトは`off`です。これは条件次第でマッチエスカレーションを使うということです。"
 
+#: ../../../../reference/parameters/force-match-escalation.md:18
 msgid "You can always use match escalation by specifying `on`."
 msgstr "`on`を指定することで常にマッチエスカレーションを使うことができます。"
 
-msgid "Normally, you don't need to change this parameter. Conditional match escalation is suitable for users."
+#: ../../../../reference/parameters/force-match-escalation.md:20
+msgid ""
+"Normally, you don't need to change this parameter. Conditional match "
+"escalation is suitable for users."
 msgstr "通常、このパラメーターを変更する必要はありません。条件次第で自動で条件のゆるい検索をするのはユーザーにとって適切な挙動だからです。"
 
-msgid "See also [`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]."
-msgstr "[`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]も参照してください。"
+#: ../../../../reference/parameters/force-match-escalation.md:22
+msgid ""
+"See also [`pgroonga.match_escalation_threshold` parameter][match-escalation-"
+"threshold]."
+msgstr ""
+"[`pgroonga.match_escalation_threshold`パラメーター][match-escalation-"
+"threshold]も参照してください。"
 
+#: ../../../../reference/parameters/force-match-escalation.md:24
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/parameters/force-match-escalation.md:26
 msgid "In SQL:"
 msgstr "SQLの場合："
 
+#: ../../../../reference/parameters/force-match-escalation.md:28
 msgid ""
 "```sql\n"
 "SET pgroonga.force_match_escalation = boolean;\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/force-match-escalation.md:32
 msgid "In `postgresql.conf`:"
 msgstr "`postgresql.conf`の場合："
 
+#: ../../../../reference/parameters/force-match-escalation.md:34
 msgid ""
 "```text\n"
 "pgroonga.force_match_escalation = boolean\n"
 "```"
 msgstr ""
 
-msgid "`boolean` is a boolean value. There are some literals for boolean value such as `on`, `off`, `true`, `false`, `yes` and `no`."
-msgstr "`boolean`は真偽値です。真偽値には`on`、`off`、`true`、`false`、`yes`、`no`のようなリテラルがあります。"
+#: ../../../../reference/parameters/force-match-escalation.md:38
+msgid ""
+"`boolean` is a boolean value. There are some literals for boolean value such"
+" as `on`, `off`, `true`, `false`, `yes` and `no`."
+msgstr ""
+"`boolean`は真偽値です。真偽値には`on`、`off`、`true`、`false`、`yes`、`no`のようなリテラルがあります。"
 
+#: ../../../../reference/parameters/force-match-escalation.md:40
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/parameters/force-match-escalation.md:42
 msgid "Here is an example SQL to always use match escalation:"
 msgstr "以下は常にマッチエスカレーションを使うようにするSQLの例です。"
 
+#: ../../../../reference/parameters/force-match-escalation.md:44
 msgid ""
 "```sql\n"
 "SET pgroonga.force_match_escalation = on;\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/force-match-escalation.md:48
 msgid "Here is an example configuration to always use match escalation:"
 msgstr "以下は常にマッチエスカレーションを使うようにする設定の例です。"
 
+#: ../../../../reference/parameters/force-match-escalation.md:50
 msgid ""
 "```sql\n"
 "pgroonga.force_match_escalation = on\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/parameters/force-match-escalation.md:54
 msgid "## See also"
 msgstr "## 参考"
 
-msgid "  * [`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]"
-msgstr "  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]"
+#: ../../../../reference/parameters/force-match-escalation.md:56
+msgid ""
+"  * [`pgroonga.match_escalation_threshold` parameter][match-escalation-"
+"threshold]"
+msgstr ""
+"  * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-"
+"threshold]"
 
+#: ../../../../reference/parameters/force-match-escalation.md:58
 msgid "[match-escalation-threshold]:match-escalation-threshold.html"
 msgstr ""

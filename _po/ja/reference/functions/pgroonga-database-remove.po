@@ -1,13 +1,27 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-24 12:18+0900\n"
+"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:46+0900\n"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:1
 msgid ""
 "---\n"
 "title: pgroonga_database_remove function\n"
@@ -19,144 +33,180 @@ msgstr ""
 "upper_level: ../\n"
 "---"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:6
 msgid "# `pgroonga_database_remove` function"
 msgstr "# `pgroonga_database_remove`関数"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:8
 msgid "Since 2.1.8."
 msgstr "2.1.8で追加。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:10
 msgid "## Summary"
 msgstr "## 概要"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:12
 msgid ""
-"`pgroonga_database_remove` function removes all PGroonga related files (`pgrn*"
-"` files) from PostgreSQL database directories."
+"`pgroonga_database_remove` function removes all PGroonga related files "
+"(`pgrn*` files) from PostgreSQL database directories."
 msgstr ""
-"`pgroonga_database_remove`関数はPostgreSQLのデータベースディレクトリー内のPGroonga関連のすべてのファイル（`pg"
-"rn*`ファイル）を削除します。"
+"`pgroonga_database_remove`関数はPostgreSQLのデータベースディレクトリー内のPGroonga関連のすべてのファイル（`pgrn*`ファイル）を削除します。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:14
 msgid ""
-"You need to install [`pgroonga_database` module][pgroonga-database] to use thi"
-"s function."
-msgstr "この関数を使うには[`pgroonga_database`モジュール][pgroonga-database]をインストールする必要があります。"
+"You need to install [`pgroonga_database` module][pgroonga-database] to use "
+"this function."
+msgstr ""
+"この関数を使うには[`pgroonga_database`モジュール][pgroonga-database]をインストールする必要があります。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:16
 msgid ""
-"Note that this is a dangerous function. You should not enable this function un"
-"til you need this function."
+"Note that this is a dangerous function. You should not enable this function "
+"until you need this function."
 msgstr "この関数は危険な関数です。この関数が必要になるまでこの関数を有効にしないでください。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:18
 msgid ""
-"Normally, you don't need to remove PGroonga related files. If your PGroonga in"
-"dexes are broken, you can recover these indexes by [`REINDEX`][postgresql-rein"
-"dex]. But you can't recover by `REINDEX` when internal PGroonga database is br"
-"oken."
+"Normally, you don't need to remove PGroonga related files. If your PGroonga "
+"indexes are broken, you can recover these indexes by [`REINDEX`][postgresql-"
+"reindex]. But you can't recover by `REINDEX` when internal PGroonga database"
+" is broken."
 msgstr ""
-"通常、PGroonga関連のファイルを削除する必要はありません。もしPGroongaのインデックスが破損した場合は、[`REINDEX`][postgres"
-"ql-reindex]で復旧できます。しかし、PGroonga内部のデータベースが壊れたときは`REINDEX`では復旧できません。\n"
+"通常、PGroonga関連のファイルを削除する必要はありません。もしPGroongaのインデックスが破損した場合は、[`REINDEX`][postgresql-"
+"reindex]で復旧できます。しかし、PGroonga内部のデータベースが壊れたときは`REINDEX`では復旧できません。\n"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:20
 msgid ""
-"If your internal PGroonga database is broken, you need to follow the following"
-" steps to recover your internal PGroonga database:"
+"If your internal PGroonga database is broken, you need to follow the "
+"following steps to recover your internal PGroonga database:"
 msgstr "PGroongaの内部データベースが壊れたときに復旧する手順は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:22
+#: ../../../../reference/functions/pgroonga-database-remove.md:40
 msgid "  1. Disconnect all PostgreSQL connections"
-msgstr ""
-"  1. PostgreSQLへの接続をすべて切断する\n"
+msgstr "  1. PostgreSQLへの接続をすべて切断する\n"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:24
 msgid "  2. Remove all `pgrn*` files in PostgreSQL data directories"
 msgstr "  2. PostgreSQLのデータディレクトリーにあるすべての`pgrn*`ファイルを削除する"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:26
 msgid ""
-"     If you use tablespace, you need to remove `pgrn*` files in tablespace dir"
-"ectories."
+"     If you use tablespace, you need to remove `pgrn*` files in tablespace "
+"directories."
 msgstr "     もし、テーブルスペースを使っているならテーブルスペースのディレクトリー内にある`pgrn*`ファイルも削除します。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:28
 msgid "     You need to log in to the host that runs PostgreSQL."
 msgstr "     PostgreSQLが動いているホストにログインする必要があります。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:30
 msgid "  3. Connect PostgreSQL"
 msgstr "  3. PostgreSQLに接続する"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:32
+#: ../../../../reference/functions/pgroonga-database-remove.md:46
 msgid "  4. Run `REINDEX` against all PGroonga indexes"
 msgstr "  4. すべてのPGroongaのインデックスに対して`REINDEX`を実行する"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:34
+#: ../../../../reference/functions/pgroonga-database-remove.md:48
 msgid ""
-"     This creates internal PGroonga database and rebuilds all PGroonga indexes"
-" from data in PostgreSQL."
-msgstr "     これでPGroongaの内部データベースが作られ、PostgreSQL内のデータを使ってすべてのPGroongaのインデックスが再作成されます。"
-
-msgid ""
-"`pgroonga_database_remove` function removes all `pgrn*` files. It also support"
-"s tablespace."
-msgstr "`pgroonga_database_remove`関数はすべての`pgrn*`ファイルを削除します。この関数はテーブルスペースにも対応しています。"
-
-msgid ""
-"If you use `pgroonga_database_remove` function, you don't need to log in to th"
-"e host that runs PostgreSQL. Here are steps to recover with `pgroonga_database"
-"_remove` function:"
+"     This creates internal PGroonga database and rebuilds all PGroonga "
+"indexes from data in PostgreSQL."
 msgstr ""
-"`pgroonga_database_remove`関数を使うとPostgreSQLが動いているホストにログインする必要はありません。`pgroonga_d"
-"atabase_remove`関数を使った復旧手順は次の通りです。"
+"     "
+"これでPGroongaの内部データベースが作られ、PostgreSQL内のデータを使ってすべてのPGroongaのインデックスが再作成されます。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:36
+msgid ""
+"`pgroonga_database_remove` function removes all `pgrn*` files. It also "
+"supports tablespace."
+msgstr ""
+"`pgroonga_database_remove`関数はすべての`pgrn*`ファイルを削除します。この関数はテーブルスペースにも対応しています。"
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:38
+msgid ""
+"If you use `pgroonga_database_remove` function, you don't need to log in to "
+"the host that runs PostgreSQL. Here are steps to recover with "
+"`pgroonga_database_remove` function:"
+msgstr ""
+"`pgroonga_database_remove`関数を使うとPostgreSQLが動いているホストにログインする必要はありません。`pgroonga_database_remove`関数を使った復旧手順は次の通りです。"
+
+#: ../../../../reference/functions/pgroonga-database-remove.md:42
 msgid "  2. Connect PostgreSQL"
 msgstr "  2. PostgreSQLに接続する"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:44
 msgid "  3. Run `SELECT pgroonga_database_remove()`"
 msgstr "  3. `SELECT pgroonga_database_remove()`を実行する"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:50
 msgid "## Syntax"
 msgstr "## 構文"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:52
 msgid "Here is the syntax of this function:"
 msgstr "この関数の構文は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:54
 msgid ""
 "```text\n"
 "bool pgroonga_database_remove()\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:58
 msgid ""
-"It always returns `true` because if there is an error, it raises an error inst"
-"ead of returning `false`."
+"It always returns `true` because if there is an error, it raises an error "
+"instead of returning `false`."
 msgstr "この関数は常に`true`を返します。なぜなら、もし問題があった場合は`false`を返すのではなくエラーにするからです。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:60
 msgid "## Usage"
 msgstr "## 使い方"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:62
 msgid "Here are steps how to recover from broken internal PGroonga database."
 msgstr "壊れたPGroongaの内部データベースを復旧する手順は次の通りです。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:64
 msgid ""
-"First, disconnect all connections. If there are any connections that still use"
-" internal PGroonga database, these connections will be crashed."
-msgstr "最初にすべての接続を切断します。PGroongaの内部データベースを使っている接続が残っているとそれらの接続はクラッシュするかもしれません。"
+"First, disconnect all connections. If there are any connections that still "
+"use internal PGroonga database, these connections will be crashed."
+msgstr ""
+"最初にすべての接続を切断します。PGroongaの内部データベースを使っている接続が残っているとそれらの接続はクラッシュするかもしれません。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:66
 msgid ""
-"Then, connect to PostgreSQL again and run `pgroonga_database_remove()` functio"
-"n:"
+"Then, connect to PostgreSQL again and run `pgroonga_database_remove()` "
+"function:"
 msgstr "次にPostgreSQLに再度接続し、`pgroonga_database_remove()`関数を実行します。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:68
 msgid ""
 "```sql\n"
 "SELECT pgroonga_database_remove();\n"
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:72
 msgid "Then, disconnect the connection."
 msgstr "次にこの接続を切断します。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:74
 msgid ""
-"Note that you can't use any PGroonga features except features provided `pgroon"
-"ga_database` module in the connection. If you use one of them, the connection "
-"tries to open internal PGroonga database. It may cause a crash."
+"Note that you can't use any PGroonga features except features provided "
+"`pgroonga_database` module in the connection. If you use one of them, the "
+"connection tries to open internal PGroonga database. It may cause a crash."
 msgstr ""
-"この接続では`pgroonga_database`モジュールが提供する機能以外はPGroongaのどの機能も使ってはいけません。もしPGroongaの機能を"
-"使うとこの接続でPGroongaの内部データベースを開こうとします。そうするとクラッシュするかもしれません。"
+"この接続では`pgroonga_database`モジュールが提供する機能以外はPGroongaのどの機能も使ってはいけません。もしPGroongaの機能を使うとこの接続でPGroongaの内部データベースを開こうとします。そうするとクラッシュするかもしれません。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:76
 msgid "Then, connect to PostgreSQL again and recreate all PGroonga indexes:"
 msgstr "次にPostgreSQLに再接続してすべてのPGroongaのインデックスを再作成します。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:78
 msgid ""
 "```sql\n"
 "REINDEX INDEX pgroonga_index1;\n"
@@ -165,19 +215,26 @@ msgid ""
 "```"
 msgstr ""
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:84
 msgid ""
-"Now, your system is recovered. You don't need to log in the host that runs Pos"
-"tgreSQL."
+"Now, your system is recovered. You don't need to log in the host that runs "
+"PostgreSQL."
 msgstr "これで復旧完了です。PostgreSQLが動いているホストにログインする必要はありません。"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:86
 msgid "## See also"
 msgstr "## 参考"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:88
 msgid " * [`pgroonga_database` module][pgroonga-database]"
 msgstr " * [`pgroonga_database`モジュール][pgroonga-database]"
 
+#: ../../../../reference/functions/pgroonga-database-remove.md:90
 msgid "[pgroonga-database]:../modules/pgroonga-database.html"
 msgstr ""
 
-msgid "[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html"
-msgstr "[postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html"
+#: ../../../../reference/functions/pgroonga-database-remove.md:92
+msgid ""
+"[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html"
+msgstr ""
+"[postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html"

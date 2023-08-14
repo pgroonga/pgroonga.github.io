@@ -260,7 +260,7 @@ msgstr ""
 "#### マイグレーション\n"
 "次にPostモデル`database/migrations/<timestamp>_create_posts_table.php`用の”
 ”マイグレーションファイルを作成します\n"
-"こちらが変更前、変更後の内容となります:"
+"これが変更前、変更後の内容です:"
 
 msgid ""
 "use Illuminate\\Database\\Migrations\\Migration;\n"

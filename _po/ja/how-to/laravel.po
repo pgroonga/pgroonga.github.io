@@ -126,7 +126,7 @@ msgid ""
 "If you’re using different PostgreSQL username and password, change them "
 "according to your settings."
 msgstr ""
-"実際に使っているPostgreSQLのユーザ名とパスワードに変更願います。"
+"`DB_USERNAME` と `DB_PASSWORD` は、実際に使っているPostgreSQLのユーザ名とパスワードに変更してください。"
 
 msgid "### Creating a Blog"
 msgstr "### ブログの作成"

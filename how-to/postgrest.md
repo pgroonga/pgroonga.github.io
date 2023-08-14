@@ -357,7 +357,7 @@ CREATE INDEX pg_multi_book_index on books USING pgroonga
   );
 ```
 
-### Creating a Stored Function for Keyword-Based Search:
+### Creating a Stored Function for Keyword-Based Search
 
 To emulate a Google-like search experience within your database, you can create a stored function that accepts a keyword and returns the relevant records from the `books` table:
 

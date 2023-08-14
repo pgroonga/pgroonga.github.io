@@ -34,7 +34,7 @@ msgid ""
 "Laravel, PostgreSQL and PGroonga"
 msgstr ""
 "### Laravelのインストール\n"
-"**注意**: このチュートリアルは既にLaravelとPostgreSQLとPGroongaが使える前提となります"
+"**注意**: このチュートリアルは既にLaravelとPostgreSQLとPGroongaが使える前提となります。"
 
 msgid ""
 "If you have already installed PHP and Composer on your local machine, you "

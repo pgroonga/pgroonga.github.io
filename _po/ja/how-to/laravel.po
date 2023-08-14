@@ -67,7 +67,7 @@ msgid ""
 "localhost:8000)."
 msgstr ""
 "起動後はブラウザで下記のURLでアクセス可能になります。\n\n"
-"[http://localhost:8000](http://localhost:8000)."
+"[http://localhost:8000](http://localhost:8000)"
 
 msgid "### Installing Laravel Breeze"
 msgstr "### Laravel Breezeのインストール"

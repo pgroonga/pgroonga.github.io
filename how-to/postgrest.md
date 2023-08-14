@@ -251,6 +251,19 @@ Open your browser and access the following:
 ]
 ```
 
+### NOT search
+
+Open your browser and access the following:
+
+[`http://localhost:3000/rpc/find_title?keywords=nga -pg`](http://localhost:3000/rpc/find_title?keywords=nga%20-pg)
+
+```json
+[
+  {"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}, 
+  {"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}
+]
+```
+
 ## Bonus
 
 When you want to allow various additional searches, you can create multiple stored functions.
@@ -293,3 +306,95 @@ BEGIN
 END;
 $$;
 ```
+
+## Keyword-Based Content Search
+
+At times, you may want to conduct a search solely using keywords, rather than specifying particular fields. Let's explore how you can accomplish this.
+
+Consider a personal library stored in a database table `books`:
+
+```sql
+CREATE TABLE books (
+  id INTEGER,
+  title TEXT,
+  author TEXT
+);
+
+INSERT INTO books VALUES (1, 'Adventures of Sherlock Holmes', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (2, 'The Hound of the Baskervilles', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (3, 'The Memoirs of Sherlock Holmes', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (4, 'The Lion, the Witch, and the Wardrobe', 'C. S. Lewis');
+```
+
+Suppose you want to find books with the author name containing 'Conan Doyle' and titles that include 'Sherlock'. Normally, you would execute the following SQL query:
+
+```sql
+SELECT * FROM books WHERE author LIKE '%Conan Doyle%' and title LIKE '%Sherlock%';
+-- id |             title              |       author       
+-- ----+--------------------------------+--------------------
+--   1 | Adventures of Sherlock Holmes  | Arthur Conan Doyle
+--   3 | The Memoirs of Sherlock Holmes | Arthur Conan Doyle
+-- (2 rows)
+```
+
+However, if you're aiming for a Google-like keyword search experience, you would want to achieve the same results with a keyword string such as 'conan doyle sherlock'.
+
+### Creating an Special Index for Keyword-based Search
+
+To create this functionality, you will need to design multiple array indexes. Here's how you can proceed:
+
+```sql
+CREATE INDEX pg_multi_book_index on books USING pgroonga
+	((ARRAY[title, author]) pgroonga_text_array_full_text_search_ops_v2)
+	WITH (
+    normalizers = 'NormalizerNFKC150
+      (
+        "unify_kana", true,
+        "unify_to_romaji", true,
+        "unify_hyphen_and_prolonged_sound_mark", true
+      )',
+    tokenizer = 'TokenNgram("unify_symbol", false, "unify_alphabet", false, "unify_digit", false)'
+  );
+```
+
+### Creating a Stored Function for Keyword-Based Search
+
+To emulate a Google-like search experience within your database, you can create a stored function that accepts a keyword and returns the relevant records from the `books` table:
+
+```sql
+CREATE OR REPLACE FUNCTION gsearch(keyword text)
+  RETURNS SETOF books
+  LANGUAGE plpgsql
+AS $$
+BEGIN
+  RETURN QUERY EXECUTE format('
+    SELECT *
+    FROM books
+    WHERE ARRAY[title, author] &@~ $1
+  ') USING keyword;
+END;
+$$;
+```
+
+### Adding New Permission to the books Table
+
+You'll also need to grant the appropriate permissions to allow users to access the books table. Use the following SQL command:
+
+```sql
+GRANT SELECT ON books TO web_user;
+```
+
+### Search Example Using a Browser
+
+Now, you can perform a keyword-based search directly from your web browser. Simply navigate to the following URL:
+
+[`http://localhost:3000/rpc/gsearch?keyword=conan doyle sherlock`](http://localhost:3000/rpc/gsearch?keyword=conan%20doyle%20sherlock)
+
+```json
+[
+  {"id":1,"title":"Adventures of Sherlock Holmes","author":"Arthur Conan Doyle"}, 
+  {"id":3,"title":"The Memoirs of Sherlock Holmes","author":"Arthur Conan Doyle"}
+]
+```
+
+This seamless and user-friendly approach to searching through your data with keywords is both practical and exciting. It's a fantastic way to enhance your search capabilities, don't you think?

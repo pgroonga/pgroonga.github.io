@@ -182,7 +182,7 @@ msgstr ""
 "Postモデルの`app/Models/Post.php`に検索機能を作りましょう。"
 
 msgid "Before part is original state, and After is modified version:"
-msgstr "元ファイルと変更後のファイルの変更前、変更後です。"
+msgstr "元ファイルと変更後のファイルです。"
 
 msgid ""
 "Before:\n"

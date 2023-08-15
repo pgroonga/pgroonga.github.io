@@ -398,3 +398,290 @@ Now, you can perform a keyword-based search directly from your web browser. Simp
 ```
 
 This seamless and user-friendly approach to searching through your data with keywords is both practical and exciting. It's a fantastic way to enhance your search capabilities, don't you think?
+
+
+## Using Keyword Auto Complete
+
+PGroonga has features to implement auto complete which is explained in [this how to section](https://pgroonga.github.io/how-to/auto-complete.html).
+
+Here we will explor how to implement this using PostgREST and Svelte.
+
+### Create Table for Auto Complete Feature
+
+```sql
+CREATE TABLE terms (
+  term text,
+  readings text[]
+);
+
+CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
+  (readings pgroonga_text_array_term_search_ops_v2);
+
+CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
+  (term)
+  WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
+
+INSERT INTO terms (term, readings) VALUES ('牛乳', ARRAY['ギュウニュウ', 'ミルク']);
+INSERT INTO terms (term, readings) VALUES ('PostgreSQL', ARRAY['ポスグレ', 'posugure', 'postgres']);
+INSERT INTO terms (term, readings) VALUES ('Groonga', ARRAY['guru-nga', 'グルンガ','ぐるんが','gurunga']);
+INSERT INTO terms (term, readings) VALUES ('PGroonga', ARRAY['pi-ji-runga', 'ピージールンガ','ぴーじーるんが','pg','ピージー']);
+```
+
+### Set Up PostgREST Permission
+
+```sql
+RANT SELECT ON terms TO web_user;
+```
+
+### Create Auto Complete End Point
+
+```sql
+CREATE OR REPLACE FUNCTION autocomplete(keyword text) RETURNS SETOF text AS $$
+DECLARE
+  result text[];
+BEGIN
+  IF keyword = '' THEN
+    RETURN QUERY SELECT unnest(result);
+  ELSE
+    RETURN QUERY SELECT term FROM terms WHERE readings &^~ keyword;
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+### Create a Frontend
+
+We are using Svelte to create our frontend using Svelte.
+
+#### Create Svelte
+
+```bash
+npm create vite@latest pgautocomplete -- --template svelte
+cd pgautocomplete
+npm install
+```
+
+#### Add Search Page with Auto Complete Feature
+
+1. Add Search Icon by creating `public/search.svg`
+
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <circle cx="7" cy="7" r="6" stroke="#FFA07A" stroke-width="1" fill="none" />
+  <line x1="11" y1="11" x2="15" y2="15" stroke="#FFA07A" stroke-width="1"/>
+</svg>
+```
+
+2. Create Search Page just replace entire `src/App.svelte`
+
+```html
+<script>
+
+  let keyword = '';
+  let autosuggest = [];
+  let searchResults = [];
+
+  const fetchSuggestions = async () => {
+      const response = await fetch(`http://localhost:3000/rpc/autocomplete?keyword=${keyword}`);
+      const data = await response.json();
+      autosuggest = data;
+  }
+
+  $: keywordEntered(keyword);
+
+  function keywordEntered(keyword) {
+      fetchSuggestions();
+  }
+
+  function selectSuggestion(suggestion) {
+      keyword = suggestion;
+      autosuggest = [];
+  }
+
+  async function gsearch(event) {
+      event.preventDefault();
+      if (keyword.trim() === '') {
+        searchResults = []; // clear search results if keyword is empty
+        return;
+      }
+      const response = await fetch(`http://localhost:3000/rpc/find_title?keywords=${keyword}`);
+      const data = await response.json();
+      searchResults = data;
+  }
+
+</script>
+
+<main>
+  <form on:submit={gsearch}>
+    <div class="autoComplete_wrapper">
+      <input id="autoComplete" type="text" bind:value={keyword} placeholder="Enter keyword" />
+      <div>
+          {#each autosuggest as suggestion}
+              <button type="submit" on:click={() => selectSuggestion(suggestion)}>{suggestion}</button>
+          {/each}
+      </div>
+    </div>
+  </form>
+
+  {#if searchResults.length > 0}
+    <h2>Search Results</h2>
+    {#each searchResults as result}
+      <div class="result">
+        <p>Title: {result.title}</p>
+        <p>Content: {result.content}</p>
+      </div>
+    {/each}
+  {/if}
+</main>
+
+
+<style>
+  .result {
+    margin: 0.25rem;
+    display: flex;
+  }
+
+  .autoComplete_wrapper {
+    display: inline-block;
+    position: relative;
+    }
+
+  .autoComplete_wrapper > input {
+    height: 3rem;
+    width: 370px;
+    margin: 0;
+    padding: 0 2rem 0 3.2rem;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    color: rgba(255, 122, 122, 0.3);
+    outline: none;
+    border-radius: 10rem;
+    border: 0.05rem solid rgba(255, 122, 122, 0.5);
+    background-image: url('/search.svg');
+    background-size: 1.4rem;
+    background-position: left 1.05rem top 0.8rem;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-color: #fff;
+    transition: all 0.4s ease;
+    -webkit-transition: all -webkit-transform 0.4s ease;
+  }
+
+  .autoComplete_wrapper > input::placeholder {
+    color: rgba(255, 122, 122, 0.5);
+    transition: all 0.3s ease;
+    -webkit-transition: all -webkit-transform 0.3s ease;
+  }
+
+  .autoComplete_wrapper > input:hover::placeholder {
+    color: rgba(255, 122, 122, 0.6);
+    transition: all 0.3s ease;
+    -webkit-transition: all -webkit-transform 0.3s ease;
+  }
+
+  .autoComplete_wrapper > input:focus::placeholder {
+    padding: 0.1rem 0.6rem;
+    font-size: 0.95rem;
+    color: rgba(255, 122, 122, 0.4);
+  }
+
+  .autoComplete_wrapper > input:focus::selection {
+    background-color: rgba(255, 122, 122, 0.15);
+  }
+
+  .autoComplete_wrapper > input::selection {
+    background-color: rgba(255, 122, 122, 0.15);
+  }
+
+  .autoComplete_wrapper > input:hover {
+    color: rgba(255, 122, 122, 0.8);
+    transition: all 0.3s ease;
+    -webkit-transition: all -webkit-transform 0.3s ease;
+  }
+
+  .autoComplete_wrapper > input:focus {
+    color: rgba(255, 122, 122, 1);
+    border: 0.06rem solid rgba(255, 122, 122, 0.8);
+  }
+
+  .autoComplete_wrapper > div {
+    position: absolute;
+    max-height: 226px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    left: 0;
+    right: 0;
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    z-index: 1;
+    border-radius: 0.6rem;
+    background-color: #fff;
+    border: 1px solid rgba(33, 33, 33, 0.07);
+    box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
+    outline: none;
+    transition: opacity 0.15s ease-in-out;
+    -moz-transition: opacity 0.15s ease-in-out;
+    -webkit-transition: opacity 0.15s ease-in-out;
+  }
+
+  .autoComplete_wrapper > div:empty {
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .autoComplete_wrapper > div > button {
+    display: block;
+    margin: 0.3rem;
+    padding: 0.3rem 0.5rem;
+    text-align: left;
+    font-size: 1rem;
+    color: #212121;
+    border-radius: 0.35rem;
+    background-color: rgba(255, 255, 255, 1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: none;
+    transition: all 0.2s ease;
+  }
+
+  .autoComplete_wrapper > div > button:hover {
+    cursor: pointer;
+    background-color: rgba(255, 122, 122, 0.15);
+  }
+
+  @media only screen and (max-width: 600px) {
+    .autoComplete_wrapper > input {
+      width: 18rem;
+    }
+  }
+</style>
+```
+
+### Run PostgREST as API backend
+
+Run your PostgREST service using following command:
+
+```sh
+postgrest memo.conf
+```
+
+### Run Svelte and Try Out
+
+Run your Svelte frontend using following command:
+
+```sh
+npm run dev
+```
+
+Now, access to http://localhost:5173 and test the auto complete feature.
+
+![PGroonga Auto Complete1](../images/postgres/pgautocomplete1.png)
+
+Hit Enter key to search.
+
+![PGroonga Auto Complete2](../images/postgres/pgautocomplete2.png)

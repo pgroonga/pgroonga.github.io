@@ -525,7 +525,6 @@ vi index.html
                         selection: (event) => {
                             const selection = event.detail.selection.value;
                             autoCompleteJS.input.value = selection;
-                            dataSource(selection);
                         }
                     }
                 },

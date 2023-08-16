@@ -404,7 +404,7 @@ This seamless and user-friendly approach to searching through your data with key
 
 PGroonga has features to implement auto complete which is explained in [the auto complete how to section][auto-complete].
 
-Here we will explor how to implement this using PostgREST and just a simple html with JavaScript.
+Here we will explore how to implement this using PostgREST and just a simple HTML with JavaScript.
 
 ### Create Table for Auto Complete Feature
 

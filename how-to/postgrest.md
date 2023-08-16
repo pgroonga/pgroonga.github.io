@@ -473,27 +473,6 @@ vi index.html
             align-items: center;
             min-height: 100vh;
         }
-
-        /* Style for the button */
-        .rounded-button {
-            display: inline-block;
-            width: 80px;
-            height: 40px;
-            padding: 10px;
-            border: 2px solid #ff9b7d;
-            border-radius: 20px;
-            background-color: white;
-            color: #FF8A4A;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .rounded-button:hover {
-            background-color: #f9c9c9;
-            color: white;
-        }
     </style>
   </head>
   <body>

@@ -494,7 +494,8 @@ vi index.html
                     return;
                 }
 
-                const response = await fetch(`http://localhost:3000/rpc/find_title?keywords=${query}`);
+                const params = new URLSearchParams({keywords: query});
+                const response = await fetch(`http://localhost:3000/rpc/find_title?${params.ToString()}`);
                 const result = await response.json();
 
                 const preElement = document.getElementById('output');

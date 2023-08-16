@@ -490,7 +490,7 @@ vi index.html
                 event.preventDefault();
                 const query = document.getElementById('autoComplete').value;
                 
-                if(query.length === 0) {
+                if (query.length === 0) {
                     return;
                 }
 

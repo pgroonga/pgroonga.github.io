@@ -463,7 +463,7 @@ vi index.html
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Groonga dictionary search</title>
+    <title>PGroonga Auto Complete Search</title>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
     <style>
@@ -546,12 +546,12 @@ postgrest memo.conf
 
 Open `index.html` with your browser. 
 
-![PGroonga Auto Complete1](../images/postgres/pgautocomplete1.png)
+![PGroonga Auto Complete1](../images/postgrest/auto-complete1.png)
 
 Type something and it will show the suggestions.
 
-![PGroonga Auto Complete2](../images/postgres/pgautocomplete2.png)
+![PGroonga Auto Complete2](../images/postgrest/auto-complete2.png)
 
 When you press `Search` button, it will performe keyword search on memos table title data.
 
-![PGroonga Auto Complete3](../images/postgres/pgautocomplete3.png)
+![PGroonga Auto Complete3](../images/postgrest/auto-complete3.png)

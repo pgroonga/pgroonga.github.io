@@ -402,7 +402,7 @@ This seamless and user-friendly approach to searching through your data with key
 
 ## Using Keyword Auto Complete
 
-PGroonga has features to implement auto complete which is explained in [this how to section](https://pgroonga.github.io/how-to/auto-complete.html).
+PGroonga has features to implement auto complete which is explained in [the auto complete how to section][auto-complete].
 
 Here we will explor how to implement this using PostgREST and just a simple html with JavaScript.
 

@@ -546,7 +546,7 @@ postgrest memo.conf
 
 Open `index.html` with your browser. 
 
-![PGroonga Auto Complete1](../images/postgres/pgautocomplete1.png)
+![PGroonga Auto Complete1](../images/postgrest/pgautocomplete1.png)
 
 Type something and it will show the suggestions.
 

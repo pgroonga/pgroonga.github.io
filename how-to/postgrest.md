@@ -430,7 +430,7 @@ INSERT INTO terms (term, readings) VALUES ('PGroonga', ARRAY['pi-ji-runga', 'ピ
 ### Set Up PostgREST Permission
 
 ```sql
-RANT SELECT ON terms TO web_user;
+GRANT SELECT ON terms TO web_user;
 ```
 
 ### Create Auto Complete End Point

@@ -449,7 +449,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-### Create a html with JavaScript
+### Create a HTML with JavaScript
 
 Create following HTML file:
 

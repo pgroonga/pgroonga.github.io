@@ -404,7 +404,7 @@ This seamless and user-friendly approach to searching through your data with key
 
 PGroonga has features to implement auto complete which is explained in [this how to section](https://pgroonga.github.io/how-to/auto-complete.html).
 
-Here we will explor how to implement this using PostgREST and Svelte.
+Here we will explor how to implement this using PostgREST and just a simple html with JavaScript.
 
 ### Create Table for Auto Complete Feature
 
@@ -449,217 +449,117 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-### Create a Frontend
+### Create a html with JavaScript
 
-We are using Svelte to create our frontend using Svelte.
+Create following HTML file:
 
-#### Create Svelte
-
-```bash
-npm create vite@latest pgautocomplete -- --template svelte
-cd pgautocomplete
-npm install
+```sh
+vi index.html
 ```
-
-#### Add Search Page with Auto Complete Feature
-
-1. Add Search Icon by creating `public/search.svg`
-
-```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-  <circle cx="7" cy="7" r="6" stroke="#FFA07A" stroke-width="1" fill="none" />
-  <line x1="11" y1="11" x2="15" y2="15" stroke="#FFA07A" stroke-width="1"/>
-</svg>
-```
-
-2. Create Search Page just replace entire `src/App.svelte`
 
 ```html
-<script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groonga dictionary search</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-  let keyword = '';
-  let autosuggest = [];
-  let searchResults = [];
+        /* Style for the button */
+        .rounded-button {
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            padding: 10px;
+            border: 2px solid #ff9b7d;
+            border-radius: 20px;
+            background-color: white;
+            color: #FF8A4A;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .rounded-button:hover {
+            background-color: #f9c9c9;
+            color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="center-container">
+        <form name="search" id="searchForm">
+            <input type="search" size="60" maxlength="60" name="key" id="autoComplete">
+            <button class="rounded-button" type="submit">Search</button>
+        </form>
 
-  const fetchSuggestions = async () => {
-      const response = await fetch(`http://localhost:3000/rpc/autocomplete?keyword=${keyword}`);
-      const data = await response.json();
-      autosuggest = data;
-  }
+        <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js">
+        </script>
+        <script type="text/javascript">
+            const searchForm = document.getElementById('searchForm');
 
-  $: keywordEntered(keyword);
+            searchForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const query = document.getElementById('autoComplete').value;
+                
+                if(query.length === 0) {
+                    return;
+                }
 
-  function keywordEntered(keyword) {
-      fetchSuggestions();
-  }
+                const response = await fetch(`http://localhost:3000/rpc/find_title?keywords=${query}`);
+                const result = await response.json();
 
-  function selectSuggestion(suggestion) {
-      keyword = suggestion;
-      autosuggest = [];
-  }
+                const preElement = document.getElementById('output');
+                if(result.length > 0) {
+                    const formattedValue = JSON.stringify(result, null, 2);
+                    preElement.textContent = formattedValue;
+                } else {
+                    preElement.textContent = 'No results found';
+                }
+            });
 
-  async function gsearch(event) {
-      event.preventDefault();
-      if (keyword.trim() === '') {
-        searchResults = []; // clear search results if keyword is empty
-        return;
-      }
-      const response = await fetch(`http://localhost:3000/rpc/find_title?keywords=${keyword}`);
-      const data = await response.json();
-      searchResults = data;
-  }
+            const displayItems = (completions) => { };
 
-</script>
+            const dataSource = async (query) => {
+                const source = await fetch(`http://localhost:3000/rpc/autocomplete?keyword=${query}`);
+                const data = await source.json();
+                const completions = data;
+                displayItems(completions);
+                return completions;
+            };
 
-<main>
-  <form on:submit={gsearch}>
-    <div class="autoComplete_wrapper">
-      <input id="autoComplete" type="text" bind:value={keyword} placeholder="Enter keyword" />
-      <div>
-          {#each autosuggest as suggestion}
-              <button type="submit" on:click={() => selectSuggestion(suggestion)}>{suggestion}</button>
-          {/each}
-      </div>
+            const autoCompleteJS = new autoComplete({
+                placeHolder: "Enter a keyword",
+                data: {
+                    src: dataSource
+                },
+                searchEngine: (query, record) => record,
+                events: {
+                    input: {
+                        selection: (event) => {
+                            const selection = event.detail.selection.value;
+                            autoCompleteJS.input.value = selection;
+                            dataSource(selection);
+                        }
+                    }
+                }
+            });
+        </script>
+        <div id="result" style="margin-top: 7em;"></div>
+        <pre id="output"></pre>
     </div>
-  </form>
-
-  {#if searchResults.length > 0}
-    <h2>Search Results</h2>
-    {#each searchResults as result}
-      <div class="result">
-        <p>Title: {result.title}</p>
-        <p>Content: {result.content}</p>
-      </div>
-    {/each}
-  {/if}
-</main>
-
-
-<style>
-  .result {
-    margin: 0.25rem;
-    display: flex;
-  }
-
-  .autoComplete_wrapper {
-    display: inline-block;
-    position: relative;
-    }
-
-  .autoComplete_wrapper > input {
-    height: 3rem;
-    width: 370px;
-    margin: 0;
-    padding: 0 2rem 0 3.2rem;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-size: 1rem;
-    text-overflow: ellipsis;
-    color: rgba(255, 122, 122, 0.3);
-    outline: none;
-    border-radius: 10rem;
-    border: 0.05rem solid rgba(255, 122, 122, 0.5);
-    background-image: url('/search.svg');
-    background-size: 1.4rem;
-    background-position: left 1.05rem top 0.8rem;
-    background-repeat: no-repeat;
-    background-origin: border-box;
-    background-color: #fff;
-    transition: all 0.4s ease;
-    -webkit-transition: all -webkit-transform 0.4s ease;
-  }
-
-  .autoComplete_wrapper > input::placeholder {
-    color: rgba(255, 122, 122, 0.5);
-    transition: all 0.3s ease;
-    -webkit-transition: all -webkit-transform 0.3s ease;
-  }
-
-  .autoComplete_wrapper > input:hover::placeholder {
-    color: rgba(255, 122, 122, 0.6);
-    transition: all 0.3s ease;
-    -webkit-transition: all -webkit-transform 0.3s ease;
-  }
-
-  .autoComplete_wrapper > input:focus::placeholder {
-    padding: 0.1rem 0.6rem;
-    font-size: 0.95rem;
-    color: rgba(255, 122, 122, 0.4);
-  }
-
-  .autoComplete_wrapper > input:focus::selection {
-    background-color: rgba(255, 122, 122, 0.15);
-  }
-
-  .autoComplete_wrapper > input::selection {
-    background-color: rgba(255, 122, 122, 0.15);
-  }
-
-  .autoComplete_wrapper > input:hover {
-    color: rgba(255, 122, 122, 0.8);
-    transition: all 0.3s ease;
-    -webkit-transition: all -webkit-transform 0.3s ease;
-  }
-
-  .autoComplete_wrapper > input:focus {
-    color: rgba(255, 122, 122, 1);
-    border: 0.06rem solid rgba(255, 122, 122, 0.8);
-  }
-
-  .autoComplete_wrapper > div {
-    position: absolute;
-    max-height: 226px;
-    overflow-y: scroll;
-    box-sizing: border-box;
-    left: 0;
-    right: 0;
-    margin: 0.5rem 0 0 0;
-    padding: 0;
-    z-index: 1;
-    border-radius: 0.6rem;
-    background-color: #fff;
-    border: 1px solid rgba(33, 33, 33, 0.07);
-    box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
-    outline: none;
-    transition: opacity 0.15s ease-in-out;
-    -moz-transition: opacity 0.15s ease-in-out;
-    -webkit-transition: opacity 0.15s ease-in-out;
-  }
-
-  .autoComplete_wrapper > div:empty {
-    display: block;
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  .autoComplete_wrapper > div > button {
-    display: block;
-    margin: 0.3rem;
-    padding: 0.3rem 0.5rem;
-    text-align: left;
-    font-size: 1rem;
-    color: #212121;
-    border-radius: 0.35rem;
-    background-color: rgba(255, 255, 255, 1);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border: none;
-    transition: all 0.2s ease;
-  }
-
-  .autoComplete_wrapper > div > button:hover {
-    cursor: pointer;
-    background-color: rgba(255, 122, 122, 0.15);
-  }
-
-  @media only screen and (max-width: 600px) {
-    .autoComplete_wrapper > input {
-      width: 18rem;
-    }
-  }
-</style>
+  </body>
+</html>
 ```
 
 ### Run PostgREST as API backend
@@ -670,18 +570,16 @@ Run your PostgREST service using following command:
 postgrest memo.conf
 ```
 
-### Run Svelte and Try Out
+### Open html and Try Out
 
-Run your Svelte frontend using following command:
-
-```sh
-npm run dev
-```
-
-Now, access to http://localhost:5173 and test the auto complete feature.
+Open `index.html` with your browser. 
 
 ![PGroonga Auto Complete1](../images/postgres/pgautocomplete1.png)
 
-Hit Enter key to search.
+Type something and it will show the suggestions.
 
 ![PGroonga Auto Complete2](../images/postgres/pgautocomplete2.png)
+
+When you press `Search` button, it will performe keyword search on memos table title data.
+
+![PGroonga Auto Complete3](../images/postgres/pgautocomplete3.png)

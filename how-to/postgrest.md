@@ -506,8 +506,6 @@ vi index.html
                 }
             });
 
-            const displayItems = (completions) => { };
-
             const dataSource = async (query) => {
                 const source = await fetch(`http://localhost:3000/rpc/autocomplete?keyword=${query}`);
                 const data = await source.json();

@@ -556,3 +556,5 @@ Type something and it will show the suggestions.
 When you press `Search` button, it will performe keyword search on memos table title data.
 
 ![PGroonga Auto Complete3](../images/postgrest/auto-complete3.png)
+
+[auto-complete]: auto-complete.html

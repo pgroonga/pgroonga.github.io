@@ -398,3 +398,164 @@ Now, you can perform a keyword-based search directly from your web browser. Simp
 ```
 
 This seamless and user-friendly approach to searching through your data with keywords is both practical and exciting. It's a fantastic way to enhance your search capabilities, don't you think?
+
+
+## Using Keyword Auto Complete
+
+PGroonga has features to implement auto complete which is explained in [the auto complete how to section][auto-complete].
+
+Here we will explore how to implement this using PostgREST and just a simple HTML with JavaScript.
+
+### Create Table for Auto Complete Feature
+
+```sql
+CREATE TABLE terms (
+  term text,
+  readings text[]
+);
+
+CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
+  (readings pgroonga_text_array_term_search_ops_v2);
+
+CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
+  (term)
+  WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
+
+INSERT INTO terms (term, readings) VALUES ('牛乳', ARRAY['ギュウニュウ', 'ミルク']);
+INSERT INTO terms (term, readings) VALUES ('PostgreSQL', ARRAY['ポスグレ', 'posugure', 'postgres']);
+INSERT INTO terms (term, readings) VALUES ('Groonga', ARRAY['guru-nga', 'グルンガ','ぐるんが','gurunga']);
+INSERT INTO terms (term, readings) VALUES ('PGroonga', ARRAY['pi-ji-runga', 'ピージールンガ','ぴーじーるんが','pg','ピージー']);
+```
+
+### Set Up PostgREST Permission
+
+```sql
+GRANT SELECT ON terms TO web_user;
+```
+
+### Create Auto Complete End Point
+
+```sql
+CREATE OR REPLACE FUNCTION autocomplete(keyword text) RETURNS SETOF text AS $$
+DECLARE
+  result text[];
+BEGIN
+  IF keyword = '' THEN
+    RETURN QUERY SELECT unnest(result);
+  ELSE
+    RETURN QUERY SELECT term FROM terms WHERE readings &^~ keyword;
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+### Create a HTML with JavaScript
+
+Create following HTML file:
+
+```sh
+vi index.html
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGroonga Auto Complete Search</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="center-container">
+        <form name="search" id="searchForm">
+            <input type="search" size="60" maxlength="60" name="key" id="autoComplete">
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js">
+        </script>
+        <script type="text/javascript">
+            const searchForm = document.getElementById('searchForm');
+
+            searchForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const query = document.getElementById('autoComplete').value;
+                
+                if (query.length === 0) {
+                    return;
+                }
+
+                const params = new URLSearchParams({keywords: query});
+                const response = await fetch(`http://localhost:3000/rpc/find_title?${params.toString()}`);
+                const result = await response.json();
+
+                const preElement = document.getElementById('output');
+                if (result.length > 0) {
+                    const formattedValue = JSON.stringify(result, null, 2);
+                    preElement.textContent = formattedValue;
+                } else {
+                    preElement.textContent = 'No results found';
+                }
+            });
+
+            const dataSource = async (query) => {
+                const params = new URLSearchParams({keyword: query});
+                const source = await fetch(`http://localhost:3000/rpc/autocomplete?${params.toString()}`);
+                return await source.json();
+            };
+
+            const autoCompleteJS = new autoComplete({
+                placeHolder: "Enter a keyword",
+                data: {
+                    src: dataSource
+                },
+                searchEngine: (query, record) => record,
+                events: {
+                    input: {
+                        selection: (event) => {
+                            const selection = event.detail.selection.value;
+                            autoCompleteJS.input.value = selection;
+                        }
+                    }
+                },
+                submit: true
+            });
+        </script>
+        <pre id="output"></pre>
+    </div>
+  </body>
+</html>
+```
+
+### Run PostgREST as API backend
+
+Run your PostgREST service using following command:
+
+```sh
+postgrest memo.conf
+```
+
+### Open html and Try Out
+
+Open `index.html` with your browser. 
+
+![PGroonga Auto Complete1](../images/postgrest/auto-complete1.png)
+
+Type something and it will show the suggestions.
+
+![PGroonga Auto Complete2](../images/postgrest/auto-complete2.png)
+
+When you press `Search` button, it will performe keyword search on memos table title data.
+
+![PGroonga Auto Complete3](../images/postgrest/auto-complete3.png)
+
+[auto-complete]: auto-complete.html

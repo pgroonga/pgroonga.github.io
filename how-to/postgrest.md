@@ -500,7 +500,6 @@ vi index.html
     <div class="center-container">
         <form name="search" id="searchForm">
             <input type="search" size="60" maxlength="60" name="key" id="autoComplete">
-            <button class="rounded-button" type="submit">Search</button>
         </form>
 
         <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js">
@@ -552,7 +551,8 @@ vi index.html
                             dataSource(selection);
                         }
                     }
-                }
+                },
+                submit: true
             });
         </script>
         <div id="result" style="margin-top: 7em;"></div>

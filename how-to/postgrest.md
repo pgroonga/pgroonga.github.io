@@ -495,7 +495,7 @@ vi index.html
                 }
 
                 const params = new URLSearchParams({keywords: query});
-                const response = await fetch(`http://localhost:3000/rpc/find_title?${params.ToString()}`);
+                const response = await fetch(`http://localhost:3000/rpc/find_title?${params.toString()}`);
                 const result = await response.json();
 
                 const preElement = document.getElementById('output');
@@ -508,7 +508,8 @@ vi index.html
             });
 
             const dataSource = async (query) => {
-                const source = await fetch(`http://localhost:3000/rpc/autocomplete?keyword=${query}`);
+                const params = new URLSearchParams({keyword: query});
+                const source = await fetch(`http://localhost:3000/rpc/autocomplete?${params.toString()}`);
                 return await source.json();
             };
 

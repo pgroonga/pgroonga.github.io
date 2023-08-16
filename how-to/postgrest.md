@@ -498,7 +498,7 @@ vi index.html
                 const result = await response.json();
 
                 const preElement = document.getElementById('output');
-                if(result.length > 0) {
+                if (result.length > 0) {
                     const formattedValue = JSON.stringify(result, null, 2);
                     preElement.textContent = formattedValue;
                 } else {

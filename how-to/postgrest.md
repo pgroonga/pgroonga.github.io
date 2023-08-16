@@ -528,7 +528,6 @@ vi index.html
                 submit: true
             });
         </script>
-        <div id="result" style="margin-top: 7em;"></div>
         <pre id="output"></pre>
     </div>
   </body>

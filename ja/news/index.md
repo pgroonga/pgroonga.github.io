@@ -5,6 +5,20 @@ upper_level: ../
 
 # おしらせ
 
+## 3.1.3: 2023-08-17 {#version-3-1-3}
+
+### 修正
+
+  * [`pgroonga_highlight_html` function][highlight-html]: Fixed a
+    crash bug.  This may be occurred only when you use
+    `NormalizerTable` in your index and specify the index that uses
+    `NormalizerTable`.
+
+  * Fixed a bug that PGroonga WAL may not be applied on standbys.
+
+    This isn't caused by broken PGroonga WAL. So you can fix this
+    problem by just upgrading your PGroonga to 3.1.3 or later.
+
 ## 3.1.2: 2023-08-09 {#version-3-1-2}
 
 ### 改良

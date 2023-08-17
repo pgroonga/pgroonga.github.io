@@ -534,10 +534,10 @@ Open `index.html` with your browser.
 
 Type something and it will show the suggestions.
 
-![PGroonga Auto Complete2](../images/postgrest/auto-complete2_en.png)
+![PGroonga Auto Complete2](../images/postgrest/auto-complete2-en.png)
 
 When you press `Search` button, it will performe keyword search on memos table title data.
 
-![PGroonga Auto Complete3](../images/postgrest/auto-complete3_en.png)
+![PGroonga Auto Complete3](../images/postgrest/auto-complete3-en.png)
 
 [auto-complete]: auto-complete.html

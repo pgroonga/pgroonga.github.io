@@ -167,7 +167,7 @@ $$ LANGUAGE plpgsql;
 
 **NOTE: You need to restart `PostgREST`` when create a new functions**
 
-Before proceeding to the next section, please restart your `PostgREST`` by pressing `Ctrl + C`` to stop the currently running `PostgREST` instance, and then run it again using the following command:
+Before proceeding to the next section, please restart your PostgREST by pressing `Ctrl + C` to stop the currently running PostgREST instance, and then run it again using the following command:
 
 ```sh
 postgrest memo.conf

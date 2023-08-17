@@ -251,6 +251,19 @@ $ curl --get --data-urlencode keywords=コマンド http://localhost:3000/rpc/fi
 ]
 ```
 
+### NOT search
+
+ブラウザを開いて次のURLにアクセスします:
+
+[`http://localhost:3000/rpc/find_title?keywords=nga -pg`](http://localhost:3000/rpc/find_title?keywords=nga%20-pg)
+
+```json
+[
+  {"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}, 
+  {"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}
+]
+```
+
 ## 参考情報
 
 追加の検索項目が欲しい場合にはストアドファンクションを追加して行きましょう。
@@ -293,3 +306,256 @@ BEGIN
 END;
 $$;
 ```
+
+## Keyword-Based Content Search
+
+At times, you may want to conduct a search solely using keywords, rather than specifying particular fields. Let's explore how you can accomplish this.
+
+Consider a personal library stored in a database table `books`:
+
+```sql
+CREATE TABLE books (
+  id INTEGER,
+  title TEXT,
+  author TEXT
+);
+
+INSERT INTO books VALUES (1, 'Adventures of Sherlock Holmes', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (2, 'The Hound of the Baskervilles', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (3, 'The Memoirs of Sherlock Holmes', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (4, 'The Lion, the Witch, and the Wardrobe', 'C. S. Lewis');
+```
+
+Suppose you want to find books with the author name containing 'Conan Doyle' and titles that include 'Sherlock'. Normally, you would execute the following SQL query:
+
+```sql
+SELECT * FROM books WHERE author LIKE '%Conan Doyle%' and title LIKE '%Sherlock%';
+-- id |             title              |       author       
+-- ----+--------------------------------+--------------------
+--   1 | Adventures of Sherlock Holmes  | Arthur Conan Doyle
+--   3 | The Memoirs of Sherlock Holmes | Arthur Conan Doyle
+-- (2 rows)
+```
+
+However, if you're aiming for a Google-like keyword search experience, you would want to achieve the same results with a keyword string such as 'conan doyle sherlock'.
+
+### Creating an Special Index for Keyword-based Search
+
+To create this functionality, you will need to design multiple array indexes. Here's how you can proceed:
+
+```sql
+CREATE INDEX pg_multi_book_index on books USING pgroonga
+	((ARRAY[title, author]) pgroonga_text_array_full_text_search_ops_v2)
+	WITH (
+    normalizers = 'NormalizerNFKC150
+      (
+        "unify_kana", true,
+        "unify_to_romaji", true,
+        "unify_hyphen_and_prolonged_sound_mark", true
+      )',
+    tokenizer = 'TokenNgram("unify_symbol", false, "unify_alphabet", false, "unify_digit", false)'
+  );
+```
+
+### Creating a Stored Function for Keyword-Based Search
+
+To emulate a Google-like search experience within your database, you can create a stored function that accepts a keyword and returns the relevant records from the `books` table:
+
+```sql
+CREATE OR REPLACE FUNCTION gsearch(keyword text)
+  RETURNS SETOF books
+  LANGUAGE plpgsql
+AS $$
+BEGIN
+  RETURN QUERY EXECUTE format('
+    SELECT *
+    FROM books
+    WHERE ARRAY[title, author] &@~ $1
+  ') USING keyword;
+END;
+$$;
+```
+
+### Adding New Permission to the books Table
+
+You'll also need to grant the appropriate permissions to allow users to access the books table. Use the following SQL command:
+
+```sql
+GRANT SELECT ON books TO web_user;
+```
+
+### Search Example Using a Browser
+
+Now, you can perform a keyword-based search directly from your web browser. Simply navigate to the following URL:
+
+[`http://localhost:3000/rpc/gsearch?keyword=conan doyle sherlock`](http://localhost:3000/rpc/gsearch?keyword=conan%20doyle%20sherlock)
+
+```json
+[
+  {"id":1,"title":"Adventures of Sherlock Holmes","author":"Arthur Conan Doyle"}, 
+  {"id":3,"title":"The Memoirs of Sherlock Holmes","author":"Arthur Conan Doyle"}
+]
+```
+
+This seamless and user-friendly approach to searching through your data with keywords is both practical and exciting. It's a fantastic way to enhance your search capabilities, don't you think?
+
+
+## Using Keyword Auto Complete
+
+PGroonga has features to implement auto complete which is explained in [the auto complete how to section][auto-complete].
+
+Here we will explore how to implement this using PostgREST and just a simple HTML with JavaScript.
+
+### Create Table for Auto Complete Feature
+
+```sql
+CREATE TABLE terms (
+  term text,
+  readings text[]
+);
+
+CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
+  (readings pgroonga_text_array_term_search_ops_v2);
+
+CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
+  (term)
+  WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
+
+INSERT INTO terms (term, readings) VALUES ('牛乳', ARRAY['ギュウニュウ', 'ミルク']);
+INSERT INTO terms (term, readings) VALUES ('PostgreSQL', ARRAY['ポスグレ', 'posugure', 'postgres']);
+INSERT INTO terms (term, readings) VALUES ('Groonga', ARRAY['guru-nga', 'グルンガ','ぐるんが','gurunga']);
+INSERT INTO terms (term, readings) VALUES ('PGroonga', ARRAY['pi-ji-runga', 'ピージールンガ','ぴーじーるんが','pg','ピージー']);
+```
+
+### Set Up PostgREST Permission
+
+```sql
+GRANT SELECT ON terms TO web_user;
+```
+
+### Create Auto Complete End Point
+
+```sql
+CREATE OR REPLACE FUNCTION autocomplete(keyword text) RETURNS SETOF text AS $$
+DECLARE
+  result text[];
+BEGIN
+  IF keyword = '' THEN
+    RETURN QUERY SELECT unnest(result);
+  ELSE
+    RETURN QUERY SELECT term FROM terms WHERE readings &^~ keyword;
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+### Create a HTML with JavaScript
+
+Create following HTML file:
+
+```sh
+vi index.html
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGroonga Auto Complete Search</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="center-container">
+        <form name="search" id="searchForm">
+            <input type="search" size="60" maxlength="60" name="key" id="autoComplete">
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js">
+        </script>
+        <script type="text/javascript">
+            const searchForm = document.getElementById('searchForm');
+
+            searchForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const query = document.getElementById('autoComplete').value;
+                
+                if (query.length === 0) {
+                    return;
+                }
+
+                const params = new URLSearchParams({keywords: query});
+                const response = await fetch(`http://localhost:3000/rpc/find_title?${params.toString()}`);
+                const result = await response.json();
+
+                const preElement = document.getElementById('output');
+                if (result.length > 0) {
+                    const formattedValue = JSON.stringify(result, null, 2);
+                    preElement.textContent = formattedValue;
+                } else {
+                    preElement.textContent = 'No results found';
+                }
+            });
+
+            const dataSource = async (query) => {
+                const params = new URLSearchParams({keyword: query});
+                const source = await fetch(`http://localhost:3000/rpc/autocomplete?${params.toString()}`);
+                return await source.json();
+            };
+
+            const autoCompleteJS = new autoComplete({
+                placeHolder: "Enter a keyword",
+                data: {
+                    src: dataSource
+                },
+                searchEngine: (query, record) => record,
+                events: {
+                    input: {
+                        selection: (event) => {
+                            const selection = event.detail.selection.value;
+                            autoCompleteJS.input.value = selection;
+                        }
+                    }
+                },
+                submit: true
+            });
+        </script>
+        <pre id="output"></pre>
+    </div>
+  </body>
+</html>
+```
+
+### Run PostgREST as API backend
+
+Run your PostgREST service using following command:
+
+```sh
+postgrest memo.conf
+```
+
+### Open html and Try Out
+
+Open `index.html` with your browser. 
+
+![PGroonga Auto Complete1](../images/postgrest/auto-complete1.png)
+
+Type something and it will show the suggestions.
+
+![PGroonga Auto Complete2](../images/postgrest/auto-complete2.png)
+
+When you press `Search` button, it will performe keyword search on memos table title data.
+
+![PGroonga Auto Complete3](../images/postgrest/auto-complete3.png)
+
+[auto-complete]: auto-complete.html

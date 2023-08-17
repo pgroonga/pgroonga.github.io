@@ -72,7 +72,9 @@ msgid ""
 msgstr ""
 
 msgid "`level` is an enum value. It means that you must choose one of them:"
-msgstr "`level`は列挙型の値です。これは次のどれかの値を選ばないといけないということです。"
+msgstr ""
+"`level`は列挙型の値です。これは次のどれかの値を選ばないといけないということで"
+"す。"
 
 msgid "## Usage"
 msgstr "## 使い方"

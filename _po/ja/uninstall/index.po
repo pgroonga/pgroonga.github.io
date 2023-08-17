@@ -27,8 +27,11 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "If you're using PostgreSQL 9.5 or earlier, you need to also run the following SQL:"
-msgstr "PostgreSQL 9.5以前を使っている場合は以下のSQLも実行する必要があります。"
+msgid ""
+"If you're using PostgreSQL 9.5 or earlier, you need to also run the "
+"following SQL:"
+msgstr ""
+"PostgreSQL 9.5以前を使っている場合は以下のSQLも実行する必要があります。"
 
 msgid ""
 "```sql\n"

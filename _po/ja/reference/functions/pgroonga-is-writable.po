@@ -25,8 +25,11 @@ msgstr "# `pgroonga_is_writable`関数"
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_is_writable` function returns whether you can change PGroonga data or not."
-msgstr "`pgroonga_is_writable`関数はPGroongaのデータを変更できるかどうかを返します。"
+msgid ""
+"`pgroonga_is_writable` function returns whether you can change PGroonga data "
+"or not."
+msgstr ""
+"`pgroonga_is_writable`関数はPGroongaのデータを変更できるかどうかを返します。"
 
 msgid "## Syntax"
 msgstr "## 構文"

@@ -17,7 +17,9 @@ msgstr ""
 msgid "# How to do full-text-search on `jsonb` type column"
 msgstr ""
 
-msgid "`jsonb` type comes from PostgreSQL 9.4, this document will help you to try use PGroonga on `jsonb` type."
+msgid ""
+"`jsonb` type comes from PostgreSQL 9.4, this document will help you to try "
+"use PGroonga on `jsonb` type."
 msgstr ""
 
 msgid "## Create table schema and index"
@@ -69,7 +71,8 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Now you can use full text search by PGroonga on `data` column like below:"
+msgid ""
+"Now you can use full text search by PGroonga on `data` column like below:"
 msgstr ""
 
 msgid ""
@@ -88,7 +91,8 @@ msgstr ""
 msgid "## Score function on `jsonb` column"
 msgstr ""
 
-msgid "With `pgroonga_score(tableoid, ctid)` can get score of full `jsonb` column:"
+msgid ""
+"With `pgroonga_score(tableoid, ctid)` can get score of full `jsonb` column:"
 msgstr ""
 
 msgid ""
@@ -105,7 +109,9 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "If you want to score on specified JSON field, you must create index on that field:"
+msgid ""
+"If you want to score on specified JSON field, you must create index on that "
+"field:"
 msgstr ""
 
 msgid ""
@@ -115,7 +121,9 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Note that `jsonb->>'field'` is `text` type and `jsonb->'field'` is `jsonb` type."
+msgid ""
+"Note that `jsonb->>'field'` is `text` type and `jsonb->'field'` is `jsonb` "
+"type."
 msgstr ""
 
 msgid "With this index, you can get score on `jsonb` field:"

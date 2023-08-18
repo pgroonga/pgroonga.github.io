@@ -21,11 +21,9 @@ To make use of the convenient features of PGroonga, creating indexes that match 
 
 In this example, we will create a memo table and create indexes that enable the following search functionalities for each column:
 
-- Treating hiragana and katakana as equivalent (searching for "あっぷる" will match both "あっぷる" and "アップル").
+- Treating uppercase and lowercase characters the same.
 
-- Treating hiragana, katakana, and romaji as equivalent (searching for "de-tabe-su" will match "de-tabe-su," "でーたべーす," and "データベース").
-
-- Treating various long vowel marks as equivalent (treating similar long vowel marks, such as "-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ," as the same for easier searching).
+- Creating a text bigram index, it allows words to be matched even when they are used within the middle of another word. For example, using 'ppl' as a search keyword can match 'Apple'.
 
 Now, let's try it out!
 

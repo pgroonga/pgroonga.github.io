@@ -163,7 +163,7 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-**NOTE: You need to restart `PostgREST`` when create a new functions**
+**NOTE: You need to restart PostgREST when create a new functions**
 
 Before proceeding to the next section, please restart your PostgREST by pressing `Ctrl + C` to stop the currently running PostgREST instance, and then run it again using the following command:
 
@@ -524,18 +524,18 @@ Run your PostgREST service using following command:
 postgrest memo.conf
 ```
 
-### Open html and Try Out
+### Open HTML and Try Out
 
-Open `index.html` with your browser. 
+Open `index.html` with your browser.
 
 ![PGroonga Auto Complete1](../images/postgrest/auto-complete1.png)
 
 Type something and it will show the suggestions.
 
-![PGroonga Auto Complete2](../images/postgrest/auto-complete2-en.png)
+![PGroonga Auto Complete2](../images/postgrest/auto-complete2.png)
 
 When you press `Search` button, it will performe keyword search on memos table title data.
 
-![PGroonga Auto Complete3](../images/postgrest/auto-complete3-en.png)
+![PGroonga Auto Complete3](../images/postgrest/auto-complete3.png)
 
 [auto-complete]: auto-complete.html

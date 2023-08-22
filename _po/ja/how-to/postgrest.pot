@@ -41,13 +41,10 @@ msgstr ""
 msgid "In this example, we will create a memo table and create indexes that enable the following search functionalities for each column:"
 msgstr ""
 
-msgid "- Treating hiragana and katakana as equivalent (searching for \"あっぷる\" will match both \"あっぷる\" and \"アップル\")."
+msgid "- Treating uppercase and lowercase characters the same."
 msgstr ""
 
-msgid "- Treating hiragana, katakana, and romaji as equivalent (searching for \"de-tabe-su\" will match \"de-tabe-su,\" \"でーたべーす,\" and \"データベース\")."
-msgstr ""
-
-msgid "- Treating various long vowel marks as equivalent (treating similar long vowel marks, such as \"-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ,\" as the same for easier searching)."
+msgid "- Creating a text bigram index, it allows words to be matched even when they are used within the middle of another word. For example, using 'ppl' as a search keyword can match 'Apple'."
 msgstr ""
 
 msgid "Now, let's try it out!"
@@ -240,7 +237,7 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "**NOTE: You need to restart `PostgREST`` when create a new functions**"
+msgid "**NOTE: You need to restart PostgREST when create a new functions**"
 msgstr ""
 
 msgid "Before proceeding to the next section, please restart your PostgREST by pressing `Ctrl + C` to stop the currently running PostgREST instance, and then run it again using the following command:"
@@ -673,7 +670,7 @@ msgstr ""
 msgid "Run your PostgREST service using following command:"
 msgstr ""
 
-msgid "### Open html and Try Out"
+msgid "### Open HTML and Try Out"
 msgstr ""
 
 msgid "Open `index.html` with your browser."
@@ -685,13 +682,13 @@ msgstr ""
 msgid "Type something and it will show the suggestions."
 msgstr ""
 
-msgid "![PGroonga Auto Complete2](../images/postgrest/auto-complete2-en.png)"
+msgid "![PGroonga Auto Complete2](../images/postgrest/auto-complete2.png)"
 msgstr ""
 
 msgid "When you press `Search` button, it will performe keyword search on memos table title data."
 msgstr ""
 
-msgid "![PGroonga Auto Complete3](../images/postgrest/auto-complete3-en.png)"
+msgid "![PGroonga Auto Complete3](../images/postgrest/auto-complete3.png)"
 msgstr ""
 
 msgid "[auto-complete]: auto-complete.html"

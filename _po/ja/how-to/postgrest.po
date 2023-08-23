@@ -66,14 +66,14 @@ msgid ""
 msgstr "この例では、memoテーブルを作成し、後に続く検索機能に必要なインデックスをそれぞれのカラムに対して作成します。"
 
 msgid "- Treating uppercase and lowercase characters the same."
-msgstr "大文字と小文字を同一に扱います。"
+msgstr "- 大文字と小文字を同一に扱います。"
 
 msgid ""
 "- Creating a text bigram index, it allows words to be matched even when they"
 " are used within the middle of another word. For example, using 'ppl' as a "
 "search keyword can match 'Apple'."
 msgstr ""
-"テキストをバイグラムでインデックスを作成すると、単語が他の単語の中に使用されている場合でもマッチするようになります。例えば、検索キーワードとして "
+"- テキストをバイグラムでインデックスを作成すると、単語が他の単語の中に使用されている場合でもマッチするようになります。例えば、検索キーワードとして "
 "'ppl' を使うと 'Apple' にマッチすることができます。"
 
 msgid "Now, let's try it out!"

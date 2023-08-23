@@ -68,7 +68,7 @@ msgstr "この例では、memoテーブルを作成し、後に続く検索機�
 msgid "- Treating uppercase and lowercase characters the same."
 msgstr ""
 "- ひらがなとカタカナを同一視させます (\\\"あっぷる\\\" でも\\\"あっぷる\\\"と\\\"アップル\\\"がヒット)。\n"
-"- ひらがなとカタカナとローマ字を同一視させます (\\\"de-tabe-su\\\"で検索しても\\\"de-tabe-su,\\\"\"\\\"でーたべーす,\\\"そして \\\"データベース\\\"がヒットします)。\\n\""
+"- ひらがなとカタカナとローマ字を同一視させます (\\\"de-tabe-su\\\"で検索しても\\\"de-tabe-su,\\\"\"\\\"でーたべーす,\\\"そして \\\"データベース\\\"がヒットします)。\""
 
 msgid ""
 "- Creating a text bigram index, it allows words to be matched even when they"

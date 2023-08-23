@@ -66,7 +66,9 @@ msgid ""
 msgstr "この例では、memoテーブルを作成し、後に続く検索機能に必要なインデックスをそれぞれのカラムに対して作成します。"
 
 msgid "- Treating uppercase and lowercase characters the same."
-msgstr "- 大文字と小文字を同一に扱います。"
+msgstr ""
+"- ひらがなとカタカナを同一視させます (\\\"あっぷる\\\" でも\\\"あっぷる\\\"と\\\"アップル\\\"がヒット)。\n"
+"- ひらがなとカタカナとローマ字を同一視させます (\\\"de-tabe-su\\\"で検索しても\\\"de-tabe-su,\\\"\"\\\"でーたべーす,\\\"そして \\\"データベース\\\"がヒットします)。\\n\""
 
 msgid ""
 "- Creating a text bigram index, it allows words to be matched even when they"

@@ -94,11 +94,7 @@ Install `postgresql-*-pgdg-pgroonga` package:
 
 ```console
 $ sudo apt update
-$ sudo apt install -y -V postgresql-14-pgdg-pgroonga
-Or
-$ sudo apt install -y -V postgresql-12-pgdg-pgroonga
-Or
-$ sudo apt install -y -V postgresql-13-pgdg-pgroonga
+$ sudo apt install -y -V postgresql-{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:

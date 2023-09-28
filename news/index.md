@@ -5,6 +5,22 @@ upper_level: ../
 
 # News
 
+## 3.1.4: 2023-09-29 {#version-3-1-4}
+
+  * [dump-wal] Added support for start from the specific position.
+
+  * Renamed master branch to main branch.
+
+  * Added support for PostgreSQL 16.
+
+  * Dropped support for Amazon Linux 2.
+
+  * Added `tokenizer_mapping` option that can be used to customize tokenizer for each indexed target.
+
+  * [[`` &` `` operator][script-v2]] Raised an error for sequential scan explicitly.
+
+  * [[`pgroonga_highlight_html` function][highlight-html]],[sequential search] Added support for specifying full index name.
+
 ## 3.1.3: 2023-08-17 {#version-3-1-3}
 
 ### Fixes

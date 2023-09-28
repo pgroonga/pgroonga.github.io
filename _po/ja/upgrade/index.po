@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
+"PO-Revision-Date: 2023-08-13 09:55+0900\n"
 
 msgid ""
 "---\n"
@@ -38,6 +38,9 @@ msgid ""
 "\"incompatible\"):"
 msgstr ""
 "以下は互換性のリストです。「o」は「互換」、「x」は「非互換」という意味です。"
+
+msgid "  * 3.1.3 -> 3.1.4: o"
+msgstr ""
 
 msgid "  * 3.1.2 -> 3.1.3: o"
 msgstr ""

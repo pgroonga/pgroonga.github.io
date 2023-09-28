@@ -17,6 +17,30 @@ msgstr ""
 msgid "# News"
 msgstr ""
 
+msgid "## 3.1.4: 2023-09-29 {#version-3-1-4}"
+msgstr ""
+
+msgid "  * [dump-wal] Added support for start from the specific position."
+msgstr ""
+
+msgid "  * Renamed master branch to main branch."
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 16."
+msgstr ""
+
+msgid "  * Dropped support for Amazon Linux 2."
+msgstr ""
+
+msgid "  * Added `tokenizer_mapping` option that can be used to customize tokenizer for each indexed target."
+msgstr ""
+
+msgid "  * [[`` &` `` operator][script-v2]] Raised an error for sequential scan explicitly."
+msgstr ""
+
+msgid "  * [[`pgroonga_highlight_html` function][highlight-html]],[sequential search] Added support for specifying full index name."
+msgstr ""
+
 msgid "## 3.1.3: 2023-08-17 {#version-3-1-3}"
 msgstr ""
 

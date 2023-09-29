@@ -16,6 +16,7 @@ upper_level: ../
   * 13
   * 14
   * 15
+  * 16
 
 もし、これより古いPostgreSQLを使っているなら、PGroongaをインストールする前にPostgreSQLをアップグレードしてください。
 

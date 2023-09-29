@@ -13,7 +13,6 @@ windows_postgresql_versions:
   - 14
   - 15
 latest_postgresql_version: 15
-latest_amazon_linux_postgresql_version: 14
 # This must be synchronized with PGSQL_DEFAULT in
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/bsd.default-versions.mk
 # .

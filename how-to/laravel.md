@@ -3,11 +3,13 @@ title: How to use PGroonga with Laravel
 ---
 
 # How to use PGroonga with Laravel
+
 In this guide we will walk through building a Laravel application from scratch with PGroonga. 
 
 ## Installation
 
 ### Installing Laravel
+
 **NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga
 
 If you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:
@@ -16,7 +18,7 @@ If you have already installed PHP and Composer on your local machine, you may cr
 composer create-project laravel/laravel pgroonga_laravel
 ```
 
-After the project has been created, start Laravel’s local development server using the Laravel’s Artisan CLI serve command:
+After the project has been created, start Laravel's local development server using the Laravel's Artisan CLI serve command:
 
 ```shell
 cd pgroonga_laravel
@@ -27,7 +29,8 @@ Once you have started the Artisan development server, your application will be a
 
 ### Installing Laravel Breeze
 
-Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel’s authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.
+Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel's authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.
+
 To install Laravel Breeze, just run the following commands:
 
 ```shell
@@ -37,13 +40,13 @@ php artisan breeze:install blade
 
 ### Set up database
 
-Let’s create a PostgreSQL database for this Laravel application.
+Let's create a PostgreSQL database for this Laravel application.
 
 ```shell
 createdb pgroonga_laravel
 ```
 
-To instruct Laravel to use PostgreSQL instead of default MySQL, update your new application’s `.env` file and set environment variables like this:
+To instruct Laravel to use PostgreSQL instead of default MySQL, update your new application's `.env` file and set environment variables like this:
 
 ```ini
 DB_CONNECTION=pgsql
@@ -54,15 +57,16 @@ DB_USERNAME=postgres
 DB_PASSWORD=postgres
 ```
 
-If you’re using different PostgreSQL username and password, change them according to your settings.
+If you're using different PostgreSQL username and password, change them according to your settings.
 
 ### Creating a Blog
 
-You’re now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using `PGroonga`.
+You're now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using PGroonga.
 
 ### Models, migrations, and controllers
 
 To make a blog, we will need to create a model, migrations, and controllers.
+
 Since the blog has posts, we create Post model for it. To create a model, just run the following command:
 
 ```shell
@@ -72,15 +76,19 @@ php artisan make:model -mc Post
 This command will create three files for you:
 
 * `app/Models/Post.php` - The Eloquent model.
+
 * `database/migrations/<timestamp>_create_posts_table.php` - The database migration that will create your database table.
+
 * `app/Http/Controller/PostController.php` - The HTTP controller that will take incoming requests and return responses.
 
 #### Model
-Let’s add search function to our Post model `app/Models/Post.php`.
+
+Let's add search function to our Post model `app/Models/Post.php`.
 
 Before part is original state, and After is modified version:
 
 Before:
+
 ```php
 <?php
 
@@ -96,6 +104,7 @@ class Post extends Model
 ```
 
 After:
+
 ```php
 <?php
 
@@ -127,12 +136,14 @@ class Post extends Model
 }
 ```
 
-
 #### Migration
-Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`
+
+Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`.
+
 Here are its original state and after state we modified it:
 
 Before:
+
 ```php
 <?php
 
@@ -164,6 +175,7 @@ return new class extends Migration
 ```
 
 After:
+
 ```php
 <?php
 
@@ -210,9 +222,11 @@ return new class extends Migration
 
 
 #### Controller
-Let’s add our Post Controller to handle user requests `app/Http/Controller/PostController.php`
+
+Let's add our Post Controller to handle user requests `app/Http/Controller/PostController.php`.
 
 Before:
+
 ```php
 <?php
 
@@ -227,6 +241,7 @@ class PostController extends Controller
 ```
 
 After:
+
 ```php
 <?php
 
@@ -256,14 +271,14 @@ class PostController extends Controller
 }
 ```
 
-
 ### Routing
 
-We will also need to create URLs for our controller. 
+We will also need to create URLs for our controller.
 
 To start with, we are going to enable two routes:
 
 * The `index` route will display our listing of blog posts.
+
 * The `search` route will be used for searching blog posts.
 
 Edit `routes/web.php` like this:
@@ -318,7 +333,8 @@ This will create the following routes:
 
 
 ### Blade
-Let’s create a Blade file that will display the data  returned from `index` and `search` method of our `PostController` class to render a view:
+
+Let's create a Blade file that will display the data  returned from `index` and `search` method of our `PostController` class to render a view:
 
 First, we will change Breeze default `resources/views/layouts/guest.blade.php` template like this:
 
@@ -338,6 +354,7 @@ Before:
 {% raw %}
 
 After:
+
 ```php
 <!-- Line 25 -->
 	<div class="w-full lg:max-w-6xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -444,15 +461,17 @@ Then, we will create `resources/views/posts/index.blade.php` to display Blog Pos
 ### Factory
 
 To create dummy data for this application, you need to create a Factory for Post Model.
+
 Run following command which create a `database/factories/PostFactory.php` file.
 
 ```shell
 php artisan make:factory PostFactory
 ```
 
-Let’s add some code to generate a fake data for Post Model. Here are before and after:
+Let's add some code to generate a fake data for Post Model. Here are before and after:
 
 Before:
+
 ```php
 <?php
 
@@ -480,6 +499,7 @@ class PostFactory extends Factory
 ```
 
 After:
+
 ```php
 <?php
 
@@ -507,12 +527,12 @@ class PostFactory extends Factory
 }
 ```
 
-
 ### Database Seeder
 
-Now you need to tell the database seeder class to use the factory we’ve created. We will modify the seeder to create 200,000 dummy blog posts:
+Now you need to tell the database seeder class to use the factory we've created. We will modify the seeder to create 200,000 dummy blog posts:
 
 Before:
+
 ```php
 <?php
 
@@ -539,6 +559,7 @@ class DatabaseSeeder extends Seeder
 ```
 
 After:
+
 ```php
 <?php
 
@@ -573,57 +594,61 @@ class DatabaseSeeder extends Seeder
 
 ### Run migration and seed sample data
 
-Following command will run the migration to PostgreSQL then seed 
- fake data to it.
+Following command will run the migration to PostgreSQL then seed fake data to it.
 
 ```shell
 php arrtisan migrate
 php artisan db:seed
 ```
 
+### Let's test it
 
-### Let’s test it
 First, you need to build a css. Just run the following command.
+
 ```shell
 npm run build
 ```
 
 Then start the laravel by running follwoing command.
+
 ```shell
 php artisan serve
 ```
 
 Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
 
-![Laravel sample](../images/laravel/laravel1.png)
+![Laravel sample 1]({% link /images/laravel/laravel1.png %})
 
 
 ### Search Function
-Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL which only can use indexes for prefix match search, it can also use indexes for full-text partial match search! Not only that, you can get AND search and OR search for free! Just type your keyword separate with space, you get AND search. If you separate words with OR (capital letter), you get OR search.
+
+Good thing about PGroonga is, unlike popular RDB like MySQL and PostgreSQL which only can use indexes for prefix match search, it can also use indexes for full-text partial match search! Not only that, you can get AND search and OR search for free! Just type your keyword separate with space, you get AND search. If you separate words with OR (capital letter), you get OR search.
 
 For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power.
 
-![Laravel sample 2](../images/laravel/laravel2.png)
-
+![Laravel sample 2]({% link /images/laravel/laravel2.png %})
 
 Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`.
 
-![Laravel sample 3](../images/laravel/laravel3.png)
+![Laravel sample 3](%{ link /images/laravel/laravel3.png %})
 
 You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`.
 
-Imagine when you are trying to create same feature using MySQL or PostgreSQL for `AND`, `OR` and `NOT` confitions, you will need to write a lot of code to handle all the cases. But with `PGroonga`, you get all these for free! And it is fast!
+Imagine when you are trying to create same feature using MySQL or PostgreSQL for `AND`, `OR` and `NOT` confitions, you will need to write a lot of code to handle all the cases. But with PGroonga, you get all these for free! And it is fast!
 
 ### Make Japanese Version
+
 Simply following next steps and turn this Blog Search Sample in Japanese.
 
 Add language file:
+
 ```shell
 mkdir lang
 touch lang/ja.json
 ```
 
-`lang/ja.json`
+`lang/ja.json`:
+
 ```json
 {
     "Title": "タイトル",
@@ -639,25 +664,28 @@ touch lang/ja.json
 ```
 
 Set locale to Japanese:
-Edit `config/app.php`
+
+Edit `config/app.php`:
+
 ```php
 'locale' => 'ja', // Change from en to ja
 'faker_locale' => 'ja_JP', // Change from en_US to ja_JP
 ```
 
 Run fresh migration and database seed again:
+
 ```shell
 php artisan migrate:fresh --seed
 ```
 
 Start Laravel application:
+
 ```shell
 php artisan serve
-``` 
+```
 
 Access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
 
 How cool is this!
 
-![PGroonga Japanese](../images/laravel/laravel-ja1.png)
-
+![PGroonga Japanese]({% link /images/laravel/laravel-ja1.png %})

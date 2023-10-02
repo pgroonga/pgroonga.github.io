@@ -13,17 +13,19 @@ msgid ""
 "---"
 msgstr ""
 
-msgid ""
-"# How to use PGroonga with Laravel\n"
-"In this guide we will walk through building a Laravel application from scratch with PGroonga."
+msgid "# How to use PGroonga with Laravel"
+msgstr ""
+
+msgid "In this guide we will walk through building a Laravel application from scratch with PGroonga."
 msgstr ""
 
 msgid "## Installation"
 msgstr ""
 
-msgid ""
-"### Installing Laravel\n"
-"**NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga"
+msgid "### Installing Laravel"
+msgstr ""
+
+msgid "**NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga"
 msgstr ""
 
 msgid "If you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:"
@@ -35,7 +37,7 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "After the project has been created, start Laravel’s local development server using the Laravel’s Artisan CLI serve command:"
+msgid "After the project has been created, start Laravel's local development server using the Laravel's Artisan CLI serve command:"
 msgstr ""
 
 msgid ""
@@ -51,9 +53,10 @@ msgstr ""
 msgid "### Installing Laravel Breeze"
 msgstr ""
 
-msgid ""
-"Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel’s authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.\n"
-"To install Laravel Breeze, just run the following commands:"
+msgid "Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel's authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly."
+msgstr ""
+
+msgid "To install Laravel Breeze, just run the following commands:"
 msgstr ""
 
 msgid ""
@@ -66,7 +69,7 @@ msgstr ""
 msgid "### Set up database"
 msgstr ""
 
-msgid "Let’s create a PostgreSQL database for this Laravel application."
+msgid "Let's create a PostgreSQL database for this Laravel application."
 msgstr ""
 
 msgid ""
@@ -75,7 +78,7 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "To instruct Laravel to use PostgreSQL instead of default MySQL, update your new application’s `.env` file and set environment variables like this:"
+msgid "To instruct Laravel to use PostgreSQL instead of default MySQL, update your new application's `.env` file and set environment variables like this:"
 msgstr ""
 
 msgid ""
@@ -89,21 +92,22 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "If you’re using different PostgreSQL username and password, change them according to your settings."
+msgid "If you're using different PostgreSQL username and password, change them according to your settings."
 msgstr ""
 
 msgid "### Creating a Blog"
 msgstr ""
 
-msgid "You’re now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using `PGroonga`."
+msgid "You're now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using PGroonga."
 msgstr ""
 
 msgid "### Models, migrations, and controllers"
 msgstr ""
 
-msgid ""
-"To make a blog, we will need to create a model, migrations, and controllers.\n"
-"Since the blog has posts, we create Post model for it. To create a model, just run the following command:"
+msgid "To make a blog, we will need to create a model, migrations, and controllers."
+msgstr ""
+
+msgid "Since the blog has posts, we create Post model for it. To create a model, just run the following command:"
 msgstr ""
 
 msgid ""
@@ -115,22 +119,28 @@ msgstr ""
 msgid "This command will create three files for you:"
 msgstr ""
 
-msgid ""
-"* `app/Models/Post.php` - The Eloquent model.\n"
-"* `database/migrations/<timestamp>_create_posts_table.php` - The database migration that will create your database table.\n"
-"* `app/Http/Controller/PostController.php` - The HTTP controller that will take incoming requests and return responses."
+msgid "* `app/Models/Post.php` - The Eloquent model."
 msgstr ""
 
-msgid ""
-"#### Model\n"
-"Let’s add search function to our Post model `app/Models/Post.php`."
+msgid "* `database/migrations/<timestamp>_create_posts_table.php` - The database migration that will create your database table."
+msgstr ""
+
+msgid "* `app/Http/Controller/PostController.php` - The HTTP controller that will take incoming requests and return responses."
+msgstr ""
+
+msgid "#### Model"
+msgstr ""
+
+msgid "Let's add search function to our Post model `app/Models/Post.php`."
 msgstr ""
 
 msgid "Before part is original state, and After is modified version:"
 msgstr ""
 
+msgid "Before:"
+msgstr ""
+
 msgid ""
-"Before:\n"
 "```php\n"
 "<?php"
 msgstr ""
@@ -151,10 +161,7 @@ msgid ""
 "```"
 msgstr ""
 
-msgid ""
-"After:\n"
-"```php\n"
-"<?php"
+msgid "After:"
 msgstr ""
 
 msgid ""
@@ -190,10 +197,13 @@ msgid ""
 "```"
 msgstr ""
 
-msgid ""
-"#### Migration\n"
-"Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`\n"
-"Here are its original state and after state we modified it:"
+msgid "#### Migration"
+msgstr ""
+
+msgid "Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`."
+msgstr ""
+
+msgid "Here are its original state and after state we modified it:"
 msgstr ""
 
 msgid ""
@@ -278,9 +288,10 @@ msgid ""
 "```"
 msgstr ""
 
-msgid ""
-"#### Controller\n"
-"Let’s add our Post Controller to handle user requests `app/Http/Controller/PostController.php`"
+msgid "#### Controller"
+msgstr ""
+
+msgid "Let's add our Post Controller to handle user requests `app/Http/Controller/PostController.php`."
 msgstr ""
 
 msgid "namespace App\\Http\\Controllers;"
@@ -343,17 +354,13 @@ msgstr ""
 msgid "To start with, we are going to enable two routes:"
 msgstr ""
 
-msgid ""
-"* The `index` route will display our listing of blog posts.\n"
-"* The `search` route will be used for searching blog posts."
+msgid "* The `index` route will display our listing of blog posts."
+msgstr ""
+
+msgid "* The `search` route will be used for searching blog posts."
 msgstr ""
 
 msgid "Edit `routes/web.php` like this:"
-msgstr ""
-
-msgid ""
-"```php\n"
-"<?php"
 msgstr ""
 
 msgid ""
@@ -418,15 +425,13 @@ msgid ""
 "| GET  | `/search`   | search  | posts.search   |"
 msgstr ""
 
-msgid ""
-"### Blade\n"
-"Let’s create a Blade file that will display the data  returned from `index` and `search` method of our `PostController` class to render a view:"
+msgid "### Blade"
+msgstr ""
+
+msgid "Let's create a Blade file that will display the data  returned from `index` and `search` method of our `PostController` class to render a view:"
 msgstr ""
 
 msgid "First, we will change Breeze default `resources/views/layouts/guest.blade.php` template like this:"
-msgstr ""
-
-msgid "Before:"
 msgstr ""
 
 msgid "{% raw %}"
@@ -445,7 +450,6 @@ msgid "{% endraw %}"
 msgstr ""
 
 msgid ""
-"After:\n"
 "```php\n"
 "<!-- Line 25 -->\n"
 "\t<div class=\"w-full lg:max-w-6xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg\">\n"
@@ -575,9 +579,10 @@ msgstr ""
 msgid "### Factory"
 msgstr ""
 
-msgid ""
-"To create dummy data for this application, you need to create a Factory for Post Model.\n"
-"Run following command which create a `database/factories/PostFactory.php` file."
+msgid "To create dummy data for this application, you need to create a Factory for Post Model."
+msgstr ""
+
+msgid "Run following command which create a `database/factories/PostFactory.php` file."
 msgstr ""
 
 msgid ""
@@ -586,7 +591,7 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Let’s add some code to generate a fake data for Post Model. Here are before and after:"
+msgid "Let's add some code to generate a fake data for Post Model. Here are before and after:"
 msgstr ""
 
 msgid "namespace Database\\Factories;"
@@ -641,7 +646,7 @@ msgstr ""
 msgid "### Database Seeder"
 msgstr ""
 
-msgid "Now you need to tell the database seeder class to use the factory we’ve created. We will modify the seeder to create 200,000 dummy blog posts:"
+msgid "Now you need to tell the database seeder class to use the factory we've created. We will modify the seeder to create 200,000 dummy blog posts:"
 msgstr ""
 
 msgid "namespace Database\\Seeders;"
@@ -696,9 +701,7 @@ msgstr ""
 msgid "### Run migration and seed sample data"
 msgstr ""
 
-msgid ""
-"Following command will run the migration to PostgreSQL then seed \n"
-" fake data to it."
+msgid "Following command will run the migration to PostgreSQL then seed fake data to it."
 msgstr ""
 
 msgid ""
@@ -708,16 +711,22 @@ msgid ""
 "```"
 msgstr ""
 
+msgid "### Let's test it"
+msgstr ""
+
+msgid "First, you need to build a css. Just run the following command."
+msgstr ""
+
 msgid ""
-"### Let’s test it\n"
-"First, you need to build a css. Just run the following command.\n"
 "```shell\n"
 "npm run build\n"
 "```"
 msgstr ""
 
+msgid "Then start the laravel by running follwoing command."
+msgstr ""
+
 msgid ""
-"Then start the laravel by running follwoing command.\n"
 "```shell\n"
 "php artisan serve\n"
 "```"
@@ -729,9 +738,10 @@ msgstr ""
 msgid "![Laravel sample](../images/laravel/laravel1.png)"
 msgstr ""
 
-msgid ""
-"### Search Function\n"
-"Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL which only can use indexes for prefix match search, it can also use indexes for full-text partial match search! Not only that, you can get AND search and OR search for free! Just type your keyword separate with space, you get AND search. If you separate words with OR (capital letter), you get OR search."
+msgid "### Search Function"
+msgstr ""
+
+msgid "Good thing about PGroonga is, unlike popular RDB like MySQL and PostgreSQL which only can use indexes for prefix match search, it can also use indexes for full-text partial match search! Not only that, you can get AND search and OR search for free! Just type your keyword separate with space, you get AND search. If you separate words with OR (capital letter), you get OR search."
 msgstr ""
 
 msgid "For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power."
@@ -749,24 +759,29 @@ msgstr ""
 msgid "You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`."
 msgstr ""
 
-msgid "Imagine when you are trying to create same feature using MySQL or PostgreSQL for `AND`, `OR` and `NOT` confitions, you will need to write a lot of code to handle all the cases. But with `PGroonga`, you get all these for free! And it is fast!"
+msgid "Imagine when you are trying to create same feature using MySQL or PostgreSQL for `AND`, `OR` and `NOT` confitions, you will need to write a lot of code to handle all the cases. But with PGroonga, you get all these for free! And it is fast!"
+msgstr ""
+
+msgid "### Make Japanese Version"
+msgstr ""
+
+msgid "Simply following next steps and turn this Blog Search Sample in Japanese."
+msgstr ""
+
+msgid "Add language file:"
 msgstr ""
 
 msgid ""
-"### Make Japanese Version\n"
-"Simply following next steps and turn this Blog Search Sample in Japanese."
-msgstr ""
-
-msgid ""
-"Add language file:\n"
 "```shell\n"
 "mkdir lang\n"
 "touch lang/ja.json\n"
 "```"
 msgstr ""
 
+msgid "`lang/ja.json`:"
+msgstr ""
+
 msgid ""
-"`lang/ja.json`\n"
 "```json\n"
 "{\n"
 "    \"Title\": \"タイトル\",\n"
@@ -782,27 +797,29 @@ msgid ""
 "```"
 msgstr ""
 
+msgid "Set locale to Japanese:"
+msgstr ""
+
+msgid "Edit `config/app.php`:"
+msgstr ""
+
 msgid ""
-"Set locale to Japanese:\n"
-"Edit `config/app.php`\n"
 "```php\n"
 "'locale' => 'ja', // Change from en to ja\n"
 "'faker_locale' => 'ja_JP', // Change from en_US to ja_JP\n"
 "```"
 msgstr ""
 
+msgid "Run fresh migration and database seed again:"
+msgstr ""
+
 msgid ""
-"Run fresh migration and database seed again:\n"
 "```shell\n"
 "php artisan migrate:fresh --seed\n"
 "```"
 msgstr ""
 
-msgid ""
-"Start Laravel application:\n"
-"```shell\n"
-"php artisan serve\n"
-"```"
+msgid "Start Laravel application:"
 msgstr ""
 
 msgid "Access the application in your web browser at: [http://localhost:8000](http://localhost:8000)"

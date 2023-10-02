@@ -1,49 +1,52 @@
 ---
-title: How to use PGroonga with Laravel
+title: PGroongaをLaravelと一緒に使う方法
 ---
 
-# How to use PGroonga with Laravel
-In this guide we will walk through building a Laravel application from scratch with PGroonga. 
+# PGroongaをLaravelと一緒に使う方法
 
-## Installation
+ここではLaravelでPGroongaを使うアプリを一から作っていきます。 
 
-### Installing Laravel
-**NOTE**: This tutorial assumes you have already set up your environment for Laravel, PostgreSQL and PGroonga
+## インストール
 
-If you have already installed PHP and Composer on your local machine, you may create a new Laravel project via Composer:
+### Laravelのインストール
+
+**注意**: このチュートリアルは既にLaravelとPostgreSQLとPGroongaが使える前提となります。
+
+PHPとComposerがインストール済みの場合は、Composerを使い新規のLaravelプロジェクトを作ります。
 
 ```shell
 composer create-project laravel/laravel pgroonga_laravel
 ```
 
-After the project has been created, start Laravel’s local development server using the Laravel’s Artisan CLI serve command:
+プロジェクト生成後は下記のArtisan CLIコマンドでローカル環境のLaravelが立ち上げ可能です。
 
 ```shell
 cd pgroonga_laravel
 php artisan serve
 ```
 
-Once you have started the Artisan development server, your application will be accessible in your web browser at [http://localhost:8000](http://localhost:8000).
+起動後はブラウザで[http://localhost:8000](http://localhost:8000)にアクセスするとこのアプリケーションを使えます。
 
-### Installing Laravel Breeze
+### Laravel Breezeのインストール
 
-Next, we will install Laravel Breeze, a minimal, simple implementation of all of Laravel’s authentication features, including login, registration, password reset, email verification, and password confirmation. It comes with pre-designed custom blade components and TailwindCSS so that it makes easier to design a web page quickly.
-To install Laravel Breeze, just run the following commands:
+次にLaravel Breezeをインストールします。ログインやユーザ登録、パスワードリセットやEmail確認機能、パスワード確認機能を兼ね備えたシンプルな認証パッケージです。TailwindCSSによりデザインされたBladeテンプレートが準備されているためWebページのデザインを素早く作ることができます。
+
+次のコマンドを実行してLaravel Breezeをインストールします。<
 
 ```shell
 composer require laravel/breeze --dev
 php artisan breeze:install blade
 ```
 
-### Set up database
+### データベースのセットアップ
 
-Let’s create a PostgreSQL database for this Laravel application.
+Laravel用にPostgreSQLのデータベースを作りましょう。
 
 ```shell
 createdb pgroonga_laravel
 ```
 
-To instruct Laravel to use PostgreSQL instead of default MySQL, update your new application’s `.env` file and set environment variables like this:
+LaravelでデフォルトのDBはMySQLですが、PostgreSQLを使うために`.env`ファイルを次のように設定します:
 
 ```ini
 DB_CONNECTION=pgsql
@@ -54,33 +57,38 @@ DB_USERNAME=postgres
 DB_PASSWORD=postgres
 ```
 
-If you’re using different PostgreSQL username and password, change them according to your settings.
+`DB_USERNAME` と `DB_PASSWORD` は、実際に使っているPostgreSQLのユーザ名とパスワードに変更してください。
 
-### Creating a Blog
+### ブログの作成
 
-You’re now ready to start building your new application! In this tutorial, we will create a blog with fake data seeder and search through them using `PGroonga`.
+これで新しいアプリを作る準備ができました！このチュートリアルではブログアプリを作ります。サンプルデータを流し込む機能とPGroongaを使った検索機能を実装します。
 
-### Models, migrations, and controllers
+### モデルとマイグレーションとコントローラの作成
 
-To make a blog, we will need to create a model, migrations, and controllers.
-Since the blog has posts, we create Post model for it. To create a model, just run the following command:
+ブログを作るためのモデルとマイグレーションとコントローラを作成します。
+
+ブログは記事が必要なのでPostモデルを作ります。モデルを作るためには次のコマンドを実行します。
 
 ```shell
 php artisan make:model -mc Post
 ```
 
-This command will create three files for you:
+このコマンドは次のファイルを生成します。
 
-* `app/Models/Post.php` - The Eloquent model.
-* `database/migrations/<timestamp>_create_posts_table.php` - The database migration that will create your database table.
-* `app/Http/Controller/PostController.php` - The HTTP controller that will take incoming requests and return responses.
+* `app/Models/Post.php` - Eloquentのモデルです。
 
-#### Model
-Let’s add search function to our Post model `app/Models/Post.php`.
+* `database/migrations/<timestamp>_create_posts_table.php` - データベースのテーブルを生成するマイグレーションファイルです。
 
-Before part is original state, and After is modified version:
+* `app/Http/Controller/PostController.php` - HTTPのリクエストやレスポンスを取り扱うコントローラです。
 
-Before:
+#### モデル
+
+Postモデルの`app/Models/Post.php`に検索機能を作りましょう。
+
+元ファイルと変更後のファイルです。
+
+変更前：
+
 ```php
 <?php
 
@@ -95,7 +103,8 @@ class Post extends Model
 }
 ```
 
-After:
+変更後：
+
 ```php
 <?php
 
@@ -127,12 +136,14 @@ class Post extends Model
 }
 ```
 
+#### マイグレーション
 
-#### Migration
-Now we create a database migration for our Post model `database/migrations/<timestamp>_create_posts_table.php`
-Here are its original state and after state we modified it:
+Postモデル`database/migrations/<timestamp>_create_posts_table.php`用のデータベースマイグレーションを作ります。
 
-Before:
+以下が変更前と変更後の内容です。
+
+変更前：
+
 ```php
 <?php
 
@@ -163,13 +174,14 @@ return new class extends Migration
 };
 ```
 
-After:
+変更後：
+
 ```php
 <?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;  // Don't forget to add this
+use Illuminate\Support\Facades\DB;  // ここを忘れずに
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -209,10 +221,12 @@ return new class extends Migration
 ```
 
 
-#### Controller
-Let’s add our Post Controller to handle user requests `app/Http/Controller/PostController.php`
+#### コントローラ
 
-Before:
+リクエストを捌くPostコントローラ`app/Http/Controller/PostController.php`を作ります。
+
+変更前：
+
 ```php
 <?php
 
@@ -226,7 +240,8 @@ class PostController extends Controller
 }
 ```
 
-After:
+変更後：
+
 ```php
 <?php
 
@@ -256,17 +271,17 @@ class PostController extends Controller
 }
 ```
 
+### ルート設定
 
-### Routing
+コントローラで取り扱うURLを作成します。
 
-We will also need to create URLs for our controller. 
+ここでは対応する2つのルートを有効にします。
 
-To start with, we are going to enable two routes:
+* `index`ルートはブログ記事一覧を表示させます。
 
-* The `index` route will display our listing of blog posts.
-* The `search` route will be used for searching blog posts.
+* `search`ルートはブログ記事を検索するのに利用されます。
 
-Edit `routes/web.php` like this:
+`routes/web.php`を次のように編集します:
 
 ```php
 <?php
@@ -309,7 +324,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 ```
 
-This will create the following routes:
+これにより次のルートが作成されます:
 
 | Verb | URI         | Action  | Route Name     |
 |------|-------------|---------|----------------|
@@ -318,9 +333,10 @@ This will create the following routes:
 
 
 ### Blade
-Let’s create a Blade file that will display the data  returned from `index` and `search` method of our `PostController` class to render a view:
 
-First, we will change Breeze default `resources/views/layouts/guest.blade.php` template like this:
+`PostController`の`index`と`search`メソッドから返ってくるデータを表示させるためのView用のBladeファイルを作成します:
+
+最初にBreezeの標準テンプレートである `resources/views/layouts/guest.blade.php` を次のように修正します。
 
 変更前：
 
@@ -337,7 +353,8 @@ First, we will change Breeze default `resources/views/layouts/guest.blade.php` t
 
 {% raw %}
 
-After:
+変更後：
+
 ```php
 <!-- Line 25 -->
 	<div class="w-full lg:max-w-6xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
@@ -347,7 +364,7 @@ After:
 
 {% endraw %}
 
-Then, we will create `resources/views/posts/index.blade.php` to display Blog Posts and also provide search features:
+次にブログ記事と検索機能を提供する`resources/views/posts/index.blade.php`を作成します:
 
 {% raw %}
 
@@ -441,18 +458,20 @@ Then, we will create `resources/views/posts/index.blade.php` to display Blog Pos
 
 {% endraw %}
 
-### Factory
+### ファクトリー
 
-To create dummy data for this application, you need to create a Factory for Post Model.
-Run following command which create a `database/factories/PostFactory.php` file.
+Postモデル用のダミーデータを生成するファクトリーを作成します。
+
+次のコマンドを実行し`database/factories/PostFactory.php`ファイルを作成します。
 
 ```shell
 php artisan make:factory PostFactory
 ```
 
-Let’s add some code to generate a fake data for Post Model. Here are before and after:
+Postモデル用のダミーデータを生成するコードを書きます。変更前と変更後になります。
 
-Before:
+変更前：
+
 ```php
 <?php
 
@@ -479,7 +498,8 @@ class PostFactory extends Factory
 }
 ```
 
-After:
+変更後：
+
 ```php
 <?php
 
@@ -507,12 +527,12 @@ class PostFactory extends Factory
 }
 ```
 
+### データベースデータ流し込み機能(シーダー)
 
-### Database Seeder
+データベースへのデータ流し込み機能（シーダー）に作成したファクトリーを使うように設定します。サンプルブログ記事を20万件程流します:
 
-Now you need to tell the database seeder class to use the factory we’ve created. We will modify the seeder to create 200,000 dummy blog posts:
+変更前：
 
-Before:
 ```php
 <?php
 
@@ -538,7 +558,8 @@ class DatabaseSeeder extends Seeder
 }
 ```
 
-After:
+変更後：
+
 ```php
 <?php
 
@@ -571,59 +592,63 @@ class DatabaseSeeder extends Seeder
 }
 ```
 
-### Run migration and seed sample data
+### マイグレーション実行とサンプルデータの流し込み
 
-Following command will run the migration to PostgreSQL then seed 
- fake data to it.
+次のコマンドを実行してPostgreSQLにマイグレーションとサンプルデータの流し込みを行います。
 
 ```shell
 php arrtisan migrate
 php artisan db:seed
 ```
 
+### テストしてみましょう
 
-### Let’s test it
-First, you need to build a css. Just run the following command.
+最初に、CSSを生成するために次のコマンドを実行します。
+
 ```shell
 npm run build
 ```
 
 Then start the laravel by running follwoing command.
+
 ```shell
 php artisan serve
 ```
 
-Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
+ブラウザで[http://localhost:8000](http://localhost:8000)にアクセスしてLaravelの動作確認をします。
 
-![Laravel sample](../images/laravel/laravel1.png)
-
-
-### Search Function
-Good thing about `PGroonga` is, unlike popular RDB like MySQL and PostgreSQL which only can use indexes for prefix match search, it can also use indexes for full-text partial match search! Not only that, you can get AND search and OR search for free! Just type your keyword separate with space, you get AND search. If you separate words with OR (capital letter), you get OR search.
-
-For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power.
-
-![Laravel sample 2](../images/laravel/laravel2.png)
+![Laravelサンプル](../images/laravel/laravel1.png)
 
 
-Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`.
+### 検索機能
 
-![Laravel sample 3](../images/laravel/laravel3.png)
+MySQLやPostgreSQLも前方一致ならインデックスを使ってLIKEで高速検索できますが、中間一致ではインデックスを使ってくれません。PGroongaなら前方一致でも中間一致でも、インデックスを使って`LIKE`で高速検索できます！それだけではなく、特に苦労することなくAND検索やOR検索を使えます！スペースでキーワードを区切るとAND検索に、大文字のORで区切るとOR検索となります。
 
-You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`.
+たとえば`alice king turtle queen`をキーワードとして検索すると、これら全ての単語を含む`AND`検索として機能します。しかも入力したキーワードが全て小文字でも、大文字小文字に関わらずにヒットさせます！インデックスを利用して検索するのでシーケンシャルサーチとなりません。反応も高速であるためデータベースのCPU使用率を抑えることができます。
 
-Imagine when you are trying to create same feature using MySQL or PostgreSQL for `AND`, `OR` and `NOT` confitions, you will need to write a lot of code to handle all the cases. But with `PGroonga`, you get all these for free! And it is fast!
+![Laravelサンプル2](../images/laravel/laravel2.png)
 
-### Make Japanese Version
-Simply following next steps and turn this Blog Search Sample in Japanese.
+こちらは`OR`検索の例です。大文字の`OR`を使います。`caterpillar`もしくは`queen`を含むブログ記事を検索します。
 
-Add language file:
+![Laravelサンプル3](../images/laravel/laravel3.png)
+
+ちなみに`-`記号を使用することで`NOT`検索も可能です。例えば `alice -king`で検索すると`alice`を含み、かつ`king`を含まないブログ記事を検索します。
+
+MySQLやPostgreSQLで`AND`、`OR`そして`NOT`検索する機能を実装しようとすると、それぞれの条件のために大量のコードを書く必要があります。しかしPGroongaを使うと初めからそれらの機能が使える上、しかも検索が速いのです！
+
+### 日本語化対応させる
+
+次の手順を行うことでブログ検索機能を日本語化することができます。
+
+言語ファイルを追加します。
+
 ```shell
 mkdir lang
 touch lang/ja.json
 ```
 
-`lang/ja.json`
+`lang/ja.json`:
+
 ```json
 {
     "Title": "タイトル",
@@ -638,26 +663,29 @@ touch lang/ja.json
 }
 ```
 
-Set locale to Japanese:
-Edit `config/app.php`
+ロケールを日本語に変更します。
+
+`config/app.php`を編集します。
+
 ```php
 'locale' => 'ja', // Change from en to ja
 'faker_locale' => 'ja_JP', // Change from en_US to ja_JP
 ```
 
-Run fresh migration and database seed again:
+マイグレーションとデータ流し込みを再実行します。
+
 ```shell
 php artisan migrate:fresh --seed
 ```
 
-Start Laravel application:
+Laravelアプリケーションを起動します。
+
 ```shell
 php artisan serve
-``` 
+```
 
-Access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
+ブラウザで[http://localhost:8000](http://localhost:8000)にアクセスします。
 
-How cool is this!
+これは便利！！
 
-![PGroonga Japanese](../images/laravel/laravel-ja1.png)
-
+![PGroonga 日本語版](../images/laravel/laravel-ja1.png)

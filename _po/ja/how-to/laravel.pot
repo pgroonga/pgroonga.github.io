@@ -735,7 +735,7 @@ msgstr ""
 msgid "Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)"
 msgstr ""
 
-msgid "![Laravel sample](../images/laravel/laravel1.png)"
+msgid "![Laravel sample 1]({% link /images/laravel/laravel1.png %})"
 msgstr ""
 
 msgid "### Search Function"
@@ -747,13 +747,13 @@ msgstr ""
 msgid "For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power."
 msgstr ""
 
-msgid "![Laravel sample 2](../images/laravel/laravel2.png)"
+msgid "![Laravel sample 2]({% link /images/laravel/laravel2.png %})"
 msgstr ""
 
 msgid "Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`."
 msgstr ""
 
-msgid "![Laravel sample 3](../images/laravel/laravel3.png)"
+msgid "![Laravel sample 3](%{ link /images/laravel/laravel3.png %})"
 msgstr ""
 
 msgid "You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`."
@@ -828,5 +828,5 @@ msgstr ""
 msgid "How cool is this!"
 msgstr ""
 
-msgid "![PGroonga Japanese](../images/laravel/laravel-ja1.png)"
+msgid "![PGroonga Japanese]({% link /images/laravel/laravel-ja1.png %})"
 msgstr ""

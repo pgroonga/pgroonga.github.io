@@ -617,7 +617,7 @@ php artisan serve
 
 ブラウザで[http://localhost:8000](http://localhost:8000)にアクセスしてLaravelの動作確認をします。
 
-![Laravelサンプル](../images/laravel/laravel1.png)
+![Laravelサンプル1]({% link /images/laravel/laravel1.png %})
 
 
 ### 検索機能
@@ -626,11 +626,11 @@ MySQLやPostgreSQLも前方一致ならインデックスを使ってLIKEで高�
 
 たとえば`alice king turtle queen`をキーワードとして検索すると、これら全ての単語を含む`AND`検索として機能します。しかも入力したキーワードが全て小文字でも、大文字小文字に関わらずにヒットさせます！インデックスを利用して検索するのでシーケンシャルサーチとなりません。反応も高速であるためデータベースのCPU使用率を抑えることができます。
 
-![Laravelサンプル2](../images/laravel/laravel2.png)
+![Laravelサンプル2]({% link /images/laravel/laravel2.png %})
 
 こちらは`OR`検索の例です。大文字の`OR`を使います。`caterpillar`もしくは`queen`を含むブログ記事を検索します。
 
-![Laravelサンプル3](../images/laravel/laravel3.png)
+![Laravelサンプル3]({% link /images/laravel/laravel3.png %})
 
 ちなみに`-`記号を使用することで`NOT`検索も可能です。例えば `alice -king`で検索すると`alice`を含み、かつ`king`を含まないブログ記事を検索します。
 
@@ -688,4 +688,4 @@ php artisan serve
 
 これは便利！！
 
-![PGroonga 日本語版](../images/laravel/laravel-ja1.png)
+![PGroonga日本語版]({% link /images/laravel/laravel-ja1.png %})

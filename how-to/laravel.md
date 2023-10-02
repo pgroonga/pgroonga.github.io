@@ -617,7 +617,7 @@ php artisan serve
 
 Now you can access the application in your web browser at: [http://localhost:8000](http://localhost:8000)
 
-![Laravel sample](../images/laravel/laravel1.png)
+![Laravel sample 1]({% link /images/laravel/laravel1.png %})
 
 
 ### Search Function
@@ -626,11 +626,11 @@ Good thing about PGroonga is, unlike popular RDB like MySQL and PostgreSQL which
 
 For example: if you search with space separated keywords like `alice king turtle queen`, then it will perform an `AND` search and return the posts that contains all the keyword you entered. Notice that, although entered keywords are all lower cased, but it will hit all the letters, no case sensitive! And it use indexes so that no sequential search will be performed. It responses quickly and saves a lot of database cpu power.
 
-![Laravel sample 2](../images/laravel/laravel2.png)
+![Laravel sample 2]({% link /images/laravel/laravel2.png %})
 
 Here is `OR` search, using capital letter `OR`, it searches blog posts that contains either `caterpillar` or `queen`.
 
-![Laravel sample 3](../images/laravel/laravel3.png)
+![Laravel sample 3](%{ link /images/laravel/laravel3.png %})
 
 You can also performe `NOT` search, using `-` sign. For example, if you search `alice -king`, then it will search blog posts that contains `alice` but not `king`.
 
@@ -688,4 +688,4 @@ Access the application in your web browser at: [http://localhost:8000](http://lo
 
 How cool is this!
 
-![PGroonga Japanese](../images/laravel/laravel-ja1.png)
+![PGroonga Japanese]({% link /images/laravel/laravel-ja1.png %})

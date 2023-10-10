@@ -16,6 +16,7 @@ upper_level: ../
   * 13
   * 14
   * 15
+  * 16
 
 もし、これより古いPostgreSQLを使っているなら、PGroongaをインストールする前にPostgreSQLをアップグレードしてください。
 
@@ -23,13 +24,15 @@ upper_level: ../
 
   * [Debian GNU/Linux](debian.html)
 
+    * bookworm
+
     * bullseye
 
   * [Ubuntu](ubuntu.html)
 
-    * 20.04
-
     * 22.04
+
+    * 20.04
 
   * [CentOS](centos.html)
 
@@ -37,13 +40,9 @@ upper_level: ../
 
   * [AlmaLinux](almalinux.html)
 
-    * 8
-
     * 9
 
-  * [Amazon Linux](amazon-linux.html)
-
-    * 2
+    * 8
 
   * [FreeBSD](freebsd.html)
 

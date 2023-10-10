@@ -38,6 +38,8 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 ## パラメーター
 
+  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]
+
   * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-maintainer-naptime]
 
 ## 参考
@@ -55,4 +57,5 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 [postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
 
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:../parameters/pgroonga-standby-maintainer-naptime.html

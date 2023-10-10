@@ -5,6 +5,74 @@ upper_level: ../
 
 # おしらせ
 
+## 3.1.5: 2023-09-29 {#version-3-1-5}
+
+### 修正
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] [[`&@~`
+    operator][query-v2] and so on for sequential search] Fixed a crash
+    bug when nonexistent attribute name in the index is specified.
+
+## 3.1.4: 2023-09-29 {#version-3-1-4}
+
+### 改良
+
+  * Added support for PostgreSQL 16.
+
+  * Dropped support for Amazon Linux 2.
+
+  * Added `tokenizer_mapping` option that can be used to customize
+    tokenizer for each indexed target.
+
+  * [[`` &` `` operator][script-v2]] Raised an error for sequential
+    scan explicitly.
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] [[`&@~`
+    operator][query-v2] and so on for sequential search] Added support
+    for specifying full index name to use the specific index's
+    configuration.
+
+## 3.1.3: 2023-08-17 {#version-3-1-3}
+
+### 修正
+
+  * [`pgroonga_highlight_html` function][highlight-html]: Fixed a
+    crash bug.  This may be occurred only when you use
+    `NormalizerTable` in your index and specify the index that uses
+    `NormalizerTable`.
+
+  * Fixed a bug that PGroonga WAL may not be applied on standbys.
+
+    This isn't caused by broken PGroonga WAL. So you can fix this
+    problem by just upgrading your PGroonga to 3.1.3 or later.
+
+## 3.1.2: 2023-08-09 {#version-3-1-2}
+
+### 改良
+
+  * [[Crash safe][crash-safe]] Added support for resetting WAL applied
+    position automatically on startup only on primary.
+
+    Note that this is not done on standbys because WAL applied
+    position may not be the latest on standbys.
+
+  * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]
+    Added support for parallel WAL application.
+
+### 修正
+
+  * Fixed a crash bug in sequential search. This may be occurred only
+    when you use `NormalizerTable` in your index and specify the index
+    that uses `NormalizerTable` by
+    `pgroonga_full_text_search_condition` or
+    `pgroonga_full_text_search_condition_with_scorers`.
+
+## 3.1.1: 2023-07-25 {#version-3-1-1}
+
+### 改良
+
+  * [[Debian][debian]] Added support for Debian GNU/Linux bookworm.
+
 ## 3.1.0: 2023-07-12 {#version-3-1-0}
 
 ### 改良
@@ -2008,6 +2076,8 @@ The first release!!!
 [pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html
+
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 
 [pgroonga-wal-applier-naptime]:../reference/parameters/pgroonga-wal-applier-naptime.html
 

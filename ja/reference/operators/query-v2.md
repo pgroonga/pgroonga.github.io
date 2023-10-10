@@ -76,7 +76,7 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 以下は3つ目の使い方の説明です。
 
 ```sql
-column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition
+column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
 ```
 
 `column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
@@ -187,7 +187,7 @@ INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGro
 INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
 ```
 
-You can find more suitable records against the given query with [`pgroonga_score` function][score]:
+より指定したクエリーにマッチしたレコードを探すためには[`pgroonga_score`関数][score]を使えます。
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score

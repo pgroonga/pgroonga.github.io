@@ -1,29 +1,31 @@
 ---
-title: How to use PGroonga with PostgREST
+title: PostgRESTでPGroongaを使う方法
 ---
 
-# How to use PGroonga with PostgREST
+# PostgRESTでPGroongaを使う方法
 
-Create data in PostgreSQL, provide it as an API using PostgREST, and then easily create an **"API for convenient data search"**. This is a beginner's guide to PostgREST with PGroonga.
+PostgRESTを使うことによってPostgreSQLで作ったデータの**"検索APIを簡単に公開"**できます。これはそのためのPostgRESTでPGroongaを使うための初心者向けガイドです。
 
-## Prepare data on the PostgreSQL side
-Here, we will use PostgreSQL, which is usually available on most computers😏
+## PostgreSQL側でのデータの準備
+
+ここでは大抵どのご家庭のコンピュータにも入っているPostgreSQLを使います😏
 
 ```sh
 createdb api
 psql api
 ```
 
-## Create a table and create suitable indexes
-To make use of the convenient features of PGroonga, creating indexes that match the features is crucial.
+## テーブル作成と適切なインデックス作成
 
-In this example, we will create a memo table and create indexes that enable the following search functionalities for each column:
+PGroongaの便利な機能を使うには、それらの機能に応じた最適なインデックスを作ることが大変重要となります。
 
-- Treating hiragana and katakana as equivalent (searching for "あっぷる" will match both "あっぷる" and "アップル").
-- Treating hiragana, katakana, and romaji as equivalent (searching for "de-tabe-su" will match "de-tabe-su," "でーたべーす," and "データベース").
-- Treating various long vowel marks as equivalent (treating similar long vowel marks, such as "-˗֊‐‑‒–⁃⁻₋− ﹣－ ー—―─━ｰ," as the same for easier searching).
+この例では、memoテーブルを作成し、後に続く検索機能に必要なインデックスをそれぞれのカラムに対して作成します。
 
-Now, let's try it out!
+- ひらがなとカタカナを同一視させます ("あっぷる"でも"あっぷる"と"アップル"がヒット)。
+
+- Creating a text bigram index, it allows words to be matched even when they are used within the middle of another word. For example, using 'ppl' as a search keyword can match 'Apple'.
+
+早速やってみましょう！
 
 ```sql
 CREATE EXTENSION IF NOT EXISTS pgroonga;
@@ -36,119 +38,132 @@ CREATE TABLE memos (
 
 -- Please don't mind the randomness of the sample text 😗
 INSERT INTO memos VALUES (1, 'PostgreSQLはリレーショナル・データベース管理システムです。','すごいでしょう');
-INSERT INTO memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。','スワイショウ');
+INSERT INTO memos VALUES (2, 'Groongaは日本語対応の高速な全文検索エンジンです。','スゴイデショウ');
 INSERT INTO memos VALUES (3, 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。','ハバナイスデー');
-INSERT INTO memos VALUES (4, 'groongaコマンドがあります。','今日はコンバンワこのくにわ');
+INSERT INTO memos VALUES (4, 'groongaコマンドがあります。','今日はコンバンワこんにちわ');
 
-CREATE INDEX pgroonga_title_search_index ON memos USING pgroonga (title) 
+CREATE INDEX pgroonga_title_search_index ON memos USING pgroonga (title)
   WITH (
-    normalizers = 'NormalizerNFKC150
-      (
-        "unify_kana", true,
-        "unify_to_romaji", true,
-        "unify_hyphen_and_prolonged_sound_mark", true
-      )',
-    tokenizer = 'TokenNgram("unify_symbol", false, "unify_alphabet", false, "unify_digit", false)'
+    normalizers = 'NormalizerNFKC150(
+                     "unify_to_romaji", true,
+                     "unify_hyphen_and_prolonged_sound_mark", true,
+                   )',
+    tokenizer='TokenNgram(
+                 "unify_alphabet", false,
+                 "unify_symbol", false,
+                 "unify_digit", false,
+                 "report_source_location", true"
+               )'
   );
-  
-CREATE INDEX pgroonga_content_search_index ON memos USING pgroonga (content) 
+
+CREATE INDEX pgroonga_content_search_index ON memos USING pgroonga (content)
   WITH (
-    normalizers = 'NormalizerNFKC150
-      (
-        "unify_kana", true,
-        "unify_to_romaji", true,
-        "unify_hyphen_and_prolonged_sound_mark", true
-      )',
-    tokenizer = 'TokenBigramSplitSymbolAlphaDigit'
+    normalizers = 'NormalizerNFKC150(
+                     "unify_to_romaji", true,
+                     "unify_hyphen_and_prolonged_sound_mark", true,
+                   )',
+    tokenizer='TokenNgram(
+                 "unify_alphabet", false,
+                 "unify_symbol", false,
+                 "unify_digit", false,
+                 "report_source_location", true"
+               )'
   );
 ```
 
-## Prepare PostgREST permissions
+## PostgREST権限情報を設定
 
-To create the necessary permissions for PostgREST, you can follow these steps:
+次の手順に従ってPostgRESTへの権限情報を設定します：
 
 ```sql
-create role web_user nologin;
-grant usage on schema public to web_user;
-grant select on memos to web_user;
+CREATE ROLE web_user nologin;
+GRANT USAGE ON SCHEMA public TO web_user;
+GRANT SELECT ON memos TO web_user;
 
-create role authenticator noinherit login password 'mypassword';
-grant web_user to authenticator;
+CREATE ROLE authenticator noinherit login password 'mypassword';
+GRANT web_user to authenticator;
 ```
 
-## Configure PostgREST
+## PostgRESTの設定
+
 ```sh
 vi memo.conf
 ```
 
-Inside of the file:
+ファイルの内容:
+
 ```vim
 db-uri = "postgres://authenticator:mypassword@localhost:5432/api"
 db-schemas = "public"
 db-anon-role = "web_user"
 ```
 
-## Start PostgREST
+## PostgRESTの起動
 
 ```sh
 postgrest memo.conf
 ```
 
-Oh, for the installation method of PostgREST, please refer to https://postgrest.org/en/stable/explanations/install.html 😉
+PostgRESTのインストール方法については https://postgrest.org/en/stable/explanations/install.html を参考にしてね😉
 
-## Access the URL
-Open your browser and access the following:
+## URLにアクセス
+
+ブラウザを開いて次のURLにアクセスします:
 
 http://localhost:3000/memos
 
-Result:
+結果：
 
 ```json
-[{"id":1,"title":"PostgreSQLはリレーショナル・データベース管理システムです。","content":"すごいでしょう"}, 
- {"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}, 
- {"id":3,"title":"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","content":"ハバナイスデー"}, 
- {"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}]
+[
+  {"id":1,"title":"PostgreSQLはリレーショナル・データベース管理システムです。","content":"すごいでしょう"},
+  {"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スゴイデショウ"},
+  {"id":3,"title":"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","content":"ハバナイスデー"},
+  {"id":2,"title":"groongaコマンドがあります。","content":"今日はコンバンワこんにちわ"}
+]
 ```
 
-What? Is it really this easy to have a working REST API endpoint? It's too convenient! 🤯
+何ということでしょう！？こんなに簡単にREST APIが動いちゃっていいの？！🤯
 
-(However, please note that due to the permissions set up in this case, you can only perform `SELECT` operations. So, you can search but not add, modify, or delete data. 😏)
+(ただし今回の例では権限的に`SELECT`機能しか使えません。なので検索は出来ますがデータの変更や削除は出来ません😏)
 
-## Regular LIKE search
-This is the method to perform a `LIKE` search using the standard functionality of PostgreSQL.
+## 通常のLIKE検索
 
-(By the way, normally, indexes do not work for PostgreSQL's partial match, but if you create an index with PGroonga, it will work. It's like magic! 👀)
+ここでは通常のPostgreSQLの `LIKE` 検索を使う方法を紹介します。
 
-### Search by title
+(ところで通常のPostgreSQLでは中間一致検索においてインデックスは使われませんが、PGroongaを使うと中間一致でもインデックスが使えます。まるで魔法ですね！ 👀)
 
-Open your browser and access the following:
+### titleを検索
 
-[`http://localhost:3000/memos?title=like.*データ*`](http://localhost:3000/memos?title=like.*データ*)
+ブラウザを開いて次のURLにアクセスします:
+
+[`http://localhost:3000/memos?title=like.*data*`](http://localhost:3000/memos?title=like.*data*)
 
 ```json
 [{"id":1,"title":"PostgreSQLはリレーショナル・データベース管理システムです。","content":"すごいでしょう"}]
 ```
 
-### Search by content
+### contentを検索
 
-Open your browser and access the following:
+ブラウザを開いて次のURLにアクセスします:
 
 [`http://localhost:3000/memos?content=like.*ショウ*`](http://localhost:3000/memos?content=like.*ショウ*)
 
 ```json
-[{"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}]
+[{"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スゴイデショウ"}]
 ```
-☝️ With the standard LIKE search functionality, searching for 'ショウ' in katakana will not match hiragana.
 
-## Searching with PGroonga
+☝️ 通常の LIKE 検索ではカタカナの'ショウ'ではひらがなの「しょう」はヒットしません
 
-Now, since the operators `&@~` required for searching with PGroonga are not directly available in PostgREST, we will create a stored function to enable their usage.
+## PGroongaを使った検索
+
+さて、PGroongaで使用する `&@~` 演算子はそのままではPostgRESTで使用することができません。それを利用可能にするためのストアドファンクションを作成します。
 
 ```sh
 psql api
 ```
 
-Execute the following SQL statement:
+次のSQL文を実行します:
 
 ```sql
 CREATE FUNCTION find_title(keywords text) RETURNS SETOF memos AS $$
@@ -164,78 +179,95 @@ END;
 $$ LANGUAGE plpgsql;
 ```
 
-## Searching with PGroonga in PostgREST
-When calling stored functions in PostgREST, the URL format is `/rpc/function_name`.
+**注意：新しい関数を作ったときはPostgRESTを再起動しないといけません。
 
-Open your browser and access the following:
+次のセクションに進む前にPostgRESTを再起動してください。`Ctrl + C`で現在動いているPostgRESTインスタンスを止めて次のコマンドを使って起動し直します。
 
-[`http://localhost:3000/rpc/find_title?keywords=コマンド`](http://localhost:3000/rpc/find_title?keywords=コマンド)
-
-The following results will be returned.
-```json
-[{"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}]
+```sh
+postgrest memo.conf
 ```
 
-By the way, using a browser to hit the URL is easier than using curl because dealing with encoding can be cumbersome.
+## PostgRESTでPGroongaを使用した検索
+
+PostgRESTでストアドファンクションを使う際には、URLに `/rpc/function_name` を使います。
+
+ブラウザを開いて次のURLにアクセスします:
+
+[`http://localhost:3000/rpc/find_title?keywords=こまんど`](http://localhost:3000/rpc/find_title?keywords=こまんど)
+
+次のような結果が戻って来ます。
+
+```json
+[{"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこんにちわ"}]
+```
+
+ちなみにブラウザからURLでエンドポイントを叩く方が、文字列のエンコードが不要な分、curlを使うよりも楽です。
 
 ```console
 $ curl --get --data-urlencode keywords=コマンド http://localhost:3000/rpc/find_title
-[{"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}]
+[{"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこんにちわ"}]
 ```
 
-### Search in romaji
+### デフォルトで大文字小文字を無視した検索
 
-Open your browser and access the following:
+`LIKE`検索と違い、PGroongaはデフォルトで大文字小文字を無視して検索します。
 
-[`http://localhost:3000/rpc/find_title?keywords=desu`](http://localhost:3000/rpc/find_title?keywords=desu)
+ブラウザを開いて次のURLにアクセスします:
+
+[`http://localhost:3000/rpc/find_title?keywords=Groonga`](http://localhost:3000/rpc/find_title?keywords=Groonga)
 
 ```json
-[{"id":1,"title":"PostgreSQLはリレーショナル・データベース管理システムです。","content":"すごいでしょう"}, 
- {"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}, 
- {"id":3,"title":"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","content":"ハバナイスデー"}]
+[
+  {"id":2,"title":"Groonga is a fast full text search engine that supports all languages.","content":"Fantastic!"}, 
+  {"id":3,"title":"PGroonga is a PostgreSQL extension that uses Groonga as index.","content":"Interesting!"}, 
+  {"id":4,"title":"There is groonga command.","content":"Is that so?"}
+]
 ```
 
-### Searching hiragana and katakana in hiragana or katakana
+### AND検索
 
-Open your browser and access the following:
+ブラウザを開いて次のURLにアクセスします:
 
-[`http://localhost:3000/rpc/find_content?keywords=ショウ`](http://localhost:3000/rpc/find_content?keywords=ショウ)
+[`http://localhost:3000/rpc/find_title?keywords=Groonga command`](http://localhost:3000/rpc/find_title?keywords=Groonga%20command)
 
 ```json
-[{"id":1,"title":"PostgreSQLはリレーショナル・データベース管理システムです。","content":"すごいでしょう"}, 
- {"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}]
+[{"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこんにちわ"}]
 ```
 
-### AND search
+### OR検索
 
-Open your browser and access the following:
+ブラウザを開いて次のURLにアクセスします:
 
-[`http://localhost:3000/rpc/find_title?keywords=nga です`](http://localhost:3000/rpc/find_title?keywords=nga%20です)
+[`http://localhost:3000/rpc/find_title?keywords=nga OR search`](http://localhost:3000/rpc/find_title?keywords=nga%20OR%20search)
 
 ```json
-[{"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}, 
- {"id":3,"title":"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","content":"ハバナイスデー"}]
+[
+  {"id":2,"title":"Groonga is a fast full text search engine that supports all languages.","content":"Fantastic!"}, 
+  {"id":3,"title":"PGroonga is a PostgreSQL extension that uses Groonga as index.","content":"Interesting!"}, 
+  {"id":4,"title":"There is groonga command.","content":"Is that so?"}
+]
 ```
 
-### OR search
+### NOT検索
 
-Open your browser and access the following:
+ブラウザを開いて次のURLにアクセスします:
 
-[`http://localhost:3000/rpc/find_title?keywords=nga OR です`](http://localhost:3000/rpc/find_title?keywords=nga%20OR%20です)
+[`http://localhost:3000/rpc/find_title?keywords=nga -pg`](http://localhost:3000/rpc/find_title?keywords=nga%20-pg)
 
 ```json
-[{"id":2,"title":"Groongaは日本語対応の高速な全文検索エンジンです。","content":"スワイショウ"}, 
- {"id":3,"title":"PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。","content":"ハバナイスデー"}, 
- {"id":4,"title":"groongaコマンドがあります。","content":"今日はコンバンワこのくにわ"}, 
- {"id":1,"title":"PostgreSQLはリレーショナル・データベース管理システムです。","content":"すごいでしょう"}]
+[
+  {"id":2,"title":"Groonga is a fast full text search engine that supports all languages.","content":"Fantastic!"}, 
+  {"id":4,"title":"There is groonga command.","content":"Is that so?"}
+]
 ```
 
-## Bonus
-When you want to allow various additional searches, you can create multiple stored functions.
+## 参考情報
 
-### Make target column customizable
+追加の検索項目が欲しい場合にはストアドファンクションを追加して行きましょう。
 
-Here is an example of a stored function that performs a dynamic search by passing the column name:
+### 検索対象を動的にするパターン
+
+カラム名をパラメータとして渡して検索させる例です：
 
 ```sql
 CREATE OR REPLACE FUNCTION search_col(column_name text, keyword text)
@@ -253,9 +285,9 @@ $$;
 CREATE FUNCTION
 ```
 
-###  Search all columns
+### 全てのカラムを検索
 
-Stored function to search all columns with a keyword:
+全てのカラムに対してキーワード検索します:
 
 ```sql
 CREATE OR REPLACE FUNCTION memo_search(keyword text)
@@ -271,3 +303,255 @@ BEGIN
 END;
 $$;
 ```
+
+## キーワードだけのコンテンツ検索
+
+検索対象のフィールド指定をせずにキーワードだけで全体を検索したいことがあります。ここではそのやり方を見ていきましょう。
+
+個人蔵書のデータベースで`books`テーブルを持つ例で考えていきます:
+
+```sql
+CREATE TABLE books (
+  id INTEGER,
+  title TEXT,
+  author TEXT
+);
+
+INSERT INTO books VALUES (1, 'Adventures of Sherlock Holmes', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (2, 'The Hound of the Baskervilles', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (3, 'The Memoirs of Sherlock Holmes', 'Arthur Conan Doyle');
+INSERT INTO books VALUES (4, 'The Lion, the Witch, and the Wardrobe', 'C. S. Lewis');
+```
+
+仮に作者名が'Conan Doyle'で作品名に'Sherlock'が含まれている本を探したいとします。通常次のようなSQLクエリを使います:
+
+```sql
+SELECT * FROM books WHERE author LIKE '%Conan Doyle%' and title LIKE '%Sherlock%';
+-- id |             title              |       author       
+-- ----+--------------------------------+--------------------
+--   1 | Adventures of Sherlock Holmes  | Arthur Conan Doyle
+--   3 | The Memoirs of Sherlock Holmes | Arthur Conan Doyle
+-- (2 rows)
+```
+
+ただ、Googleのようにキーワード検索のみで同じ検索を実現する場合は'conan doyle sherlock'のような検索キーワードで同じ結果が出て来て欲しいところです。
+
+### キーワード検索用の特別なインデックス作成
+
+このような機能を実現するためには複数配列なインデックスを作成する必要があります。ここにその作成方法を記載します:
+
+```sql
+CREATE INDEX pg_multi_book_index on books USING pgroonga
+	((ARRAY[title, author]) pgroonga_text_array_full_text_search_ops_v2)
+	WITH (
+    normalizers = 'NormalizerNFKC150
+      (
+        "unify_kana", true,
+        "unify_to_romaji", true,
+        "unify_hyphen_and_prolonged_sound_mark", true
+      )',
+    tokenizer = 'TokenNgram("unify_symbol", false, "unify_alphabet", false, "unify_digit", false)'
+  );
+```
+
+### キーワード検索用のストアドファンクションの作成
+
+Googleのような検索の動きをデータベースで実現させるには`books`テーブルからキーワードで内容を検索するためのストアドファンクションを次のように作ります:
+
+```sql
+CREATE OR REPLACE FUNCTION gsearch(keyword text)
+  RETURNS SETOF books
+  LANGUAGE plpgsql
+AS $$
+BEGIN
+  RETURN QUERY EXECUTE format('
+    SELECT *
+    FROM books
+    WHERE ARRAY[title, author] &@~ $1
+  ') USING keyword;
+END;
+$$;
+```
+
+### booksテーブルに権限を付与
+
+booksテーブルにアクセス可能なように必要な権限を付与します。次のSQLコマンドを実施してください:
+
+```sql
+GRANT SELECT ON books TO web_user;
+```
+
+### ブラウザを使った検索例
+
+キーワード検索機能をテストする準備が整いました。ブラウザを開いて次のURLにアクセスしてください:
+
+[`http://localhost:3000/rpc/gsearch?keyword=conan doyle sherlock`](http://localhost:3000/rpc/gsearch?keyword=conan%20doyle%20sherlock)
+
+```json
+[
+  {"id":1,"title":"Adventures of Sherlock Holmes","author":"Arthur Conan Doyle"}, 
+  {"id":3,"title":"The Memoirs of Sherlock Holmes","author":"Arthur Conan Doyle"}
+]
+```
+
+キーワード検索を使うことで馴染みある方法で検索機能を利用することが出来ます。検索機能を充実させる上で便利な方法ではないでしょうか？
+
+
+## 検索キーワードのオートコンプリート
+
+PGroongaにはオートコンプリート機能が実装されており、ハウツーの[オートコンプリートの実装方法][auto-complete]に記載があります。
+
+ここではPostgRESTとシンプルなHTMLファイル（とJavaScript）でこの機能を利用する方法を紹介します。
+
+### オートコンプリート機能用のテーブルの作成
+
+```sql
+CREATE TABLE terms (
+  term text,
+  readings text[]
+);
+
+CREATE INDEX pgroonga_terms_prefix_search ON terms USING pgroonga
+  (readings pgroonga_text_array_term_search_ops_v2);
+
+CREATE INDEX pgroonga_terms_full_text_search ON terms USING pgroonga
+  (term)
+  WITH (tokenizer = 'TokenBigramSplitSymbolAlphaDigit');
+
+INSERT INTO terms (term, readings) VALUES ('PostgreSQL', ARRAY['sql', 'postgres']);
+INSERT INTO terms (term, readings) VALUES ('Groonga', ARRAY['elasticsearch','meilisearch']);
+INSERT INTO terms (term, readings) VALUES ('PGroonga', ARRAY['postgresql','extension']);
+```
+
+## PostgREST権限情報を設定
+
+```sql
+GRANT SELECT ON terms TO web_user;
+```
+
+### オートコンプリート機能用のエンドポイント作成
+
+```sql
+CREATE OR REPLACE FUNCTION autocomplete(keyword text) RETURNS SETOF text AS $$
+DECLARE
+  result text[];
+BEGIN
+  IF keyword = '' THEN
+    RETURN QUERY SELECT unnest(result);
+  ELSE
+    RETURN QUERY SELECT term FROM terms WHERE readings &@ keyword;
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+```
+
+### HTMLとJavaScriptの作成
+
+Create following HTML file:
+
+```sh
+vi index.html
+```
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGroonga Auto Complete Search</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+    <style>
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="center-container">
+        <form name="search" id="searchForm">
+            <input type="search" size="60" maxlength="60" name="key" id="autoComplete">
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js">
+        </script>
+        <script type="text/javascript">
+            const searchForm = document.getElementById('searchForm');
+
+            searchForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const query = document.getElementById('autoComplete').value;
+                
+                if (query.length === 0) {
+                    return;
+                }
+
+                const params = new URLSearchParams({keywords: query});
+                const response = await fetch(`http://localhost:3000/rpc/find_title?${params.toString()}`);
+                const result = await response.json();
+
+                const preElement = document.getElementById('output');
+                if (result.length > 0) {
+                    const formattedValue = JSON.stringify(result, null, 2);
+                    preElement.textContent = formattedValue;
+                } else {
+                    preElement.textContent = 'No results found';
+                }
+            });
+
+            const dataSource = async (query) => {
+                const params = new URLSearchParams({keyword: query});
+                const source = await fetch(`http://localhost:3000/rpc/autocomplete?${params.toString()}`);
+                return await source.json();
+            };
+
+            const autoCompleteJS = new autoComplete({
+                placeHolder: "Enter a keyword",
+                data: {
+                    src: dataSource
+                },
+                searchEngine: (query, record) => record,
+                events: {
+                    input: {
+                        selection: (event) => {
+                            const selection = event.detail.selection.value;
+                            autoCompleteJS.input.value = selection;
+                        }
+                    }
+                },
+                submit: true
+            });
+        </script>
+        <pre id="output"></pre>
+    </div>
+  </body>
+</html>
+```
+
+### PostgRESTをAPIバックエンドとして起動
+
+次のコマンドを使用してPostgRESTを実行します
+
+```sh
+postgrest memo.conf
+```
+
+### HTMLファイルを開いてテストします
+
+ブラウザで`index.html`を開きます。
+
+![PGroonga Auto Complete1](../images/postgrest/auto-complete1.png)
+
+何か入力するとキーワード候補が現れます。
+
+![PGroonga Auto Complete2](../images/postgrest/auto-complete2.png)
+
+`Search`ボタンをクリックするとmemosテーブルのtitleデータを検索します。
+
+![PGroonga Auto Complete3](../images/postgrest/auto-complete3.png)
+
+[auto-complete]: auto-complete.html

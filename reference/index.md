@@ -611,6 +611,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
     * Since 2.3.3.
 
+  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]
+
+    * Since 3.1.2.
+
   * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintainer-naptime]
 
     * Since 2.4.2.
@@ -736,6 +740,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
 
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
 
 [pgroonga-check]:modules/pgroonga-check.html

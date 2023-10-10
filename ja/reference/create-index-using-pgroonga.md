@@ -426,6 +426,11 @@ SELECT * FROM memos WHERE content &@~ 'o123455';
 
 `normalizations`テーブルを変更した後は`REINDEX INDEX pgroonga_memos_index`を実行しないといけないことに注意してください。なぜなら`normalizations`テーブルが変わるとノーマライズ結果も変わるからです。
 
+##### `pgroonga_highlight_html`と一緒に`NormalizerTable`を使う方法 {#normalizer-table-highlight-html}
+
+この`NormalizerTable`と一緒に`pgroonga_highlight_html`関数を使うときは、`TokenNgram`に`"report_source_location", true"`オプションを指定するだけでなく、`NormalizerNFKC*`と`NormalizerTable`それぞれに`"report_source_offset", true"`オプションを指定する必要があります。
+
+詳細は[`pgroonga_highlight_html`関数][highlight-html]を参照してください。
 
 #### トークンフィルターのカスタマイズ方法 {#custom-token-filter}
 

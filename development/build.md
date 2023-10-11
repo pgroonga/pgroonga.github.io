@@ -26,20 +26,24 @@ Those who are newcomers to this field usually find it challenging to start contr
 
 #### For Debian 12 bookworm
 
-Please use following script:
-[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh)
+Please use following script included in pgroonga source code repository:
+[https://github.com/pgroonga/pgroonga/blob/main/setup.sh](https://github.com/pgroonga/pgroonga/blob/main/setup.sh)
 
 ```bash
-./setup-devenv.sh debian-bookworm
+git clone
+cd
+chmod +x setup.sh 
+sudo ./setup.sh debian
 ```
 
 #### For Ubuntu 22.04
 
 Please use following script:
-[https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh](https://github.com/pgroonga/pgroonga/blob/master/tools/setup-devenv.sh)
+[https://github.com/pgroonga/pgroonga/blob/main/setup.sh](https://github.com/pgroonga/pgroonga/blob/main/setup.sh)
 
 ```bash
-./setup-devenv.sh ubuntu-jammy
+
+./setup-devenv.sh ubuntu
 ```
 
 

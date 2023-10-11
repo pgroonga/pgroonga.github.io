@@ -22,33 +22,34 @@ Download source from [the PostgreSQL site][postgresql-source-download]. Here are
 
 ### Setting up build environment
 
-Those who are newcomers to this field usually find it challenging to start contributing to projects based in the C language, mainly due to the extensive library dependencies involved. So we provide setup script in our PGroonga source code.
+Those who are newcomers to this field usually find it challenging to start contributing to projects based in the C language, mainly due to the extensive library dependencies involved. So we provide setup script in our PGroonga source code. Please run the following setup commands in different directory that you downloaded the PostgreSQL source code above.
 
 #### For Debian 12 bookworm
 
-Please use following script included in pgroonga source code repository:
-[https://github.com/pgroonga/pgroonga/blob/main/setup.sh](https://github.com/pgroonga/pgroonga/blob/main/setup.sh)
+You can run setup script by running following command: 
 
 ```bash
-git clone
-cd
+git clone --recursive git@github.com:pgroonga/pgroonga.git
+cd pgroonga
 chmod +x setup.sh 
 sudo ./setup.sh debian
 ```
 
 #### For Ubuntu 22.04
 
-Please use following script:
-[https://github.com/pgroonga/pgroonga/blob/main/setup.sh](https://github.com/pgroonga/pgroonga/blob/main/setup.sh)
+You can run setup script by running following command:
 
 ```bash
-
+git clone --recursive git@github.com:pgroonga/pgroonga.git
+cd pgroonga
+chmod +x setup.sh 
 ./setup-devenv.sh ubuntu
 ```
 
-
 ### Configure PostgreSQL Build
-Run `configure` with `CFLAGS="-O0 -g3"` argument. It enables debug build. `--prefix=/tmp/local` is optional:
+After you run the setup scripts, please `cd` to PostgreSQL source code directory.
+
+Then run `configure` with `CFLAGS="-O0 -g3"` argument. It enables debug build. `--prefix=/tmp/local` is optional:
 
 ```console
 % ./configure CFLAGS="-O0 -g3" --prefix=/tmp/local

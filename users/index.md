@@ -30,7 +30,9 @@ Also Supabase gives financial contributions to various OSS including PGroonga vi
 
 [Union Catalogue Database of Japanese Texts](https://kokusho.nijl.ac.jp/?ln=en) published by National Institute of Japanese Literature uses PGroonga to implement fast Japanese full text search feature.
 
-See [E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612) which is an article at Current Awareness Portal for details.
+See also [E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612) which is an article at Current Awareness Portal.
+
+See also [NIJL Tech Talk Vol.1 - How to support variant form of a character](https://www.youtube.com/watch?v=sNwBKeyfBGk) which is a video that describes how to support variant form of a character.
 
 ## Zulip {#zulip}
 

@@ -30,7 +30,9 @@ PGroongaを含めた様々なオープンソースソフトウェアに対して
 
 国文学研究資料館が公開している[国書データベース](https://kokusho.nijl.ac.jp/)では高速な日本語全文検索を実現するためにPGroongaを使っています。
 
-詳細はカレントアウェアネス-Eの記事[E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612)を参照してください。
+カレントアウェアネス-Eの記事[E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612)も参照してください。
+
+どのように異体字検索に対応したかを説明した動画[国文研 Tech Talk Vol.1 - 痛いよ異体字、国書DB](https://www.youtube.com/watch?v=sNwBKeyfBGk)も参照してください。
 
 ## Zulip {#zulip}
 

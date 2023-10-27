@@ -120,7 +120,7 @@ msgid "Create a `pgroonga` index against the column:"
 msgstr "このカラムに対して`pgroonga`インデックスを作ります。"
 
 msgid ""
-"```\n"
+"```sql\n"
 "CREATE EXTENSION IF NOT EXISTS pgroonga;\n"
 "CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);\n"
 "```"

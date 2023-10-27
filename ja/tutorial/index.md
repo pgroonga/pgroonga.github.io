@@ -54,7 +54,7 @@ CREATE TABLE memos (
 
 このカラムに対して`pgroonga`インデックスを作ります。
 
-```
+```sql
 CREATE EXTENSION IF NOT EXISTS pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```

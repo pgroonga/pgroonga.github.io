@@ -9,7 +9,6 @@ You can uninstall PGroonga by the following SQL:
 ```sql
 DROP EXTENSION pgroonga CASCADE;
 ```
-```
 
 If you're using PostgreSQL 9.5 or earlier, you need to also run the following SQL:
 

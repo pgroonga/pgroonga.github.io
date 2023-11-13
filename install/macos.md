@@ -14,12 +14,6 @@ You can install PGroonga by Homebrew:
 $ brew install pgroonga
 ```
 
-If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you need to reinstall `groonga` package with `--with-mecab` option:
-
-```console
-$ brew reinstall groonga --with-mecab
-```
-
 Create a database:
 
 ```console

@@ -14,12 +14,6 @@ Homebrewを使ってPGroongaをインストールできます。
 $ brew install pgroonga
 ```
 
-[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga`パッケージを`--with-mecab`オプション付きでインストールし直す必要があります。
-
-```console
-$ brew reinstall groonga --with-mecab
-```
-
 データベースを作成します。
 
 ```console

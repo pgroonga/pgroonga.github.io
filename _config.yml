@@ -22,6 +22,7 @@ development_postgresql_version: 16.0
 exclude:
   - "Gemfile"
   - "Gemfile.lock"
+  - "LICENSE"
   - "Rakefile"
   - "data"
   - "transifex.yml"

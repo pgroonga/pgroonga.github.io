@@ -17,10 +17,106 @@ msgstr ""
 msgid "# News"
 msgstr ""
 
-msgid "## 3.1.5: 2023-09-29 {#version-3-1-5}"
+msgid "## 3.1.6: 2024-01-10 {#version-3-1-6}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr ""
+
+msgid "  * Added a new script for setting up the build environment. [GitHub#358][Patched by askdkc]"
+msgstr ""
+
+msgid "  * Added a new option `pgroonga.enable_row_level_security`."
+msgstr ""
+
+msgid ""
+"    If we disabled `pgroonga.enable_row_level_security`, PGroonga might improve performance.\n"
+"    However, it has a security risk."
+msgstr ""
+
+msgid ""
+"    So, we must not disable this option when we use RLS.\n"
+"    We must check whether we don't use RLS before we disable this."
+msgstr ""
+
+msgid "  * Added new type `pgroonga_condition` and new function `pgroonga_condition()`."
+msgstr ""
+
+msgid ""
+"    `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type are deprecated.\n"
+"    We use `pgroonga_condition` type instead."
+msgstr ""
+
+msgid "    Here is the signature of `pgroonga_condition()`."
+msgstr ""
+
+msgid ""
+"    ```\n"
+"    pgroonga_condition(query text,\n"
+"                       weights int[],\n"
+"                       scorers text[],\n"
+"                       schema_name text,\n"
+"                       index_name text,\n"
+"                       column_name text)\n"
+"    ```"
 msgstr ""
 
 msgid "### Fixes"
+msgstr ""
+
+msgid "  * Fixed a bug if we update PGroonga from 2.4.1 to 2.4.2, we can't use `pgroonga_snippet_html()`. [Reported by takadat]"
+msgstr ""
+
+msgid "  * Fixed a bug if we specify non PostgreSQL's table as the first argument of `pgroonga_query_expand()`, PGroonga crashes as below."
+msgstr ""
+
+msgid ""
+"    ```sql\n"
+"    CREATE EXTENSION IF NOT EXISTS postgres_fdw;"
+msgstr ""
+
+msgid ""
+"    CREATE SERVER remote_server\n"
+"        FOREIGN DATA WRAPPER postgres_fdw\n"
+"        OPTIONS (host 'localhost', port '5432', dbname 'remote_database');"
+msgstr ""
+
+msgid ""
+"    CREATE FOREIGN TABLE synonym_groups (\n"
+"      synonyms text[]\n"
+"    ) SERVER remote_server;"
+msgstr ""
+
+msgid ""
+"    SELECT pgroonga_query_expand('synonym_groups',\n"
+"                                 'synonyms',\n"
+"                                 'synonyms',\n"
+"                                 'groonga');"
+msgstr ""
+
+msgid ""
+"    server closed the connection unexpectedly\n"
+"    \tThis probably means the server terminated abnormally\n"
+"    \tbefore or while processing the request.\n"
+"    The connection to the server was lost. Attempting reset: Failed.\n"
+"    ```"
+msgstr ""
+
+msgid "  * Fixed a bug if many error occured in PGroonga, PostgreSQL might consume all error stack and PANIC."
+msgstr ""
+
+msgid "    This problem might occure since PGroonga 2.3.3."
+msgstr ""
+
+msgid "### Thanks"
+msgstr ""
+
+msgid ""
+"  * askdkc\n"
+"  * takadat"
+msgstr ""
+
+msgid "## 3.1.5: 2023-09-29 {#version-3-1-5}"
 msgstr ""
 
 msgid ""
@@ -30,9 +126,6 @@ msgid ""
 msgstr ""
 
 msgid "## 3.1.4: 2023-09-29 {#version-3-1-4}"
-msgstr ""
-
-msgid "### Improvements"
 msgstr ""
 
 msgid "  * Added support for PostgreSQL 16."
@@ -165,9 +258,6 @@ msgid "    [GH-346][gh-346] [Reported by Michael Fester]"
 msgstr ""
 
 msgid "  * [[Windows][windows]] Required CMake 3.16 or later on build."
-msgstr ""
-
-msgid "### Thanks"
 msgstr ""
 
 msgid "  * Michael Fester"

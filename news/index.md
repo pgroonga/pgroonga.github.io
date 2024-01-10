@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 3.1.6: 2023-01-08 {#version-3-1-6}
+## 3.1.6: 2024-01-10 {#version-3-1-6}
 
 ### Improvements
 
@@ -18,6 +18,22 @@ upper_level: ../
 
     So, we must not disable this option when we use RLS.
     We must check whether we don't use RLS before we disable this.
+
+  * Added new type `pgroonga_condition` and new function `pgroonga_condition()`.
+
+    `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type are deprecated.
+    We use `pgroonga_condition` type instead.
+
+    Here is the signature of `pgroonga_condition()`.
+
+    ```
+    pgroonga_condition(query text,
+                       weights int[],
+                       scorers text[],
+                       schema_name text,
+                       index_name text,
+                       column_name text)
+    ```
 
 ### Fixes
 

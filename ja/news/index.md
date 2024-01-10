@@ -5,6 +5,73 @@ upper_level: ../
 
 # おしらせ
 
+## 3.1.6: 2024-01-10 {#version-3-1-6}
+
+### 改良
+
+  * Added a new script for setting up the build environment. [GitHub#358][Patched by askdkc]
+
+  * Added a new option `pgroonga.enable_row_level_security`.
+
+    If we disabled `pgroonga.enable_row_level_security`, PGroonga might improve performance.
+    However, it has a security risk.
+
+    So, we must not disable this option when we use RLS.
+    We must check whether we don't use RLS before we disable this.
+
+  * Added new type `pgroonga_condition` and new function `pgroonga_condition()`.
+
+    `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type are deprecated.
+    We use `pgroonga_condition` type instead.
+
+    Here is the signature of `pgroonga_condition()`.
+
+    ```
+    pgroonga_condition(query text,
+                       weights int[],
+                       scorers text[],
+                       schema_name text,
+                       index_name text,
+                       column_name text)
+    ```
+
+### 修正
+
+  * Fixed a bug if we update PGroonga from 2.4.1 to 2.4.2, we can't use `pgroonga_snippet_html()`. [Reported by takadat]
+
+  * Fixed a bug if we specify non PostgreSQL's table as the first argument of `pgroonga_query_expand()`, PGroonga crashes as below.
+
+    ```sql
+    CREATE EXTENSION IF NOT EXISTS postgres_fdw;
+
+    CREATE SERVER remote_server
+        FOREIGN DATA WRAPPER postgres_fdw
+        OPTIONS (host 'localhost', port '5432', dbname 'remote_database');
+
+    CREATE FOREIGN TABLE synonym_groups (
+      synonyms text[]
+    ) SERVER remote_server;
+
+    SELECT pgroonga_query_expand('synonym_groups',
+                                 'synonyms',
+                                 'synonyms',
+                                 'groonga');
+
+    server closed the connection unexpectedly
+    	This probably means the server terminated abnormally
+    	before or while processing the request.
+    The connection to the server was lost. Attempting reset: Failed.
+    ```
+
+  * Fixed a bug if many error occured in PGroonga, PostgreSQL might consume all error stack and PANIC.
+
+    This problem might occure since PGroonga 2.3.3.
+
+### 感謝
+
+  * askdkc
+  * takadat
+
 ## 3.1.5: 2023-09-29 {#version-3-1-5}
 
 ### 修正

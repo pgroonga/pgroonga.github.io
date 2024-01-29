@@ -56,6 +56,119 @@ title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 
 Here is the syntax of this function:
 
+```
+pgroonga_condition pgroonga_condition(query,
+                                      weights,
+                                      scorers,
+                                      schema_name,
+                                      index_name,
+                                      column_name)
+```
+
+* `query`: `text`型の値です。クエリー構文を使っているクエリーです。
+* `weights`: `int[]`型の値です。検索対象のカラムの重みを指定します。検索対象のカラムが`text`型や`varchar`型のように配列ではない場合、最初の要素が検索対象のカラムの値の重みになります。
+* `scorers`: `text[]`型の値です。検索対象のカラムそれぞれのスコアーを計算するスコアラーを指定します。検索対象のカラムが`text`型や`varchar`型のように配列ではない場合、最初の要素が検索対象のカラムの値のスコアーを計算します。
+* `schema_name`: `text`型の値です。シーケンシャルサーチを使った検索が実行された際に参照するインデックスが存在するスキーマを指定します。
+
+  通常のケースでは指定する必要はありません。
+  PostgreSQLは、スキーマ未指定の場合`search_path`に登録されているスキーマから該当するインデックスを検索します。
+  通常は、`search_path`に存在するスキーマ内に該当するインデックスがあるため`schema_name`を指定しなくても適切なインデックスを参照できます。
+
+  しかし、 例えばpostgres_fdw を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
+  このケースでは、`pg_catalog`スキーマ内に参照したいインデックスが存在しない場合、スキーマ未指定では該当のインデックスを発見できません。
+  このように、`search_path`に登録されているスキーマ以外のスキーマに参照したいインデックスがある場合は、`schema_name`で明示的にスキーマを指定することで
+  該当のインデックスを発見できます。
+
+* `index_name`: `text`型の値です。シーケンシャルサーチを使った検索が実行された際に参照するインデックスを指定します。
+
+  通常、PGroongaのインデックスではなくシーケンシャルサーチが実行されると、PGroongaのインデックスに設定されているトークナイザーとノーマライザーを使えません。
+  シーケンシャルサーチの場合はPGroongaのインデックスを使わないので、トークナイザーとノーマライザーの設定がどこにあるか判断できないためです。
+  そのため、シーケンシャルサーチ実行時と、PGroongaのインデックスを使った時で検索結果が変わってしまうことがあります。
+  これを防止するため、この引数でPGroongaのインデックスを指定しシーケンシャルサーチ実行時でもトークナイザーとノーマライザーの設定を参照できるようにしています。
+
+* `column_name`: `text`型の値です。シーケンシャルサーチが実行された際に参照するインデックスが紐付けられているカラムを指定します。
+
+  PGroongaには、インデックスのオプションに`normalizers_mapping`があります。これは以下のように特定のカラムに対して、特定のノーマライザーとそのオプションを指定できるものです。
+
+  ```sql
+  CREATE TABLE memos (
+    id integer,
+    title text,
+    content text
+  );
+
+  CREATE INDEX pgroonga_memos_index
+            ON memos
+         USING pgroonga (title, content)
+          WITH (normalizers_mapping='{
+                  "title": "NormalizerNFKC150(\"unify_katakana_v_sounds\", true)",
+                  "content": "NormalizerNFKC150"
+                }',
+                normalizers='NormalizerAuto');
+
+  INSERT INTO memos VALUES (1, 'ヴァイオリン', 'content1');
+  ```
+
+  上記の例では、`title`カラムに`unify_katakana_v_sounds`が設定されています。
+  「バイオリン」で「ヴァイオリン」をヒットさせるためには、`unify_katakana_v_sounds`が有効である必要がありますが、
+  シーケンシャルサーチが実施された場合、PGroongaのインデックスを参照できず`unify_katakana_v_sounds`が効きません。
+  そこで、以下のように`pgroonga_condition()`の`column_name`で`title`カラムを指定することで、`title`カラムに
+  設定されている`unify_katakana_v_sounds`を使えます。
+
+  その結果、下記のようにシーケンシャルサーチでも「バイオリン」で「ヴァイオリン」がヒットします。
+
+  ```sql
+  SELECT *
+    FROM memos
+   WHERE title &@~ pgroonga_condition('バイオリン',
+                                      index_name => 'pgroonga_memos_index',
+                                      column_name => 'title');
+   id |    title     | content  
+  ----+--------------+----------
+    1 | ヴァイオリン | content1 
+  (1 row)
+
+  EXPLAIN ANALYZE VERBOSE
+  SELECT *
+    FROM memos
+   WHERE title &@~ pgroonga_condition('バイオリン',
+                                      index_name => 'pgroonga_memos_index',
+                                      column_name => 'title');
+                                                 QUERY PLAN                                               
+  --------------------------------------------------------------------------------------------------------
+   Seq Scan on public.memos  (cost=0.00..2.52 rows=1 width=100) (actual time=1.830..1.834 rows=1 loops=1)
+     Output: id, title, content, tag
+     Filter: (memos.title &@~ '(バイオリン,,,,pgroonga_memos_index,title)'::pgroonga_condition)
+     Rows Removed by Filter: 1
+   Planning Time: 1.307 ms
+   Execution Time: 1.927 ms
+  (6 rows)
+  ```
+
+`pgroonga_condition()`の引数は省略可能ですが、関数のシグネチャーに定義されている引数の位置と異なる場所に記載する場合は、「index_name => 'index name'」のように
+「引数名 => 値」の形で記述する必要があります。
+ただ、一般的なユースケースでは下記の3種類の書き方を覚えておけば十分です。
+
+```
+title &@~ pgroonga_condition('query', index_name => 'pgroonga_index')
+title &@~ pgroonga_condition('query', ARRAY[weight1, weight2, ...])
+title &@~ pgroonga_condition('query', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
+```
+
+上記以外の使い方をする場合のために、「引数名 => 値」で記述する必要がある引数とそうでない引数の違いを説明します。
+例えば、下記は引数`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
+
+```
+title &@~ pgroonga_condition('query', index_name => 'pgroonga_index')
+```
+
+引数`weights`と`scorers`と`schema_name`を省略したことで、引数`index_name`の位置は上記の`pgroonga_condition()`の第2引数ですが、
+関数のシグネチャーでは`index_name`は第5引数なので、このケースでは、`index_name`は関数のシグネチャーと位置が異なる引数となります。
+一方、上記の`pgroonga_condition()`の第1引数にある`query`は関数のシグネチャーでも第1引数なので、関数のシグネチャーと位置が同じ引数となります。
+
+上記から、関数のシグネチャーと同じ位置にある、`query`は、「引数名 => 値」の形で書く必要はなく、値をそのまま記述できますが、
+関数のシグネチャーと違う位置にある、`index_name`は、「引数名 => 値」の形で書く必要があります。
+
 ## Usage
 
 Here are sample schema and data:

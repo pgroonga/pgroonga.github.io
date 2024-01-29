@@ -7,33 +7,39 @@ upper_level: ../
 
 ## Summary
 
-この関数は、`pgroonga_full_text_search_condition`や`pgroonga_full_text_search_condition_with_scorers`と
-同等の機能を持ちます。
+`pgroonga_condition()`関数は`pgroonga_condition`型の値を返します。
+関数名と型名が同じですが別物です。
+`pgroonga_condition`型は`pgroonga_full_text_search_condition`型や`pgroonga_full_text_search_condition_with_scorers`型のように複雑な条件式を表現します。
 
-`pgroonga_condition()`では、`pgroonga_full_text_search_condition`や`pgroonga_full_text_search_condition_with_scorers`と異なり、
-不要な引数を省略できます。
-不要な引数を省略できることで、後方互換性を壊すことや新しいユーザー定義の型を作ること無く新しいオプションを追加可能になりました。
+`pgroonga_condition()`関数は`pgroonga_condition`型の値を作るための便利関数です。
+特定の属性値のみを指定して`pgroonga_condition`型の値を作れます。
 
-`pgroonga_full_text_search_condition`や`pgroonga_full_text_search_condition_with_scorers`では、不要な引数は省略できず
-以下のように`NULL`を入れる必要がありました。
+`pgroonga_full_text_search_condition`型や`pgroonga_full_text_search_condition_with_scorers`型では、このような便利関数がなかったため
+必ず全ての属性値を指定して値を作る必要がありました。
+
+したがって、不要な属性値があっても、`pgroonga_full_text_search_condition`型や`pgroonga_full_text_search_condition_with_scorers`型では、
+以下のように不要な属性値には`NULL`を指定する必要がありました。
 
 ```
 column operator ('keyword', NULL, 'index_name')::pgroonga_full_text_search_condition
 column operator ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_search_condition_with_scorers
 ```
 
-いままでは、新しいオプションを追加する際に後方互換性を壊さないように新しい型を追加していました。
-例えば、`pgroonga_full_text_search_condition`と`pgroonga_full_text_search_condition_with_scorers`
-の違いは、`scorers`を指定できるかどうかですが、もし、`pgroonga_full_text_search_condition`に`scorers`を追加してしまうと、
-`scorers`を使わないユーザーも新たに`NULL`を挿入しなければなりません。そうしないとシンタックスエラーになってしまいます。
+型を指定して直接値を作る従来の方法では後方互換性を維持したまま新しい属性を作ることができませんでした。
+そのため、新しい属性を追加するたびに`pgroonga_full_text_search_condition_with_XXX`というような新しい型を追加する必要がありました。
+たとえば、`pgroogna_full_text_search_condition_with_scorers`型はそのために追加された型です。
 
-このように、後方互換性を壊すのを避けるため、新しいオプションを追加する際は合わせて新しいユーザー定義の型を追加していましたが
-オプションが増えるごとに型を追加するのは煩雑です。
+`pgroonga_full_text_search_condition`型と`pgroonga_full_text_search_condition_with_scorers`型
+の違いは`scorers`が存在するかどうかですが、`pgroonga_full_text_search_condition`型に`scorers`を追加してしまうと、
+`scorers`を使わないユーザーも新たに`NULL`を挿入して`pgroonga_full_text_search_condition`型の値を作らなければなりません。
 
-`pgroonga_condition()`を使えば、以下のように不要なオプションを省略できるので、新しいオプションが追加されてもそれが不要であれば省略できるため
-既存の書き方をそのまま継続して使えるようになります。
-下記の例では、`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
-引数の詳細については、後述の「構文」で記載します。ここでは、不要な引数が省略できることに注目してください。
+しかし、`pgroonga_condition`型の値を作るための便利関数`pgroonga_condition()`関数を導入することにより後方互換性を維持したまま
+`pgroonga_condition`型に新しい属性を追加できます。
+`pgroonga_condition()`関数が非互換を吸収してくれるからです。
+
+以下のように、`pgroonga_condition()`関数は不要な属性値を省略できるため、新たに属性値が追加されても既存の書き方を維持できます。
+(下記の例では、`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
+属性値の詳細については、後述の「構文」で記載します。ここでは、不要な属性値が省略できることに注目してください。)
 
 ```
 column operator pgroonga_condition('keyword', index_name => 'index_name')
@@ -42,10 +48,9 @@ column operator pgroonga_condition('keyword', index_name => 'index_name')
 `pgroonga_condition()`では、上記のように引数そのものを省略できますが代わりに、「index_name => 'index name'」のように
 キーワード引数のような記載が必要になることに注意してください。
 
-上記の例では、キーワード引数のような書き方をしている引数とそうでない引数があります。
+上記の例では、キーワード引数のような書き方をしている属性値とそうでない属性値があります。
 どのように書き分けるかについては、後述の「構文」で記載します。
-ここでは、`pgroonga_full_text_search_condition`や`pgroonga_full_text_search_condition_with_scorers`とは
-異なる引数の書き方が必要になることがあるという点に注目してください。
+ここでは、従来とは異なる書き方が必要になることがあるという点に注目してください。
 
 ## Syntax
 

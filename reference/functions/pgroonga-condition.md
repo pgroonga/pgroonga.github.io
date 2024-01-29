@@ -3,7 +3,7 @@ title: pgroonga_condition function
 upper_level: ../
 ---
 
-# `pgroonga_condition` function
+# `pgroonga_condition()` function
 
 ## Summary
 

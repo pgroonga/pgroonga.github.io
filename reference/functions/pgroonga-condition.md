@@ -45,7 +45,7 @@ title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 ```
 
-`pgroonga_condition()`関数では、上記のように属性値を省略できますが代わりに、「index_name => 'index name'」のように
+`pgroonga_condition()`関数では、上記のように属性値を省略できますが、代わりに、「index_name => 'index name'」のように
 キーワード引数のような記載が必要になることに注意してください。
 
 上記の例では、キーワード引数のような書き方をしている属性値とそうでない属性値があります。

@@ -21,8 +21,8 @@ upper_level: ../
 以下のように不要な属性値には`NULL`を指定する必要がありました。
 
 ```
-column operator ('keyword', NULL, 'index_name')::pgroonga_full_text_search_condition
-column operator ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_search_condition_with_scorers
+title &@~ ('keyword', NULL, 'index_name')::pgroonga_full_text_search_condition
+title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_search_condition_with_scorers
 ```
 
 型を指定して直接値を作る従来の方法では後方互換性を維持したまま新しい属性を作ることができませんでした。
@@ -42,7 +42,7 @@ column operator ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full
 属性値の詳細については、後述の「構文」で記載します。ここでは、不要な属性値が省略できることに注目してください。)
 
 ```
-column operator pgroonga_condition('keyword', index_name => 'index_name')
+title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 ```
 
 `pgroonga_condition()`関数では、上記のように属性値を省略できますが代わりに、「index_name => 'index name'」のように

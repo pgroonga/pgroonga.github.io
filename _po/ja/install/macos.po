@@ -36,20 +36,6 @@ msgid ""
 "```"
 msgstr ""
 
-msgid ""
-"If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, "
-"you need to reinstall `groonga` package with `--with-mecab` option:"
-msgstr ""
-"[MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合"
-"は、`groonga`パッケージを`--with-mecab`オプション付きでインストールし直す必要"
-"があります。"
-
-msgid ""
-"```console\n"
-"$ brew reinstall groonga --with-mecab\n"
-"```"
-msgstr ""
-
 msgid "Create a database:"
 msgstr "データベースを作成します。"
 

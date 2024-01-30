@@ -22,7 +22,6 @@ msgstr ""
 msgid ""
 "```sql\n"
 "DROP EXTENSION pgroonga CASCADE;\n"
-"```\n"
 "```"
 msgstr ""
 

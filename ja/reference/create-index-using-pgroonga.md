@@ -631,6 +631,8 @@ CREATE INDEX pgroonga_content_index
 
 [query-v2]:operators/query-v2.html
 
+[highlight-html]:functions/pgroonga-highlight-html.html
+
 [groonga-token-bigram]:http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram
 
 [groonga-normalizer-auto]:http://groonga.org/ja/docs/reference/normalizers.html#normalizer-auto

@@ -1144,6 +1144,9 @@ msgstr ""
 msgid "[query-v2]:operators/query-v2.html"
 msgstr ""
 
+msgid "[highlight-html]:functions/pgroonga-highlight-html.html"
+msgstr ""
+
 msgid ""
 "[groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers."
 "html#token-bigram"

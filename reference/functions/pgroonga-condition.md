@@ -145,8 +145,7 @@ pgroonga_condition pgroonga_condition(query,
   (6 rows)
   ```
 
-`pgroonga_condition()`の引数は省略可能ですが、関数のシグネチャーに定義されている引数の位置と異なる場所に記載する場合は、「index_name => 'index name'」のように
-「引数名 => 値」の形で記述する必要があります。
+`pgroonga_condition()`の引数はすべて省略可能です。そのため、`引数名 => 値`という名前付き表記を使うことで特定の引数だけ指定することができます。たとえば、`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
 ただ、一般的なユースケースでは下記の3種類の書き方を覚えておけば十分です。
 
 ```

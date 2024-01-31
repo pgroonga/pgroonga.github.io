@@ -174,7 +174,124 @@ title &@~ pgroonga_condition('query', index_name => 'pgroonga_index')
 Here are sample schema and data:
 
 ```sql
-...
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (title)
+        WITH (normalizers='"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"');
+
+INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
+```
+
+シーケンシャルサーチ実行時でも、インデックスを使った検索時とで検索結果が変化しないように、シーケンシャルサーチ実行時でも
+`title`カラムに設定したインデックスを参照できるようにします。
+
+```sql
+SELECT *
+  FROM memos
+ WHERE title &@~ pgroonga_condition('バイオリン',
+                                    index_name => 'pgroonga_memos_index');
+（結果）
+```
+
+複数のカラムが検索対象で、カラム毎の重みを設定したい場合は以下のようにします。
+`pgroonga_condition()`の第2引数の配列で重みを設定しています。
+
+下記例のように、重みを0にすることで対応するカラムを検索対象外にできます。
+下記例では、`content`カラムを検索対象外にしています。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (ARRAY[title, content]::text[])
+        WITH (normalizers='"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"');
+
+INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
+INSERT INTO memos VALUES (2, 'チェロ', 'ヴァイオリンだけではなく、チェロも始めました！');
+
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content]::text[] &@~ pgroonga_condition('バイオリン',
+                                                            ARRAY[1,0],
+                                                            index_name => 'pgroonga_momos_index');
+(結果)
+```
+
+スコアーを計算する、スコアラーを変更する場合は、以下のように`scorers`を指定してください。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (ARRAY[title, content]::text[])
+        WITH (normalizers='"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"');
+
+INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
+INSERT INTO memos VALUES (2, 'チェロ', 'ヴァイオリンだけではなく、チェロも始めました！');
+
+SELECT *, pgroonga_scorers(tableoid, ctid) AS socre
+  FROM memos
+ WHERE ARRAY[title, content]::text[] &@~ pgroonga_condition('バイオリン',
+                                                            ARRAY[5,1],
+                                                            ARRAY[NULL, 'scorer_tf_at_most($index, 0.5)']
+                                                            index_name => 'pgroonga_momos_index');
+(結果)
+```
+
+postgres_fdwを使って外部データベースを検索する場合でも、シーケンシャルサーチの検索結果とインデックスサーチの検索結果が変わらないようにするには、
+以下のように`schema_name`を使用してください。
+
+```sql
+SELECT *
+  FROM memos
+ WHERE title &@~ pgroonga_condition('バイオリン',
+                                    schema_name => 'public',
+                                    index_name => 'pgroonga_memos_index');
+(結果)
+```
+
+特定のカラムに紐付いているインデックスを参照したい場合は、以下のように`column_name`を指定してください。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (title, content)
+        WITH (normalizers_mapping='{
+                "title": "NormalizerNFKC150(\"unify_katakana_v_sounds\", true)",
+                "content": "NormalizerNFKC150"
+              }',
+              normalizers='NormalizerAuto');
+
+INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
+
+SELECT *
+  FROM memos
+ WHERE title &@~ pgroonga_condition('バイオリン',
+                                    index_name => 'pgroonga_memos_index',
+                                    column_name => 'title');
+```
 
 ## See also
 

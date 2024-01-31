@@ -74,7 +74,7 @@ pgroonga_condition pgroonga_condition(query,
   PostgreSQLは、スキーマ未指定の場合`search_path`に登録されているスキーマから該当するインデックスを検索します。
   通常は、`search_path`に存在するスキーマ内に該当するインデックスがあるため`schema_name`を指定しなくても適切なインデックスを参照できます。
 
-  しかし、 例えばpostgres_fdw を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
+  しかし、 例えば[postgres_fdw][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
   このケースでは、`pg_catalog`スキーマ内に参照したいインデックスが存在しない場合、スキーマ未指定では該当のインデックスを発見できません。
   このように、`search_path`に登録されているスキーマ以外のスキーマに参照したいインデックスがある場合は、`schema_name`で明示的にスキーマを指定することで
   該当のインデックスを発見できます。
@@ -88,7 +88,7 @@ pgroonga_condition pgroonga_condition(query,
 
 * `column_name`: `text`型の値です。シーケンシャルサーチが実行された際に参照するインデックスが紐付けられているカラムを指定します。
 
-  PGroongaには、インデックスのオプションに`normalizers_mapping`があります。これは以下のように特定のカラムに対して、特定のノーマライザーとそのオプションを指定できるものです。
+  PGroongaには、インデックスのオプションに[`normalizers_mapping`][normalizers-mapping]があります。これは以下のように特定のカラムに対して、特定のノーマライザーとそのオプションを指定できるものです。
 
   ```sql
   CREATE TABLE memos (
@@ -145,7 +145,7 @@ pgroonga_condition pgroonga_condition(query,
   (6 rows)
   ```
 
-`pgroonga_condition()`の引数はすべて省略可能です。そのため、`引数名 => 値`という名前付き表記を使うことで特定の引数だけ指定することができます。たとえば、`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
+`pgroonga_condition()`の引数はすべて省略可能です。そのため、[「引数名 => 値」][sql-syntax-calling-funcs-named]という名前付き表記を使うことで特定の引数だけ指定することができます。たとえば、`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
 ただ、一般的なユースケースでは下記の3種類の書き方を覚えておけば十分です。
 
 ```
@@ -294,3 +294,7 @@ SELECT *
 
 ## See also
 
+
+[postgres-fdw]:https://www.postgresql.org/docs/current/postgres-fdw.html
+[normalizers-mapping]:../create-index-using-pgroonga.html
+[sql-syntax-calling-funcs-named]:https://www.postgresql.org/docs/current/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

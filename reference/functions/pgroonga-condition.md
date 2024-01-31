@@ -88,7 +88,7 @@ pgroonga_condition pgroonga_condition(query,
 
 * `column_name`: `text`型の値です。シーケンシャルサーチが実行された際に参照するインデックスが紐付けられているカラムを指定します。
 
-  PGroongaには、インデックスのオプションに[`normalizers_mapping`][normalizers-mapping]があります。これは以下のように特定のカラムに対して、特定のノーマライザーとそのオプションを指定できるものです。
+  PGroongaには、インデックスのオプションに[`normalizers_mapping`][normalizers-mapping]があります。これは以下のように特定の属性に対して、特定のノーマライザーとそのオプションを指定できるものです。
 
   ```sql
   CREATE TABLE memos (
@@ -109,10 +109,10 @@ pgroonga_condition pgroonga_condition(query,
   INSERT INTO memos VALUES (1, 'ヴァイオリン', 'content1');
   ```
 
-  上記の例では、`title`カラムに`unify_katakana_v_sounds`が設定されています。
+  上記の例では、`title`属性に`unify_katakana_v_sounds`が設定されています。
   「バイオリン」で「ヴァイオリン」をヒットさせるためには、`unify_katakana_v_sounds`が有効である必要がありますが、
   シーケンシャルサーチが実施された場合、PGroongaのインデックスを参照できず`unify_katakana_v_sounds`が効きません。
-  そこで、以下のように`pgroonga_condition()`の`column_name`で`title`カラムを指定することで、`title`カラムに
+  そこで、以下のように`pgroonga_condition()`の`column_name`で`title`属性を指定することで、`title`属性に
   設定されている`unify_katakana_v_sounds`を使えます。
 
   その結果、下記のようにシーケンシャルサーチでも「バイオリン」で「ヴァイオリン」がヒットします。

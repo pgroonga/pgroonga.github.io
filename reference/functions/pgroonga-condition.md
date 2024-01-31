@@ -294,6 +294,10 @@ SELECT *
 
 ## See also
 
+* [postgres_fdw][postgres-fdw]
+* [normalizers_mapping][normalizers-mapping]
+* [名前付け表記][sql-syntax-calling-funcs-named]
+
 
 [postgres-fdw]:https://www.postgresql.org/docs/current/postgres-fdw.html
 [normalizers-mapping]:../create-index-using-pgroonga.html

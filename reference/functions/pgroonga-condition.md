@@ -93,7 +93,7 @@ title &@~ pgroonga_condition('query', ARRAY[weight1, weight2, ...], index_name =
 title &@~ pgroonga_condition('query', index_name => 'pgroonga_index')
 ```
 
-引数`weights`と`scorers`と`schema_name`を省略したことで、引数`index_name`の位置は上記の`pgroonga_condition()`の第2引数ですが、
+引数`weights`と`scorers`と`schema_name`を省略したことで、引数`index_name`の指定は第2引数の位置にありますが、
 関数のシグネチャーでは`index_name`は第5引数なので、このケースでは、`index_name`は関数のシグネチャーと位置が異なる引数となります。
 一方、上記の`pgroonga_condition()`の第1引数にある`query`は関数のシグネチャーでも第1引数なので、関数のシグネチャーと位置が同じ引数となります。
 

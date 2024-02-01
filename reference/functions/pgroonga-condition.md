@@ -86,7 +86,7 @@ title &@~ pgroonga_condition('query', ARRAY[weight1, weight2, ...])
 title &@~ pgroonga_condition('query', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
-上記以外の使い方をする場合のために、「引数名 => 値」で記述する必要がある引数とそうでない引数の違いを説明します。
+上記以外の使い方をする場合のために、「`引数名 => 値`」で記述する必要がある引数とそうでない引数の違いを説明します。
 例えば、下記は引数`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
 
 ```

@@ -22,11 +22,28 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.1.6: 2024-01-10 {#version-3-1-6}"
+msgid "## 3.1.7: 2024-02-05 {#version-3-1-7}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * PGroonga avoid blocking of process termination while [`pgroonga-crash-"
+"safer`][pgroonga-crash-safer] is flushing."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * [[`pgroonga_highlight_html` function][highlight-html]] Fixed a bug that "
+"PGroonga may crash if valid index name is specified and then an invalid "
+"index name is specified."
+msgstr ""
+
+msgid "## 3.1.6: 2024-01-10 {#version-3-1-6}"
+msgstr ""
 
 msgid ""
 "  * Added a new script for setting up the build environment. [GitHub#358]"
@@ -71,9 +88,6 @@ msgid ""
 "                       column_name text)\n"
 "    ```"
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * Fixed a bug if we update PGroonga from 2.4.1 to 2.4.2, we can't use "

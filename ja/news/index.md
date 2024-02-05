@@ -5,6 +5,16 @@ upper_level: ../
 
 # おしらせ
 
+## 3.1.7: 2024-02-05 {#version-3-1-7}
+
+### 改良
+
+  * PGroonga avoid blocking of process termination while [`pgroonga-crash-safer`][pgroonga-crash-safer] is flushing.
+
+### 修正
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] Fixed a bug that PGroonga may crash if valid index name is specified and then an invalid index name is specified.
+
 ## 3.1.6: 2024-01-10 {#version-3-1-6}
 
 ### 改良

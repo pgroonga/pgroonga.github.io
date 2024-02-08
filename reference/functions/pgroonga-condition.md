@@ -265,6 +265,6 @@ PGroongaには、インデックスのオプションに[`normalizers_mapping`][
 * [名前付け表記][sql-syntax-calling-funcs-named]
 
 
-[postgres-fdw]:https://www.postgresql.org/docs/current/postgres-fdw.html
-[normalizers-mapping]:../create-index-using-pgroonga.html
+[postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+[normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
 [sql-syntax-calling-funcs-named]:https://www.postgresql.org/docs/current/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

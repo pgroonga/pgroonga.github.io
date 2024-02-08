@@ -128,11 +128,29 @@ INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定できます。`index_name => '...'`がそのための引数です。
 
 ```sql
+EXPLAIN ANALYZE
 SELECT *
   FROM memos
  WHERE title &@~ pgroonga_condition('バイオリン',
                                     index_name => 'pgroonga_memos_index');
-（結果）
+                                           QUERY PLAN                                            
+-------------------------------------------------------------------------------------------------
+ Seq Scan on memos  (cost=0.00..2.52 rows=1 width=100) (actual time=2.230..2.406 rows=2 loops=1)
+   Filter: (title &@~ '(バイオリン,,,,pgroonga_memos_index,)'::pgroonga_condition)
+   Rows Removed by Filter: 1
+ Planning Time: 2.222 ms
+ Execution Time: 2.525 ms
+(5 rows)
+
+SELECT *
+  FROM memos
+ WHERE title &@~ pgroonga_condition('バイオリン',
+                                    index_name => 'pgroonga_memos_index');
+ id |    title     |      content       | tag  
+----+--------------+--------------------+------
+  2 | ヴァイオリン | content2           | tag2
+  1 | ヴァイオリン | Let's play violin! | 
+(2 rows)
 ```
 
 複数のカラムが検索対象で、カラム毎の重みを設定したい場合は以下のようにします。

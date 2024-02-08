@@ -23,17 +23,39 @@ There are three signatures:
 column &@~ query
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
+column &@~ pgroonga_condition(keyword, weight, index_name => 'index_name')
+column &@~ pgroonga_condition(keyword, weight, scorers, index_name => 'index_name')
+column &@~ pgroonga_condition(keyword, schema_name => 'schema_name', index_name => 'index_name')
+column &@~ pgroonga_condition(keyword, index_name => 'index_name', column_name => 'column_name')
 ```
 
 The first signature is simpler than others. The first signature is enough for most cases.
 
 The second signature is useful to optimize search score. For example, you can implement "title is more important than content" for blog application.
 
-The second signature is available since 2.0.4.
+The second signature is available since 2.0.4. 3.1.7から非推奨になりました。3.1.7以降では、4つ目の使い方を使ってください。
 
 The third signature is useful to optimize more search score. For example, you can take measures against [keyword stuffing][wikipedia-keyword-stuffing].
 
-The third signature is available since 2.0.6.
+The third signature is available since 2.0.6. 3.1.7から非推奨になりました。3.1.7以降では、5つ目の使い方を使ってください。
+
+4つ目の使い方は2つ目の使い方と同じです。[`pgroonga_condition()`][pgroonga-condition]を使っている点だけ異なります。
+3.1.7以降で検索スコアーを最適化したい場合は、この使い方を使ってください。
+
+4つ目の使い方は3.1.7から使えます。
+
+5つ目の使い方は3つ目の使い方と同じです。`pgroonga_condition()`を使っている点だけが異なります。
+3.1.7以降で検索スコア―をより最適化したい場合は、この使い方を使ってください。
+
+5つ目の使い方は3.1.7から使えます。
+
+6つ目の使い方は[postgres_fdw][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスする場合に使います。
+
+6つ目の使い方は3.1.7から使えます。
+
+7つ目の使い方は[`normalizers_mapping`][normalizers-mapping]を使って特定の属性に特定のノーマライザーとそのオプションを指定している場合に使います。
+
+7つ目の使い方は3.1.7から使えます。
 
 Here is the description of the first signature.
 
@@ -117,6 +139,70 @@ It's available since 2.0.6.
 
 [Groonga's query syntax][groonga-query-syntax] is used in `query`.
 
+以下は4つ目の使い方の説明です。
+
+```sql
+column &@~ pgroonga_condition(query, weight, index_name => 'index_name')
+```
+
+使い方は、2つ目の使い方と同様です。シーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
+`index_name`のみ[「`引数名 => 値`」][sql-syntax-calling-funcs-named]という名前付き表記を使うことに注意してください。
+
+3.1.7から使えます。
+
+以下は5つ目の使い方の説明です。
+
+```sql
+column &@~ pgroonga_condition(query, weight, scorers, index_name => 'index_name')
+```
+
+使い方は、3つ目の使い方と同様です。スコアラーをカスタマイズし、よりスコアーの最適化できます。
+`index_name`のみ[「`引数名 => 値`」][sql-syntax-calling-funcs-named]という名前付き表記を使うことに注意してください。
+
+3.1.7から使えます。
+
+以下は6つ目の使い方の説明です。
+
+```sql
+column &@~ pgroonga_condition(query, schema_name => 'schema_name', index_name => 'index_name')
+```
+
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
+
+`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
+
+`schema_name` はシーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。`text`型です。通常のケースでは指定する必要はありません。
+
+`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+「`引数名 => 値`」という名前付き表記を使うことに注意してください。
+
+PostgreSQLは、スキーマ未指定の場合`search_path`に登録されているスキーマから該当するインデックスを検索します。
+通常は、`search_path`に存在するスキーマ内に該当するインデックスがあるため`schema_name`を指定しなくても適切なインデックスを参照できます。
+
+しかし、 [postgres_fdw][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
+このケースでは、`pg_catalog`スキーマ内に参照したいインデックスが存在しない場合、スキーマ未指定では該当のインデックスを発見できません。
+
+このように、`search_path`に登録されているスキーマ以外のスキーマに参照したいインデックスがある場合は、`schema_name`で明示的にスキーマを指定することで
+該当のインデックスを発見できます。
+
+これにより、postgres_fdwを使った環境であっても、インデックスサーチ時とシーケンシャルサーチ時で検索結果が異なってしまう状態を避けられます。
+
+3.1.7から使えます。
+
+以下は7つ目の使い方の説明です。
+
+```sql
+column &@~ pgroonga_condition(query, index_name => 'index_name', column_name => 'column_name')
+```
+
+`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
+
+`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
+
+`column_name`はシーケンシャルサーチ実行時に参照するインデックスが紐付けられている属性です。`text`型です。通常のケースでは指定する必要はありません。
+
+`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+「`引数名 => 値`」という名前付き表記を使うことに注意してください。
 ## Operator classes
 
 You need to specify one of the following operator classes to use this operator:
@@ -257,6 +343,12 @@ You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` f
 
   * [Groonga's query syntax][groonga-query-syntax]
 
+  * [postgres_fdw][postgres-fdw]
+
+  * [normalizers_mapping][normalizers-mapping]
+
+  * [名前付け表記][sql-syntax-calling-funcs-named]
+
 [wikipedia-keyword-stuffing]:https://en.wikipedia.org/wiki/Keyword_stuffing
 
 [groonga-scorer]:http://groonga.org/docs/reference/scorer.html
@@ -266,3 +358,9 @@ You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` f
 [match-v2]:match-v2.html
 
 [groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html
+
+[pgroonga-condition]:../functions/pgroonga-condition.html
+
+[normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
+
+[sql-syntax-calling-funcs-named]:https://www.postgresql.org/docs/current/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

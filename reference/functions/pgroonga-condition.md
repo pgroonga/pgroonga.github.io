@@ -38,17 +38,17 @@ title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_
 `pgroonga_condition()`関数が非互換を吸収してくれるからです。
 
 以下のように、`pgroonga_condition()`関数は不要な属性値を省略できるため、新たに属性値が追加されても既存の書き方を維持できます。
-(下記の例では、`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
+(次の例では、`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
 属性値の詳細については、後述の「構文」で記載します。ここでは、不要な属性値が省略できることに注目してください。)
 
 ```
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 ```
 
-`pgroonga_condition()`関数では、上記のように属性値を省略できますが、代わりに、「index_name => 'index name'」のように
+`pgroonga_condition()`関数では、上のように属性値を省略できますが、代わりに、「index_name => 'index name'」のように
 キーワード引数のような記載が必要になることに注意してください。
 
-上記の例では、キーワード引数のような書き方をしている属性値とそうでない属性値があります。
+上の例では、キーワード引数のような書き方をしている属性値とそうでない属性値があります。
 どのように書き分けるかについては、後述の「構文」で記載します。
 ここでは、従来とは異なる書き方が必要になることがあるという点に注目してください。
 
@@ -78,7 +78,7 @@ pgroonga_condition pgroonga_condition(query,
 `column_name`はシーケンシャルサーチ実行時に参照するインデックスが紐付けられている属性です。`text`型です。
 
 `pgroonga_condition()`の引数はすべて省略可能です。そのため、[「`引数名 => 値`」][sql-syntax-calling-funcs-named]という名前付き表記を使うことで特定の引数だけ指定することができます。たとえば、`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
-ただ、一般的なユースケースでは下記の3種類の書き方を覚えておけば十分です。
+ただ、一般的なユースケースでは次の3種類の書き方を覚えておけば十分です。
 
 ```
 title &@~ pgroonga_condition('query', index_name => 'pgroonga_index')
@@ -86,8 +86,8 @@ title &@~ pgroonga_condition('query', ARRAY[weight1, weight2, ...])
 title &@~ pgroonga_condition('query', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
-上記以外の使い方をする場合のために、「`引数名 => 値`」で記述する必要がある引数とそうでない引数の違いを説明します。
-例えば、下記は引数`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
+上の例以外の使い方をする場合のために、「`引数名 => 値`」で記述する必要がある引数とそうでない引数の違いを説明します。
+例えば、次は引数`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
 
 ```
 title &@~ pgroonga_condition('query', index_name => 'pgroonga_index')
@@ -135,15 +135,15 @@ SELECT *
 通常、インデックスサーチではなくシーケンシャルサーチが実行されると、PGroongaのインデックスに設定されているトークナイザーとノーマライザーを使えません。
 シーケンシャルサーチの場合はPGroongaのインデックスを使わないので、トークナイザーとノーマライザーの設定がどこにあるか判断できないためです。
 そのため、シーケンシャルサーチ実行時と、インデックスサーチ実行時で検索結果が変わってしまうことがあります。
-上記の例で、もし`index_name`を指定しなければ、シーケンシャルサーチ実行時は「ヴァイオリン」で「バイオリン」はヒットしないので、
+上の例で、もし`index_name`を指定しなければ、シーケンシャルサーチ実行時は「ヴァイオリン」で「バイオリン」はヒットしないので、
 インデックスサーチ実行時とシーケンシャルサーチ実行時で検索結果が変わってしまいます。
 これを防止するため、`index_name`でPGroongaのインデックスを指定しシーケンシャルサーチ実行時でもトークナイザーとノーマライザーの設定を参照できるようにしています。
 
 複数のカラムが検索対象で、カラム毎の重みを設定したい場合は以下のようにします。
 `pgroonga_condition()`の第2引数の配列で重みを設定しています。
 
-下記例のように、重みを0にすることで対応するカラムを検索対象外にできます。
-下記例では、`content`カラムを検索対象外にしています。
+次の例のように、重みを0にすることで対応するカラムを検索対象外にできます。
+次の例では、`content`カラムを検索対象外にしています。
 
 ```sql
 CREATE TABLE memos (
@@ -212,7 +212,7 @@ SELECT *
 PostgreSQLは、スキーマ未指定の場合`search_path`に登録されているスキーマから該当するインデックスを検索します。
 通常は、`search_path`に存在するスキーマ内に該当するインデックスがあるため`schema_name`を指定しなくても適切なインデックスを参照できます。
 
-しかし、 上記の例のように[postgres_fdw][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
+しかし、 上の例のように[postgres_fdw][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
 このケースでは、`pg_catalog`スキーマ内に参照したいインデックスが存在しない場合、スキーマ未指定では該当のインデックスを発見できません。
 
 このように、`search_path`に登録されているスキーマ以外のスキーマに参照したいインデックスがある場合は、`schema_name`で明示的にスキーマを指定することで
@@ -248,15 +248,15 @@ SELECT *
 `column_name`はシーケンシャルサーチ実行時に参照するインデックスが紐付けられている属性を指定します。
 
 PGroongaには、インデックスのオプションに[`normalizers_mapping`][normalizers-mapping]があります。
-これは上記の例のように特定の属性に対して、特定のノーマライザーとそのオプションを指定できるものです。
+これは上の例のように特定の属性に対して、特定のノーマライザーとそのオプションを指定できるものです。
 
-上記の例では、`title`属性に`unify_katakana_v_sounds`が設定されています。
+上の例では、`title`属性に`unify_katakana_v_sounds`が設定されています。
 「バイオリン」で「ヴァイオリン」をヒットさせるためには、`unify_katakana_v_sounds`が有効である必要がありますが、
 シーケンシャルサーチが実施された場合、PGroongaのインデックスを参照できず`unify_katakana_v_sounds`が効きません。
 そこで、以下のように`pgroonga_condition()`の`column_name`で`title`属性を指定することで、`title`属性に
 設定されている`unify_katakana_v_sounds`を使えます。
 
-その結果、上記の例のようにシーケンシャルサーチでも「バイオリン」で「ヴァイオリン」をヒットさせることができます。
+その結果、上の例のようにシーケンシャルサーチでも「バイオリン」で「ヴァイオリン」をヒットさせることができます。
 
 ## See also
 

@@ -510,6 +510,6 @@ SELECT *
 
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
 
-[sql-syntax-calling-funcs-named]:https://www.postgresql.org/docs/current/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
+[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html

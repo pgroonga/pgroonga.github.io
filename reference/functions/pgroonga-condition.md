@@ -114,7 +114,7 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_memos_index
           ON memos
        USING pgroonga (title)
-        WITH (normalizers='"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"');
+        WITH (normalizers='NormalizerNFKC150("unify_katakana_v_sounds", true)');
 
 INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
 ```
@@ -128,7 +128,7 @@ INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定できます。`index_name => '...'`がそのための引数です。
 
 次の例は、シーケンシャルサーチが実行されていますが、「バイオリン」で「ヴァイオリン」がヒットしていることが確認できます。
-シーケンシャルサーチ実行時でもインデックスに設定されている`"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"`が参照できていることがわかります。
+シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("unify_katakana_v_sounds", true)`が参照できていることがわかります。
 
 ```sql
 EXPLAIN ANALYZE
@@ -162,7 +162,6 @@ SELECT *
 * [normalizers_mapping][normalizers-mapping]
 * [名前付け表記][sql-syntax-calling-funcs-named]
 
-
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
-[sql-syntax-calling-funcs-named]:https://www.postgresql.org/docs/current/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
+[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

@@ -18,7 +18,7 @@ upper_level: ../
 必ず全ての属性値を指定して値を作る必要がありました。
 
 したがって、不要な属性値があっても、`pgroonga_full_text_search_condition`型や`pgroonga_full_text_search_condition_with_scorers`型では、
-以下のように不要な属性値には`NULL`を指定する必要がありました。
+次のように不要な属性値には`NULL`を指定する必要がありました。
 
 ```
 title &@~ ('keyword', NULL, 'index_name')::pgroonga_full_text_search_condition
@@ -37,7 +37,7 @@ title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_
 `pgroonga_condition`型に新しい属性を追加できます。
 `pgroonga_condition()`関数が非互換を吸収してくれるからです。
 
-以下のように、`pgroonga_condition()`関数は不要な属性値を省略できるため、新たに属性値が追加されても既存の書き方を維持できます。
+次のように、`pgroonga_condition()`関数は不要な属性値を省略できるため、新たに属性値が追加されても既存の書き方を維持できます。
 (次の例では、`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
 属性値の詳細については、後述の「構文」で記載します。ここでは、不要な属性値が省略できることに注目してください。)
 
@@ -127,7 +127,7 @@ INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
 そのため、シーケンシャルサーチ実行時と、インデックスサーチ実行時で検索結果が異なる可能性があります。
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定できます。`index_name => '...'`がそのための引数です。
 
-以下の例は、シーケンシャルサーチが実行されていますが、「バイオリン」で「ヴァイオリン」がヒットしていることが確認できます。
+次の例は、シーケンシャルサーチが実行されていますが、「バイオリン」で「ヴァイオリン」がヒットしていることが確認できます。
 シーケンシャルサーチ実行時でもインデックスに設定されている`"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"`が参照できていることがわかります。
 
 ```sql

@@ -488,6 +488,8 @@ SELECT *
 
   * [Groonga's query syntax][groonga-query-syntax]
 
+  * [`pgroonga_condition()`][pgroonga-condition]
+
   * [postgres_fdw][postgres-fdw]
 
   * [normalizers_mapping][normalizers-mapping]

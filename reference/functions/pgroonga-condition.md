@@ -127,6 +127,9 @@ INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
 そのため、シーケンシャルサーチ実行時と、インデックスサーチ実行時で検索結果が異なる可能性があります。
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定できます。`index_name => '...'`がそのための引数です。
 
+以下の例は、シーケンシャルサーチが実行されていますが、「バイオリン」で「ヴァイオリン」がヒットしていることが確認できます。
+シーケンシャルサーチ実行時でもインデックスに設定されている`"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"`が参照できていることがわかります。
+
 ```sql
 EXPLAIN ANALYZE
 SELECT *
@@ -152,125 +155,6 @@ SELECT *
   1 | ヴァイオリン | Let's play violin! | 
 (2 rows)
 ```
-
-複数のカラムが検索対象で、カラム毎の重みを設定したい場合は以下のようにします。
-`pgroonga_condition()`の第2引数の配列で重みを設定しています。
-
-次の例のように、重みを0にすることで対応するカラムを検索対象外にできます。
-次の例では、`content`カラムを検索対象外にしています。
-
-```sql
-CREATE TABLE memos (
-  id integer,
-  title text,
-  content text
-);
-
-CREATE INDEX pgroonga_memos_index
-          ON memos
-       USING pgroonga (ARRAY[title, content]::text[])
-        WITH (normalizers='"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"');
-
-INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
-INSERT INTO memos VALUES (2, 'チェロ', 'ヴァイオリンだけではなく、チェロも始めました！');
-
-SELECT *
-  FROM memos
- WHERE ARRAY[title, content]::text[] &@~ pgroonga_condition('バイオリン',
-                                                            ARRAY[1,0],
-                                                            index_name => 'pgroonga_momos_index');
-(結果)
-```
-
-スコアーを計算する、スコアラーを変更する場合は、以下のように`scorers`を指定してください。
-
-```sql
-CREATE TABLE memos (
-  id integer,
-  title text,
-  content text
-);
-
-CREATE INDEX pgroonga_memos_index
-          ON memos
-       USING pgroonga (ARRAY[title, content]::text[])
-        WITH (normalizers='"NormalizerNFKC150(\"unify_katakana_v_sounds\", true)"');
-
-INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
-INSERT INTO memos VALUES (2, 'チェロ', 'ヴァイオリンだけではなく、チェロも始めました！');
-
-SELECT *, pgroonga_scorers(tableoid, ctid) AS socre
-  FROM memos
- WHERE ARRAY[title, content]::text[] &@~ pgroonga_condition('バイオリン',
-                                                            ARRAY[5,1],
-                                                            ARRAY[NULL, 'scorer_tf_at_most($index, 0.5)']
-                                                            index_name => 'pgroonga_momos_index');
-(結果)
-```
-
-postgres_fdwを使って外部データベースを検索する場合でも、シーケンシャルサーチの検索結果とインデックスサーチの検索結果が変わらないようにするには、
-以下のように`schema_name`を使用してください。
-
-```sql
-SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン',
-                                    schema_name => 'public',
-                                    index_name => 'pgroonga_memos_index');
-(結果)
-```
-
-`schema_name`はシーケンシャルサーチ実行時に参照するインデックスが属するスキーマを指定します。
-通常のケースでは指定する必要はありません。
-
-PostgreSQLは、スキーマ未指定の場合`search_path`に登録されているスキーマから該当するインデックスを検索します。
-通常は、`search_path`に存在するスキーマ内に該当するインデックスがあるため`schema_name`を指定しなくても適切なインデックスを参照できます。
-
-しかし、 [postgres_fdw][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
-このケースでは、`pg_catalog`スキーマ内に参照したいインデックスが存在しない場合、スキーマ未指定では該当のインデックスを発見できません。
-
-このように、`search_path`に登録されているスキーマ以外のスキーマに参照したいインデックスがある場合は、`schema_name`で明示的にスキーマを指定することで
-該当のインデックスを発見できます。
-
-特定の属性に紐付いているインデックスを参照したい場合は、以下のように`column_name`を指定してください。
-
-```sql
-CREATE TABLE memos (
-  id integer,
-  title text,
-  content text
-);
-
-CREATE INDEX pgroonga_memos_index
-          ON memos
-       USING pgroonga (title, content)
-        WITH (normalizers_mapping='{
-                "title": "NormalizerNFKC150(\"unify_katakana_v_sounds\", true)",
-                "content": "NormalizerNFKC150"
-              }',
-              normalizers='NormalizerAuto');
-
-INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
-
-SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン',
-                                    index_name => 'pgroonga_memos_index',
-                                    column_name => 'title');
-```
-
-`column_name`はシーケンシャルサーチ実行時に参照するインデックスが紐付けられている属性を指定します。
-
-PGroongaには、インデックスのオプションに[`normalizers_mapping`][normalizers-mapping]があります。
-これは上の例のように特定の属性に対して、特定のノーマライザーとそのオプションを指定できるものです。
-
-上の例では、`title`属性に`unify_katakana_v_sounds`が設定されています。
-「バイオリン」で「ヴァイオリン」をヒットさせるためには、`unify_katakana_v_sounds`が有効である必要がありますが、
-シーケンシャルサーチが実施された場合、PGroongaのインデックスを参照できず`unify_katakana_v_sounds`が効きません。
-そこで、以下のように`pgroonga_condition()`の`column_name`で`title`属性を指定することで、`title`属性に
-設定されている`unify_katakana_v_sounds`を使えます。
-
-その結果、上の例のようにシーケンシャルサーチでも「バイオリン」で「ヴァイオリン」をヒットさせることができます。
 
 ## See also
 

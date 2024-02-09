@@ -1,53 +1,53 @@
 ---
-title: pgroonga_condition function
+title: pgroonga_condition 関数
 upper_level: ../
 ---
 
-# `pgroonga_condition()` function
+# `pgroonga_condition()` 関数
 
-## Summary
+## 概要
 
-`pgroonga_condition()` function return `pgroonga_condition` type value.
-The function and the type have same name, but they are two different things.
-`pgroonga_condition` type represent complicated conditional expressions, such as `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type. 
+`pgroonga_condition()`関数は`pgroonga_condition`型の値を返します。
+関数名と型名が同じですが別物です。
+`pgroonga_condition`型は`pgroonga_full_text_search_condition`型や`pgroonga_full_text_search_condition_with_scorers`型のように複雑な条件式を表現します。 
 
-`pgroonga_condition()` function is a useful function to make the `pgroonga_condition` type value.
-It allows to make the `pgroonga_condition` type value by designating the specific attribute value.
+`pgroonga_condition()`関数は`pgroonga_condition`型の値を作るための便利関数です。
+特定の属性値のみを指定して`pgroonga_condition`型の値を作れます。
 
-There were not this kind of useful functions for `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type, so designating all attribute values was necessary to make the value.
+`pgroonga_full_text_search_condition`型や`pgroonga_full_text_search_condition_with_scorers`型では、このような便利関数がなかったため必ず全ての属性値を指定して値を作る必要がありました。
 
-Therefore, you need to designate `NULL` for disused attribute value as follows when `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type are used to avoid making all the values.
+したがって、不要な属性値があっても、`pgroonga_full_text_search_condition`型や`pgroonga_full_text_search_condition_with_scorers`型では、次のように不要な属性値には`NULL`を指定する必要がありました。
 
 ```
 title &@~ ('keyword', NULL, 'index_name')::pgroonga_full_text_search_condition
 title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_search_condition_with_scorers
 ```
 
-It was not possible for existing value creation methods to make new attribute value while keeping backward compatibility.
-Thus, it was necessary to add a new type every time a new attribute value is added, such as `pgroonga_full_text_search_condition_with_XXX` type.
-For example, `pgroogna_full_text_search_condition_with_scorers` type was added because of the added new attribution.
+型を指定して直接値を作る従来の方法では後方互換性を維持したまま新しい属性を作ることができませんでした。
+そのため、新しい属性を追加するたびに`pgroonga_full_text_search_condition_with_XXX`というような新しい型を追加する必要がありました。
+たとえば、`pgroogna_full_text_search_condition_with_scorers`型はそのために追加された型です。
 
-The difference between `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type is whether `scorers` exist or not. If `scorers` is added to `pgroonga_full_text_search_condition` type, every users are required to insert new 'NULL' to make `pgroonga_full_text_search_condition` type regardless of `scorers` usage.
+`pgroonga_full_text_search_condition`型と`pgroonga_full_text_search_condition_with_scorers`型の違いは`scorers`が存在するかどうかですが、`pgroonga_full_text_search_condition`型に`scorers`を追加してしまうと、`scorers`を使わないユーザーも新たに`NULL`を挿入して`pgroonga_full_text_search_condition`型の値を作らなければなりません。
 
-However, installing `pgroonga_condition()` function to make new `pgroonga_condition` type value let a new attribution to be added while keeping backward compatibility.
-It is because `pgroonga_condition()` function absorb incompatibility.
+しかし、`pgroonga_condition`型の値を作るための便利関数`pgroonga_condition()`関数を導入することにより後方互換性を維持したまま`pgroonga_condition`型に新しい属性を追加できます。
+`pgroonga_condition()`関数が非互換を吸収してくれるからです。
 
-`pgroonga_condition()` function let current writing style when a new attribute value is added because the function can leave out unnecessary attribution value as following sample.
-( In the following sample, `weights`、`scorers`、`schema_name`、`column_name` are left out. The details of attribute values would be noted in next "Sytax". Here, point is that possibility of leaving out unnecessary attribute values.)
+次のように、`pgroonga_condition()`関数は不要な属性値を省略できるため、新たに属性値が追加されても既存の書き方を維持できます。
+(次の例では、`weights`、`scorers`、`schema_name`、`column_name`を省略しています。属性値の詳細については、後述の「構文」で記載します。ここでは、不要な属性値が省略できることに注目してください。)
 
 ```
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 ```
 
-Please note that while using `pgroonga_condition()` functionm you can leaving out attribute values instead you need to describe comment like key word argument such as "index_name => 'index name'".
+`pgroonga_condition()`関数では、上のように属性値を省略できますが、代わりに、「index_name => 'index name'」のようにキーワード引数のような記載が必要になることに注意してください。
 
-In the above sample, there are mix of attribute values which is like key word argument or not.
-How to separate writing is going to be explained in next ## Syntax.
-The point here is there is need of different writing from the current.
+上の例では、キーワード引数のような書き方をしている属性値とそうでない属性値があります。
+どのように書き分けるかについては、後述の「構文」で記載します。
+ここでは、従来とは異なる書き方が必要になることがあるという点に注目してください。
 
-## Syntax
+## 構文
 
-Here is the syntax of this function:
+この関数の構文は次の通りです。
 
 ```
 pgroonga_condition pgroonga_condition(query,
@@ -93,9 +93,9 @@ title &@~ pgroonga_condition('query', index_name => 'pgroonga_index')
 つまり、関数のシグネチャーと同じ位置にある、`query`は、「`引数名 => 値`」の形で書く必要はなく、値をそのまま記述できますが、
 関数のシグネチャーと違う位置にある、`index_name`は、「`引数名 => 値`」の形で書く必要があります。
 
-## Usage
+## 使い方
 
-Here are sample schema and data:
+サンプルスキーマとデータは次の通りです。
 
 ```sql
 CREATE TABLE memos (
@@ -149,7 +149,7 @@ SELECT *
 (2 rows)
 ```
 
-## See also
+## 参考
 
 * [postgres_fdw][postgres-fdw]
 * [normalizers_mapping][normalizers-mapping]

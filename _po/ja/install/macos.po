@@ -50,7 +50,7 @@ msgid ""
 "user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-"
 "schema-pgroonga.html) for details.)"
 msgstr ""
-"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべき"
+"（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを利用するべき"
 "です。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-"
 "schema-pgroonga.html)を参照してください。）"
 

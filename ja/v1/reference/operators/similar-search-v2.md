@@ -21,7 +21,7 @@ column &@* document
 
 `column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
-`document`は類似文書検索で使う文書です。`column`が`text`型または`text[]`型の場合は型は`text`型です。`column`が`varchar`型の場合は型は`text`型です。
+`document`は類似文書検索で使う文書です。`column`が`text`型または`text[]`型の場合は型は`text`型です。`column`が`varchar`型の場合は型は`varchar`型です。
 
 類似文書検索は`document`のコンテンツに似たレコードを探します。もし、`document`のコンテンツが短かった場合、類似文書検索はそれほど似ていないレコードも返してしまうかもしれません。
 

@@ -20,7 +20,7 @@ Think about the following JSON:
 }
 ```
 
-You can find the JSON by full text search with `server`, `example` or `web` because all text values are full text search target.
+You can find the JSON by full text search with `server`, `example`, or `web` because all text values are full text search target.
 
 ## Operators
 

@@ -1059,10 +1059,10 @@ msgid ""
 msgstr ""
 
 msgid ""
-"You can find the JSON by full text search with `search`, `example` or `web` "
+"You can find the JSON by full text search with `server`, `example`, or `web` "
 "because all text values are full text search target."
 msgstr ""
-"`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができ"
+"`server`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができ"
 "ます。なぜなら、すべてのテキスト値が全文検索対象だからです。"
 
 msgid ""

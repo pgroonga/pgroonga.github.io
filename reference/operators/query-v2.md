@@ -33,11 +33,15 @@ The first signature is simpler than others. The first signature is enough for mo
 
 The second signature is useful to optimize search score. For example, you can implement "title is more important than content" for blog application.
 
-The second signature is available since 2.0.4. 3.1.7から非推奨になりました。3.1.7以降では、4つ目の使い方を使ってください。
+The second signature is available since 2.0.4.
+
+3.1.7から`pgroonga_full_text_search_condition`型は非推奨になりました。代わりに、`pgroonga_condition`型を使ってください。
 
 The third signature is useful to optimize more search score. For example, you can take measures against [keyword stuffing][wikipedia-keyword-stuffing].
 
-The third signature is available since 2.0.6. 3.1.7から非推奨になりました。3.1.7以降では、5つ目の使い方を使ってください。
+The third signature is available since 2.0.6.
+
+3.1.7から`pgroonga_full_text_search_condition`型は非推奨になりました。代わりに、`pgroonga_condition`型を使ってください。
 
 4つ目の使い方は2つ目の使い方と同じです。[`pgroonga_condition()`][pgroonga-condition]を使っている点だけ異なります。
 3.1.7以降で検索スコアーを最適化したい場合は、この使い方を使ってください。

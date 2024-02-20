@@ -17,7 +17,7 @@ latest_postgresql_version: 16
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/bsd.default-versions.mk
 # .
 freebsd_postgresql_version: 13
-development_postgresql_version: 16.0
+development_postgresql_version: 16.2
 exclude:
   - "Gemfile"
   - "Gemfile.lock"

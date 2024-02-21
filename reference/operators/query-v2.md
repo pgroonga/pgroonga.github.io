@@ -23,10 +23,7 @@ There are three signatures:
 column &@~ query
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
-column &@~ pgroonga_condition(keyword, weight, index_name => 'index_name')
-column &@~ pgroonga_condition(keyword, weight, scorers, index_name => 'index_name')
-column &@~ pgroonga_condition(keyword, schema_name => 'schema_name', index_name => 'index_name')
-column &@~ pgroonga_condition(keyword, index_name => 'index_name', column_name => 'column_name')
+column &@~ pgroonga_condition(query, ...)
 ```
 
 The first signature is simpler than others. The first signature is enough for most cases.
@@ -43,23 +40,11 @@ The third signature is available since 2.0.6.
 
 3.1.7から`pgroonga_full_text_search_condition`型は非推奨になりました。代わりに、`pgroonga_condition`型を使ってください。
 
-4つ目の使い方は2つ目の使い方と同じです。[`pgroonga_condition()`][pgroonga-condition]を使っている点だけ異なります。
-3.1.7以降で検索スコアーを最適化したい場合は、この使い方を使ってください。
+The fourth signature is useful to optimize search score. For example, you can implement "title is more important than content" for blog application.
+
+The fourth signature is useful to optimize more search score. For example, you can take measures against [keyword stuffing][wikipedia-keyword-stuffing].
 
 4つ目の使い方は3.1.7から使えます。
-
-5つ目の使い方は3つ目の使い方と同じです。`pgroonga_condition()`を使っている点だけが異なります。
-3.1.7以降で検索スコア―をより最適化したい場合は、この使い方を使ってください。
-
-5つ目の使い方は3.1.7から使えます。
-
-6つ目の使い方は[postgres_fdw][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスする場合に使います。
-
-6つ目の使い方は3.1.7から使えます。
-
-7つ目の使い方は[`normalizers_mapping`][normalizers-mapping]を使って特定の属性に特定のノーマライザーとそのオプションを指定している場合に使います。
-
-7つ目の使い方は3.1.7から使えます。
 
 Here is the description of the first signature.
 

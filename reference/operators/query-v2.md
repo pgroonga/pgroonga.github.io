@@ -134,7 +134,7 @@ It's available since 2.0.6.
 column &@~ pgroonga_condition(query, index_name => 'index_name')
 ```
 
-
+（引数の説明を書く）
 
 検索スコアーを最適化するには以下のようにします。
 
@@ -142,7 +142,7 @@ column &@~ pgroonga_condition(query, index_name => 'index_name')
 column &@~ pgroonga_condition(query, weight, index_name => 'index_name')
 ```
 
-
+（引数の説明を書く）
 
 スコアラーをカスタマイズし、よりスコアーの最適化をするには以下のようにします。
 
@@ -150,12 +150,7 @@ column &@~ pgroonga_condition(query, weight, index_name => 'index_name')
 column &@~ pgroonga_condition(query, weights, scorers, index_name => 'index_name')
 ```
 
-`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
-
-`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
-
-
-`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+（引数の説明を書く）
 
 以下は、[`postgres_fdw`][postgres-fdw]を使って外部のPostgreSQLのデータベースへアクセスするケースで有用な例です。
 
@@ -163,16 +158,7 @@ column &@~ pgroonga_condition(query, weights, scorers, index_name => 'index_name
 column &@~ pgroonga_condition(query, schema_name => 'schema_name', index_name => 'index_name')
 ```
 
-PostgreSQLは、スキーマ未指定の場合`search_path`に登録されているスキーマから該当するインデックスを検索します。
-通常は、`search_path`に存在するスキーマ内に該当するインデックスがあるため`schema_name`を指定しなくても適切なインデックスを参照できます。
-
-しかし、`postgres_fdw`を使って外部のPostgreSQLのデータベースへアクセスする場合、`search_path`は`pg_catalog`のみになります。
-このケースでは、`pg_catalog`スキーマ内に参照したいインデックスが存在しない場合、スキーマ未指定では該当のインデックスを発見できません。
-
-このように、`search_path`に登録されていないスキーマに参照したいインデックスがある場合は、`schema_name`で明示的にスキーマを指定することで
-該当のインデックスを発見できます。
-これにより、`postgres_fdw`を使った環境であっても、インデックスサーチ時とシーケンシャルサーチ時で検索結果が異なってしまう状態を避けられます。
-
+（引数の説明を書く）
 
 以下は、[`normalizers_mapping`][normalizers-mapping]を使って、特定の属性に特定のノーマライザーとそのオプションを指定しているケースで有用な例です。
 
@@ -180,26 +166,7 @@ PostgreSQLは、スキーマ未指定の場合`search_path`に登録されてい
 column &@~ pgroonga_condition(query, index_name => 'index_name', column_name => 'column_name')
 ```
 
-`column` is a column to be searched. It's `text` type, `text[]` type or `varchar` type.
-
-`query` is a query for full text search. It's `text` type for `text` type or `text[]` type `column`. It's `varchar` type for `varchar` type `column`.
-
-`column_name`はシーケンシャルサーチ実行時に参照するインデックスが紐付けられている属性です。`text`型です。通常のケースでは指定する必要はありません。
-「`引数名 => 値`」という名前付き表記を使うことに注意してください。
-
-`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
-
-インデックスサーチ実行時はインデックスに指定したオプションで検索結果をカスタマイズできますが、シーケンシャルサーチ実行時は、PGroongaのインデックスに指定されているオプションを参照できません。
-シーケンシャルサーチ実行時はどのインデックスを参照すればよいかという情報がないからです。
-シーケンシャルサーチ時に参照するインデックスを`index_name => '...'`で明示的に指定することで、この問題を回避できます。
-
-
-属性毎にノーマライザーとそのオプションが異なる場合があり、`index_name => '...'`で明示的に指定しただけでは、参照するノーマライザーとそのオプションを
-一意に特定できません。
-
-そのため、`column_name => '...'`を使って、シーケンシャルサーチ実行時にどの属性に紐付いたノーマライザーとそのオプションを使うかを指定することで
-参照するノーマライザーとそのオプションを発見できます。
-これにより、`normalizers_mapping`を使った環境であっても、インデックスサーチ時とシーケンシャルサーチ時で検索結果が異なってしまう状態を避けられます。
+（引数の説明を書く）
 
 ## Operator classes
 

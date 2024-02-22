@@ -38,7 +38,13 @@ Initialize and run PostgreSQL:
 
 ```console
 % mkdir -p /tmp/local/var/lib
-% /tmp/local/bin/initdb --locale C --encoding UTF-8 -D /tmp/local/var/lib/postgresql
+% /tmp/local/bin/initdb \
+  --locale C \
+  --encoding UTF-8 \
+  --set=enable_partitionwise_join=on \
+  --set=max_prepared_transactions=1 \
+  --set=random_page_cost=0 \
+  -D /tmp/local/var/lib/postgresql
 % /tmp/local/bin/postgres -D /tmp/local/var/lib/postgresql
 ```
 
@@ -50,6 +56,9 @@ The following one liner is useful to reset all PostgreSQL related data. You stor
     /tmp/local/bin/initdb \
       --locale C \
       --encoding UTF-8 \
+      --set=enable_partitionwise_join=on \
+      --set=max_prepared_transactions=1 \
+      --set=random_page_cost=0 \
       -D /tmp/local/var/lib/postgresql && \
    /tmp/local/bin/postgres -D /tmp/local/var/lib/postgresql
 ```

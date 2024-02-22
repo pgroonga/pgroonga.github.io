@@ -31,7 +31,7 @@ Build and install PostgreSQL:
 ```console
 % make -j$(nproc) > /dev/null
 % make install > /dev/null
-% (cd contrib/postgres_fdw && make install)
+% (cd contrib/postgres_fdw && make install > /dev/null)
 ```
 
 Initialize and run PostgreSQL:

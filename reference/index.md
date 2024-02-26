@@ -523,6 +523,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_command_escape_value` function][command-escape-value]
 
+  * [`pgroonga_condition` function][condition]
+
   * [`pgroonga_escape` function][escape]
 
   * [`pgroonga_flush` function][flush]
@@ -696,6 +698,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [upgrade-incompatible]:../upgrade/#incompatible-case
 
 [command]:functions/pgroonga-command.html
+[condition]:functions/pgroonga-condition.html
 [command-escape-value]:functions/pgroonga-command-escape-value.html
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html

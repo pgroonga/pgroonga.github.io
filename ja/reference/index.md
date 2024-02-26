@@ -525,6 +525,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_command_escape_value`関数][command-escape-value]
 
+  * [`pgroonga_condition` function][condition]
+
   * [`pgroonga_escape`関数][escape]
 
   * [`pgroonga_flush`関数][flush]
@@ -699,6 +701,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [upgrade-incompatible]:../upgrade/#incompatible-case
 
 [command]:functions/pgroonga-command.html
+[condition]:functions/pgroonga-condition.html
 [command-escape-value]:functions/pgroonga-command-escape-value.html
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html

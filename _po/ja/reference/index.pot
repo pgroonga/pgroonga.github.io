@@ -377,6 +377,9 @@ msgstr ""
 msgid "  * [`pgroonga_command_escape_value` function][command-escape-value]"
 msgstr ""
 
+msgid "  * [`pgroonga_condition` function][condition]"
+msgstr ""
+
 msgid "  * [`pgroonga_escape` function][escape]"
 msgstr ""
 
@@ -606,6 +609,7 @@ msgstr ""
 
 msgid ""
 "[command]:functions/pgroonga-command.html\n"
+"[condition]:functions/pgroonga-condition.html\n"
 "[command-escape-value]:functions/pgroonga-command-escape-value.html\n"
 "[escape]:functions/pgroonga-escape.html\n"
 "[flush]:functions/pgroonga-flush.html\n"

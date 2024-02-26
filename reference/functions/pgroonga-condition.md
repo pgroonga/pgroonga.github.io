@@ -12,7 +12,7 @@ The function and the type have same name, but they are two different things.
 `pgroonga_condition` type represents complicated conditional expressions, such as `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type. 
 
 `pgroonga_condition()` function is a useful function to make the `pgroonga_condition` type value.
-It allows to make the `pgroonga_condition` type value by designating the specific attribute value.
+It allows to make the `pgroonga_condition` type value by designating the specific attribute values.
 
 There were not this kind of useful functions for `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type, so designating all attribute values was necessary to make the value.
 

@@ -39,7 +39,7 @@ It is because `pgroonga_condition()` function absorbs incompatibility.
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 ```
 
-Please note that while using `pgroonga_condition()` functionm you can leaving out attribute values instead you need to describe comment like key word argument such as "index_name => 'index name'".
+Please note that while using `pgroonga_condition()` function you can leave out attribute values instead you need to describe comment like keyword argument such as `index_name => 'index name'`.
 
 In the above sample, there are mix of attribute values which is like key word argument or not.
 How to separate writing is going to be explained in next ## Syntax.

@@ -24,7 +24,7 @@ title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_
 ```
 
 It was not possible for existing value creation methods to make new attribute value while keeping backward compatibility.
-Thus, it was necessary to add a new type every time a new attribute value is added, such as `pgroonga_full_text_search_condition_with_XXX` type.
+Thus, it was necessary to add a new type every time when a new attribute value is added, such as `pgroonga_full_text_search_condition_with_XXX` type.
 For example, `pgroogna_full_text_search_condition_with_scorers` type was added because of the added new attribution.
 
 The difference between `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type is whether `scorers` exist or not. If `scorers` is added to `pgroonga_full_text_search_condition` type, every users are required to insert new `NULL` to make `pgroonga_full_text_search_condition` type regardless of `scorers` usage.

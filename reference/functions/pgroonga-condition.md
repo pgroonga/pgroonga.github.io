@@ -29,7 +29,7 @@ For example, `pgroogna_full_text_search_condition_with_scorers` type was added b
 
 The difference between `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type is whether `scorers` exist or not. If `scorers` is added to `pgroonga_full_text_search_condition` type, every users are required to insert new `NULL` to make `pgroonga_full_text_search_condition` type regardless of `scorers` usage.
 
-However, installing `pgroonga_condition()` function to make new `pgroonga_condition` type value let a new attribution to be added while keeping backward compatibility.
+However, installing `pgroonga_condition()` function to make new `pgroonga_condition` type value let a new attribute to be added while keeping backward compatibility.
 It is because `pgroonga_condition()` function absorbs incompatibility.
 
 `pgroonga_condition()` function let current writing style when a new attribute value is added because the function can leave out unnecessary attribution value as following sample.

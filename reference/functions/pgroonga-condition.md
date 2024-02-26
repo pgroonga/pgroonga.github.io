@@ -32,7 +32,7 @@ The difference between `pgroonga_full_text_search_condition` type and `pgroonga_
 However, installing `pgroonga_condition()` function to make new `pgroonga_condition` type value let a new attribute to be added while keeping backward compatibility.
 It is because `pgroonga_condition()` function absorbs incompatibility.
 
-`pgroonga_condition()` function let current writing style when a new attribute value is added because the function can leave out unnecessary attribution value as following sample.
+`pgroonga_condition()` function lets current writing style when a new attribute value is added because the function can leave out unnecessary attribute value as following sample.
 (In the following sample, `weights`, `scorers`, `schema_name` and `column_name` are left out. The details of attribute values would be noted in next "Syntax". Here, point is that possibility of leaving out unnecessary attribute values.)
 
 ```

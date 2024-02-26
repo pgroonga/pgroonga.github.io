@@ -41,7 +41,7 @@ title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 
 Please note that while using `pgroonga_condition()` function you can leave out attribute values instead you need to describe comment like keyword argument such as `index_name => 'index name'`.
 
-In the above sample, there are mix of attribute values which is like key word argument or not.
+In the above sample, there are mix of attribute values which is like keyword argument or not.
 How to separate writing is going to be explained in next ## Syntax.
 The point here is there is need of different writing from the current.
 

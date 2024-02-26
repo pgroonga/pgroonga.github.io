@@ -7,7 +7,7 @@ upper_level: ../
 
 ## Summary
 
-`pgroonga_condition()` function return `pgroonga_condition` type value.
+`pgroonga_condition()` function returns `pgroonga_condition` type value.
 The function and the type have same name, but they are two different things.
 `pgroonga_condition` type represent complicated conditional expressions, such as `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type. 
 

@@ -33,7 +33,7 @@ However, installing `pgroonga_condition()` function to make new `pgroonga_condit
 It is because `pgroonga_condition()` function absorbs incompatibility.
 
 `pgroonga_condition()` function let current writing style when a new attribute value is added because the function can leave out unnecessary attribution value as following sample.
-( In the following sample, `weights`、`scorers`、`schema_name`、`column_name` are left out. The details of attribute values would be noted in next "Sytax". Here, point is that possibility of leaving out unnecessary attribute values.)
+(In the following sample, `weights`, `scorers`, `schema_name` and `column_name` are left out. The details of attribute values would be noted in next "Syntax". Here, point is that possibility of leaving out unnecessary attribute values.)
 
 ```
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')

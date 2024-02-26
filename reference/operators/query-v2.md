@@ -21,9 +21,9 @@ There are three signatures:
 
 ```sql
 column &@~ query
+column &@~ pgroonga_condition(query, ...)
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
-column &@~ pgroonga_condition(query, ...)
 ```
 
 The first signature is simpler than others. The first signature is enough for most cases.

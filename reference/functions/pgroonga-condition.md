@@ -9,7 +9,7 @@ upper_level: ../
 
 `pgroonga_condition()` function returns `pgroonga_condition` type value.
 The function and the type have same name, but they are two different things.
-`pgroonga_condition` type represent complicated conditional expressions, such as `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type. 
+`pgroonga_condition` type represents complicated conditional expressions, such as `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type. 
 
 `pgroonga_condition()` function is a useful function to make the `pgroonga_condition` type value.
 It allows to make the `pgroonga_condition` type value by designating the specific attribute value.

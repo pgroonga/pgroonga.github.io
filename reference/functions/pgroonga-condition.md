@@ -33,7 +33,7 @@ However, installing `pgroonga_condition()` function to make new `pgroonga_condit
 It is because `pgroonga_condition()` function absorbs incompatibility.
 
 `pgroonga_condition()` function lets current writing style when a new attribute value is added because the function can leave out unnecessary attribute value as following sample.
-(In the following sample, `weights`, `scorers`, `schema_name` and `column_name` are left out. The details of attribute values would be noted in next "Syntax". Here, point is that possibility of leaving out unnecessary attribute values.)
+(In the following sample, `weights`, `scorers`, `schema_name` and `column_name` are left out. The details of attribute values would be noted in next ["Syntax"](#syntax). Here, point is that possibility of leaving out unnecessary attribute values.)
 
 ```
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')
@@ -42,7 +42,7 @@ title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 Please note that while using `pgroonga_condition()` function you can leave out attribute values instead you need to describe comment like keyword argument such as `index_name => 'index name'`.
 
 In the above sample, there are mix of attribute values which is like keyword argument or not.
-How to separate writing is going to be explained in next ## Syntax.
+How to separate writing is going to be explained in next ["Syntax"](#syntax).
 The point here is there is need of different writing from the current.
 
 ## Syntax

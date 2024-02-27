@@ -5,6 +5,25 @@ upper_level: ../
 
 # News
 
+## 3.1.8: 2024-02-27 {#version-3-1-8}
+
+### Fixes
+
+  * Fixed a crash bug when the last cached sequential search datum was vacuumed that is happen every 100 queries.
+
+    Note that "vacuum" here is PGroonga internal vacuum only for sequential search datum.
+    It's not PostgreSQL's vacuum.
+
+    For example, we are crashed PGroonga by executing in the following procedure.
+
+    1. We send the following query to PostgreSQL.
+
+       `SELECT WHERE content &@ ('hello', null, 'memos_index')::pgroonga_full_text_search_condition;`.
+
+    2. We send hundred non PGroonga's sequential search related queries such as `SELECT 1;`.
+
+    3. We send the query same as 1. to PostgreSQL again.
+
 ## 3.1.7: 2024-02-05 {#version-3-1-7}
 
 ### Improvements

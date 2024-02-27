@@ -17,6 +17,35 @@ msgstr ""
 msgid "# News"
 msgstr ""
 
+msgid "## 3.1.8: 2024-02-27 {#version-3-1-8}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr ""
+
+msgid "  * Fixed a crash bug when the last cached sequential search datum was vacuumed that is happen every 100 queries."
+msgstr ""
+
+msgid ""
+"    Note that \"vacuum\" here is PGroonga internal vacuum only for sequential search datum.\n"
+"    It's not PostgreSQL's vacuum."
+msgstr ""
+
+msgid "    For example, we are crashed PGroonga by executing in the following procedure."
+msgstr ""
+
+msgid "    1. We send the following query to PostgreSQL."
+msgstr ""
+
+msgid "       `SELECT WHERE content &@ ('hello', null, 'memos_index')::pgroonga_full_text_search_condition;`."
+msgstr ""
+
+msgid "    2. We send hundred non PGroonga's sequential search related queries such as `SELECT 1;`."
+msgstr ""
+
+msgid "    3. We send the query same as 1. to PostgreSQL again."
+msgstr ""
+
 msgid "## 3.1.7: 2024-02-05 {#version-3-1-7}"
 msgstr ""
 
@@ -24,9 +53,6 @@ msgid "### Improvements"
 msgstr ""
 
 msgid "  * PGroonga avoid blocking of process termination while [`pgroonga-crash-safer`][pgroonga-crash-safer] is flushing."
-msgstr ""
-
-msgid "### Fixes"
 msgstr ""
 
 msgid "  * [[`pgroonga_highlight_html` function][highlight-html]] Fixed a bug that PGroonga may crash if valid index name is specified and then an invalid index name is specified."

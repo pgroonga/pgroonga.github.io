@@ -31,13 +31,20 @@ PostgreSQLをビルドしてインストールします。
 ```console
 % make -j$(nproc) > /dev/null
 % make install > /dev/null
+% (cd contrib/postgres_fdw && make install > /dev/null)
 ```
 
 PostgreSQLを初期化して実行します。
 
 ```console
 % mkdir -p /tmp/local/var/lib
-% /tmp/local/bin/initdb --locale C --encoding UTF-8 -D /tmp/local/var/lib/postgresql
+% /tmp/local/bin/initdb \
+  --locale C \
+  --encoding UTF-8 \
+  --set=enable_partitionwise_join=on \
+  --set=max_prepared_transactions=1 \
+  --set=random_page_cost=0 \
+  -D /tmp/local/var/lib/postgresql
 % /tmp/local/bin/postgres -D /tmp/local/var/lib/postgresql
 ```
 
@@ -49,6 +56,9 @@ PostgreSQLを初期化して実行します。
     /tmp/local/bin/initdb \
       --locale C \
       --encoding UTF-8 \
+      --set=enable_partitionwise_join=on \
+      --set=max_prepared_transactions=1 \
+      --set=random_page_cost=0 \
       -D /tmp/local/var/lib/postgresql && \
    /tmp/local/bin/postgres -D /tmp/local/var/lib/postgresql
 ```

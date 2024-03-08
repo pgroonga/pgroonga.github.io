@@ -45,8 +45,8 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 ## 参考
 
   * [`pgroonga_wal_applier` モジュール][pgroonga-wal-applier]
-  * [`pgroonga-wal-apply()` 関数][pgroonga-wal-apply]
-  * [`pgroonga-vacuum()` 関数][pgroonga-vacuum]
+  * [`pgroonga_wal_apply()` 関数][pgroonga-wal-apply]
+  * [`pgroonga_vacuum()` 関数][pgroonga-vacuum]
 
 
 [pgroonga-wal-applier]:./pgroonga-wal-applier.html

@@ -78,8 +78,8 @@ msgstr ""
 
 msgid ""
 "  * [The `pgroonga_wal_applier` module][pgroonga-wal-applier]\n"
-"  * [The `pgroonga-wal-apply()` function][pgroonga-wal-apply]\n"
-"  * [The `pgroonga-vacuum()` function][pgroonga-vacuum]"
+"  * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]\n"
+"  * [The `pgroonga_vacuum()` function][pgroonga-vacuum]"
 msgstr ""
 
 msgid ""

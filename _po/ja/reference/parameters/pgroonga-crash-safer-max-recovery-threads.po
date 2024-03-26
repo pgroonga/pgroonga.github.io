@@ -1,0 +1,84 @@
+# Japanese translations for PACKAGE package.
+# Copyright (C) 2024 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-03-26 06:58+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga_crash_safer.max_recovery_threads parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+msgid "# `pgroonga_crash_safer.max_recovery_threads` parameter"
+msgstr ""
+
+msgid "Since 3.1.9."
+msgstr "3.1.9で追加"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid "`pgroonga_crash_safer.max_recovery_threads` parameter specifies the number of threads for recovery of broken Groonga indexes."
+msgstr "`pgroonga_crash_safer.max_recovery_threads` パラメータは壊れたGroongaインデクスの復旧行うスレッド数を指定します。"
+
+msgid ""
+"* The default is `0`, which means disabled\n"
+"* Use all CPUs in the environment at `-1`\n"
+"* Use CPU for that number if `1` or later is set"
+msgstr ""
+"* デフォルトは `0` でこれは無効を意味します\n"
+"* 環境にあるすべてのCPUを使う場合は `-1` を設定します\n"
+"* `1` 以上の値を設定すると、設定された数のCPUを使います"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf` の場合"
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.max_recovery_threads = number_of_threads\n"
+"```"
+msgstr ""
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to specify `-1`:"
+msgstr "`-1` を指定する例です。"
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.max_recovery_threads = -1\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
+msgstr "  * [`pgroonga_crash_safer` モジュール][pgroonga-crash-safer]"
+
+msgid "  * [Crash safe][crash-safe]"
+msgstr "  * [クラッシュセーフ][crash-safe]"
+
+msgid "[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html"
+msgstr ""
+
+msgid "[crash-safe]:../crash-safe.html"
+msgstr ""

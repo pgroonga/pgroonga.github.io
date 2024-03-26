@@ -17,6 +17,15 @@ msgstr ""
 msgid "# News"
 msgstr ""
 
+msgid "## 3.1.9: 2024-03-27 {#version-3-1-9}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr ""
+
+msgid "  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-safer-max-recovery-threads] parameter to [`pgroonga-crash-safer`][pgroonga-crash-safer]."
+msgstr ""
+
 msgid "## 3.1.8: 2024-02-27 {#version-3-1-8}"
 msgstr ""
 

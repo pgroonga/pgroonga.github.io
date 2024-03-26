@@ -5,6 +5,12 @@ upper_level: ../
 
 # News
 
+## 3.1.9: 2024-03-27 {#version-3-1-9}
+
+### Improvements
+
+  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-safer-max-recovery-threads] parameter to [`pgroonga-crash-safer`][pgroonga-crash-safer].
+
 ## 3.1.8: 2024-02-27 {#version-3-1-8}
 
 ### Fixes
@@ -2172,6 +2178,7 @@ The first release!!!
 [pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html
+[pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-crash-safer-max-recovery-threads.html
 
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 

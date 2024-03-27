@@ -17,6 +17,15 @@ msgstr ""
 msgid "# News"
 msgstr ""
 
+msgid "## 3.1.9: 2024-03-27 {#version-3-1-9}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr ""
+
+msgid "  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-safer-max-recovery-threads] parameter to [`pgroonga-crash-safer`][pgroonga-crash-safer]."
+msgstr ""
+
 msgid "## 3.1.8: 2024-02-27 {#version-3-1-8}"
 msgstr ""
 
@@ -47,9 +56,6 @@ msgid "    3. We send the query same as 1. to PostgreSQL again."
 msgstr ""
 
 msgid "## 3.1.7: 2024-02-05 {#version-3-1-7}"
-msgstr ""
-
-msgid "### Improvements"
 msgstr ""
 
 msgid "  * PGroonga avoid blocking of process termination while [`pgroonga-crash-safer`][pgroonga-crash-safer] is flushing."
@@ -2565,7 +2571,8 @@ msgstr ""
 msgid ""
 "[pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html\n"
 "[pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html\n"
-"[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html"
+"[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html\n"
+"[pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-crash-safer-max-recovery-threads.html"
 msgstr ""
 
 msgid "[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html"

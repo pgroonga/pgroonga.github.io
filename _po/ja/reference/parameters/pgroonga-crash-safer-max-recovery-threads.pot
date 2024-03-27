@@ -1,0 +1,75 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga_crash_safer.max_recovery_threads parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+msgid "# `pgroonga_crash_safer.max_recovery_threads` parameter"
+msgstr ""
+
+msgid "Since 3.1.9."
+msgstr ""
+
+msgid "## Summary"
+msgstr ""
+
+msgid "`pgroonga_crash_safer.max_recovery_threads` parameter specifies the number of threads for recovery of broken Groonga indexes."
+msgstr ""
+
+msgid "* `0`: The default. It disables parallel recovery."
+msgstr ""
+
+msgid "* `-1`: Use the all CPUs in the environment."
+msgstr ""
+
+msgid "* `1` or larger: Use the specified number of CPUs."
+msgstr ""
+
+msgid "## Syntax"
+msgstr ""
+
+msgid "In `postgresql.conf`:"
+msgstr ""
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.max_recovery_threads = number_of_threads\n"
+"```"
+msgstr ""
+
+msgid "## Usage"
+msgstr ""
+
+msgid "Here is an example to specify `-1` to use all available CPUs:"
+msgstr ""
+
+msgid ""
+"```text\n"
+"pgroonga_crash_safer.max_recovery_threads = -1\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr ""
+
+msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]"
+msgstr ""
+
+msgid "  * [Crash safe][crash-safe]"
+msgstr ""
+
+msgid "[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html"
+msgstr ""
+
+msgid "[crash-safe]:../crash-safe.html"
+msgstr ""

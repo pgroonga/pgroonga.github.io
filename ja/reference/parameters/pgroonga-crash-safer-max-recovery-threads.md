@@ -20,7 +20,7 @@ upper_level: ../
 
 ## 構文
 
-`postgresql.conf` の場合
+`postgresql.conf`の場合：
 
 ```text
 pgroonga_crash_safer.max_recovery_threads = number_of_threads
@@ -36,7 +36,7 @@ pgroonga_crash_safer.max_recovery_threads = -1
 
 ## 参考
 
-  * [`pgroonga_crash_safer` モジュール][pgroonga-crash-safer]
+  * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]
 
   * [クラッシュセーフ][crash-safe]
 

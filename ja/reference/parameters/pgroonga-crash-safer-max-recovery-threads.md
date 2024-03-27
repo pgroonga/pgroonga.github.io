@@ -1,15 +1,15 @@
 ---
-title: "pgroonga_crash_safer.max_recovery_threads パラメータ"
+title: "pgroonga_crash_safer.max_recovery_threads パラメーター"
 upper_level: ../
 ---
 
-# `pgroonga_crash_safer.max_recovery_threads` パラメータ
+# `pgroonga_crash_safer.max_recovery_threads` パラメーター
 
 3.1.9で追加
 
 ## 概要
 
-`pgroonga_crash_safer.max_recovery_threads` パラメータは壊れたGroongaインデックスを復旧するスレッド数を指定します。
+`pgroonga_crash_safer.max_recovery_threads` パラメーターは壊れたGroongaインデックスを復旧するスレッド数を指定します。
 
 
 * `0`: デフォルト。シーケンシャルに復旧します。

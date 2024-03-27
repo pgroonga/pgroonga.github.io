@@ -58,9 +58,6 @@ msgstr ""
 msgid "## 3.1.7: 2024-02-05 {#version-3-1-7}"
 msgstr ""
 
-msgid "### Improvements"
-msgstr ""
-
 msgid "  * PGroonga avoid blocking of process termination while [`pgroonga-crash-safer`][pgroonga-crash-safer] is flushing."
 msgstr ""
 
@@ -2574,7 +2571,8 @@ msgstr ""
 msgid ""
 "[pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html\n"
 "[pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html\n"
-"[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html"
+"[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html\n"
+"[pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-crash-safer-max-recovery-threads.html"
 msgstr ""
 
 msgid "[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html"

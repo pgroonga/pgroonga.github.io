@@ -9,11 +9,14 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga_crash_safer.max_recovery_threads` パラメータは壊れたGroongaインデクスの復旧行うスレッド数を指定します。
+`pgroonga_crash_safer.max_recovery_threads` パラメータは壊れたGroongaインデックスの復旧行うスレッド数を指定します。
 
-* デフォルトは `0` でこれは無効を意味します
-* 環境にあるすべてのCPUを使う場合は `-1` を設定します
-* `1` 以上の値を設定すると、設定された数のCPUを使います
+
+* `0`: デフォルト。並列リカバリを無効にします。
+
+* `-1`: 環境にあるすべてのCPUを使用して並列リカバリをします。
+
+* `1` 以上の数値: 指定された数値のCPUを使用して並列リカバリをします。
 
 ## 構文
 
@@ -25,7 +28,7 @@ pgroonga_crash_safer.max_recovery_threads = number_of_threads
 
 ## 使い方
 
-`-1` を指定する例です。
+すべてのCPUを使用する `-1` を指定する例です。
 
 ```text
 pgroonga_crash_safer.max_recovery_threads = -1

@@ -26,10 +26,13 @@ msgstr ""
 msgid "`pgroonga_crash_safer.max_recovery_threads` parameter specifies the number of threads for recovery of broken Groonga indexes."
 msgstr ""
 
-msgid ""
-"* The default is `0`, which means disabled\n"
-"* Use all CPUs in the environment at `-1`\n"
-"* Use CPU for that number if `1` or later is set"
+msgid "* `0`: The default. It disables parallel recovery."
+msgstr ""
+
+msgid "* `-1`: Use the all CPUs in the environment."
+msgstr ""
+
+msgid "* `1` or larger: Use the specified number of CPUs."
 msgstr ""
 
 msgid "## Syntax"
@@ -47,7 +50,7 @@ msgstr ""
 msgid "## Usage"
 msgstr ""
 
-msgid "Here is an example to specify `-1`:"
+msgid "Here is an example to specify `-1` to use all available CPUs:"
 msgstr ""
 
 msgid ""

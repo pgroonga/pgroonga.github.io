@@ -11,9 +11,12 @@ Since 3.1.9.
 
 `pgroonga_crash_safer.max_recovery_threads` parameter specifies the number of threads for recovery of broken Groonga indexes.
 
-* The default is `0`, which means disabled
-* Use all CPUs in the environment at `-1`
-* Use CPU for that number if `1` or later is set
+
+* `0`: The default. It disables parallel recovery.
+
+* `-1`: Use the all CPUs in the environment.
+
+* `1` or larger: Use the specified number of CPUs.
 
 ## Syntax
 
@@ -25,7 +28,7 @@ pgroonga_crash_safer.max_recovery_threads = number_of_threads
 
 ## Usage
 
-Here is an example to specify `-1`:
+Here is an example to specify `-1` to use all available CPUs:
 
 ```text
 pgroonga_crash_safer.max_recovery_threads = -1

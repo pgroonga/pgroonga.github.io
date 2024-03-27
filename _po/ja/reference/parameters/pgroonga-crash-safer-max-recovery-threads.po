@@ -32,17 +32,21 @@ msgstr "3.1.9で追加"
 msgid "## Summary"
 msgstr "## 概要"
 
-msgid "`pgroonga_crash_safer.max_recovery_threads` parameter specifies the number of threads for recovery of broken Groonga indexes."
-msgstr "`pgroonga_crash_safer.max_recovery_threads` パラメータは壊れたGroongaインデクスの復旧行うスレッド数を指定します。"
-
 msgid ""
-"* The default is `0`, which means disabled\n"
-"* Use all CPUs in the environment at `-1`\n"
-"* Use CPU for that number if `1` or later is set"
+"`pgroonga_crash_safer.max_recovery_threads` parameter specifies the number "
+"of threads for recovery of broken Groonga indexes."
 msgstr ""
-"* デフォルトは `0` でこれは無効を意味します\n"
-"* 環境にあるすべてのCPUを使う場合は `-1` を設定します\n"
-"* `1` 以上の値を設定すると、設定された数のCPUを使います"
+"`pgroonga_crash_safer.max_recovery_threads` パラメータは壊れたGroongaインデッ"
+"クスの復旧行うスレッド数を指定します。"
+
+msgid "* `0`: The default. It disables parallel recovery."
+msgstr "* `0`: デフォルト。並列リカバリを無効にします。"
+
+msgid "* `-1`: Use the all CPUs in the environment."
+msgstr "* `-1`: 環境にあるすべてのCPUを使用して並列リカバリをします。"
+
+msgid "* `1` or larger: Use the specified number of CPUs."
+msgstr "* `1` 以上の数値: 指定された数値のCPUを使用して並列リカバリをします。"
 
 msgid "## Syntax"
 msgstr "## 構文"
@@ -59,8 +63,8 @@ msgstr ""
 msgid "## Usage"
 msgstr "## 使い方"
 
-msgid "Here is an example to specify `-1`:"
-msgstr "`-1` を指定する例です。"
+msgid "Here is an example to specify `-1` to use all available CPUs:"
+msgstr "すべてのCPUを使用する `-1` を指定する例です。"
 
 msgid ""
 "```text\n"

@@ -23,6 +23,9 @@ msgstr ""
 msgid "Here is a list of compatibility (\"o\" means \"compatible\" and \"x\" means \"incompatible\"):"
 msgstr ""
 
+msgid "  * 3.1.8 -> 3.1.9: o"
+msgstr ""
+
 msgid "  * 3.1.7 -> 3.1.8: o"
 msgstr ""
 

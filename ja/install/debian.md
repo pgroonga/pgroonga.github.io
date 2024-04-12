@@ -40,6 +40,8 @@ $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo ap
 
 ```console
 $ sudo apt update
+$ sudo apt install -y -V postgresql-16-pgdg-pgroonga
+Or
 $ sudo apt install -y -V postgresql-15-pgdg-pgroonga
 Or
 $ sudo apt install -y -V postgresql-14-pgdg-pgroonga
@@ -94,7 +96,11 @@ $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo ap
 
 ```console
 $ sudo apt update
-$ sudo apt install -y -V postgresql-{{ site.latest_postgresql_version }}-pgdg-pgroonga
+$ sudo apt install -y -V postgresql-15-pgdg-pgroonga
+Or
+$ sudo apt install -y -V postgresql-14-pgdg-pgroonga
+Or
+$ sudo apt install -y -V postgresql-13-pgdg-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

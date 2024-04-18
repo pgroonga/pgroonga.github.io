@@ -5,6 +5,21 @@ upper_level: ../
 
 # News
 
+## 3.2.0: 2024-04-18 {#version-3-2-0}
+
+### Fixes
+
+  * Fixed a crash on connection close.
+
+    This occurred when the connection was closed "during a transaction
+    and when releasing resources for a sequential search".
+
+    This was caused by a callback being run to release a sequential search
+    resource even though all resources had already been released.
+
+    Fixed unregistration of callbacks that are no longer needed when releasing
+    all resources.
+
 ## 3.1.9: 2024-03-27 {#version-3-1-9}
 
 ### Improvements

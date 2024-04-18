@@ -17,6 +17,30 @@ msgstr ""
 msgid "# News"
 msgstr ""
 
+msgid "## 3.2.0: 2024-04-18 {#version-3-2-0}"
+msgstr ""
+
+msgid "### Fixes"
+msgstr ""
+
+msgid "  * Fixed a crash on connection close."
+msgstr ""
+
+msgid ""
+"    This occurred when the connection was closed \"during a transaction\n"
+"    and when releasing resources for a sequential search\"."
+msgstr ""
+
+msgid ""
+"    This was caused by a callback being run to release a sequential search\n"
+"    resource even though all resources had already been released."
+msgstr ""
+
+msgid ""
+"    Fixed unregistration of callbacks that are no longer needed when releasing\n"
+"    all resources."
+msgstr ""
+
 msgid "## 3.1.9: 2024-03-27 {#version-3-1-9}"
 msgstr ""
 
@@ -27,9 +51,6 @@ msgid "  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-sa
 msgstr ""
 
 msgid "## 3.1.8: 2024-02-27 {#version-3-1-8}"
-msgstr ""
-
-msgid "### Fixes"
 msgstr ""
 
 msgid "  * Fixed a crash bug when the last cached sequential search datum was vacuumed that is happen every 100 queries."

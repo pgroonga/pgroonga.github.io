@@ -89,33 +89,12 @@ msgstr ""
 msgid "### Commands"
 msgstr "### コマンド"
 
-msgid "* gh"
-msgstr ""
-
-msgid "* dch"
-msgstr ""
-
-msgid "* rpm"
-msgstr ""
-
-msgid "* createrepo_c"
-msgstr ""
-
-msgid "* gpg2"
-msgstr ""
-
-msgid "Example of installation on Ubuntu."
-msgstr "Ubuntuにインストールする例"
+msgid "Some commands are required for the release, so install them."
+msgstr "リリースに必要なコマンドがあるのでインストールします。"
 
 msgid ""
 "```console\n"
-"$ sudo apt install -y -V \\\n"
-"  dh \\\n"
-"  devscripts \\\n"
-"  debhelper \\\n"
-"  rpm \\\n"
-"  createrepo-c \\\n"
-"  gnupg2\n"
+"$ ./setup-release.sh\n"
 "```"
 msgstr ""
 

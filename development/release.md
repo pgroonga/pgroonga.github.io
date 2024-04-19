@@ -39,28 +39,10 @@ Use the following enviroment values.
 
 ### Commands
 
-* gh
-
-* dch
-
-* dch
-
-* rpm
-
-* createrepo_c
-
-* gpg2
-
-Example of installation on Ubuntu.
+Some commands are required for the release, so install them.
 
 ```console
-$ sudo apt install -y -V \
-  dh \
-  devscripts \
-  debhelper \
-  rpm \
-  createrepo-c \
-  gnupg2
+$ ./setup-release.sh
 ```
 
 ## Bump version

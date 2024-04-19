@@ -39,28 +39,10 @@ GroongaのPPAのキーを指定します。
 
 ### コマンド
 
-* gh
-
-* dch
-
-* dch
-
-* rpm
-
-* createrepo_c
-
-* gpg2
-
-Ubuntuにインストールする例
+リリースに必要なコマンドがあるのでインストールします。
 
 ```console
-$ sudo apt install -y -V \
-  dh \
-  devscripts \
-  debhelper \
-  rpm \
-  createrepo-c \
-  gnupg2
+$ ./setup-release.sh
 ```
 
 ## バージョンをあげる

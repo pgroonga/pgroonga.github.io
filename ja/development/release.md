@@ -6,6 +6,8 @@ title: リリース
 
 ## 必要なもの
 
+### 環境変数
+
 以下の環境変数を使います。
 
 * `GROONGA_REPOSITORY`
@@ -28,6 +30,20 @@ title: リリース
 GroongaのPPAのキーを指定します。
 
 [Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
+
+* `GITHUB_ACCESS_TOKEN`
+
+  GitHubのアクセストークンを指定します。
+
+  [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+### コマンド
+
+リリースに必要なコマンドがあるのでインストールします。
+
+```console
+$ ./setup-release.sh
+```
 
 ## バージョンをあげる
 

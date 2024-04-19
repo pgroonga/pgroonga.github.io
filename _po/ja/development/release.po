@@ -1,12 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-04-13 07:36+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Japanese\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
+"Plural-Forms: nplurals=; plural=;\n"
 
 msgid ""
 "---\n"
@@ -23,7 +26,10 @@ msgstr "# リリース"
 msgid "## Requirements"
 msgstr "## 必要なもの"
 
-msgid "Use the following enviroment values."
+msgid "### Environment variables"
+msgstr "### 環境変数"
+
+msgid "Use the following environment variables."
 msgstr "以下の環境変数を使います。"
 
 msgid "* `GROONGA_REPOSITORY`"
@@ -64,6 +70,33 @@ msgid ""
 msgstr ""
 "[Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga."
 "org/ja/docs/contribution/development/release.html#ppa)を参照してください。"
+
+msgid "* `GITHUB_ACCESS_TOKEN`"
+msgstr ""
+
+msgid "  Specify a GitHub access token."
+msgstr "  GitHubのアクセストークンを指定します。"
+
+msgid ""
+"  [GitHub Managing your personal access tokens](https://docs.github.com/en/"
+"authentication/keeping-your-account-and-data-secure/managing-your-personal-"
+"access-tokens)"
+msgstr ""
+"  [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/"
+"authentication/keeping-your-account-and-data-secure/managing-your-personal-"
+"access-tokens)"
+
+msgid "### Commands"
+msgstr "### コマンド"
+
+msgid "Some commands are required for the release, so install them."
+msgstr "リリースに必要なコマンドがあるのでインストールします。"
+
+msgid ""
+"```console\n"
+"$ ./setup-release.sh\n"
+"```"
+msgstr ""
 
 msgid "## Bump version"
 msgstr "## バージョンをあげる"

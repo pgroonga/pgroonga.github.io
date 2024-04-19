@@ -6,7 +6,9 @@ title: Release
 
 ## Requirements
 
-Use the following enviroment values.
+### Environment variables
+
+Use the following environment variables.
 
 * `GROONGA_REPOSITORY`
 
@@ -28,6 +30,20 @@ Use the following enviroment values.
   Specify a key for PPA of Groonga.
 
   Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
+
+* `GITHUB_ACCESS_TOKEN`
+
+  Specify a GitHub access token.
+
+  [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+### Commands
+
+Some commands are required for the release, so install them.
+
+```console
+$ ./setup-release.sh
+```
 
 ## Bump version
 

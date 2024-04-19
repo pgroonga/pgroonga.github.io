@@ -19,7 +19,10 @@ msgstr ""
 msgid "## Requirements"
 msgstr ""
 
-msgid "Use the following enviroment values."
+msgid "### Environment variables"
+msgstr ""
+
+msgid "Use the following environment variables."
 msgstr ""
 
 msgid "* `GROONGA_REPOSITORY`"
@@ -50,6 +53,27 @@ msgid "  Specify a key for PPA of Groonga."
 msgstr ""
 
 msgid "  Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa)."
+msgstr ""
+
+msgid "* `GITHUB_ACCESS_TOKEN`"
+msgstr ""
+
+msgid "  Specify a GitHub access token."
+msgstr ""
+
+msgid "  [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)"
+msgstr ""
+
+msgid "### Commands"
+msgstr ""
+
+msgid "Some commands are required for the release, so install them."
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ ./setup-release.sh\n"
+"```"
 msgstr ""
 
 msgid "## Bump version"

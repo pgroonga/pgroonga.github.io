@@ -33,9 +33,9 @@ GroongaのPPAのキーを指定します。
 
 * `GITHUB_ACCESS_TOKEN`
 
-GitHubのアクセストークンを指定します。
+  GitHubのアクセストークンを指定します。
 
-[GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+  [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
 ### コマンド
 

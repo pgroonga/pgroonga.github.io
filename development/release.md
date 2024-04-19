@@ -33,9 +33,9 @@ Use the following enviroment values.
 
 * `GITHUB_ACCESS_TOKEN`
 
-   Specify a GitHub access token.
+  Specify a GitHub access token.
 
-   [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+  [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
 ### Commands
 

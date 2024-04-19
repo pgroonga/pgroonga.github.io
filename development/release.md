@@ -6,6 +6,8 @@ title: Release
 
 ## Requirements
 
+### Enviroment values
+
 Use the following enviroment values.
 
 * `GROONGA_REPOSITORY`
@@ -28,6 +30,38 @@ Use the following enviroment values.
   Specify a key for PPA of Groonga.
 
   Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
+
+* `GITHUB_ACCESS_TOKEN`
+
+   Specify a GitHub access token.
+
+   [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+### Commands
+
+* gh
+
+* dch
+
+* dch
+
+* rpm
+
+* createrepo_c
+
+* gpg2
+
+Example of installation on Ubuntu.
+
+```console
+$ sudo apt install -y -V \
+  dh \
+  devscripts \
+  debhelper \
+  rpm \
+  createrepo-c \
+  gnupg2
+```
 
 ## Bump version
 

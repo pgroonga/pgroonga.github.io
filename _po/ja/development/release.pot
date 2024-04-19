@@ -19,10 +19,10 @@ msgstr ""
 msgid "## Requirements"
 msgstr ""
 
-msgid "### Enviroment values"
+msgid "### Environment variables"
 msgstr ""
 
-msgid "Use the following enviroment values."
+msgid "Use the following environment variables."
 msgstr ""
 
 msgid "* `GROONGA_REPOSITORY`"

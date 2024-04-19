@@ -6,9 +6,9 @@ title: Release
 
 ## Requirements
 
-### Enviroment values
+### Environment variables
 
-Use the following enviroment values.
+Use the following environment variables.
 
 * `GROONGA_REPOSITORY`
 

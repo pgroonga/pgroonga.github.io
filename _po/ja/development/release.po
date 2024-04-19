@@ -26,10 +26,10 @@ msgstr "# リリース"
 msgid "## Requirements"
 msgstr "## 必要なもの"
 
-msgid "### Enviroment values"
+msgid "### Environment variables"
 msgstr "### 環境変数"
 
-msgid "Use the following enviroment values."
+msgid "Use the following environment variables."
 msgstr "以下の環境変数を使います。"
 
 msgid "* `GROONGA_REPOSITORY`"

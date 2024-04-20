@@ -63,39 +63,11 @@ We confirm below CIs green or not.
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## Check whether we can build packages on `nightly` repository of launchpad.net
-
-For Ubuntu, packages are provided by PPA on launchpad.net.
-
-We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-ppa] repositories on launchpad.net.
-`nightly` is for testing, and `ppa` is for distributing.
-
-We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
-
-* Create archive file and upload to the `nightly` repository
-
-  ```console
-  $ rake dist
-  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING="~groonga/ubuntu/nightly" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
-  ```
-
-* Check the build result
-
-  When uploading packages into the `nightly` repository is succeeded, 
-  a package build process is executed on launchpad.net.
-  Then the build result is notified via E-mail if the build fails.
-
 ## Tagging for the release
 
 ```console
 $ rake tag
 ```
-
-## Download an archive file
-
-Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the 
-[GitHub Releases page][pgroonga-releases-page]
-and move it to a working directory of your local PGroonga repository.
 
 ## Upload an archive file
 
@@ -171,10 +143,6 @@ We also update below items in `_config.yml`.
 
   * PostgreSQL for FreeBSD latest version.
 
-* `amazon_linux_postgresql_version`:
-
-  * PostgreSQL for AmazonLinux latest version.
-
 * `development_postgresql_version`:
 
   * PostgreSQL latest version (include minor version).
@@ -235,10 +203,6 @@ Please contact a project member in order to join `PGroonga project`.
 
 * [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
 * [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)
-
-### Announce release for GitHub Discussions
-
-We make release announcement in [GitHub Discussions][pgroonga-github-discussions-releases].
 
 ### Announce release for blog
 

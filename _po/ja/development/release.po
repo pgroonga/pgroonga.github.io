@@ -125,54 +125,6 @@ msgstr "以下のCIがグリーンかどうかを確認します。"
 msgid "* [GitHub Actions][github-actions-pgroonga]"
 msgstr ""
 
-msgid ""
-"## Check whether we can build packages on `nightly` repository of launchpad."
-"net"
-msgstr "## launchpad.netの `nightly` リポジトリーでビルドができるか確認"
-
-msgid "For Ubuntu, packages are provided by PPA on launchpad.net."
-msgstr "Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。"
-
-msgid ""
-"We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-"
-"ppa] repositories on launchpad.net.\n"
-"`nightly` is for testing, and `ppa` is for distributing."
-msgstr ""
-"launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa]"
-"[launchpad-groonga-ppa]リポジトリーがあります。\n"
-"`nightly` はテスト用で、 `ppa` は配布用です。"
-
-msgid ""
-"We should test whether we can build packages for Ubuntu on the `nightly` "
-"repository before tagging."
-msgstr ""
-"タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるか"
-"どうかを確認します。"
-
-msgid "* Create archive file and upload to the `nightly` repository"
-msgstr "アーカイブファイルの作成、 `nightly` リポジトリーへのアップロード"
-
-msgid ""
-"  ```console\n"
-"  $ rake dist\n"
-"  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly "
-"DPUT_INCOMING=\"~groonga/ubuntu/nightly\" "
-"LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
-"  ```"
-msgstr ""
-
-msgid "* Check the build result"
-msgstr "* ビルド結果の確認"
-
-msgid ""
-"  When uploading packages into the `nightly` repository is succeeded, \n"
-"  a package build process is executed on launchpad.net.\n"
-"  Then the build result is notified via E-mail if the build fails."
-msgstr ""
-"  `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド が"
-"launchpad.net上で実行されます。\n"
-"  パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。"
-
 msgid "## Tagging for the release"
 msgstr "## リリース用にタグを打つ"
 
@@ -181,18 +133,6 @@ msgid ""
 "$ rake tag\n"
 "```"
 msgstr ""
-
-msgid "## Download an archive file"
-msgstr "## アーカイブファイルのダウンロード"
-
-msgid ""
-"Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the \n"
-"[GitHub Releases page][pgroonga-releases-page]\n"
-"and move it to a working directory of your local PGroonga repository."
-msgstr ""
-"アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を[GitHub Releases ページ]"
-"[pgroonga-releases-page]からダウンロードし、それをローカルのPGroongaのリポジ"
-"トリーのワーキングディレクトリーに移動します。"
 
 msgid "## Upload an archive file"
 msgstr "## アーカイブファイルのアップロード"
@@ -218,6 +158,9 @@ msgstr ""
 msgid "### Ubuntu"
 msgstr ""
 
+msgid "For Ubuntu, packages are provided by PPA on launchpad.net."
+msgstr "Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。"
+
 msgid "* Upload to the `ppa` repository"
 msgstr "* `ppa` リポジトリーにアップロード"
 
@@ -226,6 +169,9 @@ msgid ""
 "  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
 "  ```"
 msgstr ""
+
+msgid "* Check the build result"
+msgstr "* ビルド結果の確認"
 
 msgid ""
 "  When upload packages succeeded, a package build process is executed on "
@@ -312,12 +258,6 @@ msgstr ""
 
 msgid "  * PostgreSQL for FreeBSD latest version."
 msgstr " * FreeBSD版のPostgreSQLの最新バージョン"
-
-msgid "* `amazon_linux_postgresql_version`:"
-msgstr ""
-
-msgid "  * PostgreSQL for AmazonLinux latest version."
-msgstr " * AmazonLinux版のPostgreSQLの最新バージョン"
 
 msgid "* `development_postgresql_version`:"
 msgstr ""
@@ -440,16 +380,6 @@ msgstr ""
 "* [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga]"
 "(https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) "
 "(PGroongaのアナウンスのアーカイブ)"
-
-msgid "### Announce release for GitHub Discussions"
-msgstr "## GitHub Discussions"
-
-msgid ""
-"We make release announcement in [GitHub Discussions][pgroonga-github-"
-"discussions-releases]."
-msgstr ""
-"[GitHub Discussions][pgroonga-github-discussions-releases]にリリースアナウン"
-"スを作成します。"
 
 msgid "### Announce release for blog"
 msgstr "### ブログ"

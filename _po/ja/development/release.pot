@@ -103,39 +103,6 @@ msgstr ""
 msgid "* [GitHub Actions][github-actions-pgroonga]"
 msgstr ""
 
-msgid "## Check whether we can build packages on `nightly` repository of launchpad.net"
-msgstr ""
-
-msgid "For Ubuntu, packages are provided by PPA on launchpad.net."
-msgstr ""
-
-msgid ""
-"We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-ppa] repositories on launchpad.net.\n"
-"`nightly` is for testing, and `ppa` is for distributing."
-msgstr ""
-
-msgid "We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging."
-msgstr ""
-
-msgid "* Create archive file and upload to the `nightly` repository"
-msgstr ""
-
-msgid ""
-"  ```console\n"
-"  $ rake dist\n"
-"  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING=\"~groonga/ubuntu/nightly\" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
-"  ```"
-msgstr ""
-
-msgid "* Check the build result"
-msgstr ""
-
-msgid ""
-"  When uploading packages into the `nightly` repository is succeeded, \n"
-"  a package build process is executed on launchpad.net.\n"
-"  Then the build result is notified via E-mail if the build fails."
-msgstr ""
-
 msgid "## Tagging for the release"
 msgstr ""
 
@@ -143,15 +110,6 @@ msgid ""
 "```console\n"
 "$ rake tag\n"
 "```"
-msgstr ""
-
-msgid "## Download an archive file"
-msgstr ""
-
-msgid ""
-"Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the \n"
-"[GitHub Releases page][pgroonga-releases-page]\n"
-"and move it to a working directory of your local PGroonga repository."
 msgstr ""
 
 msgid "## Upload an archive file"
@@ -178,6 +136,9 @@ msgstr ""
 msgid "### Ubuntu"
 msgstr ""
 
+msgid "For Ubuntu, packages are provided by PPA on launchpad.net."
+msgstr ""
+
 msgid "* Upload to the `ppa` repository"
 msgstr ""
 
@@ -185,6 +146,9 @@ msgid ""
 "  ```console\n"
 "  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx\n"
 "  ```"
+msgstr ""
+
+msgid "* Check the build result"
 msgstr ""
 
 msgid ""
@@ -257,12 +221,6 @@ msgid "* `freebsd_postgresql_version`:"
 msgstr ""
 
 msgid "  * PostgreSQL for FreeBSD latest version."
-msgstr ""
-
-msgid "* `amazon_linux_postgresql_version`:"
-msgstr ""
-
-msgid "  * PostgreSQL for AmazonLinux latest version."
 msgstr ""
 
 msgid "* `development_postgresql_version`:"
@@ -352,12 +310,6 @@ msgstr ""
 msgid ""
 "* [https://www.postgresql.org/list/](https://www.postgresql.org/list/)\n"
 "* [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)"
-msgstr ""
-
-msgid "### Announce release for GitHub Discussions"
-msgstr ""
-
-msgid "We make release announcement in [GitHub Discussions][pgroonga-github-discussions-releases]."
 msgstr ""
 
 msgid "### Announce release for blog"

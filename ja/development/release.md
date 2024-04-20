@@ -63,36 +63,11 @@ $ rake package:version:update
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## launchpad.netの `nightly` リポジトリーでビルドができるか確認
-
-Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
-
-launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa][launchpad-groonga-ppa]リポジトリーがあります。
-`nightly` はテスト用で、 `ppa` は配布用です。
-
-タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
-
-アーカイブファイルの作成、 `nightly` リポジトリーへのアップロード
-
-  ```console
-  $ rake dist
-  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING="~groonga/ubuntu/nightly" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
-  ```
-
-* ビルド結果の確認
-
-  `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド がlaunchpad.net上で実行されます。
-  パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。
-
 ## リリース用にタグを打つ
 
 ```console
 $ rake tag
 ```
-
-## アーカイブファイルのダウンロード
-
-アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を[GitHub Releases ページ][pgroonga-releases-page]からダウンロードし、それをローカルのPGroongaのリポジトリーのワーキングディレクトリーに移動します。
 
 ## アーカイブファイルのアップロード
 
@@ -166,10 +141,6 @@ Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクシ
 
  * FreeBSD版のPostgreSQLの最新バージョン
 
-* `amazon_linux_postgresql_version`:
-
- * AmazonLinux版のPostgreSQLの最新バージョン
-
 * `development_postgresql_version`:
 
  * マイナーバージョンを含むPostgreSQLの最新バージョン
@@ -230,10 +201,6 @@ $ git push --tags
 
 * [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
 * [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (PGroongaのアナウンスのアーカイブ)
-
-## GitHub Discussions
-
-[GitHub Discussions][pgroonga-github-discussions-releases]にリリースアナウンスを作成します。
 
 ### ブログ
 

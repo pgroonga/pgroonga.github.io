@@ -9,6 +9,8 @@ You can upgrade PGroonga without recreating PGroonga indexes when new version do
 
 Here is a list of compatibility ("o" means "compatible" and "x" means "incompatible"):
 
+  * 3.1.9 -> 3.2.0: o
+
   * 3.1.8 -> 3.1.9: o
 
   * 3.1.7 -> 3.1.8: o

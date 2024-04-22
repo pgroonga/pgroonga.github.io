@@ -49,12 +49,14 @@ $ ./setup-release.sh
 
 ```console
 $ rake version:update NEW_VERSION=x.x.x
+$ git push
 ```
 
 ## Update change log for deb and RPM packages
 
 ```console
 $ rake package:version:update
+$ git push
 ```
 
 ## Check whether we can make packages or not
@@ -179,7 +181,7 @@ $ rm -rf ~/work/pgroonga/docker.clean
 $ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
 $ cd ~/work/pgroonga/docker.clean
 $ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
-$ git push --tags
+$ git push
 ```
 
 You have to specify the latest versions.

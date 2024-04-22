@@ -45,13 +45,6 @@ Some commands are required for the release, so install them.
 $ ./setup-release.sh
 ```
 
-## Bump version
-
-```console
-$ rake version:update NEW_VERSION=x.x.x
-$ git push
-```
-
 ## Update change log for deb and RPM packages
 
 ```console
@@ -112,6 +105,15 @@ $ rake package:yum
 For Windows packages, we don't need to execute anything.
 
 Windows packages are uploaded automatically by actions of [GitHub Actions][github-actions-pgroonga].
+
+## Bump version
+
+We will bump up the version for the next release.
+
+```console
+$ rake version:update NEW_VERSION=x.x.x
+$ git push
+```
 
 ## Describe the changes
 

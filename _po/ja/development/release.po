@@ -95,16 +95,6 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## Bump version"
-msgstr "## バージョンをあげる"
-
-msgid ""
-"```console\n"
-"$ rake version:update NEW_VERSION=x.x.x\n"
-"$ git push\n"
-"```"
-msgstr ""
-
 msgid "## Update change log for deb and RPM packages"
 msgstr "## debとRPMのパッケージの変更履歴を更新"
 
@@ -205,6 +195,19 @@ msgid ""
 msgstr ""
 "Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクションで"
 "自動でアップロードされます。"
+
+msgid "## Bump version"
+msgstr "## バージョンをあげる"
+
+msgid "We will bump up the version for the next release."
+msgstr "次のリリースに向けてバージョンをあげます。"
+
+msgid ""
+"```console\n"
+"$ rake version:update NEW_VERSION=x.x.x\n"
+"$ git push\n"
+"```"
+msgstr ""
 
 msgid "## Describe the changes"
 msgstr "## 変更点を記述"

@@ -51,7 +51,7 @@ $ ./setup-release.sh
 $ rake version:update NEW_VERSION=x.x.x
 ```
 
-## Update change log for Debian and CentOS packages
+## Update change log for deb and RPM packages
 
 ```console
 $ rake package:version:update
@@ -77,7 +77,7 @@ $ rake package:source
 
 ## Create packages for the release
 
-### Debian GNU/Linux
+### deb
 
 ```console
 $ rake package:apt
@@ -99,7 +99,7 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
   Then the build result is notified via E-mail if the build fails.
   We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
-### CentOS
+### RPM
 
 ```console
 $ rake package:yum
@@ -157,7 +157,7 @@ Clone the packages.groonga.org repository:
 $ git clone git@github.com:groonga/packages.groonga.org.git
 ```
 
-Update repositories for Debian GNU/Linux and CentOS:
+Update repositories for deb and RPM:
 
 ```console
 $ cd packages.groonga.org

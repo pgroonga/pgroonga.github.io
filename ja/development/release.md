@@ -51,7 +51,7 @@ $ ./setup-release.sh
 $ rake version:update NEW_VERSION=x.x.x
 ```
 
-## DebianとCentOSのパッケージの変更履歴を更新
+## debとRPMのパッケージの変更履歴を更新
 
 ```console
 $ rake package:version:update
@@ -77,7 +77,7 @@ $ rake package:source
 
 ## リリース用パッケージを作成
 
-### Debian GNU/Linux
+### deb
 
 ```console
 $ rake package:apt
@@ -97,7 +97,7 @@ Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
   パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
 
-### CentOS
+### RPM
 
 ```console
 $ rake package:yum
@@ -155,7 +155,7 @@ packages.groonga.orgリポジトリーをクローンします。
 $ git clone git@github.com:groonga/packages.groonga.org.git
 ```
 
-Debian GNU/LinuxとCentOS用にリポジトリーを更新します。
+debとRPM用にリポジトリーを更新します。
 
 ```console
 $ cd packages.groonga.org

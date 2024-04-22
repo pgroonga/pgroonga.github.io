@@ -45,13 +45,6 @@ GroongaのPPAのキーを指定します。
 $ ./setup-release.sh
 ```
 
-## バージョンをあげる
-
-```console
-$ rake version:update NEW_VERSION=x.x.x
-$ git push
-```
-
 ## debとRPMのパッケージの変更履歴を更新
 
 ```console
@@ -110,6 +103,15 @@ $ rake package:yum
 Windowsパッケージについては、何もする必要はありません。
 
 Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクションで自動でアップロードされます。
+
+## バージョンをあげる
+
+次のリリースに向けてバージョンをあげます。
+
+```console
+$ rake version:update NEW_VERSION=x.x.x
+$ git push
+```
 
 ## 変更点を記述
 

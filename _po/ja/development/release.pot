@@ -76,16 +76,6 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## Bump version"
-msgstr ""
-
-msgid ""
-"```console\n"
-"$ rake version:update NEW_VERSION=x.x.x\n"
-"$ git push\n"
-"```"
-msgstr ""
-
 msgid "## Update change log for deb and RPM packages"
 msgstr ""
 
@@ -175,6 +165,19 @@ msgid "For Windows packages, we don't need to execute anything."
 msgstr ""
 
 msgid "Windows packages are uploaded automatically by actions of [GitHub Actions][github-actions-pgroonga]."
+msgstr ""
+
+msgid "## Bump version"
+msgstr ""
+
+msgid "We will bump up the version for the next release."
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ rake version:update NEW_VERSION=x.x.x\n"
+"$ git push\n"
+"```"
 msgstr ""
 
 msgid "## Describe the changes"

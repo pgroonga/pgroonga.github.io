@@ -85,7 +85,7 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## Update change log for Debian and CentOS packages"
+msgid "## Update change log for deb and RPM packages"
 msgstr ""
 
 msgid ""
@@ -124,7 +124,7 @@ msgstr ""
 msgid "## Create packages for the release"
 msgstr ""
 
-msgid "### Debian GNU/Linux"
+msgid "### deb"
 msgstr ""
 
 msgid ""
@@ -157,7 +157,7 @@ msgid ""
 "  We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa]."
 msgstr ""
 
-msgid "### CentOS"
+msgid "### RPM"
 msgstr ""
 
 msgid ""
@@ -244,7 +244,7 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Update repositories for Debian GNU/Linux and CentOS:"
+msgid "Update repositories for deb and RPM:"
 msgstr ""
 
 msgid ""

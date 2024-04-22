@@ -107,8 +107,8 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "## Update change log for Debian and CentOS packages"
-msgstr "## DebianとCentOSのパッケージの変更履歴を更新"
+msgid "## Update change log for deb and RPM packages"
+msgstr "## debとRPMのパッケージの変更履歴を更新"
 
 msgid ""
 "```console\n"
@@ -146,7 +146,7 @@ msgstr ""
 msgid "## Create packages for the release"
 msgstr "## リリース用パッケージを作成"
 
-msgid "### Debian GNU/Linux"
+msgid "### deb"
 msgstr ""
 
 msgid ""
@@ -185,7 +185,7 @@ msgstr ""
 "成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストール"
 "できます。"
 
-msgid "### CentOS"
+msgid "### RPM"
 msgstr ""
 
 msgid ""
@@ -280,8 +280,8 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "Update repositories for Debian GNU/Linux and CentOS:"
-msgstr "Debian GNU/LinuxとCentOS用にリポジトリーを更新します。"
+msgid "Update repositories for deb and RPM:"
+msgstr "debとRPM用にリポジトリーを更新します。"
 
 msgid ""
 "```console\n"

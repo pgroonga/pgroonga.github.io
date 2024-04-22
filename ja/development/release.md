@@ -49,12 +49,14 @@ $ ./setup-release.sh
 
 ```console
 $ rake version:update NEW_VERSION=x.x.x
+$ git push
 ```
 
 ## debとRPMのパッケージの変更履歴を更新
 
 ```console
 $ rake package:version:update
+$ git push
 ```
 
 ## パッケージ作成可能かどうか確認
@@ -177,7 +179,7 @@ $ rm -rf ~/work/pgroonga/docker.clean
 $ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
 $ cd ~/work/pgroonga/docker.clean
 $ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
-$ git push --tags
+$ git push
 ```
 
 作業時には最新のバージョンを指定してください。

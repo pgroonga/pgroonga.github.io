@@ -5,7 +5,7 @@ pgroonga_version: 3.2.0
 pgroonga_release_date: 2024-04-18
 postgresql_doc_base_url:
   en: https://www.postgresql.org/docs/16
-  ja: https://www.postgresql.jp/document/15/html
+  ja: https://www.postgresql.jp/document/16/html
 windows_postgresql_versions:
   - 12
   - 13
@@ -16,8 +16,8 @@ latest_postgresql_version: 16
 # This must be synchronized with PGSQL_DEFAULT in
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/bsd.default-versions.mk
 # .
-freebsd_postgresql_version: 13
-development_postgresql_version: 16.2
+freebsd_postgresql_version: 15
+development_postgresql_version: 16.3
 exclude:
   - "Gemfile"
   - "Gemfile.lock"

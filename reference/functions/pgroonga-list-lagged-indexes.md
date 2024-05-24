@@ -7,7 +7,7 @@ upper_level: ../
 
 ## Summary
 
-`pgroonga_list_lagged_indexes` function display a index of PGroonga with unapplied WAL.
+`pgroonga_list_lagged_indexes` function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).
 
 Specifically, it displays the following cases:
 
@@ -24,10 +24,10 @@ Specifically, it displays the following cases:
 Here is the syntax of this function:
 
 ```text
-SETOF RECORD pgroonga_list_lagged_indexes()
+SETOF text pgroonga_list_lagged_indexes()
 ```
 
-It gets the index of PGroonga with unapplied WAL.
+It gets the index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).
 
 It returns the following records:
 
@@ -46,7 +46,7 @@ SELECT * FROM pgroonga_list_lagged_indexes();
 
 ## Example
 
-It is assumed that streaming replication and [`pgroonga.enable_wal = yes`][enable-wal] have already been set up.
+It is assumed that [streaming replication][streaming-replication] and [`pgroonga.enable_wal = yes`][enable-wal] have already been set up.
 
 ### Run in primary
 
@@ -63,7 +63,7 @@ CREATE INDEX pgrn_tags_index ON tags USING PGroonga (name);
 
 ### Run in standby
 
-WAL not applied:
+PGroonga WAL not applied:
 
 ```sql
 SELECT name,
@@ -88,7 +88,7 @@ SELECT name FROM pgroonga_list_lagged_indexes();
 (2 rows)
 ```
 
-WAL already applied in some PGroonga indexes:
+PGroonga WAL already applied in some PGroonga indexes:
 
 ```sql
 SELECT * FROM tags WHERE name &@ 'dummy';
@@ -117,7 +117,7 @@ SELECT name FROM pgroonga_list_lagged_indexes();
 (1 row)
 ```
 
-WAL is applied to all PGroonga indexes:
+PGroonga WAL is applied to all PGroonga indexes:
 
 ```sql
 SELECT pgroonga_wal_apply();
@@ -152,6 +152,10 @@ SELECT name FROM pgroonga_list_lagged_indexes();
 
   * [`pgroonga.enable_wal` parameter][enable-wal]
 
-[wal-status]:pgroonga-wal-status.html
 [enable-wal]:../parameters/enable-wal.html
-[pg-stat-wal-receiver]:https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-WAL-RECEIVER-VIEW
+
+[pg-stat-wal-receiver]:{{ site.postgresql_doc_base_url.en }}/monitoring-stats.html#MONITORING-PG-STAT-WAL-RECEIVER-VIEW
+
+[streaming-replication]:streaming-replication.html
+
+[wal-status]:pgroonga-wal-status.html

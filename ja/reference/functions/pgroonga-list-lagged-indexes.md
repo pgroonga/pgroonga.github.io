@@ -7,7 +7,7 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga_list_lagged_indexes` 関数は未適用のWALがあるPGroongaのインデックスを表示します。
+`pgroonga_list_lagged_indexes` 関数は未適用の（PostgreSQLのWALではなく）PGroongaのWALがあるPGroongaのインデックスを表示します。
 
 具体的には以下の場合に表示します。
 
@@ -24,10 +24,10 @@ upper_level: ../
 この関数の構文は次の通りです。
 
 ```text
-SETOF RECORD pgroonga_list_lagged_indexes()
+SETOF text pgroonga_list_lagged_indexes()
 ```
 
-この関数は未適用のWALがあるPGroongaのインデックスを取得します。
+この関数は未適用の（PostgreSQLのWALではなく）PGroongaのWALがあるPGroongaのインデックスを取得します。
 
 以下のようなレコードを返します。
 
@@ -46,7 +46,7 @@ SELECT * FROM pgroonga_list_lagged_indexes();
 
 ## 実行例
 
-ストリーミングレプリケーションの設定や [`pgroonga.enable_wal = yes`][enable-wal] の設定は済んでいるものとして例を記載します。
+[ストリーミングレプリケーションの設定][streaming-replication]や [`pgroonga.enable_wal = yes`][enable-wal] の設定は済んでいるものとして例を記載します。
 
 ### プライマリーで実行
 
@@ -63,7 +63,7 @@ CREATE INDEX pgrn_tags_index ON tags USING PGroonga (name);
 
 ### スタンバイで実行
 
-WALが未適用の状態。
+PGroongaのWALが未適用の状態。
 
 ```sql
 SELECT name,
@@ -88,7 +88,7 @@ SELECT name FROM pgroonga_list_lagged_indexes();
 (2 rows)
 ```
 
-一部のPGroongaインデックスでWALが適用済。
+一部のPGroongaインデックスでPGroongaのWALが適用済。
 
 ```sql
 SELECT * FROM tags WHERE name &@ 'dummy';
@@ -117,7 +117,7 @@ SELECT name FROM pgroonga_list_lagged_indexes();
 (1 row)
 ```
 
-すべてのPGroongaインデックスでWALが適用済。
+すべてのPGroongaインデックスでPGroongaのWALが適用済。
 
 ```sql
 SELECT pgroonga_wal_apply();
@@ -152,6 +152,10 @@ SELECT name FROM pgroonga_list_lagged_indexes();
 
   * [`pgroonga.enable_wal` パラメーター][enable-wal]
 
-[wal-status]:pgroonga-wal-status.html
 [enable-wal]:../parameters/enable-wal.html
-[pg-stat-wal-receiver]:https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-WAL-RECEIVER-VIEW
+
+[pg-stat-wal-receiver]:{{ site.postgresql_doc_base_url.ja }}/monitoring-stats.html#MONITORING-PG-STAT-WAL-RECEIVER-VIEW
+
+[streaming-replication]:streaming-replication.html
+
+[wal-status]:pgroonga-wal-status.html

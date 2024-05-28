@@ -1,5 +1,5 @@
 ---
-title: pgroonga_list_lagged_indexes function
+title: pgroonga_list_lagged_indexes 関数
 upper_level: ../
 ---
 

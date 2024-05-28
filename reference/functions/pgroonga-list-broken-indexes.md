@@ -40,7 +40,7 @@ It returns the following records:
 ## Usage
 
 ```sql
-SELECT * FROM pgroonga_list_broken_indexes();
+SELECT pgroonga_list_broken_indexes();
 ```
 
 ## Example
@@ -57,7 +57,7 @@ CREATE INDEX pgrn_memos_index ON memos USING PGroonga (content);
 No possibility of broken:
 
 ```sql
-SELECT * FROM pgroonga_list_broken_indexes();
+SELECT pgroonga_list_broken_indexes();
  pgroonga_list_broken_indexes
 ------------------------------
 (0 rows)
@@ -75,7 +75,7 @@ SELECT pgroonga_command(
  [[0,1716796614.02342,6.723403930664062e-05],true]
 (1 row)
 
-SELECT * FROM pgroonga_list_broken_indexes();
+SELECT pgroonga_list_broken_indexes();
  pgroonga_list_broken_indexes 
 ------------------------------
  pgrn_memos_index
@@ -94,7 +94,7 @@ SELECT pgroonga_command(
  [[0,1716796558.739785,4.720687866210938e-05],true]
 (1 row)
 
-SELECT * FROM pgroonga_list_broken_indexes();
+SELECT pgroonga_list_broken_indexes();
  pgroonga_list_broken_indexes 
 ------------------------------
 (0 rows)

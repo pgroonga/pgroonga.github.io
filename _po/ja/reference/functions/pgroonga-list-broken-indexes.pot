@@ -32,7 +32,7 @@ msgstr ""
 msgid "1. The lock remains"
 msgstr ""
 
-msgid "2. DB file not created"
+msgid "2. Some needed files don't exist"
 msgstr ""
 
 msgid "Note that this is a simple check and may not detect broken indexes."

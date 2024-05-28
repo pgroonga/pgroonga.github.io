@@ -15,7 +15,7 @@ Therefore, those conditions are considered as broken and detected.
 
 1. The lock remains
 
-2. DB file not created
+2. Some needed files don't exist
 
 Note that this is a simple check and may not detect broken indexes.
 

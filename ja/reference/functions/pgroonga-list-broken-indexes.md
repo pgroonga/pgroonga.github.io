@@ -1,5 +1,5 @@
 ---
-title: pgroonga_list_broken_indexes function
+title: pgroonga_list_broken_indexes 関数
 upper_level: ../
 ---
 
@@ -13,7 +13,7 @@ upper_level: ../
 
 1. ロックが残留する
 
-2. DBファイルが生成されない
+2. あるべきファイルが存在しない
 
 簡易的なチェックのため破損していても検出できない場合があることに注意してください。
 

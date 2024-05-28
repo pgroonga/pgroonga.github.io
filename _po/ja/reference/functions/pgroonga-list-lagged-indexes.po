@@ -55,7 +55,7 @@ msgstr ""
 "`latest_end_lsn` が異なる場合"
 
 msgid "   * Displays all PGroonga indexes"
-msgstr "   * すべてのGroongaのインデックスを表示します"
+msgstr "   * すべてのPGroongaのインデックスを表示します"
 
 msgid "## Syntax"
 msgstr "## 構文"

@@ -17,7 +17,7 @@ upper_level: ../
 
 2. [`pg_stat_wal_receiver`][pg-stat-wal-receiver] の `flushed_lsn` と `latest_end_lsn` が異なる場合
 
-   * すべてのGroongaのインデックスを表示します
+   * すべてのPGroongaのインデックスを表示します
 
 ## 構文
 

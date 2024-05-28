@@ -32,8 +32,8 @@ SETOF text pgroonga_list_lagged_indexes()
 以下のようなレコードを返します。
 
 ```sql
-       name
-------------------
+ pgroonga_list_lagged_indexes
+------------------------------
  pgrn_memos_index
  pgrn_tags_index
 ```
@@ -41,7 +41,7 @@ SETOF text pgroonga_list_lagged_indexes()
 ## 使い方
 
 ```sql
-SELECT * FROM pgroonga_list_lagged_indexes();
+SELECT pgroonga_list_lagged_indexes();
 ```
 
 ## 実行例
@@ -80,9 +80,9 @@ SELECT name,
  pgrn_tags_index  |             0 |              0 |            0 |          1 |         560 |      8752
 (2 rows)
 
-SELECT name FROM pgroonga_list_lagged_indexes();
-       name
-------------------
+SELECT pgroonga_list_lagged_indexes();
+ pgroonga_list_lagged_indexes
+------------------------------
  pgrn_memos_index
  pgrn_tags_index
 (2 rows)
@@ -110,9 +110,9 @@ SELECT name,
  pgrn_tags_index  |             1 |            560 |         8752 |          1 |         560 |      8752
 (2 rows)
 
-SELECT name FROM pgroonga_list_lagged_indexes();
-       name
-------------------
+SELECT pgroonga_list_lagged_indexes();
+ pgroonga_list_lagged_indexes
+------------------------------
  pgrn_memos_index
 (1 row)
 ```
@@ -140,9 +140,9 @@ SELECT name,
  pgrn_tags_index  |             1 |            560 |         8752 |          1 |         560 |      8752
 (2 rows)
 
-SELECT name FROM pgroonga_list_lagged_indexes();
- name
-------
+SELECT pgroonga_list_lagged_indexes();
+ pgroonga_list_lagged_indexes
+------------------------------
 (0 rows)
 ```
 

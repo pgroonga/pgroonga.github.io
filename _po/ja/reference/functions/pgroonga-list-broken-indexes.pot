@@ -1,0 +1,163 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"---\n"
+"title: pgroonga_list_broken_indexes function\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+msgid "# `pgroonga_list_broken_indexes` function"
+msgstr ""
+
+msgid "## Summary"
+msgstr ""
+
+msgid "`pgroonga_list_broken_indexes` function displays potentially broken PGroonga indexes."
+msgstr ""
+
+msgid ""
+"If a crash occurs while updating data, it is highly probable that PGroonga's indexes are broken.\n"
+"Also, in such cases, the following two conditions are often observed.\n"
+"Therefore, those conditions are considered as broken and detected."
+msgstr ""
+
+msgid "1. The lock remains"
+msgstr ""
+
+msgid "2. Some needed files don't exist"
+msgstr ""
+
+msgid "Note that this is a simple check and may not detect broken indexes."
+msgstr ""
+
+msgid "## Syntax"
+msgstr ""
+
+msgid "Here is the syntax of this function:"
+msgstr ""
+
+msgid ""
+"```text\n"
+"SETOF text pgroonga_list_broken_indexes()\n"
+"```"
+msgstr ""
+
+msgid "It get indexes that may be broken in PGroonga indexes."
+msgstr ""
+
+msgid "It returns the following records:"
+msgstr ""
+
+msgid ""
+"```sql\n"
+" pgroonga_list_broken_indexes \n"
+"------------------------------\n"
+" pgrn_memos_index\n"
+"```"
+msgstr ""
+
+msgid "## Usage"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"SELECT pgroonga_list_broken_indexes();\n"
+"```"
+msgstr ""
+
+msgid "## Example"
+msgstr ""
+
+msgid "Here are sample schema:"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"CREATE TABLE memos (\n"
+"  content text\n"
+");\n"
+"CREATE INDEX pgrn_memos_index ON memos USING PGroonga (content);\n"
+"```"
+msgstr ""
+
+msgid "No possibility of broken:"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"SELECT pgroonga_list_broken_indexes();\n"
+" pgroonga_list_broken_indexes\n"
+"------------------------------\n"
+"(0 rows)\n"
+"```"
+msgstr ""
+
+msgid "Possible broken (Locks remain):"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"SELECT pgroonga_command(\n"
+"  'lock_acquire',\n"
+"  ARRAY['target_name', pgroonga_table_name('pgrn_memos_index')]\n"
+");\n"
+"                 pgroonga_command\n"
+"---------------------------------------------------\n"
+" [[0,1716796614.02342,6.723403930664062e-05],true]\n"
+"(1 row)"
+msgstr ""
+
+msgid ""
+"SELECT pgroonga_list_broken_indexes();\n"
+" pgroonga_list_broken_indexes \n"
+"------------------------------\n"
+" pgrn_memos_index\n"
+"(1 row)\n"
+"```"
+msgstr ""
+
+msgid "No possibility of broken (Lock already released):"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"SELECT pgroonga_command(\n"
+"  'lock_release',\n"
+"  ARRAY['target_name', pgroonga_table_name('pgrn_memos_index')]\n"
+");\n"
+"                  pgroonga_command\n"
+"----------------------------------------------------\n"
+" [[0,1716796558.739785,4.720687866210938e-05],true]\n"
+"(1 row)"
+msgstr ""
+
+msgid ""
+"SELECT pgroonga_list_broken_indexes();\n"
+" pgroonga_list_broken_indexes \n"
+"------------------------------\n"
+"(0 rows)\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr ""
+
+msgid "  * [`pgroonga_command` function][command]"
+msgstr ""
+
+msgid "  * [`pgroonga_table_name` function][table-name]"
+msgstr ""
+
+msgid "[command]:pgroonga-command.html"
+msgstr ""
+
+msgid "[table-name]:pgroonga-table-name.html"
+msgstr ""

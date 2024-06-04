@@ -17,6 +17,9 @@ msgstr ""
 msgid "# `pgroonga_list_lagged_indexes` function"
 msgstr ""
 
+msgid "Since 3.2.1."
+msgstr ""
+
 msgid "## Summary"
 msgstr ""
 

@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_list_broken_indexes` 関数
 
+3.2.1で追加
+
 ## 概要
 
 `pgroonga_list_broken_indexes` 関数はPGroongaインデックスで破損の可能性があるインデックスを表示します。

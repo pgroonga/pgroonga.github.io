@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_list_broken_indexes` function
 
+Since 3.2.1.
+
 ## Summary
 
 `pgroonga_list_broken_indexes` function displays potentially broken PGroonga indexes.

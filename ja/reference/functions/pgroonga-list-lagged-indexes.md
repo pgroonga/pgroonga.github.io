@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_list_lagged_indexes` 関数
 
+3.2.1で追加
+
 ## 概要
 
 `pgroonga_list_lagged_indexes` 関数は未適用の（PostgreSQLのWALではなく）PGroongaのWALがあるPGroongaのインデックスを表示します。

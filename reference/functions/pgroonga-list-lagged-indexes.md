@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_list_lagged_indexes` function
 
+Since 3.2.1.
+
 ## Summary
 
 `pgroonga_list_lagged_indexes` function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).

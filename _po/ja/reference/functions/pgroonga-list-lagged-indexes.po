@@ -24,6 +24,9 @@ msgstr ""
 msgid "# `pgroonga_list_lagged_indexes` function"
 msgstr "# `pgroonga_list_lagged_indexes` 関数"
 
+msgid "Since 3.2.1."
+msgstr "3.2.1で追加"
+
 msgid "## Summary"
 msgstr "## 概要"
 

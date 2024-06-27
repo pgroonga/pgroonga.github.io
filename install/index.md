@@ -30,6 +30,8 @@ See a document for your platform in the followings:
 
   * [Ubuntu](ubuntu.html)
 
+    * 24.04
+
     * 22.04
 
     * 20.04

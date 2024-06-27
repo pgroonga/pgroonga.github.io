@@ -25,13 +25,13 @@ msgstr ""
 msgid "Here are supported Ubuntu versions:"
 msgstr ""
 
+msgid "  * Ubuntu 24.04"
+msgstr ""
+
 msgid "  * Ubuntu 22.04"
 msgstr ""
 
 msgid "  * Ubuntu 20.04"
-msgstr ""
-
-msgid "  * Ubuntu 18.04"
 msgstr ""
 
 msgid "## How to install for system PostgreSQL {#install-for-system-postgresql}"
@@ -40,13 +40,13 @@ msgstr ""
 msgid "You can use the following instruction to install PGroonga for system PostgreSQL on Ubuntu."
 msgstr ""
 
-msgid "If you're using Ubuntu 18.04, install `postgresql-10-pgroonga` package."
-msgstr ""
-
 msgid "If you're using Ubuntu 20.04, install `postgresql-12-pgroonga` package."
 msgstr ""
 
 msgid "If you're using Ubuntu 22.04, install `postgresql-14-pgroonga` package:"
+msgstr ""
+
+msgid "If you're using Ubuntu 24.04, install `postgresql-16-pgroonga` package:"
 msgstr ""
 
 msgid ""
@@ -55,12 +55,12 @@ msgid ""
 "$ sudo add-apt-repository -y universe\n"
 "$ sudo add-apt-repository -y ppa:groonga/ppa\n"
 "$ sudo apt update\n"
-"Ubuntu 18.04:\n"
-"$ sudo apt install -y -V postgresql-10-pgroonga\n"
 "Ubuntu 20.04:\n"
 "$ sudo apt install -y -V postgresql-12-pgroonga\n"
 "Ubuntu 22.04:\n"
 "$ sudo apt install -y -V postgresql-14-pgroonga\n"
+"Ubuntu 24.04:\n"
+"$ sudo apt install -y -V postgresql-16-pgroonga\n"
 "```"
 msgstr ""
 

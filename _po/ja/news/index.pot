@@ -17,10 +17,118 @@ msgstr ""
 msgid "# News"
 msgstr ""
 
-msgid "## 3.2.0: 2024-04-18 {#version-3-2-0}"
+msgid "## 3.2.1: 2024-06-29 {#version-3-2-1}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr ""
+
+msgid "  * Added support downgrade by using `ALTER EXTENSION ... UPDATE`."
+msgstr ""
+
+msgid ""
+"    Note that this feature only enable 3.2.1, currently.\n"
+"    This feature can't use before 3.2.1."
+msgstr ""
+
+msgid "  * Added a tool for adjusting pg_dump output."
+msgstr ""
+
+msgid ""
+"    This tool is for users that are using `NormalizerTable`.\n"
+"    Users that are not using `NormalizerTable` are not need to use this tool."
+msgstr ""
+
+msgid ""
+"    Note that this tool only support plain format dump.\n"
+"    The custom format doesn't support."
+msgstr ""
+
+msgid "    Usage:"
+msgstr ""
+
+msgid ""
+"    ```\n"
+"    ruby repair-dump.rb ${dump_file_path}\n"
+"    ```"
+msgstr ""
+
+msgid "  * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new function `pgroonga_list_broken_indexes()`."
+msgstr ""
+
+msgid "    This function list the indexes of PGroonga's that may be broken."
+msgstr ""
+
+msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer] Putted index names when the `pgroonga-crash-safer` rebuild index in log."
+msgstr ""
+
+msgid "  * [WAL] Added support for registering a plugin."
+msgstr ""
+
+msgid "    `plugin = '...'` in `WITH` phrase is also writed into PGroonga's WAL."
+msgstr ""
+
+msgid "  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`."
+msgstr ""
+
+msgid "    This function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL)."
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat)."
+msgstr ""
+
+msgid "  * [`pgroonga_condition()`] Added support `uzzy_max_distance_ratio`"
 msgstr ""
 
 msgid "### Fixes"
+msgstr ""
+
+msgid "  * [[`&@~` operator][query-v2]] Fixed a crash bug with multiple conditions including blank only query condition."
+msgstr ""
+
+msgid "    An error will occur if any of the multiple conditions have a blank space condition as below."
+msgstr ""
+
+msgid ""
+"    ```sql\n"
+"    CREATE TABLE memos (\n"
+"      id integer,\n"
+"      content text\n"
+"    );\n"
+"    INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');\n"
+"    INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');\n"
+"    INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');\n"
+"    CREATE INDEX grnindex ON memos USING pgroonga (content);\n"
+"    SELECT id, content\n"
+"      FROM memos\n"
+"     WHERE content &@~ pgroonga_condition('PGroonga') AND\n"
+"           content &@~ pgroonga_condition(' ');\n"
+"    ```"
+msgstr ""
+
+msgid "  * Fixed a crash bug related to auto vacuum"
+msgstr ""
+
+msgid "    This is happen when:"
+msgstr ""
+
+msgid ""
+"      * A query has multiple index scans and/or bitmap scans with\n"
+"        PGroonga indexes\n"
+"      * Auto vacuum is executed while the query is executing"
+msgstr ""
+
+msgid ""
+"    If you're lucky, this may not cause a crash. But the following errors\n"
+"    may be happen:"
+msgstr ""
+
+msgid ""
+"      * \"invalid match target: <>\"\n"
+"      * \"column isn't found\""
+msgstr ""
+
+msgid "## 3.2.0: 2024-04-18 {#version-3-2-0}"
 msgstr ""
 
 msgid "  * Fixed a crash on connection close."
@@ -42,9 +150,6 @@ msgid ""
 msgstr ""
 
 msgid "## 3.1.9: 2024-03-27 {#version-3-1-9}"
-msgstr ""
-
-msgid "### Improvements"
 msgstr ""
 
 msgid "  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-safer-max-recovery-threads] parameter to [`pgroonga-crash-safer`][pgroonga-crash-safer]."
@@ -2562,6 +2667,8 @@ msgid ""
 "[highlight-html]:../reference/functions/pgroonga-highlight-html.html\n"
 "[index-column-name]:../reference/functions/pgroonga-index-column-name.html\n"
 "[is-writable]:../reference/functions/pgroonga-is-writable.html\n"
+"[list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html\n"
+"[list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html\n"
 "[match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html\n"
 "[match-positions-character]:../reference/functions/pgroonga-match-positions-character.html\n"
 "[normalize]:../reference/functions/pgroonga-normalize.html\n"

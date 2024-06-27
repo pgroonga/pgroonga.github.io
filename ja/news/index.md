@@ -5,6 +5,82 @@ upper_level: ../
 
 # おしらせ
 
+## 3.2.1: 2024-06-29 {#version-3-2-1}
+
+### 改良
+
+  * Added support downgrade by using `ALTER EXTENSION ... UPDATE`.
+
+    Note that this feature only enable 3.2.1, currently.
+    This feature can't use before 3.2.1.
+
+  * Added a tool for adjusting pg_dump output.
+
+    This tool is for users that are using `NormalizerTable`.
+    Users that are not using `NormalizerTable` are not need to use this tool.
+
+    Note that this tool only support plain format dump.
+    The custom format doesn't support.
+
+    Usage:
+
+    ```
+    ruby repair-dump.rb ${dump_file_path}
+    ```
+
+  * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new function `pgroonga_list_broken_indexes()`.
+
+    This function list the indexes of PGroonga's that may be broken.
+
+  * [`pgroonga_crash_safer` module][pgroonga-crash-safer] Putted index names when the `pgroonga-crash-safer` rebuild index in log.
+
+  * [WAL] Added support for registering a plugin.
+
+    `plugin = '...'` in `WITH` phrase is also writed into PGroonga's WAL.
+
+  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`.
+
+    This function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat).
+
+  * [`pgroonga_condition()`] Added support `uzzy_max_distance_ratio`
+
+### 修正
+
+  * [[`&@~` operator][query-v2]] Fixed a crash bug with multiple conditions including blank only query condition.
+
+    An error will occur if any of the multiple conditions have a blank space condition as below.
+
+    ```sql
+    CREATE TABLE memos (
+      id integer,
+      content text
+    );
+    INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+    INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+    INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+    CREATE INDEX grnindex ON memos USING pgroonga (content);
+    SELECT id, content
+      FROM memos
+     WHERE content &@~ pgroonga_condition('PGroonga') AND
+           content &@~ pgroonga_condition(' ');
+    ```
+
+  * Fixed a crash bug related to auto vacuum
+
+    This is happen when:
+
+      * A query has multiple index scans and/or bitmap scans with
+        PGroonga indexes
+      * Auto vacuum is executed while the query is executing
+
+    If you're lucky, this may not cause a crash. But the following errors
+    may be happen:
+
+      * "invalid match target: <>"
+      * "column isn't found"
+
 ## 3.2.0: 2024-04-18 {#version-3-2-0}
 
 ### 修正
@@ -2166,6 +2242,8 @@ The first release!!!
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [index-column-name]:../reference/functions/pgroonga-index-column-name.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
+[list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
+[list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
 [match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html
 [match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
 [normalize]:../reference/functions/pgroonga-normalize.html

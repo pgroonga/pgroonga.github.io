@@ -30,6 +30,8 @@ upper_level: ../
 
   * [Ubuntu](ubuntu.html)
 
+    * 24.04
+
     * 22.04
 
     * 20.04

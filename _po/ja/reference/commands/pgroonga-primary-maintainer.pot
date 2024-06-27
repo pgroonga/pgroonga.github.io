@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"---\n"
+"title: pgroonga-primary-maintainer.sh command\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+msgid "# `pgroonga-primary-maintainer.sh` command"
+msgstr ""
+
+msgid "Since 3.2.1."
+msgstr ""
+
+msgid "## Summary"
+msgstr ""
+
+msgid ""
+"`pgroonga-primary-maintainer.sh` command runs `REINDEX INDEX CONCURRENTLY` on indexes\n"
+"for which PGroonga's WAL size exceeds the threshold."
+msgstr ""
+
+msgid "The purpose is to suppress the size of the WAL on primary servers that have WAL enabled."
+msgstr ""
+
+msgid "## Usage"
+msgstr ""
+
+msgid ""
+"```\n"
+"pgroonga-primary-maintainer.sh --threshold REINDEX_THRESHOLD_SIZE [--psql PSQL_COMMAND_PATH]"
+msgstr ""
+
+msgid ""
+"Options:\n"
+"-t, --threshold:\n"
+"  If the specified value is exceeded, `REINDEX INDEX CONCURRENTLY` is run.\n"
+"  Specify by size.\n"
+"  Example: --threshold 10M, -t 1G\n"
+"-c, --psql:\n"
+"  Specify the path to `psql` command.\n"
+"-h, --help:\n"
+"  Display help text and exit."
+msgstr ""
+
+msgid ""
+"Connection information such as `dbname` should be set in environment variables.\n"
+"See also: https://www.postgresql.org/docs/current/libpq-envars.html\n"
+"```"
+msgstr ""
+
+msgid "* `--threshold` option"
+msgstr ""
+
+msgid "  * If the size of WAL exceeds the specified value,, `REINDEX INDEX CONCURRENTLY` is run"
+msgstr ""
+
+msgid "* `--psql` option"
+msgstr ""
+
+msgid "  * If `psql` command is installed in a custom path, specify the path for `psql` command"
+msgstr ""
+
+msgid "* Environment variable"
+msgstr ""
+
+msgid "  * Specify connection information to DB in environment variables"
+msgstr ""
+
+msgid "  * [PostgreSQL Environment Variables][environment-variables]"
+msgstr ""
+
+msgid "## Example"
+msgstr ""
+
+msgid "Here is an example of running it in Bash."
+msgstr ""
+
+msgid "* Specify DB name in environment variable"
+msgstr ""
+
+msgid "  * `PGDATABASE=test_database`"
+msgstr ""
+
+msgid "* Specify a threshold of 10GB"
+msgstr ""
+
+msgid "  * `--threshold 10G`"
+msgstr ""
+
+msgid "### No WAL exceeds the threshold"
+msgstr ""
+
+msgid "No output."
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ PGDATABASE=test_database \\\n"
+"  pgroonga-primary-maintainer.sh \\\n"
+"  --threshold 10G\n"
+"```"
+msgstr ""
+
+msgid "### WAL exceeds the threshold"
+msgstr ""
+
+msgid "Output the SQL to be run, the start time, and the end time."
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ PGDATABASE=test_database \\\n"
+"  pgroonga-primary-maintainer.sh \\\n"
+"  --threshold 10G\n"
+"Run 'REINDEX INDEX CONCURRENTLY test_index'\n"
+"Thu Jun 27 07:24:34 UTC 2024\n"
+"REINDEX\n"
+"Thu Jun 27 07:24:34 UTC 2024\n"
+"```"
+msgstr ""
+
+msgid ""
+"If multiple indexes are targeted, `REINDEX` is run in sequential order,\n"
+"with similar output each time."
+msgstr ""
+
+msgid "## See also"
+msgstr ""
+
+msgid "  * [`pgroonga_wal_status` function][wal-status]"
+msgstr ""
+
+msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
+msgstr ""
+
+msgid "[environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html"
+msgstr ""
+
+msgid "[enable-wal]:../parameters/enable-wal.html"
+msgstr ""
+
+msgid "[wal-status]:pgroonga-wal-status.html"
+msgstr ""

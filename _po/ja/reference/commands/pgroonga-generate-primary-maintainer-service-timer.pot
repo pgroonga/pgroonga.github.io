@@ -1,0 +1,312 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"---\n"
+"title: pgroonga-generate-primary-maintainer-{service,timer}.sh command\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+msgid "# `pgroonga-generate-primary-maintainer-{service,timer}.sh` command"
+msgstr ""
+
+msgid "Since 3.2.1."
+msgstr ""
+
+msgid "## Summary"
+msgstr ""
+
+msgid ""
+"These commands output the contents of a configuration file for\n"
+"[`pgroonga-primary-maintainer.sh`][primary-maintainer] to run periodically\n"
+"using [systemd/Timers][systemd-timers]."
+msgstr ""
+
+msgid "* `pgroonga-generate-primary-maintainer-service.sh`"
+msgstr ""
+
+msgid "  * Output `.service` file configuration"
+msgstr ""
+
+msgid "* `pgroonga-generate-primary-maintainer-timer.sh`"
+msgstr ""
+
+msgid "  * Output `.timer` file configuration"
+msgstr ""
+
+msgid "## Usage"
+msgstr ""
+
+msgid "### `pgroonga-generate-primary-maintainer-service.sh` command"
+msgstr ""
+
+msgid ""
+"```\n"
+"Options:\n"
+"--pgroonga-primary-maintainer-command:\n"
+"  Specify the path to `pgroonga-primary-maintainer.sh`\n"
+"  (default: )\n"
+"--threshold:\n"
+"  If the specified value is exceeded, `REINDEX INDEX CONCURRENTLY` is run.\n"
+"  (default: 1G)\n"
+"--environment\n"
+"  Connection information such as `dbname` should be set in environment variables.\n"
+"  See also: https://www.postgresql.org/docs/current/libpq-envars.html\"\n"
+"  Example: --environment KEY1=VALUE1 --environment KEY2=VALUE2 ...\n"
+"--psql:\n"
+"  Specify the path to `psql` command.\n"
+"--on-failure-service:\n"
+"  Run SERVICE on failure\n"
+"--help:\n"
+"  Display help text and exit.\n"
+"```"
+msgstr ""
+
+msgid "* `--pgroonga-primary-maintainer-command`"
+msgstr ""
+
+msgid "  * Specify the path of [`pgroonga-primary-maintainer.sh` command][primary-maintainer]"
+msgstr ""
+
+msgid "* `--threshold`"
+msgstr ""
+
+msgid "  * Specify the threshold"
+msgstr ""
+
+msgid "  * See [`pgroonga-primary-maintainer.sh` command][primary-maintainer] for details"
+msgstr ""
+
+msgid "* `--environment`"
+msgstr ""
+
+msgid "  * Specify DB connection information by environment variables"
+msgstr ""
+
+msgid "* `--psql`"
+msgstr ""
+
+msgid "  * Specify the path of `psql`"
+msgstr ""
+
+msgid "* `--on-failure-service`"
+msgstr ""
+
+msgid "  * Specify the notify destination on failure"
+msgstr ""
+
+msgid "  * See [Notifying about failed services][systemd-on-failure] for details"
+msgstr ""
+
+msgid "### `pgroonga-generate-primary-maintainer-timer.sh` command"
+msgstr ""
+
+msgid ""
+"```\n"
+"Options:\n"
+"--time:\n"
+"  Specify run time,\n"
+"  Example: --time 2:00 --time 3:30 ...\n"
+"--help:\n"
+"  Display help text and exit.\n"
+"```"
+msgstr ""
+
+msgid "* `--time`"
+msgstr ""
+
+msgid "  * Specify the start time of the run"
+msgstr ""
+
+msgid "  * You can specify multiple times"
+msgstr ""
+
+msgid "## Example"
+msgstr ""
+
+msgid "Redirect the output to generate a configuration file."
+msgstr ""
+
+msgid "The `NAME` part of `NAME.service` and `NAME.timer` must be equal."
+msgstr ""
+
+msgid "Note: The command path depends on the environment."
+msgstr ""
+
+msgid "### Generate `.service` file"
+msgstr ""
+
+msgid "* Specify the path of [`pgroonga-primary-maintainer.sh` command][primary-maintainer]"
+msgstr ""
+
+msgid "  * `--pgroonga-primary-maintainer-command /usr/pgsql-12/bin/pgroonga-primary-maintainer.sh`"
+msgstr ""
+
+msgid "* Specify DB connection information by environment variables"
+msgstr ""
+
+msgid "  * `--environment PGHOST=example.com`"
+msgstr ""
+
+msgid "  * `--environment PGDATABASE=test_database`"
+msgstr ""
+
+msgid "* Specify a threshold of 10GB"
+msgstr ""
+
+msgid "  * `--threshold 10G`"
+msgstr ""
+
+msgid "#### Generate"
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ sudo -u postgres -H /usr/pgsql-12/bin/pgroonga-generate-primary-maintainer-service.sh \\\n"
+"  --pgroonga-primary-maintainer-command /usr/pgsql-12/bin/pgroonga-primary-maintainer.sh \\\n"
+"  --environment PGHOST=example.com \\\n"
+"  --environment PGDATABASE=test_database \\\n"
+"  --threshold 10G | \\\n"
+"  sudo -H tee /lib/systemd/system/pgroonga-primary-maintainer.service\n"
+"# How to install:\n"
+"#   /usr/pgsql-12/bin/pgroonga-generate-primary-maintainer-service.sh | sudo -H tee /lib/systemd/system/pgroonga-primary-maintainer.service\n"
+"[Unit]\n"
+"Description=PGroonga primary maintainer"
+msgstr ""
+
+msgid ""
+"[Service]\n"
+"Type=oneshot\n"
+"User=postgres\n"
+"Group=postgres\n"
+"Environment=PGHOST=example.com PGDATABASE=test_database\n"
+"ExecStart=/usr/pgsql-12/bin/pgroonga-primary-maintainer.sh --threshold 10G\n"
+"[Install]\n"
+"WantedBy=multi-user.target\n"
+"```"
+msgstr ""
+
+msgid "#### Test execution and status check"
+msgstr ""
+
+msgid "**Caution!: `REINDEX` is actually executed when the WAL exceeds the threshold.**"
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ sudo -H systemctl start pgroonga-primary-maintainer.service\n"
+"```"
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ sudo -H systemctl status pgroonga-primary-maintainer.service\n"
+"● pgroonga-primary-maintainer.service - PGroonga primary maintainer\n"
+"   Loaded: loaded (/usr/lib/systemd/system/pgroonga-primary-maintainer.service; disabled; vendor preset: disabled)\n"
+"  Drop-In: /run/systemd/system/pgroonga-primary-maintainer.service.d\n"
+"           └─zzz-lxc-service.conf\n"
+"   Active: inactive (dead) since Fri 2024-06-28 08:36:27 UTC; 4min 50s ago\n"
+"  Process: 21035 ExecStart=/usr/pgsql-12/bin/pgroonga-primary-maintainer.sh --threshold 10G (code=exited, status=0/SUCCESS)\n"
+" Main PID: 21035 (code=exited, status=0/SUCCESS)"
+msgstr ""
+
+msgid ""
+"Jun 28 08:36:26 temp systemd[1]: Starting PGroonga primary maintainer...\n"
+"Jun 28 08:36:26 temp pgroonga-primary-maintainer.sh[21035]: Run 'REINDEX INDEX CONCURRENTLY memos_content'\n"
+"Jun 28 08:36:26 temp pgroonga-primary-maintainer.sh[21047]: Fri Jun 28 08:36:26 UTC 2024\n"
+"Jun 28 08:36:27 temp pgroonga-primary-maintainer.sh[21048]: REINDEX\n"
+"Jun 28 08:36:27 temp pgroonga-primary-maintainer.sh[21051]: Fri Jun 28 08:36:27 UTC 2024\n"
+"Jun 28 08:36:27 temp systemd[1]: pgroonga-primary-maintainer.service: Succeeded.\n"
+"Jun 28 08:36:27 temp systemd[1]: Started PGroonga primary maintainer.\n"
+"```"
+msgstr ""
+
+msgid "### Generate `.timer` file"
+msgstr ""
+
+msgid "Here is an example of executing at 1:15 and 23:45."
+msgstr ""
+
+msgid ""
+"```console\n"
+"$ sudo -u postgres -H /usr/pgsql-12/bin/pgroonga-generate-primary-maintainer-timer.sh \\\n"
+"  --time 1:15 \\\n"
+"  --time 23:45 | \\\n"
+"  sudo -H tee /lib/systemd/system/pgroonga-primary-maintainer.timer\n"
+"# How to install:\n"
+"#   /usr/pgsql-12/bin/pgroonga-generate-primary-maintainer-timer.sh | sudo -H tee /lib/systemd/system/pgroonga-primary-maintainer.timer\n"
+"#   sudo -H systemctl daemon-reload\n"
+"#\n"
+"# Usage:\n"
+"#\n"
+"#   Enable:  sudo -H systemctl enable --now pgroonga-primary-maintainer.timer\n"
+"#   Disable: sudo -H systemctl disable --now pgroonga-primary-maintainer.timer\n"
+"[Unit]\n"
+"Description=PGroonga primary maintainer\n"
+"[Timer]\n"
+"OnCalendar=*-*-* 1:15:00\n"
+"OnCalendar=*-*-* 23:45:00\n"
+"[Install]\n"
+"WantedBy=timers.target\n"
+"```"
+msgstr ""
+
+msgid "### Enable systemd Timer"
+msgstr ""
+
+msgid ""
+"```\n"
+"$ sudo -H systemctl enable --now pgroonga-primary-maintainer.timer\n"
+"```"
+msgstr ""
+
+msgid "### Status check"
+msgstr ""
+
+msgid ""
+"```\n"
+"$ sudo -H systemctl status pgroonga-primary-maintainer.timer\n"
+"● pgroonga-primary-maintainer.timer - PGroonga primary maintainer\n"
+"   Loaded: loaded (/usr/lib/systemd/system/pgroonga-primary-maintainer.timer; enabled; vendor preset: disabled)\n"
+"   Active: active (waiting) since Fri 2024-06-28 08:28:58 UTC; 14min ago\n"
+"  Trigger: Fri 2024-06-28 23:45:00 UTC; 15h left"
+msgstr ""
+
+msgid ""
+"Jun 28 08:28:58 temp systemd[1]: Started PGroonga primary maintainer.\n"
+"```"
+msgstr ""
+
+msgid "### Disable systemd Timer"
+msgstr ""
+
+msgid ""
+"```\n"
+"$ sudo -H systemctl disable --now pgroonga-primary-maintainer.timer\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr ""
+
+msgid "  * [`pgroonga-primary-maintainer.sh` command][primary-maintainer]"
+msgstr ""
+
+msgid "  * [systemd/Timers][systemd-timers]"
+msgstr ""
+
+msgid "[primary-maintainer]:pgroonga-primary-maintainer.html"
+msgstr ""
+
+msgid "[systemd-timers]:https://wiki.archlinux.org/title/systemd/Timers"
+msgstr ""
+
+msgid "[systemd-on-failure]:https://wiki.archlinux.org/title/systemd#Notifying_about_failed_services"
+msgstr ""

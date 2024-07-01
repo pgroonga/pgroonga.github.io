@@ -72,15 +72,15 @@ OnCalendar=*-*-* 23:45:00
 WantedBy=timers.target
 ```
 
-### Enable systemd Timer
+### Enable systemd timer
 
-```
+```console
 $ sudo -H systemctl enable --now pgroonga-primary-maintainer.timer
 ```
 
 ### Status check
 
-```
+```console
 $ sudo -H systemctl status pgroonga-primary-maintainer.timer
 ● pgroonga-primary-maintainer.timer - PGroonga primary maintainer
    Loaded: loaded (/usr/lib/systemd/system/pgroonga-primary-maintainer.timer; enabled; vendor preset: disabled)
@@ -90,9 +90,9 @@ $ sudo -H systemctl status pgroonga-primary-maintainer.timer
 Jun 28 08:28:58 temp systemd[1]: Started PGroonga primary maintainer.
 ```
 
-### Disable systemd Timer
+### Disable systemd timer
 
-```
+```console
 $ sudo -H systemctl disable --now pgroonga-primary-maintainer.timer
 ```
 

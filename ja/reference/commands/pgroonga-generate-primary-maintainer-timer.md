@@ -70,15 +70,15 @@ OnCalendar=*-*-* 23:45:00
 WantedBy=timers.target
 ```
 
-### systemd の Timer を有効にする
+### systemd のタイマーを有効にする
 
-```
+```console
 $ sudo -H systemctl enable --now pgroonga-primary-maintainer.timer
 ```
 
 ### ステータスチェック
 
-```
+```console
 $ sudo -H systemctl status pgroonga-primary-maintainer.timer
 ● pgroonga-primary-maintainer.timer - PGroonga primary maintainer
    Loaded: loaded (/usr/lib/systemd/system/pgroonga-primary-maintainer.timer; enabled; vendor preset: disabled)
@@ -88,9 +88,9 @@ $ sudo -H systemctl status pgroonga-primary-maintainer.timer
 Jun 28 08:28:58 temp systemd[1]: Started PGroonga primary maintainer.
 ```
 
-### systemd の Timer を無効にする
+### systemd のタイマーを無効にする
 
-```
+```console
 $ sudo -H systemctl disable --now pgroonga-primary-maintainer.timer
 ```
 

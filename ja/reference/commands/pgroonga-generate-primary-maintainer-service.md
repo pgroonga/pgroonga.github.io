@@ -39,7 +39,7 @@ Options:
 
 * `--pgroonga-primary-maintainer-command`
 
-  * [`pgroonga-primary-maintainer.sh` command][primary-maintainer] のパスを指定します
+  * [`pgroonga-primary-maintainer.sh` コマンド][primary-maintainer] のパスを指定します
 
 * `--threshold`
 

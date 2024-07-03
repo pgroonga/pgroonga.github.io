@@ -36,7 +36,7 @@ upper_level: ../
 
   * [WAL] Added support for registering a plugin.
 
-    `plugin = '...'` in `WITH` phrase is also writed into PGroonga's WAL.
+    `plugin = '...'` in `WITH` phrase is also written into PGroonga's WAL.
 
   * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`.
 

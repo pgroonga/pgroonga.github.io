@@ -36,10 +36,6 @@ shared_preload_libraries = 'pgroonga_wal_resource_manager'
 
   * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]
 
-  * [`pgroonga_wal_apply()` function][pgroonga-wal-apply]
-
-  * [`pgroonga_vacuum()` function][pgroonga-vacuum]
-
   * [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]
 
 [postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES
@@ -51,7 +47,3 @@ shared_preload_libraries = 'pgroonga_wal_resource_manager'
 [pgroonga-wal-resource-manager-log-path]:../parameters/pgroonga-wal-resource-manager-log-path.html
 
 [pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html
-
-[pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
-
-[pgroonga-vacuum]:../functions/pgroonga-vacuum.html

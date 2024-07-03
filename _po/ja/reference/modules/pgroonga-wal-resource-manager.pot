@@ -64,12 +64,6 @@ msgstr ""
 msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
 msgstr ""
 
-msgid "  * [`pgroonga_wal_apply()` function][pgroonga-wal-apply]"
-msgstr ""
-
-msgid "  * [`pgroonga_vacuum()` function][pgroonga-vacuum]"
-msgstr ""
-
 msgid "  * [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]"
 msgstr ""
 
@@ -86,10 +80,4 @@ msgid "[pgroonga-wal-resource-manager-log-path]:../parameters/pgroonga-wal-resou
 msgstr ""
 
 msgid "[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
-msgstr ""
-
-msgid "[pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html"
-msgstr ""
-
-msgid "[pgroonga-vacuum]:../functions/pgroonga-vacuum.html"
 msgstr ""

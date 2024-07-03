@@ -9,7 +9,7 @@ upper_level: ../
 
 ### 改良
 
-  * Added [`pgroonga_wal_resource_manager` module]
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added a new module `pgroonga_wal_resource_manager`
 
     * PGroonga WAL is automatically applied when this module is enabled.
 
@@ -36,7 +36,7 @@ upper_level: ../
 
     This function list the indexes of PGroonga's that may be broken.
 
-  * [`pgroonga_crash_safer` module][pgroonga-crash-safer] Putted index names when the `pgroonga-crash-safer` rebuild index in log.
+  * [[`pgroonga_crash_safer` module][pgroonga-crash-safer]] Putted index names when the `pgroonga-crash-safer` rebuild index in log.
 
   * [WAL] Added support for registering a plugin.
 
@@ -2299,6 +2299,7 @@ The first release!!!
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
 
 [streaming-replication]:../reference/streaming-replication.html
 

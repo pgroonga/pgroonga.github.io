@@ -23,7 +23,7 @@ msgstr ""
 msgid "### Improvements"
 msgstr ""
 
-msgid "  * Added [`pgroonga_wal_resource_manager` module]"
+msgid "  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added a new module `pgroonga_wal_resource_manager`"
 msgstr ""
 
 msgid "    * PGroonga WAL is automatically applied when this module is enabled."
@@ -65,7 +65,7 @@ msgstr ""
 msgid "    This function list the indexes of PGroonga's that may be broken."
 msgstr ""
 
-msgid "  * [`pgroonga_crash_safer` module][pgroonga-crash-safer] Putted index names when the `pgroonga-crash-safer` rebuild index in log."
+msgid "  * [[`pgroonga_crash_safer` module][pgroonga-crash-safer]] Putted index names when the `pgroonga-crash-safer` rebuild index in log."
 msgstr ""
 
 msgid "  * [WAL] Added support for registering a plugin."
@@ -2738,7 +2738,8 @@ msgid ""
 "[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html\n"
 "[pgroonga-database]:../reference/modules/pgroonga-database.html\n"
 "[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html\n"
-"[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html"
+"[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html\n"
+"[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html"
 msgstr ""
 
 msgid "[streaming-replication]:../reference/streaming-replication.html"

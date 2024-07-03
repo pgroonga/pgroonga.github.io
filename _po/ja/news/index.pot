@@ -23,6 +23,12 @@ msgstr ""
 msgid "### Improvements"
 msgstr ""
 
+msgid "  * Added [`pgroonga_wal_resource_manager` module]"
+msgstr ""
+
+msgid "    * PGroonga WAL is automatically applied when this module is enabled."
+msgstr ""
+
 msgid "  * Added support downgrade by using `ALTER EXTENSION ... UPDATE`."
 msgstr ""
 
@@ -65,13 +71,28 @@ msgstr ""
 msgid "  * [WAL] Added support for registering a plugin."
 msgstr ""
 
-msgid "    `plugin = '...'` in `WITH` phrase is also writed into PGroonga's WAL."
+msgid "    `plugin = '...'` in `WITH` phrase is also written into PGroonga's WAL."
 msgstr ""
 
 msgid "  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`."
 msgstr ""
 
 msgid "    This function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL)."
+msgstr ""
+
+msgid "  * [[`pgroonga-primary-maintainer.sh`][primary-maintainer]] Added a new execution file `pgroonga-primary-maintainer.sh`."
+msgstr ""
+
+msgid "    * This command is used to suppress the size of PGroonga WAL on the primary server where WAL is enabled."
+msgstr ""
+
+msgid "    * Also added execution file to configure systemd timer."
+msgstr ""
+
+msgid "      * [`pgroonga-generate-primary-maintainer-service.sh`][generate-primary-maintainer-service]"
+msgstr ""
+
+msgid "      * [`pgroonga-generate-primary-maintainer-timer.sh`][generate-primary-maintainer-timer]"
 msgstr ""
 
 msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat)."
@@ -2669,6 +2690,9 @@ msgid ""
 "[is-writable]:../reference/functions/pgroonga-is-writable.html\n"
 "[list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html\n"
 "[list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html\n"
+"[primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html\n"
+"[generate-primary-maintainer-service]:../reference/commands/pgroonga-generate-primary-maintainer-service.html\n"
+"[generate-primary-maintainer-timer]:../reference/commands/pgroonga-generate-primary-maintainer-timer.html\n"
 "[match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html\n"
 "[match-positions-character]:../reference/functions/pgroonga-match-positions-character.html\n"
 "[normalize]:../reference/functions/pgroonga-normalize.html\n"

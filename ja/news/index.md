@@ -9,6 +9,10 @@ upper_level: ../
 
 ### 改良
 
+  * Added [`pgroonga_wal_resource_manager` module]
+
+    * PGroonga WAL is automatically applied when this module is enabled.
+
   * Added support downgrade by using `ALTER EXTENSION ... UPDATE`.
 
     Note that this feature only enable 3.2.1, currently.
@@ -36,11 +40,21 @@ upper_level: ../
 
   * [WAL] Added support for registering a plugin.
 
-    `plugin = '...'` in `WITH` phrase is also writed into PGroonga's WAL.
+    `plugin = '...'` in `WITH` phrase is also written into PGroonga's WAL.
 
   * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`.
 
     This function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).
+
+  * [[`pgroonga-primary-maintainer.sh`][primary-maintainer]] Added a new execution file `pgroonga-primary-maintainer.sh`.
+
+    * This command is used to suppress the size of PGroonga WAL on the primary server where WAL is enabled.
+
+    * Also added execution file to configure systemd timer.
+
+      * [`pgroonga-generate-primary-maintainer-service.sh`][generate-primary-maintainer-service]
+
+      * [`pgroonga-generate-primary-maintainer-timer.sh`][generate-primary-maintainer-timer]
 
   * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat).
 
@@ -2244,6 +2258,9 @@ The first release!!!
 [is-writable]:../reference/functions/pgroonga-is-writable.html
 [list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
 [list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
+[primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html
+[generate-primary-maintainer-service]:../reference/commands/pgroonga-generate-primary-maintainer-service.html
+[generate-primary-maintainer-timer]:../reference/commands/pgroonga-generate-primary-maintainer-timer.html
 [match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html
 [match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
 [normalize]:../reference/functions/pgroonga-normalize.html

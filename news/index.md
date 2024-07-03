@@ -44,7 +44,7 @@ upper_level: ../
 
   * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat).
 
-  * [`pgroonga_condition()`] Added support `uzzy_max_distance_ratio`
+  * [`pgroonga_condition()`] Added support `fuzzy_max_distance_ratio`
 
 ### Fixes
 

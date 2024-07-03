@@ -1,0 +1,95 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"---\n"
+"title: pgroonga_wal_resource_manager module\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+
+msgid "# `pgroonga_wal_resource_manager` module"
+msgstr ""
+
+msgid "Since 3.2.1."
+msgstr ""
+
+msgid "Available in PostgreSQL 15 or higher."
+msgstr ""
+
+msgid "## Summary"
+msgstr ""
+
+msgid ""
+"The `pgroonga_wal_resource_manager` module automatically applies PGroonga's WAL\n"
+"using the PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]."
+msgstr ""
+
+msgid "## Usage"
+msgstr ""
+
+msgid "You must configure the following parameters to use `pgroonga_wal_resource_manager` module:"
+msgstr ""
+
+msgid "  * [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]"
+msgstr ""
+
+msgid "For example:"
+msgstr ""
+
+msgid ""
+"```text\n"
+"shared_preload_libraries = 'pgroonga_wal_resource_manager'\n"
+"```"
+msgstr ""
+
+msgid "## Parameters"
+msgstr ""
+
+msgid "  * [`pgroonga_wal_resource_manager.log_level` parameter][pgroonga-wal-resource-manager-log-level]"
+msgstr ""
+
+msgid "  * [`pgroonga_wal_resource_manager.log_path` parameter][pgroonga-wal-resource-manager-log-path]"
+msgstr ""
+
+msgid "## See also"
+msgstr ""
+
+msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
+msgstr ""
+
+msgid "  * [`pgroonga_wal_apply()` function][pgroonga-wal-apply]"
+msgstr ""
+
+msgid "  * [`pgroonga_vacuum()` function][pgroonga-vacuum]"
+msgstr ""
+
+msgid "  * [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]"
+msgstr ""
+
+msgid "[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"
+msgstr ""
+
+msgid "[postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html"
+msgstr ""
+
+msgid "[pgroonga-wal-resource-manager-log-level]:../parameters/pgroonga-wal-resource-manager-log-level.html"
+msgstr ""
+
+msgid "[pgroonga-wal-resource-manager-log-path]:../parameters/pgroonga-wal-resource-manager-log-path.html"
+msgstr ""
+
+msgid "[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html"
+msgstr ""
+
+msgid "[pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html"
+msgstr ""
+
+msgid "[pgroonga-vacuum]:../functions/pgroonga-vacuum.html"
+msgstr ""

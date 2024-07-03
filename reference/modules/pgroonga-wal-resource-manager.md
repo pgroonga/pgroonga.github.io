@@ -26,7 +26,31 @@ For example:
 shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
+The [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager] must also be set.
+
+For example:
+
+```text
+pgroonga.enable_wal_resource_manager = yes
+```
+
+**Note that these should be set to primary.**
+
+## Notes
+
+* Do not set [`pgroonga.enable_wal = yes`][enable-wal] together
+
+  * The WAL size suppression effect, which is one of the advantages of this module, will no longer be available
+
+* If you enable this module, do not enable [crash-safer][pgroonga-crash-safer] in standby
+
+  * In standby, this module recovers
+
+  * Primary does not recover, so if you want to make it crash-safe, you must enable [crash-safer][pgroonga-crash-safer]
+
 ## Parameters
+
+  * [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager]
 
   * [`pgroonga_wal_resource_manager.log_level` parameter][pgroonga-wal-resource-manager-log-level]
 
@@ -38,12 +62,18 @@ shared_preload_libraries = 'pgroonga_wal_resource_manager'
 
   * [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]
 
-[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES
+[enable-wal-resource-manager]:../parameters/enable-wal-resource-manager.html
 
-[postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html
+[enable-wal]:../parameters/enable-wal.html
+
+[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html
+
+[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html
 
 [pgroonga-wal-resource-manager-log-level]:../parameters/pgroonga-wal-resource-manager-log-level.html
 
 [pgroonga-wal-resource-manager-log-path]:../parameters/pgroonga-wal-resource-manager-log-path.html
 
-[pgroonga-standby-maintainer]:../modules/pgroonga-standby-maintainer.html
+[postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html
+
+[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES

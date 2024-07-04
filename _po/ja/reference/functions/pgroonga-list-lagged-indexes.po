@@ -250,7 +250,7 @@ msgid "  * [`pgroonga_wal_status` function][wal-status]"
 msgstr "  * [`pgroonga_wal_status`関数][wal-status]"
 
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
-msgstr "  * [`pgroonga.enable_wal` パラメーター][enable-wal]"
+msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
 msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""

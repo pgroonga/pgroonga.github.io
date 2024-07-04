@@ -5,6 +5,82 @@ upper_level: ../
 
 # News
 
+## 3.2.1: 2024-07-04 {#version-3-2-1}
+
+### Improvements
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added a new module `pgroonga_wal_resource_manager`
+
+    * PGroonga WAL is automatically applied when this module is enabled.
+
+  * Added support downgrade by using `ALTER EXTENSION ... UPDATE`.
+
+    Note that this feature only enable 3.2.1, currently.
+    This feature can't use before 3.2.1.
+
+  * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new function `pgroonga_list_broken_indexes()`.
+
+    This function list the indexes of PGroonga's that may be broken.
+
+  * [[`pgroonga_crash_safer` module][pgroonga-crash-safer]] Putted index names when the `pgroonga-crash-safer` rebuild index in log.
+
+  * [WAL] Added support for registering a plugin.
+
+    `plugin = '...'` in `WITH` phrase is also written into PGroonga's WAL.
+
+  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`.
+
+    This function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).
+
+  * [[`pgroonga-primary-maintainer.sh`][primary-maintainer]] Added a new execution file `pgroonga-primary-maintainer.sh`.
+
+    * This command is used to suppress the size of PGroonga WAL on the primary server where WAL is enabled.
+
+    * Also added execution file to configure systemd timer.
+
+      * [`pgroonga-generate-primary-maintainer-service.sh`][generate-primary-maintainer-service]
+
+      * [`pgroonga-generate-primary-maintainer-timer.sh`][generate-primary-maintainer-timer]
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat).
+
+  * [`pgroonga_condition()`] Added support `fuzzy_max_distance_ratio`
+
+### Fixes
+
+  * [[`&@~` operator][query-v2]] Fixed a crash bug with multiple conditions including blank only query condition.
+
+    An error will occur if any of the multiple conditions have a blank space condition as below.
+
+    ```sql
+    CREATE TABLE memos (
+      id integer,
+      content text
+    );
+    INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+    INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+    INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+    CREATE INDEX grnindex ON memos USING pgroonga (content);
+    SELECT id, content
+      FROM memos
+     WHERE content &@~ pgroonga_condition('PGroonga') AND
+           content &@~ pgroonga_condition(' ');
+    ```
+
+  * Fixed a crash bug related to auto vacuum
+
+    This is happen when:
+
+      * A query has multiple index scans and/or bitmap scans with
+        PGroonga indexes
+      * Auto vacuum is executed while the query is executing
+
+    If you're lucky, this may not cause a crash. But the following errors
+    may be happen:
+
+      * "invalid match target: <>"
+      * "column isn't found"
+
 ## 3.2.0: 2024-04-18 {#version-3-2-0}
 
 ### Fixes
@@ -2166,6 +2242,11 @@ The first release!!!
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [index-column-name]:../reference/functions/pgroonga-index-column-name.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
+[list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
+[list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
+[primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html
+[generate-primary-maintainer-service]:../reference/commands/pgroonga-generate-primary-maintainer-service.html
+[generate-primary-maintainer-timer]:../reference/commands/pgroonga-generate-primary-maintainer-timer.html
 [match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html
 [match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
 [normalize]:../reference/functions/pgroonga-normalize.html
@@ -2204,6 +2285,7 @@ The first release!!!
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
 
 [streaming-replication]:../reference/streaming-replication.html
 

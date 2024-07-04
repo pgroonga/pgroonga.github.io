@@ -19,6 +19,8 @@ WALリソースマネージャーサポートを有効にすると、WALのデ�
 
 デフォルト値は`off`です。これはWALを生成しないということです。
 
+[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager] と一緒に使います。
+
 ## 構文
 
 SQLの場合：
@@ -51,6 +53,10 @@ pgroonga.enable_wal_resource_manager = on
 
 ## 参考
 
+  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]
+
   * [カスタムWALリソースマネージャー][postgresql-custom-wal-resource-managers]
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
 
 [postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.ja }}/custom-rmgr.html

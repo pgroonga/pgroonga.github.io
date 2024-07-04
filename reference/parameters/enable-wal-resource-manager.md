@@ -23,6 +23,8 @@ update performance will be decreased because some extra disk writes are needed.
 
 The default value is `off`. It means that PGroonga doesn't generate WAL.
 
+It is used with [`pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager].
+
 ## Syntax
 
 In SQL:
@@ -55,6 +57,10 @@ pgroonga.enable_wal_resource_manager = on
 
 ## See also
 
+  * [`pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]
+
   * [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
 
 [postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html

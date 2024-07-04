@@ -45,6 +45,9 @@ msgstr ""
 msgid "The default value is `off`. It means that PGroonga doesn't generate WAL."
 msgstr ""
 
+msgid "It is used with [`pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]."
+msgstr ""
+
 msgid "## Syntax"
 msgstr ""
 
@@ -93,7 +96,13 @@ msgstr ""
 msgid "## See also"
 msgstr ""
 
+msgid "  * [`pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]"
+msgstr ""
+
 msgid "  * [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]"
+msgstr ""
+
+msgid "[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html"
 msgstr ""
 
 msgid "[postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html"

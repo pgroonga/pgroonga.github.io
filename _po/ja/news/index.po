@@ -48,28 +48,6 @@ msgid ""
 "    This feature can't use before 3.2.1."
 msgstr ""
 
-msgid "  * Added a tool for adjusting pg_dump output."
-msgstr ""
-
-msgid ""
-"    This tool is for users that are using `NormalizerTable`.\n"
-"    Users that are not using `NormalizerTable` are not need to use this tool."
-msgstr ""
-
-msgid ""
-"    Note that this tool only support plain format dump.\n"
-"    The custom format doesn't support."
-msgstr ""
-
-msgid "    Usage:"
-msgstr ""
-
-msgid ""
-"    ```\n"
-"    ruby repair-dump.rb ${dump_file_path}\n"
-"    ```"
-msgstr ""
-
 msgid ""
 "  * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new "
 "function `pgroonga_list_broken_indexes()`."

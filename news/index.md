@@ -18,20 +18,6 @@ upper_level: ../
     Note that this feature only enable 3.2.1, currently.
     This feature can't use before 3.2.1.
 
-  * Added a tool for adjusting pg_dump output.
-
-    This tool is for users that are using `NormalizerTable`.
-    Users that are not using `NormalizerTable` are not need to use this tool.
-
-    Note that this tool only support plain format dump.
-    The custom format doesn't support.
-
-    Usage:
-
-    ```
-    ruby repair-dump.rb ${dump_file_path}
-    ```
-
   * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new function `pgroonga_list_broken_indexes()`.
 
     This function list the indexes of PGroonga's that may be broken.

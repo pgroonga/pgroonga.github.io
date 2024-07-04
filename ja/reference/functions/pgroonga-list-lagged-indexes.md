@@ -152,7 +152,7 @@ SELECT pgroonga_list_lagged_indexes();
 
   * [`pgroonga_wal_status`関数][wal-status]
 
-  * [`pgroonga.enable_wal` パラメーター][enable-wal]
+  * [`pgroonga.enable_wal`パラメーター][enable-wal]
 
 [enable-wal]:../parameters/enable-wal.html
 

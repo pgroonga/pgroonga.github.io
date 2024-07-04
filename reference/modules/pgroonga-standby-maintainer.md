@@ -7,10 +7,12 @@ upper_level: ../
 
 Since 2.4.2.
 
-## Summary
+## Notices
 
 If PostgreSQL is 15 or higher,
 please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager] instead of this module.
+
+## Summary
 
 The `pgroonga_standby_maintainer` module automatically executes [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] on a stadnby database.
 

@@ -7,10 +7,12 @@ upper_level: ../
 
 2.4.2で追加。
 
-## 概要
+## お知らせ
 
 PostgreSQL 15以上であれば、
 このモジュールの変わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください。
+
+## 概要
 
 `pgroonga_standby_maintainer` モジュールは、 [`pgroonga_wal_apply()` 関数][pgroonga-wal-apply] と [`pgroonga_vacuum()` 関数][pgroonga-vacuum] をスタンバイのデータベース上で自動的に実行します。
 

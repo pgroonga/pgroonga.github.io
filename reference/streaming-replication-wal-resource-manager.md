@@ -4,22 +4,17 @@ title: Custom WAL Resource Managers
 
 # Custom WAL Resource Managers
 
-PGroonga supports WAL resource management using PostgreSQL
-[Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] since 3.2.1.
-Available in PostgreSQL 15 or higher.
+PGroonga supports WAL resource management using PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] since 3.2.1. Available in PostgreSQL 15 or higher.
 
 This makes the operation of WAL based streaming replication simple.
 
 <!-- todo ```mermaid ``` -->
 
-This document describes how to configure PostgreSQL built-in WAL based streaming replication in combination with PGroonga WAL resource manager.
-Most of steps are normal steps. There are some PGroonga specific steps.
+This document describes how to configure PostgreSQL built-in WAL based streaming replication in combination with PGroonga WAL resource manager. Most of steps are normal steps. There are some PGroonga specific steps.
 
 ## Summary
 
-Here are steps to configure PostgreSQL built-in WAL based streaming replication in combination with PGroonga WAL resource manager.
-"[normal]" tag means that the step is a normal step for streaming replication.
-"[special]" tag means that the step is a PGroonga specific step.
+Here are steps to configure PostgreSQL built-in WAL based streaming replication in combination with PGroonga WAL resource manager. "[normal]" tag means that the step is a normal step for streaming replication. "[special]" tag means that the step is a PGroonga specific step.
 
   1. [normal] [Install PostgreSQL on both primary and standbys](#install-postgresql)
 
@@ -163,10 +158,7 @@ This is a PGroonga specific step.
 
 You need to add PGroonga's WAL resource manager related configurations and crash safe related configurations.
 
-For PGroonga's WAL resource manager, you need to add
-[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] to
-[`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add
-[`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager].
+For PGroonga's WAL resource manager, you need to add [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add [`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager].
 
 For crash safe, you need to add [`pgroonga_crash_safer` module][pgroonga-crash-safer] module to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add `pgroonga.crash_safe = on`.
 

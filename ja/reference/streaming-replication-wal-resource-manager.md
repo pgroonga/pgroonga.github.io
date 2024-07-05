@@ -158,10 +158,7 @@ Enter it again: (passw0rd)
 
 PGroongaのWALリソースマネージャー関連の設定とクラッシュセーフ関連の設定を追加する必要があります。
 
-PGroongaのWALリソースマネージャー用には
-[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]を
-[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して
-[`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager]も追加する必要があります。
+PGroonga WALリソースマネージャー用には[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して[`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager]も追加する必要があります。
 
 クラッシュセーフ用には、[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して`pgroonga.crash_safe = on`も追加する必要があります。
 

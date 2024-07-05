@@ -317,12 +317,12 @@ When using PGroonga WAL resource manager, also add [Replication Slots][postgresq
 
 * `--create-slot`
 
-* `--slot stanby1`
+* `--slot standby1`
 
-  * `stanby1` is an example. It is better to use a name that is easy to understand.
+  * `standby1` is an example. It is better to use a name that is easy to understand.
 
 ```console
-$ sudo -u postgres -H pg_basebackup --create-slot --slot stanby1 \
+$ sudo -u postgres -H pg_basebackup --create-slot --slot standby1 \
   --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
@@ -334,16 +334,15 @@ When using PGroonga WAL resource manager, also add [Replication Slots][postgresq
 
 * `--create-slot`
 
-* `--slot stanby2`
+* `--slot standby2`
 
-  * `stanby2` is an example. It is better to use a name that is easy to understand.
+  * `standby2` is an example. It is better to use a name that is easy to understand.
 
 ```console
-$ sudo -u postgres -H pg_basebackup --create-slot --slot stanby2 \
+$ sudo -u postgres -H pg_basebackup --create-slot --slot standby2 \
   --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
-
 ```
 
 ## [special] Configure PostgreSQL for PGroonga on standbys {#configure-pgroonga-standbys}

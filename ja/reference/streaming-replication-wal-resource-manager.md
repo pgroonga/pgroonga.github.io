@@ -309,12 +309,12 @@ PGroongaのWALリソースマネージャーを使う場合、[レプリケー�
 
 * `--create-slot`
 
-* `--slot stanby1`
+* `--slot standby1`
 
-  * `stanby1`は例です。わかりやすい名前を設定してください
+  * `standby1`は例です。わかりやすい名前を設定してください
 
 ```console
-$ sudo -u postgres -H pg_basebackup --create-slot --slot stanby1 \
+$ sudo -u postgres -H pg_basebackup --create-slot --slot standby1 \
   --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
@@ -326,16 +326,15 @@ PGroongaのWALリソースマネージャーを使う場合、[レプリケー�
 
 * `--create-slot`
 
-* `--slot stanby2`
+* `--slot standby2`
 
-  * `stanby2`は例です。わかりやすい名前を設定してください
+  * `standby2`は例です。わかりやすい名前を設定してください
 
 ```console
-$ sudo -u postgres -H pg_basebackup --create-slot --slot stanby2 \
+$ sudo -u postgres -H pg_basebackup --create-slot --slot standby2 \
   --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
-
 ```
 
 ## [固有] スタンバイでPGroonga用にPostgreSQLを設定する {#configure-pgroonga-standbys}

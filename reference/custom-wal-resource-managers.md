@@ -6,6 +6,7 @@ title: Custom WAL Resource Managers
 
 PGroonga supports WAL resource management using PostgreSQL
 [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] since 3.2.1.
+Available in PostgreSQL 15 or higher.
 
 This makes the operation of WAL based streaming replication simple.
 

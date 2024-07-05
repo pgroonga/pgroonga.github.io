@@ -18,7 +18,8 @@ msgstr ""
 
 msgid ""
 "PGroonga supports WAL resource management using PostgreSQL\n"
-"[Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] since 3.2.1."
+"[Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] since 3.2.1.\n"
+"Available in PostgreSQL 15 or higher."
 msgstr ""
 
 msgid "This makes the operation of WAL based streaming replication simple."

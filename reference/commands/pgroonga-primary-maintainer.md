@@ -7,10 +7,13 @@ upper_level: ../
 
 Since 3.2.1.
 
+## Notices
+
+If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager].
+
 ## Summary
 
-`pgroonga-primary-maintainer.sh` command runs `REINDEX INDEX CONCURRENTLY` on indexes
-for which PGroonga's WAL size exceeds the threshold.
+`pgroonga-primary-maintainer.sh` command runs `REINDEX INDEX CONCURRENTLY` on indexes for which PGroonga's WAL size exceeds the threshold.
 
 The purpose is to suppress the size of the WAL on primary servers that have WAL enabled.
 
@@ -45,7 +48,7 @@ See also: https://www.postgresql.org/docs/current/libpq-envars.html
 
   * Specify connection information to DB in environment variables
 
-  * [PostgreSQL Environment Variables][environment-variables]
+  * [PostgreSQL Environment Variables][postgresql-environment-variables]
 
 ## Example
 
@@ -88,14 +91,16 @@ with similar output each time.
 
 ## See also
 
-  * [PostgreSQL Environment Variables][environment-variables]
+  * [PostgreSQL Environment Variables][postgresql-environment-variables]
 
   * [`pgroonga_wal_status` function][wal-status]
 
   * [`pgroonga.enable_wal` parameter][enable-wal]
 
-[environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html
-
 [enable-wal]:../parameters/enable-wal.html
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
+
+[postgresql-environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html
 
 [wal-status]:pgroonga-wal-status.html

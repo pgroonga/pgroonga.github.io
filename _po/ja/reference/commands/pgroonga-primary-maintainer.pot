@@ -20,12 +20,16 @@ msgstr ""
 msgid "Since 3.2.1."
 msgstr ""
 
+msgid "## Notices"
+msgstr ""
+
+msgid "If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]."
+msgstr ""
+
 msgid "## Summary"
 msgstr ""
 
-msgid ""
-"`pgroonga-primary-maintainer.sh` command runs `REINDEX INDEX CONCURRENTLY` on indexes\n"
-"for which PGroonga's WAL size exceeds the threshold."
+msgid "`pgroonga-primary-maintainer.sh` command runs `REINDEX INDEX CONCURRENTLY` on indexes for which PGroonga's WAL size exceeds the threshold."
 msgstr ""
 
 msgid "The purpose is to suppress the size of the WAL on primary servers that have WAL enabled."
@@ -75,7 +79,7 @@ msgstr ""
 msgid "  * Specify connection information to DB in environment variables"
 msgstr ""
 
-msgid "  * [PostgreSQL Environment Variables][environment-variables]"
+msgid "  * [PostgreSQL Environment Variables][postgresql-environment-variables]"
 msgstr ""
 
 msgid "## Example"
@@ -142,10 +146,13 @@ msgstr ""
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr ""
 
-msgid "[environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html"
+msgid "[enable-wal]:../parameters/enable-wal.html"
 msgstr ""
 
-msgid "[enable-wal]:../parameters/enable-wal.html"
+msgid "[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html"
+msgstr ""
+
+msgid "[postgresql-environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html"
 msgstr ""
 
 msgid "[wal-status]:pgroonga-wal-status.html"

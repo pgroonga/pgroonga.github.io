@@ -7,6 +7,10 @@ upper_level: ../
 
 3.2.1で追加
 
+## お知らせ
+
+PostgreSQL 15以上であれば`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください
+
 ## 概要
 
 `pgroonga-primary-maintainer.sh` コマンドはPGroongaのWALのサイズがしきい値を超えたをインデックスに対して、`REINDEX INDEX CONCURRENTLY` を実行します。
@@ -44,7 +48,7 @@ See also: https://www.postgresql.org/docs/current/libpq-envars.html
 
   * DBへの接続情報などは環境変数で指定します
 
-  * [PostgreSQLの環境変数][environment-variables]
+  * [PostgreSQLの環境変数][postgresql-environment-variables]
 
 ## 実行例
 
@@ -86,14 +90,16 @@ Thu Jun 27 07:24:34 UTC 2024
 
 ## 参考
 
-  * [PostgreSQLの環境変数][environment-variables]
+  * [PostgreSQLの環境変数][postgresql-environment-variables]
 
   * [`pgroonga_wal_status`関数][wal-status]
 
   * [`pgroonga.enable_wal`パラメーター][enable-wal]
 
-[environment-variables]:{{ site.postgresql_doc_base_url.ja }}/libpq-envars.html
-
 [enable-wal]:../parameters/enable-wal.html
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
+
+[postgresql-environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html
 
 [wal-status]:pgroonga-wal-status.html

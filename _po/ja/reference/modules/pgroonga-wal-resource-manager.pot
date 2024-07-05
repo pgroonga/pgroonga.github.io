@@ -26,9 +26,7 @@ msgstr ""
 msgid "## Summary"
 msgstr ""
 
-msgid ""
-"The `pgroonga_wal_resource_manager` module automatically applies PGroonga's WAL\n"
-"using the PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]."
+msgid "The `pgroonga_wal_resource_manager` module automatically applies PGroonga's WAL using the PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]."
 msgstr ""
 
 msgid "## Usage"

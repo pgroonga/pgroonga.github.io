@@ -9,9 +9,7 @@ Since 3.2.1.
 
 ## Summary
 
-`pgroonga_wal_resource_manager.log_level` parameter controls which logs are recorded.
-This is a [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
-version of [`pgroonga.log_level` parameter][log-level].
+`pgroonga_wal_resource_manager.log_level` parameter controls which logs are recorded. This is a [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] version of [`pgroonga.log_level` parameter][log-level].
 
 See [`pgroonga.log_level` parameter][log-level] for details.
 

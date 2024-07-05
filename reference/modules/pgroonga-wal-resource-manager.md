@@ -11,8 +11,7 @@ Available in PostgreSQL 15 or higher.
 
 ## Summary
 
-The `pgroonga_wal_resource_manager` module automatically applies PGroonga's WAL
-using the PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers].
+The `pgroonga_wal_resource_manager` module automatically applies PGroonga's WAL using the PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers].
 
 ## Usage
 

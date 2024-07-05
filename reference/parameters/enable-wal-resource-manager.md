@@ -11,15 +11,12 @@ Available in PostgreSQL 15 or higher.
 
 ## Summary
 
-`pgroonga.enable_wal_resource_manager` parameter controls whether
-WAL Resource Manager is enabled or not.
+`pgroonga.enable_wal_resource_manager` parameter controls whether WAL Resource Manager is enabled or not.
 
-If you enable WAL Resource Manager support,
-use PostgreSQL's [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] feature.
+If you enable WAL Resource Manager support, use PostgreSQL's [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] feature.
 <!-- TODO See [Replication (WAL Resource Manager)][..] for details. -->
 
-If you enable WAL Resource Manager support,
-update performance will be decreased because some extra disk writes are needed.
+If you enable WAL Resource Manager support, update performance will be decreased because some extra disk writes are needed.
 
 The default value is `off`. It means that PGroonga doesn't generate WAL.
 

@@ -9,9 +9,7 @@ Since 3.2.1.
 
 ## Summary
 
-`pgroonga_wal_resource_manager.log_path` parameter controls log path.
-This is a [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
-version of [`pgroonga.log_path` parameter][log-path].
+`pgroonga_wal_resource_manager.log_path` parameter controls log path. This is a [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] version of [`pgroonga.log_path` parameter][log-path].
 
 See [`pgroonga.log_path` parameter][log-path] for details.
 

@@ -11,7 +11,7 @@ PostgreSQL 15以上で利用できます。
 
 ## 概要
 
-`pgroonga_wal_resource_manager` モジュールは PostgreSQL の [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] を利用し、自動的にPGroongaのWALを適用します。
+`pgroonga_wal_resource_manager`モジュールは PostgreSQL の [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] を利用し、自動的にPGroongaのWALを適用します。
 
 ## 使い方
 

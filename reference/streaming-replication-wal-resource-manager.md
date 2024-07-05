@@ -231,7 +231,7 @@ Insert data to the created `entries` table:
 ```sql
 INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');
 INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine used by PGroonga. We did not know about it.');
-INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 1.1.6 supports WAL based streaming replication. We should try it!');
+INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga and replication', 'PGroonga 3.2.1 supports custom WAL resource manager. We should try it!');
 ```
 
 ## [special] Create a PGroonga index on primary {#create-pgroonga-index-primary}
@@ -403,7 +403,7 @@ You can also search data inserted on primary after `pg_basebackup`.
 Primary:
 
 ```sql
-INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL supports generic WAL since 9.6. It is required for replication for PGroonga.');
+INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL 9.6 and replication', 'PostgreSQL supports custom WAL resource manager since 15.');
 ```
 
 Standby1:

@@ -116,13 +116,13 @@ See also [PostgreSQL: Documentation: Replication][postgresql-replication].
 
 Before:
 
-```vim
+```conf
 #listen_addresses = 'localhost'
 ```
 
 After:
 
-```vim
+```conf
 listen_addresses = 'localhost,192.168.0.30'
 ```
 
@@ -134,7 +134,7 @@ Add the following streaming replication configurations to `pg_hba.conf` on only 
 
 Before:
 
-```vim
+```conf
 local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            scram-sha-256
 host    replication     all             ::1/128                 scram-sha-256
@@ -142,7 +142,7 @@ host    replication     all             ::1/128                 scram-sha-256
 
 After:
 
-```vim
+```conf
 local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            scram-sha-256
 host    replication     all             ::1/128                 scram-sha-256
@@ -176,19 +176,19 @@ NOTE: `pgroonga_crash_safer` module reduces write performance. There is a trade-
 
 Before:
 
-```vim
+```conf
 #shared_preload_libraries = ''
 ```
 
 After:
 
-```vim
+```conf
 shared_preload_libraries = 'pgroonga_wal_resource_manager,pgroonga_crash_safer'
 ```
 
 `/etc/postgresql/16/main/conf.d/pgroonga.conf`:
 
-```vim
+```conf
 pgroonga.enable_wal_resource_manager = on
 pgroonga.enable_crash_safe = on
 ```
@@ -362,13 +362,13 @@ Standbys:
 
 Before:
 
-```vim
+```conf
 #shared_preload_libraries = ''
 ```
 
 After:
 
-```vim
+```conf
 shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
@@ -376,7 +376,7 @@ Standbys:
 
 `/etc/postgresql/16/main/conf.d/pgroonga.conf`:
 
-```vim
+```conf
 pgroonga.enable_wal_resource_manager = on
 ```
 

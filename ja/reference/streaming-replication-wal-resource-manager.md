@@ -111,13 +111,13 @@ sudo apt install -y -V postgresql-16-pgdg-pgroonga
 
 変更前：
 
-```vim
+```conf
 #listen_addresses = 'localhost'
 ```
 
 変更後：
 
-```vim
+```conf
 listen_addresses = 'localhost,192.168.0.30'
 ```
 
@@ -129,7 +129,7 @@ listen_addresses = 'localhost,192.168.0.30'
 
 変更前：
 
-```vim
+```conf
 local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            scram-sha-256
 host    replication     all             ::1/128                 scram-sha-256
@@ -137,7 +137,7 @@ host    replication     all             ::1/128                 scram-sha-256
 
 変更後：
 
-```vim
+```conf
 local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            scram-sha-256
 host    replication     all             ::1/128                 scram-sha-256
@@ -171,19 +171,19 @@ PGroonga WALリソースマネージャーようには
 
 変更前：
 
-```vim
+```conf
 #shared_preload_libraries = ''
 ```
 
 変更後：
 
-```vim
+```conf
 shared_preload_libraries = 'pgroonga_wal_resource_manager,pgroonga_crash_safer'
 ```
 
 `/etc/postgresql/16/main/conf.d/pgroonga.conf`:
 
-```vim
+```conf
 pgroonga.enable_wal_resource_manager = on
 pgroonga.enable_crash_safe = on
 ```
@@ -357,13 +357,13 @@ Password: (passw0rd)
 
 変更前：
 
-```vim
+```conf
 #shared_preload_libraries = ''
 ```
 
 変更後：
 
-```vim
+```conf
 shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
@@ -371,7 +371,7 @@ shared_preload_libraries = 'pgroonga_wal_resource_manager'
 
 `/etc/postgresql/16/main/conf.d/pgroonga.conf`:
 
-```vim
+```conf
 pgroonga.enable_wal_resource_manager = on
 ```
 

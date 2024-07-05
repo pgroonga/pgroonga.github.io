@@ -10,11 +10,11 @@ PGroongaは3.2.1からPostgreSQL組み込みのカスタムWALリソースマネ
 
 <!-- todo ```mermaid ``` -->
 
-このドキュメントではPostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga WALリソースマネージャーと組み合わせて利用するときの設定方法を説明します。多くの手順は通常のストリーミングレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。
+このドキュメントではPostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroongaのWALリソースマネージャーと組み合わせて利用するときの設定方法を説明します。多くの手順は通常のストリーミングレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。
 
 ## 概要
 
-PostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroonga WALリソースマネージャと組み合わせて利用する設定手順は次の通りです。「[通常]」タグは通常のストリーミングレプリケーション用の手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。
+PostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroongaのWALリソースマネージャと組み合わせて利用する設定手順は次の通りです。「[通常]」タグは通常のストリーミングレプリケーション用の手順であることを示しています。「[固有]」タグはPGroonga固有の手順であることを示しています。
 
   1. [通常] [プライマリーとスタンバイでPostgreSQLをインストールする](#install-postgresql)
 
@@ -158,7 +158,7 @@ Enter it again: (passw0rd)
 
 PGroongaのWALリソースマネージャー関連の設定とクラッシュセーフ関連の設定を追加する必要があります。
 
-PGroonga WALリソースマネージャーようには
+PGroongaのWALリソースマネージャー用には
 [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]を
 [`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して
 [`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager]も追加する必要があります。
@@ -308,7 +308,7 @@ sudo -u postgres -H rm -rf /var/lib/postgresql/16/main
 
 スタンバイ1：
 
-PGroonga WALリソースマネージャーを使う場合、[レプリケーションスロット][postgresql-replication-slots]のオプションも追加します。
+PGroongaのWALリソースマネージャーを使う場合、[レプリケーションスロット][postgresql-replication-slots]のオプションも追加します。
 
 * `--create-slot`
 
@@ -325,7 +325,7 @@ Password: (passw0rd)
 
 スタンバイ2：
 
-PGroonga WALリソースマネージャーを使う場合、[レプリケーションスロット][postgresql-replication-slots]のオプションも追加します。
+PGroongaのWALリソースマネージャーを使う場合、[レプリケーションスロット][postgresql-replication-slots]のオプションも追加します。
 
 * `--create-slot`
 

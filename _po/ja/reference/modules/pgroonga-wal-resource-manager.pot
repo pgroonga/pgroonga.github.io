@@ -32,7 +32,7 @@ msgstr ""
 msgid "## Usage"
 msgstr ""
 
-msgid "You must configure the following parameters to use `pgroonga_wal_resource_manager` module:"
+msgid "You must configure on the primary and standby the following parameters to use `pgroonga_wal_resource_manager` module:"
 msgstr ""
 
 msgid "  * [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]"
@@ -47,16 +47,13 @@ msgid ""
 "```"
 msgstr ""
 
-msgid "The [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager] must also be set."
+msgid "In primary, the [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager] must also be set."
 msgstr ""
 
 msgid ""
 "```text\n"
 "pgroonga.enable_wal_resource_manager = yes\n"
 "```"
-msgstr ""
-
-msgid "**Note that these should be set to primary.**"
 msgstr ""
 
 msgid "## Notes"

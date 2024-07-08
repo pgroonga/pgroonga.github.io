@@ -15,7 +15,7 @@ The `pgroonga_wal_resource_manager` module automatically applies PGroonga's WAL 
 
 ## Usage
 
-You must configure the following parameters to use `pgroonga_wal_resource_manager` module:
+You must configure on the primary and standby the following parameters to use `pgroonga_wal_resource_manager` module:
 
   * [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]
 
@@ -25,15 +25,13 @@ For example:
 shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
-The [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager] must also be set.
+In primary, the [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager] must also be set.
 
 For example:
 
 ```text
 pgroonga.enable_wal_resource_manager = yes
 ```
-
-**Note that these should be set to primary.**
 
 ## Notes
 

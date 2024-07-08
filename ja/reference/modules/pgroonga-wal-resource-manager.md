@@ -15,7 +15,7 @@ PostgreSQL 15以上で利用できます。
 
 ## 使い方
 
-`pgroonga_wal_resource_manager` モジュールを使うには、以下のパラメーターを設定しなければなりません。
+`pgroonga_wal_resource_manager` モジュールを使うには、以下のパラメーターをプライマリーとスタンバイで設定しなければなりません。
 
   * [`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]
 
@@ -25,15 +25,13 @@ PostgreSQL 15以上で利用できます。
 shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
-合わせて[`pgroonga.enable_wal_resource_manager`パラメーター][enable-wal-resource-manager]を設定する必要があります。
+プライマリでは合わせて[`pgroonga.enable_wal_resource_manager`パラメーター][enable-wal-resource-manager]を設定する必要があります。
 
 例：
 
 ```text
 pgroonga.enable_wal_resource_manager = yes
 ```
-
-**これらの設定はプライマリーに設定します。**
 
 ## 注意
 

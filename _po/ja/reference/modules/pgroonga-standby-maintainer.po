@@ -33,7 +33,7 @@ msgid ""
 "resource-manager] instead of this module."
 msgstr ""
 "PostgreSQL 15以上であれば、\n"
-"このモジュールの変わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-"
+"このモジュールの代わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-"
 "wal-resource-manager]をご利用ください。"
 
 msgid "## Summary"

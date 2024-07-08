@@ -10,7 +10,7 @@ upper_level: ../
 ## お知らせ
 
 PostgreSQL 15以上であれば、
-このモジュールの変わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください。
+このモジュールの代わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください。
 
 ## 概要
 

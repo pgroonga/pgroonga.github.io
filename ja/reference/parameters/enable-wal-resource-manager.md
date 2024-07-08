@@ -13,7 +13,7 @@ PostgreSQL 15以上で利用できます。
 
 `pgroonga.enable_wal_resource_manager`パラメーターはWALリソースマネージャーを有効にするかどうかを制御します。
 
-WALリソースマネージャーサポートを有効にするとPostgreSQLの[カスタムWALリソースマネージャー][postgresql-custom-wal-resource-managers]機能を利用します。詳細は[WALリソースマネージャーを使ったストリーミングレプリケーション][streaming-replication-wal-resource-manager]を参照してください。
+WALリソースマネージャーサポートを有効にすると、PGroongaのインデックスを更新するときにPGroongaのWALリソースマネージャー用のWALを生成します。詳細は[WALリソースマネージャーを使ったストリーミングレプリケーション][streaming-replication-wal-resource-manager]を参照してください。
 
 WALリソースマネージャーサポートを有効にすると、WALのディスク書き込みがあるため、更新性能が落ちるはずです。
 

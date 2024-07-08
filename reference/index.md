@@ -651,6 +651,20 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
     * Since 2.4.2.
 
+## Executables
+
+  * [`pgroonga-primary-maintainer.sh` command][pgroonga-primary-maintainer]
+
+    * Since 3.2.1.
+
+  * [`pgroonga-generate-primary-maintainer-service.sh` command][pgroonga-generate-primary-maintainer-service]
+
+    * Since 3.2.1.
+
+  * [`pgroonga-generate-primary-maintainer-timer.sh` command][pgroonga-generate-primary-maintainer-timer]
+
+    * Since 3.2.1.
+
 ## Groonga functions
 
 You can use them with [`pgroonga_command` function](functions/pgroonga-command.html). You can't use them in `WHERE` clause.
@@ -759,5 +773,9 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
+
+[pgroonga-primary-maintainer]:commands/pgroonga-primary-maintainer.html
+[pgroonga-generate-primary-maintainer-service]:commands/pgroonga-generate-primary-maintainer-service.html
+[pgroonga-generate-primary-maintainer-timer]:commands/pgroonga-generate-primary-maintainer-timer.html
 
 [groonga-tuning]:https://groonga.org/docs/reference/tuning.html

@@ -654,6 +654,20 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 2.4.2で追加。
 
+## 実行ファイル
+
+  * [`pgroonga-primary-maintainer.sh` コマンド][pgroonga-primary-maintainer]
+
+    * Since 3.2.1.
+
+  * [`pgroonga-generate-primary-maintainer-service.sh` コマンド][pgroonga-generate-primary-maintainer-service]
+
+    * Since 3.2.1.
+
+  * [`pgroonga-generate-primary-maintainer-timer.sh` コマンド][pgroonga-generate-primary-maintainer-timer]
+
+    * Since 3.2.1.
+
 ## Groongaの関数
 
 [`pgroonga_command`関数](functions/pgroonga-command.html)内で以下のGroongaの関数を使えます。`WHERE`節では使えません。
@@ -762,5 +776,9 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
+
+[pgroonga-primary-maintainer]:commands/pgroonga-primary-maintainer.html
+[pgroonga-generate-primary-maintainer-service]:commands/pgroonga-generate-primary-maintainer-service.html
+[pgroonga-generate-primary-maintainer-timer]:commands/pgroonga-generate-primary-maintainer-timer.html
 
 [groonga-tuning]:https://groonga.org/ja/docs/reference/tuning.html

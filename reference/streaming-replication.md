@@ -12,13 +12,24 @@ PGroonga's WAL send to standby server from primary server as below.
 
 ```mermaid
 sequenceDiagram
-    User->>+PostgreSQL backend:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary Table:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary PGroonga WAL:WAL Write
-    PostgreSQL backend->>+WAL Sender:Notify write WAL
-    WAL Sender->>+Primary PGroonga WAL:Read WAL
-    WAL Sender->>+WAL Reciver:Send WAL
-    WAL Reciver->>+Standby PGroonga WAL:Write
+    box transparent Primary
+        participant Primary user
+        participant Primary PGroonga
+        participant WAL sender
+    end
+    box transparent Standby
+        participant WAL receiver
+        participant Standby user
+        participant Standby PGroonga
+    end
+
+    Primary user->>+Primary PGroonga:INSERT/UPDATE/DELETE
+    Note right of Primary PGroonga:Write WAL
+    Primary PGroonga->>+WAL sender:Notify write WAL
+    WAL sender->>+WAL receiver:Send WAL
+    Note right of WAL receiver:Save WAL
+    Standby user->>+Standby PGroonga:SELECT
+    Note right of Standby PGroonga:Apply saved WAL
 ```
 
 Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`][postgresql-reindex].

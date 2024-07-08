@@ -12,13 +12,24 @@ PGroongaのWALは以下のようにスタンバイのサーバーへ送信され
 
 ```mermaid
 sequenceDiagram
-    User->>+PostgreSQL backend:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary Table:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary PGroonga WAL:WAL Write
-    PostgreSQL backend->>+WAL Sender:Notify write WAL
-    WAL Sender->>+Primary PGroonga WAL:Read WAL
-    WAL Sender->>+WAL Reciver:Send WAL
-    WAL Reciver->>+Standby PGroonga WAL:Write
+    box transparent Primary
+        participant Primary user
+        participant Primary PGroonga
+        participant WAL sender
+    end
+    box transparent Standby
+        participant WAL receiver
+        participant Standby user
+        participant Standby PGroonga
+    end
+
+    Primary user->>+Primary PGroonga:INSERT/UPDATE/DELETE
+    Note right of Primary PGroonga:Write WAL
+    Primary PGroonga->>+WAL sender:Notify write WAL
+    WAL sender->>+WAL receiver:Send WAL
+    Note right of WAL receiver:Save WAL
+    Standby user->>+Standby PGroonga:SELECT
+    Note right of Standby PGroonga:Apply saved WAL
 ```
 
 WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。

@@ -13,7 +13,7 @@ PostgreSQL 15以上であれば`pgroonga_wal_resource_manager`モジュール][p
 
 ## 概要
 
-`pgroonga-primary-maintainer.sh` コマンドはPGroongaのWALのサイズがしきい値を超えたをインデックスに対して、`REINDEX INDEX CONCURRENTLY` を実行します。
+`pgroonga-primary-maintainer.sh`コマンドはPGroongaのWALのサイズがしきい値を超えたインデックスに対して、`REINDEX INDEX CONCURRENTLY` を実行します。
 
 このコマンドを実行することで、WALが有効になっているプライマリーサーバーにおいてWALのサイズの肥大化を防ぐことができます。
 

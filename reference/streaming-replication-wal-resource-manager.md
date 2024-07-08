@@ -1,14 +1,34 @@
 ---
-title: Custom WAL Resource Managers
+title: Streaming replication by WAL resource manager
 ---
 
-# Custom WAL Resource Managers
+# Streaming replication by WAL resource manager
 
-PGroonga supports WAL resource management using PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] since 3.2.1. Available in PostgreSQL 15 or higher.
+PGroonga supports WAL resource manager based on PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] since 3.2.1. Custom WAL resource managers is available since PostgreSQL 15.
 
 This makes the operation of WAL based streaming replication simple.
 
-<!-- todo ```mermaid ``` -->
+PGroonga's WAL is processed as the following:
+
+```mermaid
+sequenceDiagram
+    box transparent Primary
+        participant User
+        participant PGroonga
+        participant WAL sender
+    end
+    box transparent Standby
+        participant WAL receiver
+        participant PGroonga WAL resource manager
+    end
+
+    User->>+PGroonga:INSERT/UPDATE/DELETE
+    Note right of PGroonga:Write WAL
+    PGroonga->>+WAL sender:Notify write WAL
+    WAL sender->>+WAL receiver:Send WAL
+    WAL receiver->>+PGroonga WAL resource manager:Call
+    Note right of PGroonga WAL resource manager:Apply WAL
+```
 
 This document describes how to configure PostgreSQL built-in WAL based streaming replication in combination with PGroonga WAL resource manager. Most of steps are normal steps. There are some PGroonga specific steps.
 
@@ -91,6 +111,7 @@ sudo add-apt-repository -y ppa:groonga/ppa
 sudo apt install -y lsb-release
 wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt update
 sudo apt install -y -V postgresql-16-pgdg-pgroonga
 ```
@@ -231,7 +252,7 @@ Insert data to the created `entries` table:
 ```sql
 INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');
 INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine used by PGroonga. We did not know about it.');
-INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga and replication', 'PGroonga 3.2.1 supports custom WAL resource manager. We should try it!');
+INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 3.2.1 supports custom WAL resource manager. We should try it!');
 ```
 
 ## [special] Create a PGroonga index on primary {#create-pgroonga-index-primary}
@@ -305,7 +326,7 @@ sudo -u postgres -H rm -rf /var/lib/postgresql/16/main
 
 Standby1:
 
-When using PGroonga WAL resource manager, also add [Replication Slots][postgresql-replication-slots] options.
+You should use [Replication Slots][postgresql-replication-slots] for simple WAL management.
 
 * `--create-slot`
 
@@ -315,14 +336,14 @@ When using PGroonga WAL resource manager, also add [Replication Slots][postgresq
 
 ```console
 $ sudo -u postgres -H pg_basebackup --create-slot --slot standby1 \
-  --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
+  --host 192.168.0.30 --pgdata /var/lib/postgresql/16/main --progress --username replicator --write-recovery-conf
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
 ```
 
 Standby2:
 
-When using PGroonga WAL resource manager, also add [Replication Slots][postgresql-replication-slots] options.
+You should use [Replication Slots][postgresql-replication-slots] for simple WAL management.
 
 * `--create-slot`
 
@@ -332,7 +353,7 @@ When using PGroonga WAL resource manager, also add [Replication Slots][postgresq
 
 ```console
 $ sudo -u postgres -H pg_basebackup --create-slot --slot standby2 \
-  --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
+  --host 192.168.0.30 --pgdata /var/lib/postgresql/16/main --progress --username replicator --write-recovery-conf
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
 ```
@@ -345,7 +366,7 @@ Add the following modules to [`shared_preload_libraries` parameter][postgresql-s
 
   * [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
 
-NOTE: In standby, `pgroonga_crash_safer` is not needed. [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] recovers.
+NOTE: In standby, `pgroonga_crash_safer` is not needed. [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] has crash recovery feature too.
 
 Standbys:
 
@@ -363,14 +384,6 @@ After:
 shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
-Standbys:
-
-`/etc/postgresql/16/main/conf.d/pgroonga.conf`:
-
-```conf
-pgroonga.enable_wal_resource_manager = on
-```
-
 ## [normal] Start PostgreSQL on standbys {#start-standbys}
 
 This is a normal step.
@@ -384,10 +397,6 @@ sudo -H systemctl start postgresql
 Now, you can search data inserted on primary by PGroonga index created on primary.
 
 Standby1:
-
-```bash
-psql blog
-```
 
 ```sql
 SET enable_seqscan TO off;
@@ -403,33 +412,29 @@ You can also search data inserted on primary after `pg_basebackup`.
 Primary:
 
 ```sql
-INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL 9.6 and replication', 'PostgreSQL supports custom WAL resource manager since 15.');
+INSERT INTO entries VALUES ('PostgreSQL 15 and replication', 'PostgreSQL supports custom WAL resource manager since 15.');
 ```
 
 Standby1:
 
 ```sql
 SELECT title FROM entries WHERE title &@~ 'replication';
---              title              
--- --------------------------------
+-              title              
+-- -------------------------------
 --  PGroonga and replication
---  PostgreSQL 9.6 and replication
+--  PostgreSQL 15 and replication
 -- (2 rows)
 ```
 
 Standby2:
 
-```bash
-psql blog
-```
-
 ```sql
 SET enable_seqscan TO off;
 SELECT title FROM entries WHERE title &@~ 'replication';
---              title              
--- --------------------------------
+--             title              
+-- -------------------------------
 --  PGroonga and replication
---  PostgreSQL 9.6 and replication
+--  PostgreSQL 15 and replication
 -- (2 rows)
 ```
 

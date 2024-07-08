@@ -1,14 +1,34 @@
 ---
-title: カスタムWALリソースマネージャー
+title: WALリソースマネージャーを使ったストリーミングレプリケーション
 ---
 
-# カスタムWALリソースマネージャー
+# WALリソースマネージャーを使ったストリーミングレプリケーション
 
-PGroongaは3.2.1からPostgreSQL組み込みのカスタムWALリソースマネージャー機能をサポートしています。PostgreSQL 15以上で利用できます。
+PGroongaは3.2.1からPostgreSQL組み込みの[カスタムWALリソースマネージャー][postgresql-custom-wal-resource-managers]機能をサポートしています。カスタムWALリソースマネージャーはPostgreSQL 15以上で利用できます。
 
 これによりWALベースのストリーミングレプリケーションの運用が楽になります。
 
-<!-- todo ```mermaid ``` -->
+PGroongaのWALは次のように処理されます。
+
+```mermaid
+sequenceDiagram
+    box transparent Primary
+        participant User
+        participant PGroonga
+        participant WAL sender
+    end
+    box transparent Standby
+        participant WAL receiver
+        participant PGroonga WAL resource manager
+    end
+
+    User->>+PGroonga:INSERT/UPDATE/DELETE
+    Note right of PGroonga:Write WAL
+    PGroonga->>+WAL sender:Notify write WAL
+    WAL sender->>+WAL receiver:Send WAL
+    WAL receiver->>+PGroonga WAL resource manager:Call
+    Note right of PGroonga WAL resource manager:Apply WAL
+```
 
 このドキュメントではPostgreSQL組み込みのWALベースのストリーミングレプリケーション機能をPGroongaのWALリソースマネージャーと組み合わせて利用するときの設定方法を説明します。多くの手順は通常のストリーミングレプリケーションの設定手順です。いくつかPGroonga固有の手順があります。
 
@@ -91,6 +111,7 @@ sudo add-apt-repository -y ppa:groonga/ppa
 sudo apt install -y lsb-release
 wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt update
 sudo apt install -y -V postgresql-16-pgdg-pgroonga
 ```
@@ -231,7 +252,7 @@ CREATE TABLE entries (
 ```sql
 INSERT INTO entries VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for fast full text search that supports all languages. It will help us.');
 INSERT INTO entries VALUES ('Groonga', 'Groonga is a full text search engine used by PGroonga. We did not know about it.');
-INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga and replication', 'PGroonga 3.2.1 supports custom WAL resource manager. We should try it!');
+INSERT INTO entries VALUES ('PGroonga and replication', 'PGroonga 3.2.1 supports custom WAL resource manager. We should try it!');
 ```
 
 ## [固有] プライマリーでPGroongaのインデックスを作成する {#create-pgroonga-index-primary}
@@ -305,7 +326,7 @@ sudo -u postgres -H rm -rf /var/lib/postgresql/16/main
 
 スタンバイ1：
 
-PGroongaのWALリソースマネージャーを使う場合、[レプリケーションスロット][postgresql-replication-slots]のオプションも追加します。
+WALの管理がシンプルになるので[レプリケーションスロット][postgresql-replication-slots]を使うべきです。
 
 * `--create-slot`
 
@@ -315,14 +336,14 @@ PGroongaのWALリソースマネージャーを使う場合、[レプリケー�
 
 ```console
 $ sudo -u postgres -H pg_basebackup --create-slot --slot standby1 \
-  --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
+  --host 192.168.0.30 --pgdata /var/lib/postgresql/16/main --progress --username replicator --write-recovery-conf
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
 ```
 
 スタンバイ2：
 
-PGroongaのWALリソースマネージャーを使う場合、[レプリケーションスロット][postgresql-replication-slots]のオプションも追加します。
+WALの管理がシンプルになるので[レプリケーションスロット][postgresql-replication-slots]を使うべきです。
 
 * `--create-slot`
 
@@ -332,7 +353,7 @@ PGroongaのWALリソースマネージャーを使う場合、[レプリケー�
 
 ```console
 $ sudo -u postgres -H pg_basebackup --create-slot --slot standby2 \
-  --host 192.168.0.30 -D /var/lib/postgresql/16/main --progress -U replicator -R
+  --host 192.168.0.30 --pgdata /var/lib/postgresql/16/main --progress --username replicator --write-recovery-conf
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
 ```
@@ -345,7 +366,7 @@ Password: (passw0rd)
 
   * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]
 
-注意: スタンバイでは`pgroonga_crash_safer`は必要ありません。[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]がリカバリーします。
+注意: スタンバイでは`pgroonga_crash_safer`は必要ありません。[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]はクラッシュリカバリーもできます。
 
 スタンバイ：
 
@@ -363,14 +384,6 @@ Password: (passw0rd)
 shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
-スタンバイ：
-
-`/etc/postgresql/16/main/conf.d/pgroonga.conf`:
-
-```conf
-pgroonga.enable_wal_resource_manager = on
-```
-
 ## [通常] スタンバイでPostgreSQLを起動する {#start-standbys}
 
 これは通常の手順です。
@@ -384,10 +397,6 @@ sudo -H systemctl start postgresql
 これで、プライマリーで挿入したデータをプライマリーで作成したPGroongaのインデックスで検索できます。
 
 スタンバイ1：
-
-```bash
-psql blog
-```
 
 ```sql
 SET enable_seqscan TO off;
@@ -403,33 +412,29 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 プライマリー：
 
 ```sql
-INSERT INTO entries VALUES ('PostgreSQL 9.6 and replication', 'PostgreSQL 9.6 and replication', 'PostgreSQL supports custom WAL resource manager since 15.');
+INSERT INTO entries VALUES ('PostgreSQL 15 and replication', 'PostgreSQL supports custom WAL resource manager since 15.');
 ```
 
 スタンバイ1：
 
 ```sql
 SELECT title FROM entries WHERE title &@~ 'replication';
---              title              
--- --------------------------------
+-              title              
+-- -------------------------------
 --  PGroonga and replication
---  PostgreSQL 9.6 and replication
+--  PostgreSQL 15 and replication
 -- (2 rows)
 ```
 
 スタンバイ2：
 
-```bash
-psql blog
-```
-
 ```sql
 SET enable_seqscan TO off;
 SELECT title FROM entries WHERE title &@~ 'replication';
---              title              
--- --------------------------------
+--             title              
+-- -------------------------------
 --  PGroonga and replication
---  PostgreSQL 9.6 and replication
+--  PostgreSQL 15 and replication
 -- (2 rows)
 ```
 

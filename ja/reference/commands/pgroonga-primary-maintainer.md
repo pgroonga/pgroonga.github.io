@@ -58,41 +58,62 @@ See also: https://www.postgresql.org/docs/current/libpq-envars.html
 
 ## 実行例
 
-Bashで実行する例
+[`pgroonga-generate-primary-maintainer-service.sh`コマンド][generate-primary-maintainer-service]と[`pgroonga-generate-primary-maintainer-timer.sh`コマンド][generate-primary-maintainer-timer]で定期実行の設定をした例です。
 
-* 環境変数でDB名を指定
+[`pgroonga-generate-primary-maintainer-service.sh`コマンド][generate-primary-maintainer-service]と[`pgroonga-generate-primary-maintainer-timer.sh`コマンド][generate-primary-maintainer-timer]についてはリンク先を参照してください。
 
-  * `PGDATABASE=test_database`
+この例ではしきい値を `--threshold 20K` で指定しました。これは `last_block >= 2`のときに`REINDEX`が動くサイズです。
 
-* しきい値を10GBで指定
+### クエリの例
 
-  * `--threshold 10G`
-
-### しきい値を超えていないとき
-
-出力はありません。
-
-```console
-$ PGDATABASE=test_database \
-  pgroonga-primary-maintainer.sh \
-  --threshold 10G
+```sql
+CREATE TABLE notes (content text);
+CREATE INDEX ${NOTES_INDEX_NAME} ON notes USING pgroonga (content);
+INSERT INTO notes SELECT 'NOTES' FROM generate_series(1, 200);
+DELETE FROM notes;
 ```
 
-### しきい値を超えたとき
+`pgroonga_wal_status()`の結果を確認します:
+
+```sql
+SELECT name, last_block FROM pgroonga_wal_status();
+    name     | last_block 
+-------------+------------
+ notes_index |          2
+(1 row)
+```
+
+### ログの確認
+
+#### しきい値を超えたとき
 
 実行するSQL、`REINDEX` の開始時間、 `REINDEX` の終了時間を出力します。
 
 ```console
-$ PGDATABASE=test_database \
-  pgroonga-primary-maintainer.sh \
-  --threshold 10G
-Run 'REINDEX INDEX CONCURRENTLY test_index'
-Thu Jun 27 07:24:34 UTC 2024
-REINDEX
-Thu Jun 27 07:24:34 UTC 2024
+$ grep pgroonga-primary-maintainer.sh /var/log/messages
+...
+Jul  4 00:39:26 example pgroonga-primary-maintainer.sh[84272]: Run 'REINDEX INDEX CONCURRENTLY notes_index'
+Jul  4 00:39:26 example pgroonga-primary-maintainer.sh[84289]: Thu Jul  4 00:39:26 UTC 2024
+Jul  4 00:39:26 example pgroonga-primary-maintainer.sh[84290]: REINDEX
+Jul  4 00:39:26 example pgroonga-primary-maintainer.sh[84343]: Thu Jul  4 00:39:26 UTC 2024
+...
 ```
 
 複数のインデックスのWALのサイズがしきい値を超えていた場合は、シーケンシャルに `REINDEX` を実行します。
+
+`pgroonga_wal_status()`の結果を確認します:
+
+```sql
+SELECT name, last_block FROM pgroonga_wal_status();
+    name     | last_block 
+-------------+------------
+ notes_index |          1
+(1 row)
+```
+
+#### しきい値を超えていないとき
+
+出力はありません。
 
 ## 参考
 

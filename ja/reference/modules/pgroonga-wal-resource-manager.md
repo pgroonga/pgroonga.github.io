@@ -13,6 +13,8 @@ PostgreSQL 15以上で利用できます。
 
 `pgroonga_wal_resource_manager`モジュールは PostgreSQL の [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] を利用し、自動的にPGroongaのWALを適用します。
 
+WALリソースマネージャーサポートを有効にするとPostgreSQLの[カスタムWALリソースマネージャー][postgresql-custom-wal-resource-managers]機能を利用します。詳細は[WALリソースマネージャーを使ったストリーミングレプリケーション][streaming-replication-wal-resource-manager]を参照してください。
+
 ## 使い方
 
 `pgroonga_wal_resource_manager` モジュールを使うには、以下のパラメーターをプライマリーとスタンバイで設定しなければなりません。
@@ -74,3 +76,5 @@ pgroonga.enable_wal_resource_manager = yes
 [postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.ja }}/custom-rmgr.html
 
 [postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES
+
+[streaming-replication-wal-resource-manager]:../streaming-replication-wal-resource-manager.html

@@ -29,6 +29,9 @@ msgstr ""
 msgid "The `pgroonga_wal_resource_manager` module automatically applies PGroonga's WAL using the PostgreSQL [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]."
 msgstr ""
 
+msgid "If you enable WAL Resource Manager support, use PostgreSQL's [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] feature. See [Streaming replication by WAL resource manager][streaming-replication-wal-resource-manager] for details."
+msgstr ""
+
 msgid "## Usage"
 msgstr ""
 
@@ -117,4 +120,7 @@ msgid "[postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url
 msgstr ""
 
 msgid "[postgresql-shared-preload-libraries]:{{ site.postgresql_doc_base_url.en }}/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES"
+msgstr ""
+
+msgid "[streaming-replication-wal-resource-manager]:../streaming-replication-wal-resource-manager.html"
 msgstr ""

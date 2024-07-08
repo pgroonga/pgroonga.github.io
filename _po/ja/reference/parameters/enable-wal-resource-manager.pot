@@ -29,9 +29,7 @@ msgstr ""
 msgid "`pgroonga.enable_wal_resource_manager` parameter controls whether WAL Resource Manager is enabled or not."
 msgstr ""
 
-msgid ""
-"If you enable WAL Resource Manager support, use PostgreSQL's [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] feature.\n"
-"<!-- TODO See [Replication (WAL Resource Manager)][..] for details. -->"
+msgid "If you enable WAL Resource Manager support, use PostgreSQL's [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers] feature. See [Streaming replication by WAL resource manager][streaming-replication-wal-resource-manager] for details."
 msgstr ""
 
 msgid "If you enable WAL Resource Manager support, update performance will be decreased because some extra disk writes are needed."
@@ -101,4 +99,7 @@ msgid "[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.
 msgstr ""
 
 msgid "[postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html"
+msgstr ""
+
+msgid "[streaming-replication-wal-resource-manager]:../streaming-replication-wal-resource-manager.html"
 msgstr ""

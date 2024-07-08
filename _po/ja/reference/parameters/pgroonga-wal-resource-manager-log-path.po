@@ -42,7 +42,7 @@ msgid ""
 "version of [`pgroonga.log_path` parameter][log-path]."
 msgstr ""
 "`pgroonga_wal_resource_manager.log_path` パラメーターはログのパスを制御しま"
-"す。これは [`pgroonga.log_path`パラメーター]の[log-path]"
+"す。これは [`pgroonga.log_path`パラメーター][log-path]の"
 "[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]"
 "バージョンです。"
 

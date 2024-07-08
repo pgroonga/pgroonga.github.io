@@ -9,7 +9,7 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga_wal_resource_manager.log_path` パラメーターはログのパスを制御します。これは [`pgroonga.log_path`パラメーター]の[log-path][`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]バージョンです。
+`pgroonga_wal_resource_manager.log_path` パラメーターはログのパスを制御します。これは [`pgroonga.log_path`パラメーター][log-path]の[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]バージョンです。
 
 詳細は[`pgroonga.log_path`パラメーター][log-path]を参照してください。
 

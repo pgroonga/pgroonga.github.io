@@ -9,13 +9,19 @@ Since 3.2.1.
 
 ## Notices
 
-If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager].
+If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]. Using that module is a better way to suppress the size of the WAL.
 
 ## Summary
 
 `pgroonga-primary-maintainer.sh` command runs `REINDEX INDEX CONCURRENTLY` on indexes for which PGroonga's WAL size exceeds the threshold.
 
-The purpose is to suppress the size of the WAL on primary servers that have WAL enabled.
+The purpose is to suppress the size of the WAL on primary servers that have WAL enabled (set `pgroonga.enable_wal = yes`).
+
+Notes:
+
+* This command is assumes to run in primary, so do not run it in standby.
+
+* This command assumes periodic execution, so please use [`pgroonga-generate-primary-maintainer-service.sh` command][generate-primary-maintainer-service] and [`pgroonga-generate-primary-maintainer-timer.sh` command][generate-primary-maintainer-timer]  to set up periodic execution.
 
 ## Usage
 
@@ -91,6 +97,10 @@ with similar output each time.
 
 ## See also
 
+  * [`pgroonga-generate-primary-maintainer-service.sh` command][generate-primary-maintainer-service]
+
+  * [`pgroonga-generate-primary-maintainer-timer.sh` command][generate-primary-maintainer-timer]
+
   * [PostgreSQL Environment Variables][postgresql-environment-variables]
 
   * [`pgroonga_wal_status` function][wal-status]
@@ -99,8 +109,12 @@ with similar output each time.
 
 [enable-wal]:../parameters/enable-wal.html
 
+[generate-primary-maintainer-service]:pgroonga-generate-primary-maintainer-service.html
+
+[generate-primary-maintainer-timer]:pgroonga-generate-primary-maintainer-timer.html
+
 [pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
 
 [postgresql-environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html
 
-[wal-status]:pgroonga-wal-status.html
+[wal-status]:../functions/pgroonga-wal-status.html

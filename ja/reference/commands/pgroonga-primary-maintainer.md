@@ -9,13 +9,19 @@ upper_level: ../
 
 ## お知らせ
 
-PostgreSQL 15以上であれば`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください
+PostgreSQL 15以上であれば`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください。そのモジュールを利用するほうがより良い方法でおすすめです。
 
 ## 概要
 
 `pgroonga-primary-maintainer.sh`コマンドはPGroongaのWALのサイズがしきい値を超えたインデックスに対して、`REINDEX INDEX CONCURRENTLY` を実行します。
 
-このコマンドを実行することで、WALが有効になっているプライマリーサーバーにおいてWALのサイズの肥大化を防ぐことができます。
+このコマンドを実行することで、WALが有効になっている(`pgroonga.enable_wal = yes`が設定されている)プライマリーサーバーにおいてWALのサイズの肥大化を防ぐことができます。
+
+注意:
+
+* このコマンドはプライマリーで動かすことを前提としているため、スタンバイでは実行しないでください。
+
+* このコマンドは定期実行することを前提としているため、[`pgroonga-generate-primary-maintainer-service.sh`マンド][generate-primary-maintainer-service]と[`pgroonga-generate-primary-maintainer-timer.sh`コマンド][generate-primary-maintainer-timer]を使って定期実行の設定をしてください。
 
 ## 使い方
 
@@ -36,11 +42,11 @@ Connection information such as `dbname` should be set in environment variables.
 See also: https://www.postgresql.org/docs/current/libpq-envars.html
 ```
 
-* `--threshold` option
+* `--threshold` オプション
 
   * `REINDEX INDEX CONCURRENTLY` を実行するWALサイズのしきい値を指定します
 
-* `--psql` option
+* `--psql` オプション
 
   * `psql` コマンドのパスを指定します
 
@@ -90,6 +96,10 @@ Thu Jun 27 07:24:34 UTC 2024
 
 ## 参考
 
+  * [`pgroonga-generate-primary-maintainer-service.sh` コマンド][generate-primary-maintainer-service]
+
+  * [`pgroonga-generate-primary-maintainer-timer.sh` コマンド][generate-primary-maintainer-timer]
+
   * [PostgreSQLの環境変数][postgresql-environment-variables]
 
   * [`pgroonga_wal_status`関数][wal-status]
@@ -98,8 +108,12 @@ Thu Jun 27 07:24:34 UTC 2024
 
 [enable-wal]:../parameters/enable-wal.html
 
+[generate-primary-maintainer-service]:pgroonga-generate-primary-maintainer-service.html
+
+[generate-primary-maintainer-timer]:pgroonga-generate-primary-maintainer-timer.html
+
 [pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
 
 [postgresql-environment-variables]:{{ site.postgresql_doc_base_url.en }}/libpq-envars.html
 
-[wal-status]:pgroonga-wal-status.html
+[wal-status]:../functions/pgroonga-wal-status.html

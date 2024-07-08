@@ -6,6 +6,8 @@ title: Streaming replication
 
 PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6.
 
+If you're using PGroonga 3.2.1 or later and PostgreSQL 15 or later, [streaming replication by WAL resource manager][streaming-replication-wal-resource-manager] is recommended.
+
 PGroonga's WAL send to standby server from primary server as below.
 
 ```mermaid
@@ -428,6 +430,8 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 ```
 
 [postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html
+
+[streaming-replication-wal-resource-manager]:streaming-replication-wal-resource-manager.html
 
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html
 

@@ -19,6 +19,9 @@ msgstr ""
 msgid "PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6."
 msgstr ""
 
+msgid "If you're using PGroonga 3.2.1 or later and PostgreSQL 15 or later, [streaming replication by WAL resource manager][streaming-replication-wal-resource-manager] is recommended."
+msgstr ""
+
 msgid "PGroonga's WAL send to standby server from primary server as below."
 msgstr ""
 
@@ -513,6 +516,9 @@ msgid ""
 msgstr ""
 
 msgid "[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html"
+msgstr ""
+
+msgid "[streaming-replication-wal-resource-manager]:streaming-replication-wal-resource-manager.html"
 msgstr ""
 
 msgid "[postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html"

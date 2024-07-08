@@ -6,6 +6,8 @@ title: ストリーミングレプリケーション
 
 PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]をサポートしています。
 
+PGroonga 3.2.1以降とPostgreSQL 15以降を使っている場合は[WALリソースマネージャーを使ったストリーミングレプリケーション][streaming-replication-wal-resource-manager]の方がオススメです。
+
 PGroongaのWALは以下のようにスタンバイのサーバーへ送信されます。
 
 ```mermaid
@@ -428,6 +430,8 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 ```
 
 [postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html
+
+[streaming-replication-wal-resource-manager]:streaming-replication-wal-resource-manager.html
 
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html
 

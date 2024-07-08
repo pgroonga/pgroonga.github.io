@@ -9,8 +9,7 @@ Since 2.4.2.
 
 ## Notices
 
-If PostgreSQL is 15 or higher,
-please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager] instead of this module.
+If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager] instead of this module.
 
 ## Summary
 

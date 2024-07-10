@@ -581,6 +581,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
     * Since 3.0.8.
 
+  * [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager]
+
+    * Since 3.2.1.
+
   * [`pgroonga.enable_wal` parameter][enable-wal]
 
   * [`pgroonga.force_match_escalation` parameter][force-match-escalation]
@@ -627,6 +631,14 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
     * Since 2.4.2.
 
+  * [`pgroonga_wal_resource_manager.log_level` parameter][pgroonga-wal-resource-manager-log-level]
+
+    * Since 3.2.1.
+
+  * [`pgroonga_wal_resource_manager.log_path` parameter][pgroonga-wal-resource-manager-log-path]
+
+    * Since 3.2.1.
+
 ## Modules
 
   * [`pgroonga_check` module][pgroonga-check]
@@ -650,6 +662,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
   * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]
 
     * Since 2.4.2.
+
+  * [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
+
+    * Since 3.2.1.
 
 ## Executables
 
@@ -749,6 +765,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
 [enable-trace-log]:parameters/enable-trace-log.html
+[enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html
 [enable-wal]:parameters/enable-wal.html
 [force-match-escalation]:parameters/force-match-escalation.html
 [libgroonga-version]:parameters/libgroonga-version.html
@@ -768,11 +785,15 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
 
+[pgroonga-wal-resource-manager-log-level]:parameters/pgroonga-wal-resource-manager-log-level.html
+[pgroonga-wal-resource-manager-log-path]:parameters/pgroonga-wal-resource-manager-log-path.html
+
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
 
 [pgroonga-primary-maintainer]:commands/pgroonga-primary-maintainer.html
 [pgroonga-generate-primary-maintainer-service]:commands/pgroonga-generate-primary-maintainer-service.html

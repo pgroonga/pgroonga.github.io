@@ -7,6 +7,10 @@ upper_level: ../
 
 2.4.2で追加。
 
+## お知らせ
+
+PostgreSQL 15以上であれば、このモジュールの代わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください。
+
 ## 概要
 
 `pgroonga_standby_maintainer` モジュールは、 [`pgroonga_wal_apply()` 関数][pgroonga-wal-apply] と [`pgroonga_vacuum()` 関数][pgroonga-vacuum] をスタンバイのデータベース上で自動的に実行します。
@@ -48,6 +52,7 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
   * [`pgroonga_wal_apply()` 関数][pgroonga-wal-apply]
   * [`pgroonga_vacuum()` 関数][pgroonga-vacuum]
 
+  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]
 
 [pgroonga-wal-applier]:./pgroonga-wal-applier.html
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
@@ -59,3 +64,5 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:../parameters/pgroonga-standby-maintainer-naptime.html
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html

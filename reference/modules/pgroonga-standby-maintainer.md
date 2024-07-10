@@ -7,6 +7,10 @@ upper_level: ../
 
 Since 2.4.2.
 
+## Notices
+
+If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager] instead of this module.
+
 ## Summary
 
 The `pgroonga_standby_maintainer` module automatically executes [the `pgroonga_wal_apply()` function][pgroonga-wal-apply] and [the `pgroonga_vacuum()` function][pgroonga-vacuum] on a stadnby database.
@@ -48,6 +52,7 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
   * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]
   * [The `pgroonga_vacuum()` function][pgroonga-vacuum]
 
+  * [The `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]
 
 [pgroonga-wal-applier]:./pgroonga-wal-applier.html
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
@@ -59,3 +64,5 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:../parameters/pgroonga-standby-maintainer-naptime.html
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html

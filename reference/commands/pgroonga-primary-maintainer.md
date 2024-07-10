@@ -9,7 +9,7 @@ Since 3.2.1.
 
 ## Notices
 
-If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]. Using that module is a better way to suppress the size of the WAL.
+If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]. Using that module is a better way to suppress the size of the WAL.
 
 ## Summary
 

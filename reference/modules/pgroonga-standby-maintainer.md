@@ -9,7 +9,7 @@ Since 2.4.2.
 
 ## Notices
 
-If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager] instead of this module.
+If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] instead of this module.
 
 ## Summary
 
@@ -52,7 +52,7 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
   * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]
   * [The `pgroonga_vacuum()` function][pgroonga-vacuum]
 
-  * [The `pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]
+  * [The `pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
 
 [pgroonga-wal-applier]:./pgroonga-wal-applier.html
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html

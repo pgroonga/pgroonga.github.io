@@ -658,15 +658,15 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga-primary-maintainer.sh` コマンド][pgroonga-primary-maintainer]
 
-    * Since 3.2.1.
+    * 3.2.1で追加。
 
   * [`pgroonga-generate-primary-maintainer-service.sh` コマンド][pgroonga-generate-primary-maintainer-service]
 
-    * Since 3.2.1.
+    * 3.2.1で追加。
 
   * [`pgroonga-generate-primary-maintainer-timer.sh` コマンド][pgroonga-generate-primary-maintainer-timer]
 
-    * Since 3.2.1.
+    * 3.2.1で追加。
 
 ## Groongaの関数
 

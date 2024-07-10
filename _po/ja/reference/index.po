@@ -853,6 +853,9 @@ msgid ""
 msgstr ""
 "  * [`pgroonga-primary-maintainer.sh` コマンド][pgroonga-primary-maintainer]"
 
+msgid "    * Since 3.2.1."
+msgstr "    * 3.2.1で追加。"
+
 msgid ""
 "  * [`pgroonga-generate-primary-maintainer-service.sh` command][pgroonga-"
 "generate-primary-maintainer-service]"

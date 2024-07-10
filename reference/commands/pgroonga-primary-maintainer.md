@@ -68,7 +68,7 @@ In this example, it was specified with `--threshold 20K`. This is the size at wh
 
 ```sql
 CREATE TABLE notes (content text);
-CREATE INDEX ${NOTES_INDEX_NAME} ON notes USING pgroonga (content);
+CREATE INDEX notes_index ON notes USING pgroonga (content);
 INSERT INTO notes SELECT 'NOTES' FROM generate_series(1, 200);
 DELETE FROM notes;
 ```

@@ -19,7 +19,7 @@ If you enable WAL Resource Manager support, update performance will be decreased
 
 The default value is `off`. It means that PGroonga doesn't generate WAL.
 
-It is used with [`pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager].
+It is used with [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager].
 
 ## Syntax
 
@@ -53,7 +53,7 @@ pgroonga.enable_wal_resource_manager = on
 
 ## See also
 
-  * [`pgroonga_wal_resource_manager` modules][pgroonga-wal-resource-manager]
+  * [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
 
   * [Custom WAL Resource Managers][postgresql-custom-wal-resource-managers]
 

@@ -743,14 +743,14 @@ msgid "[crash-safe]:crash-safe.html"
 msgstr ""
 
 msgid ""
-"[enable-wal-resource-manager]:../parameters/enable-wal-resource-manager.html"
+"[enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html"
 msgstr ""
 
 msgid "[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html"
 msgstr ""
 
 msgid ""
-"[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html"
+"[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html"
 msgstr ""
 
 msgid ""

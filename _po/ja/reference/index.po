@@ -720,6 +720,16 @@ msgstr "  * [`pgroonga.enable_trace_log`パラメーター][enable-trace-log]"
 msgid "    * Since 3.0.8."
 msgstr "    * 3.0.8で追加。"
 
+msgid ""
+"  * [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-"
+"manager]"
+msgstr ""
+"  * [`pgroonga.enable_wal_resource_manager`パラメーター][enable-wal-resource-"
+"manager]"
+
+msgid "    * Since 3.2.1."
+msgstr "    * 3.2.1で追加。"
+
 msgid "  * [`pgroonga.enable_wal` parameter][enable-wal]"
 msgstr "  * [`pgroonga.enable_wal`パラメーター][enable-wal]"
 
@@ -845,6 +855,11 @@ msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
 msgstr ""
 "  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]"
 
+msgid ""
+"  * [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]"
+msgstr ""
+"  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]"
+
 msgid "## Executables"
 msgstr "## 実行ファイル"
 
@@ -852,9 +867,6 @@ msgid ""
 "  * [`pgroonga-primary-maintainer.sh` command][pgroonga-primary-maintainer]"
 msgstr ""
 "  * [`pgroonga-primary-maintainer.sh` コマンド][pgroonga-primary-maintainer]"
-
-msgid "    * Since 3.2.1."
-msgstr "    * 3.2.1で追加。"
 
 msgid ""
 "  * [`pgroonga-generate-primary-maintainer-service.sh` command][pgroonga-"
@@ -996,6 +1008,7 @@ msgstr ""
 
 msgid ""
 "[enable-trace-log]:parameters/enable-trace-log.html\n"
+"[enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html\n"
 "[enable-wal]:parameters/enable-wal.html\n"
 "[force-match-escalation]:parameters/force-match-escalation.html\n"
 "[libgroonga-version]:parameters/libgroonga-version.html\n"
@@ -1027,11 +1040,19 @@ msgid ""
 msgstr ""
 
 msgid ""
+"[pgroonga-wal-resource-manager-log-level]:parameters/pgroonga-wal-resource-"
+"manager-log-level.html\n"
+"[pgroonga-wal-resource-manager-log-path]:parameters/pgroonga-wal-resource-"
+"manager-log-path.html"
+msgstr ""
+
+msgid ""
 "[pgroonga-check]:modules/pgroonga-check.html\n"
 "[pgroonga-crash-safer]:modules/pgroonga-crash-safer.html\n"
 "[pgroonga-database]:modules/pgroonga-database.html\n"
 "[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html\n"
-"[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html"
+"[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html\n"
+"[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html"
 msgstr ""
 
 msgid ""

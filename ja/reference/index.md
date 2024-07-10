@@ -583,6 +583,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 3.0.8で追加。
 
+  * [`pgroonga.enable_wal_resource_manager`パラメーター][enable-wal-resource-manager]
+
+    * 3.2.1で追加。
+
   * [`pgroonga.enable_wal`パラメーター][enable-wal]
 
   * [`pgroonga.force_match_escalation`パラメーター][force-match-escalation]
@@ -629,6 +633,14 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 2.4.2で追加。
 
+  * [`pgroonga_wal_resource_manager.log_level`パラメーター][pgroonga-wal-resource-manager-log-level]
+
+    * 3.2.1で追加。
+
+  * [`pgroonga_wal_resource_manager.log_path`パラメーター][pgroonga-wal-resource-manager-log-path]
+
+    * 3.2.1で追加。
+
 ## モジュール
 
 
@@ -653,6 +665,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]
 
     * 2.4.2で追加。
+
+  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]
+
+    * 3.2.1で追加。
 
 ## 実行ファイル
 
@@ -752,6 +768,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
 [enable-trace-log]:parameters/enable-trace-log.html
+[enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html
 [enable-wal]:parameters/enable-wal.html
 [force-match-escalation]:parameters/force-match-escalation.html
 [libgroonga-version]:parameters/libgroonga-version.html
@@ -771,11 +788,15 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
 
+[pgroonga-wal-resource-manager-log-level]:parameters/pgroonga-wal-resource-manager-log-level.html
+[pgroonga-wal-resource-manager-log-path]:parameters/pgroonga-wal-resource-manager-log-path.html
+
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
 
 [pgroonga-primary-maintainer]:commands/pgroonga-primary-maintainer.html
 [pgroonga-generate-primary-maintainer-service]:commands/pgroonga-generate-primary-maintainer-service.html

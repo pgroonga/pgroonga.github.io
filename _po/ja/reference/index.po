@@ -845,6 +845,31 @@ msgid "  * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"
 msgstr ""
 "  * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]"
 
+msgid "## Executables"
+msgstr "## 実行ファイル"
+
+msgid ""
+"  * [`pgroonga-primary-maintainer.sh` command][pgroonga-primary-maintainer]"
+msgstr ""
+"  * [`pgroonga-primary-maintainer.sh` コマンド][pgroonga-primary-maintainer]"
+
+msgid "    * Since 3.2.1."
+msgstr "    * 3.2.1で追加。"
+
+msgid ""
+"  * [`pgroonga-generate-primary-maintainer-service.sh` command][pgroonga-"
+"generate-primary-maintainer-service]"
+msgstr ""
+"  * [`pgroonga-generate-primary-maintainer-service.sh` コマンド][pgroonga-"
+"generate-primary-maintainer-service]"
+
+msgid ""
+"  * [`pgroonga-generate-primary-maintainer-timer.sh` command][pgroonga-"
+"generate-primary-maintainer-timer]"
+msgstr ""
+"  * [`pgroonga-generate-primary-maintainer-timer.sh` コマンド][pgroonga-"
+"generate-primary-maintainer-timer]"
+
 msgid "## Groonga functions"
 msgstr "## Groongaの関数"
 
@@ -1007,6 +1032,14 @@ msgid ""
 "[pgroonga-database]:modules/pgroonga-database.html\n"
 "[pgroonga-wal-applier]:modules/pgroonga-wal-applier.html\n"
 "[pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html"
+msgstr ""
+
+msgid ""
+"[pgroonga-primary-maintainer]:commands/pgroonga-primary-maintainer.html\n"
+"[pgroonga-generate-primary-maintainer-service]:commands/pgroonga-generate-"
+"primary-maintainer-service.html\n"
+"[pgroonga-generate-primary-maintainer-timer]:commands/pgroonga-generate-"
+"primary-maintainer-timer.html"
 msgstr ""
 
 msgid "[groonga-tuning]:https://groonga.org/docs/reference/tuning.html"

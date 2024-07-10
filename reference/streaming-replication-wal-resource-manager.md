@@ -440,11 +440,11 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 
 [crash-safe]:crash-safe.html
 
-[enable-wal-resource-manager]:../parameters/enable-wal-resource-manager.html
+[enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html
 
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 
-[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
+[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
 
 [postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html
 

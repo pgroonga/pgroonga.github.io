@@ -177,7 +177,7 @@ CREATE TABLE memos (
 
 CREATE INDEX pgroonga_memos_index
     ON memos
- USING PGroonga ((ARRAY[title, content]));
+ USING pgroonga ((ARRAY[title, content]));
 ```
 
 ```sql

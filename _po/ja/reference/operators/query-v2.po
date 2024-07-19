@@ -329,7 +329,7 @@ msgstr ""
 msgid ""
 "CREATE INDEX pgroonga_memos_index\n"
 "    ON memos\n"
-" USING PGroonga ((ARRAY[title, content]));\n"
+" USING pgroonga ((ARRAY[title, content]));\n"
 "```"
 msgstr ""
 

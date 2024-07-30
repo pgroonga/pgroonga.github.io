@@ -64,7 +64,7 @@ WALサポートが必要ない場合は次のコマンドラインを使いま�
 以下は`--prefix=/usr/local`オプション付きでGroongaをインストールした場合の例です。
 
 ```console
-% PKG_CONFIG_PATH=/usr/local/lib/pkg-config make
+% PKG_CONFIG_PATH=/usr/local/lib/pkgconfig make
 ```
 
 PGroongaをインストールします。

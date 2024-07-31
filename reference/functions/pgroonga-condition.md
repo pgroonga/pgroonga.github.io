@@ -60,9 +60,9 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `keyword`は検索キーワードです。`text`型です。
 
-`weights`はそれぞれの値の重要度です。`int[]`型です。
+`weights`は検索対象のカラムの重要度です。`int[]`型です。
 
-`scorers`はそれぞれの値のスコアーを計算する処理です。`text[]`型です。
+`scorers`は検索対象のカラムのスコアーを計算する処理です。`text[]`型です。
 
 `schema_name`はシーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。`text`型です。
 

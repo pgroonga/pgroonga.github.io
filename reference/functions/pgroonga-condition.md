@@ -60,15 +60,15 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `keyword`は、`text`型の値です。検索したいキーワードを指定します。
 
-`weights`は検索対象のカラムの重要度です。`int[]`型です。
+`weights`は、`int[]`型の値です。検索対象のカラムの重要度を指定します。
 
-`scorers`は検索対象のカラムのスコアーを計算する処理です。`text[]`型です。
+`scorers`は、`text[]`型の値です。検索対象のカラムのスコアーを計算する[スコアラー][scorer]を指定します。
 
-`schema_name`はシーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。`text`型です。
+`schema_name`は、`text`型の値です。シーケンシャルサーチ実行時に参照するインデックスが属するスキーマを指定します。
 
-`index_name`はシーケンシャルサーチ実行時に参照するインデックスです。`text`型です。
+`index_name`は、`text`型の値です。シーケンシャルサーチ実行時に参照するインデックスを指定します。
 
-`column_name`はシーケンシャルサーチ実行時に参照するインデックス内の対象となる属性です。`text`型です。
+`column_name`は、`text`型の値です。シーケンシャルサーチ実行時に参照するインデックス内の属性を指定します。
 
 `pgroonga_condition()`の引数はすべて省略可能です。そのため、[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記を使うことで特定の引数だけ指定することができます。たとえば、`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
 ただ、一般的なユースケースでは次の3種類の書き方を覚えておけば十分です。
@@ -103,4 +103,5 @@ title &@~ pgroonga_condition('keyword', index_name => 'pgroonga_index')
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
+[scorer]:../reference/scorer.html
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

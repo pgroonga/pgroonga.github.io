@@ -97,6 +97,6 @@ title &@~ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
-[scorer]:../reference/scorer.html
-[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
+[scorer]:http://groonga.org/docs//reference/scorer.html
+[sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

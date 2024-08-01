@@ -70,9 +70,7 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `column_name`は、シーケンシャルサーチ実行時に参照するインデックス内の属性を指定します。`text`型の値です
 
-`pgroonga_condition()`の引数はすべて省略可能です。
-引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。
-たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
+`pgroonga_condition()`の引数はすべて省略可能です。引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
 
 一般的なユースケースでは次の3種類の書き方を覚えておけば十分です。
 

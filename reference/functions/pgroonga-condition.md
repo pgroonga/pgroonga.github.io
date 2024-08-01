@@ -77,9 +77,9 @@ pgroonga_condition pgroonga_condition(keyword,
 一般的なユースケースでは次の3種類の書き方を覚えておけば十分です。
 
 ```
-title &@~ pgroonga_condition('keyword', index_name => 'pgroonga_index')
-title &@~ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
-title &@~ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
+pgroonga_condition('keyword', index_name => 'pgroonga_index')
+pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
+pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
 上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いについては、

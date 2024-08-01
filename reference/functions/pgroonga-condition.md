@@ -82,19 +82,8 @@ title &@~ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
 title &@~ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
-上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いを説明します。
-例えば、次の例は引数`weights`、`scorers`、`schema_name`、`column_name`を省略しています。
-
-```
-title &@~ pgroonga_condition('keyword', index_name => 'pgroonga_index')
-```
-
-引数`weights`と`scorers`と`schema_name`を省略したことで、引数`index_name`の指定は第2引数の位置にありますが、
-関数のシグネチャーでは`index_name`は第5引数なので、このケースでは、`index_name`は関数のシグネチャーと位置が異なる引数となります。
-一方、第1引数にある`keyword`は「`引数名 => 値`」という表記ではないので、関数のシグネチャーと位置が同じ引数となります。
-
-つまり、関数のシグネチャーと同じ位置にある、`keyword`は、「`引数名 => 値`」の形で書く必要はなく、値をそのまま記述できますが、
-関数のシグネチャーと違う位置にある、`index_name`は、「`引数名 => 値`」の形で書く必要があります。
+上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いについては、
+[関数呼び出し][sql-syntax-calling-funcs]を参照してください。
 
 ## Usage
 
@@ -102,9 +91,12 @@ title &@~ pgroonga_condition('keyword', index_name => 'pgroonga_index')
 
 * [postgres_fdw][postgres-fdw]
 * [normalizers_mapping][normalizers-mapping]
+* [関数呼び出し][sql-syntax-calling-funcs]
 * [名前付け表記][sql-syntax-calling-funcs-named]
+
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
 [scorer]:../reference/scorer.html
+[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

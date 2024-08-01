@@ -80,8 +80,7 @@ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
 pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
-上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いについては、
-[関数呼び出し][sql-syntax-calling-funcs]を参照してください。
+上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いについては、[関数呼び出し][sql-syntax-calling-funcs]を参照してください。
 
 ## Usage
 

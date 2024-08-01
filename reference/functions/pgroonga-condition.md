@@ -58,7 +58,7 @@ pgroonga_condition pgroonga_condition(keyword,
                                       column_name)
 ```
 
-`keyword`は検索キーワードです。`text`型です。
+`keyword`は、`text`型の値です。検索したいキーワードを指定します。
 
 `weights`は検索対象のカラムの重要度です。`int[]`型です。
 

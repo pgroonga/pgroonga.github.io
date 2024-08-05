@@ -37,6 +37,16 @@ GroongaのPPAのキーを指定します。
 
   [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
+* `APACHE_ARROW_REPOSITORY`
+
+  最新の[Apache Arrowのリポジトリー](https://github.com/apache/arrow)へのパスを指定します。
+
+  設定例
+
+  ```console
+  $ export APACHE_ARROW_REPOSITORY=$HOME/work/apache/arrow
+  ```
+
 ### コマンド
 
 リリースに必要なコマンドがあるのでインストールします。

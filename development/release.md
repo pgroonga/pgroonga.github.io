@@ -37,6 +37,16 @@ Use the following environment variables.
 
   [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
 
+* `APACHE_ARROW_REPOSITORY`
+
+  Specify a path for a latest [Apache Arrow repository](https://github.com/apache/arrow).
+
+  e.g.
+
+  ```console
+  $ export APACHE_ARROW_REPOSITORY=$HOME/work/apache/arrow
+  ```
+
 ### Commands
 
 Some commands are required for the release, so install them.

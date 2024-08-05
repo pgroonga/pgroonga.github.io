@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 3.2.2: 2024-08-XX {#version-3-2-2}
+## 3.2.2: 2024-08-05 {#version-3-2-2}
 
 ### Improvements
 

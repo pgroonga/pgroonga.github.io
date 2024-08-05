@@ -5,6 +5,24 @@ upper_level: ../
 
 # おしらせ
 
+## 3.2.2: 2024-08-XX {#version-3-2-2}
+
+### 改良
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added information to log.
+
+  * Dropped support for Debian 11 (bullseye).
+
+### 修正
+
+  * [`pgroonga_condition()`] Fixed a bug that occurred when upgrading to 3.2.1 with PGroonga installed.
+
+    * The following error occurred:
+
+      * `HINT:  Could not choose a best candidate function. You might need to add explicit type casts.`
+
+      * `ERROR:  function pgroonga_condition(unknown) is not unique`
+
 ## 3.2.1: 2024-07-04 {#version-3-2-1}
 
 ### 改良

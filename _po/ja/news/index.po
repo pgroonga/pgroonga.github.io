@@ -1,15 +1,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-04-13 07:36+0900\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Japanese\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=; plural=;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"PO-Revision-Date: 2024-07-08 11:35+0900\n"
 
 msgid ""
 "---\n"
@@ -25,11 +22,41 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.2.1: 2024-07-04 {#version-3-2-1}"
+msgid "## 3.2.2: 2024-08-05 {#version-3-2-2}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-"
+"manager]] Added information to log."
+msgstr ""
+
+msgid "  * Dropped support for Debian 11 (bullseye)."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * [`pgroonga_condition()`] Fixed a bug that occurred when upgrading to "
+"3.2.1 with PGroonga installed."
+msgstr ""
+
+msgid "    * The following error occurred:"
+msgstr ""
+
+msgid ""
+"      * `HINT:  Could not choose a best candidate function. You might need "
+"to add explicit type casts.`"
+msgstr ""
+
+msgid "      * `ERROR:  function pgroonga_condition(unknown) is not unique`"
+msgstr ""
+
+msgid "## 3.2.1: 2024-07-04 {#version-3-2-1}"
+msgstr ""
 
 msgid ""
 "  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-"
@@ -106,9 +133,6 @@ msgstr ""
 
 msgid "  * [`pgroonga_condition()`] Added support `fuzzy_max_distance_ratio`"
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [[`&@~` operator][query-v2]] Fixed a crash bug with multiple conditions "

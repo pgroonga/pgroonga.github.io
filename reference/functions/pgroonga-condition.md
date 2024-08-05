@@ -47,14 +47,53 @@ The point here is there is need of different writing from the current.
 
 ## Syntax
 
+Here is the syntax of this function:
+
+```
+pgroonga_condition pgroonga_condition(keyword,
+                                      weights,
+                                      scorers,
+                                      schema_name,
+                                      index_name,
+                                      column_name)
+```
+
+`keyword`は検索したいキーワードです。`text`型です。
+
+`weights`は、検索対象のカラムの重要度です。`int[]`型です。
+
+`scorers`は、検索対象のカラムのスコアーを計算する[スコアラー][scorer]です。`text[]`型です。
+
+`schema_name`は、シーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。`text`型です。
+
+`index_name`は、シーケンシャルサーチ実行時に参照するインデックスです。`text`型です。
+
+`column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムです。`text`型です
+
+`pgroonga_condition()`の引数はすべて省略可能です。引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
+
+一般的なユースケースでは次の3種類の書き方を覚えておけば十分です。
+
+```
+pgroonga_condition('keyword', index_name => 'pgroonga_index')
+pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
+pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
+```
+
+上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いについては、[関数呼び出し][sql-syntax-calling-funcs]を参照してください。
+
 ## Usage
 
 ## See also
 
 * [postgres_fdw][postgres-fdw]
 * [normalizers_mapping][normalizers-mapping]
+* [関数呼び出し][sql-syntax-calling-funcs]
 * [名前付け表記][sql-syntax-calling-funcs-named]
+
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
+[scorer]:https://groonga.org/docs/reference/scorer.html
+[sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

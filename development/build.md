@@ -20,7 +20,36 @@ Download source from [the PostgreSQL site][postgresql-source-download]. Here are
 % cd postgresql-{{ site.development_postgresql_version }}
 ```
 
-Run `configure` with `CFLAGS="-O0 -g3"` argument. It enables debug build. `--prefix=/tmp/local` is optional:
+### Setting up build environment
+
+Those who are newcomers to this field usually find it challenging to start contributing to projects based in the C language, mainly due to the extensive library dependencies involved. So we provide setup script in our PGroonga source code. Please run the following setup commands in different directory that you downloaded the PostgreSQL source code above.
+
+#### For Debian 12 bookworm
+
+You can run setup script by running following command: 
+
+```bash
+git clone --recursive git@github.com:pgroonga/pgroonga.git
+cd pgroonga
+chmod +x setup.sh 
+sudo ./setup.sh debian
+```
+
+#### For Ubuntu 22.04
+
+You can run setup script by running following command:
+
+```bash
+git clone --recursive git@github.com:pgroonga/pgroonga.git
+cd pgroonga
+chmod +x setup.sh 
+./setup-devenv.sh ubuntu
+```
+
+### Configure PostgreSQL Build
+After you run the setup scripts, please `cd` to PostgreSQL source code directory.
+
+Then run `configure` with `CFLAGS="-O0 -g3"` argument. It enables debug build. `--prefix=/tmp/local` is optional:
 
 ```console
 % ./configure CFLAGS="-O0 -g3" --prefix=/tmp/local
@@ -72,17 +101,31 @@ It's recommended that you use the latest PGroonga instead of released PGroonga. 
 % cd pgroonga
 ```
 
+### Setting up the PATH
+You need to set `PATH=/tmp/local/bin:$PATH`. This is because PostgreSQL was built using the `--prefix=/tmp/local` option, which puts `pg_config` in `/tmp/local/bin`. Use the following command to set the PATH:
+
+```console
+% export PATH=/tmp/local/bin:$PATH
+```
+
+### Building and Installing
+
+To build and install PGroonga, you can simply run the following commands. PGroonga will be installed in the `/tmp/local/share/postgresql/extension` directory.
+
+```console
+make
+make install
+```
+
+### Test
+
 PGroonga has two test types:
 
   * SQL based regression tests
 
   * Ruby and SQL based [`pgroonga_check`][pgroonga-check] tests
 
-Normally, you only use the former. `test/run-sql-test.sh` is the test runner for the former. It builds and installs PGroonga and runs SQL based regression tests. `PATH=/tmp/local/bin:$PATH` is needed because PostgreSQL is built with `--prefix=/tmp/local`. `pg_config` exists in `/tmp/local/bin`:
-
-```console
-% PATH=/tmp/local/bin:$PATH test/run-sql-test.sh
-```
+Normally, you only use the former. `test/run-sql-test.sh` is the test runner for the former. It builds and installs PGroonga and runs SQL based regression tests. 
 
 See also [test](test.html).
 

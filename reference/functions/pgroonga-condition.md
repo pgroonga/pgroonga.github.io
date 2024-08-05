@@ -58,17 +58,17 @@ pgroonga_condition pgroonga_condition(keyword,
                                       column_name)
 ```
 
-`keyword`は検索したいキーワードです。`text`型です。
+`keyword` is a keyword for full text search. It's `text` type.
 
-`weights`は、検索対象のカラムの重要度です。`int[]`型です。
+`weights` is importance factors of each value. It's `int[]` type.
 
-`scorers`は、検索対象のカラムのスコアーを計算する[スコアラー][scorer]です。`text[]`型です。
+`scorers` is [score compute procedures][scorer] of each value. It's `text[]` type.
 
-`schema_name`は、シーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。`text`型です。
+`schema_name`は、シーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。It's `text` type.
 
-`index_name`は、シーケンシャルサーチ実行時に参照するインデックスです。`text`型です。
+`index_name`は、シーケンシャルサーチ実行時に参照するインデックスです。It's `text` type.
 
-`column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムです。`text`型です
+`column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムです。It's `text` type.
 
 `pgroonga_condition()`の引数はすべて省略可能です。引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
 

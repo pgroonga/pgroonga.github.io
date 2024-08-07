@@ -87,13 +87,20 @@ Please refer [Calling Functions][sql-syntax-calling-funcs] about difference in y
 ## See also
 
 * [postgres_fdw][postgres-fdw]
+
 * [normalizers_mapping][normalizers-mapping]
+
 * [Calling Functions][sql-syntax-calling-funcs]
+
 * [Named Notation][sql-syntax-calling-funcs-named]
 
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
+
 [scorer]:https://groonga.org/docs/reference/scorer.html
+
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
+
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

@@ -84,70 +84,23 @@ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroo
 
 ## 使い方
 
-サンプルスキーマとデータは次の通りです。
-
-```sql
-CREATE TABLE memos (
-  id integer,
-  title text,
-  content text
-);
-
-CREATE INDEX pgroonga_memos_index
-          ON memos
-       USING pgroonga (title)
-        WITH (normalizers='NormalizerNFKC150("unify_katakana_v_sounds", true)');
-
-INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
-```
-
-インデックスサーチ時はインデックスに指定したオプションで検索結果をカスタマイズできます。
-上のサンプルでは、`normalizers='...'`の部分でオプションを指定しています。
-一方、インデックスサーチではなくシーケンシャルサーチが実行されると、PGroongaのインデックスに指定されているオプションを参照できません。
-シーケンシャルサーチ時はどのインデックスを参照すればよいかという情報がないからです。
-
-そのため、シーケンシャルサーチ実行時と、インデックスサーチ実行時で検索結果が異なる可能性があります。
-この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定できます。`index_name => '...'`がそのための引数です。
-
-次の例は、シーケンシャルサーチが実行されていますが、「バイオリン」で「ヴァイオリン」がヒットしていることが確認できます。
-シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("unify_katakana_v_sounds", true)`が参照できていることがわかります。
-
-```sql
-EXPLAIN ANALYZE
-SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン',
-                                    index_name => 'pgroonga_memos_index');
-                                           QUERY PLAN                                            
--------------------------------------------------------------------------------------------------
- Seq Scan on memos  (cost=0.00..2.52 rows=1 width=100) (actual time=2.230..2.406 rows=2 loops=1)
-   Filter: (title &@~ '(バイオリン,,,,pgroonga_memos_index,)'::pgroonga_condition)
-   Rows Removed by Filter: 1
- Planning Time: 2.222 ms
- Execution Time: 2.525 ms
-(5 rows)
-
-SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン',
-                                    index_name => 'pgroonga_memos_index');
- id |    title     |      content       | tag  
-----+--------------+--------------------+------
-  2 | ヴァイオリン | content2           | tag2
-  1 | ヴァイオリン | Let's play violin! | 
-(2 rows)
-```
-
 ## 参考
 
 * [postgres_fdw][postgres-fdw]
+
 * [normalizers_mapping][normalizers-mapping]
-* [Calling Functions][sql-syntax-calling-funcs]
-* [Named Notation][sql-syntax-calling-funcs-named]
+
+* [関数呼び出し][sql-syntax-calling-funcs]
+
+* [名前付け表記の使用][sql-syntax-calling-funcs-named]
 
 
-[postgres-fdw]:{{ site.postgresql_doc_base_url.ja }}/postgres-fdw.html
+[postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
-[scorer]:https://groonga.org/ja/docs/reference/scorer.html
-[sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html
-[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
+
+[scorer]:https://groonga.org/docs/reference/scorer.html
+
+[sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
+
+[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

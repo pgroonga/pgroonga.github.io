@@ -64,15 +64,15 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `scorers` is [score compute procedures][scorer] of each value. It's `text[]` type.
 
-`schema_name`は、シーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。It's `text` type.
+`schema_name` is scheam which index that PGroonga refer when PGroonga execute sequential search belong to. It's `text` type.
 
-`index_name`は、シーケンシャルサーチ実行時に参照するインデックスです。It's `text` type.
+`index_name` is index which PGroonga refer when PGroonga execute sequential search. It's `text` type.
 
-`column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムです。It's `text` type.
+`column_name` is column into index which PGroonga refer when PGroonga execute sequential search. It's `text` type.
 
-`pgroonga_condition()`の引数はすべて省略可能です。引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
+You can omission all arguments of `pgroonga_condition()`.If you want to specify specific argument, you can use [Named Notation][sql-syntax-calling-funcs-named] such as `name => value` without dependence on a position of `pgroonga_condition()` 's argument. For example, if you only specify `index_name` to argument, you can write `pgroonga_condition(index_name => 'index1')`.
 
-一般的なユースケースでは次の3種類の書き方を覚えておけば十分です。
+However, you just remember the following three cases is enough.
 
 ```
 pgroonga_condition('keyword', index_name => 'pgroonga_index')
@@ -80,7 +80,7 @@ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
 pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
-上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いについては、[関数呼び出し][sql-syntax-calling-funcs]を参照してください。
+Please refer [Calling Functions][sql-syntax-calling-funcs] about difference in you need to write `name => value` or not.
 
 ## Usage
 
@@ -88,8 +88,8 @@ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroo
 
 * [postgres_fdw][postgres-fdw]
 * [normalizers_mapping][normalizers-mapping]
-* [関数呼び出し][sql-syntax-calling-funcs]
-* [名前付け表記][sql-syntax-calling-funcs-named]
+* [Calling Functions][sql-syntax-calling-funcs]
+* [Named Notation][sql-syntax-calling-funcs-named]
 
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html

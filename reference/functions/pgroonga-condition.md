@@ -60,7 +60,7 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `keyword` is a keyword for full text search. It's `text` type.
 
-`weights` is importance factors of each value. It's `int[]` type.
+`weights` is importance factors for the columns being searched. It's `int[]` type.
 
 `scorers` is [score compute procedures][scorer] of each value. It's `text[]` type.
 

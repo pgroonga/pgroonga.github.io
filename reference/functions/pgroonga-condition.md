@@ -72,7 +72,7 @@ pgroonga_condition pgroonga_condition(keyword,
 
 You can omission all arguments of `pgroonga_condition()`.If you want to specify specific argument, you can use [Named Notation][sql-syntax-calling-funcs-named] such as `name => value` without dependence on a position of `pgroonga_condition()` 's argument. For example, if you only specify `index_name` to argument, you can write `pgroonga_condition(index_name => 'index1')`.
 
-However, you just remember the following three cases is enough.
+In general, it is enough to remember the following three cases.
 
 ```
 pgroonga_condition('keyword', index_name => 'pgroonga_index')

@@ -58,21 +58,21 @@ pgroonga_condition pgroonga_condition(keyword,
                                       column_name)
 ```
 
-`keyword`は検索したいキーワードです。`text`型です。
+`keyword` is a keyword for full text search. It's `text` type.
 
-`weights`は、検索対象のカラムの重要度です。`int[]`型です。
+`weights` is importance factors of each value. It's `int[]` type.
 
-`scorers`は、検索対象のカラムのスコアーを計算する[スコアラー][scorer]です。`text[]`型です。
+`scorers` is [score compute procedures][scorer] of each value. It's `text[]` type.
 
-`schema_name`は、シーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。`text`型です。
+`schema_name` is the schema to which the index that PGroonga refers to when executing a sequential search belongs. It's `text` type.
 
-`index_name`は、シーケンシャルサーチ実行時に参照するインデックスです。`text`型です。
+`index_name` is index which PGroonga refer to when executing sequential search. It's `text` type.
 
-`column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムです。`text`型です
+`column_name` is the column within the index which PGroonga refers to when executing a sequential search. It's `text` type.
 
-`pgroonga_condition()`の引数はすべて省略可能です。引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
+All arguments of `pgroonga_condition()` are optional. If you want to specify a particular argument, you can use [Named Notation][sql-syntax-calling-funcs-named] such as `name => value` without relying on its position. For example, if you specify only `index_name` argument, you can write `pgroonga_condition(index_name => 'index1')`.
 
-一般的なユースケースでは次の3種類の書き方を覚えておけば十分です。
+In general, it is enough to remember the following three cases.
 
 ```
 pgroonga_condition('keyword', index_name => 'pgroonga_index')
@@ -80,20 +80,27 @@ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
 pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
-上の例以外の使い方をする場合のために、`引数名 => 値`で記述する必要がある引数とそうでない引数の違いについては、[関数呼び出し][sql-syntax-calling-funcs]を参照してください。
+Please refer to [Calling Functions][sql-syntax-calling-funcs] for information about the difference between when you need to write `name => value` and when you don't.
 
 ## Usage
 
 ## See also
 
 * [postgres_fdw][postgres-fdw]
+
 * [normalizers_mapping][normalizers-mapping]
-* [関数呼び出し][sql-syntax-calling-funcs]
-* [名前付け表記][sql-syntax-calling-funcs-named]
+
+* [Calling Functions][sql-syntax-calling-funcs]
+
+* [Named Notation][sql-syntax-calling-funcs-named]
 
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
+
 [scorer]:https://groonga.org/docs/reference/scorer.html
+
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
+
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED

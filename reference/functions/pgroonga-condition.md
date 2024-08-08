@@ -80,7 +80,7 @@ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
 pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
 ```
 
-Please refer [Calling Functions][sql-syntax-calling-funcs] about difference in you need to write `name => value` or not.
+Please refer to [Calling Functions][sql-syntax-calling-funcs] for information about the difference between when you need to write `name => value` and when you don't.
 
 ## Usage
 

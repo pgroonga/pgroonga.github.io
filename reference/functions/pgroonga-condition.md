@@ -66,7 +66,7 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `schema_name` is scheam which index that PGroonga refer when PGroonga execute sequential search belong to. It's `text` type.
 
-`index_name` is index which PGroonga refer when PGroonga execute sequential search. It's `text` type.
+`index_name` is index which PGroonga refer to when executing sequential search. It's `text` type.
 
 `column_name` is the column within the index which PGroonga refers to when executing a sequential search. It's `text` type.
 

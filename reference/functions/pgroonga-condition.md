@@ -70,7 +70,7 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `column_name` is column into index which PGroonga refer when PGroonga execute sequential search. It's `text` type.
 
-You can omission all arguments of `pgroonga_condition()`.If you want to specify specific argument, you can use [Named Notation][sql-syntax-calling-funcs-named] such as `name => value` without dependence on a position of `pgroonga_condition()` 's argument. For example, if you only specify `index_name` to argument, you can write `pgroonga_condition(index_name => 'index1')`.
+All arguments of `pgroonga_condition()` are optional. If you want to specify a particular argument, you can use [Named Notation][sql-syntax-calling-funcs-named] such as `name => value` without relying on its position. For example, if you specify only `index_name` argument, you can write `pgroonga_condition(index_name => 'index1')`.
 
 In general, it is enough to remember the following three cases.
 

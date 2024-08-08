@@ -64,7 +64,7 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `scorers` is [score compute procedures][scorer] of each value. It's `text[]` type.
 
-`schema_name` is scheam which index that PGroonga refer when PGroonga execute sequential search belong to. It's `text` type.
+`schema_name` is the schema to which the index that PGroonga refers to when executing a sequential search belongs. It's `text` type.
 
 `index_name` is index which PGroonga refer to when executing sequential search. It's `text` type.
 

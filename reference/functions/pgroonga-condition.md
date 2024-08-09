@@ -142,23 +142,72 @@ SELECT *
 
 このようにして、シーケンシャルサーチ実行時でも、インデックスサーチ実行時でも検索結果が変わらないようにできます。
 
+また、「タイトルは本文よりも重要」も実現できます。
+
+例に使うサンプルスキーマとデータは次の通りです。
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+    ON memos
+ USING pgroonga ((ARRAY[title, content]));
+```
+
+```
+INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
+INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
+INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
+INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
+```
+
+より指定したクエリーにマッチしたレコードを探すためには[pgroonga_score function][pgroonga-score-function]を使えます。
+
+```
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])
+ ORDER BY score DESC;
+      title      |                                  content                                  | score 
+----------------+---------------------------------------------------------------------------+-------
+ Groonga        | Groongaは日本語対応の高速な全文検索エンジンです。                         |     6
+ PostgreSQL     | PostgreSQLはリレーショナル・データベース管理システムです。                |     6
+ PGroonga       | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
+ コマンドライン | groongaコマンドがあります。                                               |     1
+(4 rows)
+```
+
+titleカラムに「Groonga」または「PostgreSQL」があるレコードの方がcontentカラムに「Groonga」または「PostgreSQL」がある方がスコアーが高いことを確認できます。
+
 ## See also
-
-* [postgres_fdw][postgres-fdw]
-
-* [normalizers_mapping][normalizers-mapping]
 
 * [Calling Functions][sql-syntax-calling-funcs]
 
 * [Named Notation][sql-syntax-calling-funcs-named]
 
+* [normalizers_mapping][normalizers-mapping]
 
-[postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+* [pgroonga_score function][pgroonga-score-function]
 
-[normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
+* [postgres_fdw][postgres-fdw]
 
-[scorer]:https://groonga.org/docs/reference/scorer.html
+* [score compute procedures][scorer]
+
 
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
 
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
+
+[normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
+
+[pgroonga-score-function]: pgroonga-score.html
+
+[postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+
+[scorer]:https://groonga.org/docs/reference/scorer.html
+

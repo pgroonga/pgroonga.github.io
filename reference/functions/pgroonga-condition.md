@@ -215,6 +215,9 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
 titleカラムに「Groonga」または「PostgreSQL」があるレコードの方がcontentカラムに「Groonga」または「PostgreSQL」がある方よりスコアーが高いことを確認できます。
 
+カラム毎の重要度を設定しつつ、シーケンシャルサーチ時でもインデックスサーチ時でも検索結果を同じにするためには、`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`を使います。
+第二引数の`ARRAY[weight1, weight2, ...]`の使い方と、第三引数の`index_name`の使い方は前述の通りです。
+
 ## See also
 
 * [Calling Functions][sql-syntax-calling-funcs]

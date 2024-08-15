@@ -18,7 +18,7 @@ There were not this kind of useful functions for `pgroonga_full_text_search_cond
 
 Therefore, you need to designate `NULL` for disused attribute value as follows when `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type are used to avoid making all the values.
 
-```
+```sql
 title &@~ ('keyword', NULL, 'index_name')::pgroonga_full_text_search_condition
 title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_search_condition_with_scorers
 ```
@@ -35,7 +35,7 @@ It is because `pgroonga_condition()` function absorbs incompatibility.
 `pgroonga_condition()` function lets current writing style when a new attribute value is added because the function can leave out unnecessary attribute value as following sample.
 (In the following sample, `weights`, `scorers`, `schema_name` and `column_name` are left out. The details of attribute values would be noted in next ["Syntax"](#syntax). Here, point is that possibility of leaving out unnecessary attribute values.)
 
-```
+```sql
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 ```
 
@@ -74,7 +74,7 @@ All arguments of `pgroonga_condition()` are optional. If you want to specify a p
 
 In general, it is enough to remember the following three cases.
 
-```
+```sql
 pgroonga_condition('keyword', index_name => 'pgroonga_index')
 pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])
 pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')
@@ -158,7 +158,7 @@ CREATE INDEX pgroonga_memos_index
  USING pgroonga ((ARRAY[title, content]));
 ```
 
-```
+```sql
 INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
 INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
 INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
@@ -167,7 +167,7 @@ INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあり
 
 より指定したクエリーにマッチしたレコードを探すためには[pgroonga_score function][pgroonga-score-function]を使えます。
 
-```
+```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score
   FROM memos
  WHERE ARRAY[title, content] &@~

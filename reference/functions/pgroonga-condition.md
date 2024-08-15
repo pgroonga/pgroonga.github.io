@@ -235,4 +235,3 @@ titleカラムに「Groonga」または「PostgreSQL」があるレコードの�
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
 
 [scorer]:https://groonga.org/docs/reference/scorer.html
-

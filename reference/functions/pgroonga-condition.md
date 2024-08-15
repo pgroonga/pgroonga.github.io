@@ -172,6 +172,7 @@ SELECT *
 つまり、「タイトルは本文よりも重要」も実現できます。
 
 カラム毎の重要度を設定するためには、 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])` を使います。
+`weight1`、 `weight2`でカラム毎の重要度を指定できます。
 
 例に使うサンプルスキーマとデータは次の通りです。
 
@@ -211,7 +212,8 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 (4 rows)
 ```
 
-titleカラムに「Groonga」または「PostgreSQL」があるレコードの方がcontentカラムに「Groonga」または「PostgreSQL」がある方がスコアーが高いことを確認できます。
+上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
+titleカラムに「Groonga」または「PostgreSQL」があるレコードの方がcontentカラムに「Groonga」または「PostgreSQL」がある方よりスコアーが高いことを確認できます。
 
 ## See also
 

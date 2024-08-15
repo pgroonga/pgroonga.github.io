@@ -141,9 +141,33 @@ SELECT *
 (2 rows)
 ```
 
-このようにして、シーケンシャルサーチ実行時でも、インデックスサーチ実行時でも検索結果が変わらないようにできます。
+`index_name`を指定しない場合（つまり、`NormalizerNFKC150("unify_katakana_v_sounds", true)`が参照できない場合）は、次のように「バイオリン」で「ヴァイオリン」はヒットしません。
 
-また、「タイトルは本文よりも重要」も実現できます。
+```sql
+EXPLAIN ANALYZE
+SELECT *
+  FROM memos
+ WHERE title &@~ pgroonga_condition('バイオリン');
+                                            QUERY PLAN                                            
+--------------------------------------------------------------------------------------------------
+ Seq Scan on memos  (cost=0.00..656.00 rows=1 width=68) (actual time=0.745..0.746 rows=0 loops=1)
+   Filter: (title &@~ '(バイオリン,,,,,)'::pgroonga_condition)
+   Rows Removed by Filter: 1
+ Planning Time: 1.075 ms
+ Execution Time: 0.792 ms
+(5 rows)
+
+SELECT *
+  FROM memos
+ WHERE title &@~ pgroonga_condition('バイオリン');
+
+ id | title | content 
+----+-------+---------
+(0 rows)
+```
+
+このように、`index_name`を指定することで、シーケンシャルサーチ実行時でもインデックスサーチ実行時でも検索結果が変わらないようにできます。
+
 
 例に使うサンプルスキーマとデータは次の通りです。
 

@@ -12,11 +12,11 @@ title: リリース
 
 * `GROONGA_REPOSITORY`
 
-最新のGroongaのリポジトリーへのパスを指定します。
+  最新のGroongaのリポジトリーへのパスを指定します。
 
-リリースごとにGroongaのリポジトリーをcloneすることを推奨します。
+  リリースごとにGroongaのリポジトリーをcloneすることを推奨します。
 
-以下は、 `$HOME/work/groonga/groonga.clean` を `GROONGA_REPOSITORY` に指定する例です。
+  以下は、 `$HOME/work/groonga/groonga.clean` を `GROONGA_REPOSITORY` に指定する例です。
 
   ```console
   $ mkdir -p ~/work/groonga
@@ -27,9 +27,9 @@ title: リリース
 
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-GroongaのPPAのキーを指定します。
+  GroongaのPPAのキーを指定します。
 
-[Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
+  [Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
 
 * `GITHUB_ACCESS_TOKEN`
 

@@ -230,7 +230,7 @@ titleカラムに「Groonga」または「PostgreSQL」があるレコードの�
 
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
 
-[pgroonga-score-function]: pgroonga-score.html
+[pgroonga-score-function]:pgroonga-score.html
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
 

@@ -215,8 +215,54 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
 titleカラムに「Groonga」または「PostgreSQL」があるレコードの方がcontentカラムに「Groonga」または「PostgreSQL」がある方よりスコアーが高いことを確認できます。
 
-カラム毎の`weight`を設定しつつ、シーケンシャルサーチ時でもインデックスサーチ時でも検索結果を同じにするためには、`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`を使います。
-第二引数の`ARRAY[weight1, weight2, ...]`の使い方と、第三引数の`index_name`の使い方は前述の通りです。
+`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`は、検索対象のカラムを選択する場合に使います。
+`weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
+
+`content`カラムも検索対象としている場合は、「-p_G」というキーワードで前方一致検索しているので、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、次の例では、`content`カラムを無視して検索しているため、このレコードはヒットしていません。
+次の例のように、検索対象のカラムを選択しつつ、インデックスに設定されているノーマライザーやトークナイザーを参照して検索したい場合には、この書き方を使ってください。
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+    ON memos
+ USING pgroonga ((ARRAY[title, content]) pgroonga_text_array_term_search_ops_v2)
+ WITH (normalizers='NormalizerNFKC150("remove_symbol", true)');
+
+INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
+INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
+INSERT INTO memos VALUES ('PGroonga', 'PostgreSQLの拡張機能です。');
+INSERT INTO memos VALUES ('pglogical', 'pglogicalは、論理レプリケーションを実装しています。');
+
+EXPLAIN ANALYZE VERBOSE SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &^ pgroonga_condition('-p_O',
+                                                   ARRAY[1, 1],
+                                                   index_name => 'pgroonga_memos_index');
+                                                  QUERY PLAN
+---------------------------------------------------------------------------------------------------------------
+ Seq Scan on public.memos  (cost=0.00..678.80 rows=1 width=64) (actual time=0.209..0.423 rows=2 loops=1)
+   Output: title, content
+   Filter: (ARRAY[memos.title, memos.content] &^ '(-p_O,"{1,1}",,,pgroonga_memos_index,)'::pgroonga_condition)
+   Rows Removed by Filter: 2
+ Planning Time: 0.216 ms
+ Execution Time: 0.437 ms
+(6 rows)
+
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &^ pgroonga_condition('-p_O',
+                                                   ARRAY[1, 0],
+                                                   index_name => 'pgroonga_memos_index');
+   title    |                          content
+------------+------------------------------------------------------------
+ PostgreSQL | PostgreSQLはリレーショナル・データベース管理システムです。
+(1 row)
+```
 
 ## See also
 

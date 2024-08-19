@@ -590,8 +590,8 @@ Here is the syntax of `${MAPPING_IN_JSON}`:
 
 ```json
 {
-  "${index_target_name1}": "${flags1}",
-  "${index_target_name2}": "${flags2}",
+  "${index_target_name1}": ["${flag1_1}", "${flag1_2}", ..., "${flag1_N}"],
+  "${index_target_name2}": ["${flag2_1}", "${flag2_2}", ..., "${flag2_N}"],
   ...
 }
 ```
@@ -608,7 +608,7 @@ Here are available index column flags that are corresponding to [flags in Groong
 
   * `WEIGHT_FLOAT32`: `WEIGHT_FLOAT32` in Groonga
 
-You can specify multiple flags by separating with `|` such as `LARGE|WITH_WEIGHT`. But you can't specify conflicted flags at once such as `SMALL|MEDIUM|LARGE`.
+You can't specify conflicted flags at once such as `["SMALL", "MEDIUM", "LARGE"]`.
 
 Normally, you don't need to customize this because the default value is suitable for most cases.
 
@@ -624,7 +624,7 @@ CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
         WITH (index_flags_mapping='{
-                "content": "LARGE"
+                "content": ["LARGE"]
               }');
 ```
 

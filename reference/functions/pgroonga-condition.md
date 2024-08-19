@@ -87,18 +87,18 @@ Please refer to [Calling Functions][sql-syntax-calling-funcs] for information ab
 Here are sample schema and data:
 
 ```sql
-CREATE TABLE memos (
-  id integer,
-  title text,
-  content text
+CREATE TABLE tags (
+  name text PRIMARY KEY
 );
 
-CREATE INDEX pgroonga_memos_index
-          ON memos
-       USING pgroonga (title)
-        WITH (normalizers='NormalizerNFKC150("unify_katakana_v_sounds", true)');
+CREATE INDEX pgroonga_tag_name_index ON tags
+  USING pgroonga (name pgroonga_text_term_search_ops_v2)
+  WITH (normalizers='NormalizerNFKC150("remove_symbol", true)');
 
-INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
+INSERT INTO tags VALUES ('PostgreSQL');
+INSERT INTO tags VALUES ('Groonga');
+INSERT INTO tags VALUES ('PGroonga');
+INSERT INTO tags VALUES ('pglogical');
 ```
 
 インデックスサーチ時はインデックスに指定したオプションを使ってインデックスサーチ時の挙動をカスタマイズできます。
@@ -112,57 +112,57 @@ INSERT INTO memos VALUES (1, 'ヴァイオリン', E'Let\'s play violin!');
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定します。
 `pgroonga_condition()`の`index_name => '...'`がそのための引数です。
 
-次の例は、シーケンシャルサーチになっていますが、「バイオリン」で「ヴァイオリン」がヒットしています。
-シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("unify_katakana_v_sounds", true)`が参照できていることがわかります。
+次の例は、「-p_G」というキーワードで前方一致検索をしていますが、シーケンシャルサーチであっても、「PGroonga」と「pglogical」がヒットしています。
+このことから、シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("remove_symbol", true)`が参照できていることがわかります。
 
 ```sql
 EXPLAIN ANALYZE
 SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン',
-                                    index_name => 'pgroonga_memos_index');
-                                           QUERY PLAN                                            
--------------------------------------------------------------------------------------------------
- Seq Scan on memos  (cost=0.00..2.52 rows=1 width=100) (actual time=2.230..2.406 rows=2 loops=1)
-   Filter: (title &@~ '(バイオリン,,,,pgroonga_memos_index,)'::pgroonga_condition)
-   Rows Removed by Filter: 1
- Planning Time: 2.222 ms
- Execution Time: 2.525 ms
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G',
+                                  index_name => 'pgroonga_tag_name_index');
+                                            QUERY PLAN
+--------------------------------------------------------------------------------------------------
+ Seq Scan on tags  (cost=0.00..1043.60 rows=1 width=32) (actual time=2.267..2.336 rows=2 loops=1)
+   Filter: (name &^ '(-p_G,,,,pgroonga_tag_name_index,)'::pgroonga_condition)
+   Rows Removed by Filter: 2
+ Planning Time: 0.871 ms
+ Execution Time: 2.352 ms
 (5 rows)
 
 SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン',
-                                    index_name => 'pgroonga_memos_index');
- id |    title     |      content       | tag  
-----+--------------+--------------------+------
-  2 | ヴァイオリン | content2           | tag2
-  1 | ヴァイオリン | Let's play violin! | 
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G',
+                                  index_name => 'pgroonga_tag_name_index');
+   name
+-----------
+ PGroonga
+ pglogical
 (2 rows)
 ```
 
-`index_name`を指定しない場合（つまり、`NormalizerNFKC150("unify_katakana_v_sounds", true)`が参照できない場合）は、次のように「バイオリン」で「ヴァイオリン」はヒットしません。
+`index_name`を指定しない場合（つまり、`NormalizerNFKC150("remove_symbol", true)`が参照できない場合）は、次のように「PGroonga」と「pglogical」はヒットしません。
 
 ```sql
 EXPLAIN ANALYZE
 SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン');
-                                            QUERY PLAN                                            
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G');
+                                            QUERY PLAN
 --------------------------------------------------------------------------------------------------
- Seq Scan on memos  (cost=0.00..656.00 rows=1 width=68) (actual time=0.745..0.746 rows=0 loops=1)
-   Filter: (title &@~ '(バイオリン,,,,,)'::pgroonga_condition)
-   Rows Removed by Filter: 1
- Planning Time: 1.075 ms
- Execution Time: 0.792 ms
+ Seq Scan on tags  (cost=0.00..1043.60 rows=1 width=32) (actual time=0.032..0.032 rows=0 loops=1)
+   Filter: (name &^ '(-p_G,,,,,)'::pgroonga_condition)
+   Rows Removed by Filter: 4
+ Planning Time: 0.910 ms
+ Execution Time: 0.053 ms
 (5 rows)
 
 SELECT *
-  FROM memos
- WHERE title &@~ pgroonga_condition('バイオリン');
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G');
 
- id | title | content 
-----+-------+---------
+ name
+------
 (0 rows)
 ```
 

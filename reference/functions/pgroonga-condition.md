@@ -112,7 +112,12 @@ INSERT INTO tags VALUES ('pglogical');
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定します。
 `pgroonga_condition()`の`index_name => '...'`がそのための引数です。
 
-次の例は、「-p_G」というキーワードで前方一致検索をしていますが、シーケンシャルサーチであっても、「PGroonga」と「pglogical」がヒットしています。
+次の例は、「-p_G」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
+[`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「-p_G」は「pg」にノーマライズされます。
+（大文字が小文字になっているのは、`NormalizerNFKC150`の挙動によるものです。）
+そのため、このオプションが有効であれば、「PGroonga」と「pglogical」がヒットします。
+
+次の例は、シーケンシャルサーチですが、「PGroonga」と「pglogical」がヒットしていることが確認できます。
 このことから、シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("remove_symbol", true)`が参照できていることがわかります。
 
 ```sql
@@ -276,6 +281,8 @@ SELECT *
 
 * [postgres_fdw][postgres-fdw]
 
+* [remove_symbol][remove-symbol]
+
 * [score compute procedures][scorer]
 
 
@@ -288,5 +295,7 @@ SELECT *
 [pgroonga-score-function]:pgroonga-score.html
 
 [postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+
+[remove-symbol]:https://groonga.org/docs/reference/normalizers/normalizer_nfkc150.html#remove-symbol
 
 [scorer]:https://groonga.org/docs/reference/scorer.html

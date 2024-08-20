@@ -241,16 +241,16 @@ INSERT INTO memos VALUES ('pglogical', 'pglogicalは、論理レプリケーシ�
 EXPLAIN ANALYZE VERBOSE SELECT *
   FROM memos
  WHERE ARRAY[title, content] &^ pgroonga_condition('-p_O',
-                                                   ARRAY[1, 1],
+                                                   ARRAY[1, 0],
                                                    index_name => 'pgroonga_memos_index');
                                                   QUERY PLAN
 ---------------------------------------------------------------------------------------------------------------
- Seq Scan on public.memos  (cost=0.00..678.80 rows=1 width=64) (actual time=0.209..0.423 rows=2 loops=1)
+ Seq Scan on public.memos  (cost=0.00..678.80 rows=1 width=64) (actual time=2.714..2.893 rows=1 loops=1)
    Output: title, content
-   Filter: (ARRAY[memos.title, memos.content] &^ '(-p_O,"{1,1}",,,pgroonga_memos_index,)'::pgroonga_condition)
-   Rows Removed by Filter: 2
- Planning Time: 0.216 ms
- Execution Time: 0.437 ms
+   Filter: (ARRAY[memos.title, memos.content] &^ '(-p_O,"{1,0}",,,pgroonga_memos_index,)'::pgroonga_condition)
+   Rows Removed by Filter: 3
+ Planning Time: 0.222 ms
+ Execution Time: 2.910 ms
 (6 rows)
 
 SELECT *

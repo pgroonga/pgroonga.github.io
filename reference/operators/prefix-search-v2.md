@@ -125,15 +125,15 @@ SET enable_bitmapscan = off;
 EXPLAIN (COSTS OFF)
 SELECT name
   FROM tags
- WHERE name &^ ('-p_G', NULL, 'pgrn_index')::pgroonga_full_text_search_condition;
+ WHERE name &^ ('-p_G', NULL, 'pgroonga_tag_name_index')::pgroonga_full_text_search_condition;
 QUERY PLAN
 Seq Scan on tags
-  Filter: (name &^ '(-p_G,,pgrn_index)'::pgroonga_full_text_search_condition)
+  Filter: (name &^ '(-p_G,,pgroonga_tag_name_index)'::pgroonga_full_text_search_condition)
 (2 rows)
 
 SELECT name
   FROM tags
- WHERE name &^ ('-p_G', NULL, 'pgrn_index')::pgroonga_full_text_search_condition;
+ WHERE name &^ ('-p_G', NULL, 'pgroonga_tag_name_index')::pgroonga_full_text_search_condition;
    name    
 -----------
  PGroonga

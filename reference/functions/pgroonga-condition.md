@@ -86,6 +86,8 @@ Please refer to [Calling Functions][sql-syntax-calling-funcs] for information ab
 
 ### Specify `index_name`
 
+シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
+
 Here are sample schema and data:
 
 ```sql
@@ -176,8 +178,8 @@ SELECT *
 
 ### Specify `weight`
 
-また、カラム毎の`weight`も設定できます。
-つまり、「タイトルは本文よりも重要」を実現できます。
+カラム毎に異なるweight（重要度）を設定する方法を紹介します。
+これにより、「タイトルを本文よりも重要視する」を実現できます。
 
 カラム毎の`weight`を設定するためには、 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])` を使います。
 `weight1`、 `weight2`でカラム毎の重要度を指定できます。
@@ -225,7 +227,9 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 
 ### Specify `index_name` and `weights`
 
-`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`は、検索対象のカラムを選択しつつ、インデックスに設定されているノーマライザーやトークナイザーを参照して検索したい場合に使います。
+検索対象のカラムを選択しつつ、シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
+
+`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`を使います。
 `weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
 
 次の例では、「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、`content`カラムを無視して検索しているため、このレコードがヒットしていないことを確認できます。

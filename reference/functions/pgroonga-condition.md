@@ -228,7 +228,7 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
 `title`カラムに「`Groonga`」または「`PostgreSQL`」があるレコードの方が`content`カラムに「`Groonga`」または「`PostgreSQL`」がある方よりスコアーが高いことを確認できます。
 
-### Specify `index_name` and `weights`
+### Specify `index_name` and `weight`
 
 検索対象のカラムを選択しつつ、シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
 

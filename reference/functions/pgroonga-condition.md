@@ -219,11 +219,10 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
 `title`カラムに「`Groonga`」または「`PostgreSQL`」があるレコードの方が`content`カラムに「`Groonga`」または「`PostgreSQL`」がある方よりスコアーが高いことを確認できます。
 
-`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`は、検索対象のカラムを選択する場合に使います。
+`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`は、検索対象のカラムを選択しつつ、インデックスに設定されているノーマライザーやトークナイザーを参照して検索したい場合に使います。
 `weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
 
-`content`カラムも検索対象としている場合は、「`_p_G`」というキーワードで前方一致検索しているので、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、次の例では、`content`カラムを無視して検索しているため、このレコードはヒットしていません。
-次の例のように、検索対象のカラムを選択しつつ、インデックスに設定されているノーマライザーやトークナイザーを参照して検索したい場合には、この書き方を使ってください。
+次の例では、「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、`content`カラムを無視して検索しているため、このレコードがヒットしていないことを確認できます。
 
 ```sql
 DROP TABLE IF EXISTS memos;

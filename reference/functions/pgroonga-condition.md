@@ -84,6 +84,8 @@ Please refer to [Calling Functions][sql-syntax-calling-funcs] for information ab
 
 ## Usage
 
+### Specify `index_name`
+
 Here are sample schema and data:
 
 ```sql
@@ -172,6 +174,8 @@ SELECT *
 
 このように、`index_name`を指定することで、シーケンシャルサーチ実行時でもインデックスサーチ実行時でも検索結果が変わらないようにできます。
 
+### Specify `weight`
+
 また、カラム毎の`weight`も設定できます。
 つまり、「タイトルは本文よりも重要」を実現できます。
 
@@ -218,6 +222,8 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
 `title`カラムに「`Groonga`」または「`PostgreSQL`」があるレコードの方が`content`カラムに「`Groonga`」または「`PostgreSQL`」がある方よりスコアーが高いことを確認できます。
+
+### Specify `index_name` and `weights`
 
 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`は、検索対象のカラムを選択しつつ、インデックスに設定されているノーマライザーやトークナイザーを参照して検索したい場合に使います。
 `weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。

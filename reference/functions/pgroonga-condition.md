@@ -88,6 +88,9 @@ Please refer to [Calling Functions][sql-syntax-calling-funcs] for information ab
 
 シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
 
+`pgroonga_condition('keyword', index_name => 'pgroonga_index')`を使います。
+`index_name`にノーマライザーやトークナイザーを指定したインデックスの名前を指定します。
+
 Here are sample schema and data:
 
 ```sql
@@ -181,10 +184,10 @@ SELECT *
 カラム毎に異なるweight（重要度）を設定する方法を紹介します。
 これにより、「タイトルを本文よりも重要視する」を実現できます。
 
-カラム毎の`weight`を設定するためには、 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])` を使います。
-`weight1`、 `weight2`でカラム毎の重要度を指定できます。
+`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])` を使います。
+`weight1`、 `weight2`でカラム毎の重要度を指定します。
 
-例に使うサンプルスキーマとデータは次の通りです。
+Here are sample schema and data:
 
 ```sql
 DROP TABLE IF EXISTS memos;
@@ -230,9 +233,9 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 検索対象のカラムを選択しつつ、シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
 
 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`を使います。
-`weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
+無視するカラムに対応する`weight`に`0`を指定します。`index_name`にノーマライザーやトークナイザーを指定したインデックスの名前を指定します。
 
-次の例では、「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、`content`カラムを無視して検索しているため、このレコードがヒットしていないことを確認できます。
+Here are sample schema and data:
 
 ```sql
 DROP TABLE IF EXISTS memos;
@@ -250,7 +253,13 @@ INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・�
 INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
 INSERT INTO memos VALUES ('PGroonga', 'PostgreSQLの拡張機能です。');
 INSERT INTO memos VALUES ('pglogical', 'pglogicalは、論理レプリケーションを実装しています。');
+```
 
+`weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
+
+次の例では、「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、`content`カラムを無視して検索しているため、このレコードがヒットしていないことを確認できます。
+
+```sql
 EXPLAIN ANALYZE VERBOSE SELECT *
   FROM memos
  WHERE ARRAY[title, content] &^ pgroonga_condition('_p_O',

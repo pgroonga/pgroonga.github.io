@@ -111,8 +111,8 @@ INSERT INTO tags VALUES ('pglogical');
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定します。
 `pgroonga_condition()`の`index_name => '...'`がそのための引数です。
 
-次の例は、「`-p_G`」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
-[`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「`-p_G`」は「`pg`」にノーマライズされます。
+次の例は、「`_p_G`」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
+[`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「`_p_G`」は「`pg`」にノーマライズされます。
 （大文字が小文字になっているのは、`NormalizerNFKC150`の挙動によるものです。）
 そのため、このオプションが有効であれば、「`PGroonga`」と「`pglogical`」がヒットします。
 
@@ -123,12 +123,12 @@ INSERT INTO tags VALUES ('pglogical');
 EXPLAIN ANALYZE
 SELECT *
   FROM tags
- WHERE name &^ pgroonga_condition('-p_G',
+ WHERE name &^ pgroonga_condition('_p_G',
                                   index_name => 'pgroonga_tag_name_index');
                                             QUERY PLAN
 --------------------------------------------------------------------------------------------------
  Seq Scan on tags  (cost=0.00..1043.60 rows=1 width=32) (actual time=2.267..2.336 rows=2 loops=1)
-   Filter: (name &^ '(-p_G,,,,pgroonga_tag_name_index,)'::pgroonga_condition)
+   Filter: (name &^ '(_p_G,,,,pgroonga_tag_name_index,)'::pgroonga_condition)
    Rows Removed by Filter: 2
  Planning Time: 0.871 ms
  Execution Time: 2.352 ms
@@ -136,7 +136,7 @@ SELECT *
 
 SELECT *
   FROM tags
- WHERE name &^ pgroonga_condition('-p_G',
+ WHERE name &^ pgroonga_condition('_p_G',
                                   index_name => 'pgroonga_tag_name_index');
    name
 -----------
@@ -151,11 +151,11 @@ SELECT *
 EXPLAIN ANALYZE
 SELECT *
   FROM tags
- WHERE name &^ pgroonga_condition('-p_G');
+ WHERE name &^ pgroonga_condition('_p_G');
                                             QUERY PLAN
 --------------------------------------------------------------------------------------------------
  Seq Scan on tags  (cost=0.00..1043.60 rows=1 width=32) (actual time=0.032..0.032 rows=0 loops=1)
-   Filter: (name &^ '(-p_G,,,,,)'::pgroonga_condition)
+   Filter: (name &^ '(_p_G,,,,,)'::pgroonga_condition)
    Rows Removed by Filter: 4
  Planning Time: 0.910 ms
  Execution Time: 0.053 ms
@@ -163,7 +163,7 @@ SELECT *
 
 SELECT *
   FROM tags
- WHERE name &^ pgroonga_condition('-p_G');
+ WHERE name &^ pgroonga_condition('_p_G');
 
  name
 ------
@@ -222,7 +222,7 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`は、検索対象のカラムを選択する場合に使います。
 `weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
 
-`content`カラムも検索対象としている場合は、「`-p_G`」というキーワードで前方一致検索しているので、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、次の例では、`content`カラムを無視して検索しているため、このレコードはヒットしていません。
+`content`カラムも検索対象としている場合は、「`_p_G`」というキーワードで前方一致検索しているので、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、次の例では、`content`カラムを無視して検索しているため、このレコードはヒットしていません。
 次の例のように、検索対象のカラムを選択しつつ、インデックスに設定されているノーマライザーやトークナイザーを参照して検索したい場合には、この書き方を使ってください。
 
 ```sql

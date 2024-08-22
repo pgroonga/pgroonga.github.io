@@ -113,7 +113,7 @@ INSERT INTO tags VALUES ('pglogical');
 
 次の例は、「`_p_G`」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
 [`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「`_p_G`」は「`pg`」にノーマライズされます。
-（大文字が小文字になっているのは、`NormalizerNFKC150`の挙動によるものです。）
+（大文字が小文字になっているのは、`remove_symbol`オプションの挙動ではなく、`NormalizerNFKC150`のデフォルトの挙動によるものです。）
 そのため、このオプションが有効であれば、「`PGroonga`」と「`pglogical`」がヒットします。
 
 次の例は、シーケンシャルサーチですが、「`PGroonga`」と「`pglogical`」がヒットしていることが確認できます。

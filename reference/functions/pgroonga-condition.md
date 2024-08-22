@@ -119,7 +119,7 @@ INSERT INTO tags VALUES ('pglogical');
 そのため、このオプションが有効であれば、「`PGroonga`」と「`pglogical`」がヒットします。
 
 次の例は、シーケンシャルサーチですが、「`PGroonga`」と「`pglogical`」がヒットしていることが確認できます。
-このことから、シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("remove_symbol", true)`が参照できていることがわかります。
+このことから、シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("remove_symbol", true)`が参照できていることが確認できます。
 
 ```sql
 EXPLAIN ANALYZE

@@ -111,12 +111,12 @@ INSERT INTO tags VALUES ('pglogical');
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定します。
 `pgroonga_condition()`の`index_name => '...'`がそのための引数です。
 
-次の例は、「-p_G」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
-[`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「-p_G」は「pg」にノーマライズされます。
+次の例は、「`-p_G`」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
+[`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「`-p_G`」は「`pg`」にノーマライズされます。
 （大文字が小文字になっているのは、`NormalizerNFKC150`の挙動によるものです。）
-そのため、このオプションが有効であれば、「PGroonga」と「pglogical」がヒットします。
+そのため、このオプションが有効であれば、「`PGroonga`」と「`pglogical`」がヒットします。
 
-次の例は、シーケンシャルサーチですが、「PGroonga」と「pglogical」がヒットしていることが確認できます。
+次の例は、シーケンシャルサーチですが、「`PGroonga`」と「`pglogical`」がヒットしていることが確認できます。
 このことから、シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("remove_symbol", true)`が参照できていることがわかります。
 
 ```sql
@@ -145,7 +145,7 @@ SELECT *
 (2 rows)
 ```
 
-`index_name`を指定しない場合（つまり、`NormalizerNFKC150("remove_symbol", true)`が参照できない場合）は、次のように「PGroonga」と「pglogical」はヒットしません。
+`index_name`を指定しない場合（つまり、`NormalizerNFKC150("remove_symbol", true)`が参照できない場合）は、次のように「`PGroonga`」と「`pglogical`」はヒットしません。
 
 ```sql
 EXPLAIN ANALYZE
@@ -199,7 +199,7 @@ INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGro
 INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
 ```
 
-より指定したクエリーにマッチしたレコードを探すためには[pgroonga_score function][pgroonga-score-function]を使えます。
+より指定したクエリーにマッチしたレコードを探すためには[`pgroonga_score function`][pgroonga-score-function]を使えます。
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score
@@ -217,12 +217,12 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 ```
 
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
-titleカラムに「Groonga」または「PostgreSQL」があるレコードの方がcontentカラムに「Groonga」または「PostgreSQL」がある方よりスコアーが高いことを確認できます。
+`title`カラムに「`Groonga`」または「`PostgreSQL`」があるレコードの方が`content`カラムに「`Groonga`」または「`PostgreSQL`」がある方よりスコアーが高いことを確認できます。
 
 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`は、検索対象のカラムを選択する場合に使います。
 `weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
 
-`content`カラムも検索対象としている場合は、「-p_G」というキーワードで前方一致検索しているので、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、次の例では、`content`カラムを無視して検索しているため、このレコードはヒットしていません。
+`content`カラムも検索対象としている場合は、「`-p_G`」というキーワードで前方一致検索しているので、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、次の例では、`content`カラムを無視して検索しているため、このレコードはヒットしていません。
 次の例のように、検索対象のカラムを選択しつつ、インデックスに設定されているノーマライザーやトークナイザーを参照して検索したい場合には、この書き方を使ってください。
 
 ```sql

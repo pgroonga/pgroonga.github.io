@@ -230,10 +230,10 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 
 ### Specify `index_name` and `weight`
 
-検索対象のカラムを選択しつつ、シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
+特定のカラムを検索対象から除外しつつ、シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
 
 `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`を使います。
-無視するカラムに対応する`weight`に`0`を指定します。`index_name`にノーマライザーやトークナイザーを指定したインデックスの名前を指定します。
+検索対象から除外したいカラムに対応する`weight`に`0`を指定します。`index_name`には、ノーマライザーやトークナイザーを指定したインデックスの名前を指定します。
 
 Here are sample schema and data:
 
@@ -255,9 +255,9 @@ INSERT INTO memos VALUES ('PGroonga', 'PostgreSQLの拡張機能です。');
 INSERT INTO memos VALUES ('pglogical', 'pglogicalは、論理レプリケーションを実装しています。');
 ```
 
-`weight`を`0`にすることで、対応するカラムを無視できます。次の例では、`content`カラムを無視して検索します。
+次の例では、`content`カラムを検索対象から除外しています。
 
-次の例では、「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、`content`カラムを無視して検索しているため、このレコードがヒットしていないことを確認できます。
+次の例では、「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、このレコードはヒットしていません。このことから、`content`カラムが検索対象から除外されていることを確認できます。
 
 ```sql
 EXPLAIN ANALYZE VERBOSE SELECT *

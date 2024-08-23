@@ -255,9 +255,8 @@ INSERT INTO memos VALUES ('PGroonga', 'PostgreSQLの拡張機能です。');
 INSERT INTO memos VALUES ('pglogical', 'pglogicalは、論理レプリケーションを実装しています。');
 ```
 
-次の例では、`content`カラムを検索対象から除外しています。
-
-次の例では、「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、このレコードはヒットしていません。このことから、`content`カラムが検索対象から除外されていることを確認できます。
+次の例では、`content`カラムを検索対象から除外しています。「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、このレコードはヒットしていません。
+このことから、`content`カラムが検索対象から除外されていることを確認できます。
 
 ```sql
 EXPLAIN ANALYZE VERBOSE SELECT *

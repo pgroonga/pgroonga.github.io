@@ -208,7 +208,7 @@ INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGro
 INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
 ```
 
-より指定したクエリーにマッチしたレコードを探すためには[`pgroonga_score function`][pgroonga-score-function]を使えます。
+指定したクエリーによりマッチしたレコードを探すためには[`pgroonga_score function`][pgroonga-score-function]を使えます。
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score

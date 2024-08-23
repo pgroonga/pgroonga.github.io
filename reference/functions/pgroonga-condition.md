@@ -199,9 +199,7 @@ CREATE TABLE memos (
 CREATE INDEX pgroonga_memos_index
     ON memos
  USING pgroonga ((ARRAY[title, content]));
-```
 
-```sql
 INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
 INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
 INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
@@ -228,12 +226,12 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
 `title`カラムに「`Groonga`」または「`PostgreSQL`」があるレコードの方が`content`カラムに「`Groonga`」または「`PostgreSQL`」がある方よりスコアーが高いことを確認できます。
 
-### Specify `index_name` and `weights`
+### Exclude from search target
 
-特定のカラムを検索対象から除外しつつ、シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
+特定のカラムを検索対象から除外して検索する方法を紹介します。
 
-`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroonga_index')`を使います。
-検索対象から除外したいカラムに対応する`weight`に`0`を指定します。`index_name`には、ノーマライザーやトークナイザーを指定したインデックスの名前を指定します。
+`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])`を使います。
+検索対象から除外したいカラムに対応する`weight`に`0`を指定します。
 
 Here are sample schema and data:
 
@@ -246,42 +244,38 @@ CREATE TABLE memos (
 
 CREATE INDEX pgroonga_memos_index
     ON memos
- USING pgroonga ((ARRAY[title, content]) pgroonga_text_array_term_search_ops_v2)
- WITH (normalizers='NormalizerNFKC150("remove_symbol", true)');
+ USING pgroonga ((ARRAY[title, content]));
 
 INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
 INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
-INSERT INTO memos VALUES ('PGroonga', 'PostgreSQLの拡張機能です。');
-INSERT INTO memos VALUES ('pglogical', 'pglogicalは、論理レプリケーションを実装しています。');
+INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
+INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
 ```
 
-次の例では、`content`カラムを検索対象から除外しています。「`_p_O`」というキーワードで前方一致検索しているので、`content`カラムを検索対象としていれば、`'PGroonga', 'PostgreSQLの拡張機能です。'`がヒットするはずですが、このレコードはヒットしていません。
+次の例では、`content`カラムを検索対象から除外しています。
+「`拡張`」というキーワードで全文検索しているので、`content`カラムを検索対象としていれば、`'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。'`がヒットするはずですが、このレコードはヒットしていません。
 このことから、`content`カラムが検索対象から除外されていることを確認できます。
 
 ```sql
-EXPLAIN ANALYZE VERBOSE SELECT *
-  FROM memos
- WHERE ARRAY[title, content] &^ pgroonga_condition('_p_O',
-                                                   ARRAY[1, 0],
-                                                   index_name => 'pgroonga_memos_index');
-                                                  QUERY PLAN
----------------------------------------------------------------------------------------------------------------
- Seq Scan on public.memos  (cost=0.00..678.80 rows=1 width=64) (actual time=2.714..2.893 rows=1 loops=1)
-   Output: title, content
-   Filter: (ARRAY[memos.title, memos.content] &^ '(_p_O,"{1,0}",,,pgroonga_memos_index,)'::pgroonga_condition)
-   Rows Removed by Filter: 3
- Planning Time: 0.222 ms
- Execution Time: 2.910 ms
-(6 rows)
-
 SELECT *
   FROM memos
- WHERE ARRAY[title, content] &^ pgroonga_condition('_p_O',
-                                                   ARRAY[1, 0],
-                                                   index_name => 'pgroonga_memos_index');
-   title    |                          content
-------------+------------------------------------------------------------
- PostgreSQL | PostgreSQLはリレーショナル・データベース管理システムです。
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('拡張', ARRAY[1, 0]);
+ title | content
+-------+---------
+(0 rows)
+```
+
+次のように、`content`カラムを検索対象にすると`'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。'`がヒットします。
+
+```sql
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('拡張', ARRAY[1, 1]);
+  title   |          content
+----------+----------------------------
+ PGroonga | PostgreSQLの拡張機能です。
 (1 row)
 ```
 

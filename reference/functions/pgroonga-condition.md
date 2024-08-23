@@ -273,9 +273,9 @@ SELECT *
   FROM memos
  WHERE ARRAY[title, content] &@~
        pgroonga_condition('拡張', ARRAY[1, 1]);
-  title   |          content
-----------+----------------------------
- PGroonga | PostgreSQLの拡張機能です。
+  title   |                                  content
+----------+---------------------------------------------------------------------------
+ PGroonga | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
 (1 row)
 ```
 

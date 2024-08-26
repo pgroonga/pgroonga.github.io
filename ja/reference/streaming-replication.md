@@ -190,7 +190,7 @@ PGroongaのWAL用には、[`pgronga.enable_wal`パラメーター][enable-wal]�
 
 クラッシュセーフ用には、[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して`pgroonga.crash_safe = on`も追加する必要があります。
 
-注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフ人ついては[クラッシュセーフ][crash-safe]も参照してください。
+注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフについては[クラッシュセーフ][crash-safe]も参照してください。
 
 `/etc/postgresql/15/main/postgresql.conf`:
 
@@ -349,7 +349,7 @@ Password: (passw0rd)
 
   * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]
 
-注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフ人ついては[クラッシュセーフ][crash-safe]も参照してください。
+注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフについては[クラッシュセーフ][crash-safe]も参照してください。
 
 スタンバイ：
 

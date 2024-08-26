@@ -15,7 +15,7 @@ The default is `on`, so for tables with [Row Security Policies][postgresql-row-s
 
 **Note:**
 
-Even if this parameter is set to `on`, information related to the target row may be included in logs and error messages when some conditions overlap.
+If this parameter is set to `off`, information related to the target row may be included in logs and error messages when some conditions overlap.
 In that case, there are security risks.
 
 PostgreSQL [Row Security Policies][postgresql-row-security-policies] settings and the setting of this parameter are independent of each other.

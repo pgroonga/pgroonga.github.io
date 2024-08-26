@@ -579,6 +579,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## パラメーター
 
+  * [`pgroonga.enable_row_level_security`パラメーター][enable-row-level-security]
+
+    * 3.1.6で追加。
+
   * [`pgroonga.enable_trace_log`パラメーター][enable-trace-log]
 
     * 3.0.8で追加。
@@ -767,6 +771,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
+[enable-row-level-security]:parameters/enable-row-level-security.html
 [enable-trace-log]:parameters/enable-trace-log.html
 [enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html
 [enable-wal]:parameters/enable-wal.html

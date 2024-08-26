@@ -577,6 +577,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
 ## Parameters
 
+  * [`pgroonga.enable_row_level_security` parameter][enable-row-level-security]
+
+    * Since 3.1.6.
+
   * [`pgroonga.enable_trace_log` parameter][enable-trace-log]
 
     * Since 3.0.8.
@@ -764,6 +768,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
+[enable-row-level-security]:parameters/enable-row-level-security.html
 [enable-trace-log]:parameters/enable-trace-log.html
 [enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html
 [enable-wal]:parameters/enable-wal.html

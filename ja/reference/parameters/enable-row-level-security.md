@@ -9,9 +9,14 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga.enable_row_level_security`パラメータは[`pgroonga.log_level`パラメーター][log-level]に従いログを出力するか、`critical`のログのみを出力するかを制御します。
+`pgroonga.enable_row_level_security`パラメーターは[`pgroonga.log_level`パラメーター][log-level]に従いログを出力するか、`critical`のログのみを出力するかを制御します。
 
 デフォルト値は`on`のため、[行セキュリティポリシー][postgresql-row-security-policies]を設定しているテーブルの場合、PGroongaは`critical`のログのみを出力します。
+
+**注意:**
+
+PostgreSQLの[行セキュリティポリシー][postgresql-row-security-policies]設定とこのパラメーターの設定はそれぞれ独立しています。
+このパラメーターを`off`に設定してもPostgreSQLの[行セキュリティポリシー][postgresql-row-security-policies]設定は無効になりません。
 
 ## 構文
 

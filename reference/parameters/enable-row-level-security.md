@@ -13,6 +13,11 @@ Since 3.1.6.
 
 The default is `on`, so for tables with [Row Security Policies][postgresql-row-security-policies] set, PGroonga will only log `critical`.
 
+**Note:**
+
+PostgreSQL [Row Security Policies][postgresql-row-security-policies] settings and the setting of this parameter are independent of each other.
+Setting this parameter to `off` does not disable the PostgreSQL [Row Security Policies][postgresql-row-security-policies] setting.
+
 ## Syntax
 
 In SQL:

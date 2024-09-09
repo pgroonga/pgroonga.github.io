@@ -9,13 +9,13 @@ Since 3.2.3.
 
 ## Summary
 
-`pgroonga.log_rotate_threshold_size` parameter controls the rotation of pgroonga.log.
+`pgroonga.log_rotate_threshold_size` parameter controls the rotation of PGroonga's log.
 
-Specifies threshold for pgroonga.log rotation. pgroonga.log file is rotated when log file size is larger than or equals to the threshold.
+Specifies threshold for PGroonga's log rotation. PGroonga's log file is rotated when log file size is larger than or equals to the threshold.
 
 The default is `0`. It means that that this does not rotate.
 
-This parameter is meaningless if you do not enable pgroonga.log with [`pgroonga.log_type = file`][log-type].
+This parameter is meaningless if you do not enable PGroonga's log with [`pgroonga.log_type = file`][log-type].
 
 ## Syntax
 

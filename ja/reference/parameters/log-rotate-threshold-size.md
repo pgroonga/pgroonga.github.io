@@ -9,13 +9,13 @@ upper_level: ../
 
 ## 概要
 
-`pgroonga.log_rotate_threshold_size`パラメーターはpgroonga.logのローテーションを制御します。
+`pgroonga.log_rotate_threshold_size`パラメーターはPGroongaのログのローテーションを制御します。
 
-pgroonga.logのローテーションの閾値を指定します。ログファイルのサイズが閾値に指定した値以上になると、ローテートされます。
+PGroongaのログのローテーションの閾値を指定します。ログファイルのサイズが閾値に指定した値以上になると、ローテートされます。
 
 デフォルト値は`0`で、デフォルトではローテートされません。
 
-[`pgroonga.log_type = file`][log-type]を設定しpgroonga.logを有効にしていなければ、このパラメーターは意味がありません。
+[`pgroonga.log_type = file`][log-type]を設定しPGroongaのログを有効にしていなければ、このパラメーターは意味がありません。
 
 ## 構文
 

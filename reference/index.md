@@ -601,6 +601,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga.log_path` parameter][log-path]
 
+  * [`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-size]
+
+    * Since 3.2.3.
+
   * [`pgroonga.log_type` parameter][log-type]
 
   * [`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]
@@ -610,6 +614,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
     * Since 2.3.3.
 
   * [`pgroonga.query_log_path` parameter][query-log-path]
+
+  * [`pgroonga.query_log_rotate_threshold_size` parameter][query-log-rotate-threshold-size]
+
+    * Since 3.2.3.
 
   * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]
 
@@ -777,10 +785,12 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [lock-timeout]:parameters/lock-timeout.html
 [log-level]:parameters/log-level.html
 [log-path]:parameters/log-path.html
+[log-rotate-threshold-size]:parameters/log-rotate-threshold-size.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
 [max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
+[query-log-rotate-threshold-size]:parameters/query-log-rotate-threshold-size.html
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html

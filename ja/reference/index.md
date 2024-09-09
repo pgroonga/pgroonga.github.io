@@ -603,6 +603,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.log_path`パラメーター][log-path]
 
+  * [`pgroonga.log_rotate_threshold_size`パラメーター][log-rotate-threshold-size]
+
+    * 3.2.3で追加。
+
   * [`pgroonga.log_type`パラメーター][log-type]
 
   * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]
@@ -612,6 +616,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
     * 2.3.3で追加。
 
   * [`pgroonga.query_log_path`パラメーター][query-log-path]
+
+  * [`pgroonga.query_log_rotate_threshold_size`パラメーター][query-log-rotate-threshold-size]
+
+    * 3.2.3で追加。
 
   * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-naptime]
 
@@ -780,10 +788,12 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [lock-timeout]:parameters/lock-timeout.html
 [log-level]:parameters/log-level.html
 [log-path]:parameters/log-path.html
+[log-rotate-threshold-size]:parameters/log-rotate-threshold-size.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
 [max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
+[query-log-rotate-threshold-size]:parameters/query-log-rotate-threshold-size.html
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html

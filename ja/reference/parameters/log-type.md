@@ -13,6 +13,8 @@ upper_level: ../
 
   * ファイルにログを出力する
 
+    * デフォルト値
+
   * Windowsイベントログでログを出力する
 
   * PostgreSQLのログシステムでログを出力する
@@ -36,6 +38,8 @@ pgroonga.log_type = type
 `type`は列挙型の値です。つまり、以下のどれか1つを選ばないといけないということです。
 
   * `file`：ファイルにログ出力
+
+    * デフォルト値
 
   * `windows_event_log`：Windowsイベントログでログ出力
 

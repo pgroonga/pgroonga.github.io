@@ -1,0 +1,6 @@
+{% case page.language %}
+{% when "ja" %}
+  {% include latest-content-header.ja.html %}
+{% else %}
+  {% include latest-content-header.en.html %}
+{% endcase %}

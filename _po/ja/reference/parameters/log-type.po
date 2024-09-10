@@ -35,6 +35,9 @@ msgstr "以下のどれかのログタイプを選びます。"
 msgid "  * Log to a file"
 msgstr "  * ファイルにログを出力する"
 
+msgid "    * The default value"
+msgstr "    * デフォルト値"
+
 msgid "  * Log by Windows event log"
 msgstr "  * Windowsイベントログでログを出力する"
 

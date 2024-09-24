@@ -5,6 +5,24 @@ upper_level: ../
 
 # おしらせ
 
+## 3.2.3: 2024-09-25 {#version-3-2-3}
+
+### 改良
+
+  * [[`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-size]][[`pgroonga.query_log_rotate_threshold_size` parameter][query-log-rotate-threshold-size]] Added `pgroonga.*log_rotate_threshold_size` parameter. [GH-532]
+
+    It is available in Groonga 14.0.7 or later.
+
+### 修正
+
+  * Fixed a build error when we build Homebrew's PGroonga from source in combination with Postgres.app. [GH-531][Reported by siyukatu]
+
+  * Fixed a bug that `log_level` is not reflected when we specify `pgroonga.log_type = postgresql`.
+
+### 感謝
+
+  * siyukatuさん
+
 ## 3.2.2: 2024-08-05 {#version-3-2-2}
 
 ### 改良
@@ -2293,6 +2311,9 @@ The first release!!!
 [pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html
 [pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-crash-safer-max-recovery-threads.html
+
+[log-rotate-threshold-size]:../reference/parameters/log-rotate-threshold-size.html
+[query-log-rotate-threshold-size]:../reference/parameters/query-log-rotate-threshold-size.html
 
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 

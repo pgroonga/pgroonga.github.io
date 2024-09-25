@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2024-07-08 11:35+0900\n"
+"PO-Revision-Date: 2023-08-13 09:55+0900\n"
 
 msgid ""
 "---\n"
@@ -22,11 +22,43 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.2.2: 2024-08-05 {#version-3-2-2}"
+msgid "## 3.2.3: 2024-09-25 {#version-3-2-3}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid ""
+"  * [[`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-"
+"size]][[`pgroonga.query_log_rotate_threshold_size` parameter][query-log-"
+"rotate-threshold-size]] Added `pgroonga.*log_rotate_threshold_size` "
+"parameter. [GH-532]"
+msgstr ""
+
+msgid "    It is available in Groonga 14.0.7 or later."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"  * Fixed a build error when we build Homebrew's PGroonga from source in "
+"combination with Postgres.app. [GH-531][Reported by siyukatu]"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that `log_level` is not reflected when we specify `pgroonga."
+"log_type = postgresql`."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * siyukatu"
+msgstr "  * siyukatuさん"
+
+msgid "## 3.2.2: 2024-08-05 {#version-3-2-2}"
+msgstr ""
 
 msgid ""
 "  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-"
@@ -35,9 +67,6 @@ msgstr ""
 
 msgid "  * Dropped support for Debian 11 (bullseye)."
 msgstr ""
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "  * [`pgroonga_condition()`] Fixed a bug that occurred when upgrading to "
@@ -361,9 +390,6 @@ msgstr ""
 
 msgid "    This problem might occure since PGroonga 2.3.3."
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid ""
 "  * askdkc\n"
@@ -3254,6 +3280,13 @@ msgid ""
 "log-path.html\n"
 "[pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-"
 "crash-safer-max-recovery-threads.html"
+msgstr ""
+
+msgid ""
+"[log-rotate-threshold-size]:../reference/parameters/log-rotate-threshold-"
+"size.html\n"
+"[query-log-rotate-threshold-size]:../reference/parameters/query-log-rotate-"
+"threshold-size.html"
 msgstr ""
 
 msgid ""

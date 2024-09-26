@@ -5,6 +5,12 @@ upper_level: ../
 
 # おしらせ
 
+## 3.2.4: 2024-09-27 {#version-3-2-4}
+
+### 改良
+
+  * Added support for PostgreSQL 17.
+
 ## 3.2.3: 2024-09-25 {#version-3-2-3}
 
 ### 改良

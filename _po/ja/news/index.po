@@ -22,11 +22,17 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.2.3: 2024-09-25 {#version-3-2-3}"
+msgid "## 3.2.4: 2024-09-27 {#version-3-2-4}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "  * Added support for PostgreSQL 17."
+msgstr ""
+
+msgid "## 3.2.3: 2024-09-25 {#version-3-2-3}"
+msgstr ""
 
 msgid ""
 "  * [[`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-"

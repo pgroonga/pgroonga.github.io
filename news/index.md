@@ -5,6 +5,12 @@ upper_level: ../
 
 # News
 
+## 3.2.4: 2024-10-03 {#version-3-2-4}
+
+### Improvements
+
+  * Added support for PostgreSQL 17.
+
 ## 3.2.3: 2024-09-25 {#version-3-2-3}
 
 ### Improvements

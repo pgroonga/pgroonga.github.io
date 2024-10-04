@@ -627,6 +627,9 @@ msgstr "  * [`pgroonga_command`関数][command]"
 msgid "  * [`pgroonga_command_escape_value` function][command-escape-value]"
 msgstr "  * [`pgroonga_command_escape_value`関数][command-escape-value]"
 
+msgid "  * [`pgroonga_condition` function][condition]"
+msgstr "  * [`pgroonga_condition`関数][escape]"
+
 msgid "  * [`pgroonga_escape` function][escape]"
 msgstr "  * [`pgroonga_escape`関数][escape]"
 
@@ -1002,6 +1005,7 @@ msgstr ""
 
 msgid ""
 "[command]:functions/pgroonga-command.html\n"
+"[condition]:functions/pgroonga-condition.html\n"
 "[command-escape-value]:functions/pgroonga-command-escape-value.html\n"
 "[escape]:functions/pgroonga-escape.html\n"
 "[flush]:functions/pgroonga-flush.html\n"

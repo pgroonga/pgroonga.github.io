@@ -17,7 +17,7 @@ latest_postgresql_version: 17
 # This must be synchronized with PGSQL_DEFAULT in
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/bsd.default-versions.mk
 # .
-freebsd_postgresql_version: 16
+freebsd_postgresql_version: 15
 development_postgresql_version: 17.0
 exclude:
   - "Gemfile"

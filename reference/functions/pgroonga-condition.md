@@ -86,10 +86,10 @@ Please refer to [Calling Functions][sql-syntax-calling-funcs] for information ab
 
 ### Specify `index_name`
 
-シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
+Introducing how to search with normalizer and tokeniser options specified in the index while sequential search is executed.
 
-`pgroonga_condition('keyword', index_name => 'pgroonga_index')`を使います。
-`index_name`にノーマライザーやトークナイザーを指定したインデックスの名前を指定します。
+Use `pgroonga_condition('keyword', index_name => 'pgroonga_index')`.
+Assign the name of index specified tokenizer or normalizer to `index_name`.
 
 Here are sample schema and data:
 
@@ -108,23 +108,24 @@ INSERT INTO tags VALUES ('PGroonga');
 INSERT INTO tags VALUES ('pglogical');
 ```
 
-インデックスサーチ時はインデックスに指定したオプションを使ってインデックスサーチ時の挙動をカスタマイズできます。
-上のサンプルでは、`normalizers='...'`の部分でオプションを指定しています。
+At the time of an index search, you can customize the behavior of the index search by using the options specified to the index.
+In the above example, the options are specified in the `normalizers='...'` section.
 
-一方、インデックスサーチではなくシーケンシャルサーチが実行されると、インデックスに指定されているオプションは参照できません。
-シーケンシャルサーチ時はどのインデックスを参照すればよいかという情報がないからです。
+On the other hand, at the sequential search, the options specified to the index cannot be referenced.
+It is because there is no information which index to be referenced at the sequential search.
 
-そのためシーケンシャルサーチ実行時は、インデックスサーチ実行時と検索結果が異なる可能性があります。
-この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定します。
-`pgroonga_condition()`の`index_name => '...'`がそのための引数です。
+Because of that, there is a possibility that the search results may differ between a sequential search and an index search.
+In order to avoid this issue, explicitly specify which index to be referenced at the sequential search.
+The `index_name => '...'` argument in `pgroonga_condition()` is used for that.
 
-次の例は、「`_p_G`」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
-[`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「`_p_G`」は「`pg`」にノーマライズされます。
-（大文字が小文字になっているのは、`remove_symbol`オプションの挙動ではなく、`NormalizerNFKC150`のデフォルトの挙動によるものです。）
-そのため、このオプションが有効であれば、「`PGroonga`」と「`pglogical`」がヒットします。
 
-次の例は、シーケンシャルサーチですが、「`PGroonga`」と「`pglogical`」がヒットしていることが確認できます。
-このことから、シーケンシャルサーチ実行時でもインデックスに設定されている`NormalizerNFKC150("remove_symbol", true)`が参照できていることが確認できます。
+The next example executes a prefix search with the keyword "`_p_G`" while `NormalizerNFKC150("remove_symbol", true)` is specified in the index.
+Since [`remove_symbol`][remove-symbol] is the option to ignore the symbols, "`_p_G`" is normalized to "`pg`".
+(The reason why the capital letter "`G`" becomes a lowercase "`g`" is not due to the `remove_symbol` option, but rather the default behavior of `NormalizerNFKC150`.)
+Therefore, both "`PGroonga`" and "`pglogical`" should be hit while this option is active.
+
+You can see that "`PGroonga`" and "`pglogical`" are hit as a result of the sequential search.
+This result shows that `NormalizerNFKC150("remove_symbol", true)` specified in the index is referenced even during sequential search execution.
 
 ```sql
 EXPLAIN ANALYZE
@@ -152,7 +153,7 @@ SELECT *
 (2 rows)
 ```
 
-`index_name`を指定しない場合（つまり、`NormalizerNFKC150("remove_symbol", true)`が参照できない場合）は、次のように「`PGroonga`」と「`pglogical`」はヒットしません。
+As you can see in next, "`PGroonga`" and "`pglogical`" would not be hit when `index_name` is not specified. (This means that `NormalizerNFKC150("remove_symbol", true)` cannot be referenced.)
 
 ```sql
 EXPLAIN ANALYZE
@@ -177,15 +178,15 @@ SELECT *
 (0 rows)
 ```
 
-このように、`index_name`を指定することで、シーケンシャルサーチ実行時でもインデックスサーチ実行時でも検索結果が変わらないようにできます。
+In this way, by specifying `index_name`, you can ensure that the search result remain the same whether executing a sequential search or an index search.
 
 ### Specify `weights`
 
-カラム毎に異なるweight（重要度）を設定する方法を紹介します。
-これにより、「タイトルを本文よりも重要視する」を実現できます。
+Introducing how to specify different weights for each column.
+This allows the title to be weighted more than the main text.
 
-`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])` を使います。
-`weight1`、 `weight2`でカラム毎の重要度を指定します。
+Use `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])`.
+`weight1`, `weight2`, and so on specify the weights for each column.
 
 Here are sample schema and data:
 
@@ -200,13 +201,13 @@ CREATE INDEX pgroonga_memos_index
     ON memos
  USING pgroonga ((ARRAY[title, content]));
 
-INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
-INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
-INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
-INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
+INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQL is a relational database management system.');
+INSERT INTO memos VALUES ('Groonga', 'Groonga is the fast full text search engine optimized for Japanese.');
+INSERT INTO memos VALUES ('PGroonga', 'PGroonga is an extension for PostgreSQL to use Groonga as the index.');
+INSERT INTO memos VALUES ('command line', 'There is a groonga command.');
 ```
 
-指定したクエリーによりマッチしたレコードを探すためには[`pgroonga_score function`][pgroonga-score-function]を使えます。
+[`pgroonga_score function`][pgroonga-score-function] can be used to search for records that match by the specified query.
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score
@@ -214,24 +215,24 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
  WHERE ARRAY[title, content] &@~
        pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])
  ORDER BY score DESC;
-      title      |                                  content                                  | score 
-----------------+---------------------------------------------------------------------------+-------
- Groonga        | Groongaは日本語対応の高速な全文検索エンジンです。                         |     6
- PostgreSQL     | PostgreSQLはリレーショナル・データベース管理システムです。                |     6
- PGroonga       | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
- コマンドライン | groongaコマンドがあります。                                               |     1
+    title     |                               content                                | score 
+--------------+----------------------------------------------------------------------+-------
+ Groonga      | Groonga is the fast full text search engine optimized for Japanese.  |     6
+ PostgreSQL   | PostgreSQL is a relational database management system.               |     6
+ PGroonga     | PGroonga is an extension for PostgreSQL to use Groonga as the index. |     2
+ command line | There is a groonga command.                                          |     1
 (4 rows)
 ```
 
-上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
-`title`カラムに「`Groonga`」または「`PostgreSQL`」があるレコードの方が`content`カラムに「`Groonga`」または「`PostgreSQL`」がある方よりスコアーが高いことを確認できます。
+In above example, the title is 5 times weighted that the main text because `ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])` is specified.
+You can see the score is higher for the records with `Groonga` or `PostgreSQL` in the `title` column compared to records with `Groonga` or `PostgreSQL` in the `content` column.
 
 ### Exclude from search target
 
-特定のカラムを検索対象から除外して検索する方法を紹介します。
+Introducing how to search without specific columns as the search target.
 
-`pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])`を使います。
-検索対象から除外したいカラムに対応する`weight`に`0`を指定します。
+Use `pgroonga_condition('keyword', ARRAY[weight1, weight2, ...])`.
+You need to specify `0` to `weight` of the column that would be excluded from the search target.
 
 Here are sample schema and data:
 
@@ -246,36 +247,36 @@ CREATE INDEX pgroonga_memos_index
     ON memos
  USING pgroonga ((ARRAY[title, content]));
 
-INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
-INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
-INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
-INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
+INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQL is a relational database management system.');
+INSERT INTO memos VALUES ('Groonga', 'Groonga is the fast full text search engine optimized for Japanese.');
+INSERT INTO memos VALUES ('PGroonga', 'PGroonga is an extension for PostgreSQL to use Groonga as the index.');
+INSERT INTO memos VALUES ('command line', 'There is a groonga command.');
 ```
 
-次の例では、`content`カラムを検索対象から除外しています。
-「`拡張`」というキーワードで全文検索しているので、`content`カラムを検索対象としていれば、`'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。'`がヒットするはずですが、このレコードはヒットしていません。
-このことから、`content`カラムが検索対象から除外されていることを確認できます。
+In the next example, the `content` column is excluded from the search target.
+The record, `'PGroonga is an extension for PostgreSQL to use Groonga as the index.'`, should be hit if the `content` column is included in the search target with the search keyword is "`extension`", but the record is not hit.
+You can see that the `content` column is excluded from the search target.
 
 ```sql
 SELECT *
   FROM memos
  WHERE ARRAY[title, content] &@~
-       pgroonga_condition('拡張', ARRAY[1, 0]);
- title | content
+       pgroonga_condition('extension', ARRAY[1, 0]);
+ title | content 
 -------+---------
 (0 rows)
 ```
 
-次のように、`content`カラムを検索対象にすると`'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。'`がヒットします。
+As the `content` column is set as the search target in the next example, the record `'PGroonga is an extension for PostgreSQL to use Groonga as an index.'` is hit.
 
 ```sql
 SELECT *
   FROM memos
  WHERE ARRAY[title, content] &@~
-       pgroonga_condition('拡張', ARRAY[1, 1]);
-  title   |                                  content
-----------+---------------------------------------------------------------------------
- PGroonga | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
+       pgroonga_condition('extension', ARRAY[1, 1]);
+  title   |                               content                                
+----------+----------------------------------------------------------------------
+ PGroonga | PGroonga is an extension for PostgreSQL to use Groonga as the index.
 (1 row)
 ```
 

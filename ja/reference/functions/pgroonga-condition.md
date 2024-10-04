@@ -84,7 +84,7 @@ pgroonga_condition('keyword', ARRAY[weight1, weight2, ...], index_name => 'pgroo
 
 ## 使い方
 
-### Specify `index_name`
+### `index_name`を指定する
 
 シーケンシャルサーチ実行時でも、インデックスに指定したノーマライザーやトークナイザーのオプションを使って検索する方法を紹介します。
 
@@ -117,6 +117,7 @@ INSERT INTO tags VALUES ('pglogical');
 そのためシーケンシャルサーチ実行時は、インデックスサーチ実行時と検索結果が異なる可能性があります。
 この問題を回避するためにシーケンシャルサーチ時に参照するインデックスを明示的に指定します。
 `pgroonga_condition()`の`index_name => '...'`がそのための引数です。
+
 
 次の例は、「`_p_G`」というキーワードで前方一致検索をしており、インデックスには`NormalizerNFKC150("remove_symbol", true)`が設定されています。
 [`remove_symbol`][remove-symbol]は記号を無視するオプションなので、「`_p_G`」は「`pg`」にノーマライズされます。
@@ -179,7 +180,7 @@ SELECT *
 
 このように、`index_name`を指定することで、シーケンシャルサーチ実行時でもインデックスサーチ実行時でも検索結果が変わらないようにできます。
 
-### Specify `weights`
+### `weights`を指定する
 
 カラム毎に異なるweight（重要度）を設定する方法を紹介します。
 これにより、「タイトルを本文よりも重要視する」を実現できます。
@@ -226,7 +227,7 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 上の例では、`ARRAY[title, content] &@~ pgroonga_condition('Groonga OR PostgreSQL', ARRAY[5, 1])`と指定しているので、タイトルが本文より5倍重要としています。
 `title`カラムに「`Groonga`」または「`PostgreSQL`」があるレコードの方が`content`カラムに「`Groonga`」または「`PostgreSQL`」がある方よりスコアーが高いことを確認できます。
 
-### Exclude from search target
+### 特定のカラムを検索対象から除外する
 
 特定のカラムを検索対象から除外して検索する方法を紹介します。
 
@@ -287,25 +288,25 @@ SELECT *
 
 * [normalizers_mapping][normalizers-mapping]
 
-* [pgroonga_score function][pgroonga-score-function]
+* [pgroonga_score関数][pgroonga-score-function]
 
 * [postgres_fdw][postgres-fdw]
 
 * [remove_symbol][remove-symbol]
 
-* [score compute procedures][scorer]
+* [スコア計算について][scorer]
 
 
-[sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
+[sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html
 
-[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
+[sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
 
 [normalizers-mapping]:../create-index-using-pgroonga.html#custom-normalizer
 
 [pgroonga-score-function]:pgroonga-score.html
 
-[postgres-fdw]:{{ site.postgresql_doc_base_url.en }}/postgres-fdw.html
+[postgres-fdw]:{{ site.postgresql_doc_base_url.ja }}/postgres-fdw.html
 
-[remove-symbol]:https://groonga.org/docs/reference/normalizers/normalizer_nfkc150.html#remove-symbol
+[remove-symbol]:https://groonga.org/ja/docs/reference/normalizers/normalizer_nfkc150.html#normalizer-nfkc150-remove-symbol
 
-[scorer]:https://groonga.org/docs/reference/scorer.html
+[scorer]:https://groonga.org/ja/docs/reference/scorer.html

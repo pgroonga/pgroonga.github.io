@@ -57,7 +57,8 @@ pgroonga_condition pgroonga_condition(keyword,
                                       scorers,
                                       schema_name,
                                       index_name,
-                                      column_name)
+                                      column_name,
+                                      fuzzy_max_distance_ratio)
 ```
 
 `keyword` is a keyword for full text search. It's `text` type.
@@ -71,6 +72,9 @@ pgroonga_condition pgroonga_condition(keyword,
 `index_name` is index name which PGroonga refer to when executing sequential search. It's `text` type.
 
 `column_name` is the column name within the index which PGroonga refers to when executing a sequential search. It's `text` type.
+
+`fuzzy_max_distance_ratio` is the ratio of the edit distance. It's `float4` type. (Since 3.2.1.)
+See [Groonga's `fuzzy_max_distance_ratio` option][groonga-fuzzy-max-distance-ratio] for details.
 
 All arguments of `pgroonga_condition()` are optional. If you want to specify a particular argument, you can use [Named Notation][sql-syntax-calling-funcs-named] such as `name => value` without relying on its position. For example, if you specify only `index_name` argument, you can write `pgroonga_condition(index_name => 'index1')`.
 
@@ -298,6 +302,7 @@ SELECT *
 
 * [score compute procedures][scorer]
 
+* [Groonga's `fuzzy_max_distance_ratio` option][groonga-fuzzy-max-distance-ratio]
 
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
 
@@ -312,3 +317,5 @@ SELECT *
 [remove-symbol]:https://groonga.org/docs/reference/normalizers/normalizer_nfkc150.html#remove-symbol
 
 [scorer]:https://groonga.org/docs/reference/scorer.html
+
+[groonga-fuzzy-max-distance-ratio]:https://groonga.org/docs/reference/commands/select.html#fuzzy-max-distance-ratio

@@ -525,7 +525,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_command_escape_value`関数][command-escape-value]
 
-  * [`pgroonga_condition` function][condition]
+  * [`pgroonga_condition`関数][escape]
 
   * [`pgroonga_escape`関数][escape]
 

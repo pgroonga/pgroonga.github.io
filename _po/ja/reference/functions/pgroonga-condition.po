@@ -26,7 +26,7 @@ msgid "# `pgroonga_condition()` function"
 msgstr "# `pgroonga_condition()` 関数"
 
 msgid "Since 3.1.6."
-msgstr "3.1.6で追加"
+msgstr "3.1.6で追加。"
 
 msgid "## Summary"
 msgstr "## 概要"

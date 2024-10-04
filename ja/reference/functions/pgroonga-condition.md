@@ -5,7 +5,7 @@ upper_level: ../
 
 # `pgroonga_condition()` 関数
 
-3.1.6で追加
+3.1.6で追加。
 
 ## 概要
 

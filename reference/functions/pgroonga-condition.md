@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_condition()` function
 
+Since 3.1.6.
+
 ## Summary
 
 `pgroonga_condition()` function returns `pgroonga_condition` type value.
@@ -64,11 +66,11 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `scorers` is [score compute procedures][scorer] of each value. It's `text[]` type.
 
-`schema_name` is the schema to which the index that PGroonga refers to when executing a sequential search belongs. It's `text` type.
+`schema_name` is the schema name to which the index that PGroonga refers to when executing a sequential search belongs. It's `text` type.
 
-`index_name` is index which PGroonga refer to when executing sequential search. It's `text` type.
+`index_name` is index name which PGroonga refer to when executing sequential search. It's `text` type.
 
-`column_name` is the column within the index which PGroonga refers to when executing a sequential search. It's `text` type.
+`column_name` is the column name within the index which PGroonga refers to when executing a sequential search. It's `text` type.
 
 All arguments of `pgroonga_condition()` are optional. If you want to specify a particular argument, you can use [Named Notation][sql-syntax-calling-funcs-named] such as `name => value` without relying on its position. For example, if you specify only `index_name` argument, you can write `pgroonga_condition(index_name => 'index1')`.
 

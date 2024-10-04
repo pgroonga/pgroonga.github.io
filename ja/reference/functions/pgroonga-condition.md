@@ -5,6 +5,8 @@ upper_level: ../
 
 # `pgroonga_condition()` 関数
 
+3.1.6で追加
+
 ## 概要
 
 `pgroonga_condition()`関数は`pgroonga_condition`型の値を返します。
@@ -39,7 +41,7 @@ title &@~ ('keyword', ARRAY[1,1,1,5,0], NULL, 'index_name')::pgroonga_full_text_
 title &@~ pgroonga_condition('keyword', index_name => 'index_name')
 ```
 
-`pgroonga_condition()`関数では、上のように属性値を省略できますが、代わりに、「index_name => 'index name'」のようにキーワード引数のような記載が必要になることに注意してください。
+`pgroonga_condition()`関数では、上のように属性値を省略できますが、代わりに、「`index_name => 'index name'`」のようにキーワード引数のような記載が必要になることに注意してください。
 
 上の例では、キーワード引数のような書き方をしている属性値とそうでない属性値があります。
 どのように書き分けるかについては、後述の「構文」で記載します。
@@ -64,11 +66,11 @@ pgroonga_condition pgroonga_condition(keyword,
 
 `scorers`は、検索対象のカラムのスコアーを計算する[スコアラー][scorer]です。`text[]`型です。
 
-`schema_name`は、シーケンシャルサーチ実行時に参照するインデックスが属するスキーマです。`text`型です。
+`schema_name`は、シーケンシャルサーチ実行時に参照するインデックスが属するスキーマの名前です。`text`型です。
 
-`index_name`は、シーケンシャルサーチ実行時に参照するインデックスです。`text`型です。
+`index_name`は、シーケンシャルサーチ実行時に参照するインデックスの名前です。`text`型です。
 
-`column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムです。`text`型です
+`column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムの名前です。`text`型です
 
 `pgroonga_condition()`の引数はすべて省略可能です。引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
 

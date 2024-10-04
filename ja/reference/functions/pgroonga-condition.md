@@ -57,7 +57,8 @@ pgroonga_condition pgroonga_condition(keyword,
                                       scorers,
                                       schema_name,
                                       index_name,
-                                      column_name)
+                                      column_name,
+                                      fuzzy_max_distance_ratio)
 ```
 
 `keyword`は検索したいキーワードです。`text`型です。
@@ -71,6 +72,9 @@ pgroonga_condition pgroonga_condition(keyword,
 `index_name`は、シーケンシャルサーチ実行時に参照するインデックスの名前です。`text`型です。
 
 `column_name`は、シーケンシャルサーチ実行時に参照するインデックス内のカラムの名前です。`text`型です
+
+`fuzzy_max_distance_ratio`は編集距離の割合です。`float4`型です。（3.2.1で追加。)
+詳しくは[Groongaの`fuzzy_max_distance_ratio`オプション][groonga-fuzzy-max-distance-ratio]をご覧ください。
 
 `pgroonga_condition()`の引数はすべて省略可能です。引数の位置に依らずに、特定の引数を指定したい場合は[`引数名 => 値`][sql-syntax-calling-funcs-named]という名前付き表記が使えます。たとえば、引数に`index_name`だけ指定する場合は`pgroonga_condition(index_name => 'index1')`となります。
 
@@ -298,6 +302,7 @@ SELECT *
 
 * [スコア計算について][scorer]
 
+* [Groongaの`fuzzy_max_distance_ratio`オプション][groonga-fuzzy-max-distance-ratio]
 
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html
 
@@ -312,3 +317,5 @@ SELECT *
 [remove-symbol]:https://groonga.org/ja/docs/reference/normalizers/normalizer_nfkc150.html#normalizer-nfkc150-remove-symbol
 
 [scorer]:https://groonga.org/ja/docs/reference/scorer.html
+
+[groonga-fuzzy-max-distance-ratio]:https://groonga.org/ja/docs/reference/commands/select.html#fuzzy-max-distance-ratio

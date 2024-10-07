@@ -23,7 +23,7 @@ msgid "# `pgroonga.enable_row_level_security` parameter"
 msgstr "# `pgroonga.enable_row_level_security`パラメーター"
 
 msgid "Since 3.1.6."
-msgstr "3.1.6で追加"
+msgstr "3.1.6で追加。"
 
 msgid "## Summary"
 msgstr "## 概要"

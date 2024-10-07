@@ -187,7 +187,7 @@ msgid ""
 msgstr ""
 
 msgid "`keyword` is a keyword for full text search. It's `text` type."
-msgstr "`keyword`は検索したいキーワードです。`text`型です。"
+msgstr "`keyword`は全文検索で使うキーワードです。`text`型です。"
 
 msgid "`weights` is importance factors of each value. It's `int[]` type."
 msgstr "`weights`は、検索対象のカラムの重要度です。`int[]`型です。"

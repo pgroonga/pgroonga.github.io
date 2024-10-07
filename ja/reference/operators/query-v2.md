@@ -44,8 +44,7 @@ column &@~ pgroonga_condition(query,
 
 4つ目の使い方は[`pgroonga_condition`関数][condition]を使います。
 [`pgroonga_condition`関数][condition]を使うと2つ目と3つ目の使い方が実現できます。
-3.1.6以降はこの構文を使ってください
-。詳しくは[`pgroonga_condition`関数][condition]をご覧ください。
+3.1.6以降はこの構文を使ってください。詳しくは[`pgroonga_condition`関数][condition]をご覧ください。
 
 以下は1つ目の使い方の説明です。
 

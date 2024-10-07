@@ -48,7 +48,7 @@ msgid "`column` is a column to be searched. It's `jsonb` type."
 msgstr "`column`は検索対象のカラムです。型は`jsonb`型です。"
 
 msgid "`keyword` is a keyword for full text search. It's `text` type."
-msgstr "`keyword`は全文検索で使うキーワードです。型は`text`型です。"
+msgstr "`keyword`は全文検索で使うキーワードです。`text`型です。"
 
 msgid "## Operator classes"
 msgstr "## 演算子クラス"

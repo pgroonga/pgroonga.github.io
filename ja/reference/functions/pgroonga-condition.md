@@ -61,7 +61,7 @@ pgroonga_condition pgroonga_condition(keyword,
                                       fuzzy_max_distance_ratio)
 ```
 
-`keyword`は全文検索で使うキーワードです。型は`text`型です。
+`keyword`は全文検索で使うキーワードです。`text`型です。
 
 `weights`は、検索対象のカラムの重要度です。`int[]`型です。
 

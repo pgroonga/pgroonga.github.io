@@ -52,9 +52,7 @@ PostgreSQL組み込みのWALベースのストリーミングレプリケーシ�
 
   8. [通常] [スタンバイで`pg_basebackup`を実行する](#pg-basebackup-standbys)
 
-  9. [固有] [スタンバイでPGroonga用にPostgreSQLを設定する](#configure-pgroonga-standbys)
-
-  10. [通常] [スタンバイでPostgreSQLを起動する](#start-standbys)
+  9. [通常] [スタンバイでPostgreSQLを起動する](#start-standbys)
 
 このドキュメントでは次の環境を使います。
 
@@ -181,7 +179,7 @@ PGroongaのWALリソースマネージャー関連の設定とクラッシュセ
 
 PGroonga WALリソースマネージャー用には[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して[`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager]も追加する必要があります。
 
-クラッシュセーフ用には、[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して`pgroonga.crash_safe = on`も追加する必要があります。
+クラッシュセーフ用には、[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して`pgroonga.enable_crash_safe = on`も追加する必要があります。
 
 注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフについては[クラッシュセーフ][crash-safe]も参照してください。
 
@@ -356,32 +354,6 @@ $ sudo -u postgres -H pg_basebackup --create-slot --slot standby2 \
   --host 192.168.0.30 --pgdata /var/lib/postgresql/16/main --progress --username replicator --write-recovery-conf
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
-```
-
-## [固有] スタンバイでPGroonga用にPostgreSQLを設定する {#configure-pgroonga-standbys}
-
-これはPGroonga固有の手順です。
-
-次のモジュールを[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加します。
-
-  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]
-
-注意: スタンバイでは`pgroonga_crash_safer`は必要ありません。[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]はクラッシュリカバリーもできます。
-
-スタンバイ：
-
-`/etc/postgresql/16/main/postgresql.conf`:
-
-変更前：
-
-```conf
-#shared_preload_libraries = ''
-```
-
-変更後：
-
-```conf
-shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
 ## [通常] スタンバイでPostgreSQLを起動する {#start-standbys}

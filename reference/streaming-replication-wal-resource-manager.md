@@ -52,9 +52,7 @@ Here are steps to configure PostgreSQL built-in WAL based streaming replication 
 
   8. [normal] [Run `pg_basebackup` on standbys](#pg-basebackup-standbys)
 
-  9. [special] [Configure PostgreSQL for PGroonga on standbys](#configure-pgroonga-standbys)
-
-  10. [normal] [Start PostgreSQL on standbys](#start-standbys)
+  9. [normal] [Start PostgreSQL on standbys](#start-standbys)
 
 This document uses the following environment:
 
@@ -181,7 +179,7 @@ You need to add PGroonga's WAL resource manager related configurations and crash
 
 For PGroonga's WAL resource manager, you need to add [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add [`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager].
 
-For crash safe, you need to add [`pgroonga_crash_safer` module][pgroonga-crash-safer] module to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add `pgroonga.crash_safe = on`.
+For crash safe, you need to add [`pgroonga_crash_safer` module][pgroonga-crash-safer] module to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add `pgroonga.enable_crash_safe = on`.
 
 NOTE: `pgroonga_crash_safer` module reduces write performance. There is a trade-off for easy to maintain and performance. If you need maximum write performance, you can't use this module. See also [Crash safe][crash-safe] for the trade-off.
 
@@ -356,32 +354,6 @@ $ sudo -u postgres -H pg_basebackup --create-slot --slot standby2 \
   --host 192.168.0.30 --pgdata /var/lib/postgresql/16/main --progress --username replicator --write-recovery-conf
 Password: (passw0rd)
 158949/158949 kB (100%), 1/1 tablespace
-```
-
-## [special] Configure PostgreSQL for PGroonga on standbys {#configure-pgroonga-standbys}
-
-This is a PGroonga specific step.
-
-Add the following modules to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries]:
-
-  * [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
-
-NOTE: In standby, `pgroonga_crash_safer` is not needed. [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] has crash recovery feature too.
-
-Standbys:
-
-`/etc/postgresql/16/main/postgresql.conf`:
-
-Before:
-
-```conf
-#shared_preload_libraries = ''
-```
-
-After:
-
-```conf
-shared_preload_libraries = 'pgroonga_wal_resource_manager'
 ```
 
 ## [normal] Start PostgreSQL on standbys {#start-standbys}

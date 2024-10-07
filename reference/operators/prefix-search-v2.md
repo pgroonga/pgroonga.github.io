@@ -20,12 +20,17 @@ Prefix search is useful for implementing input completion.
 ```sql
 column &^ prefix
 column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+column &^ pgroonga_condition(prefix, index_name => 'index_name')
 ```
 
 The first signature is enough for most cases.
 
 The second signature is for using custom normalizer even if PGroonga's index is used or not.
 The second signature is available since 2.4.6.
+
+The third signature has the same meaning as the second signature.
+You should use this signature in 3.1.6 and above.
+See [`pgroonga_condition` function][condition] for details.
 
 Here is the description of the first signature.
 
@@ -141,6 +146,29 @@ SELECT name
 (2 rows)
 ```
 
+The same query with [`pgroonga_condition` function][condition] is as follows.
+
+```sql
+EXPLAIN (COSTS OFF)
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+                                  QUERY PLAN                                   
+-------------------------------------------------------------------------------
+ Seq Scan on tags
+   Filter: (name &^ '(-p_G,,,,pgroonga_tag_name_index,,)'::pgroonga_condition)
+(2 rows)
+
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+   name
+-----------
+ PGroonga
+ pglogical
+(2 rows)
+```
+
 ## See also
 
   * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
@@ -151,6 +179,8 @@ SELECT name
 
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
+  * [`pgroonga_condition` function][condition]
+
 [prefix-rk-search-v2]:prefix-rk-search-v2.html
 
 [prefix-search-in-v2]:prefix-search-in-v2.html
@@ -158,3 +188,5 @@ SELECT name
 [not-prefix-search-in-v2]:not-prefix-search-in-v2.html
 
 [prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html
+
+[condition]:../functions/pgroonga-condition.html

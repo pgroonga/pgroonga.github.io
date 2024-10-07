@@ -20,12 +20,15 @@ upper_level: ../
 ```sql
 column &^ prefix
 column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+column &^ pgroonga_condition(prefix, index_name => 'index_name')
 ```
 
 多くの場合は1つ目の使い方で十分です。
 
 2つ目の使い方はPGroongaのインデックスが使用されるかどうかに関わらず、カスタマイズしたノーマライザーを使用するためのものです。
 2つ目の使い方は、2.4.6から使えます。
+
+3つ目の使い方は2つ目と同じ意味です。3.1.6以降は3つ目の構文を使ってください。詳しくは[`pgroonga_condition`関数][condition]をご覧ください。
 
 以下は1つ目の使い方の説明です。
 
@@ -141,6 +144,29 @@ SELECT name
 (2 rows)
 ```
 
+同じクエリを[`pgroonga_condition`関数][condition]を使うと以下の通りです。
+
+```sql
+EXPLAIN (COSTS OFF)
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+                                  QUERY PLAN                                   
+-------------------------------------------------------------------------------
+ Seq Scan on tags
+   Filter: (name &^ '(-p_G,,,,pgroonga_tag_name_index,,)'::pgroonga_condition)
+(2 rows)
+
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+   name
+-----------
+ PGroonga
+ pglogical
+(2 rows)
+```
+
 ## 参考
 
   * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索
@@ -151,6 +177,8 @@ SELECT name
 
   * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
 
+  * [`pgroonga_condition`関数][condition]
+
 [prefix-rk-search-v2]:prefix-rk-search-v2.html
 
 [prefix-search-in-v2]:prefix-search-in-v2.html
@@ -158,3 +186,5 @@ SELECT name
 [not-prefix-search-in-v2]:not-prefix-search-in-v2.html
 
 [prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html
+
+[condition]:../functions/pgroonga-condition.html

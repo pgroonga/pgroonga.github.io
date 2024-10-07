@@ -5,7 +5,7 @@ upper_level: ../
 
 # `pgroonga.enable_row_level_security`パラメーター
 
-3.1.6で追加
+3.1.6で追加。
 
 ## 概要
 

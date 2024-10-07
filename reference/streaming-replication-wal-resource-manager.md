@@ -181,7 +181,7 @@ You need to add PGroonga's WAL resource manager related configurations and crash
 
 For PGroonga's WAL resource manager, you need to add [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add [`pgronga.enable_wal_resource_manager = on`][enable-wal-resource-manager].
 
-For crash safe, you need to add [`pgroonga_crash_safer` module][pgroonga-crash-safer] module to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add `pgroonga.crash_safe = on`.
+For crash safe, you need to add [`pgroonga_crash_safer` module][pgroonga-crash-safer] module to [`shared_preload_libraries` parameter][postgresql-shared-preload-libraries] and add `pgroonga.enable_crash_safe = on`.
 
 NOTE: `pgroonga_crash_safer` module reduces write performance. There is a trade-off for easy to maintain and performance. If you need maximum write performance, you can't use this module. See also [Crash safe][crash-safe] for the trade-off.
 

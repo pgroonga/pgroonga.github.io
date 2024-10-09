@@ -12,8 +12,6 @@ title: Debian GNU/Linuxにインストール
 
   * [bookworm](#install-on-bookworm)
 
-  * [bullseye](#install-on-bullseye)
-
 ## Debian GNU/Linux bookwormにインストールする方法 {#install-on-bookworm}
 
 Debian GNU/Linux bookwormにPGroongaをインストールする方法は次の通りです。
@@ -74,11 +72,5 @@ $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga
 これで終わりです！
 
 [チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
-
-## Debian GNU/Linux bullseyeにインストールする方法 {#install-on-bullseye}
-
-Debian GNU/Linux bullseyeのサポートは終了しました。
-
-現在サポートしているOSは[こちら](../install/index.html)。
 
 [postgresql-apt]:https://www.postgresql.org/download/linux/debian/

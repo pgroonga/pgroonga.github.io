@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:55+0900\n"
+"PO-Revision-Date: 2023-08-22 17:03+0900\n"
 
 msgid ""
 "---\n"
@@ -32,9 +32,6 @@ msgid "Here are supported Debian GNU/Linux versions:"
 msgstr "サポートしているDebian GNU/Linuxのバージョンは次の通りです。"
 
 msgid "  * [bookworm](#install-on-bookworm)"
-msgstr ""
-
-msgid "  * [bullseye](#install-on-bullseye)"
 msgstr ""
 
 msgid "## How to install on Debian GNU/Linux bookworm {#install-on-bookworm}"
@@ -150,16 +147,6 @@ msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
 msgstr ""
 "[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解で"
 "きるはずです。"
-
-msgid "## How to install on Debian GNU/Linux bullseye {#install-on-bullseye}"
-msgstr ""
-"## Debian GNU/Linux bullseyeにインストールする方法 {#install-on-bullseye}"
-
-msgid "We dropped support for Debian GNU/Linux bullseye."
-msgstr "Debian GNU/Linux bullseyeのサポートは終了しました。"
-
-msgid "Currently supported OSes are [here](../install/index.html)."
-msgstr "現在サポートしているOSは[こちら](../install/index.html)。"
 
 msgid "[postgresql-apt]:https://www.postgresql.org/download/linux/debian/"
 msgstr ""

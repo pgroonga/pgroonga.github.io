@@ -12,8 +12,6 @@ Here are supported Debian GNU/Linux versions:
 
   * [bookworm](#install-on-bookworm)
 
-  * [bullseye](#install-on-bullseye)
-
 ## How to install on Debian GNU/Linux bookworm {#install-on-bookworm}
 
 You can use the following instruction to install PGroonga on Debian GNU/Linux bookworm.
@@ -74,11 +72,5 @@ $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga
 That's all!
 
 Try [tutorial](../tutorial/). You can understand more about PGroonga.
-
-## How to install on Debian GNU/Linux bullseye {#install-on-bullseye}
-
-We dropped support for Debian GNU/Linux bullseye.
-
-Currently supported OSes are [here](../install/index.html).
 
 [postgresql-apt]:https://www.postgresql.org/download/linux/debian/

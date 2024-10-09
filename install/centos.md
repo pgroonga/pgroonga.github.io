@@ -4,6 +4,8 @@ title: Install on CentOS
 
 # Install on CentOS
 
-We dropped support for CentOS 7.
+Support for PGroonga has ended from version 3.2.1 because of CentOS 7’s EOL.
 
-Currently supported OSes are [here](../install/index.html).
+PGroonga supports AlmaLinux 8. So you can continue using PGroonga by switching from CentOS 7 to AlmaLinux 8.
+
+See also [AlmaLinux](../install/almalinux.html).

@@ -28,8 +28,8 @@ exclude:
   - "transifex.yml"
   - "vendor"
 description:
-  en: Make PostgreSQL fast full text search platform for all languages!
-  ja: PostgreSQLで高速日本語全文検索！
+  en: Make PostgreSQL fast full text search platform for all languages with zero ETL!
+  ja: ゼロETLでPostgreSQLで高速日本語全文検索！
 
 kramdown:
   input: GFM

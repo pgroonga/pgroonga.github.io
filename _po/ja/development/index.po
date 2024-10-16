@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"PO-Revision-Date: 2023-08-13 00:16+0000\n"
+"PO-Revision-Date: 2024-10-16 11:36+0900\n"
 "Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
 "Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/"
 "ja/)\n"
@@ -32,6 +32,9 @@ msgstr "次のドキュメント群でPGroongaの開発方法を説明します�
 
 msgid "  * [Build](build.html)"
 msgstr "  * [ビルド](build.html)"
+
+msgid "    * [Build as a casual developer](build-casual.html)"
+msgstr "    * [カジュアル開発者としてビルド](build-casual.html)"
 
 msgid "  * [Test](test.html)"
 msgstr "  * [テスト](test.html)"

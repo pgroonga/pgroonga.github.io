@@ -8,6 +8,8 @@ title: 開発
 
   * [ビルド](build.html)
 
+    * [カジュアル開発者としてビルド](build-casual.html)
+
   * [テスト](test.html)
 
   * [リリース](release.html)

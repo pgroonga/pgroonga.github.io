@@ -1,6 +1,7 @@
 ---
-title: FAQ: About Indexes
+title: About PGroonga Indexes Gotchas
 ---
+
 
 # About PGroonga Indexes Gotchas
 

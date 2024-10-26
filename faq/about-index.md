@@ -150,6 +150,7 @@ CREATE INDEX pgrn_tags_index ON memos USING pgroonga (tags);
 
 SET enable_seqscan = off;
 EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE tags &> 'PostgreSQL';
+
 --                                                            QUERY PLAN                                                           
 -- --------------------------------------------------------------------------------------------------------------------------------
 --  Seq Scan on public.memos  (cost=10000000000.00..10000000003.28 rows=1 width=96) (actual time=23.095..23.098 rows=2 loops=1)
@@ -182,6 +183,7 @@ DROP INDEX pgrn_tags_index;
 CREATE INDEX pgrn_tags_index ON memos USING pgroonga ((tags::varchar[]));
 
 EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE tags::varchar[] &> 'PostgreSQL';
+
 --                                                             QUERY PLAN                                                            
 -- ----------------------------------------------------------------------------------------------------------------------------------
 --  Index Scan using pgrn_tags_index on public.memos  (cost=0.00..4.01 rows=1 width=96) (actual time=0.195..0.195 rows=0 loops=1)
@@ -216,7 +218,6 @@ CREATE INDEX pgrn_tags_index ON memos USING pgroonga (content);
 
 SET enable_seqscan = off;
 EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE content &^ 'Postgre';
-```
 
 --                                                            QUERY PLAN                                                           
 -- --------------------------------------------------------------------------------------------------------------------------------
@@ -231,6 +232,7 @@ EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE content &^ 'Postgre';
 --    Timing: Generation 0.290 ms, Inlining 7.746 ms, Optimization 5.999 ms, Emission 3.593 ms, Total 17.628 ms
 --  Execution Time: 17.705 ms
 -- (10 rows)
+```
 
 In this example, the search is done using a sequential scan rather than an index. We will modify it to use the index.
 
@@ -247,7 +249,6 @@ DROP INDEX pgrn_tags_index;
 CREATE INDEX pgrn_tags_index ON memos USING pgroonga (content pgroonga_text_term_search_ops_v2);
 
 EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE content &^ 'Postgre';
-```
 
 --                                                             QUERY PLAN                                                            
 -- ----------------------------------------------------------------------------------------------------------------------------------
@@ -257,6 +258,7 @@ EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE content &^ 'Postgre';
 --  Planning Time: 0.798 ms
 --  Execution Time: 0.830 ms
 -- (5 rows)
+```
 
 The key point is the part in `CREATE INDEX` that specifies USING pgroonga (content pgroonga_text_term_search_ops_v2). For a combination where an operator class needs to be specified, do it as in the example above: pgroonga (column to set index operator class).
 

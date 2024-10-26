@@ -6,15 +6,17 @@ title: リリース
 
 ## 必要なもの
 
+### 環境変数
+
 以下の環境変数を使います。
 
 * `GROONGA_REPOSITORY`
 
-最新のGroongaのリポジトリーへのパスを指定します。
+  最新のGroongaのリポジトリーへのパスを指定します。
 
-リリースごとにGroongaのリポジトリーをcloneすることを推奨します。
+  リリースごとにGroongaのリポジトリーをcloneすることを推奨します。
 
-以下は、 `$HOME/work/groonga/groonga.clean` を `GROONGA_REPOSITORY` に指定する例です。
+  以下は、 `$HOME/work/groonga/groonga.clean` を `GROONGA_REPOSITORY` に指定する例です。
 
   ```console
   $ mkdir -p ~/work/groonga
@@ -25,20 +27,39 @@ title: リリース
 
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-GroongaのPPAのキーを指定します。
+  GroongaのPPAのキーを指定します。
 
-[Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
+  [Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
 
-## バージョンをあげる
+* `GITHUB_ACCESS_TOKEN`
+
+  GitHubのアクセストークンを指定します。
+
+  [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+* `APACHE_ARROW_REPOSITORY`
+
+  最新の[Apache Arrowのリポジトリー](https://github.com/apache/arrow)へのパスを指定します。
+
+  設定例
+
+  ```console
+  $ export APACHE_ARROW_REPOSITORY=$HOME/work/apache/arrow
+  ```
+
+### コマンド
+
+リリースに必要なコマンドがあるのでインストールします。
 
 ```console
-$ rake version:update NEW_VERSION=x.x.x
+$ ./setup-release.sh
 ```
 
-## DebianとCentOSのパッケージの変更履歴を更新
+## debとRPMのパッケージの変更履歴を更新
 
 ```console
 $ rake package:version:update
+$ git push
 ```
 
 ## パッケージ作成可能かどうか確認
@@ -47,36 +68,11 @@ $ rake package:version:update
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## launchpad.netの `nightly` リポジトリーでビルドができるか確認
-
-Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
-
-launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa][launchpad-groonga-ppa]リポジトリーがあります。
-`nightly` はテスト用で、 `ppa` は配布用です。
-
-タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
-
-アーカイブファイルの作成、 `nightly` リポジトリーへのアップロード
-
-  ```console
-  $ rake dist
-  $ rake package:ubuntu DPUT_CONFIGURATION_NAME=groonga-ppa-nightly DPUT_INCOMING="~groonga/ubuntu/nightly" LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
-  ```
-
-* ビルド結果の確認
-
-  `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド がlaunchpad.net上で実行されます。
-  パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。
-
 ## リリース用にタグを打つ
 
 ```console
 $ rake tag
 ```
-
-## アーカイブファイルのダウンロード
-
-アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を[GitHub Releases ページ][pgroonga-releases-page]からダウンロードし、それをローカルのPGroongaのリポジトリーのワーキングディレクトリーに移動します。
 
 ## アーカイブファイルのアップロード
 
@@ -86,7 +82,7 @@ $ rake package:source
 
 ## リリース用パッケージを作成
 
-### Debian GNU/Linux
+### deb
 
 ```console
 $ rake package:apt
@@ -106,7 +102,7 @@ Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
   パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
 
-### CentOS
+### RPM
 
 ```console
 $ rake package:yum
@@ -117,6 +113,15 @@ $ rake package:yum
 Windowsパッケージについては、何もする必要はありません。
 
 Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクションで自動でアップロードされます。
+
+## バージョンをあげる
+
+次のリリースに向けてバージョンをあげます。
+
+```console
+$ rake version:update NEW_VERSION=x.x.x
+$ git push
+```
 
 ## 変更点を記述
 
@@ -150,10 +155,6 @@ Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクシ
 
  * FreeBSD版のPostgreSQLの最新バージョン
 
-* `amazon_linux_postgresql_version`:
-
- * AmazonLinux版のPostgreSQLの最新バージョン
-
 * `development_postgresql_version`:
 
  * マイナーバージョンを含むPostgreSQLの最新バージョン
@@ -168,7 +169,7 @@ packages.groonga.orgリポジトリーをクローンします。
 $ git clone git@github.com:groonga/packages.groonga.org.git
 ```
 
-Debian GNU/LinuxとCentOS用にリポジトリーを更新します。
+debとRPM用にリポジトリーを更新します。
 
 ```console
 $ cd packages.groonga.org
@@ -190,7 +191,7 @@ $ rm -rf ~/work/pgroonga/docker.clean
 $ git clone --recursive git@github.com:pgroonga/docker.git ~/work/pgroonga/docker.clean
 $ cd ~/work/pgroonga/docker.clean
 $ ./update.sh 2.4.1 12.0.9 #Automatically update Dockerfiles and commit changes and create a tag.
-$ git push --tags
+$ git push
 ```
 
 作業時には最新のバージョンを指定してください。
@@ -214,10 +215,6 @@ $ git push --tags
 
 * [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
 * [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (PGroongaのアナウンスのアーカイブ)
-
-## GitHub Discussions
-
-[GitHub Discussions][pgroonga-github-discussions-releases]にリリースアナウンスを作成します。
 
 ### ブログ
 

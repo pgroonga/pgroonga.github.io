@@ -51,7 +51,7 @@ column &@ (keyword, weights, index_name)::pgroonga_full_text_search_condition
 
 `keyword`は全文検索で使うキーワードです。`column`が`text`型または`text[]`型なら`keyword`は`text`型です。`column`が`varchar`型なら`keyword`は`varchar`型です。
 
-`weights`はそれぞれの値の重要度です。`int[]`型です。
+`weights`は、検索対象のカラムの重要度です。`int[]`型です。
 
 もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
 
@@ -77,7 +77,7 @@ column &@ (keyword, weights, scorers, index_name)::pgroonga_full_text_search_con
 
 `keyword`は全文検索で使うキーワードです。`column`が`text`型または`text[]`型なら`keyword`は`text`型です。`column`が`varchar`型なら`keyword`は`varchar`型です。
 
-`weights`はそれぞれの値の重要度です。`int[]`型です。
+`weights`は、検索対象のカラムの重要度です。`int[]`型です。
 
 もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
 

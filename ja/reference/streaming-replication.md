@@ -6,17 +6,30 @@ title: ストリーミングレプリケーション
 
 PGroongaは1.1.6からPostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]をサポートしています。
 
+PGroonga 3.2.1以降とPostgreSQL 15以降を使っている場合は[WALリソースマネージャーを使ったストリーミングレプリケーション][streaming-replication-wal-resource-manager]の方がオススメです。
+
 PGroongaのWALは以下のようにスタンバイのサーバーへ送信されます。
 
 ```mermaid
 sequenceDiagram
-    User->>+PostgreSQL backend:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary Table:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary PGroonga WAL:WAL Write
-    PostgreSQL backend->>+WAL Sender:Notify write WAL
-    WAL Sender->>+Primary PGroonga WAL:Read WAL
-    WAL Sender->>+WAL Reciver:Send WAL
-    WAL Reciver->>+Standby PGroonga WAL:Write
+    box transparent Primary
+        participant Primary user
+        participant Primary PGroonga
+        participant WAL sender
+    end
+    box transparent Standby
+        participant WAL receiver
+        participant Standby user
+        participant Standby PGroonga
+    end
+
+    Primary user->>+Primary PGroonga:INSERT/UPDATE/DELETE
+    Note right of Primary PGroonga:Write WAL
+    Primary PGroonga->>+WAL sender:Notify write WAL
+    WAL sender->>+WAL receiver:Send WAL
+    Note right of WAL receiver:Save WAL
+    Standby user->>+Standby PGroonga:SELECT
+    Note right of Standby PGroonga:Apply saved WAL
 ```
 
 WALをサポートしているといってもクラッシュセーフではないことに注意してください。WALベースのストリーミングレプリケーションをサポートしているだけです。もし、PGroongaのインデックスを更新している最中にPostgreSQLがクラッシュしたら、そのPGroongaのインデックスは壊れるかもしれません。もし、PGroongaのインデックスが壊れたら[`REINDEX`][postgresql-reindex]で作り直さなければいけません。
@@ -177,7 +190,7 @@ PGroongaのWAL用には、[`pgronga.enable_wal`パラメーター][enable-wal]�
 
 クラッシュセーフ用には、[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を[`shared_preload_libraries`パラメーター][postgresql-shared-preload-libraries]に追加して`pgroonga.crash_safe = on`も追加する必要があります。
 
-注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフ人ついては[クラッシュセーフ][crash-safe]も参照してください。
+注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフについては[クラッシュセーフ][crash-safe]も参照してください。
 
 `/etc/postgresql/15/main/postgresql.conf`:
 
@@ -336,7 +349,7 @@ Password: (passw0rd)
 
   * [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]
 
-注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフ人ついては[クラッシュセーフ][crash-safe]も参照してください。
+注意：`pgroonga_crash_safer`モジュールを使うと書き込み性能が低下します。メンテナンス性と性能のトレードオフがあります。最大の書き込み性能が必要な場合はこのモジュールを使えません。このトレードオフについては[クラッシュセーフ][crash-safe]も参照してください。
 
 スタンバイ：
 
@@ -428,6 +441,8 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 ```
 
 [postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html
+
+[streaming-replication-wal-resource-manager]:streaming-replication-wal-resource-manager.html
 
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html
 

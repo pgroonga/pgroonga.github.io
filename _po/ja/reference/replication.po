@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
+"PO-Revision-Date: 2024-07-08 12:04+0900\n"
 
 msgid ""
 "---\n"
@@ -31,19 +31,48 @@ msgstr ""
 msgid "See the following pages for details:"
 msgstr "詳細は以下のページを参照してください:"
 
+msgid ""
+"  * [Streaming replication by WAL resource manager][streaming-replication-"
+"wal-resource-manager]"
+msgstr ""
+"  * [WALリソースマネージャーを使ったストリーミングレプリケーション]"
+"[streaming-replication-wal-resource-manager]"
+
+msgid "    * This requires PGroonga 3.2.1 or later and PostgreSQL 15 or later"
+msgstr "    * PGroonga 3.2.1以降とPostgreSQL 15以降が必要"
+
+msgid ""
+"    * This is recommended than [streaming replication][streaming-replication]"
+msgstr ""
+"    * [ストリーミングレプリケーション][streaming-replication]よりオススメ"
+
 msgid "  * [Streaming replication][streaming-replication]"
 msgstr " * [ストリーミングレプリケーション][streaming-replication]"
+
+msgid "    * This requires PGroonga 1.1.6 or later"
+msgstr "    * PGroonga 1.1.6以降が必要"
 
 msgid "  * [Logical replication][logical-replication]"
 msgstr " * [ロジカルレプリケーション][logical-replication]"
 
+msgid "    * This requires PGroonga 1.2.4 or later"
+msgstr "    * PGroonga 1.2.4以降が必要"
+
 msgid ""
 "[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html"
 msgstr ""
+"[postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html"
 
 msgid ""
 "[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.en }}/"
 "logical-replication.html"
+msgstr ""
+"[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.ja }}/"
+"logical-replication.html"
+
+msgid ""
+"[streaming-replication-wal-resource-manager]:streaming-replication-wal-"
+"resource-manager.html"
 msgstr ""
 
 msgid "[streaming-replication]:streaming-replication.html"

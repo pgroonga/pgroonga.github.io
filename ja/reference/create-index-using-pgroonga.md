@@ -591,8 +591,8 @@ SELECT *
 
 ```json
 {
-  "${index_target_name1}": "${flags1}",
-  "${index_target_name2}": "${flags2}",
+  "${index_target_name1}": ["${flag1_1}", "${flag1_2}", ..., "${flag1_N}"],
+  "${index_target_name2}": ["${flag2_1}", "${flag2_2}", ..., "${flag2_N}"],
   ...
 }
 ```
@@ -609,7 +609,7 @@ SELECT *
 
   * `WEIGHT_FLOAT32`: Groongaでの`WEIGHT_FLOAT32`
 
-`LARGE|WITH_WEIGHT`というように`|`で区切って複数のフラグを指定することができます。しかし、`SMALL|MEDIUM|LARGE`というように競合するフラグを同時に指定することはできません。
+`["SMALL", "MEDIUM", "LARGE"]`というように競合するフラグを同時に指定することはできません。
 
 通常、これをカスタマイズする必要はありません。なぜなら多くの場合はデフォルト値が適切だからです。
 
@@ -625,11 +625,13 @@ CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
         WITH (index_flags_mapping='{
-                "content": "LARGE"
+                "content": ["LARGE"]
               }');
 ```
 
 [query-v2]:operators/query-v2.html
+
+[highlight-html]:functions/pgroonga-highlight-html.html
 
 [groonga-token-bigram]:http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram
 

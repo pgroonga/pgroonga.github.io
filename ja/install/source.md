@@ -64,7 +64,7 @@ WALサポートが必要ない場合は次のコマンドラインを使いま�
 以下は`--prefix=/usr/local`オプション付きでGroongaをインストールした場合の例です。
 
 ```console
-% PKG_CONFIG_PATH=/usr/local/lib/pkg-config make
+% PKG_CONFIG_PATH=/usr/local/lib/pkgconfig make
 ```
 
 PGroongaをインストールします。
@@ -106,7 +106,7 @@ EOF
 % psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
-（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）
+（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを利用するべきです。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）
 
 作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。
 
@@ -170,7 +170,7 @@ pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release --target 
 postgres=# CREATE DATABASE pgroonga_test;
 ```
 
-（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを作るべきです。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）
+（通常は`pgroonga_test`データベース用のユーザーを作ってそのユーザーを利用するべきです。詳細は[`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html)を参照してください。）
 
 作成したデータベースに接続し、`CREATE EXTENSION pgroonga`を実行します。
 

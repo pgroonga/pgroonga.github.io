@@ -525,6 +525,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_command_escape_value`関数][command-escape-value]
 
+  * [`pgroonga_condition`関数][condition]
+
   * [`pgroonga_escape`関数][escape]
 
   * [`pgroonga_flush`関数][flush]
@@ -536,6 +538,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`pgroonga_index_column_name` 関数][index-column-name]
 
   * [`pgroonga_is_writable`関数][is-writable]
+
+  * [`pgroonga_list_broken_indexes` 関数][list-broken-indexes]
+
+  * [`pgroonga_list_lagged_indexes` 関数][list-lagged-indexes]
 
   * [`pgroonga_match_positions_byte`関数][match-positions-byte]
 
@@ -575,9 +581,17 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 ## パラメーター
 
+  * [`pgroonga.enable_row_level_security`パラメーター][enable-row-level-security]
+
+    * 3.1.6で追加。
+
   * [`pgroonga.enable_trace_log`パラメーター][enable-trace-log]
 
     * 3.0.8で追加。
+
+  * [`pgroonga.enable_wal_resource_manager`パラメーター][enable-wal-resource-manager]
+
+    * 3.2.1で追加。
 
   * [`pgroonga.enable_wal`パラメーター][enable-wal]
 
@@ -591,6 +605,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.log_path`パラメーター][log-path]
 
+  * [`pgroonga.log_rotate_threshold_size`パラメーター][log-rotate-threshold-size]
+
+    * 3.2.3で追加。
+
   * [`pgroonga.log_type`パラメーター][log-type]
 
   * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]
@@ -600,6 +618,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
     * 2.3.3で追加。
 
   * [`pgroonga.query_log_path`パラメーター][query-log-path]
+
+  * [`pgroonga.query_log_rotate_threshold_size`パラメーター][query-log-rotate-threshold-size]
+
+    * 3.2.3で追加。
 
   * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-naptime]
 
@@ -613,6 +635,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 2.3.3で追加。
 
+  * [`pgroonga_crash_safer.max_recovery_threads` パラメーター][pgroonga-crash-safer-max-recovery-threads]
+
+    * 3.1.9で追加。
+
   * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]
 
     * 3.1.2で追加。
@@ -620,6 +646,14 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-maintainer-naptime]
 
     * 2.4.2で追加。
+
+  * [`pgroonga_wal_resource_manager.log_level`パラメーター][pgroonga-wal-resource-manager-log-level]
+
+    * 3.2.1で追加。
+
+  * [`pgroonga_wal_resource_manager.log_path`パラメーター][pgroonga-wal-resource-manager-log-path]
+
+    * 3.2.1で追加。
 
 ## モジュール
 
@@ -645,6 +679,24 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
   * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]
 
     * 2.4.2で追加。
+
+  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]
+
+    * 3.2.1で追加。
+
+## 実行ファイル
+
+  * [`pgroonga-primary-maintainer.sh` コマンド][pgroonga-primary-maintainer]
+
+    * 3.2.1で追加。
+
+  * [`pgroonga-generate-primary-maintainer-service.sh` コマンド][pgroonga-generate-primary-maintainer-service]
+
+    * 3.2.1で追加。
+
+  * [`pgroonga-generate-primary-maintainer-timer.sh` コマンド][pgroonga-generate-primary-maintainer-timer]
+
+    * 3.2.1で追加。
 
 ## Groongaの関数
 
@@ -699,6 +751,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [upgrade-incompatible]:../upgrade/#incompatible-case
 
 [command]:functions/pgroonga-command.html
+[condition]:functions/pgroonga-condition.html
 [command-escape-value]:functions/pgroonga-command-escape-value.html
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html
@@ -706,6 +759,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [highlight-html]:functions/pgroonga-highlight-html.html
 [index-column-name]:functions/pgroonga-index-column-name.html
 [is-writable]:functions/pgroonga-is-writable.html
+[list-broken-indexes]:functions/pgroonga-list-broken-indexes.html
+[list-lagged-indexes]:functions/pgroonga-list-lagged-indexes.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
 [match-positions-character]:functions/pgroonga-match-positions-character.html
 [normalize]:functions/pgroonga-normalize.html
@@ -727,29 +782,42 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
+[enable-row-level-security]:parameters/enable-row-level-security.html
 [enable-trace-log]:parameters/enable-trace-log.html
+[enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html
 [enable-wal]:parameters/enable-wal.html
 [force-match-escalation]:parameters/force-match-escalation.html
 [libgroonga-version]:parameters/libgroonga-version.html
 [lock-timeout]:parameters/lock-timeout.html
 [log-level]:parameters/log-level.html
 [log-path]:parameters/log-path.html
+[log-rotate-threshold-size]:parameters/log-rotate-threshold-size.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
 [max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
+[query-log-rotate-threshold-size]:parameters/query-log-rotate-threshold-size.html
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
+[pgroonga-crash-safer-max-recovery-threads]:parameters/pgroonga-crash-safer-max-recovery-threads.html
 
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
+
+[pgroonga-wal-resource-manager-log-level]:parameters/pgroonga-wal-resource-manager-log-level.html
+[pgroonga-wal-resource-manager-log-path]:parameters/pgroonga-wal-resource-manager-log-path.html
 
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
+
+[pgroonga-primary-maintainer]:commands/pgroonga-primary-maintainer.html
+[pgroonga-generate-primary-maintainer-service]:commands/pgroonga-generate-primary-maintainer-service.html
+[pgroonga-generate-primary-maintainer-timer]:commands/pgroonga-generate-primary-maintainer-timer.html
 
 [groonga-tuning]:https://groonga.org/ja/docs/reference/tuning.html

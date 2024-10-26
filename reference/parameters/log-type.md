@@ -13,6 +13,8 @@ You can choose one log type from the followings:
 
   * Log to a file
 
+    * The default value
+
   * Log by Windows event log
 
   * Log by log system in PostgreSQL
@@ -36,6 +38,8 @@ pgroonga.log_type = type
 `type` is an enum value. It means that you must choose one of them:
 
   * `file`: PGroonga logs to a file
+
+    * The default value
 
   * `windows_event_log`: PGroonga logs by Windows event log
 

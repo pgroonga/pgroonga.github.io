@@ -58,11 +58,11 @@
       {% if page.url contains "/v1/" %}
         {% include v1-content-header.html %}
       {% elsif page.url contains "/tutorial/" %}
-        {% include v2-content-header.html %}
+        {% include latest-content-header.html %}
       {% elsif page.url contains "/reference/" %}
-        {% include v2-content-header.html %}
+        {% include latest-content-header.html %}
       {% elsif page.url contains "/how-to/" %}
-        {% include v2-content-header.html %}
+        {% include latest-content-header.html %}
       {% endif %}
       {% if page.toc %}
         {% include toc.html html=content %}
@@ -75,6 +75,7 @@
       <div class="container">
         {% include contribute.html %}
         <p class="copyright">&copy; 2015-{{ site.time | date: "%Y" }} <a href="https://github.com/pgroonga">PGroonga Project</a></p>
+        <p class="license">License: <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a></p>
       </div>
     </footer>
 

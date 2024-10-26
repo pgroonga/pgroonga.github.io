@@ -23,7 +23,6 @@ msgstr "次のSQLでPGroongaをアンインストールできます。"
 msgid ""
 "```sql\n"
 "DROP EXTENSION pgroonga CASCADE;\n"
-"```\n"
 "```"
 msgstr ""
 

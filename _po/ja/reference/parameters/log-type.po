@@ -27,13 +27,16 @@ msgstr "## 概要"
 
 msgid "`pgroonga.log_type` parameter controls how to log."
 msgstr ""
-"`pgroonga.log_type`パラメーターをどのようにログを出力するかを制御します。"
+"`pgroonga.log_type`パラメーターは、どのようにログを出力するかを制御します。"
 
 msgid "You can choose one log type from the followings:"
 msgstr "以下のどれかのログタイプを選びます。"
 
 msgid "  * Log to a file"
 msgstr "  * ファイルにログを出力する"
+
+msgid "    * The default value"
+msgstr "    * デフォルト値"
 
 msgid "  * Log by Windows event log"
 msgstr "  * Windowsイベントログでログを出力する"

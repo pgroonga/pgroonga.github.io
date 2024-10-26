@@ -22,11 +22,388 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 3.1.5: 2023-09-29 {#version-3-1-5}"
+msgid "## 3.2.4: 2024-10-03 {#version-3-2-4}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "  * Added support for PostgreSQL 17."
+msgstr ""
+
+msgid "## 3.2.3: 2024-09-25 {#version-3-2-3}"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-"
+"size]][[`pgroonga.query_log_rotate_threshold_size` parameter][query-log-"
+"rotate-threshold-size]] Added `pgroonga.*log_rotate_threshold_size` "
+"parameter. [GH-532]"
+msgstr ""
+
+msgid "    It is available in Groonga 14.0.7 or later."
 msgstr ""
 
 msgid "### Fixes"
 msgstr "### 修正"
+
+msgid ""
+"  * Fixed a build error when we build Homebrew's PGroonga from source in "
+"combination with Postgres.app. [GH-531][Reported by siyukatu]"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug that `log_level` is not reflected when we specify `pgroonga."
+"log_type = postgresql`."
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "  * siyukatu"
+msgstr "  * siyukatuさん"
+
+msgid "## 3.2.2: 2024-08-05 {#version-3-2-2}"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-"
+"manager]] Added information to log."
+msgstr ""
+
+msgid "  * Dropped support for Debian 11 (bullseye)."
+msgstr ""
+
+msgid ""
+"  * [`pgroonga_condition()`] Fixed a bug that occurred when upgrading to "
+"3.2.1 with PGroonga installed."
+msgstr ""
+
+msgid "    * The following error occurred:"
+msgstr ""
+
+msgid ""
+"      * `HINT:  Could not choose a best candidate function. You might need "
+"to add explicit type casts.`"
+msgstr ""
+
+msgid "      * `ERROR:  function pgroonga_condition(unknown) is not unique`"
+msgstr ""
+
+msgid "## 3.2.1: 2024-07-04 {#version-3-2-1}"
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-"
+"manager]] Added a new module `pgroonga_wal_resource_manager`"
+msgstr ""
+
+msgid ""
+"    * PGroonga WAL is automatically applied when this module is enabled."
+msgstr ""
+
+msgid "  * Added support downgrade by using `ALTER EXTENSION ... UPDATE`."
+msgstr ""
+
+msgid ""
+"    Note that this feature only enable 3.2.1, currently.\n"
+"    This feature can't use before 3.2.1."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new "
+"function `pgroonga_list_broken_indexes()`."
+msgstr ""
+
+msgid "    This function list the indexes of PGroonga's that may be broken."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_crash_safer` module][pgroonga-crash-safer]] Putted index "
+"names when the `pgroonga-crash-safer` rebuild index in log."
+msgstr ""
+
+msgid "  * [WAL] Added support for registering a plugin."
+msgstr ""
+
+msgid ""
+"    `plugin = '...'` in `WITH` phrase is also written into PGroonga's WAL."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new "
+"function `pgroonga_list_lagged_indexes()`."
+msgstr ""
+
+msgid ""
+"    This function display a index of PGroonga with unapplied PGroonga WAL "
+"(not PostgreSQL WAL)."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga-primary-maintainer.sh`][primary-maintainer]] Added a new "
+"execution file `pgroonga-primary-maintainer.sh`."
+msgstr ""
+
+msgid ""
+"    * This command is used to suppress the size of PGroonga WAL on the "
+"primary server where WAL is enabled."
+msgstr ""
+
+msgid "    * Also added execution file to configure systemd timer."
+msgstr ""
+
+msgid ""
+"      * [`pgroonga-generate-primary-maintainer-service.sh`][generate-primary-"
+"maintainer-service]"
+msgstr ""
+
+msgid ""
+"      * [`pgroonga-generate-primary-maintainer-timer.sh`][generate-primary-"
+"maintainer-timer]"
+msgstr ""
+
+msgid "  * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat)."
+msgstr ""
+
+msgid "  * [`pgroonga_condition()`] Added support `fuzzy_max_distance_ratio`"
+msgstr ""
+
+msgid ""
+"  * [[`&@~` operator][query-v2]] Fixed a crash bug with multiple conditions "
+"including blank only query condition."
+msgstr ""
+
+msgid ""
+"    An error will occur if any of the multiple conditions have a blank space "
+"condition as below."
+msgstr ""
+
+msgid ""
+"    ```sql\n"
+"    CREATE TABLE memos (\n"
+"      id integer,\n"
+"      content text\n"
+"    );\n"
+"    INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');\n"
+"    INSERT INTO memos VALUES (2, 'Groonga is fast full text search "
+"engine.');\n"
+"    INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that "
+"uses Groonga.');\n"
+"    CREATE INDEX grnindex ON memos USING pgroonga (content);\n"
+"    SELECT id, content\n"
+"      FROM memos\n"
+"     WHERE content &@~ pgroonga_condition('PGroonga') AND\n"
+"           content &@~ pgroonga_condition(' ');\n"
+"    ```"
+msgstr ""
+
+msgid "  * Fixed a crash bug related to auto vacuum"
+msgstr ""
+
+msgid "    This is happen when:"
+msgstr ""
+
+msgid ""
+"      * A query has multiple index scans and/or bitmap scans with\n"
+"        PGroonga indexes\n"
+"      * Auto vacuum is executed while the query is executing"
+msgstr ""
+
+msgid ""
+"    If you're lucky, this may not cause a crash. But the following errors\n"
+"    may be happen:"
+msgstr ""
+
+msgid ""
+"      * \"invalid match target: <>\"\n"
+"      * \"column isn't found\""
+msgstr ""
+
+msgid "## 3.2.0: 2024-04-18 {#version-3-2-0}"
+msgstr ""
+
+msgid "  * Fixed a crash on connection close."
+msgstr ""
+
+msgid ""
+"    This occurred when the connection was closed \"during a transaction\n"
+"    and when releasing resources for a sequential search\"."
+msgstr ""
+
+msgid ""
+"    This was caused by a callback being run to release a sequential search\n"
+"    resource even though all resources had already been released."
+msgstr ""
+
+msgid ""
+"    Fixed unregistration of callbacks that are no longer needed when "
+"releasing\n"
+"    all resources."
+msgstr ""
+
+msgid "## 3.1.9: 2024-03-27 {#version-3-1-9}"
+msgstr ""
+
+msgid ""
+"  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-safer-"
+"max-recovery-threads] parameter to [`pgroonga-crash-safer`][pgroonga-crash-"
+"safer]."
+msgstr ""
+
+msgid "## 3.1.8: 2024-02-27 {#version-3-1-8}"
+msgstr ""
+
+msgid ""
+"  * Fixed a crash bug when the last cached sequential search datum was "
+"vacuumed that is happen every 100 queries."
+msgstr ""
+
+msgid ""
+"    Note that \"vacuum\" here is PGroonga internal vacuum only for "
+"sequential search datum.\n"
+"    It's not PostgreSQL's vacuum."
+msgstr ""
+
+msgid ""
+"    For example, we are crashed PGroonga by executing in the following "
+"procedure."
+msgstr ""
+
+msgid "    1. We send the following query to PostgreSQL."
+msgstr ""
+
+msgid ""
+"       `SELECT WHERE content &@ ('hello', null, 'memos_index')::"
+"pgroonga_full_text_search_condition;`."
+msgstr ""
+
+msgid ""
+"    2. We send hundred non PGroonga's sequential search related queries such "
+"as `SELECT 1;`."
+msgstr ""
+
+msgid "    3. We send the query same as 1. to PostgreSQL again."
+msgstr ""
+
+msgid "## 3.1.7: 2024-02-05 {#version-3-1-7}"
+msgstr ""
+
+msgid ""
+"  * PGroonga avoid blocking of process termination while [`pgroonga-crash-"
+"safer`][pgroonga-crash-safer] is flushing."
+msgstr ""
+
+msgid ""
+"  * [[`pgroonga_highlight_html` function][highlight-html]] Fixed a bug that "
+"PGroonga may crash if valid index name is specified and then an invalid "
+"index name is specified."
+msgstr ""
+
+msgid "## 3.1.6: 2024-01-10 {#version-3-1-6}"
+msgstr ""
+
+msgid ""
+"  * Added a new script for setting up the build environment. [GitHub#358]"
+"[Patched by askdkc]"
+msgstr ""
+
+msgid "  * Added a new option `pgroonga.enable_row_level_security`."
+msgstr ""
+
+msgid ""
+"    If we disabled `pgroonga.enable_row_level_security`, PGroonga might "
+"improve performance.\n"
+"    However, it has a security risk."
+msgstr ""
+
+msgid ""
+"    So, we must not disable this option when we use RLS.\n"
+"    We must check whether we don't use RLS before we disable this."
+msgstr ""
+
+msgid ""
+"  * Added new type `pgroonga_condition` and new function "
+"`pgroonga_condition()`."
+msgstr ""
+
+msgid ""
+"    `pgroonga_full_text_search_condition` type and "
+"`pgroonga_full_text_search_condition_with_scorers` type are deprecated.\n"
+"    We use `pgroonga_condition` type instead."
+msgstr ""
+
+msgid "    Here is the signature of `pgroonga_condition()`."
+msgstr ""
+
+msgid ""
+"    ```\n"
+"    pgroonga_condition(query text,\n"
+"                       weights int[],\n"
+"                       scorers text[],\n"
+"                       schema_name text,\n"
+"                       index_name text,\n"
+"                       column_name text)\n"
+"    ```"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug if we update PGroonga from 2.4.1 to 2.4.2, we can't use "
+"`pgroonga_snippet_html()`. [Reported by takadat]"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug if we specify non PostgreSQL's table as the first argument "
+"of `pgroonga_query_expand()`, PGroonga crashes as below."
+msgstr ""
+
+msgid ""
+"    ```sql\n"
+"    CREATE EXTENSION IF NOT EXISTS postgres_fdw;"
+msgstr ""
+
+msgid ""
+"    CREATE SERVER remote_server\n"
+"        FOREIGN DATA WRAPPER postgres_fdw\n"
+"        OPTIONS (host 'localhost', port '5432', dbname 'remote_database');"
+msgstr ""
+
+msgid ""
+"    CREATE FOREIGN TABLE synonym_groups (\n"
+"      synonyms text[]\n"
+"    ) SERVER remote_server;"
+msgstr ""
+
+msgid ""
+"    SELECT pgroonga_query_expand('synonym_groups',\n"
+"                                 'synonyms',\n"
+"                                 'synonyms',\n"
+"                                 'groonga');"
+msgstr ""
+
+msgid ""
+"    server closed the connection unexpectedly\n"
+"    \tThis probably means the server terminated abnormally\n"
+"    \tbefore or while processing the request.\n"
+"    The connection to the server was lost. Attempting reset: Failed.\n"
+"    ```"
+msgstr ""
+
+msgid ""
+"  * Fixed a bug if many error occured in PGroonga, PostgreSQL might consume "
+"all error stack and PANIC."
+msgstr ""
+
+msgid "    This problem might occure since PGroonga 2.3.3."
+msgstr ""
+
+msgid ""
+"  * askdkc\n"
+"  * takadat"
+msgstr ""
+
+msgid "## 3.1.5: 2023-09-29 {#version-3-1-5}"
+msgstr ""
 
 msgid ""
 "  * [[`pgroonga_highlight_html` function][highlight-html]] [[`&@~`\n"
@@ -36,9 +413,6 @@ msgstr ""
 
 msgid "## 3.1.4: 2023-09-29 {#version-3-1-4}"
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * Added support for PostgreSQL 16."
 msgstr ""
@@ -172,9 +546,6 @@ msgstr ""
 
 msgid "  * [[Windows][windows]] Required CMake 3.16 or later on build."
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * Michael Fester"
 msgstr ""
@@ -2862,6 +3233,15 @@ msgid ""
 "[highlight-html]:../reference/functions/pgroonga-highlight-html.html\n"
 "[index-column-name]:../reference/functions/pgroonga-index-column-name.html\n"
 "[is-writable]:../reference/functions/pgroonga-is-writable.html\n"
+"[list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes."
+"html\n"
+"[list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes."
+"html\n"
+"[primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html\n"
+"[generate-primary-maintainer-service]:../reference/commands/pgroonga-"
+"generate-primary-maintainer-service.html\n"
+"[generate-primary-maintainer-timer]:../reference/commands/pgroonga-generate-"
+"primary-maintainer-timer.html\n"
 "[match-positions-byte]:../reference/functions/pgroonga-match-positions-byte."
 "html\n"
 "[match-positions-character]:../reference/functions/pgroonga-match-positions-"
@@ -2903,7 +3283,16 @@ msgid ""
 "[pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-"
 "safer-log-level.html\n"
 "[pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-"
-"log-path.html"
+"log-path.html\n"
+"[pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-"
+"crash-safer-max-recovery-threads.html"
+msgstr ""
+
+msgid ""
+"[log-rotate-threshold-size]:../reference/parameters/log-rotate-threshold-"
+"size.html\n"
+"[query-log-rotate-threshold-size]:../reference/parameters/query-log-rotate-"
+"threshold-size.html"
 msgstr ""
 
 msgid ""
@@ -2922,7 +3311,8 @@ msgid ""
 "[pgroonga-database]:../reference/modules/pgroonga-database.html\n"
 "[pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html\n"
 "[pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-"
-"maintainer.html"
+"maintainer.html\n"
+"[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html"
 msgstr ""
 
 msgid "[streaming-replication]:../reference/streaming-replication.html"

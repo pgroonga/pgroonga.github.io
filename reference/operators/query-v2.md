@@ -23,6 +23,13 @@ There are three signatures:
 column &@~ query
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
+column &@~ pgroonga_condition(query,
+                              weights,
+                              scorers,
+                              schema_name,
+                              index_name,
+                              column_name,
+                              fuzzy_max_distance_ratio)
 ```
 
 The first signature is simpler than others. The first signature is enough for most cases.
@@ -34,6 +41,11 @@ The second signature is available since 2.0.4.
 The third signature is useful to optimize more search score. For example, you can take measures against [keyword stuffing][wikipedia-keyword-stuffing].
 
 The third signature is available since 2.0.6.
+
+The fourth signature is using [`pgroonga_condition` function][condition].
+You can implement the second and third signatures uses with [`pgroonga_condition` function][condition].
+You should use this signature in 3.1.6 and above.
+See [`pgroonga_condition` function][condition] for details.
 
 Here is the description of the first signature.
 
@@ -177,7 +189,7 @@ CREATE TABLE memos (
 
 CREATE INDEX pgroonga_memos_index
     ON memos
- USING PGroonga ((ARRAY[title, content]));
+ USING pgroonga ((ARRAY[title, content]));
 ```
 
 ```sql
@@ -204,6 +216,22 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 --  PGroonga   | PGroonga is a PostgreSQL extension that uses Groonga as index.         |     2
 --  CLI        | There is groonga command.                                              |     1
 -- (4 rows)
+
+-- Query with pgroonga_condition().
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('Groonga OR PostgreSQL',
+                          weights => ARRAY[5, 1],
+                          index_name => 'pgroonga_memos_index')
+ ORDER BY score DESC;
+--    title    |                                content                                 | score
+-- ------------+------------------------------------------------------------------------+-------
+--  Groonga    | Groonga is a fast full text search engine that supports all languages. |     6
+--  PostgreSQL | PostgreSQL is a relational database management system.                 |     6
+--  PGroonga   | PGroonga is a PostgreSQL extension that uses Groonga as index.         |     2
+--  CLI        | There is groonga command.                                              |     1
+-- (4 rows)
 ```
 
 You can confirm that the record which has "`Groonga`" or "`PostgreSQL`" in `title` column has more high score than "`Groonga`" or "`PostgreSQL`" in `content` column.
@@ -217,6 +245,20 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
        ('Groonga OR PostgreSQL',
         ARRAY[5, 0],
         'pgroonga_memos_index')::pgroonga_full_text_search_condition
+ ORDER BY score DESC;
+--    title    |                                content                                 | score 
+-- ------------+------------------------------------------------------------------------+-------
+--  Groonga    | Groonga is a fast full text search engine that supports all languages. |     5
+--  PostgreSQL | PostgreSQL is a relational database management system.                 |     5
+-- (2 rows)
+
+-- Query with pgroonga_condition().
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('Groonga OR PostgreSQL',
+                          weights => ARRAY[5, 0],
+                          index_name => 'pgroonga_memos_index')
  ORDER BY score DESC;
 --    title    |                                content                                 | score 
 -- ------------+------------------------------------------------------------------------+-------
@@ -243,6 +285,23 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 --  PGroonga   | PGroonga is a PostgreSQL extension that uses Groonga as index.         |     1
 --  CLI        | There is groonga command.                                              |   0.5
 -- (4 rows)
+
+-- Query with pgroonga_condition().
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('Groonga OR PostgreSQL',
+                          weights => ARRAY[5, 1],
+                          scorers => ARRAY[NULL, 'scorer_tf_at_most($index, 0.5)'],
+                          index_name => 'pgroonga_memos_index')
+ ORDER BY score DESC;
+--    title    |                                content                                 | score 
+-- ------------+------------------------------------------------------------------------+-------
+--  Groonga    | Groonga is a fast full text search engine that supports all languages. |   5.5
+--  PostgreSQL | PostgreSQL is a relational database management system.                 |   5.5
+--  PGroonga   | PGroonga is a PostgreSQL extension that uses Groonga as index.         |     1
+--  CLI        | There is groonga command.                                              |   0.5
+-- (4 rows)
 ```
 
 See [Groonga document][groonga-query-syntax] for query syntax details.
@@ -255,14 +314,18 @@ You can't use `COLUMN_NAME:^VALUE` for prefix search. You need to use `VALUE*` f
 
   * [`&@` operator][match-v2]: Full text search by a keyword
 
+  * [`pgroonga_condition` function][condition]
+
   * [Groonga's query syntax][groonga-query-syntax]
 
 [wikipedia-keyword-stuffing]:https://en.wikipedia.org/wiki/Keyword_stuffing
 
+[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html
+
 [groonga-scorer]:http://groonga.org/docs/reference/scorer.html
+
+[condition]:../functions/pgroonga-condition.html
 
 [score]:../functions/pgroonga-score.html
 
 [match-v2]:match-v2.html
-
-[groonga-query-syntax]:http://groonga.org/docs/reference/grn_expr/query_syntax.html

@@ -1,34 +1,35 @@
 title: PGroonga
 markdown: kramdown
 highlighter: rouge
-pgroonga_version: 3.1.5
-pgroonga_release_date: 2023-09-29
+pgroonga_version: 3.2.4
+pgroonga_release_date: 2024-10-03
 postgresql_doc_base_url:
-  en: https://www.postgresql.org/docs/16
-  ja: https://www.postgresql.jp/document/15/html
+  en: https://www.postgresql.org/docs/17
+  ja: https://www.postgresql.jp/document/16/html
 windows_postgresql_versions:
-  - 11
   - 12
   - 13
   - 14
   - 15
   - 16
-latest_postgresql_version: 16
+  - 17
+latest_postgresql_version: 17
 # This must be synchronized with PGSQL_DEFAULT in
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/bsd.default-versions.mk
 # .
-freebsd_postgresql_version: 13
-development_postgresql_version: 16.0
+freebsd_postgresql_version: 15
+development_postgresql_version: 17.0
 exclude:
   - "Gemfile"
   - "Gemfile.lock"
+  - "LICENSE"
   - "Rakefile"
   - "data"
   - "transifex.yml"
   - "vendor"
 description:
-  en: Make PostgreSQL fast full text search platform for all languages!
-  ja: PostgreSQLで高速日本語全文検索！
+  en: Make PostgreSQL fast full text search platform for all languages with zero ETL!
+  ja: ゼロETLでPostgreSQLで高速日本語全文検索！
 
 kramdown:
   input: GFM

@@ -25,9 +25,9 @@ title: none
 
 ## About PGroonga {#about}
 
-PGroonga (píːzí:lúnɡά) is a PostgreSQL extension to use [Groonga](http://groonga.org/) as the index.
+PGroonga (píːdʒí:lúnɡά) is a PostgreSQL extension to use [Groonga](http://groonga.org/) as the index.
 
-PostgreSQL supports full text search against languages that use only alphabet and digit. It means that PostgreSQL doesn't support full text search against Japanese, Chinese and so on. You can use super fast full text search feature against all languages by installing PGroonga into your PostgreSQL!
+PostgreSQL supports full text search against languages that use only alphabet and digit. It means that PostgreSQL doesn't support full text search against Japanese, Chinese and so on. You can use super fast full text search feature with zero ETL against all languages by installing PGroonga into your PostgreSQL!
 
 ## Documentations {#documentations}
 

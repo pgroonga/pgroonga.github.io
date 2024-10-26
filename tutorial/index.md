@@ -54,7 +54,7 @@ CREATE TABLE memos (
 
 Create a `pgroonga` index against the column:
 
-```
+```sql
 CREATE EXTENSION IF NOT EXISTS pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
@@ -525,7 +525,7 @@ Think about the following JSON:
 }
 ```
 
-You can find the JSON by full text search with `search`, `example` or `web` because all text values are full text search target.
+You can find the JSON by full text search with `server`, `example`, or `web` because all text values are full text search target.
 
 PGroonga provides the following two operators for searching against `jsonb`:
 

@@ -6,17 +6,30 @@ title: Streaming replication
 
 PGroonga supports PostgreSQL built-in [WAL based streaming replication][postgresql-wal] since 1.1.6.
 
+If you're using PGroonga 3.2.1 or later and PostgreSQL 15 or later, [streaming replication by WAL resource manager][streaming-replication-wal-resource-manager] is recommended.
+
 PGroonga's WAL send to standby server from primary server as below.
 
 ```mermaid
 sequenceDiagram
-    User->>+PostgreSQL backend:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary Table:INSERT/UPDATE/DELETE
-    PostgreSQL backend->>+Primary PGroonga WAL:WAL Write
-    PostgreSQL backend->>+WAL Sender:Notify write WAL
-    WAL Sender->>+Primary PGroonga WAL:Read WAL
-    WAL Sender->>+WAL Reciver:Send WAL
-    WAL Reciver->>+Standby PGroonga WAL:Write
+    box transparent Primary
+        participant Primary user
+        participant Primary PGroonga
+        participant WAL sender
+    end
+    box transparent Standby
+        participant WAL receiver
+        participant Standby user
+        participant Standby PGroonga
+    end
+
+    Primary user->>+Primary PGroonga:INSERT/UPDATE/DELETE
+    Note right of Primary PGroonga:Write WAL
+    Primary PGroonga->>+WAL sender:Notify write WAL
+    WAL sender->>+WAL receiver:Send WAL
+    Note right of WAL receiver:Save WAL
+    Standby user->>+Standby PGroonga:SELECT
+    Note right of Standby PGroonga:Apply saved WAL
 ```
 
 Note that WAL support doesn't mean crash safe. It just supports WAL based streaming replication. If PostgreSQL is crashed while PGroonga index update, the PGroonga index may be broken. If the PGroonga index is broken, you need to recreate the PGroonga index by [`REINDEX`][postgresql-reindex].
@@ -428,6 +441,8 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 ```
 
 [postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html
+
+[streaming-replication-wal-resource-manager]:streaming-replication-wal-resource-manager.html
 
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html
 

@@ -4,53 +4,8 @@ title: Install on CentOS
 
 # Install on CentOS
 
-This document describes how to install PGroonga on CentOS.
+Support for PGroonga has ended from version 3.2.1 because of CentOS 7’s EOL.
 
-## Supported versions
+PGroonga supports AlmaLinux 8 and 9. So you can continue using PGroonga by switching from CentOS 7 to AlmaLinux 8 or 9.
 
-Here are supported CentOS versions:
-
-  * [CentOS 7](#install-on-7)
-
-## How to install on CentOS 7 {#install-on-7}
-
-You can use the following instruction to install PGroonga on CentOS 7.
-
-Install `postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga` package:
-
-```console
-$ sudo -H yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-$(rpm -qf --queryformat="%{ARCH}" /etc/redhat-release)/pgdg-redhat-repo-latest.noarch.rpm
-$ sudo -H yum install -y https://packages.groonga.org/centos/7/groonga-release-latest.noarch.rpm
-$ sudo -H yum install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga
-```
-
-If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
-
-```console
-$ sudo -H yum install -y groonga-tokenizer-mecab
-```
-
-Run PostgreSQL:
-
-```console
-$ sudo -H /usr/pgsql-{{ site.latest_postgresql_version }}/bin/postgresql-{{ site.latest_postgresql_version }}-setup initdb
-$ sudo -H systemctl enable --now postgresql-{{ site.latest_postgresql_version }}
-```
-
-Create a database:
-
-```console
-$ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
-```
-
-(Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)
-
-Connect to the created database and execute `CREATE EXTENSION pgroonga`:
-
-```console
-$ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
-```
-
-That's all!
-
-Try [tutorial](../tutorial/). You can understand more about PGroonga.
+See also [AlmaLinux](../install/almalinux.html).

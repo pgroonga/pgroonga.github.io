@@ -64,7 +64,7 @@ If `pkg-config --list-all` doesn't include `groonga`, you may forget to install 
 Here is an example when you install Groonga with `--prefix=/usr/local`:
 
 ```console
-% PKG_CONFIG_PATH=/usr/local/lib/pkg-config make
+% PKG_CONFIG_PATH=/usr/local/lib/pkgconfig make
 ```
 
 Install PGroonga:

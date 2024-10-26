@@ -54,7 +54,7 @@ CREATE TABLE memos (
 
 このカラムに対して`pgroonga`インデックスを作ります。
 
-```
+```sql
 CREATE EXTENSION IF NOT EXISTS pgroonga;
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
@@ -525,7 +525,7 @@ JSON中のすべてのテキスト値に対して全文検索することもで�
 }
 ```
 
-`search`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だからです。
+`server`、`example`、`web`のどれで全文検索してもこのJSONを見つけることができます。なぜなら、すべてのテキスト値が全文検索対象だからです。
 
 PGroongaは`jsonb`に対して検索するために次の2つの演算子を提供しています。
 

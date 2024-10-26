@@ -5,6 +5,241 @@ upper_level: ../
 
 # おしらせ
 
+## 3.2.4: 2024-10-03 {#version-3-2-4}
+
+### 改良
+
+  * Added support for PostgreSQL 17.
+
+## 3.2.3: 2024-09-25 {#version-3-2-3}
+
+### 改良
+
+  * [[`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-size]][[`pgroonga.query_log_rotate_threshold_size` parameter][query-log-rotate-threshold-size]] Added `pgroonga.*log_rotate_threshold_size` parameter. [GH-532]
+
+    It is available in Groonga 14.0.7 or later.
+
+### 修正
+
+  * Fixed a build error when we build Homebrew's PGroonga from source in combination with Postgres.app. [GH-531][Reported by siyukatu]
+
+  * Fixed a bug that `log_level` is not reflected when we specify `pgroonga.log_type = postgresql`.
+
+### 感謝
+
+  * siyukatuさん
+
+## 3.2.2: 2024-08-05 {#version-3-2-2}
+
+### 改良
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added information to log.
+
+  * Dropped support for Debian 11 (bullseye).
+
+### 修正
+
+  * [`pgroonga_condition()`] Fixed a bug that occurred when upgrading to 3.2.1 with PGroonga installed.
+
+    * The following error occurred:
+
+      * `HINT:  Could not choose a best candidate function. You might need to add explicit type casts.`
+
+      * `ERROR:  function pgroonga_condition(unknown) is not unique`
+
+## 3.2.1: 2024-07-04 {#version-3-2-1}
+
+### 改良
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added a new module `pgroonga_wal_resource_manager`
+
+    * PGroonga WAL is automatically applied when this module is enabled.
+
+  * Added support downgrade by using `ALTER EXTENSION ... UPDATE`.
+
+    Note that this feature only enable 3.2.1, currently.
+    This feature can't use before 3.2.1.
+
+  * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new function `pgroonga_list_broken_indexes()`.
+
+    This function list the indexes of PGroonga's that may be broken.
+
+  * [[`pgroonga_crash_safer` module][pgroonga-crash-safer]] Putted index names when the `pgroonga-crash-safer` rebuild index in log.
+
+  * [WAL] Added support for registering a plugin.
+
+    `plugin = '...'` in `WITH` phrase is also written into PGroonga's WAL.
+
+  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`.
+
+    This function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).
+
+  * [[`pgroonga-primary-maintainer.sh`][primary-maintainer]] Added a new execution file `pgroonga-primary-maintainer.sh`.
+
+    * This command is used to suppress the size of PGroonga WAL on the primary server where WAL is enabled.
+
+    * Also added execution file to configure systemd timer.
+
+      * [`pgroonga-generate-primary-maintainer-service.sh`][generate-primary-maintainer-service]
+
+      * [`pgroonga-generate-primary-maintainer-timer.sh`][generate-primary-maintainer-timer]
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat).
+
+  * [`pgroonga_condition()`] Added support `fuzzy_max_distance_ratio`
+
+### 修正
+
+  * [[`&@~` operator][query-v2]] Fixed a crash bug with multiple conditions including blank only query condition.
+
+    An error will occur if any of the multiple conditions have a blank space condition as below.
+
+    ```sql
+    CREATE TABLE memos (
+      id integer,
+      content text
+    );
+    INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+    INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+    INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+    CREATE INDEX grnindex ON memos USING pgroonga (content);
+    SELECT id, content
+      FROM memos
+     WHERE content &@~ pgroonga_condition('PGroonga') AND
+           content &@~ pgroonga_condition(' ');
+    ```
+
+  * Fixed a crash bug related to auto vacuum
+
+    This is happen when:
+
+      * A query has multiple index scans and/or bitmap scans with
+        PGroonga indexes
+      * Auto vacuum is executed while the query is executing
+
+    If you're lucky, this may not cause a crash. But the following errors
+    may be happen:
+
+      * "invalid match target: <>"
+      * "column isn't found"
+
+## 3.2.0: 2024-04-18 {#version-3-2-0}
+
+### 修正
+
+  * Fixed a crash on connection close.
+
+    This occurred when the connection was closed "during a transaction
+    and when releasing resources for a sequential search".
+
+    This was caused by a callback being run to release a sequential search
+    resource even though all resources had already been released.
+
+    Fixed unregistration of callbacks that are no longer needed when releasing
+    all resources.
+
+## 3.1.9: 2024-03-27 {#version-3-1-9}
+
+### 改良
+
+  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-safer-max-recovery-threads] parameter to [`pgroonga-crash-safer`][pgroonga-crash-safer].
+
+## 3.1.8: 2024-02-27 {#version-3-1-8}
+
+### 修正
+
+  * Fixed a crash bug when the last cached sequential search datum was vacuumed that is happen every 100 queries.
+
+    Note that "vacuum" here is PGroonga internal vacuum only for sequential search datum.
+    It's not PostgreSQL's vacuum.
+
+    For example, we are crashed PGroonga by executing in the following procedure.
+
+    1. We send the following query to PostgreSQL.
+
+       `SELECT WHERE content &@ ('hello', null, 'memos_index')::pgroonga_full_text_search_condition;`.
+
+    2. We send hundred non PGroonga's sequential search related queries such as `SELECT 1;`.
+
+    3. We send the query same as 1. to PostgreSQL again.
+
+## 3.1.7: 2024-02-05 {#version-3-1-7}
+
+### 改良
+
+  * PGroonga avoid blocking of process termination while [`pgroonga-crash-safer`][pgroonga-crash-safer] is flushing.
+
+### 修正
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] Fixed a bug that PGroonga may crash if valid index name is specified and then an invalid index name is specified.
+
+## 3.1.6: 2024-01-10 {#version-3-1-6}
+
+### 改良
+
+  * Added a new script for setting up the build environment. [GitHub#358][Patched by askdkc]
+
+  * Added a new option `pgroonga.enable_row_level_security`.
+
+    If we disabled `pgroonga.enable_row_level_security`, PGroonga might improve performance.
+    However, it has a security risk.
+
+    So, we must not disable this option when we use RLS.
+    We must check whether we don't use RLS before we disable this.
+
+  * Added new type `pgroonga_condition` and new function `pgroonga_condition()`.
+
+    `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type are deprecated.
+    We use `pgroonga_condition` type instead.
+
+    Here is the signature of `pgroonga_condition()`.
+
+    ```
+    pgroonga_condition(query text,
+                       weights int[],
+                       scorers text[],
+                       schema_name text,
+                       index_name text,
+                       column_name text)
+    ```
+
+### 修正
+
+  * Fixed a bug if we update PGroonga from 2.4.1 to 2.4.2, we can't use `pgroonga_snippet_html()`. [Reported by takadat]
+
+  * Fixed a bug if we specify non PostgreSQL's table as the first argument of `pgroonga_query_expand()`, PGroonga crashes as below.
+
+    ```sql
+    CREATE EXTENSION IF NOT EXISTS postgres_fdw;
+
+    CREATE SERVER remote_server
+        FOREIGN DATA WRAPPER postgres_fdw
+        OPTIONS (host 'localhost', port '5432', dbname 'remote_database');
+
+    CREATE FOREIGN TABLE synonym_groups (
+      synonyms text[]
+    ) SERVER remote_server;
+
+    SELECT pgroonga_query_expand('synonym_groups',
+                                 'synonyms',
+                                 'synonyms',
+                                 'groonga');
+
+    server closed the connection unexpectedly
+    	This probably means the server terminated abnormally
+    	before or while processing the request.
+    The connection to the server was lost. Attempting reset: Failed.
+    ```
+
+  * Fixed a bug if many error occured in PGroonga, PostgreSQL might consume all error stack and PANIC.
+
+    This problem might occure since PGroonga 2.3.3.
+
+### 感謝
+
+  * askdkc
+  * takadat
+
 ## 3.1.5: 2023-09-29 {#version-3-1-5}
 
 ### 修正
@@ -2049,6 +2284,11 @@ The first release!!!
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [index-column-name]:../reference/functions/pgroonga-index-column-name.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
+[list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
+[list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
+[primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html
+[generate-primary-maintainer-service]:../reference/commands/pgroonga-generate-primary-maintainer-service.html
+[generate-primary-maintainer-timer]:../reference/commands/pgroonga-generate-primary-maintainer-timer.html
 [match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html
 [match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
 [normalize]:../reference/functions/pgroonga-normalize.html
@@ -2076,6 +2316,10 @@ The first release!!!
 [pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html
+[pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-crash-safer-max-recovery-threads.html
+
+[log-rotate-threshold-size]:../reference/parameters/log-rotate-threshold-size.html
+[query-log-rotate-threshold-size]:../reference/parameters/query-log-rotate-threshold-size.html
 
 [pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 
@@ -2086,6 +2330,7 @@ The first release!!!
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
 
 [streaming-replication]:../reference/streaming-replication.html
 

@@ -40,8 +40,8 @@ meson setup \
 Build and install PostgreSQL:
 
 ```bash
-meson compile -C postgresql-{{ site.development_postgresql_version }}
-meson install -C postgresql-{{ site.development_postgresql_version }}
+meson compile -C postgresql-{{ site.development_postgresql_version }}.build
+meson install -C postgresql-{{ site.development_postgresql_version }}.build
 ```
 
 Initialize and run PostgreSQL:

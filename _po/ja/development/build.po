@@ -114,8 +114,8 @@ msgstr "PostgreSQLをビルドしてインストールします。"
 
 msgid ""
 "```bash\n"
-"meson compile -C postgresql-{{ site.development_postgresql_version }}\n"
-"meson install -C postgresql-{{ site.development_postgresql_version }}\n"
+"meson compile -C postgresql-{{ site.development_postgresql_version }}.build\n"
+"meson install -C postgresql-{{ site.development_postgresql_version }}.build\n"
 "```"
 msgstr ""
 

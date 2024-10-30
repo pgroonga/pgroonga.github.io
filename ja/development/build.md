@@ -30,7 +30,7 @@ tar xf postgresql-{{ site.development_postgresql_version }}.tar.bz2
 `--buildtype=debug`引数付きで`meson setup`を実行します。これでデバッグビルドになります。`--prefix=/tmp/local`は指定してもしなくてもどちらでもよいです。
 
 ```bash
-mseon setup \
+meson setup \
   --buildtype=debug \
   --prefix=/tmp/local \
   postgresql-{{ site.development_postgresql_version }}.build \

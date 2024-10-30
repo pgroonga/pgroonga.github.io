@@ -101,7 +101,7 @@ msgstr ""
 
 msgid ""
 "```bash\n"
-"mseon setup \\\n"
+"meson setup \\\n"
 "  --buildtype=debug \\\n"
 "  --prefix=/tmp/local \\\n"
 "  postgresql-{{ site.development_postgresql_version }}.build \\\n"

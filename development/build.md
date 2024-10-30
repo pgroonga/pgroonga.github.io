@@ -30,7 +30,7 @@ tar xf postgresql-{{ site.development_postgresql_version }}.tar.bz2
 Run `meson setup` with `--buildtype=debug` argument. It enables debug build. `--prefix=/tmp/local` is optional:
 
 ```bash
-mseon setup \
+meson setup \
   --buildtype=debug \
   --prefix=/tmp/local \
   postgresql-{{ site.development_postgresql_version }}.build \

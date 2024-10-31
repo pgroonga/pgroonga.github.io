@@ -27,3 +27,29 @@ There is a DBaaS that includes PGroonga:
 [Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features developers need to build a product: a PostgreSQL database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage.
 
 PostgreSQL is the core of Supabase, it works natively with more than 40 PostgreSQL extensions, including PGroonga.
+
+## PGroonga Indexes FAQ
+
+**Q: I created a PGroonga index, but my searches are still slow.**
+
+**A:** When a search is slow, it often means PostgreSQL is using a sequential scan instead of the PGroonga index. To check this, run your query with `EXPLAIN ANALYZE`. If you see "Seq Scan" in the output, it indicates the system is not utilizing the index. The goal is to see "Index Scan using pgrn_content_index" or similar, indicating the index is being used. Check the table configuration to confirm that PGroonga indexes are properly set.
+
+**Q: I think I set up the index, but I still see sequential scans.**
+
+**A:** Ensure that a PGroonga index is actually set on your table. You may have simply forgotten to create one, especially in a database with many tables and indexes. Use the command `\d tablename` in `psql` to list the indexes on a specific table and verify that the PGroonga index appears. If the index is missing, you'll need to create it using `CREATE INDEX` with the correct specifications.
+
+**Q: Could it be an issue with the data type I'm using?**
+
+**A:** Yes, using the wrong data type could mean the index isn't used. Each operator in PGroonga supports specific data types. For instance, the `&>` operator supports `varchar[]`, but not `text[]`. Ensure that your column type matches the operator's supported types as listed in PGroonga’s documentation. You might need to CAST your column to a supported type or alter your index accordingly.
+
+**Q: How do I know which index I should use for an operator class I want to use?**
+
+**A:** Different operators often require specific operator classes. For example, when searching with `&^`, and your column is of a text type, you need to specify `pgroonga_text_term_search_ops_v2` as the operator class when creating the index. You can consult the [PGroonga documentation](https://pgroonga.github.io/reference/) to confirm the required operator class for your use case.
+
+**Q: My queries involve multiple columns; could that affect index usage?**
+
+**A:** Yes, when using `ARRAY[]` to search multiple columns, the order of columns must match between your index definition and the search query. If your index is created with `ARRAY[title, content]`, but your query uses `ARRAY[content, title]`, the index will not be utilized. Ensure that the order is consistent to enable index scanning.
+
+**Q: I've tried these steps, but the issue persists. Is it the PGroonga extension itself?**
+
+**A:** If none of these checks resolve the issue, it could be a deeper problem with PGroonga. Consider reporting your specific case to [PGroonga Issues](https://github.com/pgroonga/pgroonga/issues) or engage in [Discussions](https://github.com/pgroonga/pgroonga/discussions) for community assistance. They can provide insights or updates that might be affecting your setup.

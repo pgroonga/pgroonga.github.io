@@ -86,9 +86,56 @@ EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';
 
 **A:** Ensure that a PGroonga index is actually set on your table. You may have simply forgotten to create one, especially in a database with many tables and indexes. Use the command `\d tablename` in `psql` to list the indexes on a specific table and verify that the PGroonga index appears. If the index is missing, you'll need to create it using `CREATE INDEX` with the correct specifications.
 
+<details>
+  <summary>Check Table Configuration Information</summary>
+  You can verify your table indexes by following steps:
+  1. Connect to the relevant DB with `psql`.
+  2. Check the table definition by `\d #{table_name}`. Replace `#{table_name}` with the name of the table.
+  3. Confirm whether a PGroonga index exists in step 2.
+  For example, the result will look like this:
+
+``` 
+\d memos
+--              Table "public.memos"
+--  Column  | Type | Collation | Nullable | Default
+-- ---------+------+-----------+----------+---------
+--  title   | text |           | not null |
+--  content | text |           |          |
+-- Indexes:
+--     "memos_pkey" PRIMARY KEY, btree (title)
+--     "pgrn_content_index" pgroonga (content)
+```
+
+Focus on the "Indexes" section. This displays all indexes set on the `memos` table in the format `#{index_name} #{index_type} (#{column_name})`. Here, verify whether a PGroonga index is set on the `content` column.
+</details>
+
 **Q: Could it be an issue with the data type I'm using?**
 
-**A:** Yes, using the wrong data type could mean the index isn't used. Each operator in PGroonga supports specific data types. For instance, the `&>` operator supports `varchar[]`, but not `text[]`. Ensure that your column type matches the operator's supported types as listed in PGroonga’s documentation. You might need to CAST your column to a supported type or alter your index accordingly.
+**A:** Yes, using the wrong data type could mean the index isn't used. Each operator in PGroonga supports specific data types. For instance, the `&>` operator supports `varchar[]`, but not `text[]`. Ensure that your column type matches the operator's supported types as listed in [PGroonga documentation](https://pgroonga.github.io/reference/). You might need to CAST your column to a supported type or alter your index accordingly.
+
+<details>
+  <summary>Casting your column to adjust to PGroonga data type</summary>
+  Here is an example of how to cast the `tags` column to `varchar[]` and create an index for it with PGroonga:
+
+```sql
+CREATE INDEX pgrn_tags_index ON memos USING pgroonga ((tags::varchar[]));
+```
+
+And when you query correctly, output should be something like this:
+
+```sql
+EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE tags::varchar[] &> 'PostgreSQL';
+--                                                             QUERY PLAN                                                            
+-- ----------------------------------------------------------------------------------------------------------------------------------
+--  Index Scan using pgrn_tags_index on public.memos  (cost=0.00..4.01 rows=1 width=96) (actual time=0.195..0.195 rows=0 loops=1)
+--    Output: title, content, tags
+--    Index Cond: ((memos.tags)::character varying[] &> 'PostgreSQL'::character varying)
+--  Planning Time: 0.047 ms
+--  Execution Time: 0.221 ms
+-- (5 rows)
+```
+
+</details>
 
 **Q: How do I know which index I should use for an operator class I want to use?**
 
@@ -96,7 +143,44 @@ EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';
 
 **Q: My queries involve multiple columns; could that affect index usage?**
 
-**A:** Yes, when using `ARRAY[]` to search multiple columns, the order of columns must match between your index definition and the search query. If your index is created with `ARRAY[title, content]`, but your query uses `ARRAY[content, title]`, the index will not be utilized. Ensure that the order is consistent to enable index scanning.
+**A:** Yes, for example, when using `ARRAY[]` to search multiple columns, the order of columns must match between your index definition and the search query. If your index is created with `ARRAY[title, content]`, but your query uses `ARRAY[content, title]`, the index will not be utilized. Ensure that the order is consistent to enable index scanning.
+
+<details>
+  <summary>Verify the order of columns</summary>
+  There are two points to check:
+
+1. `ARRAY[title, content]` specified in `CREATE INDEX`
+2. `WHERE` clause `ARRAY[content, title]`
+
+As shown, the column order in `ARRAY[]` differs between `CREATE INDEX` and the `WHERE` clause. If the column order in `ARRAY[]` is different between `CREATE INDEX` and the `WHERE` clause, the index is not used.
+
+Therefore, if you align the order, the search will use the index for searching. Below is an example for how to do it correctly:
+
+```sql
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+    ON memos
+ USING pgroonga ((ARRAY[title, content]));
+
+INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQL is a relational database management system.');
+INSERT INTO memos VALUES ('Groonga', 'Groonga is a fast full-text search engine supporting Japanese.');
+INSERT INTO memos VALUES ('PGroonga', 'PGroonga is a PostgreSQL extension for using Groonga as an index.');
+INSERT INTO memos VALUES ('Command Line', 'There is a groonga command.');
+
+EXPLAIN ANALYZE VERBOSE
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &@~ 'Groonga OR PostgreSQL';
+```
+
+Note the `ARRAY[]` in `CREATE INDEX` and the `WHERE` clause. In this example, both use `ARRAY[title, content]` and have the same column order within `ARRAY[]`.
+
+As shown above, if the column order in `ARRAY[]` is the same, the search uses the index.
+</details>
 
 **Q: I've tried these steps, but the issue persists. Is it the PGroonga extension itself?**
 

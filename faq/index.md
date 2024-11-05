@@ -28,7 +28,7 @@ There is a DBaaS that includes PGroonga:
 
 PostgreSQL is the core of Supabase, it works natively with more than 40 PostgreSQL extensions, including PGroonga.
 
-## PGroonga Indexes FAQ
+## PGroonga Index
 
 ### Q: I created a PGroonga index, but my searches are still slow.
 

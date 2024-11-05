@@ -114,14 +114,14 @@ Focus on the "Indexes" section. This displays all indexes set on the `memos` tab
 **A:** Yes, using the wrong data type could mean the index isn't used. Each operator in PGroonga supports specific data types. For instance, the `&>` operator supports `varchar[]`, but not `text[]`. Ensure that your column type matches the operator's supported types as listed in [PGroonga documentation](https://pgroonga.github.io/reference/). You might need to CAST your column to a supported type or alter your index accordingly.
 
 <details>
-  <summary>Casting your column to adjust to PGroonga data type</summary>
-  Here is an example of how to cast the `tags` column to `varchar[]` and create an index for it with PGroonga:
+  <summary>Casting your column to match the PGroonga data type</summary>
+  Here’s an example of casting the `tags` column to `varchar[]` and creating an index for it with PGroonga:
 
 ```sql
 CREATE INDEX pgrn_tags_index ON memos USING pgroonga ((tags::varchar[]));
 ```
 
-And when you query correctly, output should be something like this:
+When you query correctly, the output should look something like this:
 
 ```sql
 EXPLAIN ANALYZE VERBOSE SELECT * FROM memos WHERE tags::varchar[] &> 'PostgreSQL';

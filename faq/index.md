@@ -27,9 +27,3 @@ There is a DBaaS that includes PGroonga:
 [Supabase](https://supabase.com/) is an open source Firebase alternative that provides all the backend features developers need to build a product: a PostgreSQL database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage.
 
 PostgreSQL is the core of Supabase, it works natively with more than 40 PostgreSQL extensions, including PGroonga.
-
-## PGroonga Index Troubleshooting
-
-Many PGroonga search issues stem from improper index setup. This troubleshooting Q&A guide addresses these problems.
-
- - [PGroonga Index Troubleshooting Guide](./troubleshooting-index.html)

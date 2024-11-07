@@ -49,7 +49,7 @@ PostgreSQL supports full text search against languages that use only alphabet an
 
   * [Reference](reference/): It describes details for each features such as options, functions and operators.
   
-  * [Troubleshooting](troubleshooting/): Troubleshooting.
+  * [Troubleshooting](troubleshooting/): It describes how to fix troubles.
 
   * [Community](community/): It introduces about PGroonga community.
 

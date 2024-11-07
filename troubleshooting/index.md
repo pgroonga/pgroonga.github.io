@@ -1,7 +1,7 @@
 ---
-title: PGroonga Index Troubleshooting Guide
+title: Troubleshooting
 ---
-# PGroonga Index Troubleshooting Guide
+# Troubleshooting
 
 Many PGroonga search issues stem from improper index setup. This troubleshooting guide addresses these problems.
 
@@ -17,11 +17,11 @@ Check the table configuration to confirm that PGroonga indexes are properly set.
 
 <details>
 
-  <summary>To confirm whether a sequential search is being executed</summary>
+<summary>To confirm whether a sequential search is being executed</summary>
   
-  We use a following table structure as an example.
+We use a following table structure as an example.
   
-  To ensure the search is definitely sequential in this example, no indexes or primary keys have been set.
+To ensure the search is definitely sequential in this example, no indexes or primary keys have been set.
 
 ```sql
 CREATE TABLE memos (

@@ -1,0 +1,147 @@
+# Japanese translations for PACKAGE package.
+# Copyright (C) 2024 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-11-11 08:36+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+
+msgid ""
+"---\n"
+"title: Troubleshooting\n"
+"---\n"
+"# Troubleshooting"
+msgstr ""
+
+msgid ""
+"Many PGroonga search issues stem from improper index setup. This "
+"troubleshooting guide addresses these problems."
+msgstr ""
+
+msgid ""
+"The following sections use a Q&A format to explain these issues in detail."
+msgstr ""
+
+msgid "## Q: I created a PGroonga index, but my searches are still slow."
+msgstr ""
+
+msgid ""
+"A: When a search is slow, it often means PostgreSQL is using a sequential "
+"scan instead of the PGroonga index. To check this, run your query with "
+"`EXPLAIN ANALYZE`."
+msgstr ""
+
+msgid ""
+"If you see \"Seq Scan\" in the output, it indicates the system is not "
+"utilizing the index. The goal is to see \"Index Scan using "
+"pgrn_content_index\" or similar, indicating the index is being used."
+msgstr ""
+
+msgid ""
+"Check the table configuration to confirm that PGroonga indexes are properly "
+"set."
+msgstr ""
+
+msgid "<details>"
+msgstr ""
+
+msgid ""
+"<summary>To confirm whether a sequential search is being executed</summary>"
+msgstr ""
+
+msgid "We use a following table structure as an example."
+msgstr ""
+
+msgid ""
+"To ensure the search is definitely sequential in this example, no indexes or "
+"primary keys have been set."
+msgstr ""
+
+msgid ""
+"```sql\n"
+"CREATE TABLE memos (\n"
+"  title text,\n"
+"  content text\n"
+");"
+msgstr ""
+
+msgid ""
+"INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQL is an RDBMS.');\n"
+"INSERT INTO memos VALUES ('Groonga', 'Groonga is a super-fast full-text "
+"search engine.');\n"
+"INSERT INTO memos VALUES ('PGroonga', 'PGroonga is an extension that brings "
+"super-fast full-text search to PostgreSQL.');\n"
+"```"
+msgstr ""
+
+msgid "The query we are examining is as follows:"
+msgstr ""
+
+msgid ""
+"```sql\n"
+"SELECT * FROM memos WHERE content &@~ 'PostgreSQL';\n"
+"```"
+msgstr ""
+
+msgid "Now, let's confirm whether the query is using a sequential search."
+msgstr ""
+
+msgid "As mentioned earlier, we'll use `EXPLAIN ANALYZE` to check."
+msgstr ""
+
+msgid ""
+"```sql\n"
+"EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';\n"
+"--                                              QUERY "
+"PLAN                                              \n"
+"-- "
+"-----------------------------------------------------------------------------------------------------\n"
+"--  Seq Scan on memos  (cost=0.00..678.80 rows=1 width=64) (actual "
+"time=2.803..4.664 rows=2 loops=1)\n"
+"--    Filter: (content &@~ 'PostgreSQL'::text)\n"
+"--    Rows Removed by Filter: 1\n"
+"--  Planning Time: 0.113 ms\n"
+"--  Execution Time: 4.731 ms\n"
+"-- (5 rows)\n"
+"```"
+msgstr ""
+
+msgid "The result is as shown above."
+msgstr ""
+
+msgid "In the case of a sequential search, \"Seq Scan\" will be displayed."
+msgstr ""
+
+msgid ""
+"Our goal here is to transform this \"Seq Scan\" into \"Index Scan using "
+"#{PGroonga index name}\" as shown below."
+msgstr ""
+
+msgid ""
+"```sql\n"
+"EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';\n"
+"--                                                           QUERY "
+"PLAN                                                          \n"
+"-- "
+"------------------------------------------------------------------------------------------------------------------------------\n"
+"--  Index Scan using pgrn_content_index on memos  (cost=0.00..4.02 rows=1 "
+"width=64) (actual time=0.778..0.782 rows=2 loops=1)\n"
+"--    Index Cond: (content &@~ 'PostgreSQL'::text)\n"
+"--  Planning Time: 0.835 ms\n"
+"--  Execution Time: 1.002 ms\n"
+"-- (4 rows)\n"
+"```"
+msgstr ""
+
+msgid "</details>"
+msgstr ""

@@ -189,8 +189,7 @@ msgstr ""
 "from-a-fork>"
 
 msgid "Here are command lines to clone your fork repository:"
-msgstr ""
-"フォークしたリポジトリーをクローンするコマンドラインは次のとおりです。\n"
+msgstr "フォークしたリポジトリーをクローンするコマンドラインは次のとおりです。"
 
 msgid ""
 "```bash\n"

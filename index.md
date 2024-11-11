@@ -48,7 +48,7 @@ PostgreSQL supports full text search against languages that use only alphabet an
   * [How to](how-to/): It describes about useful information for specific situations.
 
   * [Reference](reference/): It describes details for each features such as options, functions and operators.
-  
+
   * [Troubleshooting](troubleshooting/): It describes how to fix troubles.
 
   * [Community](community/): It introduces about PGroonga community.

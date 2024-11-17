@@ -3,25 +3,25 @@ title: Troubleshooting
 ---
 # Troubleshooting
 
-Many PGroonga search issues stem from improper index setup. This troubleshooting guide addresses these problems.
+PGroongaの検索時の問題でよくある問題としては PGroongaのインデックスが正しくないことです。このトラブルシューティングではこれらの問題へのガイドを提供します。
 
-The following sections use a Q&A format to explain these issues in detail.
+次に続くQ&Aセクションは、このような問題の詳細について書かれています。
 
-## Q: I created a PGroonga index, but my searches are still slow.
+## Q: PGroongaのインデックスを作ったのですが、検索自体は遅いままです。
 
-A: When a search is slow, it often means PostgreSQL is using a sequential scan instead of the PGroonga index. To check this, run your query with `EXPLAIN ANALYZE`. 
+A: 検索が遅い時は、PostgreSQLでPGroongaのインデックスではなく、シーケンシャルサーチが使われていることが多いです。これを確認するにはクエリに`EXPLAIN ANALYZE`を付けて実行します。 
 
-If you see "Seq Scan" in the output, it indicates the system is not utilizing the index. The goal is to see "Index Scan using pgrn_content_index" or similar, indicating the index is being used.
+もし出力結果に"Seq Scan"が含まれている場合には、インデックスが使われていません。ここでのゴールは"Index Scan using pgrn_content_index"のようなインデックスが使われている状況が確認できることです。
 
-Check the table configuration to confirm that PGroonga indexes are properly set.
+テーブルの設定を確認し、PGRoongaのインデックスが正しくセットされていることを確認しましょう。
 
 <details>
 
-<summary>To confirm whether a sequential search is being executed</summary>
+<summary>シーケンシャルサーチが実行されたかどうかを確認する</summary>
   
-We use a following table structure as an example.
+ここでは次のテーブルを例として用います。
   
-To ensure the search is definitely sequential in this example, no indexes or primary keys have been set.
+ここでの例では確実にシーケンシャルサーチで検索している状態にしたいので、インデックスもプライマリーキーも設定していません。
 
 ```sql
 CREATE TABLE memos (
@@ -34,15 +34,15 @@ INSERT INTO memos VALUES ('Groonga', 'Groonga is a super-fast full-text search e
 INSERT INTO memos VALUES ('PGroonga', 'PGroonga is an extension that brings super-fast full-text search to PostgreSQL.');
 ```
 
-The query we are examining is as follows:
+ここで検証するクエリは次のようなものです
 
 ```sql
 SELECT * FROM memos WHERE content &@~ 'PostgreSQL';
 ```
 
-Now, let's confirm whether the query is using a sequential search.
+では、このクエリがシーケンシャルサーチを使用しているかどうか確認しましょう。
 
-As mentioned earlier, we'll use `EXPLAIN ANALYZE` to check.
+先述の通り、確認するためには`EXPLAIN ANALYZE`を使用します。
 
 ```sql
 EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';
@@ -56,11 +56,11 @@ EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';
 -- (5 rows)
 ```
 
-The result is as shown above.
+結果は上記の通りです。
 
-In the case of a sequential search, "Seq Scan" will be displayed.
+シーケンシャルサーチの場合は、"Seq Scan"が表示されます。"
 
-Our goal here is to transform this "Seq Scan" into "Index Scan using #{PGroonga index name}" as shown below.
+ここでの目標は、この"Seq Scan"を下記のように"Index Scan using #{PGroonga index name}"に変えることです。
 
 ```sql
 EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';

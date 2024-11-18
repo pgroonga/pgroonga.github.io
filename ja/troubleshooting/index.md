@@ -34,7 +34,7 @@ INSERT INTO memos VALUES ('Groonga', 'Groonga is a super-fast full-text search e
 INSERT INTO memos VALUES ('PGroonga', 'PGroonga is an extension that brings super-fast full-text search to PostgreSQL.');
 ```
 
-ここで検証するクエリは次のようなものです
+ここでは次のクエリーを使って検証します。
 
 ```sql
 SELECT * FROM memos WHERE content &@~ 'PostgreSQL';
@@ -58,7 +58,7 @@ EXPLAIN ANALYZE SELECT * FROM memos WHERE content &@~ 'PostgreSQL';
 
 結果は上記の通りです。
 
-シーケンシャルサーチの場合は、"Seq Scan"が表示されます。"
+シーケンシャルサーチの場合は、"Seq Scan"が表示されます。
 
 ここでの目標は、この"Seq Scan"を下記のように"Index Scan using #{PGroonga index name}"に変えることです。
 

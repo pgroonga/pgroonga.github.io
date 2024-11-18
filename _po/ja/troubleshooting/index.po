@@ -98,7 +98,7 @@ msgid ""
 msgstr ""
 
 msgid "The query we are examining is as follows:"
-msgstr "ここで検証するクエリは次のようなものです"
+msgstr "ここでは次のクエリーを使って検証します。"
 
 msgid ""
 "```sql\n"
@@ -134,7 +134,7 @@ msgid "The result is as shown above."
 msgstr "結果は上記の通りです。"
 
 msgid "In the case of a sequential search, \"Seq Scan\" will be displayed."
-msgstr "シーケンシャルサーチの場合は、\"Seq Scan\"が表示されます。\""
+msgstr "シーケンシャルサーチの場合は、\"Seq Scan\"が表示されます。"
 
 msgid ""
 "Our goal here is to transform this \"Seq Scan\" into \"Index Scan using "

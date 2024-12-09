@@ -220,6 +220,12 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 3.0.0で追加。
 
+#### `pgroonga_text_array_regexp_ops_v2`演算子クラス {#text-regexp-array-ops-v2}
+
+3.2.5で追加。
+
+  * [`&~`演算子][regular-expression-v2]：正規表現を使った検索
+
 ### `varchar`用
 
 #### `pgroonga_varchar_term_search_ops_v2`演算子クラス（デフォルト） {#varchar-term-search-ops-v2}

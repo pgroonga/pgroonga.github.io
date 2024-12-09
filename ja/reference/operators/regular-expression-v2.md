@@ -43,7 +43,16 @@ PostgreSQLは次のような組み込みの正規表現演算子を提供して�
 
 ```sql
 column &~ regular_expression
+column &~ pgroonga_condition(query,
+                             weights,
+                             scorers,
+                             schema_name,
+                             index_name,
+                             column_name,
+                             fuzzy_max_distance_ratio)
 ```
+
+1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。
 
 `column`は検索対象のカラムです。型は`text`型か`varchar`型です。
 
@@ -51,11 +60,23 @@ column &~ regular_expression
 
 `column`の値が`regular_expression`パターンにマッチしたら、その式は`true`を返します。
 
+2つ目の使い方は[`pgroonga_condition`関数][condition]を使います。正規表現だけでなく、スコアーやシーケンシャルサーチで使われるインデックス情報も指定できます。
+
+2つ目の使い方は3.2.5から使えます。
+
+[`pgroonga_condition` function][condition]の`query`はパターンとして使う正規表現です。`text`型です。
+
+詳細は[`pgroonga_condition`関数][condition]を参照してください。
+
+正規表現検索では`fuzzy_max_distance_ratio`は使われないことに注意してください。
+
 ## 演算子クラス
 
 この演算子を使うには次のどれかの演算子クラスを指定する必要があります。
 
   * `pgroonga_text_regexp_ops_v2`：`text`用
+
+  * `pgroonga_text_array_regexp_ops_v2`：`text[]`用
 
   * `pgroonga_varchar_regexp_ops_v2`：`varchar`用
 
@@ -106,6 +127,8 @@ SELECT * FROM memos WHERE content &~ '\Apostgresql';
 
   * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索
 
+  * [`pgroonga_condition`関数][condition]
+
   * [Onigmoの正規表現構文のドキュメント][onigmo-document]
 
   * [Groongaの正規表現サポートに関するドキュメント][groonga-regular-expression]
@@ -123,3 +146,5 @@ SELECT * FROM memos WHERE content &~ '\Apostgresql';
 [groonga-regular-expression]:http://groonga.org/ja/docs/reference/regular_expression.html#regular-expression-index
 
 [regular-expression-in-v2]:regular-expression-in-v2.html
+
+[condition]:../functions/pgroonga-condition.html

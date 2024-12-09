@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
+"PO-Revision-Date: 2024-12-09 14:41+0900\n"
 
 msgid ""
 "---\n"
@@ -144,8 +144,22 @@ msgstr "## 構文"
 msgid ""
 "```sql\n"
 "column &~ regular_expression\n"
+"column &~ pgroonga_condition(query,\n"
+"                             weights,\n"
+"                             scorers,\n"
+"                             schema_name,\n"
+"                             index_name,\n"
+"                             column_name,\n"
+"                             fuzzy_max_distance_ratio)\n"
 "```"
 msgstr ""
+
+msgid ""
+"The first signature is simpler than others. The first signature is enough "
+"for most cases."
+msgstr ""
+"1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分"
+"です。"
 
 msgid ""
 "`column` is a column to be searched. It's `text` type or `varchar` type."
@@ -166,6 +180,35 @@ msgstr ""
 "`column`の値が`regular_expression`パターンにマッチしたら、その式は`true`を返"
 "します。"
 
+msgid ""
+"The second signature uses [`pgroonga_condition` function][condition]. You "
+"can specify not only a regular expression but also index information for "
+"scoring and sequential search."
+msgstr ""
+"2つ目の使い方は[`pgroonga_condition`関数][condition]を使います。正規表現だけ"
+"でなく、スコアーやシーケンシャルサーチで使われるインデックス情報も指定できま"
+"す。"
+
+msgid "The second signature is available since 3.2.5."
+msgstr "2つ目の使い方は3.2.5から使えます。"
+
+msgid ""
+"`query` in [`pgroonga_condition` function][condition] is used as a regular "
+"expression to be used as pattern. It's `text` type."
+msgstr ""
+"[`pgroonga_condition` function][condition]の`query`はパターンとして使う正規表"
+"現です。`text`型です。"
+
+msgid "See [`pgroonga_condition` function][condition] for details."
+msgstr "詳細は[`pgroonga_condition`関数][condition]を参照してください。"
+
+msgid ""
+"Note that `fuzzy_max_distance_ratio` isn't used for regular expression "
+"search."
+msgstr ""
+"正規表現検索では`fuzzy_max_distance_ratio`は使われないことに注意してくださ"
+"い。"
+
 msgid "## Operator classes"
 msgstr "## 演算子クラス"
 
@@ -176,6 +219,9 @@ msgstr "この演算子を使うには次のどれかの演算子クラスを指
 
 msgid "  * `pgroonga_text_regexp_ops_v2`: For `text`"
 msgstr "  * `pgroonga_text_regexp_ops_v2`：`text`用"
+
+msgid "  * `pgroonga_text_array_regexp_ops_v2`: For `text[]`"
+msgstr "  * `pgroonga_text_array_regexp_ops_v2`：`text[]`用"
 
 msgid "  * `pgroonga_varchar_regexp_ops_v2`: For `varchar`"
 msgstr "  * `pgroonga_varchar_regexp_ops_v2`：`varchar`用"
@@ -290,6 +336,9 @@ msgid ""
 msgstr ""
 "  * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索"
 
+msgid "  * [`pgroonga_condition` function][condition]"
+msgstr "  * [`pgroonga_condition`関数][condition]"
+
 msgid "  * [Onigmo's regular expression syntax document][onigmo-document]"
 msgstr "  * [Onigmoの正規表現構文のドキュメント][onigmo-document]"
 
@@ -332,4 +381,7 @@ msgstr ""
 "regular_expression.html#regular-expression-index"
 
 msgid "[regular-expression-in-v2]:regular-expression-in-v2.html"
+msgstr ""
+
+msgid "[condition]:../functions/pgroonga-condition.html"
 msgstr ""

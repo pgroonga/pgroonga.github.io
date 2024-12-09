@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-09-09 01:38+0000\n"
+"PO-Revision-Date: 2024-12-09 14:24+0900\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -373,6 +373,16 @@ msgstr "  * [`&=~`演算子][equal-query-v2]：便利なクエリー言語を使
 
 msgid "    * Since 3.0.0."
 msgstr "    * 3.0.0で追加。"
+
+msgid ""
+"#### `pgroonga_text_array_regexp_ops_v2` operator class {#text-array-regexp-"
+"ops-v2}"
+msgstr ""
+"#### `pgroonga_text_array_regexp_ops_v2`演算子クラス {#text-regexp-array-ops-"
+"v2}"
+
+msgid "Since 3.2.5."
+msgstr "3.2.5で追加。"
 
 msgid "### For `varchar`"
 msgstr "### `varchar`用"

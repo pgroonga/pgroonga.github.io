@@ -219,6 +219,12 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
 
     * Since 3.0.0.
 
+#### `pgroonga_text_array_regexp_ops_v2` operator class {#text-array-regexp-ops-v2}
+
+Since 3.2.5.
+
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
+
 ### For `varchar`
 
 #### `pgroonga_varchar_term_search_ops_v2` operator class (default) {#varchar-term-search-ops-v2}

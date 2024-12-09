@@ -283,11 +283,11 @@ SELECT jsonb_pretty(token::jsonb)
 
 ## See also
 
- * [Groonga document for normalizers][groonga-normalizers]
+  * [Groonga document for normalizers][groonga-normalizers]
 
- * [Groonga document for tokenizers][groonga-tokenizers]
+  * [Groonga document for tokenizers][groonga-tokenizers]
 
- * [Groonga document for token filters][groonga-token-filters]
+  * [Groonga document for token filters][groonga-token-filters]
 
 [groonga-normalizers]:http://groonga.org/docs/reference/normalizers.html
 

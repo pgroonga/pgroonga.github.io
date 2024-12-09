@@ -283,11 +283,11 @@ SELECT jsonb_pretty(token::jsonb)
 
 ## 参考
 
- * [Groongaのノーマライザーのドキュメント][groonga-normalizers]
+  * [Groongaのノーマライザーのドキュメント][groonga-normalizers]
 
- * [Groongaのトークナイザーのドキュメント][groonga-tokenizers]
+  * [Groongaのトークナイザーのドキュメント][groonga-tokenizers]
 
- * [Groongaのトークンフィルターのドキュメント][groonga-token-filters]
+  * [Groongaのトークンフィルターのドキュメント][groonga-token-filters]
 
 [groonga-normalizers]:http://groonga.org/ja/docs/reference/normalizers.html
 

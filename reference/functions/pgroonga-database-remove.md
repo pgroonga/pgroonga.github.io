@@ -85,7 +85,7 @@ Now, your system is recovered. You don't need to log in the host that runs Postg
 
 ## See also
 
- * [`pgroonga_database` module][pgroonga-database]
+  * [`pgroonga_database` module][pgroonga-database]
 
 [pgroonga-database]:../modules/pgroonga-database.html
 

@@ -33,7 +33,7 @@ shared_preload_libraries = 'pgroonga_wal_applier'
 
 ## 参考
 
- * [ストリーミングレプリケーション][streaming-replication]
+  * [ストリーミングレプリケーション][streaming-replication]
 
   * [`pgroonga_standby_maintainer`モジュール][pgroonga-standby-maintainer]
 

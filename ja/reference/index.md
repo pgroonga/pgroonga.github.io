@@ -613,6 +613,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga.match_escalation_threshold`パラメーター][match-escalation-threshold]
 
+  * [`pgroonga.max_bulk_insert_wal_record_size`パラメーター][max-bulk-insert-wal-record-size]
+
+    * 3.2.5で追加。
+
   * [`pgroonga.max_wal_size`パラメーター][max-wal-size]
 
     * 2.3.3で追加。
@@ -656,7 +660,6 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
     * 3.2.1で追加。
 
 ## モジュール
-
 
   * [`pgroonga_check`モジュール][pgroonga-check]
 
@@ -794,6 +797,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [log-rotate-threshold-size]:parameters/log-rotate-threshold-size.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+[max-bulk-insert-wal-record-size]:parameters/max-bulk-insert-wal-record-size.html
 [max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
 [query-log-rotate-threshold-size]:parameters/query-log-rotate-threshold-size.html

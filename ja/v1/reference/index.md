@@ -460,7 +460,6 @@ PGroonga 1.Y.Zは`pgroonga.XXX_v2`という演算子クラスを提供します�
 
 ## モジュール
 
-
   * [`pgroonga_check`モジュール](modules/pgroonga-check.html)
 
 ## Groongaの関数

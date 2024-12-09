@@ -611,6 +611,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]
 
+  * [`pgroonga.max_bulk_insert_wal_record_size` parameter][max-bulk-insert-wal-record-size]
+
+    * Since 3.2.5.
+
   * [`pgroonga.max_wal_size` parameter][max-wal-size]
 
     * Since 2.3.3.
@@ -791,6 +795,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [log-rotate-threshold-size]:parameters/log-rotate-threshold-size.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+[max-bulk-insert-wal-record-size]:parameters/max-bulk-insert-wal-record-size.html
 [max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
 [query-log-rotate-threshold-size]:parameters/query-log-rotate-threshold-size.html

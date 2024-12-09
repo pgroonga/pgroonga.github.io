@@ -88,7 +88,7 @@ REINDEX INDEX pgroonga_index2;
 
 ## 参考
 
- * [`pgroonga_database`モジュール][pgroonga-database]
+  * [`pgroonga_database`モジュール][pgroonga-database]
 
 [pgroonga-database]:../modules/pgroonga-database.html
 

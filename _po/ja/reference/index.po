@@ -861,8 +861,22 @@ msgstr ""
 msgid "    * Since 2.4.2."
 msgstr "    * 2.4.2で追加。"
 
+msgid ""
+"  * [`pgroonga_wal_resource_manager.log_level` parameter][pgroonga-wal-"
+"resource-manager-log-level]"
+msgstr ""
+"  * [`pgroonga_wal_resource_manager.log_level`パラメーター][pgroonga-wal-"
+"resource-manager-log-level]"
+
+msgid ""
+"  * [`pgroonga_wal_resource_manager.log_path` parameter][pgroonga-wal-"
+"resource-manager-log-path]"
+msgstr ""
+"  * [`pgroonga_wal_resource_manager.log_path`パラメーター][pgroonga-wal-"
+"resource-manager-log-path]"
+
 msgid "## Modules"
-msgstr "## モジュール\n"
+msgstr "## モジュール"
 
 msgid "  * [`pgroonga_check` module][pgroonga-check]"
 msgstr "  * [`pgroonga_check`モジュール][pgroonga-check]"

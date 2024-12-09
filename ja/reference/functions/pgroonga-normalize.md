@@ -82,7 +82,7 @@ SELECT pgroonga_normalize('あー-ア',
 
 ## 参考
 
- * [Groongaのノーマライザーのドキュメント][groonga-normalizers]
+  * [Groongaのノーマライザーのドキュメント][groonga-normalizers]
 
 [groonga-normalizers]:http://groonga.org/ja/docs/reference/normalizers.html
 

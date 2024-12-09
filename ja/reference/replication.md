@@ -14,11 +14,11 @@ PGroongaは、PostgreSQL組み込みの[WALベースのストリーミングレ�
 
     * [ストリーミングレプリケーション][streaming-replication]よりオススメ
 
- * [ストリーミングレプリケーション][streaming-replication]
+  * [ストリーミングレプリケーション][streaming-replication]
 
     * PGroonga 1.1.6以降が必要
 
- * [ロジカルレプリケーション][logical-replication]
+  * [ロジカルレプリケーション][logical-replication]
 
     * PGroonga 1.2.4以降が必要
 

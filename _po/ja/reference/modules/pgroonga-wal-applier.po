@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2023-08-13 09:53+0900\n"
+"PO-Revision-Date: 2024-12-09 14:54+0900\n"
 
 msgid ""
 "---\n"
@@ -93,7 +93,7 @@ msgid "## See also"
 msgstr "## 参考"
 
 msgid "  * [Streaming replication][streaming-replication]"
-msgstr " * [ストリーミングレプリケーション][streaming-replication]"
+msgstr "  * [ストリーミングレプリケーション][streaming-replication]"
 
 msgid ""
 "  * [The `pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]"

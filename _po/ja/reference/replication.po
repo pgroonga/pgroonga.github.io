@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2024-07-08 12:04+0900\n"
+"PO-Revision-Date: 2024-12-09 14:53+0900\n"
 
 msgid ""
 "---\n"
@@ -47,13 +47,13 @@ msgstr ""
 "    * [ストリーミングレプリケーション][streaming-replication]よりオススメ"
 
 msgid "  * [Streaming replication][streaming-replication]"
-msgstr " * [ストリーミングレプリケーション][streaming-replication]"
+msgstr "  * [ストリーミングレプリケーション][streaming-replication]"
 
 msgid "    * This requires PGroonga 1.1.6 or later"
 msgstr "    * PGroonga 1.1.6以降が必要"
 
 msgid "  * [Logical replication][logical-replication]"
-msgstr " * [ロジカルレプリケーション][logical-replication]"
+msgstr "  * [ロジカルレプリケーション][logical-replication]"
 
 msgid "    * This requires PGroonga 1.2.4 or later"
 msgstr "    * PGroonga 1.2.4以降が必要"

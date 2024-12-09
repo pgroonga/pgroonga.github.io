@@ -5,6 +5,30 @@ upper_level: ../
 
 # おしらせ
 
+## 3.2.5: 2024-12-05 {#version-3-2-5}
+
+### 改良
+
+  * Added support for PostgreSQL 17.
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Improved `CREATE INDEX` and `REINDEX` performance.
+
+  * [[`pgroonga_text_array_regexp_ops_v2` operator class][text-array-regexp-ops-v2]] Added a operator class for `text[]` and regular expression.
+
+  * [[`&~` operator][regular-expression-v2]] Changed to return an empty result instead of error for `NULL` pattern.
+
+  * Dropped support for PostgreSQL 12.
+
+### 修正
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Fixed memory leaks.
+
+  * [[`&~` operator][regular-expression-v2]] Fixed a crash bug with an empty pattern.
+
+  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Fixed a bug that some lagged indexes may not be detected.
+
+  * [[`&~|` operator][regular-expression-in-v2]] Fixed a crash bug with one or more empty patterns.
+
 ## 3.2.4: 2024-10-03 {#version-3-2-4}
 
 ### 改良
@@ -2252,6 +2276,7 @@ The first release!!!
 [text-regexp-ops-v2]:../reference/#text-regexp-ops-v2
 [text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2
 [text-array-term-search-ops-v2]:../reference/#text-array-term-search-ops-v2
+[text-array-regexp-ops-v2]:../reference/#text-array-regexp-ops-v2
 [varchar-full-text-search-ops-v2]:../reference/#varchar-full-text-search-ops-v2
 [varchar-regexp-ops-v2]:../reference/#varchar-regexp-ops-v2
 [varchar-array-term-search-ops-v2]:../reference/#varchar-array-term-search-ops-v2

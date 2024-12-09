@@ -42,9 +42,11 @@ column &@~ pgroonga_condition(query,
 
 3つ目の使い方は2.0.6から使えます。
 
-4つ目の使い方は[`pgroonga_condition`関数][condition]を使います。
-[`pgroonga_condition`関数][condition]を使うと2つ目と3つ目の使い方が実現できます。
-3.1.6以降はこの構文を使ってください。詳しくは[`pgroonga_condition`関数][condition]をご覧ください。
+4つ目の使い方は[`pgroonga_condition`関数][condition]を使います。[`pgroonga_condition`関数][condition]を使うと2つ目と3つ目の使い方も実現できます。3.1.6以降はこの構文を使ってください。
+
+詳細は[`pgroonga_condition`関数][condition]を参照してください。
+
+4つ目の使い方は3.1.6から使えます。
 
 以下は1つ目の使い方の説明です。
 

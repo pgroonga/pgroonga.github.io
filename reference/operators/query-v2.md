@@ -42,10 +42,11 @@ The third signature is useful to optimize more search score. For example, you ca
 
 The third signature is available since 2.0.6.
 
-The fourth signature is using [`pgroonga_condition` function][condition].
-You can implement the second and third signatures uses with [`pgroonga_condition` function][condition].
-You should use this signature in 3.1.6 and above.
+The fourth signature uses [`pgroonga_condition` function][condition]. You can implement the second and third signatures with [`pgroonga_condition` function][condition]. You should use this signature with 3.1.6 or later.
+
 See [`pgroonga_condition` function][condition] for details.
+
+The fourth signature is available since 3.1.6.
 
 Here is the description of the first signature.
 

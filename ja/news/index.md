@@ -2355,7 +2355,7 @@ The first release!!!
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
-[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html
+[pgroonga-wal-resource-manager]:../reference/modules/pgroonga-wal-resource-manager.html
 
 [streaming-replication]:../reference/streaming-replication.html
 

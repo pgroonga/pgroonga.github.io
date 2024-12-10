@@ -220,7 +220,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 3.0.0で追加。
 
-#### `pgroonga_text_array_regexp_ops_v2`演算子クラス {#text-regexp-array-ops-v2}
+#### `pgroonga_text_array_regexp_ops_v2`演算子クラス {#text-array-regexp-ops-v2}
 
 3.2.5で追加。
 

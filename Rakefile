@@ -2,6 +2,7 @@
 
 require "bundler/setup"
 
+require "erb"
 require "json"
 require "open-uri"
 
@@ -17,22 +18,73 @@ Jekyll::Task::I18n.define do |task|
   end
 end
 
+def current_version
+  File.read("_config.yml")[/^pgroonga_version: (.+?)$/, 1]
+end
+
+def detect_latest_release
+  releases_uri = URI("https://api.github.com/repos/pgroonga/pgroonga/releases")
+  latest_release = releases_uri.open do |releases_output|
+    releases = JSON.parse(releases_output.read)
+    releases[0]
+  end
+
+  # "PGroonga 3.2.4: 2024-10-03"
+  release_name = latest_release["name"]
+  # "3.2.4"
+  version = release_name[/\d+\.\d+\.\d+/, 0]
+  # "2024-10-03"
+  release_date = Date.parse(release_name[/\d+-\d+-\d+/, 0])
+  [version, release_date]
+end
+
 namespace :release do
+  namespace :upgrade do
+    desc "Update the upgrade page"
+    task :update do
+      version, = detect_latest_release
+
+      compatible = (version.split(".")[1..-1] != ["0", "0"])
+      upgrade_md = "upgrade/index.md"
+      upgrade_md_content = File.read(upgrade_md)
+      upgrade_md_content.gsub!(/^  <tbody>$/) do |matched|
+        list = +"#{matched}\n    <tr>"
+        if compatible
+          list << "<td>#{ERB::Util.h(current_version)}</td>"
+          list << "<td>#{ERB::Util.h(version)}</td>"
+          list << "<td>&\##2713;</td>"
+          list << "<td></td></tr>"
+        else
+          list << "\n"
+          list << "      <td>#{ERB::Util.h(current_version)}</td>\n"
+          list << "      <td>#{ERB::Util.h(version)}</td>\n"
+          list << "      <td>&\##2715;</td>\n"
+          list << "\n"
+          list << "      <td></td>\n"
+          list << "\n"
+          list << "    </tr>"
+        end
+        list
+      end
+      File.write(upgrade_md, upgrade_md_content)
+      Rake.application["default"].invoke
+      if compatible
+        sh("git", "add",
+           upgrade_md,
+           "ja/#{upgrade_md}",
+           "_po/ja/#{upgrade_md.gsub(/\.md\z/, ".po")}")
+        sh("git", "commit", "-m", "upgrade: update compatibility list")
+        sh("git", "push")
+      else
+        puts("You must update #{upgrade_md} manually.")
+      end
+    end
+  end
+
   namespace :version do
     desc "Update version"
     task :update do
-      releases_uri = URI("https://api.github.com/repos/pgroonga/pgroonga/releases")
-      latest_release = releases_uri.open do |releases_output|
-        releases = JSON.parse(releases_output.read)
-        releases[0]
-      end
-
-      # "PGroonga 3.2.4: 2024-10-03"
-      release_name = latest_release["name"]
-      # "3.2.4"
-      version = release_name[/\d+\.\d+\.\d+/, 0]
-      # "2024-10-03"
-      release_date = Date.parse(release_name[/\d+-\d+-\d+/, 0])
+      version, release_date = detect_latest_release
 
       config_yml = "_config.yml"
       config_yml_content = File.read(config_yml)

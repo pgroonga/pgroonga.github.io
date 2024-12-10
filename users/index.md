@@ -72,6 +72,16 @@ Thus, we chose sadly not to use `&@~` operator. We split query to keywords with 
 
 For the future, we would like to improve the system with our meta tag by using [the score feature of PGroonga][tutorial-score]. Our work data are labeled with meta tags that inform the contents of the book like "Windows", "Linux", "Open Source", "machine learning". Currently adding those meta tag as the search makes the search results hazy. But we think it is important to utilize those tags that our staff are working on.
 
+## Kelteu {#kelteu}
+
+[Kelteu](https://www.kelteu.com) is a community-driven, Wikipedia-like application focused on products and shopping. The platform enables users to explore detailed product information, such as country of origin, ingredients, ratings, prices (including taxes) across various locations, and more. With Kelteu, you can create and share shopping lists, locate stores where specific products are available, track price histories by region, and enjoy many other features.
+
+Available in 51 languages, Kelteu relies entirely on PGroonga to power its search functionality.
+
+PGroonga was chosen for its robust, out-of-the-box full-text search capabilities that support all languages. Its speed and performance rival established tools like Elasticsearch and Solr. Additionally, as a PostgreSQL extension, PGroonga seamlessly integrates with your existing database stack, eliminating the need for extra components or complex integrations. All search functionalities can be accessed via standard SQL queries.
+
+PGroonga also scales efficiently and maintains high performance even with complex queries on huge data sets, making it an ideal choice for a feature-rich application like Kelteu.
+
 ## (Send us your service name)
 
 (Send us your service description, how do you use PGroonga and why did you choose PGroonga.)

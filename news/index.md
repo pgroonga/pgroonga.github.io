@@ -9,8 +9,6 @@ upper_level: ../
 
 ### Improvements
 
-  * Added support for PostgreSQL 17.
-
   * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Improved `CREATE INDEX` and `REINDEX` performance.
 
   * [[`pgroonga_text_array_regexp_ops_v2` operator class][text-array-regexp-ops-v2]] Added a operator class for `text[]` and regular expression.

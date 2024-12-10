@@ -28,9 +28,6 @@ msgstr ""
 msgid "### Improvements"
 msgstr "### 改良"
 
-msgid "  * Added support for PostgreSQL 17."
-msgstr ""
-
 msgid ""
 "  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-"
 "manager]] Improved `CREATE INDEX` and `REINDEX` performance."
@@ -73,6 +70,9 @@ msgid ""
 msgstr ""
 
 msgid "## 3.2.4: 2024-10-03 {#version-3-2-4}"
+msgstr ""
+
+msgid "  * Added support for PostgreSQL 17."
 msgstr ""
 
 msgid "## 3.2.3: 2024-09-25 {#version-3-2-3}"

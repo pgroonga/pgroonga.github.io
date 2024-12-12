@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting
 ---
+
 # Troubleshooting
 
 PGroongaの検索時の問題でよくある問題としては PGroongaのインデックスが正しくないことです。このトラブルシューティングではこれらの問題へのガイドを提供します。
@@ -15,12 +16,12 @@ A: 検索が遅い時は、PostgreSQLでPGroongaのインデックスではな�
 
 テーブルの設定を確認し、PGRoongaのインデックスが正しくセットされていることを確認しましょう。
 
-<details>
+<details markdown="block">
 
-<summary>シーケンシャルサーチが実行されたかどうかを確認する</summary>
-  
+<summary markdown="span">シーケンシャルサーチが実行されたかどうかを確認する</summary>
+
 ここでは次のテーブルを例として用います。
-  
+
 ここでの例では確実にシーケンシャルサーチで検索している状態にしたいので、インデックスもプライマリーキーも設定していません。
 
 ```sql

@@ -63,12 +63,15 @@ msgstr ""
 "テーブルの設定を確認し、PGRoongaのインデックスが正しくセットされていることを"
 "確認しましょう。"
 
-msgid "<details>"
+msgid "<details markdown=\"block\">"
 msgstr ""
 
 msgid ""
-"<summary>To confirm whether a sequential search is being executed</summary>"
-msgstr "<summary>シーケンシャルサーチが実行されたかどうかを確認する</summary>"
+"<summary markdown=\"span\">To confirm whether a sequential search is being "
+"executed</summary>"
+msgstr ""
+"<summary markdown=\"span\">シーケンシャルサーチが実行されたかどうかを確認する"
+"</summary>"
 
 msgid "We use a following table structure as an example."
 msgstr "ここでは次のテーブルを例として用います。"

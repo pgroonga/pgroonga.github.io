@@ -15,9 +15,9 @@ A: 検索が遅い時は、PostgreSQLでPGroongaのインデックスではな�
 
 テーブルの設定を確認し、PGRoongaのインデックスが正しくセットされていることを確認しましょう。
 
-<details>
+<details markdown="block">
 
-<summary>シーケンシャルサーチが実行されたかどうかを確認する</summary>
+<summary markdown="span">シーケンシャルサーチが実行されたかどうかを確認する</summary>
   
 ここでは次のテーブルを例として用います。
   

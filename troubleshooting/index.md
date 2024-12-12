@@ -15,9 +15,9 @@ If you see "Seq Scan" in the output, it indicates the system is not utilizing th
 
 Check the table configuration to confirm that PGroonga indexes are properly set.
 
-<details>
+<details markdown="block">
 
-<summary>To confirm whether a sequential search is being executed</summary>
+<summary markdown="span">To confirm whether a sequential search is being executed</summary>
   
 We use a following table structure as an example.
   

@@ -19,8 +19,10 @@ msgstr ""
 msgid ""
 "---\n"
 "title: Troubleshooting\n"
-"---\n"
-"# Troubleshooting"
+"---"
+msgstr ""
+
+msgid "# Troubleshooting"
 msgstr ""
 
 msgid ""

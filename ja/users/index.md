@@ -1,10 +1,10 @@
 ---
-title: ユーザー
+title: 利用者のみなさん
 ---
 
-# ユーザー
+# 利用者のみなさん
 
-以下はPGroongaユーザーです。
+以下はPGroongaの活用事例です。
 
 ## Supabase {#supabase}
 
@@ -71,6 +71,16 @@ PGroongaを採用した主な理由は次の通りです。
 そのため、せっかくの高機能`&@~`演算子ですがそれは見送って、検索文字列をシンプルに分割し、単一検索の`&@`演算子によるマッチをANDで結合したSQLステートメントを構成して実行するようにしています。たいした工夫でもないですが、分割の文字列ルールは単純なスペース文字以外に適当に入力してもANDヒットするよう、`/[\s　,，.．・。、「」『』（）]+/`としてみました。
 
 なお、実績紹介の内部データにはほかにも「Windows」「Linux」「オープンソース」「機械学習」といった書籍の内容に関するメタ情報タグも実は格納しているのですが、それらまで検索対象に含めてテストしてみると、来訪者さまが探したいものが薄まってしまい、希望のものでないもののほうが出やすくなってしまうという残念な結果となりました。とはいえ、登録担当者が付けているせっかくのタグをうまく使いたいので、PGroongaのスコアー機能（[チュートリアルの「スコアー機能」][tutorial-score]参照）と表示の工夫で、いつか改良を試みたいと考えています。
+
+## Kelteu {#kelteu}
+
+[Kelteu](https://www.kelteu.com) is a community-driven, Wikipedia-like application focused on products and shopping. The platform enables users to explore detailed product information, such as country of origin, ingredients, ratings, prices (including taxes) across various locations, and more. With Kelteu, you can create and share shopping lists, locate stores where specific products are available, track price histories by region, and enjoy many other features.
+
+Available in 51 languages, Kelteu relies entirely on PGroonga to power its search functionality.
+
+PGroonga was chosen for its robust, out-of-the-box full-text search capabilities that support all languages. Its speed and performance rival established tools like Elasticsearch and Solr. Additionally, as a PostgreSQL extension, PGroonga seamlessly integrates with your existing database stack, eliminating the need for extra components or complex integrations. All search functionalities can be accessed via standard SQL queries.
+
+PGroonga also scales efficiently and maintains high performance even with complex queries on huge data sets, making it an ideal choice for a feature-rich application like Kelteu.
 
 ## （サービス名を教えてください）
 

@@ -51,7 +51,7 @@ PostgreSQLはアルファベットと数値だけを使った言語の全文検�
 
   * [コミュニティー](community/): PGroongaのコミュニティーの紹介。
 
-  * [ユーザー](users/): PGroongaユーザー。
+  * [利用例](users/): PGroongaの活用事例を紹介。
 
   * [開発](development/): PGroongaの開発方法の説明。
 

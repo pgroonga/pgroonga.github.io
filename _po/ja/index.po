@@ -130,7 +130,7 @@ msgid "  * [Community](community/): It introduces about PGroonga community."
 msgstr "  * [コミュニティー](community/): PGroongaのコミュニティーの紹介。"
 
 msgid "  * [Users](users/): It lists PGroonga users."
-msgstr "  * [ユーザー](users/): PGroongaユーザー。"
+msgstr "  * [利用例](users/): PGroongaの活用事例を紹介。"
 
 msgid "  * [Development](development/): It describes how to develop PGroonga."
 msgstr "  * [開発](development/): PGroongaの開発方法の説明。"

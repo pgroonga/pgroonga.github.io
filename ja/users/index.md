@@ -74,13 +74,13 @@ PGroongaを採用した主な理由は次の通りです。
 
 ## Kelteu {#kelteu}
 
-[Kelteu](https://www.kelteu.com) is a community-driven, Wikipedia-like application focused on products and shopping. The platform enables users to explore detailed product information, such as country of origin, ingredients, ratings, prices (including taxes) across various locations, and more. With Kelteu, you can create and share shopping lists, locate stores where specific products are available, track price histories by region, and enjoy many other features.
+[Kelteu](https://www.kelteu.com)は、商品と買い物体験にフォーカスしたコミュニティで運営されているウィキペディアのようなアプリケーションです。このプラットフォームは、ユーザーが原産地、原料、評価、様々な場所での税金も含めた料金といった商品の詳細をしっかり探すことを可能にしています。Kelteuがあれば、買い物リストを作ったり、共有したり、どこで特定の商品を買うことができるのかを探したり、エリアによっての商品価格の履歴をみたりするといったことや、それ以外にもいろいろな機能を使うことができます。
 
-Available in 51 languages, Kelteu relies entirely on PGroonga to power its search functionality.
+51か国語に対応しているKelteuの強力な検索機能はPGroongaによって支えられています。
 
-PGroonga was chosen for its robust, out-of-the-box full-text search capabilities that support all languages. Its speed and performance rival established tools like Elasticsearch and Solr. Additionally, as a PostgreSQL extension, PGroonga seamlessly integrates with your existing database stack, eliminating the need for extra components or complex integrations. All search functionalities can be accessed via standard SQL queries.
+PGroongaはすべての言語に対応し、すぐに使うことができる安定した全文検索機能があることから選定しました。スピードとパフォーマンスはElasticsearchやSolrといったツールに匹敵しています。さらに、PostgreSQLの拡張として、PGroongaは既存のデータベーススタックとシームレスに統合し、追加のコンポーネントやわかりづらい統合などをする必要性をなくしてくれます。すべての検索機能は、標準のSQLクエリでアクセスすることができます。
 
-PGroonga also scales efficiently and maintains high performance even with complex queries on huge data sets, making it an ideal choice for a feature-rich application like Kelteu.
+PGroongaは効率的にスケールするもし、大きなデータセット上での複雑なクエリを使う場合でさえ高パフォーマンスを発揮します。これは、Kelteuのような多機能なアプリケーションにとってとても理想的です。
 
 ## （サービス名を教えてください）
 

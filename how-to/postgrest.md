@@ -266,7 +266,6 @@ BEGIN
   END IF;
 END;
 $$;
-CREATE FUNCTION
 ```
 
 ###  Search all columns

@@ -529,7 +529,6 @@ msgid ""
 "  END IF;\n"
 "END;\n"
 "$$;\n"
-"CREATE FUNCTION\n"
 "```"
 msgstr ""
 

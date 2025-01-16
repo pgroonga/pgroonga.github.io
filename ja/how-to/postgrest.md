@@ -282,7 +282,6 @@ BEGIN
   END IF;
 END;
 $$;
-CREATE FUNCTION
 ```
 
 ### 全てのカラムを検索

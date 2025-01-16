@@ -46,13 +46,13 @@ CREATE INDEX pgroonga_title_search_index ON memos USING pgroonga (title)
   WITH (
     normalizers = 'NormalizerNFKC150(
                      "unify_to_romaji", true,
-                     "unify_hyphen_and_prolonged_sound_mark", true,
+                     "unify_hyphen_and_prolonged_sound_mark", true
                    )',
     tokenizer='TokenNgram(
                  "unify_alphabet", false,
                  "unify_symbol", false,
                  "unify_digit", false,
-                 "report_source_location", true"
+                 "report_source_location", true
                )'
   );
 
@@ -60,13 +60,13 @@ CREATE INDEX pgroonga_content_search_index ON memos USING pgroonga (content)
   WITH (
     normalizers = 'NormalizerNFKC150(
                      "unify_to_romaji", true,
-                     "unify_hyphen_and_prolonged_sound_mark", true,
+                     "unify_hyphen_and_prolonged_sound_mark", true
                    )',
     tokenizer='TokenNgram(
                  "unify_alphabet", false,
                  "unify_symbol", false,
                  "unify_digit", false,
-                 "report_source_location", true"
+                 "report_source_location", true
                )'
   );
 ```

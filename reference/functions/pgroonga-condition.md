@@ -286,6 +286,70 @@ SELECT *
 (1 row)
 ```
 
+### Typo tolerance search
+
+Introducing how to search with typo tolerance.
+A user often typo.
+typo tolerance search to provide a better search experience.
+
+Use `pgroonga_condition('keyword', fuzzy_max_distance_ratio => ratio)`.
+The number of typo characters allowed depends on the value of `ratio`.
+Please see [Groonga's documentation][groonga-typo-tolerance] for detailed character count calculations.
+We recommend `0.34` for `ratio`.
+
+Here are sample schema and data:
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+    ON memos
+ USING pgroonga ((ARRAY[title, content]));
+
+INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQL is a relational database management system.');
+INSERT INTO memos VALUES ('Groonga', 'Groonga is the fast full text search engine optimized for Japanese.');
+INSERT INTO memos VALUES ('PGroonga', 'PGroonga is an extension for PostgreSQL to use Groonga as the index.');
+INSERT INTO memos VALUES ('command line', 'There is a groonga command.');
+```
+
+Here is an example that shows that we can search `Groonga` with `Moronga` (2 typos):
+Of course, if you search as is, you will not get any hits.
+
+```sql
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+         pgroonga_condition('Moronga');
+ title | content 
+-------+---------
+(0 rows)
+```
+
+Use `fuzzy_max_distance_ratio` option to hit records containing `Groonga`.
+
+```sql
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+         pgroonga_condition(
+           'Moronga',
+           fuzzy_max_distance_ratio => 0.34
+         );
+    title     |                               content                                
+--------------+----------------------------------------------------------------------
+ Groonga      | Groonga is the fast full text search engine optimized for Japanese.
+ PGroonga     | PGroonga is an extension for PostgreSQL to use Groonga as the index.
+ command line | There is a groonga command.
+(3 rows)
+```
+
+When searching `Groonga`, `0.34` allows 2 typos, resulting in the above results.
+For example, if `ratio` is set to `0.2`, only 1 typo is allowed, so it does not hit.
+
 ## See also
 
 * [Calling Functions][sql-syntax-calling-funcs]
@@ -304,6 +368,8 @@ SELECT *
 
 * [Groonga's `fuzzy_max_distance_ratio` option][groonga-fuzzy-max-distance-ratio]
 
+  * [Groonga's typo tolerance document][groonga-typo-tolerance]
+
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
 
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
@@ -319,3 +385,5 @@ SELECT *
 [scorer]:https://groonga.org/docs/reference/scorer.html
 
 [groonga-fuzzy-max-distance-ratio]:https://groonga.org/docs/reference/commands/select.html#fuzzy-max-distance-ratio
+
+[groonga-typo-tolerance]:https://groonga.org/docs/reference/commands/select.html#typo-tolerance

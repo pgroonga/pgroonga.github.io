@@ -780,9 +780,9 @@ msgstr ""
 "* [Groongaの`fuzzy_max_distance_ratio`オプション][groonga-fuzzy-max-distance-"
 "ratio]"
 
-msgid "  * [Groonga's typo tolerance document][groonga-typo-tolerance]"
+msgid "* [Groonga's typo tolerance document][groonga-typo-tolerance]"
 msgstr ""
-"  * [Groongaのタイプミスの許容についてのドキュメント][groonga-typo-tolerance]"
+"* [Groongaのタイプミスの許容についてのドキュメント][groonga-typo-tolerance]"
 
 msgid ""
 "[sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-"

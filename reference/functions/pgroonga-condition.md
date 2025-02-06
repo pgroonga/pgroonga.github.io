@@ -368,7 +368,7 @@ For example, if `ratio` is set to `0.2`, only 1 typo is allowed, so it does not 
 
 * [Groonga's `fuzzy_max_distance_ratio` option][groonga-fuzzy-max-distance-ratio]
 
-  * [Groonga's typo tolerance document][groonga-typo-tolerance]
+* [Groonga's typo tolerance document][groonga-typo-tolerance]
 
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.en }}/sql-syntax-calling-funcs.html
 

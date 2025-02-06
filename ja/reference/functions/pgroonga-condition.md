@@ -363,7 +363,7 @@ SELECT *
 
 * [Groongaの`fuzzy_max_distance_ratio`オプション][groonga-fuzzy-max-distance-ratio]
 
-  * [Groongaのタイプミスの許容についてのドキュメント][groonga-typo-tolerance]
+* [Groongaのタイプミスの許容についてのドキュメント][groonga-typo-tolerance]
 
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html
 

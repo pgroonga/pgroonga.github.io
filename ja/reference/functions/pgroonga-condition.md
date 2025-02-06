@@ -286,6 +286,65 @@ SELECT *
 (1 row)
 ```
 
+### タイプミスの許容
+
+タイプミスを許容した検索方法を紹介します。
+ユーザはしばしばタイプミスをします。タイプミスを許容した検索を行うことで、よりよい検索体験を提供することができます。
+
+`pgroonga_condition('keyword', fuzzy_max_distance_ratio => ratio)`を使います。
+許容するタイプミスの文字数は`ratio`によって変わります。許容するタイプミスの文字数の計算については[Groongaのドキュメント][groonga-typo-tolerance]に解説があるのでそちらをご覧ください。通常は`ratio`に`0.34`を設定しておけば良いです。
+
+サンプルスキーマとデータは次の通りです。
+
+```sql
+DROP TABLE IF EXISTS memos;
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memos_index
+    ON memos
+ USING pgroonga ((ARRAY[title, content]));
+
+INSERT INTO memos VALUES ('PostgreSQL', 'PostgreSQLはリレーショナル・データベース管理システムです。');
+INSERT INTO memos VALUES ('Groonga', 'Groongaは日本語対応の高速な全文検索エンジンです。');
+INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。');
+INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
+```
+
+以下は`Moronga`（2文字のタイプミス）で`Groonga`を検索する例です。もちろん、そのまま検索してもヒットしません。
+
+```sql
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+         pgroonga_condition('Moronga');
+ title | content 
+-------+---------
+(0 rows)
+```
+
+`fuzzy_max_distance_ratio`オプションを使うことで`Groonga`を含むレコードがヒットします。
+
+```sql
+SELECT *
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+         pgroonga_condition(
+           'Moronga',
+           fuzzy_max_distance_ratio => 0.34
+         );
+     title      |                                  content                                  
+----------------+---------------------------------------------------------------------------
+ Groonga        | Groongaは日本語対応の高速な全文検索エンジンです。
+ PGroonga       | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。
+ コマンドライン | groongaコマンドがあります。
+(3 rows)
+```
+
+`Groonga`を検索するときに`0.34`が設定されているとタイプミスは2文字まで許容されるため、このような結果になります。`0.2`を設定するとタイプミスは1文字までになるためヒットしなくなります。
+
 ## 参考
 
 * [関数呼び出し][sql-syntax-calling-funcs]
@@ -304,6 +363,8 @@ SELECT *
 
 * [Groongaの`fuzzy_max_distance_ratio`オプション][groonga-fuzzy-max-distance-ratio]
 
+* [Groongaのタイプミスの許容についてのドキュメント][groonga-typo-tolerance]
+
 [sql-syntax-calling-funcs]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html
 
 [sql-syntax-calling-funcs-named]:{{ site.postgresql_doc_base_url.ja }}/sql-syntax-calling-funcs.html#SQL-SYNTAX-CALLING-FUNCS-NAMED
@@ -319,3 +380,5 @@ SELECT *
 [scorer]:https://groonga.org/ja/docs/reference/scorer.html
 
 [groonga-fuzzy-max-distance-ratio]:https://groonga.org/ja/docs/reference/commands/select.html#fuzzy-max-distance-ratio
+
+[groonga-typo-tolerance]:https://groonga.org/ja/docs/reference/commands/select.html#typo-tolerance

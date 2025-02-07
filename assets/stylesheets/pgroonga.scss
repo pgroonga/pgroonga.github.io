@@ -51,6 +51,15 @@ div.note {
   }
 }
 
+div.warning {
+  @extend .alert;
+  @extend .alert-warning;
+
+  a {
+    @extend .alert-link;
+  }
+}
+
 img {
   @include img-responsive(block);
 }

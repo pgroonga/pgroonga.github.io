@@ -5,6 +5,40 @@ upper_level: ../
 
 # News
 
+## 4.0.0: 2025-02-09 {#version-4-0-0}
+
+This is a major release!
+
+This release includes backward incompatibility changes. But they are affected to only users who still use PGroonga 1 API (`pgroonga.XXX` API). PGroonga 1 API was deprecated when we released PGroonga 2.0.0 on 2017-08-17. It's about 8 years ago. We hope that nobody is still using PGroonga 1 API.
+
+If you're still using PGroonga 1 API, you should migrate to PGroonga 2.0.0 or API (`pgroonga.XXX` -> `pgroonga_XXX`) before you upgrade to PGroonga 4.0.0.
+
+### Improvements
+
+  * Removed PGroonga 1 API. `pgroonga` schema isn't used anymore.
+
+    * [GH-647](https://github.com/pgroonga/pgroonga/issues/647)
+
+  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]: Added support for database that PGroonga is installed in not `public` schema.
+
+    * [GH-643](https://github.com/pgroonga/pgroonga/issues/643)
+
+    * [GH-644](https://github.com/pgroonga/pgroonga/issues/644)
+
+    * Reported by kurita0
+
+  * Added support for parallel index build. This requires PostgreSQL 17 or later.
+
+### Fixes
+
+  * Fixed a bug that `float4` index doesn't work with Groonga 10.0.2 or later.
+
+    * [GH-665](https://github.com/pgroonga/pgroonga/issues/665)
+
+### Thanks
+
+  * kurita0
+
 ## 3.2.5: 2024-12-05 {#version-3-2-5}
 
 ### Improvements

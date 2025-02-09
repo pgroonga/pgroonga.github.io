@@ -24,6 +24,14 @@ upper_level: ../
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>4.0.0</td>
+      <td>4.0.0</td>
+      <td>&##2715;</td>
+
+      <td>If you don't use <code>pgroonga</code> schema that is deprecated since PGroonga 2.0.0, there is no incompatible change. You can upgrade with the "compatible case" steps. If you're still using <code>pgroonga</code> schema, you must migrate to <code>pgroonga_*</code> API from <code>pgroonga.*</code> API before you upgrade to 4.0.0.</td>
+
+    </tr>
     <tr><td>3.2.4</td><td>3.2.5</td><td>&#x2713;</td><td></td></tr>
     <tr><td>3.2.3</td><td>3.2.4</td><td>&#x2713;</td><td></td></tr>
     <tr><td>3.2.3</td><td>3.2.4</td><td>&#x2713;</td><td></td></tr>

@@ -14,13 +14,9 @@ title: Ubuntuにインストール
 
   * Ubuntu 22.04
 
-  * Ubuntu 20.04
-
 ## システムのPostgreSQL用のインストール方法 {#install-for-system-postgresql}
 
 UbuntuでシステムのPostgreSQL用にPGroongaをインストールする手順は次の通りです。
-
-Ubuntu 20.04を使っている場合は`postgresql-12-pgroonga`パッケージをインストールしてください。
 
 Ubuntu 22.04を使っている場合は`postgresql-14-pgroonga`パッケージをインストールしてください。
 
@@ -31,8 +27,6 @@ $ sudo apt install -y software-properties-common
 $ sudo add-apt-repository -y universe
 $ sudo add-apt-repository -y ppa:groonga/ppa
 $ sudo apt update
-Ubuntu 20.04:
-$ sudo apt install -y -V postgresql-12-pgroonga
 Ubuntu 22.04:
 $ sudo apt install -y -V postgresql-14-pgroonga
 Ubuntu 24.04:

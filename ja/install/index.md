@@ -32,8 +32,6 @@ upper_level: ../
 
     * 22.04
 
-    * 20.04
-
   * [AlmaLinux](almalinux.html)
 
     * 9

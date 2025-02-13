@@ -29,7 +29,7 @@ upper_level: ../
       <td>4.0.0</td>
       <td>&#x2715;</td>
 
-      <td>PGroonga 2.0.0以降で非推奨になった<code>pgroonga</code>を使っていなければ互換です。「互換性がある場合」の手順でアップグレードできます。まだ<code>pgroonga</code>スキーマを使っている場合は、4.0.0にアップグレードする前に<code>pgroonga.*</code>APIから<code>pgroonga_*</code>APIに移行しなければなりません。
+      <td>PGroonga 2.0.0以降で非推奨になった<code>pgroonga</code>を使っていなければ互換です。「互換性がある場合」の手順でアップグレードできます。まだ<code>pgroonga</code>スキーマを使っている場合は、4.0.0にアップグレードする前に<code>pgroonga.*</code>APIから<code>pgroonga_*</code>APIに移行しなければなりません。</td>
 
     </tr>
     <tr><td>3.2.4</td><td>3.2.5</td><td>&#x2713;</td><td></td></tr>

@@ -55,12 +55,31 @@ Some commands are required for the release, so install them.
 $ ./setup-release.sh
 ```
 
-## Update change log for deb and RPM packages
+## Execute `release` task
 
 ```console
-$ rake package:version:update
-$ git push
+$ rake release NEW_RELEASE_DATE=$(date +%Y-%m-%d)
 ```
+
+`NEW_RELEASE_DATE` is the release date.
+
+### About `release` task
+
+`release` task executes the three tasks
+
+1. `package:version:update`
+
+   * Append the changelog of the new version to the spec file of the RPM package, and so on
+
+2. `tag`
+
+   * Push the tag for release
+
+   * This will start the automatic release
+
+3. `version:update`
+
+   * We will bump up the version for the next release
 
 ## Check whether we can make packages or not
 
@@ -68,25 +87,7 @@ We confirm below CIs green or not.
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## Tagging for the release
-
-```console
-$ rake tag
-```
-
-## Upload an archive file
-
-```console
-$ rake package:source
-```
-
 ## Create packages for the release
-
-### deb
-
-```console
-$ rake package:apt
-```
 
 ### Ubuntu
 
@@ -103,27 +104,6 @@ For Ubuntu, packages are provided by PPA on launchpad.net.
   When upload packages succeeded, a package build process is executed on launchpad.net.
   Then the build result is notified via E-mail if the build fails.
   We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
-
-### RPM
-
-```console
-$ rake package:yum
-```
-
-### Windows
-
-For Windows packages, we don't need to execute anything.
-
-Windows packages are uploaded automatically by actions of [GitHub Actions][github-actions-pgroonga].
-
-## Bump version
-
-We will bump up the version for the next release.
-
-```console
-$ rake version:update NEW_VERSION=x.x.x
-$ git push
-```
 
 ## Describe the changes
 
@@ -160,24 +140,6 @@ We also update below items in `_config.yml`.
 * `development_postgresql_version`:
 
   * PostgreSQL latest version (include minor version).
-
-## Update the repository
-
-We update the repository in the following steps.
-
-Clone the packages.groonga.org repository:
-
-```console
-$ git clone git@github.com:groonga/packages.groonga.org.git
-```
-
-Update repositories for deb and RPM:
-
-```console
-$ cd packages.groonga.org
-$ rake apt
-$ rake yum
-```
 
 ### Update Docker images
 

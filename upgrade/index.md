@@ -27,7 +27,7 @@ Here is a list of compatibility ("&#x2713;" means "compatible" and "&#x2715;" me
     <tr>
       <td>4.0.0</td>
       <td>4.0.0</td>
-      <td>&##2715;</td>
+      <td>&#x2715;</td>
 
       <td>If you don't use <code>pgroonga</code> schema that is deprecated since PGroonga 2.0.0, there is no incompatible change. You can upgrade with the "compatible case" steps. If you're still using <code>pgroonga</code> schema, you must migrate to <code>pgroonga_*</code> API from <code>pgroonga.*</code> API before you upgrade to 4.0.0.</td>
 

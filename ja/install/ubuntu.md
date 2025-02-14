@@ -62,14 +62,18 @@ $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga
 UbuntuでPostgreSQL Global Development Groupが提供するPostgreSQLパッケージ用にPGroongaをインストールする手順は次の通りです。
 
 ```console
-$ sudo apt install -y software-properties-common
-$ sudo add-apt-repository -y universe
-$ sudo add-apt-repository -y ppa:groonga/ppa
-$ sudo apt install -y wget lsb-release
+$ sudo apt install -y -V ca-certificates lsb-release wget
+$ wget https://apache.jfrog.io/artifactory/arrow/$(lsb_release --id --short | tr 'A-Z' 'a-z')/apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
+$ sudo apt install -y -V ./apache-arrow-apt-source-latest-$(lsb_release --codename --short).deb
 $ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
-$ echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release --codename --short)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ sudo wget -O /usr/share/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+$ (echo "Types: deb"; \
+   echo "URIs: http://apt.postgresql.org/pub/repos/apt"; \
+   echo "Suites: $(lsb_release --codename --short)-pgdg"; \
+   echo "Components: main"; \
+   echo "Signed-By: /usr/share/keyrings/pgdg.asc") | \
+    sudo tee /etc/apt/sources.list.d/pgdg.sources
 $ sudo apt update
 $ sudo apt install -y -V postgresql-{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```

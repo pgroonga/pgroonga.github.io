@@ -52,13 +52,13 @@ namespace :release do
         if compatible
           list << "<td>#{ERB::Util.h(current_version)}</td>"
           list << "<td>#{ERB::Util.h(version)}</td>"
-          list << "<td>&\##2713;</td>"
+          list << "<td>&\#x2713;</td>"
           list << "<td></td></tr>"
         else
           list << "\n"
           list << "      <td>#{ERB::Util.h(current_version)}</td>\n"
           list << "      <td>#{ERB::Util.h(version)}</td>\n"
-          list << "      <td>&\##2715;</td>\n"
+          list << "      <td>&\#x2715;</td>\n"
           list << "\n"
           list << "      <td></td>\n"
           list << "\n"

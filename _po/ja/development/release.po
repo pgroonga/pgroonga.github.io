@@ -161,14 +161,19 @@ msgstr ""
 msgid "   * We will bump up the version for the next release"
 msgstr "   * 次のリリースに向けてバージョンをあげます"
 
-msgid "## Check whether we can make packages or not"
-msgstr "## パッケージ作成可能かどうか確認"
+msgid "## Confirm CI"
+msgstr "## CIを確認する"
 
 msgid "We confirm below CIs green or not."
 msgstr "以下のCIがグリーンかどうかを確認します。"
 
 msgid "* [GitHub Actions][github-actions-pgroonga]"
 msgstr ""
+
+msgid "We use CI to do automatic releases, so if it fails, we retry."
+msgstr ""
+"CIで自動リリースを行っているので、失敗していたらリトライします。（何度リトラ"
+"イしても問題ないように設定されています。）"
 
 msgid "## Create packages for the release"
 msgstr "## リリース用パッケージを作成"

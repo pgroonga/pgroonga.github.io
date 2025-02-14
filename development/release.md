@@ -81,11 +81,13 @@ $ rake release NEW_RELEASE_DATE=$(date +%Y-%m-%d)
 
    * We will bump up the version for the next release
 
-## Check whether we can make packages or not
+## Confirm CI
 
 We confirm below CIs green or not.
 
 * [GitHub Actions][github-actions-pgroonga]
+
+We use CI to do automatic releases, so if it fails, we retry.
 
 ## Create packages for the release
 

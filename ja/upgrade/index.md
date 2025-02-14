@@ -27,9 +27,9 @@ upper_level: ../
     <tr>
       <td>4.0.0</td>
       <td>4.0.0</td>
-      <td>&##2715;</td>
+      <td>&#x2715;</td>
 
-      <td>If you don't use <code>pgroonga</code> schema that is deprecated since PGroonga 2.0.0, there is no incompatible change. You can upgrade with the "compatible case" steps. If you're still using <code>pgroonga</code> schema, you must migrate to <code>pgroonga_*</code> API from <code>pgroonga.*</code> API before you upgrade to 4.0.0.</td>
+      <td>PGroonga 2.0.0以降で非推奨になった<code>pgroonga</code>スキーマを使っていなければ互換です。「互換性がある場合」の手順でアップグレードできます。まだ<code>pgroonga</code>スキーマを使っている場合は、4.0.0にアップグレードする前に<code>pgroonga.*</code>APIから<code>pgroonga_*</code>APIに移行しなければなりません。</td>
 
     </tr>
     <tr><td>3.2.4</td><td>3.2.5</td><td>&#x2713;</td><td></td></tr>

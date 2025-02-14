@@ -55,38 +55,41 @@ title: リリース
 $ ./setup-release.sh
 ```
 
-## debとRPMのパッケージの変更履歴を更新
+## リリースタスクを実行
 
 ```console
-$ rake package:version:update
-$ git push
+$ rake release NEW_RELEASE_DATE=$(date +%Y-%m-%d)
 ```
 
-## パッケージ作成可能かどうか確認
+`NEW_RELEASE_DATE`はリリース日です。
+
+### `release`タスクについて
+
+`release`タスクは次の3つのタスクを実行します。
+
+1. `package:version:update`
+
+  * RPMパッケージのspecファイルに新しいバージョンのチェンジログを追記したりなどします
+
+2. `tag`
+
+   * リリース用のタグをプッシュします
+
+   * これにより自動リリースが動き出します
+
+3. `version:update`
+
+   * 次のリリースに向けてバージョンをあげます
+
+## CIを確認する
 
 以下のCIがグリーンかどうかを確認します。
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## リリース用にタグを打つ
-
-```console
-$ rake tag
-```
-
-## アーカイブファイルのアップロード
-
-```console
-$ rake package:source
-```
+CIで自動リリースを行っているので、失敗していたらリトライします。（何度リトライしても問題ないように設定されています。）
 
 ## リリース用パッケージを作成
-
-### deb
-
-```console
-$ rake package:apt
-```
 
 ### Ubuntu
 
@@ -101,27 +104,6 @@ Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 * ビルド結果の確認
 
   パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
-
-### RPM
-
-```console
-$ rake package:yum
-```
-
-### Windows
-
-Windowsパッケージについては、何もする必要はありません。
-
-Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクションで自動でアップロードされます。
-
-## バージョンをあげる
-
-次のリリースに向けてバージョンをあげます。
-
-```console
-$ rake version:update NEW_VERSION=x.x.x
-$ git push
-```
 
 ## 変更点を記述
 
@@ -158,24 +140,6 @@ $ git push
 * `development_postgresql_version`:
 
  * マイナーバージョンを含むPostgreSQLの最新バージョン
-
-## リポジトリーの更新
-
-以下の手順でリポジトリーを更新します。
-
-packages.groonga.orgリポジトリーをクローンします。
-
-```console
-$ git clone git@github.com:groonga/packages.groonga.org.git
-```
-
-debとRPM用にリポジトリーを更新します。
-
-```console
-$ cd packages.groonga.org
-$ rake apt
-$ rake yum
-```
 
 ### Dockerイメージの更新
 

@@ -5,6 +5,36 @@ upper_level: ../
 
 # News
 
+## 4.0.1: 2025-02-14 {#version-4-0-1}
+
+This is a bug fix release.
+
+### Improvements
+
+#### Dropped support for Ubuntu 20.04
+
+[GH-709](https://github.com/pgroonga/pgroonga/issues/709)
+
+Because Ubuntu 20.04 will reach EOL on 2025-05.
+
+### Fixes
+
+#### Fixed an upgrade bug
+
+[GH-713](https://github.com/pgroonga/pgroonga/issues/713)
+
+It depends on initial PGroonga version you installed whether this happens or not. If you installed PGroonga 2.4.1 or earlier as the initial version, this will happen. There was a bug in 2.4.1 to 2.4.2 upgrade code. `pgroonga.snippet_html()` signature wasn't upgraded.
+
+If you installed PGroonga 2.4.1 or earlier as the initial version, you can `ALTER EXTENSION pgroonga UPGRADE` without error with 4.0.1.
+
+If you installed PGroonga 2.4.2 or later as the initial version, you don't need 4.0.1. 4.0.0 works.
+
+Reported by Tim Abbott. Thanks!!!
+
+### Thanks
+
+* Tim Abbott
+
 ## 4.0.0: 2025-02-09 {#version-4-0-0}
 
 This is a major release!

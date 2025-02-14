@@ -22,6 +22,59 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 4.0.1: 2025-02-14 {#version-4-0-1}"
+msgstr ""
+
+msgid "This is a bug fix release."
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "#### Dropped support for Ubuntu 20.04"
+msgstr ""
+
+msgid "[GH-709](https://github.com/pgroonga/pgroonga/issues/709)"
+msgstr ""
+
+msgid "Because Ubuntu 20.04 will reach EOL on 2025-05."
+msgstr ""
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid "#### Fixed an upgrade bug"
+msgstr ""
+
+msgid "[GH-713](https://github.com/pgroonga/pgroonga/issues/713)"
+msgstr ""
+
+msgid ""
+"It depends on initial PGroonga version you installed whether this happens or "
+"not. If you installed PGroonga 2.4.1 or earlier as the initial version, this "
+"will happen. There was a bug in 2.4.1 to 2.4.2 upgrade code. "
+"`pgroonga.snippet_html()` signature wasn't upgraded."
+msgstr ""
+
+msgid ""
+"If you installed PGroonga 2.4.1 or earlier as the initial version, you can "
+"`ALTER EXTENSION pgroonga UPGRADE` without error with 4.0.1."
+msgstr ""
+
+msgid ""
+"If you installed PGroonga 2.4.2 or later as the initial version, you don't "
+"need 4.0.1. 4.0.0 works."
+msgstr ""
+
+msgid "Reported by Tim Abbott. Thanks!!!"
+msgstr ""
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "* Tim Abbott"
+msgstr ""
+
 msgid "## 4.0.0: 2025-02-09 {#version-4-0-0}"
 msgstr ""
 
@@ -40,9 +93,6 @@ msgid ""
 "or API (`pgroonga.XXX` -> `pgroonga_XXX`) before you upgrade to PGroonga "
 "4.0.0."
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "  * Removed PGroonga 1 API. `pgroonga` schema isn't used anymore."
 msgstr ""
@@ -69,9 +119,6 @@ msgid ""
 "later."
 msgstr ""
 
-msgid "### Fixes"
-msgstr "### 修正"
-
 msgid ""
 "  * Fixed a bug that `float4` index doesn't work with Groonga 10.0.2 or "
 "later."
@@ -79,9 +126,6 @@ msgstr ""
 
 msgid "    * [GH-665](https://github.com/pgroonga/pgroonga/issues/665)"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "  * kurita0"
 msgstr ""

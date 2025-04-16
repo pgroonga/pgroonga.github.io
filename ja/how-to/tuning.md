@@ -44,7 +44,7 @@ vm.overcommit_memory kernel parameter should be 1: <0>: See INFO level log to re
 vm.overcommit_memory = 1
 ```
 
-この設定はすステムを再起動するか次のコマンドを実行することで適用できます。
+この設定はシステムを再起動するか次のコマンドを実行することで適用できます。
 
 ```bash
 sudo sysctl --system

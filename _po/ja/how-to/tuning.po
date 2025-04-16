@@ -124,7 +124,7 @@ msgid ""
 "The configuration can be applied by restarting your system or run the "
 "following command:"
 msgstr ""
-"この設定はすステムを再起動するか次のコマンドを実行することで適用できます。"
+"この設定はシステムを再起動するか次のコマンドを実行することで適用できます。"
 
 msgid ""
 "```bash\n"

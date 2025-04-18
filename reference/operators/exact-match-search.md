@@ -83,12 +83,12 @@ EXPLAIN (COSTS OFF)
 SELECT name
   FROM tags
  WHERE name &= 'gr-oonga';
-QUERY PLAN
-Bitmap Heap Scan on tags
-   Recheck Cond: (name &= 'gr-oonga'::text)
-   ->  Bitmap Index Scan on pgrn_index
-         Index Cond: (name &= 'gr-oonga'::text)
-(4 rows)
+-- QUERY PLAN
+-- Bitmap Heap Scan on tags
+--    Recheck Cond: (name &= 'gr-oonga'::text)
+--    ->  Bitmap Index Scan on pgrn_index
+--          Index Cond: (name &= 'gr-oonga'::text)
+-- (4 rows)
 
 SELECT name
   FROM tags
@@ -127,17 +127,17 @@ EXPLAIN (COSTS OFF)
 SELECT name
   FROM tags
  WHERE name &= 'gr-oonga';
-QUERY PLAN
-Seq Scan on tags
-  Filter: (name &= 'gr-oonga'::text)
-(2 rows)
+-- QUERY PLAN
+-- Seq Scan on tags
+--   Filter: (name &= 'gr-oonga'::text)
+-- (2 rows)
 
 SELECT name
   FROM tags
  WHERE name &= 'gr-oonga';
- name 
-------
-(0 rows)
+--  name 
+-- ------
+-- (0 rows)
 ```
 
 On the other hand, if we use the second syntax, we can exact match search with custom normalizer even if PGroonga's index is not used.
@@ -165,20 +165,20 @@ SELECT name
   FROM tags
  WHERE name &= ('groonga', NULL, 'pgrn_index')::pgroonga_full_text_search_condition
  ORDER BY id;
-QUERY PLAN
-Sort
-  Sort Key: id
-  ->  Seq Scan on tags
-        Filter: (name &= '(groonga,,pgrn_index)'::pgroonga_full_text_search_condition)
-(4 rows)
+-- QUERY PLAN
+-- Sort
+--   Sort Key: id
+--   ->  Seq Scan on tags
+--         Filter: (name &= '(groonga,,pgrn_index)'::pgroonga_full_text_search_condition)
+-- (4 rows)
 
 SELECT name
   FROM tags
  WHERE name &= ('groonga', NULL, 'pgrn_index')::pgroonga_full_text_search_condition
  ORDER BY id;
-  name   
----------
- Groonga
- groonga
-(2 rows)
+--   name   
+-- ---------
+--  Groonga
+--  groonga
+-- (2 rows)
 ```

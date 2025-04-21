@@ -95,8 +95,8 @@ SELECT name
  WHERE name &= 'gr-oonga';
 --    name    
 -- -----------
---  PGroonga
---  pglogical
+--  Groonga
+--  groonga
 -- (2 rows)
 ```
 

@@ -166,7 +166,7 @@ CREATE INDEX pgroonga_content_index
         WITH(tokenizer='TokenNgram("unify_alphabet", false, "unify_symbol", false, "unify_digit", false)');
 ```
 
-You may also use `TokenBigramBigramSplitSymbolAlphaDigit` for partial match instead of `TokenNgram` above. **(Using `TokenNgram(...)` is recommended)**.
+You may also use `TokenBigramSplitSymbolAlphaDigit` for partial match instead of `TokenNgram` above. **(Using `TokenNgram(...)` is recommended)**.
 
 **Remarks**
 We however do not recommend using `TokenNgram("unify_...)`. It is advisable to use `TokenNgram/TokenBigram` instead, as partial matches in alphabetical languages tend to introduce a lot of noise. `TokenNgram("unify_...)` should only be utilized when it is truly necessary.

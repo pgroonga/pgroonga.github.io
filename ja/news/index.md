@@ -5,6 +5,20 @@ upper_level: ../
 
 # おしらせ
 
+## 4.0.2: 2025-09-12 {#version-4-0-2}
+
+### 改良
+
+#### 最新のDockerイメージを公開
+
+Dockerイメージを更新し、最新のPostgreSQLリリースバージョンに対応しました。対応バージョンは次のとおりです。
+
+- PostgreSQL 17.6
+- PostgreSQL 16.10
+- PostgreSQL 15.14
+- PostgreSQL 14.19
+- PostgreSQL 13.22
+
 ## 4.0.1: 2025-02-14 {#version-4-0-1}
 
 This is a bug fix release.

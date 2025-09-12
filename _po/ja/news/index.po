@@ -22,14 +22,35 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
+msgid "## 4.0.2: 2025-09-12 {#version-4-0-2}"
+msgstr ""
+
+msgid "### Improvements"
+msgstr "### 改良"
+
+msgid "#### Published the latest Docker image"
+msgstr "#### 最新のDockerイメージを公開"
+
+msgid ""
+"We updated our Docker images to support the latest PostgreSQL releases "
+"versions as follows."
+msgstr ""
+"Dockerイメージを更新し、最新のPostgreSQLリリースバージョンに対応しました。対"
+"応バージョンは次のとおりです。"
+
+msgid ""
+"- PostgreSQL 17.6\n"
+"- PostgreSQL 16.10\n"
+"- PostgreSQL 15.14\n"
+"- PostgreSQL 14.19\n"
+"- PostgreSQL 13.22"
+msgstr ""
+
 msgid "## 4.0.1: 2025-02-14 {#version-4-0-1}"
 msgstr ""
 
 msgid "This is a bug fix release."
 msgstr ""
-
-msgid "### Improvements"
-msgstr "### 改良"
 
 msgid "#### Dropped support for Ubuntu 20.04"
 msgstr ""

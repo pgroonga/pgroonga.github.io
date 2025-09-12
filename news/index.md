@@ -5,6 +5,20 @@ upper_level: ../
 
 # News
 
+## 4.0.2: 2025-09-12 {#version-4-0-2}
+
+### Improvements
+
+#### Published the latest Docker image
+
+We updated our Docker images to support the latest PostgreSQL releases versions as follows.
+
+- PostgreSQL 17.6
+- PostgreSQL 16.10
+- PostgreSQL 15.14
+- PostgreSQL 14.19
+- PostgreSQL 13.22
+
 ## 4.0.1: 2025-02-14 {#version-4-0-1}
 
 This is a bug fix release.

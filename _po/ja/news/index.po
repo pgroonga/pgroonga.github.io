@@ -28,11 +28,11 @@ msgstr ""
 msgid "### Improvements"
 msgstr "### 改良"
 
-msgid "#### Added support for PostgreSQL 18 RC 1"
-msgstr "#### PostgreSQL 18 RC 1をサポート"
+msgid "#### Added support for PostgreSQL 18"
+msgstr "#### PostgreSQL 18をサポート"
 
-msgid "PGroonga now works with PostgreSQL 18 RC 1."
-msgstr "PGroongaがPostgreSQL 18 RC 1で動作するようになりました。"
+msgid "PGroonga now works with PostgreSQL 18."
+msgstr "PGroongaがPostgreSQL 18で動作するようになりました。"
 
 msgid "#### Added support for AlmaLinux9 package"
 msgstr "#### AlmaLinux 9向けパッケージを追加"

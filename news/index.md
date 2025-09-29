@@ -9,9 +9,9 @@ upper_level: ../
 
 ### Improvements
 
-#### Added support for PostgreSQL 18 RC 1
+#### Added support for PostgreSQL 18
 
-PGroonga now works with PostgreSQL 18 RC 1.
+PGroonga now works with PostgreSQL 18.
 
 #### Added support for AlmaLinux9 package
 

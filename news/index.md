@@ -42,14 +42,17 @@ CREATE TABLE messages (
   id serial,
   content text
 );
+
 CREATE INDEX messages_index ON messages
   USING PGroonga (content, id);
+
 INSERT INTO messages (content)
   SELECT content FROM (SELECT 'a' AS content, generate_series(0, 9999)) AS values;
 INSERT INTO messages (content)
   SELECT content FROM (SELECT 'b' AS content, generate_series(0, 9999)) AS values;
 INSERT INTO messages (content)
   SELECT content FROM (SELECT 'c' AS content, generate_series(0, 9999)) AS values;
+
 EXPLAIN ANALYZE VERBOSE
   SELECT * FROM messages
     WHERE content = 'b'

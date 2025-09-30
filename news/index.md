@@ -13,6 +13,10 @@ upper_level: ../
 
 PGroonga now works with PostgreSQL 18.
 
+#### [[Debian][debian]] Added support for Debian GNU/Linux trixie
+
+We now provide packages for Debian GNU/Linux trixie.
+
 #### [[AlmaLinux][almalinux]] Added support for AlmaLinux 10 package
 
 We now provide official RPM packages for AlmaLinux 10.
@@ -22,20 +26,15 @@ We now provide official RPM packages for AlmaLinux 10.
 PGroonga package for PostgreSQL 14 with AlmaLinux 9 had not been provied.
 So, we now provide it.
 
-#### [[Debian][debian]] Added support for Debian GNU/Linux trixie
-
-We now provide packages for Debian GNU/Linux trixie.
-
-#### Improved ordered index scans with extension indexes on PostgreSQL 18
+#### Added support ordered index scan on PostgreSQL 18
 
 [GH-771](https://github.com/pgroonga/pgroonga/pull/771)
 
-On PostgreSQL 18 and later, PGroonga now implements the index access
-method hooks `amtranslatecmptype` and `amtranslatestrategy`. With these
-hooks, the planner can recognize PGroonga as an **ordered index** and
-choose forward/backward index scans without an explicit `Sort` for
-queries like `WHERE ... ORDER BY ... LIMIT`. This reduces unnecessary
-sorting and improves response time when many rows match.
+On PostgreSQL 18 and later, POstgreSQL's planner can recognize PGroonga as an **ordered index**.
+
+PGroonga can return filtered and sorted records to PostgreSQL for queries like `WHERE ... ORDER BY ... LIMIT`.
+
+We may improves response time when many rows match by this improvement.
 
 ```sql
 CREATE TABLE messages (

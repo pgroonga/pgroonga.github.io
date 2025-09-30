@@ -5,6 +5,73 @@ upper_level: ../
 
 # News
 
+## 4.0.3: 2025-09-30 {#version-4-0-3}
+
+### Improvements
+
+#### Added support for PostgreSQL 18
+
+We now provided packages for PostgreSQL 18.
+
+#### [[Debian][debian]] Added support for Debian GNU/Linux trixie
+
+The package for Debian GNU/Linux trixie is now available.
+
+#### [[AlmaLinux][almalinux]] Added support for AlmaLinux 10 package
+
+We now provided official RPM packages for AlmaLinux 10.
+
+#### [[AlmaLinux][almalinux]] Added support for PostgreSQL 14 with AlmaLinux 9 package
+
+Previously, we didn’t provide a PGroonga package for PostgreSQL 14 on AlmaLinux 9. It’s now available.
+So, we now provide it.
+
+#### Added support ordered index scan on PostgreSQL 18
+
+[GH-771](https://github.com/pgroonga/pgroonga/pull/771)
+
+On PostgreSQL 18 and later, PostgreSQL's planner can recognize PGroonga as an ordered index.
+
+PGroonga can return filtered and sorted records to PostgreSQL for queries like `WHERE ... ORDER BY ... LIMIT`.
+This improvement may improve the response time when many rows match.
+
+```sql
+CREATE TABLE messages (
+  id serial,
+  content text
+);
+
+CREATE INDEX messages_index ON messages
+  USING PGroonga (content, id);
+
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'a' AS content, generate_series(0, 9999)) AS values;
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'b' AS content, generate_series(0, 9999)) AS values;
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'c' AS content, generate_series(0, 9999)) AS values;
+
+EXPLAIN ANALYZE VERBOSE
+  SELECT * FROM messages
+    WHERE content = 'b'
+    ORDER BY id DESC LIMIT 10;
+--                                                                        QUERY PLAN
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------
+--  Limit  (cost=0.00..6.67 rows=10 width=36) (actual time=0.385..0.389 rows=10.00 loops=1)
+--    Output: id, content
+--    Buffers: shared hit=1
+--    ->  Index Scan Backward using messages_index on public.messages  (cost=0.00..100.02 rows=150 width=36) (actual time=0.384..0.387 rows=10.00 loops=1)
+--          Output: id, content
+--          Index Cond: (messages.content = 'b'::text)
+--          Index Searches: 0
+--          Buffers: shared hit=1
+--  Planning:
+--    Buffers: shared hit=35
+--  Planning Time: 5.679 ms
+--  Execution Time: 0.438 ms
+-- (12 rows)
+```
+
 ## 4.0.2: 2025-09-12 {#version-4-0-2}
 
 ### Improvements

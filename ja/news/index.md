@@ -5,6 +5,72 @@ upper_level: ../
 
 # おしらせ
 
+## 4.0.3: 2025-09-30 {#version-4-0-3}
+
+### 改良
+
+#### PostgreSQL 18をサポート
+
+PostgreSQL 18向けのパッケージを提供しました。
+
+#### [[Debian][debian]] Debian GNU/Linux trixieをサポート
+
+Debian GNU/Linux trixie 向けのパッケージを提供しました。
+
+#### [[AlmaLinux][almalinux]] AlmaLinux 10をサポート
+
+AlmaLinux 10向けのRPMパッケージを提供しました。
+
+#### [[AlmaLinux][almalinux]] AlmaLinux 9のPostgreSQL 14をサポート
+
+Almalinux 9のPostgreSQL 14向けのパッケージを提供出来ていなかったため、提供しました。
+
+#### PostgreSQL 18でソート済みインデックススキャンをサポート
+
+[GH-771](https://github.com/pgroonga/pgroonga/pull/771)
+
+PostgreSQL 18以降で、PostgreSQLのプランナはPGroongaをソート可能なインデックスとして認識できるようになりました。
+
+`WHERE ... ORDER BY ... LIMIT`のようなクエリで、PGroongaで絞り込みとソート済みのレコードをPostgreSQLに返すことができます。
+これにより、多くのレコードがマッチするときの応答時間の改善が見込めます。
+
+```sql
+CREATE TABLE messages (
+  id serial,
+  content text
+);
+
+CREATE INDEX messages_index ON messages
+  USING PGroonga (content, id);
+
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'a' AS content, generate_series(0, 9999)) AS values;
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'b' AS content, generate_series(0, 9999)) AS values;
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'c' AS content, generate_series(0, 9999)) AS values;
+
+EXPLAIN ANALYZE VERBOSE
+  SELECT * FROM messages
+    WHERE content = 'b'
+    ORDER BY id DESC LIMIT 10;
+--                                                                        QUERY PLAN
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------
+--  Limit  (cost=0.00..6.67 rows=10 width=36) (actual time=0.385..0.389 rows=10.00 loops=1)
+--    Output: id, content
+--    Buffers: shared hit=1
+--    ->  Index Scan Backward using messages_index on public.messages  (cost=0.00..100.02 rows=150 width=36) (actual time=0.384..0.387 rows=10.00 loops=1)
+--          Output: id, content
+--          Index Cond: (messages.content = 'b'::text)
+--          Index Searches: 0
+--          Buffers: shared hit=1
+--  Planning:
+--    Buffers: shared hit=35
+--  Planning Time: 5.679 ms
+--  Execution Time: 0.438 ms
+-- (12 rows)
+```
+
 ## 4.0.2: 2025-09-12 {#version-4-0-2}
 
 ### 改良

@@ -11,7 +11,7 @@ upper_level: ../
 
 #### Added support for PostgreSQL 18
 
-PGroonga now works with PostgreSQL 18.
+We now provide packages for PostgreSQL 18.
 
 #### [[Debian][debian]] Added support for Debian GNU/Linux trixie
 

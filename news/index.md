@@ -11,19 +11,19 @@ upper_level: ../
 
 #### Added support for PostgreSQL 18
 
-We now provide packages for PostgreSQL 18.
+We now provided packages for PostgreSQL 18.
 
 #### [[Debian][debian]] Added support for Debian GNU/Linux trixie
 
-We now provide packages for Debian GNU/Linux trixie.
+We now provided packages for Debian GNU/Linux trixie.
 
 #### [[AlmaLinux][almalinux]] Added support for AlmaLinux 10 package
 
-We now provide official RPM packages for AlmaLinux 10.
+We now provided official RPM packages for AlmaLinux 10.
 
 #### [[AlmaLinux][almalinux]] Added support for PostgreSQL 14 with AlmaLinux 9 package
 
-PGroonga package for PostgreSQL 14 with AlmaLinux 9 had not been provied.
+PGroonga packaged for PostgreSQL 14 with AlmaLinux 9 had not been provied.
 So, we now provide it.
 
 #### Added support ordered index scan on PostgreSQL 18

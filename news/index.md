@@ -15,7 +15,7 @@ We now provided packages for PostgreSQL 18.
 
 #### [[Debian][debian]] Added support for Debian GNU/Linux trixie
 
-We now provided packages for Debian GNU/Linux trixie.
+The packages for Debian GNU/Linux trixie is now available.
 
 #### [[AlmaLinux][almalinux]] Added support for AlmaLinux 10 package
 

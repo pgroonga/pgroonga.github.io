@@ -5,37 +5,51 @@ upper_level: ../
 
 # おしらせ
 
-## 4.0.3: 2025-09-29 {#version-4-0-3}
+## 4.0.3: 2025-09-30 {#version-4-0-3}
 
 ### 改良
 
-#### PostgreSQL 18 RC 1をサポート
+#### PostgreSQL 18をサポート
 
-PGroongaがPostgreSQL 18 RC 1で動作するようになりました。
+PostgreSQL 18向けのパッケージを提供しました。
 
-#### AlmaLinux 9向けパッケージを追加
+#### [[Debian][debian]] Debian GNU/Linux trixie をサポート
 
-AlmaLinux 9向けのRPMパッケージを提供します。
+Debian GNU/Linux trixie 向けのパッケージを提供しました。
 
-#### PostgreSQL 18における拡張インデックスでのソート済みインデックススキャンのサポート
+#### [[AlmaLinux][almalinux]] AlmaLinux 10 をサポート
+
+AlmaLinux 10向けのRPMパッケージを提供しました。
+
+#### [[AlmaLinux][almalinux]] AlmaLinux 9 の PostgreSQL 14 をサポート
+
+Almalinux 9のPostgreSQL 14向けのパッケージを提供出来ていなかったため、提供しました。
+
+#### PostgreSQL 18 でソート済みインデックススキャンをサポート
 
 [GH-771](https://github.com/pgroonga/pgroonga/pull/771)
 
-PostgreSQL 18以降で、PGroongaはインデックスアクセスメソッド用フック`amtranslatecmptype`と`amtranslatestrategy`に対応しました。これにより、プランナはPGroongaをソート可能なインデックスとして認識し、`WHERE ... ORDER BY ... LIMIT`のようなクエリで、明示的なSortを伴わない前方/後方のインデックススキャンにPGroongaのインデックスを選択できるようになります。
+PostgreSQL 18以降で、PostgreSQLのプランナはPGroongaをソート可能なインデックスとして認識できるようになりました。
+
+`WHERE ... ORDER BY ... LIMIT`のようなクエリで、PGroongaで絞り込みとソート済みのレコードをPostgreSQLに返すことができます。
+これにより、多くのレコードがマッチするときの応答時間の改善が見込めます。
 
 ```sql
 CREATE TABLE messages (
   id serial,
   content text
 );
+
 CREATE INDEX messages_index ON messages
   USING PGroonga (content, id);
+
 INSERT INTO messages (content)
   SELECT content FROM (SELECT 'a' AS content, generate_series(0, 9999)) AS values;
 INSERT INTO messages (content)
   SELECT content FROM (SELECT 'b' AS content, generate_series(0, 9999)) AS values;
 INSERT INTO messages (content)
   SELECT content FROM (SELECT 'c' AS content, generate_series(0, 9999)) AS values;
+
 EXPLAIN ANALYZE VERBOSE
   SELECT * FROM messages
     WHERE content = 'b'

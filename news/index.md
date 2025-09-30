@@ -23,7 +23,7 @@ We now provided official RPM packages for AlmaLinux 10.
 
 #### [[AlmaLinux][almalinux]] Added support for PostgreSQL 14 with AlmaLinux 9 package
 
-PGroonga packaged for PostgreSQL 14 with AlmaLinux 9 had not been provied.
+Previously, we didn’t provide a PGroonga package for PostgreSQL 14 on AlmaLinux 9. It’s now available.
 So, we now provide it.
 
 #### Added support ordered index scan on PostgreSQL 18

@@ -13,19 +13,19 @@ upper_level: ../
 
 PostgreSQL 18向けのパッケージを提供しました。
 
-#### [[Debian][debian]] Debian GNU/Linux trixie をサポート
+#### [[Debian][debian]] Debian GNU/Linux trixieをサポート
 
 Debian GNU/Linux trixie 向けのパッケージを提供しました。
 
-#### [[AlmaLinux][almalinux]] AlmaLinux 10 をサポート
+#### [[AlmaLinux][almalinux]] AlmaLinux 10をサポート
 
 AlmaLinux 10向けのRPMパッケージを提供しました。
 
-#### [[AlmaLinux][almalinux]] AlmaLinux 9 の PostgreSQL 14 をサポート
+#### [[AlmaLinux][almalinux]] AlmaLinux 9のPostgreSQL 14をサポート
 
 Almalinux 9のPostgreSQL 14向けのパッケージを提供出来ていなかったため、提供しました。
 
-#### PostgreSQL 18 でソート済みインデックススキャンをサポート
+#### PostgreSQL 18でソート済みインデックススキャンをサポート
 
 [GH-771](https://github.com/pgroonga/pgroonga/pull/771)
 

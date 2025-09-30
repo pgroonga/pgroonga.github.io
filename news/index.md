@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 4.0.3: 2025-09-29 {#version-4-0-3}
+## 4.0.3: 2025-09-30 {#version-4-0-3}
 
 ### Improvements
 

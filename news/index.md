@@ -13,9 +13,11 @@ upper_level: ../
 
 PGroonga now works with PostgreSQL 18.
 
-#### Added support for AlmaLinux9 package
+#### [[AlmaLinux][almalinux]] Added support for AlmaLinux 10 package
 
-We now provide official RPM packages for AlmaLinux 9
+We now provide official RPM packages for AlmaLinux 10.
+
+
 #### [[Debian][debian]] Added support for Debian GNU/Linux trixie
 
 We now provide packages for Debian GNU/Linux trixie.

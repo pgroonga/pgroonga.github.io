@@ -30,7 +30,7 @@ So, we now provide it.
 
 [GH-771](https://github.com/pgroonga/pgroonga/pull/771)
 
-On PostgreSQL 18 and later, POstgreSQL's planner can recognize PGroonga as an **ordered index**.
+On PostgreSQL 18 and later, PostgreSQL's planner can recognize PGroonga as an ordered index.
 
 PGroonga can return filtered and sorted records to PostgreSQL for queries like `WHERE ... ORDER BY ... LIMIT`.
 We may improves response time when many rows match by this improvement.

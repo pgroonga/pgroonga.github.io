@@ -16,6 +16,9 @@ PGroonga now works with PostgreSQL 18.
 #### Added support for AlmaLinux9 package
 
 We now provide official RPM packages for AlmaLinux 9
+#### [[Debian][debian]] Added support for Debian GNU/Linux trixie
+
+We now provide packages for Debian GNU/Linux trixie.
 
 #### Improved ordered index scans with extension indexes on PostgreSQL 18
 

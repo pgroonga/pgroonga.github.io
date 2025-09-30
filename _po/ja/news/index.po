@@ -37,7 +37,7 @@ msgstr "PostgreSQL 18向けのパッケージを提供しました。"
 msgid "#### [[Debian][debian]] Added support for Debian GNU/Linux trixie"
 msgstr "#### [[Debian][debian]] Debian GNU/Linux trixieをサポート"
 
-msgid "The packages for Debian GNU/Linux trixie is now available."
+msgid "The package for Debian GNU/Linux trixie is now available."
 msgstr "Debian GNU/Linux trixie 向けのパッケージを提供しました。"
 
 msgid "#### [[AlmaLinux][almalinux]] Added support for AlmaLinux 10 package"

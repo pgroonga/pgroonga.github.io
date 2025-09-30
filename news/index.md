@@ -33,7 +33,7 @@ So, we now provide it.
 On PostgreSQL 18 and later, PostgreSQL's planner can recognize PGroonga as an ordered index.
 
 PGroonga can return filtered and sorted records to PostgreSQL for queries like `WHERE ... ORDER BY ... LIMIT`.
-We may improves response time when many rows match by this improvement.
+This improvement may improve the response time when many rows match.
 
 ```sql
 CREATE TABLE messages (

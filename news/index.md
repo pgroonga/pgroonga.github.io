@@ -17,6 +17,10 @@ PGroonga now works with PostgreSQL 18.
 
 We now provide official RPM packages for AlmaLinux 10.
 
+#### [[AlmaLinux][almalinux]] Added support for PostgreSQL 14 with AlmaLinux 9 package
+
+PGroonga package for PostgreSQL 14 with AlmaLinux 9 had not been provied.
+So, we now provide it.
 
 #### [[Debian][debian]] Added support for Debian GNU/Linux trixie
 

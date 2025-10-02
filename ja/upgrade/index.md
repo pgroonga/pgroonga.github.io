@@ -24,6 +24,7 @@ upper_level: ../
     </tr>
   </thead>
   <tbody>
+    <tr><td>4.0.2</td><td>4.0.4</td><td>&#x2713;</td><td></td></tr>
     <tr><td>4.0.1</td><td>4.0.2</td><td>&#x2713;</td><td></td></tr>
     <tr><td>4.0.0</td><td>4.0.1</td><td>&#x2713;</td><td></td></tr>
     <tr>

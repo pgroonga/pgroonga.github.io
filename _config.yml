@@ -13,12 +13,13 @@ windows_postgresql_versions:
   - 15
   - 16
   - 17
-latest_postgresql_version: 17
+  - 18
+latest_postgresql_version: 18
 # This must be synchronized with PGSQL_DEFAULT in
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/bsd.default-versions.mk
 # .
-freebsd_postgresql_version: 15
-development_postgresql_version: 17.0
+freebsd_postgresql_version: 17
+development_postgresql_version: 18.0
 exclude:
   - "Gemfile"
   - "Gemfile.lock"

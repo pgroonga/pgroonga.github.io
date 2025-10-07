@@ -84,6 +84,8 @@ msgstr "`postgresql-*-pgdg-pgroonga`パッケージをインストールしま�
 msgid ""
 "```console\n"
 "$ sudo apt update\n"
+"$ sudo apt install -y -V postgresql-18-pgdg-pgroonga\n"
+"Or\n"
 "$ sudo apt install -y -V postgresql-17-pgdg-pgroonga\n"
 "Or\n"
 "$ sudo apt install -y -V postgresql-16-pgdg-pgroonga\n"

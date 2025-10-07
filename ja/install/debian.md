@@ -41,6 +41,8 @@ $ (echo "Types: deb"; \
 
 ```console
 $ sudo apt update
+$ sudo apt install -y -V postgresql-18-pgdg-pgroonga
+Or
 $ sudo apt install -y -V postgresql-17-pgdg-pgroonga
 Or
 $ sudo apt install -y -V postgresql-16-pgdg-pgroonga

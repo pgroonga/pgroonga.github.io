@@ -10,13 +10,15 @@ title: Install on AlmaLinux
 
 サポートしているバージョンは次の通りです。
 
+  * [AlmaLinux 10](#install-on-10)
+
   * [AlmaLinux 9](#install-on-9)
 
   * [AlmaLinux 8](#install-on-8)
 
-## AlmaLinux 9にインストールする方法 {#install-on-9}
+## AlmaLinux 10にインストールする方法 {#install-on-10}
 
-AlmaLinux 9にPGroongaをインストールする方法は次の通りです。
+AlmaLinux 10にPGroongaをインストールする方法は次の通りです。
 
 `postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga`パッケージをインストールします。
 
@@ -24,7 +26,7 @@ AlmaLinux 9にPGroongaをインストールする方法は次の通りです。
 $ sudo -H dnf install -y epel-release || sudo -H dnf install -y oracle-epel-release-el$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1) || sudo -H dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1).noarch.rpm
 $ sudo -H dnf config-manager --set-enabled crb || :
 $ sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)-$(arch)/pgdg-redhat-repo-latest.noarch.rpm
-$ sudo dnf install -y https://apache.jfrog.io/artifactory/arrow/almalinux/$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)/apache-arrow-release-latest.rpm
+$ sudo dnf install -y https://packages.apache.org/artifactory/arrow/almalinux/$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)/apache-arrow-release-latest.rpm
 $ sudo -H dnf install -y https://packages.groonga.org/almalinux/$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)/groonga-release-latest.noarch.rpm
 $ sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```
@@ -56,9 +58,9 @@ $ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 
-これで終わりです！
+## AlmaLinux 9にインストールする方法 {#install-on-9}
 
-[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
+AlmaLinux 9のインストール方法は、AlmaLinux 10のインストール方法と同じです。 [AlmaLInux 10](#install-on-10) を参照してください。
 
 ## AlmaLinux 8にインストールする方法 {#install-on-8}
 

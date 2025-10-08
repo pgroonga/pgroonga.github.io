@@ -37,6 +37,8 @@ upper_level: ../
 
   * [AlmaLinux](almalinux.html)
 
+    * 10
+
     * 9
 
     * 8

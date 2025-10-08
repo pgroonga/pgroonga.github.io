@@ -25,6 +25,8 @@ See a document for your platform in the followings:
 
   * [Debian GNU/Linux](debian.html)
 
+    * trixie
+
     * bookworm
 
   * [Ubuntu](ubuntu.html)

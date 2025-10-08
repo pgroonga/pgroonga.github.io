@@ -25,6 +25,8 @@ upper_level: ../
 
   * [Debian GNU/Linux](debian.html)
 
+    * trixie
+
     * bookworm
 
   * [Ubuntu](ubuntu.html)

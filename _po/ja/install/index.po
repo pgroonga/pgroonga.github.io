@@ -62,6 +62,9 @@ msgstr ""
 msgid "  * [Debian GNU/Linux](debian.html)"
 msgstr ""
 
+msgid "    * trixie"
+msgstr ""
+
 msgid "    * bookworm"
 msgstr ""
 

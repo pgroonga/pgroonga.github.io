@@ -10,11 +10,12 @@ title: Debian GNU/Linuxにインストール
 
 サポートしているDebian GNU/Linuxのバージョンは次の通りです。
 
+  * [trixie](#install-on-trixie)
   * [bookworm](#install-on-bookworm)
 
-## Debian GNU/Linux bookwormにインストールする方法 {#install-on-bookworm}
+## Debian GNU/Linux trixieにインストールする方法 {#install-on-trixie}
 
-Debian GNU/Linux bookwormにPGroongaをインストールする方法は次の通りです。
+Debian GNU/Linux trixieにPGroongaをインストールする方法は次の通りです。
 
 `groonga-apt-source`パッケージをインストールします。
 
@@ -73,6 +74,10 @@ $ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```console
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
+
+## Debian GNU/Linux bookwormにインストールする方法 {#install-on-bookworm}
+
+bookworm のインストール方法は、trixie のインストール方法と同じです。 [trixie](#install-on-trixie) を参照してください。
 
 これで終わりです！
 

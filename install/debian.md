@@ -10,11 +10,12 @@ This document describes how to install PGroonga on Debian GNU/Linux.
 
 Here are supported Debian GNU/Linux versions:
 
+  * [trixie](#install-on-trixie)
   * [bookworm](#install-on-bookworm)
 
-## How to install on Debian GNU/Linux bookworm {#install-on-bookworm}
+## How to install on Debian GNU/Linux trixie {#install-on-trixie}
 
-You can use the following instruction to install PGroonga on Debian GNU/Linux bookworm.
+You can use the following instruction to install PGroonga on Debian GNU/Linux trixie.
 
 Install `groonga-apt-source` package:
 
@@ -73,6 +74,10 @@ Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 ```console
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
+
+## How to install on Debian GNU/Linux bookworm {#install-on-bookworm}
+
+On bookworm, follow the same installation procedure as trixie. See/Please refer [trixie](#install-on-trixie).
 
 That's all!
 

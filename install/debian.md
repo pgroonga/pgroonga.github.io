@@ -77,7 +77,7 @@ $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga
 
 ## How to install on Debian GNU/Linux bookworm {#install-on-bookworm}
 
-On bookworm, follow the same installation procedure as trixie. See/Please refer [trixie](#install-on-trixie).
+On bookworm, follow the same installation procedure as trixie. Please refer to [trixie](#install-on-trixie).
 
 That's all!
 

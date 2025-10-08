@@ -149,11 +149,11 @@ CREATE INDEX pgroonga_tag_index
 
 他のトークナイザーについては[トークナイザー][groonga-tokenizers]を参照してください。
 
-#### Partial match in alphabetic languages {#partial-match-alphabetic-languages}
+#### アルファベットでの部分一致 {#partial-match-alphabetic-languages}
 
-If you plan to perform partial matching searches for keywords in alphabetic languages, it is recommended to configure your tokenizer to `TokenNgram` with extra options. The default tokenizer in `PGroonga` is `TokenBigram`, which means that if you search for the keyword 'pp', for instance, it won't match 'Apple', 'Pineapple', or 'Ripple' in your data. To avoid this issue, it is strongly advised to set up your tokenizer as following `TokenNgram` example.
+キーワードがアルファベットの場合もキーワードの一部で検索をしたいときは、トークナイザーに`TokenNgram`を設定しオプションでトークナイザーの挙動を指定します。PGroongaのデフォルトのトークナイザーは`TokenBigram`なので、'pp'というキーワードは'Apple'、'Pineapple'、'Ripple'などのキーワードにはマッチしません。次の例のように`TokenNgram`にオプションを指定することでこの問題が回避できます。
 
-Here is an example to use `TokenNgram` based tokenizer. You need to specify `tokenizer='TokenNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail.
+TokenNgramベースのトークナイザーを使用する例は次の通りです。`tokenizer='TokenNgram'`を指定します。詳しくは[`TokenNgram`][groonga-token-ngram]を参照してください。
 
 ```sql
 CREATE TABLE memos (
@@ -167,10 +167,10 @@ CREATE INDEX pgroonga_content_index
         WITH(tokenizer='TokenNgram("unify_alphabet", false, "unify_symbol", false, "unify_digit", false)');
 ```
 
-You may also use `TokenBigramBigramSplitSymbolAlphaDigit` for partial match instead of `TokenNgram` above. **(Using `TokenNgram(...)` is recommended)**.
+この例で使用したオプションを指定すると`TokenBigramSplitSymbolAlphaDigit`と同じ挙動になりますが、**`TokenNgram(...)`の使用をおすすめします。**
 
-**Remarks**
-We however do not recommend using `TokenNgram("unify_...)`. It is advisable to use `TokenNgram/TokenBigram` instead, as partial matches in alphabetical languages tend to introduce a lot of noise. `TokenNgram("unify_...)` should only be utilized when it is truly necessary.
+**注意**
+`TokenNgram("unify_...)`を使用することでアルファベットの場合もキーワードの一部で検索できるようになりますが、アルファベットでの部分一致は多くのノイズを含む傾向があるため、本当に必要なときのみご利用ください。代わりに`TokenNgram`（オプションの指定なし）や`TokenBigram`の使用をおすすめします。
 
 #### ノーマライザーのカスタマイズ方法 {#custom-normalizer}
 

@@ -37,6 +37,8 @@ See a document for your platform in the followings:
 
   * [AlmaLinux](almalinux.html)
 
+    * 10
+
     * 9
 
     * 8

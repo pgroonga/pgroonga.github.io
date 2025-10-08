@@ -80,6 +80,9 @@ msgstr ""
 msgid "  * [AlmaLinux](almalinux.html)"
 msgstr ""
 
+msgid "    * 10"
+msgstr ""
+
 msgid "    * 9"
 msgstr ""
 

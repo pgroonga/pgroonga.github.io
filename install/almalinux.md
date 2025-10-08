@@ -58,6 +58,10 @@ Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 
+That's all!
+
+Try [tutorial](../tutorial/). You can understand more about PGroonga.
+
 ## How to install on AlmaLinux 9 {#install-on-9}
 
 On AlmaLinux 9, follow the same installation procedure as AlmaLinux 10. Please refer to [AlmaLinux 10](#install-on-10).

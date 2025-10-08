@@ -58,6 +58,10 @@ $ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
 
+これで終わりです！
+
+[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解できるはずです。
+
 ## AlmaLinux 9にインストールする方法 {#install-on-9}
 
 AlmaLinux 9のインストール方法は、AlmaLinux 10のインストール方法と同じです。 [AlmaLInux 10](#install-on-10) を参照してください。

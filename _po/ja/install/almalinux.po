@@ -125,6 +125,14 @@ msgid ""
 "```"
 msgstr ""
 
+msgid "That's all!"
+msgstr "これで終わりです！"
+
+msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
+msgstr ""
+"[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解で"
+"きるはずです。"
+
 msgid "## How to install on AlmaLinux 9 {#install-on-9}"
 msgstr "## AlmaLinux 9にインストールする方法 {#install-on-9}"
 
@@ -159,11 +167,3 @@ msgid ""
 "pgroonga\n"
 "```"
 msgstr ""
-
-msgid "That's all!"
-msgstr "これで終わりです！"
-
-msgid "Try [tutorial](../tutorial/). You can understand more about PGroonga."
-msgstr ""
-"[チュートリアル](../tutorial/)を試してください。PGroongaについてもっと理解で"
-"きるはずです。"

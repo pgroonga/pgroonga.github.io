@@ -82,6 +82,12 @@ PGroonga was chosen for its robust, out-of-the-box full-text search capabilities
 
 PGroonga also scales efficiently and maintains high performance even with complex queries on huge data sets, making it an ideal choice for a feature-rich application like Kelteu.
 
+## IvorySQL {#ivorysql}
+
+[IvorySQL](https://www.ivorysql.org/) is an advanced open-source, Oracle-compatible PostgreSQL branch database. We chose to integrate PGroonga to provide our users with a high-performance, multilingual full-text search solution. As IvorySQL's user base is global, and many applications need to process East Asian languages, PGroonga's "out-of-the-box" functionality and excellent support for all languages made it the best choice for us.
+
+The integration of PGroonga with IvorySQL was very smooth. Its exceptional search speed and high scalability allow us to deliver an experience for our users that rivals proprietary search engines, without the need for additional complex architecture. Users simply need to create a PGroonga index within IvorySQL to enjoy fast full-text search through simple SQL queries, significantly lowering the barrier to development and operational costs.
+
 ## (Send us your service name)
 
 (Send us your service description, how do you use PGroonga and why did you choose PGroonga.)

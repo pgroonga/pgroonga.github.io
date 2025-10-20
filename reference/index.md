@@ -543,6 +543,10 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_is_writable` function][is-writable]
 
+  * [`pgroonga_language_model_vectorize` function][language-model-vectorize]
+
+    * Since 4.0.5.
+
   * [`pgroonga_list_broken_indexes` function][list-broken-indexes]
 
   * [`pgroonga_list_lagged_indexes` function][list-lagged-indexes]
@@ -766,6 +770,7 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [highlight-html]:functions/pgroonga-highlight-html.html
 [index-column-name]:functions/pgroonga-index-column-name.html
 [is-writable]:functions/pgroonga-is-writable.html
+[language-model-vectorize]:functions/pgroonga-language-model-vectorize.html
 [list-broken-indexes]:functions/pgroonga-list-broken-indexes.html
 [list-lagged-indexes]:functions/pgroonga-list-lagged-indexes.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html

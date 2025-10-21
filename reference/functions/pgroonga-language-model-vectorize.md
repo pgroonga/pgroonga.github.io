@@ -7,6 +7,8 @@ upper_level: ../
 
 Since 4.0.5.
 
+This is still an experimental feature.
+
 ## Summary
 
 `pgroonga_language_model_vectorize` function returns a normalized embedding from the given text.

@@ -33,6 +33,9 @@ msgstr "# `pgroonga_language_model_vectorize` 関数"
 msgid "Since 4.0.5."
 msgstr "4.0.5で追加"
 
+msgid "This is still an experimental feature."
+msgstr "まだ実験的な機能です。"
+
 msgid "## Summary"
 msgstr "## 概要"
 

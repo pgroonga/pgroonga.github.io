@@ -7,6 +7,8 @@ upper_level: ../
 
 4.0.5で追加
 
+まだ実験的な機能です。
+
 ## 概要
 
 `pgroonga_language_model_vectorize`関数は指定されたテキストの正規化されたエンべディングを返します。

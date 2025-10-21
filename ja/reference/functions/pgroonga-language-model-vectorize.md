@@ -33,7 +33,7 @@ float4[] pgroonga_language_model_vectorize(model_name, target)
 
 ## 使い方
 
-Hugging FaceのURI（`hf:///groonga/bge-m3-Q4_K_M-GGUF`）を指定して、エンベディングを生成する例です。
+Hugging FaceのURI（`hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF`）を指定して、エンベディングを生成する例です。
 
 ```sql
 CREATE TABLE memos (
@@ -44,14 +44,14 @@ INSERT INTO memos VALUES ('I am a king.');
 INSERT INTO memos VALUES ('I am a queen.');
 
 SELECT (pgroonga_language_model_vectorize(
-  'hf:///groonga/bge-m3-Q4_K_M-GGUF',
+  'hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF',
   content))[1:3]
 FROM memos;
 
---    pgroonga_language_model_vectorize   
--- ---------------------------------------
---  {0.008148969,0.009139845,-0.01644061}
---  {0.0088241,0.00544599,-0.044706207}
+--    pgroonga_language_model_vectorize    
+-- ----------------------------------------
+--  {-0.027845971,0.04939433,-0.006889274}
+--  {0.088152654,-0.027521685,0.051739622}
 -- (2 rows)
 ```
 

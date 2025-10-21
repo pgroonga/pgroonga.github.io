@@ -19,7 +19,7 @@ Here is the syntax of this function:
 float4[] pgroonga_language_model_vectorize(model_name, target)
 ```
 
-`model_name` is the name of language mode to be used. It's `text` type.
+`model_name` is the name of language model to be used. It's `text` type.
 
 You can specify a Hugging Face URI for `model_name`.
 It's recommended to use a Hugging Face URI, as it automatically downloads and sets up the model.

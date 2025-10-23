@@ -545,6 +545,10 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_is_writable`関数][is-writable]
 
+  * [`pgroonga_language_model_vectorize` function][language-model-vectorize]
+
+    * Since 4.0.5.
+
   * [`pgroonga_list_broken_indexes` 関数][list-broken-indexes]
 
   * [`pgroonga_list_lagged_indexes` 関数][list-lagged-indexes]
@@ -768,6 +772,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [highlight-html]:functions/pgroonga-highlight-html.html
 [index-column-name]:functions/pgroonga-index-column-name.html
 [is-writable]:functions/pgroonga-is-writable.html
+[language-model-vectorize]:functions/pgroonga-language-model-vectorize.html
 [list-broken-indexes]:functions/pgroonga-list-broken-indexes.html
 [list-lagged-indexes]:functions/pgroonga-list-lagged-indexes.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html

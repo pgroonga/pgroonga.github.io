@@ -67,7 +67,7 @@ You can customize the followings by `WITH` option of `CREATE INDEX`:
 
     * Since 4.0.5.
 
-  * Number of GPU layers: It's the number of GPU layers utilized by the language model. Use with `plugins = 'language_model/knn'`.
+  * Number of GPU layers: It's the number of GPU layers used when generating embeddings. Use with `plugins = 'language_model/knn'`.
 
     * Since 4.0.5.
 

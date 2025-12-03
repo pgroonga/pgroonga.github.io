@@ -67,7 +67,7 @@ CREATE INDEX ${INDEX_NAME}
 
     * 4.0.5で追加。
 
-  * GPUレイヤー数: GPUの言語モデルが利用するGPUレイヤー数です。`plugins = 'language_model/knn'`と一緒に使います。
+  * GPUレイヤー数: エンベディングを生成するときに利用するGPUレイヤー数です。`plugins = 'language_model/knn'`と一緒に使います。
 
     * 4.0.5で追加。
 

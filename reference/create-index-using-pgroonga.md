@@ -660,7 +660,7 @@ The following options must be specified when creating the index.
 
 * `passage_prefix = '${PASSAGE_PREFIX}'`
 
-  * Specify according to the language model.
+  * Specify this according to the language model.
 
 * `query_prefix = '${QUERY_PREFIX}'`
 

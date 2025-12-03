@@ -545,7 +545,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_is_writable`関数][is-writable]
 
-  * [`pgroonga_language_model_vectorize` function][language-model-vectorize]
+  * [`pgroonga_language_model_vectorize`関数][language-model-vectorize]
 
     * Since 4.0.5.
 

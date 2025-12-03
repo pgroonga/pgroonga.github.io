@@ -138,6 +138,37 @@ msgid "  * Query syntax: It's the syntax used by [`$@~` operator][query-v2]."
 msgstr "  * クエリー構文：[`$@~`演算子][query-v2]が使っている構文です。"
 
 msgid ""
+"  * Language model: It's the language model used when generating embeddings. "
+"Use with `plugins = 'language_model/knn'`."
+msgstr ""
+"  * 言語モデル: エンベディングの生成に使う言語モデルです。`plugins = "
+"'language_model/knn'`と一緒に使います。"
+
+msgid "    * Since 4.0.5."
+msgstr "    * 4.0.5で追加。"
+
+msgid ""
+"  * Passage prefix: It's a prefix attached to the search target text. Use "
+"with `plugins = 'language_model/knn'`."
+msgstr ""
+"  * Passageプレフィックス: 検索対象のテキストに付与するプレフィックスです。"
+"`plugins = 'language_model/knn'`と一緒に使います。"
+
+msgid ""
+"  * Query prefix: It's a prefix attached to the query text. Use with "
+"`plugins = 'language_model/knn'`."
+msgstr ""
+"  * Queryプレフィックス: クエリーのテキストに付与するプレフィックスです。"
+"`plugins = 'language_model/knn'`と一緒に使います。"
+
+msgid ""
+"  * Number of GPU layers: It's the number of GPU layers utilized by the "
+"language model. Use with `plugins = 'language_model/knn'`."
+msgstr ""
+"  * GPUレイヤー数: GPUの言語モデルが利用するGPUレイヤー数です。`plugins = "
+"'language_model/knn'`と一緒に使います。"
+
+msgid ""
 "Normally, you don't need to customize them because the default values of "
 "them are suitable for most cases. Features to customize them are for "
 "advanced users."
@@ -1155,6 +1186,57 @@ msgid ""
 "              }');\n"
 "```"
 msgstr ""
+
+msgid "#### How to use semantic search {#semantic-search}"
+msgstr "#### セマンティックサーチを使う方法 {#semantic-search}"
+
+msgid "Since 4.0.5."
+msgstr "4.0.5で追加。"
+
+msgid "The following options must be specified when creating the index."
+msgstr ""
+"インデックスを作成する際には、以下のオプションを指定する必要があります。"
+
+msgid "* `pgroonga_text_semantic_search_ops_v2` operator class"
+msgstr "* `pgroonga_text_semantic_search_ops_v2`演算子クラス。"
+
+msgid "* `plugins = 'language_model/knn'`"
+msgstr ""
+
+msgid "* `model = '${HUGGING_FACE_URI}'`"
+msgstr ""
+
+msgid "  * Specify Hugging Face URI for the language model to use."
+msgstr "  * 利用したい言語モデルのHugging FaceのURIを指定します。"
+
+msgid "* `passage_prefix = '${PASSAGE_PREFIX}'`"
+msgstr ""
+
+msgid "  * Specify according to the language model."
+msgstr "  * 言語モデルの仕様に応じて指定してください。"
+
+msgid "* `query_prefix = '${QUERY_PREFIX}'`"
+msgstr ""
+
+msgid "* `n_gpu_layers = ${n_gpu_layers}`"
+msgstr ""
+
+msgid "  * Usually, no specification is required."
+msgstr "  * 通常は指定する必要はありません。"
+
+msgid "Here is an example of creating an index with minimal options:"
+msgstr "最小限のオプションでインデックスを作成する例は次のとおりです:"
+
+msgid ""
+"CREATE INDEX pgrn_index ON memos\n"
+" USING pgroonga (id, content pgroonga_text_semantic_search_ops_v2)\n"
+" WITH (plugins = 'language_model/knn',\n"
+"       model = 'hf:///groonga/multilingual-e5-base-Q4_K_M-GGUF');\n"
+"```"
+msgstr ""
+
+msgid "You can perform semantic searches using `&@*` operator."
+msgstr "`&@*`演算子を使ってセマンティックサーチができます。"
 
 msgid "[query-v2]:operators/query-v2.html"
 msgstr ""

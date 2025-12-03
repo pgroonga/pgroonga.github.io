@@ -55,6 +55,22 @@ You can customize the followings by `WITH` option of `CREATE INDEX`:
 
   * Query syntax: It's the syntax used by [`$@~` operator][query-v2].
 
+  * Language model: It's the language model used when generating embeddings. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
+
+  * Passage prefix: It's a prefix attached to the search target text. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
+
+  * Query prefix: It's a prefix attached to the query text. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
+
+  * Number of GPU layers: It's the number of GPU layers utilized by the language model. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
+
 Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to customize them are for advanced users.
 
 Plugin and token filter aren't used by default.
@@ -627,6 +643,48 @@ CREATE INDEX pgroonga_content_index
                 "content": ["LARGE"]
               }');
 ```
+
+#### How to use semantic search {#semantic-search}
+
+Since 4.0.5.
+
+The following options must be specified when creating the index.
+
+* `pgroonga_text_semantic_search_ops_v2` operator class
+
+* `plugins = 'language_model/knn'`
+
+* `model = '${HUGGING_FACE_URI}'`
+
+  * Specify Hugging Face URI for the language model to use.
+
+* `passage_prefix = '${PASSAGE_PREFIX}'`
+
+  * Specify according to the language model.
+
+* `query_prefix = '${QUERY_PREFIX}'`
+
+  * Specify according to the language model.
+
+* `n_gpu_layers = ${n_gpu_layers}`
+
+  * Usually, no specification is required.
+
+Here is an example of creating an index with minimal options:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgrn_index ON memos
+ USING pgroonga (id, content pgroonga_text_semantic_search_ops_v2)
+ WITH (plugins = 'language_model/knn',
+       model = 'hf:///groonga/multilingual-e5-base-Q4_K_M-GGUF');
+```
+
+You can perform semantic searches using `&@*` operator.
 
 [query-v2]:operators/query-v2.html
 

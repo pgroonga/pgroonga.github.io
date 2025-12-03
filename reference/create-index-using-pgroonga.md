@@ -668,7 +668,7 @@ The following options must be specified when creating the index.
 
 * `n_gpu_layers = ${n_gpu_layers}`
 
-  * Usually, no specification is required.
+  * This option usually does not need to be set, but you can use it when you want to control the number of GPU layers.
 
 Here is an example of creating an index with minimal options:
 

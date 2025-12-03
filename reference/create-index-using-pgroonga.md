@@ -664,7 +664,7 @@ The following options must be specified when creating the index.
 
 * `query_prefix = '${QUERY_PREFIX}'`
 
-  * Specify according to the language model.
+  * Specify this according to the language model.
 
 * `n_gpu_layers = ${n_gpu_layers}`
 

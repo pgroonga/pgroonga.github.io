@@ -669,7 +669,7 @@ CREATE INDEX pgroonga_content_index
 
 * `n_gpu_layers = ${n_gpu_layers}`
 
-  * 通常は指定する必要はありません。
+  * 通常は指定する必要はありません。GPUレイヤーの数を指定したい場合に使用できます。
 
 最小限のオプションでインデックスを作成する例は次のとおりです:
 

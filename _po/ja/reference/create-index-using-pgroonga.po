@@ -1212,7 +1212,7 @@ msgstr "  * 利用したい言語モデルのHugging FaceのURIを指定しま�
 msgid "* `passage_prefix = '${PASSAGE_PREFIX}'`"
 msgstr ""
 
-msgid "  * Specify according to the language model."
+msgid "  * Specify this according to the language model."
 msgstr "  * 言語モデルの仕様に応じて指定してください。"
 
 msgid "* `query_prefix = '${QUERY_PREFIX}'`"
@@ -1221,8 +1221,12 @@ msgstr ""
 msgid "* `n_gpu_layers = ${n_gpu_layers}`"
 msgstr ""
 
-msgid "  * Usually, no specification is required."
-msgstr "  * 通常は指定する必要はありません。"
+msgid ""
+"  * This option usually does not need to be set, but you can use it when you "
+"want to control the number of GPU layers."
+msgstr ""
+"  * 通常は指定する必要はありません。GPUレイヤーの数を指定したい場合に使用でき"
+"ます。"
 
 msgid "Here is an example of creating an index with minimal options:"
 msgstr "最小限のオプションでインデックスを作成する例は次のとおりです:"

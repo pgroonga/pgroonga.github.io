@@ -327,6 +327,24 @@ msgid ""
 msgstr ""
 "  * [`&~|`演算子][regular-expression-in-v2]：正規表現の配列を使った検索"
 
+msgid ""
+"#### `pgroonga_text_semantic_search_ops_v2` operator class {#text-semantic-"
+"search-ops-v2}"
+msgstr ""
+"#### `pgroonga_text_semantic_search_ops_v2`演算子クラス {#text-semantic-"
+"search-ops-v2}"
+
+msgid "  * [`&@*` operator][semantic-search-v2]: Semantic search"
+msgstr "  * [`&@*`演算子][semantic-search-v2]: セマンティックサーチ"
+
+msgid "    * Since 4.0.5."
+msgstr "    * 4.0.5で追加。"
+
+msgid ""
+"  * [`<&@*>` operator][semantic-distance-v2]: Calculates the semantic "
+"distance"
+msgstr "  * [`<&@*>`演算子][semantic-distance-v2]: テキスト間の距離を計算"
+
 msgid "### For `text[]`"
 msgstr "### `text[]`用"
 
@@ -1036,7 +1054,9 @@ msgid ""
 "[script-jsonb-v2]:operators/script-jsonb-v2.html\n"
 "[script-jsonb]:operators/script-jsonb.html\n"
 "[script-v2]:operators/script-v2.html\n"
-"[similar-search-v2]:operators/similar-search-v2.html"
+"[similar-search-v2]:operators/similar-search-v2.html\n"
+"[semantic-search-v2]:operators/semantic-search-v2.html\n"
+"[semantic-distance-v2]:operators/semantic-distance-v2.html"
 msgstr ""
 
 msgid "[upgrade-incompatible]:../upgrade/#incompatible-case"

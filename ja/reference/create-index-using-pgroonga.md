@@ -55,6 +55,22 @@ CREATE INDEX ${INDEX_NAME}
 
   * クエリー構文：[`$@~`演算子][query-v2]が使っている構文です。
 
+  * 言語モデル: エンベディングの生成に使う言語モデルです。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
+
+  * Passageプレフィックス: 検索対象のテキストに付与するプレフィックスです。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
+
+  * Queryプレフィックス: クエリーのテキストに付与するプレフィックスです。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
+
+  * GPUレイヤー数: エンベディングを生成するときに利用するGPUレイヤー数です。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
+
 通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユーザー向けの機能です。
 
 デフォルトではプラグインとトークンフィルターは使われていません。
@@ -628,6 +644,48 @@ CREATE INDEX pgroonga_content_index
                 "content": ["LARGE"]
               }');
 ```
+
+#### セマンティックサーチを使う方法 {#semantic-search}
+
+4.0.5で追加。
+
+インデックスを作成する際には、以下のオプションを指定する必要があります。
+
+* `pgroonga_text_semantic_search_ops_v2`演算子クラス。
+
+* `plugins = 'language_model/knn'`
+
+* `model = '${HUGGING_FACE_URI}'`
+
+  * 利用したい言語モデルのHugging FaceのURIを指定します。
+
+* `passage_prefix = '${PASSAGE_PREFIX}'`
+
+  * 言語モデルの仕様に応じて指定してください。
+
+* `query_prefix = '${QUERY_PREFIX}'`
+
+  * 言語モデルの仕様に応じて指定してください。
+
+* `n_gpu_layers = ${n_gpu_layers}`
+
+  * 通常は指定する必要はありません。GPUレイヤーの数を指定したい場合に使用できます。
+
+最小限のオプションでインデックスを作成する例は次のとおりです:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgrn_index ON memos
+ USING pgroonga (id, content pgroonga_text_semantic_search_ops_v2)
+ WITH (plugins = 'language_model/knn',
+       model = 'hf:///groonga/multilingual-e5-base-Q4_K_M-GGUF');
+```
+
+`&@*`演算子を使ってセマンティックサーチができます。
 
 [query-v2]:operators/query-v2.html
 

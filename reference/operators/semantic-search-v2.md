@@ -54,8 +54,8 @@ For details on creating an index, see [`CREATE INDEX USING pgroonga`][create-ind
 ```sql
 CREATE INDEX pgroonga_index ON memos
  USING pgroonga (content pgroonga_text_semantic_search_ops_v2)
- WITH (plugins = 'language_model/knn',
-       model = 'hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF');
+  WITH (plugins = 'language_model/knn',
+        model = 'hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF');
 ```
 
 You can use `&@*` operator to perform semantic searches using a specified query.

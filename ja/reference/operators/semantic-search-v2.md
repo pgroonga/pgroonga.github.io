@@ -53,8 +53,8 @@ INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groon
 ```sql
 CREATE INDEX pgroonga_index ON memos
  USING pgroonga (content pgroonga_text_semantic_search_ops_v2)
- WITH (plugins = 'language_model/knn',
-       model = 'hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF');
+  WITH (plugins = 'language_model/knn',
+        model = 'hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF');
 ```
 
 `&@*`演算子を使うと指定したクエリを使ってセマンティックサーチができます。

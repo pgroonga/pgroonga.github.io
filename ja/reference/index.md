@@ -149,6 +149,18 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
     * 2.2.1で追加。
 
+#### `pgroonga_text_semantic_search_ops_v2`演算子クラス {#text-semantic-search-ops-v2}
+
+4.0.5で追加。
+
+  * [`&@*`演算子][semantic-search-v2]: セマンティックサーチ
+
+    * 4.0.5で追加。
+
+  * [`<&@*>`演算子][semantic-distance-v2]: テキスト間の距離を計算
+
+    * 4.0.5で追加。
+
 ### `text[]`用
 
 #### `pgroonga_text_array_full_text_search_ops_v2`演算子クラス（デフォルト） {#text-array-full-text-search-ops-v2}
@@ -547,7 +559,7 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 
   * [`pgroonga_language_model_vectorize`関数][language-model-vectorize]
 
-    * Since 4.0.5.
+    * 4.0.5で追加。
 
   * [`pgroonga_list_broken_indexes` 関数][list-broken-indexes]
 
@@ -760,6 +772,8 @@ PGroongaは`pgroonga`スキーマに関数・演算子・演算子クラスな�
 [script-jsonb]:operators/script-jsonb.html
 [script-v2]:operators/script-v2.html
 [similar-search-v2]:operators/similar-search-v2.html
+[semantic-search-v2]:operators/semantic-search-v2.html
+[semantic-distance-v2]:operators/semantic-distance-v2.html
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
 

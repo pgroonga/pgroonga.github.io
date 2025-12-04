@@ -23,7 +23,7 @@ column &@* pgroonga_condition(query)
 
 `column` is a column to be searched. It's `text` type.
 
-`query` is a query for semantic search. It's text type.
+`query` is a query for semantic search. It's `text` type.
 
 Use [`pgroonga_condition` function][condition].
 
@@ -58,7 +58,7 @@ CREATE INDEX pgroonga_index ON memos
        model = 'hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF');
 ```
 
-You can use `&@*` operator to perform semantic searches using specified a query.
+You can use `&@*` operator to perform semantic searches using a specified query.
 
 ```sql
 SELECT id, content

@@ -5,6 +5,34 @@ upper_level: ../
 
 # おしらせ
 
+## 4.0.5: 2025-12-08 {#version-4-0-5}
+
+### 改良
+
+#### セマンティックサーチをサポート
+
+セマンティック検索が利用可能になりました。
+
+まだ実験的な機能です。
+
+インデックスの作成方法と検索方法については、以下のドキュメントをご覧ください。
+
+* [インデックスの作成方法。][create-index-using-pgroonga-semantic-search]
+
+* 検索方法: [`&@*`][semantic-search-v2]演算子や[`<&@*>`][semantic-distance-v2]演算子を使います。
+
+#### [`pgroonga_language_model_vectorize()`][language-model-vectorize]関数を追加
+
+まだ実験的な機能です。
+
+この関数は指定されたテキストの正規化されたエンべディングを返します。
+
+### 感謝
+
+* OreoYang
+
+  * 開発中のカスタムスキャンにて、スナップショットの使い方を修正していただきました。 [GH-898](https://github.com/pgroonga/pgroonga/pull/898)
+
 ## 4.0.4: 2025-10-02 {#version-4-0-4}
 
 ### 改良
@@ -2405,6 +2433,7 @@ The first release!!!
 [create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
 [create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer
 [create-index-using-pgroonga-custom-index-flags]:../reference/create-index-using-pgroonga.html#custom-index-flags
+[create-index-using-pgroonga-semantic-search]:../reference/create-index-using-pgroonga.html#semantic-search
 
 [text-regexp-ops]:../reference/#text-regexp-ops
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops
@@ -2444,6 +2473,8 @@ The first release!!!
 [script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
 [script-v2]:../reference/operators/script-v2.html
 [similar-search-v2]:../reference/operators/similar-search-v2.html
+[semantic-search-v2]:../reference/operators/semantic-search-v2.html
+[semantic-distance-v2]:../reference/operators/semantic-distance-v2.html
 
 [command]:../reference/functions/pgroonga-command.html
 [database-remove]:../reference/functions/pgroonga-database-remove.html
@@ -2451,6 +2482,7 @@ The first release!!!
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [index-column-name]:../reference/functions/pgroonga-index-column-name.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
+[language-model-vectorize]:../reference/functions/pgroonga-language-model-vectorize.html
 [list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
 [list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
 [primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html

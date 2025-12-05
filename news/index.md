@@ -5,6 +5,34 @@ upper_level: ../
 
 # News
 
+## 4.0.5: 2025-12-08 {#version-4-0-5}
+
+### Improvements
+
+#### Added support for semantic search
+
+Semantic search is now available.
+
+This is still an experimental feature.
+
+For information on how to create an index and how to search, please refer to the following documentation.
+
+* [How to create an index.][create-index-using-pgroonga-semantic-search]
+
+* How to search: Use the [`&@*`][semantic-search-v2] operator or [`<&@*>`][semantic-distance-v2] operator.
+
+#### Added a new function [`pgroonga_language_model_vectorize()`][language-model-vectorize]
+
+This is still an experimental feature.
+
+This function returns the normalized embedding of the specified text.
+
+### Thanks
+
+* OreoYang
+
+  * Fixed the usage of snapshots in the custom scan currently under development. [GH-898](https://github.com/pgroonga/pgroonga/pull/898)
+
 ## 4.0.4: 2025-10-02 {#version-4-0-4}
 
 ### Improvements
@@ -2406,6 +2434,7 @@ The first release!!!
 [create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
 [create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer
 [create-index-using-pgroonga-custom-index-flags]:../reference/create-index-using-pgroonga.html#custom-index-flags
+[create-index-using-pgroonga-semantic-search]:../reference/create-index-using-pgroonga.html#semantic-search
 
 [text-regexp-ops]:../reference/#text-regexp-ops
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops
@@ -2445,6 +2474,8 @@ The first release!!!
 [script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
 [script-v2]:../reference/operators/script-v2.html
 [similar-search-v2]:../reference/operators/similar-search-v2.html
+[semantic-search-v2]:../reference/operators/semantic-search-v2.html
+[semantic-distance-v2]:../reference/operators/semantic-distance-v2.html
 
 [command]:../reference/functions/pgroonga-command.html
 [database-remove]:../reference/functions/pgroonga-database-remove.html
@@ -2452,6 +2483,7 @@ The first release!!!
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [index-column-name]:../reference/functions/pgroonga-index-column-name.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
+[language-model-vectorize]:../reference/functions/pgroonga-language-model-vectorize.html
 [list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
 [list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
 [primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html

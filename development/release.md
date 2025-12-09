@@ -58,10 +58,10 @@ $ ./setup-release.sh
 ## Execute `release` task
 
 ```console
-$ rake release NEW_RELEASE_DATE=$(date +%Y-%m-%d)
+$ rake release
 ```
 
-`NEW_RELEASE_DATE` is the release date.
+If you want to set a different day as the release date, specify the release date in `NEW_RELEASE_DATE`.
 
 ### About `release` task
 
@@ -89,23 +89,17 @@ We confirm below CIs green or not.
 
 We use CI to do automatic releases, so if it fails, we retry.
 
-## Create packages for the release
+## Check the release package
 
 ### Ubuntu
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-* Upload to the `ppa` repository
+Check the build result:
 
-  ```console
-  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
-  ```
-
-* Check the build result
-
-  When upload packages succeeded, a package build process is executed on launchpad.net.
-  Then the build result is notified via E-mail if the build fails.
-  We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
+When CI successfully uploads a package, a package build process is executed on launchpad.net.
+Then the build result is notified via E-mail if the build fails.
+We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ## Describe the changes
 

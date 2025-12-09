@@ -58,10 +58,10 @@ $ ./setup-release.sh
 ## リリースタスクを実行
 
 ```console
-$ rake release NEW_RELEASE_DATE=$(date +%Y-%m-%d)
+$ rake release
 ```
 
-`NEW_RELEASE_DATE`はリリース日です。
+リリース日を別の日に設定したい場合は、`NEW_RELEASE_DATE`でリリース日を指定します。
 
 ### `release`タスクについて
 
@@ -89,21 +89,15 @@ $ rake release NEW_RELEASE_DATE=$(date +%Y-%m-%d)
 
 CIで自動リリースを行っているので、失敗していたらリトライします。（何度リトライしても問題ないように設定されています。）
 
-## リリース用パッケージを作成
+## リリース用パッケージの確認
 
 ### Ubuntu
 
 Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
-* `ppa` リポジトリーにアップロード
+ビルド結果の確認:
 
-  ```console
-  $ rake package:ubuntu LAUNCHPAD_UPLOADER_PGP_KEY=xxxxxxx
-  ```
-
-* ビルド結果の確認
-
-  パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
+CIにてパッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
 
 ## 変更点を記述
 

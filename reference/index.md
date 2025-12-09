@@ -149,6 +149,18 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
 
     * Since 2.2.1.
 
+#### `pgroonga_text_semantic_search_ops_v2` operator class {#text-semantic-search-ops-v2}
+
+Since 4.0.5.
+
+  * [`&@*` operator][semantic-search-v2]: Semantic search
+
+    * Since 4.0.5.
+
+  * [`<&@*>` operator][semantic-distance-v2]: Calculates the semantic distance
+
+    * Since 4.0.5.
+
 ### For `text[]`
 
 #### `pgroonga_text_array_full_text_search_ops_v2` operator class (default) {#text-array-full-text-search-ops-v2}
@@ -758,6 +770,8 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [script-jsonb]:operators/script-jsonb.html
 [script-v2]:operators/script-v2.html
 [similar-search-v2]:operators/similar-search-v2.html
+[semantic-search-v2]:operators/semantic-search-v2.html
+[semantic-distance-v2]:operators/semantic-distance-v2.html
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
 

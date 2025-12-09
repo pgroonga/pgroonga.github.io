@@ -1,0 +1,161 @@
+# Japanese translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2025-12-04 03:31+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+
+msgid ""
+"---\n"
+"title: \"<&@*> operator\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"<&@*>演算子\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `<&@*>` operator"
+msgstr "# `<&@*>`演算子"
+
+msgid "Since 4.0.5."
+msgstr "4.0.5で追加。"
+
+msgid "This is still an experimental feature."
+msgstr "まだ実験的な機能です。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid "`<&@*>` operator computes the semantic distance between texts."
+msgstr "`<&@*>`演算子はテキスト間の距離を計算します。"
+
+msgid "A smaller value indicates that the texts are more semantically similar."
+msgstr "値が小さいほど意味的に近いテキストと判断できます。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid ""
+"```sql\n"
+"column <&@*> pgroonga_condition(query)\n"
+"```"
+msgstr ""
+
+msgid "`column` is a column to be searched. It's `text` type."
+msgstr "`column`は検索対象のカラムです。型は`text`型です。"
+
+msgid "`query` is a query that calculates distance. It's `text` type."
+msgstr "`query`は距離を計算するクエリーです。型は`text`型です。"
+
+msgid "Use [`pgroonga_condition` function][condition]."
+msgstr "[`pgroonga_condition`関数][condition]を使います。"
+
+msgid ""
+"[`pgroonga_condition` function][condition] accepts some arguments, but "
+"please use it by specifying only `query`."
+msgstr ""
+"[`pgroonga_condition`関数][condition]には引数がいくつかありますが、`query`の"
+"みを指定してご利用ください。"
+
+msgid "## Operator classes"
+msgstr "## 演算子クラス"
+
+msgid ""
+"You need to specify the `pgroonga_text_semantic_search_ops_v2` operator "
+"class to use this operator."
+msgstr ""
+"この演算子を使うには`pgroonga_text_semantic_search_ops_v2`演算子クラスを指定"
+"する必要があります。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here are sample schema and data for examples:"
+msgstr "例に使うサンプルスキーマとデータは次の通りです。"
+
+msgid ""
+"```sql\n"
+"CREATE TABLE memos (\n"
+"  id integer,\n"
+"  content text\n"
+");"
+msgstr ""
+
+msgid ""
+"INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');\n"
+"INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');\n"
+"INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses "
+"Groonga.');\n"
+"```"
+msgstr ""
+
+msgid ""
+"Here is how the index is created.\n"
+"For details on creating an index, see [`CREATE INDEX USING pgroonga`][create-"
+"index]."
+msgstr ""
+"次のようにインデックスを作成します。インデックス作成については[`CREATE INDEX "
+"USING pgroonga`][create-index]をご覧ください。"
+
+msgid ""
+"```sql\n"
+"CREATE INDEX pgroonga_index ON memos\n"
+" USING pgroonga (content pgroonga_text_semantic_search_ops_v2)\n"
+"  WITH (plugins = 'language_model/knn',\n"
+"        model = 'hf:///groonga/all-MiniLM-L6-v2-Q4_K_M-GGUF');\n"
+"```"
+msgstr ""
+
+msgid ""
+"You can use `<&@*>` operator in `ORDER BY` to sort in order of distance."
+msgstr ""
+"`<&@*>` 演算子を`ORDER BY`で使うと距離が近い（= 意味が近い）順にソートできま"
+"す。"
+
+msgid ""
+"```sql\n"
+"SELECT id, content\n"
+"  FROM memos\n"
+" ORDER BY content <&@*> pgroonga_condition('What is a MySQL alternative?');\n"
+"--  id |                        content                        \n"
+"-- ----+-------------------------------------------------------\n"
+"--   1 | PostgreSQL is a RDBMS.\n"
+"--   3 | PGroonga is a PostgreSQL extension that uses Groonga.\n"
+"--   2 | Groonga is fast full text search engine.\n"
+"-- (3 rows)\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid "* [`CREATE INDEX USING pgroonga`][create-index]"
+msgstr ""
+
+msgid "* [`&@*` operator][semantic-search-v2]: Semantic search"
+msgstr "* [`&@*`演算子][semantic-search-v2]: セマンティックサーチ"
+
+msgid "* [`pgroonga_condition` function][condition]"
+msgstr "* [`pgroonga_condition`関数][condition]"
+
+msgid "[semantic-search-v2]:semantic-search-v2.html"
+msgstr ""
+
+msgid "[create-index]:../create-index-using-pgroonga.html#semantic-search"
+msgstr ""
+
+msgid "[condition]:../functions/pgroonga-condition.html"
+msgstr ""

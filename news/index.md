@@ -35,8 +35,8 @@ This function returns the normalized embedding of the specified text.
 
 Reported by kurita0.
 
-When PostgreSQL choice the `seqscan` this issue doesn't occur.
-This issue occurs when PostgreSQL choice the `indexscan` or `bitmapscan` as below.
+When PostgreSQL chooses the `seqscan`, this issue doesn't occur.
+This issue occurs when PostgreSQL chooses the `indexscan` or `bitmapscan` as below.
 
 ```sql
 CREATE TABLE memos (

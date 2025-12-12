@@ -5,6 +5,107 @@ upper_level: ../
 
 # News
 
+## 4.0.5: 2025-12-12 {#version-4-0-5}
+
+### Improvements
+
+#### Added support for semantic search
+
+Semantic search is now available.
+
+This is still an experimental feature.
+
+For information on how to create an index and how to search, please refer to the following documentation.
+
+* [How to create an index.][create-index-using-pgroonga-semantic-search]
+
+* How to search: Use the [`&@*`][semantic-search-v2] operator or [`<&@*>`][semantic-distance-v2] operator.
+
+#### Added a new function [`pgroonga_language_model_vectorize()`][language-model-vectorize]
+
+This is still an experimental feature.
+
+This function returns the normalized embedding of the specified text.
+
+### Fixes
+
+#### Fixed a bug that PGroonga returns no records when we use `LIKE` or `ILIKE` with `OR`
+
+[GH-916](https://github.com/pgroonga/pgroonga/issues/916)
+
+Reported by kurita0.
+
+When PostgreSQL chooses the `seqscan`, this issue doesn't occur.
+This issue occurs when PostgreSQL chooses the `indexscan` or `bitmapscan` as below.
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+
+CREATE INDEX grnindex
+    ON memos
+ USING pgroonga (content pgroonga_text_full_text_search_ops_v2)
+  WITH (tokenizer='TokenNgram("unify_alphabet", false)');
+
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = off;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                      QUERY PLAN                      
+------------------------------------------------------
+ Index Scan using grnindex on memos
+   Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(2 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+
+SET enable_seqscan = off;
+SET enable_indexscan = off;
+SET enable_bitmapscan = on;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                               QUERY PLAN                               
+------------------------------------------------------------------------
+ Bitmap Heap Scan on memos
+   Recheck Cond: ((content ~~ 'Po%'::text) OR (content ~~ 'Gr%'::text))
+   ->  Bitmap Index Scan on grnindex
+         Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(4 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+```
+
+### Thanks
+
+* OreoYang
+
+  * Fixed the usage of snapshots in the custom scan currently under development. [GH-898](https://github.com/pgroonga/pgroonga/pull/898)
+
+* kurita0
+
 ## 4.0.4: 2025-10-02 {#version-4-0-4}
 
 ### Improvements
@@ -2406,6 +2507,7 @@ The first release!!!
 [create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
 [create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer
 [create-index-using-pgroonga-custom-index-flags]:../reference/create-index-using-pgroonga.html#custom-index-flags
+[create-index-using-pgroonga-semantic-search]:../reference/create-index-using-pgroonga.html#semantic-search
 
 [text-regexp-ops]:../reference/#text-regexp-ops
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops
@@ -2445,6 +2547,8 @@ The first release!!!
 [script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
 [script-v2]:../reference/operators/script-v2.html
 [similar-search-v2]:../reference/operators/similar-search-v2.html
+[semantic-search-v2]:../reference/operators/semantic-search-v2.html
+[semantic-distance-v2]:../reference/operators/semantic-distance-v2.html
 
 [command]:../reference/functions/pgroonga-command.html
 [database-remove]:../reference/functions/pgroonga-database-remove.html
@@ -2452,6 +2556,7 @@ The first release!!!
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [index-column-name]:../reference/functions/pgroonga-index-column-name.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
+[language-model-vectorize]:../reference/functions/pgroonga-language-model-vectorize.html
 [list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
 [list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
 [primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html

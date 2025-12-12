@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 4.0.5: 2025-12-08 {#version-4-0-5}
+## 4.0.5: 2025-12-12 {#version-4-0-5}
 
 ### Improvements
 
@@ -27,11 +27,84 @@ This is still an experimental feature.
 
 This function returns the normalized embedding of the specified text.
 
+### Fixes
+
+#### Fixed a bug that PGroonga doesn't return records when we use `LIKE` or `ILIKE` with `OR`
+
+[GH-916](https://github.com/pgroonga/pgroonga/issues/916)
+
+Reported by kurita0.
+
+When PostgreSQL choice the `seqscan` this issue doesn't occur.
+This issue occurs when PostgreSQL choice the `indexscan` or `bitmapscan` as below.
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+
+CREATE INDEX grnindex
+    ON memos
+ USING pgroonga (content pgroonga_text_full_text_search_ops_v2)
+  WITH (tokenizer='TokenNgram("unify_alphabet", false)');
+
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = off;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                      QUERY PLAN                      
+------------------------------------------------------
+ Index Scan using grnindex on memos
+   Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(2 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+
+SET enable_seqscan = off;
+SET enable_indexscan = off;
+SET enable_bitmapscan = on;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                               QUERY PLAN                               
+------------------------------------------------------------------------
+ Bitmap Heap Scan on memos
+   Recheck Cond: ((content ~~ 'Po%'::text) OR (content ~~ 'Gr%'::text))
+   ->  Bitmap Index Scan on grnindex
+         Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(4 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+```
+
 ### Thanks
 
 * OreoYang
 
   * Fixed the usage of snapshots in the custom scan currently under development. [GH-898](https://github.com/pgroonga/pgroonga/pull/898)
+
+* kurita0
 
 ## 4.0.4: 2025-10-02 {#version-4-0-4}
 

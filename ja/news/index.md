@@ -5,7 +5,7 @@ upper_level: ../
 
 # おしらせ
 
-## 4.0.5: 2025-12-08 {#version-4-0-5}
+## 4.0.5: 2025-12-12 {#version-4-0-5}
 
 ### 改良
 
@@ -27,11 +27,84 @@ upper_level: ../
 
 この関数は指定されたテキストの正規化されたエンべディングを返します。
 
+### 修正
+
+#### `LIKE`または`ILIKE`と`OR`を使ったときにPGroongaがレコードを返さない問題を修正
+
+[GH-916](https://github.com/pgroonga/pgroonga/issues/916)
+
+kurita0さんの報告。
+
+PostgreSQLが`seqscan`を選択した場合は、この問題は発生しません。
+この問題は、以下のようにPostgreSQLが`indexscan`または`bitmapscan`を選択した際に発生します。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+
+CREATE INDEX grnindex
+    ON memos
+ USING pgroonga (content pgroonga_text_full_text_search_ops_v2)
+  WITH (tokenizer='TokenNgram("unify_alphabet", false)');
+
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = off;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                      QUERY PLAN                      
+------------------------------------------------------
+ Index Scan using grnindex on memos
+   Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(2 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+
+SET enable_seqscan = off;
+SET enable_indexscan = off;
+SET enable_bitmapscan = on;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                               QUERY PLAN                               
+------------------------------------------------------------------------
+ Bitmap Heap Scan on memos
+   Recheck Cond: ((content ~~ 'Po%'::text) OR (content ~~ 'Gr%'::text))
+   ->  Bitmap Index Scan on grnindex
+         Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(4 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+```
+
 ### 感謝
 
-* OreoYang
+* OreoYangさん
 
   * 開発中のカスタムスキャンにて、スナップショットの使い方を修正していただきました。 [GH-898](https://github.com/pgroonga/pgroonga/pull/898)
+
+* kurita0さん
 
 ## 4.0.4: 2025-10-02 {#version-4-0-4}
 

@@ -29,7 +29,7 @@ This function returns the normalized embedding of the specified text.
 
 ### Fixes
 
-#### Fixed a bug that PGroonga doesn't return records when we use `LIKE` or `ILIKE` with `OR`
+#### Fixed a bug that PGroonga returns no records when we use `LIKE` or `ILIKE` with `OR`
 
 [GH-916](https://github.com/pgroonga/pgroonga/issues/916)
 

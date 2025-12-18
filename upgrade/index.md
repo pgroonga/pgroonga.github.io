@@ -24,6 +24,7 @@ Here is a list of compatibility ("&#x2713;" means "compatible" and "&#x2715;" me
     </tr>
   </thead>
   <tbody>
+    <tr><td>4.0.4</td><td>4.0.5</td><td>&#x2713;</td><td></td></tr>
     <tr><td>4.0.2</td><td>4.0.4</td><td>&#x2713;</td><td></td></tr>
     <tr><td>4.0.1</td><td>4.0.2</td><td>&#x2713;</td><td></td></tr>
     <tr><td>4.0.0</td><td>4.0.1</td><td>&#x2713;</td><td></td></tr>

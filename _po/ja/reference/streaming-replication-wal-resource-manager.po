@@ -226,9 +226,6 @@ msgstr "プライマリーとスタンバイでPGroongaをインストールし�
 
 msgid ""
 "```bash\n"
-"sudo apt install -y software-properties-common\n"
-"sudo add-apt-repository -y universe\n"
-"sudo add-apt-repository -y ppa:groonga/ppa\n"
 "sudo apt install -y lsb-release\n"
 "wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-"
 "$(lsb_release --codename --short).deb\n"

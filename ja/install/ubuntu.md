@@ -23,9 +23,10 @@ Ubuntu 22.04を使っている場合は`postgresql-14-pgroonga`パッケージ�
 Ubuntu 24.04を使っている場合は`postgresql-16-pgroonga`パッケージをインストールしてください。
 
 ```console
-$ sudo apt install -y software-properties-common
-$ sudo add-apt-repository -y universe
-$ sudo add-apt-repository -y ppa:groonga/ppa
+$ sudo apt install -y -V ca-certificates lsb-release wget
+$ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo apt update
 Ubuntu 22.04:
 $ sudo apt install -y -V postgresql-14-pgroonga
@@ -65,6 +66,7 @@ UbuntuでPostgreSQL Global Development Groupが提供するPostgreSQLパッケ�
 $ sudo apt install -y -V ca-certificates lsb-release wget
 $ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo wget -O /usr/share/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
 $ (echo "Types: deb"; \
    echo "URIs: http://apt.postgresql.org/pub/repos/apt"; \

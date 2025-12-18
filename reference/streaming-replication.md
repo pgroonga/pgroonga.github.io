@@ -113,12 +113,10 @@ This is a PGroonga specific step.
 Install PGroonga on both primary and standbys.
 
 ```bash
-sudo apt install -y software-properties-common
-sudo add-apt-repository -y universe
-sudo add-apt-repository -y ppa:groonga/ppa
-sudo apt install -y wget lsb-release
+sudo apt install -y lsb-release
 wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 sudo apt update
 sudo apt install -y -V postgresql-15-pgdg-pgroonga
 ```

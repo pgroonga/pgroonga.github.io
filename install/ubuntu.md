@@ -23,9 +23,10 @@ If you're using Ubuntu 22.04, install `postgresql-14-pgroonga` package:
 If you're using Ubuntu 24.04, install `postgresql-16-pgroonga` package:
 
 ```console
-$ sudo apt install -y software-properties-common
-$ sudo add-apt-repository -y universe
-$ sudo add-apt-repository -y ppa:groonga/ppa
+$ sudo apt install -y -V ca-certificates lsb-release wget
+$ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo apt update
 Ubuntu 22.04:
 $ sudo apt install -y -V postgresql-14-pgroonga
@@ -65,6 +66,7 @@ You can use the following instruction to install PGroonga for the PostgreSQL pac
 $ sudo apt install -y -V ca-certificates lsb-release wget
 $ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo wget -O /usr/share/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
 $ (echo "Types: deb"; \
    echo "URIs: http://apt.postgresql.org/pub/repos/apt"; \

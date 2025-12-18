@@ -77,6 +77,7 @@ $ sudo -H dnf module -y disable postgresql
 $ sudo -H dnf install -y epel-release || sudo -H dnf install -y oracle-epel-release-el$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1) || sudo -H dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1).noarch.rpm
 $ sudo -H dnf config-manager --set-enabled powertools || :
 $ sudo -H dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)-$(arch)/pgdg-redhat-repo-latest.noarch.rpm
+$ sudo dnf install -y https://packages.apache.org/artifactory/arrow/almalinux/$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)/apache-arrow-release-latest.rpm
 $ sudo -H dnf install -y https://packages.groonga.org/almalinux/$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)/groonga-release-latest.noarch.rpm
 $ sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```

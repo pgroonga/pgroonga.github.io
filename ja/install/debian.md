@@ -61,6 +61,12 @@ $ sudo apt install -y -V postgresql-13-pgdg-pgroonga
 $ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
+セマンティックサーチを使いたい場合は、`groonga-plugin-language-model`パッケージもインストールする必要があります。
+
+```console
+$ sudo apt install -y -V groonga-plugin-language-model
+```
+
 データベースを作成します。
 
 ```console

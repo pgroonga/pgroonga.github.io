@@ -83,6 +83,19 @@ msgid ""
 "```"
 msgstr ""
 
+msgid ""
+"If you want to use semantic search, you also need to install `groonga-plugin-"
+"language-model` package:"
+msgstr ""
+"セマンティックサーチを使いたい場合は、`groonga-plugin-language-model`パッケー"
+"ジもインストールする必要があります。"
+
+msgid ""
+"```console\n"
+"$ sudo apt install -y -V groonga-plugin-language-model\n"
+"```"
+msgstr ""
+
 msgid "Create a database:"
 msgstr "データベースを作成します。"
 

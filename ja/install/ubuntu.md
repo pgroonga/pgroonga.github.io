@@ -39,6 +39,12 @@ $ sudo apt install -y -V postgresql-16-pgroonga
 $ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
+セマンティックサーチを使いたい場合は、`groonga-plugin-language-model`パッケージもインストールする必要があります。
+
+```console
+$ sudo apt install -y -V groonga-plugin-language-model
+```
+
 データベースを作成します。
 
 ```console
@@ -80,6 +86,12 @@ $ sudo apt install -y -V postgresql-{{ site.latest_postgresql_version }}-pgdg-pg
 
 ```console
 $ sudo apt install -y -V groonga-tokenizer-mecab
+```
+
+セマンティックサーチを使いたい場合は、`groonga-plugin-language-model`パッケージもインストールする必要があります。
+
+```console
+$ sudo apt install -y -V groonga-plugin-language-model
 ```
 
 データベースを作成します。

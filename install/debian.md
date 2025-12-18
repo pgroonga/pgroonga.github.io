@@ -61,6 +61,12 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 $ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
+If you want to use semantic search, you also need to install `groonga-plugin-language-model` package:
+
+```console
+$ sudo apt install -y -V groonga-plugin-language-model
+```
+
 Create a database:
 
 ```console

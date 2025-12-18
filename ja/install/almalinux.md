@@ -37,6 +37,12 @@ $ sudo -H dnf install -y postgresql{{ site.latest_postgresql_version }}-pgdg-pgr
 $ sudo -H dnf install -y groonga-tokenizer-mecab
 ```
 
+セマンティックサーチを使いたい場合は、`groonga-plugin-language-model`パッケージもインストールする必要があります。
+
+```console
+$ sudo -H dnf install -y groonga-plugin-language-model
+```
+
 PostgreSQLを実行します。
 
 ```console
@@ -69,6 +75,8 @@ AlmaLinux 9のインストール方法は、AlmaLinux 10のインストール方
 ## AlmaLinux 8にインストールする方法 {#install-on-8}
 
 AlmaLinux 8にPGroongaをインストールする方法は次の通りです。
+
+*AlmaLinux 8ではセマンティックサーチは利用できません。*
 
 `postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga`パッケージをインストールします。
 

@@ -37,6 +37,12 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 $ sudo -H dnf install -y groonga-tokenizer-mecab
 ```
 
+If you want to use semantic search, you also need to install `groonga-plugin-language-model` package:
+
+```console
+$ sudo -H dnf install -y groonga-plugin-language-model
+```
+
 Run PostgreSQL:
 
 ```console
@@ -69,6 +75,8 @@ On AlmaLinux 9, follow the same installation procedure as AlmaLinux 10. Please r
 ## How to install on AlmaLinux 8 {#install-on-8}
 
 You can use the following instruction to install PGroonga on AlmaLinux 8.
+
+*Semantic search is not supported on AlmaLinux 8.*
 
 Install `postgresql{{ site.latest_postgresql_version }}-pgdg-pgroonga` package:
 

@@ -684,9 +684,11 @@ CREATE INDEX pgrn_index ON memos
        model = 'hf:///groonga/multilingual-e5-base-Q4_K_M-GGUF');
 ```
 
-You can perform semantic searches using `&@*` operator.
+You can perform semantic searches using [`&@*` operator][semantic-search-v2].
 
 [query-v2]:operators/query-v2.html
+
+[semantic-search-v2]:operators/semantic-search-v2.html
 
 [highlight-html]:functions/pgroonga-highlight-html.html
 

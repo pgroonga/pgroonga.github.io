@@ -685,9 +685,11 @@ CREATE INDEX pgrn_index ON memos
        model = 'hf:///groonga/multilingual-e5-base-Q4_K_M-GGUF');
 ```
 
-`&@*`演算子を使ってセマンティックサーチができます。
+[`&@*`演算子][semantic-search-v2]を使ってセマンティックサーチができます。
 
 [query-v2]:operators/query-v2.html
+
+[semantic-search-v2]:operators/semantic-search-v2.html
 
 [highlight-html]:functions/pgroonga-highlight-html.html
 

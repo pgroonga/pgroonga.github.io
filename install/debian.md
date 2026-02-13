@@ -61,6 +61,12 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 $ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
+If you want to use [`<&@*>` operator](https://pgroonga.github.io/reference/operators/semantic-distance-v2.html) or [`&@*` operator](https://pgroonga.github.io/reference/operators/semantic-search-v2.html) for semantic search, you also need to install `groonga-plugin-lamguage-model` package:
+
+```console
+$ sudo apt install -y -V groonga-plugin-lamguage-model
+```
+
 Create a database:
 
 ```console

@@ -40,6 +40,12 @@ $ sudo apt install -y -V postgresql-16-pgroonga
 $ sudo apt install -y -V groonga-tokenizer-mecab
 ```
 
+セマンティックサーチ用に、[`<&@*>`演算子](https://pgroonga.github.io/ja/reference/operators/semantic-distance-v2.html) または、 [`&@*`演算子](https://pgroonga.github.io/ja/reference/operators/semantic-search-v2.html)を使いたい場合は、`groonga-plugin-language-model`パッケージもインストールする必要があります。
+
+```console
+$ sudo apt install -y -V groonga-plugin-language-model
+```
+
 データベースを作成します。
 
 ```console
@@ -82,6 +88,12 @@ $ sudo apt install -y -V postgresql-{{ site.latest_postgresql_version }}-pgdg-pg
 
 ```console
 $ sudo apt install -y -V groonga-tokenizer-mecab
+```
+
+セマンティックサーチ用に、[`<&@*>`演算子](https://pgroonga.github.io/ja/reference/operators/semantic-distance-v2.html) または、 [`&@*`演算子](https://pgroonga.github.io/ja/reference/operators/semantic-search-v2.html)を使いたい場合は、`groonga-plugin-language-model`パッケージもインストールする必要があります。
+
+```console
+$ sudo apt install -y -V groonga-plugin-language-model
 ```
 
 データベースを作成します。

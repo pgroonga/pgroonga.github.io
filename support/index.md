@@ -8,7 +8,7 @@ If you need support for PGroonga besides [community](../community/), please chec
 ## ClearCode Inc.
 
 [![ClearCode logo](/images/support/ClearCode.svg)](https://www.clear-code.com/)
-ClearCode has participated in Groonga development since 2008. Based on those community work and development experience, the company offers technical support service for systems structured with Groonga, [PGroonga](https://pgroonga.github.io/), [Mroonga](https://mroonga.org/).
+ClearCode has participated in Groonga development since 2008. Based on those community work and development experience, the company offers technical support service for systems structured with [Groonga](https://groonga.org/), PGroonga, [Mroonga](https://mroonga.org/).
 
 ClearCode has strengths in making improvement proposal to extend Groonga's features and developing new features to support system improvement.
 

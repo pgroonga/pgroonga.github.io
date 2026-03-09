@@ -7,17 +7,31 @@ upper_level: ../
 
 1.1.6で追加。
 
+## お知らせ
+
+PostgreSQL 15以上であれば、このモジュールの代わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください。
+
+このモジュールには以下の利点があります。
+
+* スタンバイにおいてリアルタイムでWALが適用されます
+
+* スタンバイにおいてリカバリー中に不安定な状態になることを防げます
+
+  * リカバリー中は接続できなくなります
+
+  * [crash-safer][pgroonga-crash-safer]の場合は、接続はできたがクエリが実行できない状態がありえました
+
+* [レプリケーションスロット][postgresql-replication-slots]と合わせて使うとWALが増え続ける問題を防げます
+
 ## 概要
 
 `pgroonga.enable_wal`パラメーターは[WAL]({{ site.postgresql_doc_base_url.ja }}/runtime-config-wal.html)を有効にするかどうかを制御します。
-
-PGroongaはPostgreSQL 9.6以降で使う場合はWALをサポートしています。PostgreSQL 9.5以前で使う場合は`pgroonga.enable_wal`パラメーターを設定しても意味はありません。
 
 WALサポートを有効にするとPostgreSQLのストリーミングレプリケーション機能を使えます。詳細は[レプリケーション](../replication.html)を参照してください。
 
 WALサポートを有効にすると更新性能が落ちるはずです。これは追加のディスク書き込みが必要になるからです。
 
-デフォルト値は`off`です。これは、PGroongaはPostgreSQL 9.6以降で使っている場合でもWALを生成しないということです。
+デフォルト値は`off`です。これはWALを生成しないということです。
 
 ## 構文
 
@@ -52,3 +66,9 @@ pgroonga.enable_wal = on
 ## 参考
 
   * [レプリケーション](../replication.html)
+
+[postgresql-replication-slots]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html#STREAMING-REPLICATION-SLOTS
+
+[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html

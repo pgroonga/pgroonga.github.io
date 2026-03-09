@@ -26,6 +26,14 @@ Also Supabase gives financial contributions to various OSS including PGroonga vi
 * [Supabase Open Collective Page](https://opencollective.com/supabase)
 * [PGroonga Open Collective Page](https://opencollective.com/pgroonga)
 
+## National Institute of Japanese Literature {#nijl}
+
+[Union Catalogue Database of Japanese Texts](https://kokusho.nijl.ac.jp/?ln=en) published by National Institute of Japanese Literature uses PGroonga to implement fast Japanese full text search feature.
+
+See also [E2612 – 日本古典籍を身近にする「国書データベース」](https://current.ndl.go.jp/e2612) which is an article at Current Awareness Portal.
+
+See also [NIJL Tech Talk Vol.1 - How to support variant form of a character](https://www.youtube.com/watch?v=sNwBKeyfBGk) which is a video that describes how to support variant form of a character.
+
 ## Zulip {#zulip}
 
 [Zulip](https://zulip.org/) is a powerful open source group chat. It uses PGroonga to implement all languages support full text search. Because [PostgreSQL built-in full text search feature]({{ site.postgresql_doc_base_url.en }}/textsearch.html) supports only one language at the same time. PGroonga can support all languages at the same time.
@@ -63,6 +71,22 @@ However, `&@~` operator requires highly functioned [query syntax][groonga-query-
 Thus, we chose sadly not to use `&@~` operator. We split query to keywords with space and build a condition that combines the split keywords with `&@` operator that is for single keyword search and SQL's `AND`. The splitting rule for query is `/[\s　,，.．・。、「」『』（）]+/` so that "AND results" come up even with random letters besides space.
 
 For the future, we would like to improve the system with our meta tag by using [the score feature of PGroonga][tutorial-score]. Our work data are labeled with meta tags that inform the contents of the book like "Windows", "Linux", "Open Source", "machine learning". Currently adding those meta tag as the search makes the search results hazy. But we think it is important to utilize those tags that our staff are working on.
+
+## Kelteu {#kelteu}
+
+[Kelteu](https://www.kelteu.com) is a community-driven, Wikipedia-like application focused on products and shopping. The platform enables users to explore detailed product information, such as country of origin, ingredients, ratings, prices (including taxes) across various locations, and more. With Kelteu, you can create and share shopping lists, locate stores where specific products are available, track price histories by region, and enjoy many other features.
+
+Available in 51 languages, Kelteu relies entirely on PGroonga to power its search functionality.
+
+PGroonga was chosen for its robust, out-of-the-box full-text search capabilities that support all languages. Its speed and performance rival established tools like Elasticsearch and Solr. Additionally, as a PostgreSQL extension, PGroonga seamlessly integrates with your existing database stack, eliminating the need for extra components or complex integrations. All search functionalities can be accessed via standard SQL queries.
+
+PGroonga also scales efficiently and maintains high performance even with complex queries on huge data sets, making it an ideal choice for a feature-rich application like Kelteu.
+
+## IvorySQL {#ivorysql}
+
+[IvorySQL](https://www.ivorysql.org/) is an advanced open-source, Oracle-compatible PostgreSQL branch database. We chose to integrate PGroonga to provide our users with a high-performance, multilingual full-text search solution. As IvorySQL's user base is global, and many applications need to process East Asian languages, PGroonga's "out-of-the-box" functionality and excellent support for all languages made it the best choice for us.
+
+The integration of PGroonga with IvorySQL was very smooth. Its exceptional search speed and high scalability allow us to deliver an experience for our users that rivals proprietary search engines, without the need for additional complex architecture. Users simply need to create a PGroonga index within IvorySQL to enjoy fast full-text search through simple SQL queries, significantly lowering the barrier to development and operational costs.
 
 ## (Send us your service name)
 

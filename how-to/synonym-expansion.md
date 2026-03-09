@@ -18,7 +18,7 @@ CREATE TABLE synonyms (
   synonyms text[]
 );
 
-CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
+CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga_text_term_search_ops_v2);
 ```
 
 We can get a term that is registered in `synonyms` with a key that is registered in `term`. 
@@ -110,7 +110,7 @@ CREATE TABLE synonyms (
   synonyms text[]
 );
 
-CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga.text_term_search_ops_v2);
+CREATE INDEX synonyms_search ON synonyms USING pgroonga (term pgroonga_text_term_search_ops_v2);
 ```
 
 Second, we register synonyms into synonyms table.

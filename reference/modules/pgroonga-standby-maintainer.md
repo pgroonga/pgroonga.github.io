@@ -7,7 +7,9 @@ upper_level: ../
 
 Since 2.4.2.
 
-This is still an experimental feature.
+## Notices
+
+If PostgreSQL is 15 or higher, please use [the `pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] instead of this module.
 
 ## Summary
 
@@ -40,14 +42,17 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 ## Parameters
 
+  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]
+
   * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintainer-naptime]
 
 ## See also
 
   * [The `pgroonga_wal_applier` module][pgroonga-wal-applier]
-  * [The `pgroonga-wal-apply()` function][pgroonga-wal-apply]
-  * [The `pgroonga-vacuum()` function][pgroonga-vacuum]
+  * [The `pgroonga_wal_apply()` function][pgroonga-wal-apply]
+  * [The `pgroonga_vacuum()` function][pgroonga-vacuum]
 
+  * [The `pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
 
 [pgroonga-wal-applier]:./pgroonga-wal-applier.html
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
@@ -57,4 +62,7 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 [postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
 
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:../parameters/pgroonga-standby-maintainer-naptime.html
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html

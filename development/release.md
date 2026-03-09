@@ -6,7 +6,9 @@ title: Release
 
 ## Requirements
 
-Use the following enviroment values.
+### Environment variables
+
+Use the following environment variables.
 
 * `GROONGA_REPOSITORY`
 
@@ -29,138 +31,75 @@ Use the following enviroment values.
 
   Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
 
-## Bump version
+* `GITHUB_ACCESS_TOKEN`
+
+  Specify a GitHub access token.
+
+  [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+* `APACHE_ARROW_REPOSITORY`
+
+  Specify a path for a latest [Apache Arrow repository](https://github.com/apache/arrow).
+
+  e.g.
+
+  ```console
+  $ export APACHE_ARROW_REPOSITORY=$HOME/work/apache/arrow
+  ```
+
+### Commands
+
+Some commands are required for the release, so install them.
 
 ```console
-$ rake version:update NEW_VERSION=x.x.x
+$ ./setup-release.sh
 ```
 
-## Update change log for Debian and CentOS packages
+## Execute `release` task
 
 ```console
-$ rake package:version:update
+$ rake release
 ```
 
-## Check whether we can make packages or not
+If you want to set a different day as the release date, specify the release date in `NEW_RELEASE_DATE`.
+
+### About `release` task
+
+`release` task executes the three tasks
+
+1. `package:version:update`
+
+   * Append the changelog of the new version to the spec file of the RPM package, and so on
+
+2. `tag`
+
+   * Push the tag for release
+
+   * This will start the automatic release
+
+3. `version:update`
+
+   * We will bump up the version for the next release
+
+## Confirm CI
 
 We confirm below CIs green or not.
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## Check whether we can build packages on `nightly` repository of launchpad.net
+We use CI to do automatic releases, so if it fails, we retry.
 
-For Ubuntu, packages are provided by PPA on launchpad.net.
-
-We have [nightly][launchpad-groonga-nightly] and [ppa][launchpad-groonga-ppa] repositories on launchpad.net.
-`nightly` is for testing, and `ppa` is for distributing.
-
-We should test whether we can build packages for Ubuntu on the `nightly` repository before tagging.
-
-* Create an archive file for test on local
-
-  ```console
-  $ rake dist
-  ```
-
-* Change `~/.dput.cf` in order to upload the `nightly` repository
-
-  Add or change a `[groonga-ppa]` entry as below.
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/nightly
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/nightly` is important.
-
-  If you don't have `~/.dput.cf`, create it manually.
-
-* Upload to the `nightly` repository
-
-  ```console
-  $ rake package:ubuntu
-  ```
-
-* Check the build result
-
-  When uploading packages into the `nightly` repository is succeeded, 
-  a package build process is executed on launchpad.net.
-  Then the build result is notified via E-mail if the build fails.
-
-## Tagging for the release
-
-```console
-$ rake tag
-```
-
-## Download an archive file
-
-Donwload the archive file (`pgroonga-x.x.x.tar.gz`) from the 
-[GitHub Releases page][pgroonga-releases-page]
-and move it to a working directory of your local PGroonga repository.
-
-## Upload an archive file
-
-```console
-$ rake package:source
-```
-
-## Create packages for the release
-
-### Debian GNU/Linux
-
-```console
-$ rake package:apt
-```
+## Check the release package
 
 ### Ubuntu
 
 For Ubuntu, packages are provided by PPA on launchpad.net.
 
-* Change `~/.dput.cf` in order to upload the `ppa` repository
+Check the build result:
 
-  Change the `[groonga-ppa]` entry as below.
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/ppa
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/ppa` is important.
-
-* Upload to the `ppa` repository
-
-  ```console
-  $ rake package:ubuntu
-  ```
-
-* Check the build result
-
-  When upload packages succeeded, a package build process is executed on launchpad.net.
-  Then the build result is notified via E-mail if the build fails.
-  We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
-
-### CentOS
-
-```console
-$ rake package:yum
-```
-
-### Windows
-
-For Windows packages, we don't need to execute anything.
-
-Windows packages are uploaded automatically by actions of [GitHub Actions][github-actions-pgroonga].
+When CI successfully uploads a package, a package build process is executed on launchpad.net.
+Then the build result is notified via E-mail if the build fails.
+We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa].
 
 ## Describe the changes
 
@@ -194,31 +133,9 @@ We also update below items in `_config.yml`.
 
   * PostgreSQL for FreeBSD latest version.
 
-* `amazon_linux_postgresql_version`:
-
-  * PostgreSQL for AmazonLinux latest version.
-
 * `development_postgresql_version`:
 
   * PostgreSQL latest version (include minor version).
-
-## Update the repository
-
-We update the repository in the following steps.
-
-Clone the packages.groonga.org repository:
-
-```console
-$ git clone git@github.com:groonga/packages.groonga.org.git
-```
-
-Update repositories for Debian GNU/Linux and CentOS:
-
-```console
-$ cd packages.groonga.org
-$ rake apt
-$ rake yum
-```
 
 ### Update Docker images
 
@@ -239,7 +156,13 @@ $ git push
 
 You have to specify the latest versions.
 
-[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the change.
+After you check [GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] are succeeded, push tag to remote.
+
+```console
+$ git push --tags
+```
+
+[GitHub Actions of the PGroonga's Docker repository][github-actions-pgroonga-docker] automatically update the PGroonga's docker images of [Docker Hub][pgroonga-docker-hub] after you push the tag.
 
 ## Announce release
 
@@ -252,10 +175,6 @@ Please contact a project member in order to join `PGroonga project`.
 
 * [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
 * [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (Archives for PGroonga announcements)
-
-### Announce release for GitHub Discussions
-
-We make release announcement in [GitHub Discussions][pgroonga-github-discussions-releases].
 
 ### Announce release for blog
 

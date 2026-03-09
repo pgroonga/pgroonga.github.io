@@ -1,12 +1,13 @@
 ---
 title: CREATE INDEX USING pgroonga
+toc: true
 ---
 
 # `CREATE INDEX USING pgroonga`
 
 インデックスメソッドとしてPGroongaを使うためには`CREATE INDEX`に`USING pgroonga`を指定します。このセクションでは`pgroonga`インデックスメソッドについて説明します。
 
-## 構文
+## 構文 {#syntax}
 
 このセクションでは`pgroonga`インデックスメソッド関連の`CREATE INDEX`の構文だけ説明します。完全な`CREATE INDEX`の構文は[PostgreSQLの`CREATE INDEX`のドキュメント]({{ site.postgresql_doc_base_url.ja }}/sql-createindex.html)を参照してください。
 
@@ -53,6 +54,22 @@ CREATE INDEX ${INDEX_NAME}
   * 語彙表の種類：トークンを管理する語彙表の種類です。
 
   * クエリー構文：[`$@~`演算子][query-v2]が使っている構文です。
+
+  * 言語モデル: エンベディングの生成に使う言語モデルです。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
+
+  * Passageプレフィックス: 検索対象のテキストに付与するプレフィックスです。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
+
+  * Queryプレフィックス: クエリーのテキストに付与するプレフィックスです。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
+
+  * GPUレイヤー数: エンベディングを生成するときに利用するGPUレイヤー数です。`plugins = 'language_model/knn'`と一緒に使います。
+
+    * 4.0.5で追加。
 
 通常、これらをカスタマイズする必要はありません。なぜなら多くの場合で適切なようにデフォルト値が設定されているからです。これらをカスタマイズする機能は高度なユーザー向けの機能です。
 
@@ -147,6 +164,29 @@ CREATE INDEX pgroonga_tag_index
 ```
 
 他のトークナイザーについては[トークナイザー][groonga-tokenizers]を参照してください。
+
+#### アルファベットでの部分一致 {#partial-match-alphabetic-languages}
+
+キーワードがアルファベットの場合もキーワードの一部で検索をしたいときは、トークナイザーに`TokenNgram`を設定しオプションでトークナイザーの挙動を指定します。PGroongaのデフォルトのトークナイザーは`TokenBigram`なので、'pp'というキーワードは'Apple'、'Pineapple'、'Ripple'などのキーワードにはマッチしません。次の例のように`TokenNgram`にオプションを指定することでこの問題が回避できます。
+
+TokenNgramベースのトークナイザーを使用する例は次の通りです。`tokenizer='TokenNgram'`を指定します。詳しくは[`TokenNgram`][groonga-token-ngram]を参照してください。
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH(tokenizer='TokenNgram("unify_alphabet", false, "unify_symbol", false, "unify_digit", false)');
+```
+
+この例で使用したオプションを指定すると`TokenBigramSplitSymbolAlphaDigit`と同じ挙動になりますが、**`TokenNgram(...)`の使用をおすすめします。**
+
+**注意**
+`TokenNgram("unify_...)`を使用することでアルファベットの場合もキーワードの一部で検索できるようになりますが、アルファベットでの部分一致は多くのノイズを含む傾向があるため、本当に必要なときのみご利用ください。代わりに`TokenNgram`（オプションの指定なし）や`TokenBigram`の使用をおすすめします。
 
 #### ノーマライザーのカスタマイズ方法 {#custom-normalizer}
 
@@ -350,6 +390,8 @@ CREATE INDEX pgroonga_memos_index
               normalizers='NormalizerAuto');
 ```
 
+##### `NormalizerTable`の使い方 {#normalizer-table}
+
 ノーマライザーを指定するテキスト中で`${table:PGROONGA_INDEX_NAME}`という構文を使えます。
 
 2.3.1から使えます。
@@ -382,7 +424,7 @@ CREATE INDEX pgroonga_memos_index
         WITH (normalizers='
                 NormalizerNFKC130,
                 NormalizerTable(
-                  "normalized", "${table:pgrn_normalizations_index}.normalized",
+                  "normalized", "${table:public.pgrn_normalizations_index}.normalized",
                   "target", "target"
                 )
              ');
@@ -400,6 +442,11 @@ SELECT * FROM memos WHERE content &@~ 'o123455';
 
 `normalizations`テーブルを変更した後は`REINDEX INDEX pgroonga_memos_index`を実行しないといけないことに注意してください。なぜなら`normalizations`テーブルが変わるとノーマライズ結果も変わるからです。
 
+##### `pgroonga_highlight_html`と一緒に`NormalizerTable`を使う方法 {#normalizer-table-highlight-html}
+
+この`NormalizerTable`と一緒に`pgroonga_highlight_html`関数を使うときは、`TokenNgram`に`"report_source_location", true"`オプションを指定するだけでなく、`NormalizerNFKC*`と`NormalizerTable`それぞれに`"report_source_offset", true"`オプションを指定する必要があります。
+
+詳細は[`pgroonga_highlight_html`関数][highlight-html]を参照してください。
 
 #### トークンフィルターのカスタマイズ方法 {#custom-token-filter}
 
@@ -560,8 +607,8 @@ SELECT *
 
 ```json
 {
-  "${index_target_name1}": "${flags1}",
-  "${index_target_name2}": "${flags2}",
+  "${index_target_name1}": ["${flag1_1}", "${flag1_2}", ..., "${flag1_N}"],
+  "${index_target_name2}": ["${flag2_1}", "${flag2_2}", ..., "${flag2_N}"],
   ...
 }
 ```
@@ -578,7 +625,7 @@ SELECT *
 
   * `WEIGHT_FLOAT32`: Groongaでの`WEIGHT_FLOAT32`
 
-`LARGE|WITH_WEIGHT`というように`|`で区切って複数のフラグを指定することができます。しかし、`SMALL|MEDIUM|LARGE`というように競合するフラグを同時に指定することはできません。
+`["SMALL", "MEDIUM", "LARGE"]`というように競合するフラグを同時に指定することはできません。
 
 通常、これをカスタマイズする必要はありません。なぜなら多くの場合はデフォルト値が適切だからです。
 
@@ -594,11 +641,57 @@ CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
         WITH (index_flags_mapping='{
-                "content": "LARGE"
+                "content": ["LARGE"]
               }');
 ```
 
+#### セマンティックサーチを使う方法 {#semantic-search}
+
+4.0.5で追加。
+
+インデックスを作成する際には、以下のオプションを指定する必要があります。
+
+* `pgroonga_text_semantic_search_ops_v2`演算子クラス。
+
+* `plugins = 'language_model/knn'`
+
+* `model = '${HUGGING_FACE_URI}'`
+
+  * 利用したい言語モデルのHugging FaceのURIを指定します。
+
+* `passage_prefix = '${PASSAGE_PREFIX}'`
+
+  * 言語モデルの仕様に応じて指定してください。
+
+* `query_prefix = '${QUERY_PREFIX}'`
+
+  * 言語モデルの仕様に応じて指定してください。
+
+* `n_gpu_layers = ${n_gpu_layers}`
+
+  * 通常は指定する必要はありません。GPUレイヤーの数を指定したい場合に使用できます。
+
+最小限のオプションでインデックスを作成する例は次のとおりです:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgrn_index ON memos
+ USING pgroonga (id, content pgroonga_text_semantic_search_ops_v2)
+ WITH (plugins = 'language_model/knn',
+       model = 'hf:///groonga/multilingual-e5-base-Q4_K_M-GGUF');
+```
+
+[`&@*`演算子][semantic-search-v2]を使ってセマンティックサーチができます。
+
 [query-v2]:operators/query-v2.html
+
+[semantic-search-v2]:operators/semantic-search-v2.html
+
+[highlight-html]:functions/pgroonga-highlight-html.html
 
 [groonga-token-bigram]:http://groonga.org/ja/docs/reference/tokenizers.html#token-bigram
 
@@ -613,6 +706,8 @@ CREATE INDEX pgroonga_content_index
 [unicode-nfkc]:http://unicode.org/reports/tr15/
 
 [mecab]:http://taku910.github.io/mecab/
+
+[groonga-token-ngram]:https://groonga.org/ja/docs/reference/tokenizers/token_ngram.html
 
 [groonga-token-mecab]:http://groonga.org/ja/docs/reference/tokenizers.html#token-mecab
 

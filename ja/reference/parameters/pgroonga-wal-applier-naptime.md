@@ -39,7 +39,7 @@ pgroonga_wal_applier.naptime = 10min
 
   * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]
 
- * [ストリーミングレプリケーション][streaming-replication]
+  * [ストリーミングレプリケーション][streaming-replication]
 
 [pgroonga-wal-applier]:../modules/pgroonga-wal-applier.html
 

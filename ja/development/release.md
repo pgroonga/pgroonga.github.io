@@ -6,15 +6,17 @@ title: リリース
 
 ## 必要なもの
 
+### 環境変数
+
 以下の環境変数を使います。
 
 * `GROONGA_REPOSITORY`
 
-最新のGroongaのリポジトリーへのパスを指定します。
+  最新のGroongaのリポジトリーへのパスを指定します。
 
-リリースごとにGroongaのリポジトリーをcloneすることを推奨します。
+  リリースごとにGroongaのリポジトリーをcloneすることを推奨します。
 
-以下は、 `$HOME/work/groonga/groonga.clean` を `GROONGA_REPOSITORY` に指定する例です。
+  以下は、 `$HOME/work/groonga/groonga.clean` を `GROONGA_REPOSITORY` に指定する例です。
 
   ```console
   $ mkdir -p ~/work/groonga
@@ -25,137 +27,77 @@ title: リリース
 
 * `LAUNCHPAD_UPLOADER_PGP_KEY`
 
-GroongaのPPAのキーを指定します。
+  GroongaのPPAのキーを指定します。
 
-[Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
+  [Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
 
-## バージョンをあげる
+* `GITHUB_ACCESS_TOKEN`
+
+  GitHubのアクセストークンを指定します。
+
+  [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+
+* `APACHE_ARROW_REPOSITORY`
+
+  最新の[Apache Arrowのリポジトリー](https://github.com/apache/arrow)へのパスを指定します。
+
+  設定例
+
+  ```console
+  $ export APACHE_ARROW_REPOSITORY=$HOME/work/apache/arrow
+  ```
+
+### コマンド
+
+リリースに必要なコマンドがあるのでインストールします。
 
 ```console
-$ rake version:update NEW_VERSION=x.x.x
+$ ./setup-release.sh
 ```
 
-## DebianとCentOSのパッケージの変更履歴を更新
+## リリースタスクを実行
 
 ```console
-$ rake package:version:update
+$ rake release
 ```
 
-## パッケージ作成可能かどうか確認
+リリース日を別の日に設定したい場合は、`NEW_RELEASE_DATE`でリリース日を指定します。
+
+### `release`タスクについて
+
+`release`タスクは次の3つのタスクを実行します。
+
+1. `package:version:update`
+
+  * RPMパッケージのspecファイルに新しいバージョンのチェンジログを追記したりなどします
+
+2. `tag`
+
+   * リリース用のタグをプッシュします
+
+   * これにより自動リリースが動き出します
+
+3. `version:update`
+
+   * 次のリリースに向けてバージョンをあげます
+
+## CIを確認する
 
 以下のCIがグリーンかどうかを確認します。
 
 * [GitHub Actions][github-actions-pgroonga]
 
-## launchpad.netの `nightly` リポジトリーでビルドができるか確認
+CIで自動リリースを行っているので、失敗していたらリトライします。（何度リトライしても問題ないように設定されています。）
 
-Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
-
-launchpad.netには[nightly][launchpad-groonga-nightly]リポジトリーと[ppa][launchpad-groonga-ppa]リポジトリーがあります。
-`nightly` はテスト用で、 `ppa` は配布用です。
-
-タグを打つ前に、 `nightly` リポジトリーを使って、Ubuntu向けのビルドができるかどうかを確認します。
-
-* テスト用のアーカイブファイルをローカルで作成
-
-  ```console
-  $ rake dist
-  ```
-
-* `~/.dput.cf` を `nightly` リポジトリーにアップロードするように変更
-
-  以下のように `[groonga-ppa]` エントリーを変更または追加します。
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/nightly
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/nightly` が重要な部分です。
-
-  もし、 `~/.dput.cf` がなければ手動で作成してください。
-
-* `nightly` リポジトリーにアップロード
-
-  ```console
-  $ rake package:ubuntu
-  ```
-
-* ビルド結果の確認
-
-  `nightly` リポジトリーへのアップロードが成功すると、パッケージのビルド がlaunchpad.net上で実行されます。
-  パッケージのビルドに失敗した場合、ビルド結果がメールで通知されます。
-
-## リリース用にタグを打つ
-
-```console
-$ rake tag
-```
-
-## アーカイブファイルのダウンロード
-
-アーカイブファイル (`pgroonga-x.x.x.tar.gz`) を[GitHub Releases ページ][pgroonga-releases-page]からダウンロードし、それをローカルのPGroongaのリポジトリーのワーキングディレクトリーに移動します。
-
-## アーカイブファイルのアップロード
-
-```console
-$ rake package:source
-```
-
-## リリース用パッケージを作成
-
-### Debian GNU/Linux
-
-```console
-$ rake package:apt
-```
+## リリース用パッケージの確認
 
 ### Ubuntu
 
 Ubuntuの場合、パッケージはlaunchpad.netのPPAで提供されます。
 
-* `~/.dput.cf` を `ppa` リポジトリーにアップロードするように変更
+ビルド結果の確認:
 
-  以下のように `[groonga-ppa]` エントリーを変更します。
-
-  ```console
-  $ vi ~/.dput.cf
-  [groonga-ppa]
-  fqdn = ppa.launchpad.net
-  method = ftp
-  incoming = ~groonga/ubuntu/ppa
-  login = anonymous
-  allow_unsigned_uploads = 0
-  ```
-
-  `incoming = ~groonga/ubuntu/ppa` が重要な部分です。
-
-* `ppa` リポジトリーにアップロード
-
-  ```console
-  $ rake package:ubuntu
-  ```
-
-* ビルド結果の確認
-
-  パッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
-
-### CentOS
-
-```console
-$ rake package:yum
-```
-
-### Windows
-
-Windowsパッケージについては、何もする必要はありません。
-
-Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクションで自動でアップロードされます。
+CIにてパッケージのアップロードに成功すると、パッケージのビルドがlaunchpad.netにて行われます。アップロード後、ビルドに失敗するとメールで通知されます。ビルドが成功するとパッケージを[Groonga PPA][launchpad-groonga-ppa]経由でインストールできます。
 
 ## 変更点を記述
 
@@ -189,31 +131,9 @@ Windowsパッケージは [GitHub Actions][github-actions-pgroonga] のアクシ
 
  * FreeBSD版のPostgreSQLの最新バージョン
 
-* `amazon_linux_postgresql_version`:
-
- * AmazonLinux版のPostgreSQLの最新バージョン
-
 * `development_postgresql_version`:
 
  * マイナーバージョンを含むPostgreSQLの最新バージョン
-
-## リポジトリーの更新
-
-以下の手順でリポジトリーを更新します。
-
-packages.groonga.orgリポジトリーをクローンします。
-
-```console
-$ git clone git@github.com:groonga/packages.groonga.org.git
-```
-
-Debian GNU/LinuxとCentOS用にリポジトリーを更新します。
-
-```console
-$ cd packages.groonga.org
-$ rake apt
-$ rake yum
-```
 
 ### Dockerイメージの更新
 
@@ -234,7 +154,13 @@ $ git push
 
 作業時には最新のバージョンを指定してください。
 
-変更をpushすると、[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が[Docker Hub][pgroonga-docker-hub]のPGroongaのDockerイメージを自動で更新します。
+[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が成功しているのを確認したら、タグをpushします。
+
+```console
+$ git push --tags
+```
+
+タグをpushすると、[PGroongaのDockerリポジトリーのGithub Actions][github-actions-pgroonga-docker]が[Docker Hub][pgroonga-docker-hub]のPGroongaのDockerイメージを自動で更新します。
 
 ## リリースアナウンス
 
@@ -247,10 +173,6 @@ $ git push
 
 * [https://www.postgresql.org/list/](https://www.postgresql.org/list/)
 * [https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga](https://www.postgresql.org/search/?m=1&ln=pgsql-announce&q=PGroonga) (PGroongaのアナウンスのアーカイブ)
-
-## GitHub Discussions
-
-[GitHub Discussions][pgroonga-github-discussions-releases]にリリースアナウンスを作成します。
 
 ### ブログ
 

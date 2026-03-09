@@ -19,6 +19,21 @@ upper_level: ../
 
 ```sql
 column &^ prefix
+column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+column &^ pgroonga_condition(prefix, index_name => 'index_name')
+```
+
+多くの場合は1つ目の使い方で十分です。
+
+2つ目の使い方はPGroongaのインデックスが使用されるかどうかに関わらず、カスタマイズしたノーマライザーを使用するためのものです。
+2つ目の使い方は、2.4.6から使えます。
+
+3つ目の使い方は2つ目と同じ意味です。3.1.6以降は3つ目の構文を使ってください。詳しくは[`pgroonga_condition`関数][condition]をご覧ください。
+
+以下は1つ目の使い方の説明です。
+
+```sql
+column &^ prefix
 ```
 
 `column`は検索対象のカラムです。型は`text`型か`text[]`型です。
@@ -26,6 +41,22 @@ column &^ prefix
 `prefix`は含まれているべきプレフィックスです。`text`型です。
 
 `column`の値が`prefix`から始まっていれば`true`を返します。
+
+以下は2つ目の使い方の説明です。
+
+```sql
+column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+```
+
+`column`は検索対象のカラムです。型は`text`型か`varchar`型です。
+
+`prefix`は含まれているべきプレフィックスです。`text`型です。
+
+2つ目の引数はNULLのみ設定されます。この構文は検索スコアーの最適化をするためのものでは無いためです。
+
+`index_name`は対応するPGroongaのインデックス名です。`text`型です。
+
+これはシーケンシャルサーチのときにもPGroongaのインデックスに指定した検索オプションを使えるようにするために使われます。
 
 ## 演算子クラス
 
@@ -68,6 +99,74 @@ SELECT * FROM tags WHERE name &^ 'pg';
 -- (2 rows)
 ```
 
+以下のように前方一致検索でカスタマイズしたノーマライザーを使えます。
+
+```sql
+CREATE TABLE tags (
+  name text
+);
+
+CREATE INDEX pgroonga_tag_name_index ON tags
+  USING pgroonga (name pgroonga_text_term_search_ops_v2)
+  WITH (normalizers='NormalizerNFKC150("remove_symbol", true)');
+```
+
+```sql
+INSERT INTO tags VALUES ('PostgreSQL');
+INSERT INTO tags VALUES ('Groonga');
+INSERT INTO tags VALUES ('PGroonga');
+INSERT INTO tags VALUES ('pglogical');
+```
+
+PGroongaのインデックスが使用されるかどうかに関わらず、カスタマイズしたノーマライザーで前方一致検索ができます。
+
+```sql
+SET enable_seqscan = on;
+SET enable_indexscan = off;
+SET enable_bitmapscan = off;
+
+EXPLAIN (COSTS OFF)
+SELECT name
+  FROM tags
+ WHERE name &^ ('-p_G', NULL, 'pgroonga_tag_name_index')::pgroonga_full_text_search_condition;
+QUERY PLAN
+Seq Scan on tags
+  Filter: (name &^ '(-p_G,,pgroonga_tag_name_index)'::pgroonga_full_text_search_condition)
+(2 rows)
+
+SELECT name
+  FROM tags
+ WHERE name &^ ('-p_G', NULL, 'pgroonga_tag_name_index')::pgroonga_full_text_search_condition;
+   name    
+-----------
+ PGroonga
+ pglogical
+(2 rows)
+```
+
+同じクエリを[`pgroonga_condition`関数][condition]を使うと以下の通りです。
+
+```sql
+EXPLAIN (COSTS OFF)
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+                                  QUERY PLAN                                   
+-------------------------------------------------------------------------------
+ Seq Scan on tags
+   Filter: (name &^ '(-p_G,,,,pgroonga_tag_name_index,,)'::pgroonga_condition)
+(2 rows)
+
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+   name
+-----------
+ PGroonga
+ pglogical
+(2 rows)
+```
+
 ## 参考
 
   * [`&^~`演算子][prefix-rk-search-v2]：前方一致RK検索
@@ -78,6 +177,8 @@ SELECT * FROM tags WHERE name &^ 'pg';
 
   * [`&^~|`演算子][prefix-rk-search-in-v2]：プレフィックスの配列での前方一致RK検索
 
+  * [`pgroonga_condition`関数][condition]
+
 [prefix-rk-search-v2]:prefix-rk-search-v2.html
 
 [prefix-search-in-v2]:prefix-search-in-v2.html
@@ -85,3 +186,5 @@ SELECT * FROM tags WHERE name &^ 'pg';
 [not-prefix-search-in-v2]:not-prefix-search-in-v2.html
 
 [prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html
+
+[condition]:../functions/pgroonga-condition.html

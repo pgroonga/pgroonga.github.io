@@ -43,7 +43,16 @@ Note that Groonga may search with regular expression pattern by sequential scan 
 
 ```sql
 column &~ regular_expression
+column &~ pgroonga_condition(query,
+                             weights,
+                             scorers,
+                             schema_name,
+                             index_name,
+                             column_name,
+                             fuzzy_max_distance_ratio)
 ```
+
+The first signature is simpler than others. The first signature is enough for most cases.
 
 `column` is a column to be searched. It's `text` type or `varchar` type.
 
@@ -51,11 +60,23 @@ column &~ regular_expression
 
 If `column` value is matched against `regular_expression` pattern, the expression returns `true`.
 
+The second signature uses [`pgroonga_condition` function][condition]. You can specify not only a regular expression but also index information for scoring and sequential search.
+
+The second signature is available since 3.2.5.
+
+`query` in [`pgroonga_condition` function][condition] is used as a regular expression to be used as pattern. It's `text` type.
+
+See [`pgroonga_condition` function][condition] for details.
+
+Note that `fuzzy_max_distance_ratio` isn't used for regular expression search.
+
 ## Operator classes
 
 You need to specify one of the following operator classes to use this operator:
 
   * `pgroonga_text_regexp_ops_v2`: For `text`
+
+  * `pgroonga_text_array_regexp_ops_v2`: For `text[]`
 
   * `pgroonga_varchar_regexp_ops_v2`: For `varchar`
 
@@ -106,6 +127,8 @@ Why is "`PostgreSQL is a ...`" record matched? Remember that this operator norma
 
   * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular expressions
 
+  * [`pgroonga_condition` function][condition]
+
   * [Onigmo's regular expression syntax document][onigmo-document]
 
   * [Groonga's regular expression support document][groonga-regular-expression]
@@ -123,3 +146,5 @@ Why is "`PostgreSQL is a ...`" record matched? Remember that this operator norma
 [groonga-regular-expression]:http://groonga.org/docs/reference/regular_expression.html#regular-expression-index
 
 [regular-expression-in-v2]:regular-expression-in-v2.html
+
+[condition]:../functions/pgroonga-condition.html

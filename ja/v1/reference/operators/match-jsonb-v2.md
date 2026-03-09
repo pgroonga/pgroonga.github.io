@@ -19,7 +19,7 @@ column &@ keyword
 
 `column`は検索対象のカラムです。型は`jsonb`型です。
 
-`keyword`は全文検索で使うキーワードです。型は`text`型です。
+`keyword`は全文検索で使うキーワードです。`text`型です。
 
 ## 演算子クラス
 

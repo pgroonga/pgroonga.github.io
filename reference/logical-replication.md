@@ -4,7 +4,7 @@ title: Logical replication
 
 # Logical replication
 
-PGroonga supports PostgreSQL built-in logical replication since 1.2.4. It requires PostgreSQL 10 or later.
+PGroonga supports PostgreSQL built-in logical replication since 1.2.4.
 
 This document describes how to configure PostgreSQL built-in logical replication for PGroonga. Most of steps are normal steps. There are some PGroonga specific steps.
 

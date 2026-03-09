@@ -1,10 +1,18 @@
+#
+# Translators:
+# Kouhei Sutou <kou@cozmixng.org>, 2023
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Language: ja\n"
+"PO-Revision-Date: 2024-10-16 11:36+0900\n"
+"Last-Translator: Kouhei Sutou <kou@cozmixng.org>, 2023\n"
+"Language-Team: Japanese (https://app.transifex.com/groonga/teams/174082/"
+"ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid ""
@@ -24,6 +32,9 @@ msgstr "次のドキュメント群でPGroongaの開発方法を説明します�
 
 msgid "  * [Build](build.html)"
 msgstr "  * [ビルド](build.html)"
+
+msgid "    * [Build as a casual developer](build-casual.html)"
+msgstr "    * [カジュアル開発者としてビルド](build-casual.html)"
 
 msgid "  * [Test](test.html)"
 msgstr "  * [テスト](test.html)"

@@ -11,12 +11,13 @@ upper_level: ../
 
 サポートしているPostgreSQLのバージョンは次の通りです。
 
-  * 10
-  * 11
   * 12
   * 13
   * 14
-  * 15 (ただし、Windows版のPostgreSQL 15はまだサポートしていません。)
+  * 15
+  * 16
+  * 17
+  * 18
 
 もし、これより古いPostgreSQLを使っているなら、PGroongaをインストールする前にPostgreSQLをアップグレードしてください。
 
@@ -24,27 +25,23 @@ upper_level: ../
 
   * [Debian GNU/Linux](debian.html)
 
-    * bullseye
+    * trixie
+
+    * bookworm
 
   * [Ubuntu](ubuntu.html)
 
-    * 18.04
-
-    * 20.04
+    * 24.04
 
     * 22.04
 
-  * [CentOS](centos.html)
-
-    * 7
-
   * [AlmaLinux](almalinux.html)
 
+    * 10
+
+    * 9
+
     * 8
-
-  * [Amazon Linux](amazon-linux.html)
-
-    * 2
 
   * [FreeBSD](freebsd.html)
 
@@ -66,4 +63,8 @@ upper_level: ../
 
   * [アンインストール][uninstall]
 
+  * [チューニング][tuning]
+
 [uninstall]:../uninstall/
+
+[tuning]:../how-to/tuning.html

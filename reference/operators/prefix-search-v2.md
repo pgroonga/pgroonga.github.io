@@ -19,6 +19,23 @@ Prefix search is useful for implementing input completion.
 
 ```sql
 column &^ prefix
+column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+column &^ pgroonga_condition(prefix, index_name => 'index_name')
+```
+
+The first signature is enough for most cases.
+
+The second signature is for using custom normalizer even if PGroonga's index is used or not.
+The second signature is available since 2.4.6.
+
+The third signature has the same meaning as the second signature.
+You should use this signature in 3.1.6 and above.
+See [`pgroonga_condition` function][condition] for details.
+
+Here is the description of the first signature.
+
+```sql
+column &^ prefix
 ```
 
 `column` is a column to be searched. It's `text` type or `text[]` type.
@@ -26,6 +43,22 @@ column &^ prefix
 `prefix` is a prefix to be found. It's `text` type.
 
 The operator returns `true` when the `column` value starts with `prefix`.
+
+Here is the description of the second signature.
+
+```sql
+column &^ (prefix, NULL, index_name)::pgroonga_full_text_search_condition
+```
+
+`column` is a column to be searched. It's `text` type or `varchar` type.
+
+`prefix` is a prefix to be found. It's `text` type.
+
+The second argument is set only NULL. Because this syntax is not for optimizing search score.
+
+`index_name` is an index name of the corresponding PGroonga index. It's `text` type.
+
+It's for using the same search options specified in PGroonga index in sequential search.
 
 ## Operator classes
 
@@ -68,6 +101,74 @@ SELECT * FROM tags WHERE name &^ 'pg';
 -- (2 rows)
 ```
 
+You can use custom normalizer in prefix search as below.
+
+```sql
+CREATE TABLE tags (
+  name text
+);
+
+CREATE INDEX pgroonga_tag_name_index ON tags
+  USING pgroonga (name pgroonga_text_term_search_ops_v2)
+  WITH (normalizers='NormalizerNFKC150("remove_symbol", true)');
+```
+
+```sql
+INSERT INTO tags VALUES ('PostgreSQL');
+INSERT INTO tags VALUES ('Groonga');
+INSERT INTO tags VALUES ('PGroonga');
+INSERT INTO tags VALUES ('pglogical');
+```
+
+You can prefix search with custom normalizer even if PGroonga's index is not used.
+
+```sql
+SET enable_seqscan = on;
+SET enable_indexscan = off;
+SET enable_bitmapscan = off;
+
+EXPLAIN (COSTS OFF)
+SELECT name
+  FROM tags
+ WHERE name &^ ('-p_G', NULL, 'pgroonga_tag_name_index')::pgroonga_full_text_search_condition;
+QUERY PLAN
+Seq Scan on tags
+  Filter: (name &^ '(-p_G,,pgroonga_tag_name_index)'::pgroonga_full_text_search_condition)
+(2 rows)
+
+SELECT name
+  FROM tags
+ WHERE name &^ ('-p_G', NULL, 'pgroonga_tag_name_index')::pgroonga_full_text_search_condition;
+   name    
+-----------
+ PGroonga
+ pglogical
+(2 rows)
+```
+
+The same query with [`pgroonga_condition` function][condition] is as follows.
+
+```sql
+EXPLAIN (COSTS OFF)
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+                                  QUERY PLAN                                   
+-------------------------------------------------------------------------------
+ Seq Scan on tags
+   Filter: (name &^ '(-p_G,,,,pgroonga_tag_name_index,,)'::pgroonga_condition)
+(2 rows)
+
+SELECT name
+  FROM tags
+ WHERE name &^ pgroonga_condition('-p_G', index_name => 'pgroonga_tag_name_index');
+   name
+-----------
+ PGroonga
+ pglogical
+(2 rows)
+```
+
 ## See also
 
   * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
@@ -78,6 +179,8 @@ SELECT * FROM tags WHERE name &^ 'pg';
 
   * [`&^~|` operator][prefix-rk-search-in-v2]: Prefix RK search by an array of prefixes
 
+  * [`pgroonga_condition` function][condition]
+
 [prefix-rk-search-v2]:prefix-rk-search-v2.html
 
 [prefix-search-in-v2]:prefix-search-in-v2.html
@@ -85,3 +188,5 @@ SELECT * FROM tags WHERE name &^ 'pg';
 [not-prefix-search-in-v2]:not-prefix-search-in-v2.html
 
 [prefix-rk-search-in-v2]:prefix-rk-search-in-v2.html
+
+[condition]:../functions/pgroonga-condition.html

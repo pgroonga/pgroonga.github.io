@@ -1,0 +1,122 @@
+# Japanese translations for PACKAGE package.
+# Copyright (C) 2024 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2024-12-09 14:50+0900\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+
+msgid ""
+"---\n"
+"title: \"pgroonga.max_bulk_insert_wal_record_size parameter\"\n"
+"upper_level: ../\n"
+"---"
+msgstr ""
+"---\n"
+"title: \"pgroonga.max_bulk_insert_wal_record_sizeパラメーター\"\n"
+"upper_level: ../\n"
+"---"
+
+msgid "# `pgroonga.max_bulk_insert_wal_record_size` parameter"
+msgstr "# `pgroonga.max_bulk_insert_wal_record_size`パラメーター"
+
+msgid "Since 3.2.5."
+msgstr "3.2.5で追加。"
+
+msgid "## Summary"
+msgstr "## 概要"
+
+msgid ""
+"`pgroonga.max_bulk_insert_wal_record_size` parameter controls the max custom "
+"WAL record size for PGroonga's bulk insert."
+msgstr ""
+"`pgroonga.max_bulk_insert_wal_record_size`パラメーターはPGroongaのバルクイン"
+"サート用のカスタムWALレコードの最大サイズを制御します。"
+
+msgid ""
+"This is used only when [`pgroonga_wal_resource_manager` module][pgroonga-wal-"
+"resource-manager] is used."
+msgstr ""
+"このパラメーターは[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-"
+"resource-manager]を使っているときだけ使われます。"
+
+msgid ""
+"This is a soft limit. So some WAL records may use more size than this size."
+msgstr ""
+"これはソフトリミットです。そのため、いくつかのWALレコードはここで指定した値以"
+"上のサイズになることがあります。"
+
+msgid "## Syntax"
+msgstr "## 構文"
+
+msgid "In SQL:"
+msgstr "SQLの場合："
+
+msgid ""
+"```sql\n"
+"SET pgroonga.max_bulk_insert_wal_record_size = size;\n"
+"```"
+msgstr ""
+
+msgid "In `postgresql.conf`:"
+msgstr "`postgresql.conf`の場合："
+
+msgid ""
+"```text\n"
+"pgroonga.max_bulk_insert_wal_record_size = size\n"
+"```"
+msgstr ""
+
+msgid ""
+"`size` is a size value. The default unit is KiB. You can change unit by "
+"specify suffix such as `MB` for MiB."
+msgstr ""
+"`size`はサイズです。デフォルトの単位はKiBです。サフィックスを指定することで単"
+"位を変更できます。たとえば、MiBを使いたい場合は`MB`を指定します。"
+
+msgid "The default is `16MiB`."
+msgstr "デフォルトは`16MiB`です。"
+
+msgid "You can disable this soft limit by specifying `0`."
+msgstr "`0`を指定するとこのソフトリミットを無効にできます。"
+
+msgid "## Usage"
+msgstr "## 使い方"
+
+msgid "Here is an example to specify 256 MiB:"
+msgstr "以下は256MiBを指定する例です。"
+
+msgid ""
+"```text\n"
+"pgroonga.max_bulk_insert_wal_record_size = 256MB\n"
+"```"
+msgstr ""
+
+msgid "## See also"
+msgstr "## 参考"
+
+msgid ""
+"  * [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]"
+msgstr ""
+"  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-"
+"manager]"
+
+msgid "  * [Streaming replication][streaming-replication]"
+msgstr "  * [ストリーミングレプリケーション][streaming-replication]"
+
+msgid ""
+"[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html"
+msgstr ""
+
+msgid "[streaming-replication]:../streaming-replication.html"
+msgstr ""

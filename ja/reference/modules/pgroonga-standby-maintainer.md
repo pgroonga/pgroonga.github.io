@@ -7,7 +7,9 @@ upper_level: ../
 
 2.4.2で追加。
 
-まだ実験的な機能です。
+## お知らせ
+
+PostgreSQL 15以上であれば、このモジュールの代わりに[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]をご利用ください。
 
 ## 概要
 
@@ -40,14 +42,17 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 ## パラメーター
 
+  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db`パラメーター][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]
+
   * [`pgroonga_standby_maintainer.naptime` パラメーター][pgroonga-standby-maintainer-naptime]
 
 ## 参考
 
   * [`pgroonga_wal_applier` モジュール][pgroonga-wal-applier]
-  * [`pgroonga-wal-apply()` 関数][pgroonga-wal-apply]
-  * [`pgroonga-vacuum()` 関数][pgroonga-vacuum]
+  * [`pgroonga_wal_apply()` 関数][pgroonga-wal-apply]
+  * [`pgroonga_vacuum()` 関数][pgroonga-vacuum]
 
+  * [`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]
 
 [pgroonga-wal-applier]:./pgroonga-wal-applier.html
 [pgroonga-wal-apply]:../functions/pgroonga-wal-apply.html
@@ -57,4 +62,7 @@ shared_preload_libraries = 'pgroonga_standby_maintainer'
 
 [postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
 
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:../parameters/pgroonga-standby-maintainer-naptime.html
+
+[pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html

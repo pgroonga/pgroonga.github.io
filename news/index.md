@@ -5,6 +5,827 @@ upper_level: ../
 
 # News
 
+## 4.0.5: 2025-12-12 {#version-4-0-5}
+
+### Improvements
+
+#### Added support for semantic search
+
+Semantic search is now available.
+
+This is still an experimental feature.
+
+For information on how to create an index and how to search, please refer to the following documentation.
+
+* [How to create an index.][create-index-using-pgroonga-semantic-search]
+
+* How to search: Use the [`&@*`][semantic-search-v2] operator or [`<&@*>`][semantic-distance-v2] operator.
+
+#### Added a new function [`pgroonga_language_model_vectorize()`][language-model-vectorize]
+
+This is still an experimental feature.
+
+This function returns the normalized embedding of the specified text.
+
+### Fixes
+
+#### Fixed a bug that PGroonga returns no records when we use `LIKE` or `ILIKE` with `OR`
+
+[GH-916](https://github.com/pgroonga/pgroonga/issues/916)
+
+Reported by kurita0.
+
+When PostgreSQL chooses the `seqscan`, this issue doesn't occur.
+This issue occurs when PostgreSQL chooses the `indexscan` or `bitmapscan` as below.
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+
+CREATE INDEX grnindex
+    ON memos
+ USING pgroonga (content pgroonga_text_full_text_search_ops_v2)
+  WITH (tokenizer='TokenNgram("unify_alphabet", false)');
+
+SET enable_seqscan = off;
+SET enable_indexscan = on;
+SET enable_bitmapscan = off;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                      QUERY PLAN                      
+------------------------------------------------------
+ Index Scan using grnindex on memos
+   Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(2 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+
+SET enable_seqscan = off;
+SET enable_indexscan = off;
+SET enable_bitmapscan = on;
+
+EXPLAIN (COSTS OFF)
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+                               QUERY PLAN                               
+------------------------------------------------------------------------
+ Bitmap Heap Scan on memos
+   Recheck Cond: ((content ~~ 'Po%'::text) OR (content ~~ 'Gr%'::text))
+   ->  Bitmap Index Scan on grnindex
+         Index Cond: (content ~~ ANY ('{Po%,Gr%}'::text[]))
+(4 rows)
+
+SELECT id, content
+  FROM memos
+ WHERE content LIKE 'Po%' OR content LIKE 'Gr%';
+ id | content
+----+---------
+(0 rows)
+```
+
+### Thanks
+
+* OreoYang
+
+  * Fixed the usage of snapshots in the custom scan currently under development. [GH-898](https://github.com/pgroonga/pgroonga/pull/898)
+
+* kurita0
+
+## 4.0.4: 2025-10-02 {#version-4-0-4}
+
+### Improvements
+
+#### Added support for PostgreSQL 18
+
+We now provided packages for PostgreSQL 18.
+
+#### [[Debian][debian]] Added support for Debian GNU/Linux trixie
+
+The package for Debian GNU/Linux trixie is now available.
+
+#### [[AlmaLinux][almalinux]] Added support for AlmaLinux 10 package
+
+We now provided official RPM packages for AlmaLinux 10.
+
+#### [[AlmaLinux][almalinux]] Added support for PostgreSQL 14 with AlmaLinux 9 package
+
+Previously, we didn’t provide a PGroonga package for PostgreSQL 14 on AlmaLinux 9. It’s now available.
+So, we now provide it.
+
+#### Added support ordered index scan on PostgreSQL 18
+
+[GH-771](https://github.com/pgroonga/pgroonga/pull/771)
+
+On PostgreSQL 18 and later, PostgreSQL's planner can recognize PGroonga as an ordered index.
+
+PGroonga can return filtered and sorted records to PostgreSQL for queries like `WHERE ... ORDER BY ... LIMIT`.
+This improvement may improve the response time when many rows match.
+
+```sql
+CREATE TABLE messages (
+  id serial,
+  content text
+);
+
+CREATE INDEX messages_index ON messages
+  USING PGroonga (content, id);
+
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'a' AS content, generate_series(0, 9999)) AS values;
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'b' AS content, generate_series(0, 9999)) AS values;
+INSERT INTO messages (content)
+  SELECT content FROM (SELECT 'c' AS content, generate_series(0, 9999)) AS values;
+
+EXPLAIN ANALYZE VERBOSE
+  SELECT * FROM messages
+    WHERE content = 'b'
+    ORDER BY id DESC LIMIT 10;
+--                                                                        QUERY PLAN
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------
+--  Limit  (cost=0.00..6.67 rows=10 width=36) (actual time=0.385..0.389 rows=10.00 loops=1)
+--    Output: id, content
+--    Buffers: shared hit=1
+--    ->  Index Scan Backward using messages_index on public.messages  (cost=0.00..100.02 rows=150 width=36) (actual time=0.384..0.387 rows=10.00 loops=1)
+--          Output: id, content
+--          Index Cond: (messages.content = 'b'::text)
+--          Index Searches: 0
+--          Buffers: shared hit=1
+--  Planning:
+--    Buffers: shared hit=35
+--  Planning Time: 5.679 ms
+--  Execution Time: 0.438 ms
+-- (12 rows)
+```
+
+## 4.0.2: 2025-09-12 {#version-4-0-2}
+
+### Improvements
+
+#### Published the latest Docker image
+
+We updated our Docker images to support the latest PostgreSQL releases versions as follows.
+
+- PostgreSQL 17.6
+- PostgreSQL 16.10
+- PostgreSQL 15.14
+- PostgreSQL 14.19
+- PostgreSQL 13.22
+
+## 4.0.1: 2025-02-14 {#version-4-0-1}
+
+This is a bug fix release.
+
+### Improvements
+
+#### Dropped support for Ubuntu 20.04
+
+[GH-709](https://github.com/pgroonga/pgroonga/issues/709)
+
+Because Ubuntu 20.04 will reach EOL on 2025-05.
+
+### Fixes
+
+#### Fixed an upgrade bug
+
+[GH-713](https://github.com/pgroonga/pgroonga/issues/713)
+
+It depends on initial PGroonga version you installed whether this happens or not. If you installed PGroonga 2.4.1 or earlier as the initial version, this will happen. There was a bug in 2.4.1 to 2.4.2 upgrade code. `pgroonga.snippet_html()` signature wasn't upgraded.
+
+If you installed PGroonga 2.4.1 or earlier as the initial version, you can `ALTER EXTENSION pgroonga UPGRADE` without error with 4.0.1.
+
+If you installed PGroonga 2.4.2 or later as the initial version, you don't need 4.0.1. 4.0.0 works.
+
+Reported by Tim Abbott. Thanks!!!
+
+### Thanks
+
+* Tim Abbott
+
+## 4.0.0: 2025-02-09 {#version-4-0-0}
+
+This is a major release!
+
+This release includes backward incompatibility changes. But they are affected to only users who still use PGroonga 1 API (`pgroonga.XXX` API). PGroonga 1 API was deprecated when we released PGroonga 2.0.0 on 2017-08-17. It's about 8 years ago. We hope that nobody is still using PGroonga 1 API.
+
+If you're still using PGroonga 1 API, you should migrate to PGroonga 2.0.0 or API (`pgroonga.XXX` -> `pgroonga_XXX`) before you upgrade to PGroonga 4.0.0.
+
+### Improvements
+
+  * Removed PGroonga 1 API. `pgroonga` schema isn't used anymore.
+
+    * [GH-647](https://github.com/pgroonga/pgroonga/issues/647)
+
+  * [`pgroonga_crash_safer` module][pgroonga-crash-safer]: Added support for database that PGroonga is installed in not `public` schema.
+
+    * [GH-643](https://github.com/pgroonga/pgroonga/issues/643)
+
+    * [GH-644](https://github.com/pgroonga/pgroonga/issues/644)
+
+    * Reported by kurita0
+
+  * Added support for parallel index build. This requires PostgreSQL 17 or later.
+
+### Fixes
+
+  * Fixed a bug that `float4` index doesn't work with Groonga 10.0.2 or later.
+
+    * [GH-665](https://github.com/pgroonga/pgroonga/issues/665)
+
+### Thanks
+
+  * kurita0
+
+## 3.2.5: 2024-12-05 {#version-3-2-5}
+
+### Improvements
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Improved `CREATE INDEX` and `REINDEX` performance.
+
+  * [[`pgroonga_text_array_regexp_ops_v2` operator class][text-array-regexp-ops-v2]] Added a operator class for `text[]` and regular expression.
+
+  * [[`&~` operator][regular-expression-v2]] Changed to return an empty result instead of error for `NULL` pattern.
+
+  * Dropped support for PostgreSQL 12.
+
+### Fixes
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Fixed memory leaks.
+
+  * [[`&~` operator][regular-expression-v2]] Fixed a crash bug with an empty pattern.
+
+  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Fixed a bug that some lagged indexes may not be detected.
+
+  * [[`&~|` operator][regular-expression-in-v2]] Fixed a crash bug with one or more empty patterns.
+
+## 3.2.4: 2024-10-03 {#version-3-2-4}
+
+### Improvements
+
+  * Added support for PostgreSQL 17.
+
+## 3.2.3: 2024-09-25 {#version-3-2-3}
+
+### Improvements
+
+  * [[`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-size]][[`pgroonga.query_log_rotate_threshold_size` parameter][query-log-rotate-threshold-size]] Added `pgroonga.*log_rotate_threshold_size` parameter. [GH-532]
+
+    It is available in Groonga 14.0.7 or later.
+
+### Fixes
+
+  * Fixed a build error when we build Homebrew's PGroonga from source in combination with Postgres.app. [GH-531][Reported by siyukatu]
+
+  * Fixed a bug that `log_level` is not reflected when we specify `pgroonga.log_type = postgresql`.
+
+### Thanks
+
+  * siyukatu
+
+## 3.2.2: 2024-08-05 {#version-3-2-2}
+
+### Improvements
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added information to log.
+
+  * Dropped support for Debian 11 (bullseye).
+
+### Fixes
+
+  * [`pgroonga_condition()`] Fixed a bug that occurred when upgrading to 3.2.1 with PGroonga installed.
+
+    * The following error occurred:
+
+      * `HINT:  Could not choose a best candidate function. You might need to add explicit type casts.`
+
+      * `ERROR:  function pgroonga_condition(unknown) is not unique`
+
+## 3.2.1: 2024-07-04 {#version-3-2-1}
+
+### Improvements
+
+  * [[`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]] Added a new module `pgroonga_wal_resource_manager`
+
+    * PGroonga WAL is automatically applied when this module is enabled.
+
+  * Added support downgrade by using `ALTER EXTENSION ... UPDATE`.
+
+    Note that this feature only enable 3.2.1, currently.
+    This feature can't use before 3.2.1.
+
+  * [[`pgroonga_list_broken_indexes()`][list-broken-indexes]] Added a new function `pgroonga_list_broken_indexes()`.
+
+    This function list the indexes of PGroonga's that may be broken.
+
+  * [[`pgroonga_crash_safer` module][pgroonga-crash-safer]] Putted index names when the `pgroonga-crash-safer` rebuild index in log.
+
+  * [WAL] Added support for registering a plugin.
+
+    `plugin = '...'` in `WITH` phrase is also written into PGroonga's WAL.
+
+  * [[`pgroonga_list_lagged_indexes()`][list-lagged-indexes]] Added a new function `pgroonga_list_lagged_indexes()`.
+
+    This function display a index of PGroonga with unapplied PGroonga WAL (not PostgreSQL WAL).
+
+  * [[`pgroonga-primary-maintainer.sh`][primary-maintainer]] Added a new execution file `pgroonga-primary-maintainer.sh`.
+
+    * This command is used to suppress the size of PGroonga WAL on the primary server where WAL is enabled.
+
+    * Also added execution file to configure systemd timer.
+
+      * [`pgroonga-generate-primary-maintainer-service.sh`][generate-primary-maintainer-service]
+
+      * [`pgroonga-generate-primary-maintainer-timer.sh`][generate-primary-maintainer-timer]
+
+  * [[Ubuntu][ubuntu]] Added support for Ubuntu 24.04 (Noble Numbat).
+
+  * [`pgroonga_condition()`] Added support `fuzzy_max_distance_ratio`
+
+### Fixes
+
+  * [[`&@~` operator][query-v2]] Fixed a crash bug with multiple conditions including blank only query condition.
+
+    An error will occur if any of the multiple conditions have a blank space condition as below.
+
+    ```sql
+    CREATE TABLE memos (
+      id integer,
+      content text
+    );
+    INSERT INTO memos VALUES (1, 'PostgreSQL is a RDBMS.');
+    INSERT INTO memos VALUES (2, 'Groonga is fast full text search engine.');
+    INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga.');
+    CREATE INDEX grnindex ON memos USING pgroonga (content);
+    SELECT id, content
+      FROM memos
+     WHERE content &@~ pgroonga_condition('PGroonga') AND
+           content &@~ pgroonga_condition(' ');
+    ```
+
+  * Fixed a crash bug related to auto vacuum
+
+    This is happen when:
+
+      * A query has multiple index scans and/or bitmap scans with
+        PGroonga indexes
+      * Auto vacuum is executed while the query is executing
+
+    If you're lucky, this may not cause a crash. But the following errors
+    may be happen:
+
+      * "invalid match target: <>"
+      * "column isn't found"
+
+## 3.2.0: 2024-04-18 {#version-3-2-0}
+
+### Fixes
+
+  * Fixed a crash on connection close.
+
+    This occurred when the connection was closed "during a transaction
+    and when releasing resources for a sequential search".
+
+    This was caused by a callback being run to release a sequential search
+    resource even though all resources had already been released.
+
+    Fixed unregistration of callbacks that are no longer needed when releasing
+    all resources.
+
+## 3.1.9: 2024-03-27 {#version-3-1-9}
+
+### Improvements
+
+  * Added [`pgroonga_crash_safer.max_recovery_threads`][pgroonga-crash-safer-max-recovery-threads] parameter to [`pgroonga-crash-safer`][pgroonga-crash-safer].
+
+## 3.1.8: 2024-02-27 {#version-3-1-8}
+
+### Fixes
+
+  * Fixed a crash bug when the last cached sequential search datum was vacuumed that is happen every 100 queries.
+
+    Note that "vacuum" here is PGroonga internal vacuum only for sequential search datum.
+    It's not PostgreSQL's vacuum.
+
+    For example, we are crashed PGroonga by executing in the following procedure.
+
+    1. We send the following query to PostgreSQL.
+
+       `SELECT WHERE content &@ ('hello', null, 'memos_index')::pgroonga_full_text_search_condition;`.
+
+    2. We send hundred non PGroonga's sequential search related queries such as `SELECT 1;`.
+
+    3. We send the query same as 1. to PostgreSQL again.
+
+## 3.1.7: 2024-02-05 {#version-3-1-7}
+
+### Improvements
+
+  * PGroonga avoid blocking of process termination while [`pgroonga-crash-safer`][pgroonga-crash-safer] is flushing.
+
+### Fixes
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] Fixed a bug that PGroonga may crash if valid index name is specified and then an invalid index name is specified.
+
+## 3.1.6: 2024-01-10 {#version-3-1-6}
+
+### Improvements
+
+  * Added a new script for setting up the build environment. [GitHub#358][Patched by askdkc]
+
+  * Added a new option `pgroonga.enable_row_level_security`.
+
+    If we disabled `pgroonga.enable_row_level_security`, PGroonga might improve performance.
+    However, it has a security risk.
+
+    So, we must not disable this option when we use RLS.
+    We must check whether we don't use RLS before we disable this.
+
+  * Added new type `pgroonga_condition` and new function `pgroonga_condition()`.
+
+    `pgroonga_full_text_search_condition` type and `pgroonga_full_text_search_condition_with_scorers` type are deprecated.
+    We use `pgroonga_condition` type instead.
+
+    Here is the signature of `pgroonga_condition()`.
+
+    ```
+    pgroonga_condition(query text,
+                       weights int[],
+                       scorers text[],
+                       schema_name text,
+                       index_name text,
+                       column_name text)
+    ```
+
+### Fixes
+
+  * Fixed a bug if we update PGroonga from 2.4.1 to 2.4.2, we can't use `pgroonga_snippet_html()`. [Reported by takadat]
+
+  * Fixed a bug if we specify non PostgreSQL's table as the first argument of `pgroonga_query_expand()`, PGroonga crashes as below.
+
+    ```sql
+    CREATE EXTENSION IF NOT EXISTS postgres_fdw;
+
+    CREATE SERVER remote_server
+        FOREIGN DATA WRAPPER postgres_fdw
+        OPTIONS (host 'localhost', port '5432', dbname 'remote_database');
+
+    CREATE FOREIGN TABLE synonym_groups (
+      synonyms text[]
+    ) SERVER remote_server;
+
+    SELECT pgroonga_query_expand('synonym_groups',
+                                 'synonyms',
+                                 'synonyms',
+                                 'groonga');
+
+    server closed the connection unexpectedly
+    	This probably means the server terminated abnormally
+    	before or while processing the request.
+    The connection to the server was lost. Attempting reset: Failed.
+    ```
+
+  * Fixed a bug if many error occured in PGroonga, PostgreSQL might consume all error stack and PANIC.
+
+    This problem might occure since PGroonga 2.3.3.
+
+### Thanks
+
+  * askdkc
+  * takadat
+
+## 3.1.5: 2023-09-29 {#version-3-1-5}
+
+### Fixes
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] [[`&@~`
+    operator][query-v2] and so on for sequential search] Fixed a crash
+    bug when nonexistent attribute name in the index is specified.
+
+## 3.1.4: 2023-09-29 {#version-3-1-4}
+
+### Improvements
+
+  * Added support for PostgreSQL 16.
+
+  * Dropped support for Amazon Linux 2.
+
+  * Added `tokenizer_mapping` option that can be used to customize
+    tokenizer for each indexed target.
+
+  * [[`` &` `` operator][script-v2]] Raised an error for sequential
+    scan explicitly.
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] [[`&@~`
+    operator][query-v2] and so on for sequential search] Added support
+    for specifying full index name to use the specific index's
+    configuration.
+
+## 3.1.3: 2023-08-17 {#version-3-1-3}
+
+### Fixes
+
+  * [`pgroonga_highlight_html` function][highlight-html]: Fixed a
+    crash bug.  This may be occurred only when you use
+    `NormalizerTable` in your index and specify the index that uses
+    `NormalizerTable`.
+
+  * Fixed a bug that PGroonga WAL may not be applied on standbys.
+
+    This isn't caused by broken PGroonga WAL. So you can fix this
+    problem by just upgrading your PGroonga to 3.1.3 or later.
+
+## 3.1.2: 2023-08-09 {#version-3-1-2}
+
+### Improvements
+
+  * [[Crash safe][crash-safe]] Added support for resetting WAL applied
+    position automatically on startup only on primary.
+
+    Note that this is not done on standbys because WAL applied
+    position may not be the latest on standbys.
+
+  * [[`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]]
+    Added support for parallel WAL application.
+
+### Fixes
+
+  * Fixed a crash bug in sequential search. This may be occurred only
+    when you use `NormalizerTable` in your index and specify the index
+    that uses `NormalizerTable` by
+    `pgroonga_full_text_search_condition` or
+    `pgroonga_full_text_search_condition_with_scorers`.
+
+## 3.1.1: 2023-07-25 {#version-3-1-1}
+
+### Improvements
+
+  * [[Debian][debian]] Added support for Debian GNU/Linux bookworm.
+
+## 3.1.0: 2023-07-12 {#version-3-1-0}
+
+### Improvements
+
+  * Required Groonga 13.0.2 or later.
+
+  * Added support for backtrace on `abort()`.
+
+### Fixes
+
+  * Fixed a potential crash bug when `VACUUM` including auto `VACUUM`
+    is used.
+
+## 3.0.9: 2023-07-03 {#version-3-0-9}
+
+### Improvements
+
+  * [[`pgroonga_query_expand` function][query-expand]] Added support
+    for trace log.
+
+## 3.0.8: 2023-06-22 {#version-3-0-8}
+
+### Improvements
+
+  * [[`&=~` operator][equal-query-v2]] Added support for
+    `pgroonga_full_text_search_condition` to use an index options in
+    sequential search too.
+
+  * [[`pgroonga.enable_trace_log` parameter][enable-trace-log]] Added
+    support for trace log.
+
+## 3.0.7: 2023-06-13 {#version-3-0-7}
+
+### Improvements
+
+  * Improved error handling on sequential search.
+
+  * [[`pgroonga_query_expand` function][query-expand]] Used
+    `AnyArrayType` API instead of `ArrayType` API again because it
+    doesn't have a problem.
+
+  * [[`pgroonga_score` function][score]] Improved performance when HOT
+    doesn't exist.
+
+    [GH-346][gh-346] [Reported by Michael Fester]
+
+  * [[Windows][windows]] Required CMake 3.16 or later on build.
+
+### Thanks
+
+  * Michael Fester
+
+## 3.0.6: 2023-06-01 {#version-3-0-6}
+
+### Improvements
+
+  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:
+    Added support for declarative partitioning with PostgreSQL < 15.
+
+  * `VACUUM`: Added support for removing broken objects forcibly.
+
+  * [`pgroonga_highlight_html` function][highlight-html]: Rejected
+    parent index of declarative partitioning explicitly.
+
+### Fixes
+
+  * [Streaming replication][streaming-replication]: Fixed a bug that
+    needless WAL may be applied by `SELECT`/`INSERT`/`DELETE`/`UPDATE`
+    while `REINDEX CONCURRENTLY`.
+
+## 3.0.5: 2023-05-31 {#version-3-0-5}
+
+### Improvements
+
+  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]:
+    Added.
+
+### Fixes
+
+  * Fixed a crash bug that may be occurred when `VACUUM` including
+    `autovacuum` is finished while index scan is executed.
+
+## 3.0.4: 2023-05-29 {#version-3-0-4}
+
+### Improvements
+
+  * [[`pgroonga_query_expand` function][query-expand]] Reverted using
+    `AnyArrayType` API instead of `ArrayType` API because it seems
+    that it's needless.
+
+### Fixes
+
+  * [[`pgroonga_query_expand` function][query-expand]] Fixed a crash
+    bug when synonyms array includes a `NULL` element.
+
+## 3.0.3: 2023-05-18 {#version-3-0-3}
+
+### Fixes
+
+  * Fixed a bug that PGroonga may have crashed when PGroonga writed PGroonga's WAL.
+
+  * [GH-336][gh-336]: Fixed a bug that PGroonga crashed if we specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file. [Reported by askdkc and Rui Chen]
+
+    PGroonga doesn't crash even if we specify ``shared_preload_libraries = 'pgroonga'`` by this modification.
+
+    However, if we specify ``shared_preload_libraries = 'pgroonga'``, PGroonga doesn't work well.
+    For example, ``CREATE INDEX USING pgroonga`` is failed.
+    However, probably, old PGroonga also has not worked well with ``shared_preload_libraries = 'pgroonga'``.
+    Because we don't have a timing that initializes Groonga's DB.
+
+    Therefore, we don't specify ``shared_preload_libraries = 'pgroonga'`` in the PostgreSQL's config file.
+
+### Thanks
+
+  * askdkc
+  * Rui Chen
+
+## 3.0.2: 2023-05-11 {#version-3-0-2}
+
+### Fixes
+
+  * Fixed a bug that PGroonga may crash when we used ``pgroonga_query_expand()``.
+
+    However, probably, this problem rarely occur.
+
+  * Fixed a bug that ``SELECT`` using PGroonga's index may fail after PostgreSQL crashed while execution ``INSERT``.
+
+    However, probably, this problem rarely occur.
+
+  * [GH-331][gh-331]: Fixed a bug that many compile errors rised when we did not not define ``HAVE_MSGPACK`` in ``src/pgrn-wal.c``. [Reported by OBATA Akio]
+
+    This problem only occures when we build PGroonga from sources.
+
+### Thanks
+
+  * OBATA Akio
+
+## 3.0.1: 2023-04-27 {#version-3-0-1}
+
+### Improvements
+
+  * [[`pgroonga_wal_status` function][wal-status]] Added a newly function ``pgroonga_wal_status()``.
+
+    This function display a status of applying PGroonga's WAL.
+    The maximum size of PGroonga's WAL is limited by ``pgroonga.max_wal_size``.
+
+    If we execute many modification before PGroonga doesn't apply PGroonga's WAL, not applied PGroonga's WAL may lost.
+    Because PGroonga's WAL is over writed from the head of it when the size of modification over ``pgroonga.max_wal_size``
+
+    We understand the size of applied PGroonga's WAL by this function. Therefore we can prevent lost for not applied PGroonga's WAL.
+
+### Fixes
+
+  * Fixed a bug that dead lock occures when we execute ``UPDATE`` or ``INSERT`` while we execute ``REINDEX INDEX ... CONCURRENTLY``.
+
+  * [GH-90][gh-90], [GH-117][gh-117]: Fixed a bug that if we repeated ``REINDEX`` and ``VACUUM``, PGroonga may return incorrect results and fail ``INSERT``.
+
+    For example, if this problem is occurred when INSERT, the following error is raised:
+
+    ```
+    ERROR:  pgroonga: [insert] failed to add a record: <75300883>:
+    [table][add][hash] failed to add:
+     #<key "\u0013\u0000}\u0004\u0000\u0000\u0000\u0000"
+       table:#<hash Sources17192 key:ShortText>>
+    ```
+
+### Thanks
+
+  * Daisuke Ando
+  * Raphael Gaschignard
+
+## 3.0.0: 2023-04-13 {#version-3-0-0}
+
+### Improvements
+
+  * [GH-291][gh-291]: Stopped defining v1 compatible operators to the `public` schema. Now, you can install PGroonga to non-`public` schema (Supabase uses `extensions` schema by default) and work without any tricky SQL.
+
+    This is a backward incompatible change but most users will not be affected because PGroonga 2.0.0 was released 6 years ago. Most users must not use v1 compatible operators.
+
+  * [GH-308][gh-308]: [[`pgroonga_query_extract_keywords` function][query-extract-keywords]] Added support for `query_allow_column=true` by specifying index name.
+    [Reported by yodhcn]
+
+  * [GH-317][gh-317]: [[`&=~` operator][equal-query-v2]] Added support for query syntax for `text[]` and `varchar[]`.
+    [Reported by yodhcn]
+
+### Thanks
+
+  * yodhcn
+
+## 2.4.7: 2023-03-27 {#version-2-4-7}
+
+### Improvements
+
+  * Added a newly support for AlmaLinux 9.
+
+  * Dropped support for Ubuntu 18.04.
+
+    Because Ubuntu 18.04 will reache EOL in April 2023.
+
+### Fixes
+
+  * Fixed a bug that PGroonga crashed when we execute ``CREATE INDEX`` against a column of UUID type. [GitHub:GH-305][Reported by ghevge]
+
+### Thanks
+
+  * ghevge
+
+## 2.4.6: 2023-03-24 {#version-2-4-6}
+
+### Improvements
+
+  * [`&^` operator][prefix-search-v2] Added support for ``pgroonga_full_text_search_condition``.
+
+  * [[`pgroonga_highlight_html` function][highlight-html]] Added support prefix search.
+
+  * [`&=` operator][exact-match-search] Added a newly operator `&=`.
+
+    We can use custom normalizers with this in exact match search even if PGroonga's index is used or not.
+
+  * Added support for UUID type. [GitHub#302][Reported by ghevge]
+
+  * [tuning] Added a newly documentation for PGroonga's tunung. [GitHub:pgroonga/pgroonga.github.io#99][Patched by askdkc]
+
+  * [streaming-replication] Update replication example to use Ubuntu 22.04 and the latest PostgreSQL. [GitHub:pgroonga/pgroonga.github.io#100][Patched by askdkc]
+
+### Thanks
+
+  * askdkc
+  * ghevge
+
+## 2.4.5: 2023-03-06 {#version-2-4-5}
+
+### Fixes
+
+  * [[`pgroonga_text_regexp_ops_v2` operator class][text-regexp-ops-v2]] Fixed a bug that TokenRegexp isn't used with options. [GitHub#293][Reported by askdkc]
+
+  * [[Crash safe][crash-safe]] Fixed a bug that re-index recovery doesn't work.
+
+### Thanks
+
+  * askdkc
+
+## 2.4.4: 2023-01-29 {#version-2-4-4}
+
+### Improvements
+
+  * [[`pgroonga_wal_apply` function][wal-apply]] add target index information to error logs
+
+    We can find indexes that failed to apply WAL records of PGroonga by this modification.
+
 ## 2.4.3: 2023-01-06 {#version-2-4-3}
 
 ### Improvements
@@ -1686,6 +2507,7 @@ The first release!!!
 [create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
 [create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer
 [create-index-using-pgroonga-custom-index-flags]:../reference/create-index-using-pgroonga.html#custom-index-flags
+[create-index-using-pgroonga-semantic-search]:../reference/create-index-using-pgroonga.html#semantic-search
 
 [text-regexp-ops]:../reference/#text-regexp-ops
 [text-array-full-text-search-ops]:../reference/#text-array-full-text-search-ops
@@ -1699,6 +2521,7 @@ The first release!!!
 [text-regexp-ops-v2]:../reference/#text-regexp-ops-v2
 [text-array-full-text-search-ops-v2]:../reference/#text-array-full-text-search-ops-v2
 [text-array-term-search-ops-v2]:../reference/#text-array-term-search-ops-v2
+[text-array-regexp-ops-v2]:../reference/#text-array-regexp-ops-v2
 [varchar-full-text-search-ops-v2]:../reference/#varchar-full-text-search-ops-v2
 [varchar-regexp-ops-v2]:../reference/#varchar-regexp-ops-v2
 [varchar-array-term-search-ops-v2]:../reference/#varchar-array-term-search-ops-v2
@@ -1706,22 +2529,26 @@ The first release!!!
 [jsonb-full-text-search-ops-v2]:../reference/#jsonb-full-text-search-ops-v2
 
 [contain-array]:../reference/operators/contain-array.html
-[match-v2]:../reference/operators/match-v2.html
 [contain-term-v2]:../reference/operators/contain-term-v2.html
-[query-v2]:../reference/operators/query-v2.html
-[query-in-v2]:../reference/operators/query-in-v2.html
-[script-v2]:../reference/operators/script-v2.html
-[similar-search-v2]:../reference/operators/similar-search-v2.html
-[prefix-search-v2]:../reference/operators/prefix-search-v2.html
+[equal-query-v2]:../reference/operators/equal-query-v2.html
+[exact-match-search]:../reference/operators/exact-match-search.html
+[match-jsonb-v2]:../reference/operators/match-jsonb-v2.html
+[match-v2]:../reference/operators/match-v2.html
+[not-prefix-search-in-v2]:../reference/operators/not-prefix-search-in-v2.html
+[prefix-rk-search-in-v2]:../reference/operators/prefix-rk-search-in-v2.html
 [prefix-rk-search-v2]:../reference/operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:../reference/operators/prefix-search-in-v2.html
-[prefix-rk-search-in-v2]:../reference/operators/prefix-rk-search-in-v2.html
-[not-prefix-search-in-v2]:../reference/operators/not-prefix-search-in-v2.html
-[match-jsonb-v2]:../reference/operators/match-jsonb-v2.html
+[prefix-search-v2]:../reference/operators/prefix-search-v2.html
+[query-in-v2]:../reference/operators/query-in-v2.html
 [query-jsonb-v2]:../reference/operators/query-jsonb-v2.html
-[script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
-[regular-expression-v2]:../reference/operators/regular-expression-v2.html
+[query-v2]:../reference/operators/query-v2.html
 [regular-expression-in-v2]:../reference/operators/regular-expression-in-v2.html
+[regular-expression-v2]:../reference/operators/regular-expression-v2.html
+[script-jsonb-v2]:../reference/operators/script-jsonb-v2.html
+[script-v2]:../reference/operators/script-v2.html
+[similar-search-v2]:../reference/operators/similar-search-v2.html
+[semantic-search-v2]:../reference/operators/semantic-search-v2.html
+[semantic-distance-v2]:../reference/operators/semantic-distance-v2.html
 
 [command]:../reference/functions/pgroonga-command.html
 [database-remove]:../reference/functions/pgroonga-database-remove.html
@@ -1729,10 +2556,17 @@ The first release!!!
 [highlight-html]:../reference/functions/pgroonga-highlight-html.html
 [index-column-name]:../reference/functions/pgroonga-index-column-name.html
 [is-writable]:../reference/functions/pgroonga-is-writable.html
+[language-model-vectorize]:../reference/functions/pgroonga-language-model-vectorize.html
+[list-broken-indexes]:../reference/functions/pgroonga-list-broken-indexes.html
+[list-lagged-indexes]:../reference/functions/pgroonga-list-lagged-indexes.html
+[primary-maintainer]:../reference/commands/pgroonga-primary-maintainer.html
+[generate-primary-maintainer-service]:../reference/commands/pgroonga-generate-primary-maintainer-service.html
+[generate-primary-maintainer-timer]:../reference/commands/pgroonga-generate-primary-maintainer-timer.html
 [match-positions-byte]:../reference/functions/pgroonga-match-positions-byte.html
 [match-positions-character]:../reference/functions/pgroonga-match-positions-character.html
 [normalize]:../reference/functions/pgroonga-normalize.html
 [query-expand]:../reference/functions/pgroonga-query-expand.html
+[query-extract-keywords]:../reference/functions/pgroonga-query-extract-keywords.html
 [result-to-jsonb-objects]:../reference/functions/pgroonga-result-to-jsonb-objects.html
 [result-to-recordset]:../reference/functions/pgroonga-result-to-recordset.html
 [score]:../reference/functions/pgroonga-score.html
@@ -1741,9 +2575,12 @@ The first release!!!
 [tokenize]:../reference/functions/pgroonga-tokenize.html
 [vacuum]:../reference/functions/pgroonga-vacuum.html
 [wal-apply]:../reference/functions/pgroonga-wal-aplly.html
+[wal-set-applied-position]:../reference/functions/pgroonga-wal-set-applied-position.html
+[wal-status]:../reference/functions/pgroonga-wal-status.html
 [wal-truncate]:../reference/functions/pgroonga-wal-truncate.html
 
 [enable-crash-safe]:../reference/parameters/enable-crash-safe.html
+[enable-trace-log]:../reference/parameters/enable-trace-log.html
 [force-match-escalation]:../reference/parameters/force-match-escalation.html
 [libgroonga-version]:../reference/parameters/libgroonga-version.html
 [match-escalation-threshold]:../reference/parameters/match-escalation-threshold.html
@@ -1752,6 +2589,12 @@ The first release!!!
 [pgroonga-crash-safer-flush-naptime]:../reference/parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:../reference/parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../reference/parameters/pgroonga-crash-safer-log-path.html
+[pgroonga-crash-safer-max-recovery-threads]:../reference/parameters/pgroonga-crash-safer-max-recovery-threads.html
+
+[log-rotate-threshold-size]:../reference/parameters/log-rotate-threshold-size.html
+[query-log-rotate-threshold-size]:../reference/parameters/query-log-rotate-threshold-size.html
+
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:../reference/parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 
 [pgroonga-wal-applier-naptime]:../reference/parameters/pgroonga-wal-applier-naptime.html
 
@@ -1760,9 +2603,23 @@ The first release!!!
 [pgroonga-database]:../reference/modules/pgroonga-database.html
 [pgroonga-wal-applier]:../reference/modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:../reference/modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:../reference/modules/pgroonga-wal-resource-manager.html
+
+[streaming-replication]:../reference/streaming-replication.html
 
 [travis-ci]:../how-to/travis-ci.html
+
+[tuning]:../how-to/tuning.html
 
 [postgresql-row-level-security]:{{ site.postgresql_doc_base_url.en }}/ddl-rowsecurity.html
 
 [crash-safe]:../reference/crash-safe.html
+
+[gh-90]:https://github.com/pgroonga/pgroonga/issues/90
+[gh-117]:https://github.com/pgroonga/pgroonga/issues/117
+[gh-291]:https://github.com/pgroonga/pgroonga/issues/291
+[gh-308]:https://github.com/pgroonga/pgroonga/issues/308
+[gh-317]:https://github.com/pgroonga/pgroonga/issues/308
+[gh-331]:https://github.com/pgroonga/pgroonga/issues/331
+[gh-336]:https://github.com/pgroonga/pgroonga/issues/336
+[gh-346]:https://github.com/pgroonga/pgroonga/issues/346

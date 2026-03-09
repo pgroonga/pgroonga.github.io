@@ -78,7 +78,7 @@ CREATE INDEX user_synonym_groups_synonyms_index
 INSERT INTO user_synonym_groups VALUES (ARRAY['pg', 'postgresql']);
 ```
 
-この同義語グループデータを使うと、`pg`で検索しても`postgresql`で検索しても同じ検索結果になります。`pg`で検索するとクエリーは`pg OR postgresql`になりまうｓ．`postgresql`で検索してもクエリーは`pg OR postgresql`になります。
+この同義語グループデータを使うと、`pg`で検索しても`postgresql`で検索しても同じ検索結果になります。`pg`で検索するとクエリーは`pg OR postgresql`になります。`postgresql`で検索してもクエリーは`pg OR postgresql`になります。
 
 ### 同義語辞書を使った検索方法
 

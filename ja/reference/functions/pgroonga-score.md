@@ -66,7 +66,7 @@ double precision pgroonga_score(record)
 
 `record`はテーブル名です。
 
-この使い方の`pgroonga_score`ではPGroongaのインデックスにインデックスを追加する必要があります。
+この使い方の`pgroonga_score`ではPGroongaのインデックスにプライマリーキーを追加する必要があります。
 
 次のスキーマが定義されているとします。
 

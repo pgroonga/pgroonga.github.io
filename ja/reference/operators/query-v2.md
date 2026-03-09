@@ -13,8 +13,7 @@ upper_level: ../
 
 `&@~`演算子はクエリーを使って全文検索を実行します。
 
-クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。
-クエリーで`キーワード1 キーワード2`と書くとAND検索できます。
+クエリーの構文はWeb検索エンジンで使われている構文と似ています。たとえば、クエリーで`キーワード1 OR キーワード2`と書くとOR検索できます。`キーワード1 キーワード2`と書くとAND検索できます。`キーワード1 -キーワード2`と書くとNOT検索できます。
 
 ## 構文
 
@@ -24,6 +23,13 @@ upper_level: ../
 column &@~ query
 column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
+column &@~ pgroonga_condition(query,
+                              weights,
+                              scorers,
+                              schema_name,
+                              index_name,
+                              column_name,
+                              fuzzy_max_distance_ratio)
 ```
 
 1つ目の使い方は他の使い方よりもシンプルです。多くの場合は1つ目の使い方で十分です。
@@ -35,6 +41,12 @@ column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_cond
 3つ目の使い方は検索スコアーをより最適化するときに便利です。たとえば、[キーワードスタッフィング][wikipedia-keyword-stuffing]対策を実現することができます。
 
 3つ目の使い方は2.0.6から使えます。
+
+4つ目の使い方は[`pgroonga_condition`関数][condition]を使います。[`pgroonga_condition`関数][condition]を使うと2つ目と3つ目の使い方も実現できます。3.1.6以降はこの構文を使ってください。
+
+詳細は[`pgroonga_condition`関数][condition]を参照してください。
+
+4つ目の使い方は3.1.6から使えます。
 
 以下は1つ目の使い方の説明です。
 
@@ -58,7 +70,9 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 
 `query`は全文検索用のクエリーです。`column`が`text`型または`text[]`型なら`query`は`text`型です。`column`が`varchar`型なら`query`は`varchar`型です。
 
-`weights`はそれぞれの値の重要度です。`int[]`型です。もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
+`weights`は、検索対象のカラムの重要度です。`int[]`型です。
+
+もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
 
 `weights`を`NULL`にできます。`weights`の要素も`NULL`にできます。対応する重要度が`NULL`の場合は重要度は`1`になります。
 
@@ -75,14 +89,16 @@ column &@~ (query, weights, index_name)::pgroonga_full_text_search_condition
 以下は3つ目の使い方の説明です。
 
 ```sql
-column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition
+column &@~ (query, weights, scorers, index_name)::pgroonga_full_text_search_condition_with_scorers
 ```
 
 `column`は検索対象のカラムです。型は`text`型、`text[]`型、`varchar`型のどれかです。
 
 `query`は全文検索用のクエリーです。`column`が`text`型または`text[]`型なら`query`は`text`型です。`column`が`varchar`型なら`query`は`varchar`型です。
 
-`weights`はそれぞれの値の重要度です。`int[]`型です。もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
+`weights`は、検索対象のカラムの重要度です。`int[]`型です。
+
+もし、`column`が`text`型か`varchar`型なら、最初の要素がカラムの値の重要度になります。`column`が`text[]`型なら、同じ位置の値がその値の重要度になります。
 
 `weights`を`NULL`にできます。`weights`の要素も`NULL`にできます。対応する重要度が`NULL`の場合は重要度は`1`になります。
 
@@ -174,7 +190,7 @@ CREATE TABLE memos (
 
 CREATE INDEX pgroonga_memos_index
     ON memos
- USING PGroonga ((ARRAY[title, content]));
+ USING pgroonga ((ARRAY[title, content]));
 ```
 
 ```sql
@@ -184,7 +200,7 @@ INSERT INTO memos VALUES ('PGroonga', 'PGroongaはインデックスとしてGro
 INSERT INTO memos VALUES ('コマンドライン', 'groongaコマンドがあります。');
 ```
 
-[`pgroonga_score`関数][score]を使うと、「`Groonga OR PostgreSQL`」というクエリーに対してより適切なレコードを見つけられます。
+より指定したクエリーにマッチしたレコードを探すためには[`pgroonga_score`関数][score]を使えます。
 
 ```sql
 SELECT *, pgroonga_score(tableoid, ctid) AS score
@@ -193,6 +209,22 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
        ('Groonga OR PostgreSQL',
         ARRAY[5, 1],
         'pgroonga_memos_index')::pgroonga_full_text_search_condition
+ ORDER BY score DESC;
+--      title      |                                  content                                  | score 
+-- ----------------+---------------------------------------------------------------------------+-------
+--  Groonga        | Groongaは日本語対応の高速な全文検索エンジンです。                         |     6
+--  PostgreSQL     | PostgreSQLはリレーショナル・データベース管理システムです。                |     6
+--  PGroonga       | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     2
+--  コマンドライン | groongaコマンドがあります。                                               |     1
+-- (4 rows)
+
+-- pgroonga_condition()を使う
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('Groonga OR PostgreSQL',
+                          weights => ARRAY[5, 1],
+                          index_name => 'pgroonga_memos_index')
  ORDER BY score DESC;
 --      title      |                                  content                                  | score 
 -- ----------------+---------------------------------------------------------------------------+-------
@@ -220,6 +252,20 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 --  Groonga    | Groongaは日本語対応の高速な全文検索エンジンです。          |     5
 --  PostgreSQL | PostgreSQLはリレーショナル・データベース管理システムです。 |     5
 -- (2 rows)
+
+-- pgroonga_condition()を使う
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('Groonga OR PostgreSQL',
+                          weights => ARRAY[5, 0],
+                          index_name => 'pgroonga_memos_index')
+ ORDER BY score DESC;
+--    title    |                          content                           | score 
+-- ------------+------------------------------------------------------------+-------
+--  Groonga    | Groongaは日本語対応の高速な全文検索エンジンです。          |     5
+--  PostgreSQL | PostgreSQLはリレーショナル・データベース管理システムです。 |     5
+-- (2 rows)
 ```
 
 スコアーの計算方法をカスタマイズできます。たとえば、`content`カラムのスコアーを最大で`0.5`に制限できます。
@@ -230,7 +276,25 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
  WHERE ARRAY[title, content] &@~
        ('Groonga OR PostgreSQL',
         ARRAY[5, 1],
-        'pgroonga_memos_index')::pgroonga_full_text_search_condition
+        ARRAY[NULL, 'scorer_tf_at_most($index, 0.5)'],
+        'pgroonga_memos_index')::pgroonga_full_text_search_condition_with_scorers
+ ORDER BY score DESC;
+--      title      |                                  content                                  | score 
+-- ----------------+---------------------------------------------------------------------------+-------
+--  Groonga        | Groongaは日本語対応の高速な全文検索エンジンです。                         |   5.5
+--  PostgreSQL     | PostgreSQLはリレーショナル・データベース管理システムです。                |   5.5
+--  PGroonga       | PGroongaはインデックスとしてGroongaを使うためのPostgreSQLの拡張機能です。 |     1
+--  コマンドライン | groongaコマンドがあります。                                               |   0.5
+-- (4 rows)
+
+-- pgroonga_condition()を使う
+SELECT *, pgroonga_score(tableoid, ctid) AS score
+  FROM memos
+ WHERE ARRAY[title, content] &@~
+       pgroonga_condition('Groonga OR PostgreSQL',
+                          weights => ARRAY[5, 1],
+                          scorers => ARRAY[NULL, 'scorer_tf_at_most($index, 0.5)'],
+                          index_name => 'pgroonga_memos_index')
  ORDER BY score DESC;
 --      title      |                                  content                                  | score 
 -- ----------------+---------------------------------------------------------------------------+-------
@@ -251,14 +315,18 @@ SELECT *, pgroonga_score(tableoid, ctid) AS score
 
   * [`&@`演算子][match-v2]：キーワード1つでの全文検索
 
+  * [`pgroonga_condition`関数][condition]
+
   * [Groongaのクエリーの構文][groonga-query-syntax]
 
 [wikipedia-keyword-stuffing]:https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%89%E3%82%B9%E3%82%BF%E3%83%83%E3%83%95%E3%82%A3%E3%83%B3%E3%82%B0
 
+[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html
+
 [groonga-scorer]:http://groonga.org/ja/docs/reference/scorer.html
+
+[condition]:../functions/pgroonga-condition.html
 
 [score]:../functions/pgroonga-score.html
 
 [match-v2]:match-v2.html
-
-[groonga-query-syntax]:http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html

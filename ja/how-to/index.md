@@ -8,6 +8,10 @@ title: ハウツー
 
 このページにない有用な情報を持っている場合は、ぜひ[pgroonga/pgroonga.github.io](https://github.com/pgroonga/pgroonga.github.io)にプルリクエストを送ってください。あなたの持っている有用な情報を共有してください！
 
+## PGroongaのチューニング方法
+
+  * [PGroongaのチューニング方法](tuning.html)
+
 ## オートコンプリートの実装方法
 
   * [オートコンプリートの実装方法](auto-complete.html)
@@ -15,6 +19,11 @@ title: ハウツー
 ## Webアプリケーションフレームワークと一緒にPGroongaを使う方法
 
   * Ruby on Railsと一緒に使う方法：TODO
+
+  * [Laravelと一緒に使う方法](laravel.html)
+
+  * [PostgRESTと一緒に使う方法](postgrest.html)
+
   * ...
 
 ## 継続的インテグレーション（CI）
@@ -30,6 +39,10 @@ title: ハウツー
   * [同義語展開の使い方](synonym-expansion.html)
 
   * [同義語展開にSudachiの辞書を使う方法](sudachi-dictionary.html)
+
+## Spring/Hibernateと一緒に使う方法
+
+  * [Spring/Hibernateと一緒に使う方法](spring-hibernate.html)
 
 ## ...
 

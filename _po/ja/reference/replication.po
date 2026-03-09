@@ -6,6 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"PO-Revision-Date: 2024-12-09 14:53+0900\n"
 
 msgid ""
 "---\n"
@@ -20,27 +21,58 @@ msgid "# Replication"
 msgstr "# レプリケーション"
 
 msgid ""
-"PGroonga supports PostgreSQL's built-in [WAL based streaming replication][post"
-"gresql-wal] and [logical replication][postgresql-logical-replication]."
+"PGroonga supports PostgreSQL's built-in [WAL based streaming replication]"
+"[postgresql-wal] and [logical replication][postgresql-logical-replication]."
 msgstr ""
-"PGroongaは、PostgreSQL組み込みの[WALベースのストリーミングレプリケーション機能][postgresql-wal]と[ロジカルレプリケー"
-"ション][postgresql-logical-replication]をサポートしています。"
+"PGroongaは、PostgreSQL組み込みの[WALベースのストリーミングレプリケーション機"
+"能][postgresql-wal]と[ロジカルレプリケーション][postgresql-logical-"
+"replication]をサポートしています。"
 
 msgid "See the following pages for details:"
 msgstr "詳細は以下のページを参照してください:"
 
-msgid "  * [Streaming replication][streaming-replication]"
-msgstr " * [ストリーミングレプリケーション][streaming-replication]"
-
-msgid "  * [Logical replication][logical-replication]"
-msgstr " * [ロジカルレプリケーション][logical-replication]"
-
-msgid "[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html"
+msgid ""
+"  * [Streaming replication by WAL resource manager][streaming-replication-"
+"wal-resource-manager]"
 msgstr ""
+"  * [WALリソースマネージャーを使ったストリーミングレプリケーション]"
+"[streaming-replication-wal-resource-manager]"
+
+msgid "    * This requires PGroonga 3.2.1 or later and PostgreSQL 15 or later"
+msgstr "    * PGroonga 3.2.1以降とPostgreSQL 15以降が必要"
 
 msgid ""
-"[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.en }}/logical"
-"-replication.html"
+"    * This is recommended than [streaming replication][streaming-replication]"
+msgstr ""
+"    * [ストリーミングレプリケーション][streaming-replication]よりオススメ"
+
+msgid "  * [Streaming replication][streaming-replication]"
+msgstr "  * [ストリーミングレプリケーション][streaming-replication]"
+
+msgid "    * This requires PGroonga 1.1.6 or later"
+msgstr "    * PGroonga 1.1.6以降が必要"
+
+msgid "  * [Logical replication][logical-replication]"
+msgstr "  * [ロジカルレプリケーション][logical-replication]"
+
+msgid "    * This requires PGroonga 1.2.4 or later"
+msgstr "    * PGroonga 1.2.4以降が必要"
+
+msgid ""
+"[postgresql-wal]:{{ site.postgresql_doc_base_url.en }}/warm-standby.html"
+msgstr ""
+"[postgresql-wal]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html"
+
+msgid ""
+"[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.en }}/"
+"logical-replication.html"
+msgstr ""
+"[postgresql-logical-replication]:{{ site.postgresql_doc_base_url.ja }}/"
+"logical-replication.html"
+
+msgid ""
+"[streaming-replication-wal-resource-manager]:streaming-replication-wal-"
+"resource-manager.html"
 msgstr ""
 
 msgid "[streaming-replication]:streaming-replication.html"

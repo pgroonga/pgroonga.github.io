@@ -18,10 +18,14 @@ upper_level: ../
 この関数の構文は次の通りです。
 
 ```text
-text[] pgroonga_query_extract_keywords(query)
+text[] pgroonga_query_extract_keywords(query, index_name DEFAULTS '')
 ```
 
 `query`は[クエリー構文](http://groonga.org/ja/docs/reference/grn_expr/query_syntax.html)を使っている`text`型の値です。
+
+`index_name`は`text`型の値です。該当クエリーを使っているインデックスが`query_allow_column=true`を使っている場合はそのインデックスの名前を指定しなければいけません。
+
+`index_name`は3.0.0から使えます。
 
 `pgroonga_query_extract_keywords`はキーワードの配列を返します。
 
@@ -63,6 +67,28 @@ NOT条件の語はキーワードになりません。
 
 ```sql
 SELECT pgroonga_query_extract_keywords('Groonga - MySQL PostgreSQL') AS query_extract_keywords;
+--  query_extract_keywords 
+-- ------------------------
+--  {PostgreSQL,Groonga}
+-- (1 row)
+```
+
+`query_allow_column=true`を使っている場合は`index_name`を指定しなければいけません。
+
+```sql
+CREATE TABLE memos (
+  title text,
+  content text
+);
+
+CREATE INDEX pgroonga_memo_texts_index
+          ON memos
+       USING pgroonga (title, content)
+        WITH (query_allow_column=true);
+
+SELECT pgroonga_query_extract_keywords(
+         'Groonga content:@PostgreSQL',
+         index_name => 'pgroonga_memo_texts_index') AS keywords;
 --  query_extract_keywords 
 -- ------------------------
 --  {PostgreSQL,Groonga}

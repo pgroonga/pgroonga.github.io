@@ -242,10 +242,11 @@ SELECT pgroonga_highlight_html('one two three four five',
 -- (1 row)
 ```
 
-## Practical Example: Keyword Search and Highlight
+## 実例1：キーワード検索とハイライト
 
-Here is an example of implementing keyword search feature with `pgroonga_highlight_html`.
-Imagine you are building a blog, and for simplicity, this blog’s post model only has 'id', 'title' and 'body' fields.
+以下は`pgroonga_highlight_html`を使ってキーワード検索機能を実装する例です。
+
+ブログを開発することを想像してください。単純にするために、このブログの記事のモデルは`id`、`title`、`body`フィールドしかありません。
 
 ```sql
 CREATE TABLE posts (
@@ -254,7 +255,7 @@ CREATE TABLE posts (
   body text
 );
 
--- Create PGroonga Index 
+-- Create PGroonga Index
 CREATE INDEX pgroonga_posts_index
           ON posts
        USING pgroonga (title, body);
@@ -266,7 +267,7 @@ INSERT INTO posts VALUES (3, 'Quote of the day three', 'There are a thousand no'
 ```
 
 
-Then you may use `pgroonga_highlight_html` function to search through your blog posts, and get the result with keywords highlighted like this:
+ブログ記事を検索し、検索キーワードがハイライトされた結果を返すために、次のように`pgroonga_highlight_html`関数を使えます。
 
 ```sql
 SELECT
@@ -278,19 +279,18 @@ SELECT
 -- ------------------------+------------------------------------------------------------------------
 --  Quote of the day three | There are a <span class="keyword">thousand</span> no's, for every yes.
 --  (1 row)
-
 ```
 
-If you have a lot of data to search through and return the result with pagination, it is not wise to use `pgroonga_highlight_html()` on that query. Because `pgroonga_highlight_html()` only works in sequentially, the more number of records for processing in `pgroonga_highlight_html()`  you have, slower it gets in performance.
+もし、検索対象のページがたくさん会ってページネーションを使って結果を返す必要がある場合、そのクエリーで`pgroonga_highlight_html()`を使わないほうがいいかもしれません。なぜなら`pgroonga_highlight_html()`はシーケンシャルにしか動かないからです。`pgroonga_highlight_html()`で処理しなければいけないレコード数が増えるほど遅くなります。
 
-To avoid this problem, in the following example, we reduce the number of records for processing in `pgroonga_highlight_html()` by using `pgroonga_highlight_html()`  on the result of your keyword search instead.
+この問題を避けるために、次の例では`pgroonga_highlight_html()`対象のレコードを減らしています。サブクエリーで返却対象のレコード数を絞り込んでから`pgroonga_highlight_html()`を使っています。
 
 ```sql
 -- Good Performance
 SELECT
    pgroonga_highlight_html(title, pgroonga_query_extract_keywords('Search Words')) AS highlighted_title,
    pgroonga_highlight_html(body, pgroonga_query_extract_keywords('Search Words')) AS highlighted_body
-   from posts where id IN 
+   from posts where id IN
    (SELECT id FROM posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100);
 
 -- Do not do this. You may experience some performance issue.
@@ -300,9 +300,69 @@ SELECT
    from posts where title &@~ 'Search Words' or body &@~ 'Search Words' LIMIT 10 OFFSET 100;
 ```
 
+## 実例2：`NormalizerTable`を使うときのキーワード検索とハイライト
+
+`CREATE INDEX USING pgroonga`のドキュメント（[`pgroonga_highlight_html`と一緒に`NormalizerTable`を使う方法セクション][create-index-using-pgroonga-normalizer-table-highlight-html]）のように`NormalizerTable`を指定した場合、指定したPGroongaのインデックスは`TokenNgram`に`"report_source_location", true"`オプションを指定するだけではなく`NormalizerNFKC*`と`NormalizerTable`の両方にそれぞれ`"report_source_offset", true"`オプションを指定してしなければいけません。
+
+以下は指定する例です。ここではたくさんの表記がある`斉藤`を使います。
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE TABLE synonyms (
+   "target" text not null,
+   "normalized" text not null
+);
+
+INSERT INTO synonyms VALUES ('齊', '斉');
+INSERT INTO synonyms VALUES ('斎', '斉');
+INSERT INTO synonyms VALUES ('齋', '斉');
+
+INSERT INTO memos  (content)  VALUES ('斎藤さんの恋愛');
+INSERT INTO memos  (content)  VALUES ('斉藤さんの失恋');
+INSERT INTO memos  (content)  VALUES ('齋藤さんの片想い');
+
+CREATE INDEX pgroonga_synonyms_index ON synonyms
+ USING pgroonga (target pgroonga_text_term_search_ops_v2)
+                INCLUDE (normalized);
+
+CREATE INDEX pgroonga_memos_index
+          ON memos
+       USING pgroonga (content)
+        WITH (
+         tokenizer='TokenNgram(
+                      "unify_alphabet", false,
+                      "unify_symbol", false,
+                      "unify_digit", false,
+                      "report_source_location", true
+                    )',
+         normalizers='
+               NormalizerNFKC150("report_source_offset", true),
+               NormalizerTable(
+                 "normalized", "${table:pgroonga_synonyms_index}.normalized", 
+                 "target", "target",
+                 "report_source_offset", true
+               )'
+            );
+```
+
+```sql
+select pgroonga_highlight_html(content, '{斉藤}', 'pgroonga_memos_index')
+                  from memos where content &@~ '斉藤';
+--             pgroonga_highlight_html            
+-- -----------------------------------------------
+--  <span class="keyword"></span>斎藤さんの恋愛
+--  <span class="keyword"></span>斉藤さんの失恋
+--  <span class="keyword"></span>齋藤さんの片想い
+-- (3 rows)
+```
+
 
 ## 参考
 
   * [`pgroonga_query_extract_keywords`関数][query-extract-keywords]
 
 [query-extract-keywords]:pgroonga-query-extract-keywords.html
+[create-index-using-pgroonga-normalizer-table-highlight-html]:../create-index-using-pgroonga.html#normalizer-table-highlight-html

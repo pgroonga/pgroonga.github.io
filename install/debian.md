@@ -10,34 +10,47 @@ This document describes how to install PGroonga on Debian GNU/Linux.
 
 Here are supported Debian GNU/Linux versions:
 
-  * [bullseye](#install-on-bullseye)
+  * [trixie](#install-on-trixie)
+  * [bookworm](#install-on-bookworm)
 
-## How to install on Debian GNU/Linux bullseye {#install-on-bullseye}
+## How to install on Debian GNU/Linux trixie {#install-on-trixie}
 
-You can use the following instruction to install PGroonga on Debian GNU/Linux bullseye.
+You can use the following instruction to install PGroonga on Debian GNU/Linux trixie.
 
 Install `groonga-apt-source` package:
 
 ```console
-$ sudo apt install -y -V wget
-$ wget https://packages.groonga.org/debian/groonga-apt-source-latest-bullseye.deb
-$ sudo apt install -y -V ./groonga-apt-source-latest-bullseye.deb
+$ sudo apt install -y -V ca-certificates lsb-release wget
+$ wget https://packages.groonga.org/debian/groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
+$ sudo apt update
 ```
 
 If you want to use the PostgreSQL packages provided by PostgreSQL, you need to add [the APT repository by PostgreSQL][postgresql-apt]:
 
 ```console
-$ echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
-$ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+$ sudo wget -O /usr/share/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
+$ (echo "Types: deb"; \
+   echo "URIs: http://apt.postgresql.org/pub/repos/apt"; \
+   echo "Suites: $(lsb_release --codename --short)-pgdg"; \
+   echo "Components: main"; \
+   echo "Signed-By: /usr/share/keyrings/pgdg.asc") | \
+    sudo tee /etc/apt/sources.list.d/pgdg.sources
 ```
 
 Install `postgresql-*-pgdg-pgroonga` package:
 
 ```console
 $ sudo apt update
-$ sudo apt install -y -V postgresql-14-pgdg-pgroonga
+$ sudo apt install -y -V postgresql-18-pgdg-pgroonga
 Or
-$ sudo apt install -y -V postgresql-12-pgdg-pgroonga
+$ sudo apt install -y -V postgresql-17-pgdg-pgroonga
+Or
+$ sudo apt install -y -V postgresql-16-pgdg-pgroonga
+Or
+$ sudo apt install -y -V postgresql-15-pgdg-pgroonga
+Or
+$ sudo apt install -y -V postgresql-14-pgdg-pgroonga
 Or
 $ sudo apt install -y -V postgresql-13-pgdg-pgroonga
 ```
@@ -46,6 +59,12 @@ If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you
 
 ```console
 $ sudo apt install -y -V groonga-tokenizer-mecab
+```
+
+If you want to use [`<&@*>` operator](https://pgroonga.github.io/reference/operators/semantic-distance-v2.html) or [`&@*` operator](https://pgroonga.github.io/reference/operators/semantic-search-v2.html) for semantic search, you also need to install `groonga-plugin-language-model` package:
+
+```console
+$ sudo apt install -y -V groonga-plugin-language-model
 ```
 
 Create a database:
@@ -61,6 +80,10 @@ Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 ```console
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
+
+## How to install on Debian GNU/Linux bookworm {#install-on-bookworm}
+
+On bookworm, follow the same installation procedure as trixie. Please refer to [trixie](#install-on-trixie).
 
 That's all!
 

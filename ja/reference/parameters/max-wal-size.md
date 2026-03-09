@@ -45,7 +45,7 @@ pgroonga.max_wal_size = 10MB
 
   * [`pgroonga_wal_applier`モジュール][pgroonga-wal-applier]
 
- * [ストリーミングレプリケーション][streaming-replication]
+  * [ストリーミングレプリケーション][streaming-replication]
 
 [pgroonga-wal-applier]:../modules/pgroonga-wal-applier.html
 

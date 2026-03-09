@@ -12,7 +12,7 @@ You can use both 32bit version Windows and 64bit version Windows. You can use an
 
 ## How to install
 
-Install PostgreSQL (supported versions: {{ site.windows_postgresql_versions | join: ", " }}). You can choose [installer version](http://www.enterprisedb.com/products-services-training/pgdownload) or [zip version](http://www.enterprisedb.com/products-services-training/pgbindownload).
+Install PostgreSQL (supported versions: {{ site.windows_postgresql_versions | join: ", " }}). You can choose [installer version][windows-postgresql-download-installer] or [zip version][windows-postgresql-download-zip].
 
 Download PGroonga package:
 
@@ -54,3 +54,6 @@ pgroonga_test=# CREATE EXTENSION pgroonga;
 That's all!
 
 Try [tutorial](../tutorial/). You can understand more about PGroonga.
+
+[windows-postgresql-download-installer]: https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+[windows-postgresql-download-zip]: https://www.enterprisedb.com/download-postgresql-binaries

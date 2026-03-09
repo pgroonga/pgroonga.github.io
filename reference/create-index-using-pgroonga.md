@@ -1,12 +1,13 @@
 ---
 title: CREATE INDEX USING pgroonga
+toc: true
 ---
 
 # `CREATE INDEX USING pgroonga`
 
 You need to specify `USING pgroonga` to `CREATE INDEX` to use PGroonga as index method. This section describes about `pgroonga` index method.
 
-## Syntax
+## Syntax {#syntax}
 
 This section describes only `pgroonga` index method related `CREATE INDEX` syntax. See [`CREATE INDEX` document by PostgreSQL]({{ site.postgresql_doc_base_url.en }}/sql-createindex.html) for full `CREATE INDEX` syntax.
 
@@ -53,6 +54,22 @@ You can customize the followings by `WITH` option of `CREATE INDEX`:
   * Lexicon type: It's a type for lexicon that manages tokens.
 
   * Query syntax: It's the syntax used by [`$@~` operator][query-v2].
+
+  * Language model: It's the language model used when generating embeddings. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
+
+  * Passage prefix: It's a prefix attached to the search target text. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
+
+  * Query prefix: It's a prefix attached to the query text. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
+
+  * Number of GPU layers: It's the number of GPU layers used when generating embeddings. Use with `plugins = 'language_model/knn'`.
+
+    * Since 4.0.5.
 
 Normally, you don't need to customize them because the default values of them are suitable for most cases. Features to customize them are for advanced users.
 
@@ -146,6 +163,29 @@ CREATE INDEX pgroonga_tag_index
 ```
 
 See [Tokenizers][groonga-tokenizers] for other tokenizers.
+
+#### Partial match in alphabetic languages {#partial-match-alphabetic-languages}
+
+If you plan to perform partial matching searches for keywords in alphabetic languages, it is recommended to configure your tokenizer to `TokenNgram` with extra options. The default tokenizer in `PGroonga` is `TokenBigram`, which means that if you search for the keyword 'pp', for instance, it won't match 'Apple', 'Pineapple', or 'Ripple' in your data. To avoid this issue, it is strongly advised to set up your tokenizer as following `TokenNgram` example.
+
+Here is an example to use `TokenNgram` based tokenizer. You need to specify `tokenizer='TokenNgram'`. See [`TokenNgram`][groonga-token-ngram] for more detail.
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgroonga_content_index
+          ON memos
+       USING pgroonga (content)
+        WITH(tokenizer='TokenNgram("unify_alphabet", false, "unify_symbol", false, "unify_digit", false)');
+```
+
+You may also use `TokenBigramSplitSymbolAlphaDigit` for partial match instead of `TokenNgram` above. **(Using `TokenNgram(...)` is recommended)**.
+
+**Remarks**
+We however do not recommend using `TokenNgram("unify_...)`. It is advisable to use `TokenNgram/TokenBigram` instead, as partial matches in alphabetical languages tend to introduce a lot of noise. `TokenNgram("unify_...)` should only be utilized when it is truly necessary.
 
 #### How to customize normalizer {#custom-normalizer}
 
@@ -349,6 +389,8 @@ CREATE INDEX pgroonga_memos_index
               normalizers='NormalizerAuto');
 ```
 
+##### How to use `NormalizerTable` {#normalizer-table}
+
 You can use `${table:PGROONGA_INDEX_NAME}` syntax in text that specifies normalizers.
 
 It's available since 2.3.1.
@@ -381,7 +423,7 @@ CREATE INDEX pgroonga_memos_index
         WITH (normalizers='
                 NormalizerNFKC130,
                 NormalizerTable(
-                  "normalized", "${table:pgrn_normalizations_index}.normalized",
+                  "normalized", "${table:public.pgrn_normalizations_index}.normalized",
                   "target", "target"
                 )
              ');
@@ -399,6 +441,11 @@ SELECT * FROM memos WHERE content &@~ 'o123455';
 
 Note that you need to run `REINDEX INDEX pgroonga_memos_index` after you change `normalizations` table. Because normalization results are changed after `normalizations` table is changed.
 
+##### How to use `NormalizerTable` with `pgroonga_highlight_html` {#normalizer-table-highlight-html}
+
+When you need using `pgroonga_highlight_html` function with this `NormalizerTable`, you need to specify not only `TokenNgram` with `"report_source_location", true"` option but also both `NormalizerNFKC*` and `NormalizerTable` with `"report_source_offset", true"` option for each.
+
+Please refer [`pgroonga_highlight_html` function][highlight-html] for details.
 
 #### How to use token filters {#custom-token-filters}
 
@@ -559,8 +606,8 @@ Here is the syntax of `${MAPPING_IN_JSON}`:
 
 ```json
 {
-  "${index_target_name1}": "${flags1}",
-  "${index_target_name2}": "${flags2}",
+  "${index_target_name1}": ["${flag1_1}", "${flag1_2}", ..., "${flag1_N}"],
+  "${index_target_name2}": ["${flag2_1}", "${flag2_2}", ..., "${flag2_N}"],
   ...
 }
 ```
@@ -577,7 +624,7 @@ Here are available index column flags that are corresponding to [flags in Groong
 
   * `WEIGHT_FLOAT32`: `WEIGHT_FLOAT32` in Groonga
 
-You can specify multiple flags by separating with `|` such as `LARGE|WITH_WEIGHT`. But you can't specify conflicted flags at once such as `SMALL|MEDIUM|LARGE`.
+You can't specify conflicted flags at once such as `["SMALL", "MEDIUM", "LARGE"]`.
 
 Normally, you don't need to customize this because the default value is suitable for most cases.
 
@@ -593,11 +640,57 @@ CREATE INDEX pgroonga_content_index
           ON memos
        USING pgroonga (content)
         WITH (index_flags_mapping='{
-                "content": "LARGE"
+                "content": ["LARGE"]
               }');
 ```
 
+#### How to use semantic search {#semantic-search}
+
+Since 4.0.5.
+
+The following options must be specified when creating the index.
+
+* `pgroonga_text_semantic_search_ops_v2` operator class
+
+* `plugins = 'language_model/knn'`
+
+* `model = '${HUGGING_FACE_URI}'`
+
+  * Specify Hugging Face URI for the language model to use.
+
+* `passage_prefix = '${PASSAGE_PREFIX}'`
+
+  * Specify this according to the language model.
+
+* `query_prefix = '${QUERY_PREFIX}'`
+
+  * Specify this according to the language model.
+
+* `n_gpu_layers = ${n_gpu_layers}`
+
+  * This option usually does not need to be set, but you can use it when you want to control the number of GPU layers.
+
+Here is an example of creating an index with minimal options:
+
+```sql
+CREATE TABLE memos (
+  id integer,
+  content text
+);
+
+CREATE INDEX pgrn_index ON memos
+ USING pgroonga (id, content pgroonga_text_semantic_search_ops_v2)
+ WITH (plugins = 'language_model/knn',
+       model = 'hf:///groonga/multilingual-e5-base-Q4_K_M-GGUF');
+```
+
+You can perform semantic searches using [`&@*` operator][semantic-search-v2].
+
 [query-v2]:operators/query-v2.html
+
+[semantic-search-v2]:operators/semantic-search-v2.html
+
+[highlight-html]:functions/pgroonga-highlight-html.html
 
 [groonga-token-bigram]:http://groonga.org/docs/reference/tokenizers.html#token-bigram
 
@@ -612,6 +705,8 @@ CREATE INDEX pgroonga_content_index
 [unicode-nfkc]:http://unicode.org/reports/tr15/
 
 [mecab]:http://taku910.github.io/mecab/
+
+[groonga-token-ngram]:https://groonga.org/docs/reference/tokenizers/token_ngram.html
 
 [groonga-token-mecab]:http://groonga.org/docs/reference/tokenizers.html#token-mecab
 

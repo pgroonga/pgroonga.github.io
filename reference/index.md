@@ -17,7 +17,7 @@ PGroonga defines functions, operators, operator classes and so on into `pgroonga
 
 ## `pgroonga` index
 
-  * [`CREATE INDEX USING pgroonga`](create-index-using-pgroonga.html)
+  * [`CREATE INDEX USING pgroonga` explained in detail](create-index-using-pgroonga.html)
 
   * [PGroonga versus GiST and GIN](pgroonga-versus-gist-and-gin.html)
 
@@ -109,6 +109,10 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
 
     * Since 1.2.2.
 
+  * [`&=` operator][exact-match-search]: Exact match search
+
+    * Since 2.4.6.
+
   * [`&^` operator][prefix-search-v2]: Prefix search
 
   * [`&^~` operator][prefix-rk-search-v2]: Prefix RK search
@@ -144,6 +148,18 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
   * [`&~|` operator][regular-expression-in-v2]: Search by an array of regular expressions
 
     * Since 2.2.1.
+
+#### `pgroonga_text_semantic_search_ops_v2` operator class {#text-semantic-search-ops-v2}
+
+Since 4.0.5.
+
+  * [`&@*` operator][semantic-search-v2]: Semantic search
+
+    * Since 4.0.5.
+
+  * [`<&@*>` operator][semantic-distance-v2]: Calculates the semantic distance
+
+    * Since 4.0.5.
 
 ### For `text[]`
 
@@ -211,6 +227,16 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
 
     * Since 2.2.1.
 
+  * [`&=~` operator][equal-query-v2]: Equal search by easy to use query language
+
+    * Since 3.0.0.
+
+#### `pgroonga_text_array_regexp_ops_v2` operator class {#text-array-regexp-ops-v2}
+
+Since 3.2.5.
+
+  * [`&~` operator][regular-expression-v2]: Search by a regular expression
+
 ### For `varchar`
 
 #### `pgroonga_varchar_term_search_ops_v2` operator class (default) {#varchar-term-search-ops-v2}
@@ -224,6 +250,10 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
   * `>=`
 
   * `>`
+
+  * [`&=` operator][exact-match-search]: Exact match search
+
+    * Since 2.4.6.
 
   * [`&^` operator][prefix-search-v2]: Prefix search
 
@@ -300,6 +330,10 @@ All v2 operators supports PostgreSQL's [row level security][postgresql-row-level
   * [`@>` operator][contain-array]: Contained search by an array
 
     * Since 2.2.1.
+
+  * [`&=~` operator][equal-query-v2]: Equal search by easy to use query language
+
+    * Since 3.0.0.
 
 ### For boolean, numbers and timestamps
 
@@ -507,6 +541,8 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_command_escape_value` function][command-escape-value]
 
+  * [`pgroonga_condition` function][condition]
+
   * [`pgroonga_escape` function][escape]
 
   * [`pgroonga_flush` function][flush]
@@ -518,6 +554,14 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
   * [`pgroonga_index_column_name` function][index-column-name]
 
   * [`pgroonga_is_writable` function][is-writable]
+
+  * [`pgroonga_language_model_vectorize` function][language-model-vectorize]
+
+    * Since 4.0.5.
+
+  * [`pgroonga_list_broken_indexes` function][list-broken-indexes]
+
+  * [`pgroonga_list_lagged_indexes` function][list-lagged-indexes]
 
   * [`pgroonga_match_positions_byte` function][match-positions-byte]
 
@@ -549,9 +593,25 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga_wal_apply` function][wal-apply]
 
+  * [`pgroonga_wal_set_applied_position` function][wal-set-applied-position]
+
+  * [`pgroonga_wal_status` function][wal-status]
+
   * [`pgroonga_wal_truncate` function][wal-truncate]
 
 ## Parameters
+
+  * [`pgroonga.enable_row_level_security` parameter][enable-row-level-security]
+
+    * Since 3.1.6.
+
+  * [`pgroonga.enable_trace_log` parameter][enable-trace-log]
+
+    * Since 3.0.8.
+
+  * [`pgroonga.enable_wal_resource_manager` parameter][enable-wal-resource-manager]
+
+    * Since 3.2.1.
 
   * [`pgroonga.enable_wal` parameter][enable-wal]
 
@@ -565,15 +625,27 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
   * [`pgroonga.log_path` parameter][log-path]
 
+  * [`pgroonga.log_rotate_threshold_size` parameter][log-rotate-threshold-size]
+
+    * Since 3.2.3.
+
   * [`pgroonga.log_type` parameter][log-type]
 
   * [`pgroonga.match_escalation_threshold` parameter][match-escalation-threshold]
+
+  * [`pgroonga.max_bulk_insert_wal_record_size` parameter][max-bulk-insert-wal-record-size]
+
+    * Since 3.2.5.
 
   * [`pgroonga.max_wal_size` parameter][max-wal-size]
 
     * Since 2.3.3.
 
   * [`pgroonga.query_log_path` parameter][query-log-path]
+
+  * [`pgroonga.query_log_rotate_threshold_size` parameter][query-log-rotate-threshold-size]
+
+    * Since 3.2.3.
 
   * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]
 
@@ -587,9 +659,25 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
 
     * Since 2.3.3.
 
+  * [`pgroonga_crash_safer.max_recovery_threads` parameter][pgroonga-crash-safer-max-recovery-threads]
+
+    * Since 3.1.9.
+
+  * [`pgroonga_standby_maintainer.max_parallel_wal_appliers_per_db` parameter][pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]
+
+    * Since 3.1.2.
+
   * [`pgroonga_standby_maintainer.naptime` parameter][pgroonga-standby-maintainer-naptime]
 
     * Since 2.4.2.
+
+  * [`pgroonga_wal_resource_manager.log_level` parameter][pgroonga-wal-resource-manager-log-level]
+
+    * Since 3.2.1.
+
+  * [`pgroonga_wal_resource_manager.log_path` parameter][pgroonga-wal-resource-manager-log-path]
+
+    * Since 3.2.1.
 
 ## Modules
 
@@ -614,6 +702,24 @@ Use [`pgroonga_jsonb_ops_v2` operator class](#text-jsonb-ops-v2) instead.
   * [`pgroonga_standby_maintainer` module][pgroonga-standby-maintainer]
 
     * Since 2.4.2.
+
+  * [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager]
+
+    * Since 3.2.1.
+
+## Executables
+
+  * [`pgroonga-primary-maintainer.sh` command][pgroonga-primary-maintainer]
+
+    * Since 3.2.1.
+
+  * [`pgroonga-generate-primary-maintainer-service.sh` command][pgroonga-generate-primary-maintainer-service]
+
+    * Since 3.2.1.
+
+  * [`pgroonga-generate-primary-maintainer-timer.sh` command][pgroonga-generate-primary-maintainer-timer]
+
+    * Since 3.2.1.
 
 ## Groonga functions
 
@@ -642,30 +748,35 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [regular-expression]:operators/regular-expression.html
 
 [contain-array]:operators/contain-array.html
-[match-v2]:operators/match-v2.html
-[query-v2]:operators/query-v2.html
-[match-in-v2]:operators/match-in-v2.html
-[query-in-v2]:operators/query-in-v2.html
-[regular-expression-v2]:operators/regular-expression-v2.html
-[regular-expression-in-v2]:operators/regular-expression-in-v2.html
+[contain-jsonb]:operators/contain-jsonb.html
 [contain-term-v2]:operators/contain-term-v2.html
 [contain-term]:operators/contain-term.html
-[prefix-search-v2]:operators/prefix-search-v2.html
+[equal-query-v2]:operators/equal-query-v2.html
+[exact-match-search]:operators/exact-match-search.html
+[match-in-v2]:operators/match-in-v2.html
+[match-jsonb-v2]:operators/match-jsonb-v2.html
+[match-v2]:operators/match-v2.html
+[not-prefix-search-in-v2]:operators/not-prefix-search-in-v2.html
+[prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
 [prefix-rk-search-v2]:operators/prefix-rk-search-v2.html
 [prefix-search-in-v2]:operators/prefix-search-in-v2.html
-[prefix-rk-search-in-v2]:operators/prefix-rk-search-in-v2.html
-[not-prefix-search-in-v2]:operators/not-prefix-search-in-v2.html
-[similar-search-v2]:operators/similar-search-v2.html
-[script-v2]:operators/script-v2.html
-[match-jsonb-v2]:operators/match-jsonb-v2.html
+[prefix-search-v2]:operators/prefix-search-v2.html
+[query-in-v2]:operators/query-in-v2.html
 [query-jsonb-v2]:operators/query-jsonb-v2.html
+[query-v2]:operators/query-v2.html
+[regular-expression-in-v2]:operators/regular-expression-in-v2.html
+[regular-expression-v2]:operators/regular-expression-v2.html
 [script-jsonb-v2]:operators/script-jsonb-v2.html
 [script-jsonb]:operators/script-jsonb.html
-[contain-jsonb]:operators/contain-jsonb.html
+[script-v2]:operators/script-v2.html
+[similar-search-v2]:operators/similar-search-v2.html
+[semantic-search-v2]:operators/semantic-search-v2.html
+[semantic-distance-v2]:operators/semantic-distance-v2.html
 
 [upgrade-incompatible]:../upgrade/#incompatible-case
 
 [command]:functions/pgroonga-command.html
+[condition]:functions/pgroonga-condition.html
 [command-escape-value]:functions/pgroonga-command-escape-value.html
 [escape]:functions/pgroonga-escape.html
 [flush]:functions/pgroonga-flush.html
@@ -673,6 +784,9 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [highlight-html]:functions/pgroonga-highlight-html.html
 [index-column-name]:functions/pgroonga-index-column-name.html
 [is-writable]:functions/pgroonga-is-writable.html
+[language-model-vectorize]:functions/pgroonga-language-model-vectorize.html
+[list-broken-indexes]:functions/pgroonga-list-broken-indexes.html
+[list-lagged-indexes]:functions/pgroonga-list-lagged-indexes.html
 [match-positions-byte]:functions/pgroonga-match-positions-byte.html
 [match-positions-character]:functions/pgroonga-match-positions-character.html
 [normalize]:functions/pgroonga-normalize.html
@@ -688,31 +802,49 @@ But you need to tune PGroonga in some cases such as a case that you need to hand
 [tokenize]:functions/pgroonga-tokenize.html
 [vacuum]:functions/pgroonga-vacuum.html
 [wal-apply]:functions/pgroonga-wal-apply.html
+[wal-set-applied-position]:functions/pgroonga-wal-set-applied-position.html
+[wal-status]:functions/pgroonga-wal-status.html
 [wal-truncate]:functions/pgroonga-wal-truncate.html
 
 [tuple-is-alive]:groonga-functions/pgroonga-tuple-is-alive.html
 
+[enable-row-level-security]:parameters/enable-row-level-security.html
+[enable-trace-log]:parameters/enable-trace-log.html
+[enable-wal-resource-manager]:parameters/enable-wal-resource-manager.html
 [enable-wal]:parameters/enable-wal.html
 [force-match-escalation]:parameters/force-match-escalation.html
 [libgroonga-version]:parameters/libgroonga-version.html
 [lock-timeout]:parameters/lock-timeout.html
 [log-level]:parameters/log-level.html
 [log-path]:parameters/log-path.html
+[log-rotate-threshold-size]:parameters/log-rotate-threshold-size.html
 [log-type]:parameters/log-type.html
 [match-escalation-threshold]:parameters/match-escalation-threshold.html
+[max-bulk-insert-wal-record-size]:parameters/max-bulk-insert-wal-record-size.html
 [max-wal-size]:parameters/max-wal-size.html
 [query-log-path]:parameters/query-log-path.html
+[query-log-rotate-threshold-size]:parameters/query-log-rotate-threshold-size.html
 
 [pgroonga-crash-safer-flush-naptime]:parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:parameters/pgroonga-crash-safer-log-path.html
+[pgroonga-crash-safer-max-recovery-threads]:parameters/pgroonga-crash-safer-max-recovery-threads.html
 
+[pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db]:parameters/pgroonga-standby-maintainer-max-parallel-wal-appliers-per-db.html
 [pgroonga-standby-maintainer-naptime]:parameters/pgroonga-standby-maintainer-naptime.html
+
+[pgroonga-wal-resource-manager-log-level]:parameters/pgroonga-wal-resource-manager-log-level.html
+[pgroonga-wal-resource-manager-log-path]:parameters/pgroonga-wal-resource-manager-log-path.html
 
 [pgroonga-check]:modules/pgroonga-check.html
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 [pgroonga-database]:modules/pgroonga-database.html
 [pgroonga-wal-applier]:modules/pgroonga-wal-applier.html
 [pgroonga-standby-maintainer]:modules/pgroonga-standby-maintainer.html
+[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
+
+[pgroonga-primary-maintainer]:commands/pgroonga-primary-maintainer.html
+[pgroonga-generate-primary-maintainer-service]:commands/pgroonga-generate-primary-maintainer-service.html
+[pgroonga-generate-primary-maintainer-timer]:commands/pgroonga-generate-primary-maintainer-timer.html
 
 [groonga-tuning]:https://groonga.org/docs/reference/tuning.html

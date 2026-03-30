@@ -5,6 +5,30 @@ upper_level: ../
 
 # News
 
+## 4.0.6: 2026-04-03 {#version-4-0-6}
+
+### Improvements
+
+#### Dropped support for PostgreSQL 13
+
+Because PostgreSQL 13 reached EOL on 2025-11.
+
+### Fixes
+
+#### Fixed a bug that `pgroonga_tokenize()` don't throw an error when using invalid tokenizer
+
+[GH-930]( https://github.com/pgroonga/pgroonga/issues/930 )[Reported by plw-pg]
+
+#### Fixed a bug that `pgroonga.force_match_escalation = on` doesn't work on POstgreSQL 18 with PGroonga for Windows
+
+[GH-814]( https://github.com/pgroonga/pgroonga/issues/814 )
+
+#### Fixed 
+
+### Thanks
+
+- plw-pg
+
 ## 4.0.5: 2025-12-12 {#version-4-0-5}
 
 ### Improvements

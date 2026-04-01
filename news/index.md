@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 4.0.6: 2026-04-02 {#version-4-0-6}
+## 4.0.6: 2026-04-03 {#version-4-0-6}
 
 ### Improvements
 
@@ -19,25 +19,15 @@ Because PostgreSQL 13 reached EOL on 2025-11.
 
 [GH-930]( https://github.com/pgroonga/pgroonga/issues/930 )[Reported by plw-pg]
 
-PGroonga did not raise an error when an invalid value was set in `tokenizer` as below.
-It now correctly throws an error.
-
-```sql
-SELECT pgroonga_tokenize('This is a pen.',
-                         'tokenizer', 'invalid');
-```
-
-#### Fixed a bug that `pgroonga.force_match_escalation = on` doesn't work on PostgreSQL 18 with PGroonga for Windows
+#### Fixed a bug that `pgroonga.force_match_escalation = on` doesn't work on POstgreSQL 18 with PGroonga for Windows
 
 [GH-814]( https://github.com/pgroonga/pgroonga/issues/814 )
 
-#### Fixed memory leaks in `pgroonga_normalize()` and `pgroonga_query_extract_keywords()`
-
-Groonga caused a memory leak every time these functions are called.
+#### Fixed 
 
 ### Thanks
 
-* plw-pg
+- plw-pg
 
 ## 4.0.5: 2025-12-12 {#version-4-0-5}
 

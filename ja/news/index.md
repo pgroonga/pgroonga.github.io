@@ -5,6 +5,39 @@ upper_level: ../
 
 # おしらせ
 
+## 4.0.6: 2026-04-02 {#version-4-0-6}
+
+### 改良
+
+#### PostgreSQL 13をサポートをやめました
+
+PostgreSQL 13は2025-11でEOLになったためです。
+
+### 修正
+
+#### `pgroonga_tokenize()`が無効なトークナイザーを指定されてもエラーを出さない問題を修正
+
+[GH-930]( https://github.com/pgroonga/pgroonga/issues/930 )[plw-pgさんの報告]
+
+PGroongaは、以下のように`tokenizer`に無効な値を設定してもエラーを出していませんでした。この修正でエラーを出すようになります。
+
+```sql
+SELECT pgroonga_tokenize('This is a pen.',
+                         'tokenizer', 'invalid');
+```
+
+#### `pgroonga.force_match_escalation = on`がWindows版のPostgreSQL 18で動作しない問題を修正
+
+[GH-814]( https://github.com/pgroonga/pgroonga/issues/814 )
+
+#### `pgroonga_normalize()`と`pgroonga_query_extract_keywords()`のメモリーリークを修正
+
+これらの関数が呼ばれるたび、メモリーリークが発生していました。
+
+### 感謝
+
+* plw-pgさん
+
 ## 4.0.5: 2025-12-12 {#version-4-0-5}
 
 ### 改良

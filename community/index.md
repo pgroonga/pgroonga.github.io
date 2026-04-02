@@ -32,9 +32,7 @@ Here is a list of PGroonga related GitHub issues:
 
 ### Chat room {#chat}
 
-Here are chat rooms for PGroonga:
-
-  * [Zulip](https://groonga.zulipchat.com/) is the chart room for PGroonga.
+[Zulip](https://groonga.zulipchat.com/) is the chart room for PGroonga.
 
 ## How to get the latest information
 

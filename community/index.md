@@ -34,9 +34,7 @@ Here is a list of PGroonga related GitHub issues:
 
 Here are chat rooms for PGroonga:
 
-  * For English speaker: [groonga/en chat room on Gitter](https://gitter.im/groonga/en)
-
-  * For Japanese speaker: [groonga/ja chat room on Gitter](https://gitter.im/groonga/ja)
+  * For English/Japanese speaker: [groonga chat room on Zulip](https://groonga.zulipchat.com/)
 
 ## How to get the latest information
 

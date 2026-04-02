@@ -34,7 +34,7 @@ Here is a list of PGroonga related GitHub issues:
 
 Here are chat rooms for PGroonga:
 
-  * For English/Japanese speaker: [groonga chat room on Zulip](https://groonga.zulipchat.com/)
+  * [Zulip](https://groonga.zulipchat.com/) is the chart room for PGroonga.
 
 ## How to get the latest information
 

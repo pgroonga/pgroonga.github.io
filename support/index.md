@@ -4,7 +4,9 @@ title: Support
 
 # Support
 
-If you need support for PGroonga besides [community](../community/), please check the companies listed below that provide PGroonga Technical Support (in alphabetical order).
+There are commercial PGroonga technical supports besides support by [community](../community/).
+
+Here is a list of companies that provide PGroonga technical support (in alphabetical order).
 
 ## ClearCode Inc.
 

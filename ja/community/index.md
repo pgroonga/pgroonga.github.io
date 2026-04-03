@@ -32,11 +32,7 @@ PGroonga関連のGitHubのissueは次の通りです。
 
 ### チャット {#chat}
 
-PGroonga用のチャットルームは次の通りです。
-
-  * 英語：[Gitterにあるgroonga/enチャットルーム](https://gitter.im/groonga/en)
-
-  * 日本語：[Gitterにあるgroonga/jaチャットルーム](https://gitter.im/groonga/ja)
+PGroongaではチャットコミュニティに[Zulip](https://groonga.zulipchat.com/)を利用しています。
 
 ## 最新情報を入手する方法
 

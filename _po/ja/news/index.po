@@ -22,11 +22,76 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 4.0.5: 2025-12-12 {#version-4-0-5}"
+msgid "## 4.0.6: 2026-04-03 {#version-4-0-6}"
 msgstr ""
 
 msgid "### Improvements"
 msgstr "### 改良"
+
+msgid "#### Dropped support for PostgreSQL 13"
+msgstr "#### PostgreSQL 13のサポートをやめました"
+
+msgid "PostgreSQL 13 reached EOL in 2025-11."
+msgstr "PostgreSQL 13は2025-11でEOLになったためです。"
+
+msgid "### Fixes"
+msgstr "### 修正"
+
+msgid ""
+"#### Fixed a bug where `pgroonga_tokenize()` didn't throw an error when "
+"using an invalid tokenizer"
+msgstr ""
+"#### `pgroonga_tokenize()`に無効なトークナイザーを指定してもエラーを出さない"
+"問題を修正"
+
+msgid ""
+"[GH-930](https://github.com/pgroonga/pgroonga/issues/930)[Reported by plw-pg]"
+msgstr ""
+"[GH-930](https://github.com/pgroonga/pgroonga/issues/930)[plw-pgさんの報告]"
+
+msgid ""
+"PGroonga did not raise an error when an invalid value was set in `tokenizer` "
+"as below.\n"
+"It now correctly throws an error."
+msgstr ""
+"PGroongaは、以下のように`tokenizer`に無効な値を設定してもエラーを出していませ"
+"んでした。この修正でエラーを出すようになります。"
+
+msgid ""
+"```sql\n"
+"SELECT pgroonga_tokenize('This is a pen.',\n"
+"                         'tokenizer', 'invalid');\n"
+"```"
+msgstr ""
+
+msgid ""
+"#### Fixed a bug that `pgroonga.force_match_escalation = on` doesn't work on "
+"PostgreSQL 18 with PGroonga for Windows"
+msgstr ""
+"#### `pgroonga.force_match_escalation = on`がWindows版のPostgreSQL 18で動作し"
+"ない問題を修正"
+
+msgid "[GH-814](https://github.com/pgroonga/pgroonga/issues/814)"
+msgstr ""
+
+msgid ""
+"#### Fixed memory leaks in `pgroonga_normalize()` and "
+"`pgroonga_query_extract_keywords()`"
+msgstr ""
+"#### `pgroonga_normalize()`と`pgroonga_query_extract_keywords()`のメモリー"
+"リークを修正"
+
+msgid "Groonga caused memory leaks every time these functions were called."
+msgstr "これらの関数が呼ばれるたび、メモリーリークが発生していました。"
+
+msgid "### Thanks"
+msgstr "### 感謝"
+
+msgid "* plw-pg"
+msgstr "* plw-pgさん"
+
+msgid "## 4.0.5: 2025-12-12 {#version-4-0-5}"
+msgstr ""
 
 msgid "#### Added support for semantic search"
 msgstr "#### セマンティックサーチをサポート"
@@ -65,9 +130,6 @@ msgstr ""
 
 msgid "This function returns the normalized embedding of the specified text."
 msgstr "この関数は指定されたテキストの正規化されたエンべディングを返します。"
-
-msgid "### Fixes"
-msgstr "### 修正"
 
 msgid ""
 "#### Fixed a bug that PGroonga returns no records when we use `LIKE` or "
@@ -169,9 +231,6 @@ msgid ""
 "(0 rows)\n"
 "```"
 msgstr ""
-
-msgid "### Thanks"
-msgstr "### 感謝"
 
 msgid "* OreoYang"
 msgstr "* OreoYangさん"

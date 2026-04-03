@@ -9,15 +9,15 @@ upper_level: ../
 
 ### 改良
 
-#### PostgreSQL 13をサポートをやめました
+#### PostgreSQL 13のサポートをやめました
 
 PostgreSQL 13は2025-11でEOLになったためです。
 
 ### 修正
 
-#### `pgroonga_tokenize()`が無効なトークナイザーを指定されてもエラーを出さない問題を修正
+#### `pgroonga_tokenize()`に無効なトークナイザーを指定してもエラーを出さない問題を修正
 
-[GH-930]( https://github.com/pgroonga/pgroonga/issues/930 )[plw-pgさんの報告]
+[GH-930](https://github.com/pgroonga/pgroonga/issues/930)[plw-pgさんの報告]
 
 PGroongaは、以下のように`tokenizer`に無効な値を設定してもエラーを出していませんでした。この修正でエラーを出すようになります。
 
@@ -28,7 +28,7 @@ SELECT pgroonga_tokenize('This is a pen.',
 
 #### `pgroonga.force_match_escalation = on`がWindows版のPostgreSQL 18で動作しない問題を修正
 
-[GH-814]( https://github.com/pgroonga/pgroonga/issues/814 )
+[GH-814](https://github.com/pgroonga/pgroonga/issues/814)
 
 #### `pgroonga_normalize()`と`pgroonga_query_extract_keywords()`のメモリーリークを修正
 

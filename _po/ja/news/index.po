@@ -29,26 +29,25 @@ msgid "### Improvements"
 msgstr "### 改良"
 
 msgid "#### Dropped support for PostgreSQL 13"
-msgstr "#### PostgreSQL 13をサポートをやめました"
+msgstr "#### PostgreSQL 13のサポートをやめました"
 
-msgid "Because PostgreSQL 13 reached EOL on 2025-11."
+msgid "PostgreSQL 13 reached EOL in 2025-11."
 msgstr "PostgreSQL 13は2025-11でEOLになったためです。"
 
 msgid "### Fixes"
 msgstr "### 修正"
 
 msgid ""
-"#### Fixed a bug that `pgroonga_tokenize()` don't throw an error when using "
-"invalid tokenizer"
+"#### Fixed a bug where `pgroonga_tokenize()` didn't throw an error when "
+"using an invalid tokenizer"
 msgstr ""
-"#### `pgroonga_tokenize()`が無効なトークナイザーを指定されてもエラーを出さな"
-"い問題を修正"
+"#### `pgroonga_tokenize()`に無効なトークナイザーを指定してもエラーを出さない"
+"問題を修正"
 
 msgid ""
-"[GH-930]( https://github.com/pgroonga/pgroonga/issues/930 )[Reported by plw-"
-"pg]"
+"[GH-930](https://github.com/pgroonga/pgroonga/issues/930)[Reported by plw-pg]"
 msgstr ""
-"[GH-930]( https://github.com/pgroonga/pgroonga/issues/930 )[plw-pgさんの報告]"
+"[GH-930](https://github.com/pgroonga/pgroonga/issues/930)[plw-pgさんの報告]"
 
 msgid ""
 "PGroonga did not raise an error when an invalid value was set in `tokenizer` "
@@ -72,7 +71,7 @@ msgstr ""
 "#### `pgroonga.force_match_escalation = on`がWindows版のPostgreSQL 18で動作し"
 "ない問題を修正"
 
-msgid "[GH-814]( https://github.com/pgroonga/pgroonga/issues/814 )"
+msgid "[GH-814](https://github.com/pgroonga/pgroonga/issues/814)"
 msgstr ""
 
 msgid ""
@@ -82,7 +81,7 @@ msgstr ""
 "#### `pgroonga_normalize()`と`pgroonga_query_extract_keywords()`のメモリー"
 "リークを修正"
 
-msgid "Groonga caused a memory leak every time these functions are called."
+msgid "Groonga caused memory leaks every time these functions were called."
 msgstr "これらの関数が呼ばれるたび、メモリーリークが発生していました。"
 
 msgid "### Thanks"

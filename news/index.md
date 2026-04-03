@@ -11,7 +11,7 @@ upper_level: ../
 
 #### Dropped support for PostgreSQL 13
 
-Because PostgreSQL 13 reached EOL on 2025-11.
+PostgreSQL 13 reached EOL in 2025-11.
 
 ### Fixes
 

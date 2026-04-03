@@ -15,7 +15,7 @@ Because PostgreSQL 13 reached EOL on 2025-11.
 
 ### Fixes
 
-#### Fixed a bug that `pgroonga_tokenize()` don't throw an error when using invalid tokenizer
+#### Fixed a bug where `pgroonga_tokenize()` didn't throw an error when using an invalid tokenizer
 
 [GH-930](https://github.com/pgroonga/pgroonga/issues/930)[Reported by plw-pg]
 

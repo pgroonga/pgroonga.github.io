@@ -33,7 +33,7 @@ SELECT pgroonga_tokenize('This is a pen.',
 
 #### Fixed memory leaks in `pgroonga_normalize()` and `pgroonga_query_extract_keywords()`
 
-Groonga caused a memory leak every time these functions are called.
+Groonga caused memory leaks every time these functions were called.
 
 ### Thanks
 

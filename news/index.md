@@ -17,7 +17,7 @@ Because PostgreSQL 13 reached EOL on 2025-11.
 
 #### Fixed a bug that `pgroonga_tokenize()` don't throw an error when using invalid tokenizer
 
-[GH-930]( https://github.com/pgroonga/pgroonga/issues/930 )[Reported by plw-pg]
+[GH-930](https://github.com/pgroonga/pgroonga/issues/930)[Reported by plw-pg]
 
 PGroonga did not raise an error when an invalid value was set in `tokenizer` as below.
 It now correctly throws an error.
@@ -29,7 +29,7 @@ SELECT pgroonga_tokenize('This is a pen.',
 
 #### Fixed a bug that `pgroonga.force_match_escalation = on` doesn't work on PostgreSQL 18 with PGroonga for Windows
 
-[GH-814]( https://github.com/pgroonga/pgroonga/issues/814 )
+[GH-814](https://github.com/pgroonga/pgroonga/issues/814)
 
 #### Fixed memory leaks in `pgroonga_normalize()` and `pgroonga_query_extract_keywords()`
 

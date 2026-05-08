@@ -29,7 +29,7 @@ upper_level: ../
     <tr><td>4.0.1</td><td>4.0.2</td><td>&#x2713;</td><td></td></tr>
     <tr><td>4.0.0</td><td>4.0.1</td><td>&#x2713;</td><td></td></tr>
     <tr>
-      <td>4.0.0</td>
+      <td>3.2.5</td>
       <td>4.0.0</td>
       <td>&#x2715;</td>
 

@@ -30,7 +30,7 @@ If you want to use the PostgreSQL packages provided by PostgreSQL, you need to a
 
 ```console
 $ sudo apt install -y postgresql-common
-$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
 ```
 
 Install `postgresql-*-pgdg-pgroonga` package:

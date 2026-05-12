@@ -69,7 +69,7 @@ msgstr ""
 msgid ""
 "```console\n"
 "$ sudo apt install -y postgresql-common\n"
-"$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh\n"
+"$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y\n"
 "```"
 msgstr ""
 

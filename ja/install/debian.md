@@ -30,7 +30,7 @@ PostgreSQLが提供しているPostgreSQLパッケージを使いたい場合は
 
 ```console
 $ sudo apt install -y postgresql-common
-$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
 ```
 
 `postgresql-*-pgdg-pgroonga`パッケージをインストールします。

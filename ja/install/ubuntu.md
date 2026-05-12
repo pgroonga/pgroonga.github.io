@@ -74,7 +74,7 @@ $ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_relea
 $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo apt install -y postgresql-common
-$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
 $ sudo apt install -y -V postgresql-{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```
 

@@ -73,14 +73,8 @@ $ sudo apt install -y -V ca-certificates lsb-release wget
 $ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ sudo apt install -y -V ./groonga-apt-source-latest-$(lsb_release --codename --short).deb
 $ rm -f groonga-apt-source-latest-$(lsb_release --codename --short).deb
-$ sudo wget -O /usr/share/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
-$ (echo "Types: deb"; \
-   echo "URIs: http://apt.postgresql.org/pub/repos/apt"; \
-   echo "Suites: $(lsb_release --codename --short)-pgdg"; \
-   echo "Components: main"; \
-   echo "Signed-By: /usr/share/keyrings/pgdg.asc") | \
-    sudo tee /etc/apt/sources.list.d/pgdg.sources
-$ sudo apt update
+$ sudo apt install -y postgresql-common
+$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
 $ sudo apt install -y -V postgresql-{{ site.latest_postgresql_version }}-pgdg-pgroonga
 ```
 

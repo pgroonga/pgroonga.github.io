@@ -29,19 +29,13 @@ $ sudo apt update
 PostgreSQLが提供しているPostgreSQLパッケージを使いたい場合は[PostgreSQLが提供しているAPTリポジトリー][postgresql-apt]を追加します。
 
 ```console
-$ sudo wget -O /usr/share/keyrings/pgdg.asc https://www.postgresql.org/media/keys/ACCC4CF8.asc
-$ (echo "Types: deb"; \
-   echo "URIs: http://apt.postgresql.org/pub/repos/apt"; \
-   echo "Suites: $(lsb_release --codename --short)-pgdg"; \
-   echo "Components: main"; \
-   echo "Signed-By: /usr/share/keyrings/pgdg.asc") | \
-    sudo tee /etc/apt/sources.list.d/pgdg.sources
+$ sudo apt install -y postgresql-common
+$ sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
 ```
 
 `postgresql-*-pgdg-pgroonga`パッケージをインストールします。
 
 ```console
-$ sudo apt update
 $ sudo apt install -y -V postgresql-18-pgdg-pgroonga
 Or
 $ sudo apt install -y -V postgresql-17-pgdg-pgroonga

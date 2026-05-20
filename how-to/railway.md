@@ -53,7 +53,7 @@ CREATE TABLE memos (
 
 Create a PGroonga index on the target column.
 
-```
+```sql
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 ```
 

@@ -36,7 +36,7 @@ ${{PGroonga.DATABASE_URL}}
 
 Once connected, enable the PGroonga extension using the following SQL:
 
-```
+```sql
 CREATE EXTENSION pgroonga;
 ```
 

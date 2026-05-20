@@ -4,7 +4,8 @@ title: How to use PGroonga with Railway
 
 # How to use PGroonga with Railway
 
-This guide explains how to use the [Railway template](https://railway.com/deploy/pgroonga). The Railway’s scalable infrastructure makes it easy to deploy PGroonga with automatic scaling, persistent storage, and one-click setup.
+This guide explains how to use the [Railway template](https://railway.com/deploy/pgroonga).
+The Railway’s scalable infrastructure makes it easy to deploy PGroonga with persistent storage and one-click setup.
 
 ## Implementation Details
 
@@ -42,7 +43,7 @@ CREATE EXTENSION pgroonga;
 
 #### Create a full-text search index
 
-Create a column that you want to enable full-text search on, using the **`text`** type.
+Create a table with a **`text`** column that you want to enable full-text search on.
 
 ```sql
 CREATE TABLE memos (
@@ -51,7 +52,7 @@ CREATE TABLE memos (
 );
 ```
 
-Create a PGroonga index on the target column.
+Create a full-text search index with PGroonga on the target column.
 
 ```sql
 CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
@@ -59,11 +60,23 @@ CREATE INDEX pgroonga_content_index ON memos USING pgroonga (content);
 
 (Optional) Insert some sample data.
 
-```
+```sql
 INSERT INTO memos VALUES (1, 'PostgreSQL is a relational database management system.');
 INSERT INTO memos VALUES (2, 'Groonga is a fast full-text search engine that supports all languages.');
 INSERT INTO memos VALUES (3, 'PGroonga is a PostgreSQL extension that uses Groonga as index.');
 INSERT INTO memos VALUES (4, 'There is groonga command.');
+```
+
+Run a full-text search query.
+
+```sql
+SELECT * FROM memos WHERE content &@~ 'groonga';
+--  id |                                content
+-- ----+------------------------------------------------------------------------
+--   2 | Groonga is a fast full-text search engine that supports all languages.
+--   3 | PGroonga is a PostgreSQL extension that uses Groonga as index.
+--   4 | There is groonga command.
+-- (3 rows)
 ```
 
 Now your setup is complete! You can start running full-text searches instantly.

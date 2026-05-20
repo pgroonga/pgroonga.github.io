@@ -11,7 +11,15 @@ The Railway’s scalable infrastructure makes it easy to deploy PGroonga with pe
 
 ### Setup Configuration
 
+
 This template provides PostgreSQL with the PGroonga extension pre-installed. A TCP proxy is configured to allow access to the database from anywhere, enabling external connections to the PGroonga database.
+
+**Security note**:
+The TCP proxy makes your database reachable from the public internet.
+Please take the following precautions efore using this template for production workloads:
+
+* When connecting from another service in the same Railway project, use Railway's [private etworking](https://docs.railway.com/guides/private-networking) instead of the public TCP proxy.
+* If you do not need external access, remove the TCP proxy from the service settings in the Railway dashboard.
 
 Please configure the following environment variables according to your environment:
 

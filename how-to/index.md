@@ -24,7 +24,13 @@ If you have useful information that isn't listed in this page, please send a pul
 
   * [How to use with PostgREST](postgrest.html)
 
-  * ...
+## How to use PGroonga with Backend-as-a-Service (BaaS)
+
+  * [How to use with Supabase (external link)](https://supabase.com/docs/guides/database/extensions/pgroonga)
+
+## How to use PGroonga with a deployment platform
+
+  * [How to use with Railway](railway.html)
 
 ## Continuous integration
 

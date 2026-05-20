@@ -3,7 +3,8 @@ title: How to use PGroonga with Railway
 ---
 
 # How to use PGroonga with Railway
-In this guide we will introduce how to use the [Railway's template](https://railway.com/deploy/pgroonga). The Railway’s scalable infrastructure makes it easy to deploy PGroonga with automatic scaling, persistent storage, and one-click setup.
+
+This guide explains how to use the [Railway template](https://railway.com/deploy/pgroonga). The Railway’s scalable infrastructure makes it easy to deploy PGroonga with automatic scaling, persistent storage, and one-click setup.
 
 ## Implementation Details
 

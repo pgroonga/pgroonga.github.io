@@ -44,7 +44,7 @@ CREATE EXTENSION pgroonga;
 
 Create a column that you want to enable full-text search on, using the **`text`** type.
 
-```
+```sql
 CREATE TABLE memos (
   id integer,
   content text

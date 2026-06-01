@@ -5,7 +5,51 @@ upper_level: ../
 
 # News
 
-## 4.0.6: 2026-04-07 {#version-4-0-7}
+## 4.0.7: 2026-06-02 {#version-4-0-7}
+
+### Improvements
+
+#### [[Ubuntu][ubuntu]] Added support for for Ubuntu 24.06 (Resolute Raccoon)
+
+#### Added an option for indexing larger-scale data
+
+Internally, PGroonga indexes are created as a Groonga table.
+PGroonga adds index to this table.
+By default, this table is created in `TABLE_PAT_KEY`.
+
+By default, The total key size of Groonga's `TABLE_PAT_KEY` is 4GiB.
+While this is usually sufficient, environments wite large data may throw a "total key size is over" error when adding data.
+
+This improvement introduces a new mode that the total key size of Groonga's `TABLE_PAT_KEY` from 4 Gib to 1 TiB.
+This feature can be enables using the `lexicon_flags_mapping` option as below:
+
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgrn_index ON memos
+  USING pgroonga (content)
+  WITH (lexicon_flags_mapping = '{
+	  "content": ["LARGE"]
+	}');
+```
+
+Currently, only `LARGE` can be specified for this option.
+
+### Fixes
+
+#### Fixed a bug where PGroonga for Windows was built in debug mode
+
+[GH-954]( https://github.com/pgroonga/pgroonga/issues/954 )[Reported by r-setoyama]
+
+If PGroonga was built in debug mode, it required the debug runtime DLLs when loaded.
+However, these debug runtime DLLs do not exist in a standard Windows environment.
+
+As a result, PGroonga for Windows may fail to start up.
+
+## 4.0.6: 2026-04-07 {#version-4-0-6}
 
 ### Improvements
 

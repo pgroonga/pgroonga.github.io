@@ -69,6 +69,6 @@ pgroonga.enable_wal = on
 
 [postgresql-replication-slots]:{{ site.postgresql_doc_base_url.ja }}/warm-standby.html#STREAMING-REPLICATION-SLOTS
 
-[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html
+[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html
 
 [pgroonga-wal-resource-manager]:../modules/pgroonga-wal-resource-manager.html

@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 4.0.7: 2026-06-02 {#version-4-0-7}
+## 4.0.7: 2026-07-08 {#version-4-0-7}
 
 ### Improvements
 
@@ -40,6 +40,13 @@ Currently, only `LARGE` can be specified for this option.
 
 ### Fixes
 
+#### Fixed a bug that UUID columns truncated to 32 bytes in PGroonga index read path
+
+[GH-947]( https://github.com/pgroonga/pgroonga/issues/947 )[Reported by Xuguang Wang]
+
+The bug only manifests when PGroonga reads UUID values back from index storage (Index Only Scan, or multi-column index with NOT NULL columns) plain.
+Index Scan and Bitmap Heap Scan fetch from the heap and are unaffected.
+
 #### Fixed a bug where PGroonga for Windows was built in debug mode
 
 [GH-954]( https://github.com/pgroonga/pgroonga/issues/954 )[Reported by r-setoyama]
@@ -48,6 +55,15 @@ If PGroonga was built in debug mode, it required the debug runtime DLLs when loa
 However, these debug runtime DLLs do not exist in a standard Windows environment.
 
 As a result, PGroonga for Windows may fail to start up.
+
+#### Fixed a crash when an UPDATE statement with a WHERE clause and VACUUM are executed concurrently
+
+...
+
+### Thanks
+
+- Xuguang Wang
+- r-setoyama
 
 ## 4.0.6: 2026-04-07 {#version-4-0-6}
 

@@ -156,7 +156,7 @@ msgstr ""
 "[postgresql-replication-slots]:{{ site.postgresql_doc_base_url.ja }}/warm-"
 "standby.html#STREAMING-REPLICATION-SLOTS"
 
-msgid "[pgroonga-crash-safer]:../reference/modules/pgroonga-crash-safer.html"
+msgid "[pgroonga-crash-safer]:../modules/pgroonga-crash-safer.html"
 msgstr ""
 
 msgid ""

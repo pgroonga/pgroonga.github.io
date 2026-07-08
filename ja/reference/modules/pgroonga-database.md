@@ -34,7 +34,7 @@ CREATE EXTENSION pgroonga_database SCHEMA pgroonga_admin;
 「admin」ユーザーは`pgroonga_admin.`プレフィクスをつけるとこのモジュールの関数を使えます。
 
 ```sql
-SELECT pgroonga_admin.pgoronga_database_remove();
+SELECT pgroonga_admin.pgroonga_database_remove();
 ```
 
 `pgroonga_database`のアップグレード方法は[アップグレード][upgrade]ドキュメントを参照してください。

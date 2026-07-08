@@ -97,7 +97,7 @@ msgstr ""
 
 msgid ""
 "```sql\n"
-"SELECT pgroonga_admin.pgoronga_database_remove();\n"
+"SELECT pgroonga_admin.pgroonga_database_remove();\n"
 "```"
 msgstr ""
 

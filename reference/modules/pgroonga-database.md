@@ -34,7 +34,7 @@ In this example, users except the "admin" can't use functions provided by this m
 The "admin" user can use functions provided by this module with `pgroonga_admin.` prefix:
 
 ```sql
-SELECT pgroonga_admin.pgoronga_database_remove();
+SELECT pgroonga_admin.pgroonga_database_remove();
 ```
 
 See [upgrade][upgrade] document for upgrading `pgroonga_database` module.

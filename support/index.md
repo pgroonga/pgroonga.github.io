@@ -16,6 +16,6 @@ ClearCode has participated in Groonga development since 2008. Based on that comm
 
 ClearCode has strengths in making improvement proposals to extend Groonga's features and developing new features to support system improvement.
 
-For further information, please check the [service introduction page](https://www.clear-code.com/services/groonga.html). The page is in Japanese, please use your browser translation or similar services. You can contact in either English or Japanese.
+For further information, please check the [service introduction page](https://www.clear-code.com/services/groonga.html). The page is in Japanese, so please use your browser translation or similar services. You can contact ClearCode in either English or Japanese.
 
  - ["ClearCode logo"](https://github.com/clear-code/resources) by [ClearCode Inc.](https://www.clear-code.com), used under [CC BY-SA](https://creativecommons.org/licenses/by-sa/4.0/).

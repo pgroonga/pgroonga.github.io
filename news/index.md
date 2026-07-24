@@ -17,10 +17,10 @@ Internally, PGroonga indexes are created as a Groonga table.
 PGroonga adds index to this table.
 By default, this table is created in `TABLE_PAT_KEY`.
 
-By default, The total key size of Groonga's `TABLE_PAT_KEY` is 4GiB.
-While this is usually sufficient, environments wite large data may throw a "total key size is over" error when adding data.
+The maximum total key size limit for Groonga's `TABLE_PAT_KEY` is 4 GiB.
+While this is usually sufficient, environments with large data may throw a "total key size is over" error when adding data.
 
-This improvement introduces a new mode that the total key size of Groonga's `TABLE_PAT_KEY` from 4 Gib to 1 TiB.
+This improvement introduces a new mode that the maximum total key size for Groonga's `TABLE_PAT_KEY` from 4 GiB to 1 TiB.
 This feature can be enables using the `lexicon_flags_mapping` option as below:
 
 
@@ -44,12 +44,28 @@ It reached EOL on 2026-06-10.
 
 ### Fixes
 
-#### Fixed a bug that UUID columns truncated to 32 bytes in PGroonga index read path
+#### Fixed a bug that PGroonga truncated UUID column value to 32 bytes
 
 [GH-947]( https://github.com/pgroonga/pgroonga/issues/947 )[Reported by Xuguang Wang]
 
-The bug only manifests when PGroonga reads UUID values back from index storage (Index Only Scan, or multi-column index with NOT NULL columns) plain.
-Index Scan and Bitmap Heap Scan fetch from the heap and are unaffected.
+The bug only manifests when PGroonga reads UUID values back using an Index Only Scan, or when it uses a multi-column index that contains NOT NULL columns.
+The length of UUID is `33` (32 characters + NULL terminate), but a hyphenated UUID is 36 characters.
+PGroonga did not consider a hyphenated UUID.
+
+As a result, the following search query fails with the error below:
+
+```sql
+CREATE TABLE data (
+  id uuid NOT NULL
+);
+
+INSERT INTO data VALUES ('12345678-abcd-bcde-cdef-123456789012')
+
+SELECT id
+  FROM data
+ WHERE id = '12345670-ABCD-BCDE-CDEF-123456789012';
+-- ERROR:  invalid input syntax for type uuid: "12345670-ABCD-BCDE-CDEF-12345678"
+```
 
 #### Fixed a bug where PGroonga for Windows was built in debug mode
 
@@ -62,8 +78,6 @@ As a result, PGroonga for Windows may fail to start up.
 
 #### Fixed a crash when an UPDATE statement with a WHERE clause and VACUUM are executed concurrently
 
-This is a race condition.
-
 If an UPDATE statement with a WHERE clause and VACUUM are executed concurrently, PGronga closes the open grn_obj.
 However, the grn_obj may be referred while evaluating a WHERE clause and cause a crash.
 
@@ -72,6 +86,7 @@ This release adds a condition to prevent the race condition.
 ### Thanks
 
 - Xuguang Wang
+
 - r-setoyama
 
 ## 4.0.6: 2026-04-07 {#version-4-0-6}

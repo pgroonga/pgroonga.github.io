@@ -5,7 +5,83 @@ upper_level: ../
 
 # おしらせ
 
-## 4.0.6: 2026-04-07 {#version-4-0-7}
+## 4.0.7: 2026-07-24 {#version-4-0-7}
+
+### 改良
+
+#### [[Ubuntu][ubuntu]] Ubuntu 24.06 (Resolute Raccoon)をサポート
+
+#### より大規模なデータに対しインデックス設定できるオプションを追加
+
+PGroongaのインデックスは内部的には、Groongaのテーブルとして作成され、そこにインデックスのデータを追加します。デフォルトでは、このテーブルは `TABLE_PAT_KEY` です。
+
+`TABLE_PAT_KEY` のトータルのキーサイズの上限は4GiBです。通常はこれで十分ですが、大規模なデータの環境では、データ追加時に"total key size is over"が発生することがあります。
+
+この改良で、`TABLE_PAT_KEY` のトータルキーサイズの上限を4GiBから1TiBにするモードを新規に導入しました。この機能は、以下のように `lexicon_flags_mapping` を使うことで有効にできます。
+
+
+```sql
+CREATE TABLE memos (
+  content text
+);
+
+CREATE INDEX pgrn_index ON memos
+  USING pgroonga (content)
+  WITH (lexicon_flags_mapping = '{
+	  "content": ["LARGE"]
+	}');
+```
+
+今のところ、このオプションは `LARGE` のみを指定できます。
+
+#### [[Debian][debian]] Debian GNU/Linux 12 (bookworm)のサポートをやめました
+
+2026-06-10でEOLになったためです。
+
+### 修正
+
+#### PGroongaがUUIDカラムの値を32byteに切り詰めてしまう問題を修正
+
+[GH-947]( https://github.com/pgroonga/pgroonga/issues/947 )[Xuguang Wangさんの報告]
+
+この問題は、Index Only scan または、マルチカラムインデックスでNOT NULLなカラムからUUIDの値を読み出す時にのみ発生します。UUIDの長さは33(32文字+NULL終端)ですが、ハイフンを含むUUIDは36文字になります。PGroongaは、ハイフンを含むUUIDを考慮していませんでした。
+
+結果として、以下のような検索クエリーがエラーで失敗します：
+
+```sql
+CREATE TABLE data (
+  id uuid NOT NULL
+);
+
+INSERT INTO data VALUES ('12345678-abcd-bcde-cdef-123456789012')
+
+SELECT id
+  FROM data
+ WHERE id = '12345670-ABCD-BCDE-CDEF-123456789012';
+-- ERROR:  invalid input syntax for type uuid: "12345670-ABCD-BCDE-CDEF-12345678"
+```
+
+#### Windows向けPGroongaがDebugモードでビルドされていた問題を修正
+
+[GH-954]( https://github.com/pgroonga/pgroonga/issues/954 )[r-setoyamaさんの報告]
+
+PGroongaがデバッグモードでビルドされていると、PGroongaロード時にデバッグ用のランタイムDLLを要求します。しかし、通常のWindows環境にはデバッグ用のランタイムDLLはありません。
+
+その結果、PGrongaの起動に失敗することがあります。
+
+#### WHERE句を持つUPDATEとVACUUMが同時期に実行された時にクラッシュすることがある問題を修正
+
+WHERE句を持つUPDATEとVACUUMが同時期に実行されると、PGroongaは開いているgrn_objを閉じますが、この閉じたgrn_objはWHERE句の評価時に参照されることがあり、それが原因でクラッシュすることがあります。
+
+このリリースで、この競合状態を防止する条件を追加しました。
+
+### 感謝
+
+- Xuguang Wangさん
+
+- r-setoyamaさん
+
+## 4.0.6: 2026-04-07 {#version-4-0-6}
 
 ### 改良
 

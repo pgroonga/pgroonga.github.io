@@ -5,7 +5,7 @@ upper_level: ../
 
 # News
 
-## 4.0.7: 2026-07-08 {#version-4-0-7}
+## 4.0.7: 2026-07-24 {#version-4-0-7}
 
 ### Improvements
 
@@ -38,6 +38,10 @@ CREATE INDEX pgrn_index ON memos
 
 Currently, only `LARGE` can be specified for this option.
 
+#### [[Debian][debian]] Dropped support for Debian GNU/Linux 12 (bookworm)
+
+It reached EOL on 2026-06-10.
+
 ### Fixes
 
 #### Fixed a bug that UUID columns truncated to 32 bytes in PGroonga index read path
@@ -58,7 +62,12 @@ As a result, PGroonga for Windows may fail to start up.
 
 #### Fixed a crash when an UPDATE statement with a WHERE clause and VACUUM are executed concurrently
 
-...
+This is a race condition.
+
+If an UPDATE statement with a WHERE clause and VACUUM are executed concurrently, PGronga closes the open grn_obj.
+However, the grn_obj may be referred while evaluating a WHERE clause and cause a crash.
+
+This release adds a condition to prevent the race condition.
 
 ### Thanks
 

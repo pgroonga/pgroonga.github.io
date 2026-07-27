@@ -22,7 +22,7 @@ msgstr ""
 msgid "# News"
 msgstr "# おしらせ"
 
-msgid "## 4.0.7: 2026-07-24 {#version-4-0-7}"
+msgid "## 4.0.7: 2026-07-29 {#version-4-0-7}"
 msgstr ""
 
 msgid "### Improvements"

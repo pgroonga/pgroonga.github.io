@@ -29,8 +29,8 @@ msgid "### Improvements"
 msgstr "### 改良"
 
 msgid ""
-"#### [[Ubuntu][ubuntu]] Added support for for Ubuntu 24.06 (Resolute Raccoon)"
-msgstr "#### [[Ubuntu][ubuntu]] Ubuntu 24.06 (Resolute Raccoon)をサポート"
+"#### [[Ubuntu][ubuntu]] Added support for Ubuntu 26.04 (Resolute Raccoon)"
+msgstr "#### [[Ubuntu][ubuntu]] Ubuntu 26.04 (Resolute Raccoon)をサポート"
 
 msgid "#### Added an option for indexing larger-scale data"
 msgstr "#### より大規模なデータに対しインデックス設定できるオプションを追加"

@@ -9,7 +9,7 @@ upper_level: ../
 
 ### 改良
 
-#### [[Ubuntu][ubuntu]] Ubuntu 24.06 (Resolute Raccoon)をサポート
+#### [[Ubuntu][ubuntu]] Ubuntu 26.04 (Resolute Raccoon)をサポート
 
 #### より大規模なデータに対しインデックス設定できるオプションを追加
 

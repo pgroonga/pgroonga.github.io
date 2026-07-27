@@ -9,7 +9,7 @@ upper_level: ../
 
 ### Improvements
 
-#### [[Ubuntu][ubuntu]] Added support for for Ubuntu 24.06 (Resolute Raccoon)
+#### [[Ubuntu][ubuntu]] Added support for Ubuntu 26.04 (Resolute Raccoon)
 
 #### Added an option for indexing larger-scale data
 

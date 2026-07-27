@@ -78,7 +78,7 @@ As a result, PGroonga for Windows may fail to start up.
 
 #### Fixed a crash when an UPDATE statement with a WHERE clause and VACUUM are executed concurrently
 
-If an UPDATE statement with a WHERE clause and VACUUM are executed concurrently, PGronga closes the open grn_obj.
+If an UPDATE statement with a WHERE clause and VACUUM are executed concurrently, PGroonga closes the open grn_obj.
 However, the grn_obj may be referred while evaluating a WHERE clause and cause a crash.
 
 This release adds a condition to prevent the race condition.

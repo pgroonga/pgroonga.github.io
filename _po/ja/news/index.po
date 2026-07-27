@@ -159,7 +159,7 @@ msgstr ""
 "ムDLLはありません。"
 
 msgid "As a result, PGroonga for Windows may fail to start up."
-msgstr "その結果、PGrongaの起動に失敗することがあります。"
+msgstr "その結果、PGroongaの起動に失敗することがあります。"
 
 msgid ""
 "#### Fixed a crash when an UPDATE statement with a WHERE clause and VACUUM "
@@ -170,7 +170,7 @@ msgstr ""
 
 msgid ""
 "If an UPDATE statement with a WHERE clause and VACUUM are executed "
-"concurrently, PGronga closes the open grn_obj.\n"
+"concurrently, PGroonga closes the open grn_obj.\n"
 "However, the grn_obj may be referred while evaluating a WHERE clause and "
 "cause a crash."
 msgstr ""

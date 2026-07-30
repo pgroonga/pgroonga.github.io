@@ -24,37 +24,38 @@ Install PostgreSQL.
 Extract PGroonga source:
 
 ```console
-% wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz
-% tar xvf pgroonga-{{ site.pgroonga_version }}.tar.gz
-% cd pgroonga-{{ site.pgroonga_version }}
+$ wget https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.tar.gz
+$ tar xvf pgroonga-{{ site.pgroonga_version }}.tar.gz
+$ cd pgroonga-{{ site.pgroonga_version }}
 ```
 
 FYI: If you want to use the unreleased latest version, use the followings:
 
 ```console
-% git clone --recursive https://github.com/pgroonga/pgroonga.git
-% cd pgroonga
+$ git clone --recursive https://github.com/pgroonga/pgroonga.git
+$ cd pgroonga
 ```
 
-Build PGroonga. There are some options:
-
-  * `HAVE_MSGPACK=1`: It's required for WAL support. You need [msgpack-c](https://github.com/msgpack/msgpack-c) 1.4.1 or later. You can use `libmsgpack-dev` package on Debian based platform and `msgpack-devel` package in [EPEL](https://fedoraproject.org/wiki/EPEL) on CentOS 7.
-
-Use the following command line when you want to build with WAL support:
+Build and install PGroonga with [Meson](https://mesonbuild.com/) and [Ninja](https://ninja-build.org/):
 
 ```console
-% make HAVE_MSGPACK=1
+$ meson setup build
+$ meson compile -C build
+$ sudo meson install -C build
 ```
 
-Use the following command line when you don't need WAL support:
+If `pg_config` command doesn't exist in your `PATH`, specify it explicitly with the `pg_config` option:
 
 ```console
-% make
+$ meson setup build -Dpg_config=/path/to/pg_config
 ```
 
 If you get any error, confirm the followings:
 
-  * `pg_config` command exists at any path in `PATH` environment variable.
+  * `meson` and `ninja` commands are installed.
+
+  * `pg_config` command exists at any path in `PATH` environment variable, or is specified with the `pg_config` option.
+
   * `pkg-config --list-all` includes `groonga`.
 
 If `pg_config` command doesn't exist, you may forget to install the development package of PostgreSQL.
@@ -64,26 +65,19 @@ If `pkg-config --list-all` doesn't include `groonga`, you may forget to install 
 Here is an example when you install Groonga with `--prefix=/usr/local`:
 
 ```console
-% PKG_CONFIG_PATH=/usr/local/lib/pkgconfig make
-```
-
-Install PGroonga:
-
-```console
-% sudo make install
+$ PKG_CONFIG_PATH=/usr/local/lib/pkgconfig meson setup build
 ```
 
 If you use SELinux, you must create a policy package(.pp) and install it. PGroonga makes PostgreSQL map `<data dir>/pgrn*` files into memory, which is not allowed by default. First, install `policycoreutils` and `checkpolicy`.
 
 ```console
-% sudo dnf install policycoreutils checkpolicy
+$ sudo dnf install policycoreutils checkpolicy
 ```
 
 Let's assume that PostgreSQL binaries are of type `postgresql_t` and PostgreSQL data files are of type `postgresql_db_t`. Allow `postgresql_t` type to memory map files of type `postgresql_db_t`. Then compile it (.mod), package it (.pp) and install the resulting policy package.
 
-
 ```console
-% cat > my-pgroonga.te << EOF
+$ cat > my-pgroonga.te << EOF
 module my-pgroonga 1.0;
 
 require {
@@ -95,15 +89,15 @@ require {
 allow postgresql_t postgresql_db_t:file map;
 EOF
 
-% checkmodule -M -m -o my-pgroonga.mod my-pgroonga.te
-% semodule_package -o my-pgroonga.pp -m my-pgroonga.mod
-% sudo semodule -i my-pgroonga.pp
+$ checkmodule -M -m -o my-pgroonga.mod my-pgroonga.te
+$ semodule_package -o my-pgroonga.pp -m my-pgroonga.mod
+$ sudo semodule -i my-pgroonga.pp
 ```
 
 Create a database:
 
 ```console
-% psql --command 'CREATE DATABASE pgroonga_test'
+$ psql --command 'CREATE DATABASE pgroonga_test'
 ```
 
 (Normally, you should create a user for `pgroonga_test` database and use the user. See [`GRANT USAGE ON SCHEMA pgroonga`](../reference/grant-usage-on-schema-pgroonga.html) for details.)
@@ -111,7 +105,7 @@ Create a database:
 Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 
 ```console
-% psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga;'
+$ psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga;'
 ```
 
 That's all!
@@ -128,40 +122,51 @@ Here is a list of required software to build and install PGroonga from source. I
 
     * [Zip version](http://www.enterprisedb.com/products-services-training/pgbindownload)
 
-  * [Microsoft Visual Studio Express 2013 for Windows Desktop](https://www.visualstudio.com/downloads/#d-2013-express)
+  * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
   * [CMake](http://www.cmake.org/)
 
-Download PGroonga source archive for Windows from packages.groonga.org. Source archive for Windows is zip file. Source archive for Windows bundles Groonga.
+    * Use for building Groonga
+
+  * [Meson](https://mesonbuild.com/) and [Ninja](https://ninja-build.org/)
+
+    * Use for building PGroonga
+
+Download the Groonga source archive and PGroonga source archive from packages.groonga.org and extract them:
+
+  * [groonga-latest](https://packages.groonga.org/source/groonga/groonga-latest.zip)
 
   * [pgroonga-{{ site.pgroonga_version }}](https://packages.groonga.org/source/pgroonga/pgroonga-{{ site.pgroonga_version }}.zip)
 
-Extract the downloaded source archive and move to source folder:
+Variables used for the build:
+
+  * `%GROONGA_INSTALL_DIR%` is a folder to install Groonga
+
+  * `%POSTGRESQL_INSTALL_FOLDER%` is a folder where PostgreSQL is installed
+
+    * If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\Program Files\PostgreSQL\%POSTGRESQL_VERSION%`.
+
+    * If you installed PostgreSQL by zip, `%POSTGRESQL_INSTALL_FOLDER%` is `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\pgsql`.
+
+Build and install Groonga:
 
 ```text
-> cd c:\Users\%USERNAME%\Downloads\pgroonga-{{ site.pgroonga_version }}
+> cmake -B groonga.build -G Ninja -S groonga-latest -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX=%GROONGA_INSTALL_DIR% -DGRN_WITH_MECAB=bundled -DGRN_WITH_MESSAGE_PACK=bundled -DGRN_WITH_MRUBY=yes -DGRN_WITH_RAPIDJSON=bundled -DGRN_WITH_XXHASH=bundled -DGRN_WITH_ZSTD=bundled
+> cmake --build groonga.build
+> cmake --install groonga.build
 ```
-
-Specify build option by `cmake`. The following command line is for building PGroonga for 64bit version PostgreSQL. If you want to build for 32bit version PostgreSQL, use `-G "Visual Studio 12 2013"` parameter instead:
-
-```text
-pgroonga-{{ site.pgroonga_version }}> cmake . -G "Visual Studio 12 2013 Win64" -DCMAKE_INSTALL_PREFIX=%POSTGRESQL_INSTALL_FOLDER% -DGRN_WITH_BUNDLED_LZ4=yes -DGRN_WITH_BUNDLED_MECAB=yes -DGRN_WITH_BUNDLED_MESSAGE_PACK=yes -DGRN_WITH_MRUBY=yes
-```
-
-If you installed PostgreSQL by installer, `%POSTGRESQL_INSTALL_FOLDER%` is `C:\Program Files\PostgreSQL\%POSTGRESQL_VERSION%`.
-
-If you installed PostgreSQL by zip, `%POSTGRESQL_INSTALL_FOLDER%` is `%POSTGRESQL_ZIP_EXTRACTED_FOLDER%\pgsql`.
 
 Build PGroonga:
 
 ```text
-pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release
+> meson setup pgroonga.build -S pgroonga-{{ site.pgroonga_version }} --buildtype=release --cmake-prefix-path=%GROONGA_INSTALL_DIR% -Dpg_config=%POSTGRESQL_INSTALL_FOLDER%\bin\pg_config.exe
+> meson compile -C pgroonga.build
 ```
 
 Install PGroonga. You may be required administrator privilege. For example, you installed PostgreSQL by installer, you will be required administrator privilege.
 
 ```text
-pgroonga-{{ site.pgroonga_version }}> cmake --build . --config Release --target Install
+> meson install -C pgroonga.build
 ```
 
 Create a database:

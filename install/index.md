@@ -27,8 +27,6 @@ See a document for your platform in the followings:
 
     * trixie
 
-    * bookworm
-
   * [Ubuntu](ubuntu.html)
 
     * 24.04

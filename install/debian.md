@@ -11,7 +11,6 @@ This document describes how to install PGroonga on Debian GNU/Linux.
 Here are supported Debian GNU/Linux versions:
 
   * [trixie](#install-on-trixie)
-  * [bookworm](#install-on-bookworm)
 
 ## How to install on Debian GNU/Linux trixie {#install-on-trixie}
 
@@ -45,8 +44,6 @@ Or
 $ sudo apt install -y -V postgresql-15-pgdg-pgroonga
 Or
 $ sudo apt install -y -V postgresql-14-pgdg-pgroonga
-Or
-$ sudo apt install -y -V postgresql-13-pgdg-pgroonga
 ```
 
 If you want to use [MeCab](http://taku910.github.io/mecab/) based tokenizer, you also need to install `groonga-tokenizer-mecab` package:
@@ -74,10 +71,6 @@ Connect to the created database and execute `CREATE EXTENSION pgroonga`:
 ```console
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
-
-## How to install on Debian GNU/Linux bookworm {#install-on-bookworm}
-
-On bookworm, follow the same installation procedure as trixie. Please refer to [trixie](#install-on-trixie).
 
 That's all!
 

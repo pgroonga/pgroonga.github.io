@@ -65,9 +65,6 @@ msgstr ""
 msgid "    * trixie"
 msgstr ""
 
-msgid "    * bookworm"
-msgstr ""
-
 msgid "  * [Ubuntu](ubuntu.html)"
 msgstr ""
 

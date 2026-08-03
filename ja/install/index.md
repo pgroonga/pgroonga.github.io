@@ -27,8 +27,6 @@ upper_level: ../
 
     * trixie
 
-    * bookworm
-
   * [Ubuntu](ubuntu.html)
 
     * 24.04

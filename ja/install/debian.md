@@ -11,7 +11,6 @@ title: Debian GNU/Linuxにインストール
 サポートしているDebian GNU/Linuxのバージョンは次の通りです。
 
   * [trixie](#install-on-trixie)
-  * [bookworm](#install-on-bookworm)
 
 ## Debian GNU/Linux trixieにインストールする方法 {#install-on-trixie}
 
@@ -45,8 +44,6 @@ Or
 $ sudo apt install -y -V postgresql-15-pgdg-pgroonga
 Or
 $ sudo apt install -y -V postgresql-14-pgdg-pgroonga
-Or
-$ sudo apt install -y -V postgresql-13-pgdg-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。
@@ -74,10 +71,6 @@ $ sudo -u postgres -H psql --command 'CREATE DATABASE pgroonga_test'
 ```console
 $ sudo -u postgres -H psql -d pgroonga_test --command 'CREATE EXTENSION pgroonga'
 ```
-
-## Debian GNU/Linux bookwormにインストールする方法 {#install-on-bookworm}
-
-bookworm のインストール方法は、trixie のインストール方法と同じです。 [trixie](#install-on-trixie) を参照してください。
 
 これで終わりです！
 

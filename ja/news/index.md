@@ -5,11 +5,13 @@ upper_level: ../
 
 # おしらせ
 
-## 4.0.7: 2026-07-29 {#version-4-0-7}
+## 4.0.7: 2026-08-03 {#version-4-0-7}
 
 ### 改良
 
 #### [[Ubuntu][ubuntu]] Ubuntu 26.04 (Resolute Raccoon)をサポート
+
+[GH-989]( https://github.com/pgroonga/pgroonga/issues/989 )[milliemoleさんの報告]
 
 #### より大規模なデータに対しインデックス設定できるオプションを追加
 
@@ -33,6 +35,12 @@ CREATE INDEX pgrn_index ON memos
 ```
 
 今のところ、このオプションは `LARGE` のみを指定できます。
+
+#### [[Source][source]] ソースからビルドする手順をMakeからMesonに変更
+
+[GH-459]( https://github.com/pgroonga/pgroonga.github.io/issues/459 )[junK433さんの報告]
+
+[GH-989]( https://github.com/pgroonga/pgroonga/issues/989 )[milliemoleさんの報告]
 
 #### [[Debian][debian]] Debian GNU/Linux 12 (bookworm)のサポートをやめました
 
@@ -69,17 +77,21 @@ PGroongaがデバッグモードでビルドされていると、PGroongaロー�
 
 その結果、PGroongaの起動に失敗することがあります。
 
-#### WHERE句を持つUPDATEとVACUUMが同時期に実行された時にクラッシュすることがある問題を修正
+#### `WHERE`句を持つ`UPDATE`と`VACUUM`が同時期に実行された時にクラッシュすることがある問題を修正
 
-WHERE句を持つUPDATEとVACUUMが同時期に実行されると、PGroongaは開いているgrn_objを閉じますが、この閉じたgrn_objはWHERE句の評価時に参照されることがあり、それが原因でクラッシュすることがあります。
+`WHERE`句を持つ`UPDATE`と`VACUUM`が同時期に実行されると、PGroongaは開いているオブジェクトを閉じますが、この閉じたオブジェクトは`WHERE`句の評価時に参照されることがあり、それが原因でクラッシュすることがあります。
 
 このリリースで、この競合状態を防止する条件を追加しました。
 
 ### 感謝
 
-- Xuguang Wangさん
+- junK433さん
+
+- milliemoleさん
 
 - r-setoyamaさん
+
+- Xuguang Wangさん
 
 ## 4.0.6: 2026-04-07 {#version-4-0-6}
 
@@ -2611,6 +2623,7 @@ The first release!!!
 [debian]:../install/debian.html
 [ubuntu]:../install/ubuntu.html
 [windows]:../install/windows.html
+[source]:../install/source.html
 
 [create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
 [create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer

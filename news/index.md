@@ -5,11 +5,13 @@ upper_level: ../
 
 # News
 
-## 4.0.7: 2026-07-29 {#version-4-0-7}
+## 4.0.7: 2026-08-03 {#version-4-0-7}
 
 ### Improvements
 
 #### [[Ubuntu][ubuntu]] Added support for Ubuntu 26.04 (Resolute Raccoon)
+
+[GH-989]( https://github.com/pgroonga/pgroonga/issues/989 )[Reported by milliemole]
 
 #### Added an option for indexing larger-scale data
 
@@ -37,6 +39,12 @@ CREATE INDEX pgrn_index ON memos
 ```
 
 Currently, only `LARGE` can be specified for this option.
+
+#### [[Source][source]] Switched source build instructions from Make to Meson
+
+[GH-459]( https://github.com/pgroonga/pgroonga.github.io/issues/459 )[Reported by junK433]
+
+[GH-989]( https://github.com/pgroonga/pgroonga/issues/989 )[Reported by milliemole]
 
 #### [[Debian][debian]] Dropped support for Debian GNU/Linux 12 (bookworm)
 
@@ -76,18 +84,22 @@ However, these debug runtime DLLs do not exist in a standard Windows environment
 
 As a result, PGroonga for Windows may fail to start up.
 
-#### Fixed a crash when an UPDATE statement with a WHERE clause and VACUUM are executed concurrently
+#### Fixed a crash when an `UPDATE` statement with a `WHERE` clause and `VACUUM` are executed concurrently
 
-If an UPDATE statement with a WHERE clause and VACUUM are executed concurrently, PGroonga closes the open grn_obj.
-However, the grn_obj may be referred while evaluating a WHERE clause and cause a crash.
+If an `UPDATE` statement with a `WHERE` clause and `VACUUM` are executed concurrently, PGroonga closes the open object.
+However, the object may be referred while evaluating a `WHERE` clause and cause a crash.
 
 This release adds a condition to prevent the race condition.
 
 ### Thanks
 
-- Xuguang Wang
+- junK433
+
+- milliemole
 
 - r-setoyama
+
+- Xuguang Wang
 
 ## 4.0.6: 2026-04-07 {#version-4-0-6}
 
@@ -2621,6 +2633,7 @@ The first release!!!
 [debian]:../install/debian.html
 [ubuntu]:../install/ubuntu.html
 [windows]:../install/windows.html
+[source]:../install/source.html
 
 [create-index-using-pgroonga]:../reference/create-index-using-pgroonga.html
 [create-index-using-pgroonga-custom-normalizer]:../reference/create-index-using-pgroonga.html#custom-normalizer

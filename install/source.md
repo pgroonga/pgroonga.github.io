@@ -18,7 +18,8 @@ Install PostgreSQL.
 
 [Install Groonga](http://groonga.org/docs/install.html). We recommend that you use package. If you use package to install Groonga, install the following package:
 
-  * `groonga-devel`: on CentOS
+  * `groonga-devel`: on AlmaLinux
+
   * `libgroonga-dev`: on Debian/GNU Linux and Ubuntu
 
 Extract PGroonga source:

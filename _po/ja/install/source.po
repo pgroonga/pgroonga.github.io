@@ -56,12 +56,11 @@ msgstr ""
 "ケージを使うことをおすすめします。パッケージを使ってGroongaをインストールする"
 "場合は次のパッケージをインストールしてください。"
 
-msgid ""
-"  * `groonga-devel`: on CentOS\n"
-"  * `libgroonga-dev`: on Debian/GNU Linux and Ubuntu"
-msgstr ""
-"  * `groonga-devel`: CentOSの場合\n"
-"  * `libgroonga-dev`: Debian/GNU LinuxとUbuntuの場合"
+msgid "  * `groonga-devel`: on AlmaLinux"
+msgstr "  * `groonga-devel`: AlmaLinuxの場合"
+
+msgid "  * `libgroonga-dev`: on Debian/GNU Linux and Ubuntu"
+msgstr "  * `libgroonga-dev`: Debian/GNU LinuxとUbuntuの場合"
 
 msgid "Extract PGroonga source:"
 msgstr "PGroongaのソースを展開します。"

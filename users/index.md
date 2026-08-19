@@ -88,6 +88,19 @@ PGroonga also scales efficiently and maintains high performance even with comple
 
 The integration of PGroonga with IvorySQL was very smooth. Its exceptional search speed and high scalability allow us to deliver an experience for our users that rivals proprietary search engines, without the need for additional complex architecture. Users simply need to create a PGroonga index within IvorySQL to enjoy fast full-text search through simple SQL queries, significantly lowering the barrier to development and operational costs.
 
+## kokkai-data (国会議事録検索) {#kokkai-data}
+
+[kokkai-data (国会議事録検索)](https://kokkai-data.com) is a site for full text search of the minutes of Japan's National Diet. It's developed and operated by an individual. It contains about 9.6 million speeches from May 1947 to the present, and you can trace speakers, meetings, and dates from keywords.
+
+PGroonga handles the full text search. A single index is built on the speech text column using `TokenBigramSplitSymbolAlphaDigit` and `NormalizerNFKC150`, and searches are done with `&@~`. Searches across about 9.6 million records return in tens of milliseconds.
+
+The reason for choosing PGroonga was that it doesn't require setting up a search engine outside of PostgreSQL. Since it's operated by an individual, it's hosted on a single VPS (virtual 6 cores / 8GB memory) shared with other sites. There wasn't room to prepare another server for search, and I didn't want to increase the number of things to back up and monitor. With PGroonga, all you need is to build a single index, and the search conditions can be written in ordinary SQL `WHERE` clauses, so there's no need to implement filtering and sorting twice, once in the search engine and once in the application.
+
+What I've learned from running it is summarized in articles.
+
+* [pg_total_relation_sizeが20GBって言うから信じてたら、実際は56GB使ってた](https://zenn.dev/sato_ken/articles/667459027f2025)
+* [「Ｇ７」も「G7」も正規化するとg7になる。それでも検索結果は0件だった](https://zenn.dev/sato_ken/articles/651faad6e137ac)
+
 ## Multilingual knowledge search at Kuroko Labs {#kurokolabs}
 
 [Kuroko Labs](https://kurokolabs.ai/) is a Munich company building AI agents for manufacturers, working in Japanese and German. For a Japanese manufacturer we built and operate a knowledge search over internal documents written in Japanese and Thai (inspection reports, for example) that answers with the source passage attached. It serves sites in three countries and about 5,000 people.

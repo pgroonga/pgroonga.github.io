@@ -5,6 +5,63 @@ upper_level: ../
 
 # News
 
+## 4.0.9: 2026-09-23 {#version-4-0-9}
+
+### Improvements
+
+#### Added a new function `pgroonga_physical_table_names()`
+
+If you create a PGroonga index against a partitioned table, an index is created for each partition.
+Each of these indexes has its own Groonga table but there was no way to know the names of these Groonga tables.
+
+`pgroonga_physical_table_names()` returns the Groonga table names of all partitions of the given partitioned index.
+The returned value is a `text[]` that is formatted as arguments of a Groonga command.
+The first argument is the name of the partitioned index and the second argument is the prefix of the generated argument names:
+
+```sql
+CREATE TABLE blogs (
+  content text,
+  registered_at date
+) PARTITION BY RANGE (registered_at);
+
+CREATE TABLE blogs_2025 PARTITION OF blogs
+  FOR VALUES FROM ('2025-01-01') TO ('2025-12-31');
+CREATE TABLE blogs_2026 PARTITION OF blogs
+  FOR VALUES FROM ('2026-01-01') TO ('2026-12-31');
+
+CREATE INDEX pgroonga_content_index ON blogs USING pgroonga (content);
+
+SELECT pgroonga_physical_table_names('pgroonga_content_index', 'shard');
+--               pgroonga_physical_table_names
+-- ----------------------------------------------------------
+--  {shard[0].table,Sources90187,shard[1].table,Sources90188}
+-- (1 row)
+```
+
+#### Added support for counting the number of index scans with `pg_stat_user_indexes`
+
+[GH-1001](https://github.com/pgroonga/pgroonga/issues/1001)[Reported by SATO KEN]
+
+PGroonga didn't increment `idx_scan` in `pg_stat_user_indexes`.
+So `idx_scan` was always `0` even when a PGroonga index was used.
+
+PGroonga increments `idx_scan` since this release.
+You can confirm how many times your PGroonga index is used as below:
+
+```sql
+SELECT idx_scan
+  FROM pg_stat_user_indexes
+ WHERE indexrelname = 'pgrn_content_index';
+--  idx_scan
+-- ----------
+--         1
+-- (1 row)
+```
+
+### Thanks
+
+- SATO KEN
+
 ## 4.0.8: 2026-08-03 {#version-4-0-8}
 
 ### Improvements

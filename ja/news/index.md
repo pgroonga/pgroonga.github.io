@@ -5,6 +5,58 @@ upper_level: ../
 
 # おしらせ
 
+## 4.0.9: 2026-09-23 {#version-4-0-9}
+
+### 改良
+
+#### `pgroonga_physical_table_names()` を新しく追加
+
+パーティションテーブルに対してPGroongaのインデックスを作成すると、パーティションごとにインデックスが作成されます。これらのインデックスはそれぞれGroongaのテーブルを持っていますが、それらのGroongaのテーブル名を知る方法がありませんでした。
+
+`pgroonga_physical_table_names()` は指定したパーティションインデックスのすべてのGroongaのテーブル名を返します。返り値はGroongaのコマンドの引数の形式に整形された `text[]` です。1つ目の引数はパーティションインデックスの名前、2つ目の引数は生成する引数名のプレフィックスです。
+
+```sql
+CREATE TABLE blogs (
+  content text,
+  registered_at date
+) PARTITION BY RANGE (registered_at);
+
+CREATE TABLE blogs_2025 PARTITION OF blogs
+  FOR VALUES FROM ('2025-01-01') TO ('2025-12-31');
+CREATE TABLE blogs_2026 PARTITION OF blogs
+  FOR VALUES FROM ('2026-01-01') TO ('2026-12-31');
+
+CREATE INDEX pgroonga_content_index ON blogs USING pgroonga (content);
+
+SELECT pgroonga_physical_table_names('pgroonga_content_index', 'shard');
+--               pgroonga_physical_table_names
+-- ----------------------------------------------------------
+--  {shard[0].table,Sources90187,shard[1].table,Sources90188}
+-- (1 row)
+```
+
+#### `pg_stat_user_indexes` でインデックスのスキャン回数を確認できるように改良
+
+[GH-1001](https://github.com/pgroonga/pgroonga/issues/1001)[SATO KENさんの報告]
+
+PGroongaは `pg_stat_user_indexes` の `idx_scan` を更新していませんでした。そのため、PGroongaのインデックスを使って検索しても `idx_scan` は常に `0` のままでした。
+
+このリリースからPGroongaは `idx_scan` を更新します。以下のようにPGroongaのインデックスが何回使われたかを確認できます。
+
+```sql
+SELECT idx_scan
+  FROM pg_stat_user_indexes
+ WHERE indexrelname = 'pgrn_content_index';
+--  idx_scan
+-- ----------
+--         1
+-- (1 row)
+```
+
+### 感謝
+
+- SATO KENさん
+
 ## 4.0.8: 2026-08-03 {#version-4-0-8}
 
 ### 改良

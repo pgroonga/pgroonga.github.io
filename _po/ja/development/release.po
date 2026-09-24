@@ -6,7 +6,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"PO-Revision-Date: 2024-12-10 10:00+0900\n"
+"PO-Revision-Date: 2023-10-26 08:36+0900\n"
 
 msgid ""
 "---\n"
@@ -55,35 +55,6 @@ msgid ""
 "  ```"
 msgstr ""
 
-msgid "* `LAUNCHPAD_UPLOADER_PGP_KEY`"
-msgstr ""
-
-msgid "  Specify a key for PPA of Groonga."
-msgstr "  GroongaのPPAのキーを指定します。"
-
-msgid ""
-"  Please refer to the [Groonga release document about PPA](https://groonga."
-"org/docs/contribution/development/release.html#ppa)."
-msgstr ""
-"  [Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://"
-"groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してくだ"
-"さい。"
-
-msgid "* `GITHUB_ACCESS_TOKEN`"
-msgstr ""
-
-msgid "  Specify a GitHub access token."
-msgstr "  GitHubのアクセストークンを指定します。"
-
-msgid ""
-"  [GitHub Managing your personal access tokens](https://docs.github.com/en/"
-"authentication/keeping-your-account-and-data-secure/managing-your-personal-"
-"access-tokens)"
-msgstr ""
-"  [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/"
-"authentication/keeping-your-account-and-data-secure/managing-your-personal-"
-"access-tokens)"
-
 msgid "* `APACHE_ARROW_REPOSITORY`"
 msgstr ""
 
@@ -120,7 +91,8 @@ msgstr "## リリースタスクを実行"
 
 msgid ""
 "```console\n"
-"$ rake release\n"
+"$ git clone git@github.com:pgroonga/pgroonga.git pgroonga.clean\n"
+"$ rake -C pgroonga.clean release\n"
 "```"
 msgstr ""
 
@@ -210,23 +182,31 @@ msgstr ""
 "新しいリリースをアナウンスするために https://github.com/pgroonga/pgroonga."
 "github.io/ を更新する必要があります。"
 
+msgid "### 1. Update the news"
+msgstr "### 1. ニュースの更新"
+
 msgid "We describe to `news/index.md` summarize changes from before version."
 msgstr "`news/index.md` に前回のバージョンからの変更をまとめます。"
 
+msgid "We will update it manually."
+msgstr "手動で更新します。"
+
+msgid "### 2. Update the version information"
+msgstr "### 2. バージョン情報の更新"
+
+msgid ""
+"```console\n"
+"$ git clone git@github.com:pgroonga/pgroonga.github.io.git pgroonga.github."
+"io.clean\n"
+"$ rake -C pgroonga.github.io.clean release\n"
+"```"
+msgstr ""
+
+msgid "### Optional:  PostgreSQL version information, and so on."
+msgstr "### 必要に応じてPostgreSQLのバージョンの更新"
+
 msgid "We also update below items in `_config.yml`."
 msgstr "`_config.yml` の以下の項目も更新します。"
-
-msgid "* `pgroonga_version`:"
-msgstr ""
-
-msgid "  * PGroonga latest version."
-msgstr " * PGroongaの最新バージョン"
-
-msgid "* `pgroonga_release_date`:"
-msgstr ""
-
-msgid "  * Relase data for the latest version."
-msgstr " * 最新版のリリース日"
 
 msgid "* `postgresql_doc_base_url`:"
 msgstr ""

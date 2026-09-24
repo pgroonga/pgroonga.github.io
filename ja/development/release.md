@@ -25,18 +25,6 @@ title: リリース
   $ export GROONGA_REPOSITORY=$HOME/work/groonga/groonga.clean
   ```
 
-* `LAUNCHPAD_UPLOADER_PGP_KEY`
-
-  GroongaのPPAのキーを指定します。
-
-  [Groongaのリリースドキュメントの PPA用の鍵の登録 セクション](https://groonga.org/ja/docs/contribution/development/release.html#ppa)を参照してください。
-
-* `GITHUB_ACCESS_TOKEN`
-
-  GitHubのアクセストークンを指定します。
-
-  [GitHub 個人用アクセス トークンを管理する](https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
-
 * `APACHE_ARROW_REPOSITORY`
 
   最新の[Apache Arrowのリポジトリー](https://github.com/apache/arrow)へのパスを指定します。
@@ -58,7 +46,8 @@ $ ./setup-release.sh
 ## リリースタスクを実行
 
 ```console
-$ rake release
+$ git clone git@github.com:pgroonga/pgroonga.git pgroonga.clean
+$ rake -C pgroonga.clean release
 ```
 
 リリース日を別の日に設定したい場合は、`NEW_RELEASE_DATE`でリリース日を指定します。
@@ -103,17 +92,22 @@ CIにてパッケージのアップロードに成功すると、パッケージ
 
 新しいリリースをアナウンスするために https://github.com/pgroonga/pgroonga.github.io/ を更新する必要があります。
 
+### 1. ニュースの更新
+
 `news/index.md` に前回のバージョンからの変更をまとめます。
 
+手動で更新します。
+
+### 2. バージョン情報の更新
+
+```console
+$ git clone git@github.com:pgroonga/pgroonga.github.io.git pgroonga.github.io.clean
+$ rake -C pgroonga.github.io.clean release
+```
+
+### 必要に応じてPostgreSQLのバージョンの更新
+
 `_config.yml` の以下の項目も更新します。
-
-* `pgroonga_version`:
-
- * PGroongaの最新バージョン
-
-* `pgroonga_release_date`:
-
- * 最新版のリリース日
 
 * `postgresql_doc_base_url`:
 

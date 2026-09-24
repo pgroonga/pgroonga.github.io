@@ -25,18 +25,6 @@ Use the following environment variables.
   $ export GROONGA_REPOSITORY=$HOME/work/groonga/groonga.clean
   ```
 
-* `LAUNCHPAD_UPLOADER_PGP_KEY`
-
-  Specify a key for PPA of Groonga.
-
-  Please refer to the [Groonga release document about PPA](https://groonga.org/docs/contribution/development/release.html#ppa).
-
-* `GITHUB_ACCESS_TOKEN`
-
-  Specify a GitHub access token.
-
-  [GitHub Managing your personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
-
 * `APACHE_ARROW_REPOSITORY`
 
   Specify a path for a latest [Apache Arrow repository](https://github.com/apache/arrow).
@@ -58,7 +46,8 @@ $ ./setup-release.sh
 ## Execute `release` task
 
 ```console
-$ rake release
+$ git clone git@github.com:pgroonga/pgroonga.git pgroonga.clean
+$ rake -C pgroonga.clean release
 ```
 
 If you want to set a different day as the release date, specify the release date in `NEW_RELEASE_DATE`.
@@ -105,17 +94,22 @@ We can install packages via [Groonga PPA on launchpad.net][launchpad-groonga-ppa
 
 We need to update https://github.com/pgroonga/pgroonga.github.io/ to announce the new release.
 
+### 1. Update the news
+
 We describe to `news/index.md` summarize changes from before version.
 
+We will update it manually.
+
+### 2. Update the version information
+
+```console
+$ git clone git@github.com:pgroonga/pgroonga.github.io.git pgroonga.github.io.clean
+$ rake -C pgroonga.github.io.clean release
+```
+
+### Optional:  PostgreSQL version information, and so on.
+
 We also update below items in `_config.yml`.
-
-* `pgroonga_version`:
-
-  * PGroonga latest version.
-
-* `pgroonga_release_date`:
-
-  * Relase data for the latest version.
 
 * `postgresql_doc_base_url`:
 

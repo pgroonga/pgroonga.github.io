@@ -105,6 +105,12 @@ namespace :release do
   end
 end
 
+desc "Release"
+task release: [
+  "release:version:update",
+  "release:upgrade:update",
+]
+
 key_svgs = []
 all_svgs = []
 plots = Pathname.glob("data/**/*.gnuplot")

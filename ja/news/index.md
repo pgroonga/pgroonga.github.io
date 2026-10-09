@@ -5,6 +5,32 @@ upper_level: ../
 
 # おしらせ
 
+## 4.1.0: 2026-10-09 {#version-4-1-0}
+
+### 改良
+
+#### [`pgroonga_tuple_is_alive` Groonga関数](../reference/groonga-functions/pgroonga-tuple-is-alive.html): `post_filter` に対応
+
+[`pgroonga_command()`](../reference/functions/pgroonga-command.html) でGroongaのコマンドを直接実行しているユーザー向けの変更です。SQLを通じてPGroongaを使っている多くのユーザーには影響はありません。
+
+これまで `pgroonga_tuple_is_alive()` はGroongaの `select` コマンドの `filter` でしか使えませんでした。このリリースから `post_filter` でも使えるようになりました。
+
+この機能を使うにはGroonga 16.1.3以降が必要です。
+
+### 修正
+
+#### `CREATE INDEX` をコミットする前に `VACUUM`/`ANALYZE` が実行されると必要なデータが削除されてしまうことがある問題を修正
+
+[GH-1013](https://github.com/pgroonga/pgroonga/issues/1013)[Lev Litvinovさんの報告]
+
+`CREATE INDEX` を実行したトランザクションがコミットされる前に別のセッションで `VACUUM` または `ANALYZE` を実行すると、PGroonga が作成したインデックスに必要なデータを削除してしまうことがありました。
+
+この問題が発生すると、`REINDEX` を実行するまでそのインデックスを使った検索が"object isn't found"エラーで失敗していました。
+
+### 感謝
+
+- Lev Litvinovさん
+
 ## 4.0.9: 2026-09-23 {#version-4-0-9}
 
 ### 改良

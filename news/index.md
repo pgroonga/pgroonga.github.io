@@ -5,6 +5,34 @@ upper_level: ../
 
 # News
 
+## 4.1.0: 2026-10-09 {#version-4-1-0}
+
+### Improvements
+
+#### [`pgroonga_tuple_is_alive` Groonga function](../reference/groonga-functions/pgroonga-tuple-is-alive.html): Added support for `post_filter`
+
+This improvement affects only users who execute Groonga commands directly with [`pgroonga_command()`](../reference/functions/pgroonga-command.html).
+Most users who use PGroonga through SQL aren't affected by this improvement.
+
+`pgroonga_tuple_is_alive()` could be used only in `filter` of Groonga's `select` command.
+It can be used in `post_filter` too since this release.
+
+This feature requires Groonga 16.1.3 or later.
+
+### Fixes
+
+#### Fixed a bug that `VACUUM`/`ANALYZE` before committing `CREATE INDEX` may remove data required by the index
+
+[GH-1013](https://github.com/pgroonga/pgroonga/issues/1013)[Reported by Lev Litvinov]
+
+If `VACUUM` or `ANALYZE` was executed in another session before the transaction that ran `CREATE INDEX` was committed, PGroonga might remove data required by the created index.
+
+Once this problem happened, searches with the index failed with an "object isn't found" error until you ran `REINDEX`.
+
+### Thanks
+
+- Lev Litvinov
+
 ## 4.0.9: 2026-09-23 {#version-4-0-9}
 
 ### Improvements

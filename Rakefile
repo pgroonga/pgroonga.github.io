@@ -107,8 +107,8 @@ end
 
 desc "Release"
 task release: [
-  "release:version:update",
   "release:upgrade:update",
+  "release:version:update",
 ]
 
 key_svgs = []

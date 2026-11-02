@@ -29,6 +29,9 @@ msgstr "## サポートしているバージョン"
 msgid "Here are supported Ubuntu versions:"
 msgstr "サポートしているUbuntuのバージョンは次の通りです。"
 
+msgid "  * Ubuntu 26.04"
+msgstr ""
+
 msgid "  * Ubuntu 24.04"
 msgstr ""
 
@@ -57,6 +60,11 @@ msgstr ""
 "Ubuntu 24.04を使っている場合は`postgresql-16-pgroonga`パッケージをインストー"
 "ルしてください。"
 
+msgid "If you're using Ubuntu 26.04, install `postgresql-18-pgroonga` package:"
+msgstr ""
+"Ubuntu 26.04を使っている場合は`postgresql-18-pgroonga`パッケージをインストー"
+"ルしてください。"
+
 msgid ""
 "```console\n"
 "$ sudo apt install -y -V ca-certificates lsb-release wget\n"
@@ -70,6 +78,8 @@ msgid ""
 "$ sudo apt install -y -V postgresql-14-pgroonga\n"
 "Ubuntu 24.04:\n"
 "$ sudo apt install -y -V postgresql-16-pgroonga\n"
+"Ubuntu 26.04:\n"
+"$ sudo apt install -y -V postgresql-18-pgroonga\n"
 "```"
 msgstr ""
 

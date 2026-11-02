@@ -68,6 +68,9 @@ msgstr ""
 msgid "  * [Ubuntu](ubuntu.html)"
 msgstr ""
 
+msgid "    * 26.04"
+msgstr ""
+
 msgid "    * 24.04"
 msgstr ""
 

@@ -29,6 +29,8 @@ upper_level: ../
 
   * [Ubuntu](ubuntu.html)
 
+    * 26.04
+
     * 24.04
 
     * 22.04

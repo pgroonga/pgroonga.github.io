@@ -10,6 +10,8 @@ title: Ubuntuにインストール
 
 サポートしているUbuntuのバージョンは次の通りです。
 
+  * Ubuntu 26.04
+
   * Ubuntu 24.04
 
   * Ubuntu 22.04
@@ -22,6 +24,8 @@ Ubuntu 22.04を使っている場合は`postgresql-14-pgroonga`パッケージ�
 
 Ubuntu 24.04を使っている場合は`postgresql-16-pgroonga`パッケージをインストールしてください。
 
+Ubuntu 26.04を使っている場合は`postgresql-18-pgroonga`パッケージをインストールしてください。
+
 ```console
 $ sudo apt install -y -V ca-certificates lsb-release wget
 $ wget https://packages.groonga.org/ubuntu/groonga-apt-source-latest-$(lsb_release --codename --short).deb
@@ -32,6 +36,8 @@ Ubuntu 22.04:
 $ sudo apt install -y -V postgresql-14-pgroonga
 Ubuntu 24.04:
 $ sudo apt install -y -V postgresql-16-pgroonga
+Ubuntu 26.04:
+$ sudo apt install -y -V postgresql-18-pgroonga
 ```
 
 [MeCab](http://taku910.github.io/mecab/)ベースのトークナイザーを使いたい場合は、`groonga-tokenizer-mecab`パッケージもインストールする必要があります。

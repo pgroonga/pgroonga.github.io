@@ -29,6 +29,8 @@ See a document for your platform in the followings:
 
   * [Ubuntu](ubuntu.html)
 
+    * 26.04
+
     * 24.04
 
     * 22.04

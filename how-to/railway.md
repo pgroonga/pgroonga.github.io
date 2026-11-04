@@ -36,9 +36,13 @@ $ psql $DATABASE_URL
 
 Or, if you want to reference it from another Railway service's variable, you can use it as the [reference variables](https://docs.railway.com/variables#referencing-another-services-variable-example):
 
+{% raw %}
+
 ```
 ${{PGroonga.DATABASE_URL}}
 ```
+
+{% endraw %}
 
 ### How To Use
 

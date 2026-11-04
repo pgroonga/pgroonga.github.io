@@ -57,8 +57,21 @@ msgstr "  * [Laravelと一緒に使う方法](laravel.html)"
 msgid "  * [How to use with PostgREST](postgrest.html)"
 msgstr "  * [PostgRESTと一緒に使う方法](postgrest.html)"
 
-msgid "  * ..."
+msgid "## How to use PGroonga with Backend-as-a-Service (BaaS)"
+msgstr "## Backend-as-a-Service（BaaS）でPGroongaを使う方法"
+
+msgid ""
+"  * [How to use with Supabase (external link)](https://supabase.com/docs/"
+"guides/database/extensions/pgroonga)"
 msgstr ""
+"  * [SupabaseでPGroongaを使う方法（外部リンク）](https://supabase.com/docs/"
+"guides/database/extensions/pgroonga)"
+
+msgid "## How to use PGroonga with a deployment platform"
+msgstr "## デプロイプラットフォームでPGroongaを使う方法"
+
+msgid "  * [How to use with Railway](railway.html)"
+msgstr "  * [RailwayでPGroongaを使う方法](railway.html)"
 
 msgid "## Continuous integration"
 msgstr "## 継続的インテグレーション（CI）"
@@ -90,4 +103,7 @@ msgid "  * [How to use with Spring/Hibernate](spring-hibernate.html)"
 msgstr "  * [Spring/Hibernateと一緒に使う方法](spring-hibernate.html)"
 
 msgid "## ..."
+msgstr ""
+
+msgid "  * ..."
 msgstr ""

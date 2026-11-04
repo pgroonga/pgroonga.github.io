@@ -24,7 +24,13 @@ title: ハウツー
 
   * [PostgRESTと一緒に使う方法](postgrest.html)
 
-  * ...
+## Backend-as-a-Service（BaaS）でPGroongaを使う方法
+
+  * [SupabaseでPGroongaを使う方法（外部リンク）](https://supabase.com/docs/guides/database/extensions/pgroonga)
+
+## デプロイプラットフォームでPGroongaを使う方法
+
+  * [RailwayでPGroongaを使う方法](railway.html)
 
 ## 継続的インテグレーション（CI）
 

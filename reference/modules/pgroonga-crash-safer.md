@@ -42,6 +42,10 @@ You may need to increase [`max_worker_processes` parameter][postgresql-max-worke
 max_worker_processes = 15 # 8 (the default) + 7 (for pgroonga_crash_safer)
 ```
 
+## Notes
+
+If you used [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] without `pgroonga_crash_safer` module in primary with PGroonga 4.1.0 or earlier, you must remove the existing Groonga's WAL files before you enable `pgroonga_crash_safer` module. If you don't remove them, PGroonga indexes may be broken. See [Groonga's WAL files in primary without crash-safer][pgroonga-wal-resource-manager-groonga-wal-files] for details.
+
 ## Parameters
 
   * [`pgroonga_crash_safer.flush_naptime` parameter][pgroonga-crash-safer-flush-naptime]
@@ -63,5 +67,9 @@ max_worker_processes = 15 # 8 (the default) + 7 (for pgroonga_crash_safer)
 [pgroonga-crash-safer-flush-naptime]:../parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:../parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../parameters/pgroonga-crash-safer-log-path.html
+
+[pgroonga-wal-resource-manager]:pgroonga-wal-resource-manager.html
+
+[pgroonga-wal-resource-manager-groonga-wal-files]:pgroonga-wal-resource-manager.html#groonga-wal-files-in-primary-without-crash-safer
 
 [crash-safe]:../crash-safe.html

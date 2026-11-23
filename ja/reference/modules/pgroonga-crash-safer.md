@@ -42,6 +42,10 @@ pgroonga.enable_crash_safer = on
 max_worker_processes = 15 # 8 (the default) + 7 (for pgroonga_crash_safer)
 ```
 
+## 注意
+
+PGroonga 4.1.0以前のプライマリーで[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]を`pgroonga_crash_safer`モジュールなしで使っていた場合は、`pgroonga_crash_safer`モジュールを有効にする前に既存のGroongaのWALファイルを削除しなければいけません。削除しないとPGroongaのインデックスが壊れることがあります。詳細は[crash-saferなしのプライマリーにあるGroongaのWALファイル][pgroonga-wal-resource-manager-groonga-wal-files]を参照してください。
+
 ## パラメーター
 
   * [`pgroonga_crash_safer.flush_naptime`パラメーター][pgroonga-crash-safer-flush-naptime]
@@ -63,5 +67,9 @@ max_worker_processes = 15 # 8 (the default) + 7 (for pgroonga_crash_safer)
 [pgroonga-crash-safer-flush-naptime]:../parameters/pgroonga-crash-safer-flush-naptime.html
 [pgroonga-crash-safer-log-level]:../parameters/pgroonga-crash-safer-log-level.html
 [pgroonga-crash-safer-log-path]:../parameters/pgroonga-crash-safer-log-path.html
+
+[pgroonga-wal-resource-manager]:pgroonga-wal-resource-manager.html
+
+[pgroonga-wal-resource-manager-groonga-wal-files]:pgroonga-wal-resource-manager.html#groonga-wal-files-in-primary-without-crash-safer
 
 [crash-safe]:../crash-safe.html

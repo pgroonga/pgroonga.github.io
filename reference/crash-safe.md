@@ -41,6 +41,8 @@ pgroonga.enable_crash_safe = on
 
 [`pgroonga_crash_safer` module][pgroonga-crash-safer] uses worker processes. You may need to increase [`max_worker_processes` parameter][postgresql-max-worker-processes] value. See [`pgroonga_crash_safer` module][pgroonga-crash-safer] for details.
 
+If you used [`pgroonga_wal_resource_manager` module][pgroonga-wal-resource-manager] without [`pgroonga_crash_safer` module][pgroonga-crash-safer] in primary with PGroonga 4.1.0 or earlier, you must remove the existing Groonga's WAL files before you enable crash safe feature. If you don't remove them, PGroonga indexes may be broken. See [Groonga's WAL files in primary without crash-safer][pgroonga-wal-resource-manager-groonga-wal-files] for details.
+
 ## How crash safe feature works
 
 This section describes how crash safe feature works.
@@ -63,6 +65,10 @@ Groonga's WAL files are moved when periodical flush by primary process. So Groon
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.en }}/sql-reindex.html
 
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
+
+[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
+
+[pgroonga-wal-resource-manager-groonga-wal-files]:modules/pgroonga-wal-resource-manager.html#groonga-wal-files-in-primary-without-crash-safer
 
 [postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.en }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
 

@@ -205,6 +205,8 @@ pgroonga.enable_crash_safe = on
 
 `pgroonga_crash_safer`モジュールを使わない場合は、`shared_preload_libraries`から`pgroonga_crash_safer`を除いて、`pgroonga.enable_crash_safe = on`も消します。
 
+注意：PGroonga 4.1.0以前からアップグレードした環境で`pgroonga_crash_safer`モジュールを使っていなかった場合、プライマリーにGroongaのWALファイルが残っています。手動で削除する必要があります。詳細は[crash-saferなしのプライマリーにあるGroongaのWALファイル][pgroonga-wal-resource-manager-groonga-wal-files]を参照してください。
+
 この設定を反映するためにPostgreSQLを再起動します。
 
 ```bash
@@ -442,6 +444,8 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 
 [pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
+
+[pgroonga-wal-resource-manager-groonga-wal-files]:modules/pgroonga-wal-resource-manager.html#groonga-wal-files-in-primary-without-crash-safer
 
 [postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.ja }}/custom-rmgr.html
 

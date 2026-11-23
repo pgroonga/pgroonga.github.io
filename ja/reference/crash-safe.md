@@ -41,6 +41,8 @@ pgroonga.enable_crash_safe = on
 
 [`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]はワーカープロセスを使います。[`max_worker_processes`パラメーター][postgresql-max-worker-processes]の値を増やさないといけないかもしれません。詳細は[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]を参照してください。
 
+PGroonga 4.1.0以前のプライマリーで[`pgroonga_wal_resource_manager`モジュール][pgroonga-wal-resource-manager]を[`pgroonga_crash_safer`モジュール][pgroonga-crash-safer]なしで使っていた場合は、クラッシュセーフ機能を有効にする前に既存のGroongaのWALファイルを削除しなければいけません。削除しないとPGroongaのインデックスが壊れることがあります。詳細は[crash-saferなしのプライマリーにあるGroongaのWALファイル][pgroonga-wal-resource-manager-groonga-wal-files]を参照してください。
+
 ## クラッシュセーフ機能はどう動くか
 
 このセクションではクラッシュセーフ機能はどう動くかを説明します。
@@ -63,6 +65,10 @@ PGroongaの機能を使う接続用のプロセスを「セカンダリープロ
 [postgresql-reindex]:{{ site.postgresql_doc_base_url.ja }}/sql-reindex.html
 
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
+
+[pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
+
+[pgroonga-wal-resource-manager-groonga-wal-files]:modules/pgroonga-wal-resource-manager.html#groonga-wal-files-in-primary-without-crash-safer
 
 [postgresql-max-worker-processes]:{{ site.postgresql_doc_base_url.ja }}/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES
 

@@ -205,6 +205,8 @@ pgroonga.enable_crash_safe = on
 
 If you don't use `pgroonga_crash_safer` module, you need to remove `pgroonga_crash_safer` from `shared_preload_libraries` and remove `pgroonga.enable_crash_safe = on`.
 
+NOTE: If you upgraded from PGroonga 4.1.0 or earlier and didn't use `pgroonga_crash_safer` module, Groonga's WAL files remain in primary. You need to remove them manually. See [Groonga's WAL files in primary without crash-safer][pgroonga-wal-resource-manager-groonga-wal-files] for details.
+
 Restart PostgreSQL to apply the configuration:
 
 ```bash
@@ -442,6 +444,8 @@ SELECT title FROM entries WHERE title &@~ 'replication';
 [pgroonga-crash-safer]:modules/pgroonga-crash-safer.html
 
 [pgroonga-wal-resource-manager]:modules/pgroonga-wal-resource-manager.html
+
+[pgroonga-wal-resource-manager-groonga-wal-files]:modules/pgroonga-wal-resource-manager.html#groonga-wal-files-in-primary-without-crash-safer
 
 [postgresql-custom-wal-resource-managers]:{{ site.postgresql_doc_base_url.en }}/custom-rmgr.html
 
